@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MsgExpiryKey {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey expiry_key = 100;
+}
+
+

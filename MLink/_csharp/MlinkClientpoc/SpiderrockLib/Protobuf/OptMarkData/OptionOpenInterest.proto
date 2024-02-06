@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Open interest for each option series. Records are from the live OPRA feed.
+*/    
+message OptionOpenInterest {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 open_int = 100;
+    google.protobuf.Timestamp timestamp = 103;
+}
+
+

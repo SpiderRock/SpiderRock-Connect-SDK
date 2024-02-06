@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    The most recent (last) print record for each active equity and future option series.  Quote markup represents quote that existed just prior to the print on the reporting exchange.
+*/    
+message OptionPrint {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptExch prt_exch = 100;
+    int32 prt_size = 103; // print size [contracts]
+    float prt_price = 106; // print price
+    int32 prt_cluster_num = 109; // incremental print cluster counter (one counter per okey; used to group prints into clusters)
+    int32 prt_cluster_size = 112; // cumulative size of prints in this sequence (sequence of prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    PrtType prt_type = 115; // print type
+    uint32 prt_orders = 118; // number of participating orders
+    int32 prt_volume = 121; // day print volume in contracts [this exchange]
+    int32 cxl_volume = 124; // day print/cancel volume (num of contracts printed and then cancelled)
+    uint32 bid_count = 127; // number of bid prints
+    uint32 ask_count = 130; // number of ask prints
+    int32 bid_volume = 133; // bid print volume in contracts
+    int32 ask_volume = 136; // ask print volume in contracts
+    float ebid = 139; // exchange bid (@ print time)
+    float eask = 142; // exchange ask (@ print time)
+    int32 ebsz = 145; // exchange bid size
+    int32 easz = 148; // exchange ask size
+    float eage = 151; // age of prevailing quote at time of print
+    float bid_price = 154; // nbbo bid price (@ print time)
+    float ask_price = 157; // nbbo ask price (@ print time)
+    float bid_price2 = 160; // 2nd best bid price (@ print time)
+    float ask_price2 = 163; // 2nd best ask price (@ print time)
+    int32 bid_size = 166; // bid size in contracts (largest exch quote)
+    int32 ask_size = 169; // ask size in contracts (largest exch quote)
+    int32 cum_bid_size = 172; // bid size in contracts (total nbbo size)
+    int32 cum_ask_size = 175; // ask size in contracts (total nbbo size)
+    int32 cum_bid_size2 = 178; // cumulative size at 2nd price
+    int32 cum_ask_size2 = 181; // cumulative size at 2nd price
+    uint32 bid_mask = 184; // exchange bid bit mask
+    uint32 ask_mask = 187; // exchange ask bit mask
+    PrtSide prt_side = 190; // implied print side (based on ebid/eask and nbbo market)
+    int64 prt_timestamp = 193; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 196; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    int64 oq_net_timestamp = 199; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    google.protobuf.Timestamp timestamp = 202;
+}
+
+

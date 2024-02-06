@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore.Server" Version="2.50.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.51.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+            <PackageReference Include="Amazon.CDK.AWS.Cognito" Version="1.195.0" />
+        <PackageReference Include="Amazon.Extensions.CognitoAuthentication" Version="2.3.0" />
+        <PackageReference Include="AWSSDK.CognitoIdentity" Version="3.7.100.84" />
+        <PackageReference Include="Google.Protobuf" Version="3.21.12" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <Protobuf Include="spiderrock_common.proto" CompileOutputs="true" OutputDir="%(ProjectDir)" GrpcServices="None" />
+        <Protobuf Include="Protobuf/*/*.proto" CompileOutputs="true" OutputDir="%(ProjectDir)" GrpcServices="None" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="SpiderrockCommon.cs" />
+        <Compile Remove="Protobuf/*/*.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="SpiderrockCommon.cs" />
+        <None Include="Protobuf/*/*.cs" />
+    </ItemGroup>
+  
+
+    <PropertyGroup>
+        <Protobuf_TouchMissingExpected>true</Protobuf_TouchMissingExpected>
+    </PropertyGroup>
+</Project>

@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkSubscribe {
+    message Subscribe {
+        
+        string msg_name = 136; // (required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
+        string msg_pKey = 139; // (required) must be an existing message.pkey; can be in either flat string or JSON format
+    }
+
+    message Unsubscribe {
+        
+        string msg_name = 127; // (required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
+        string msg_pKey = 130; // # an existing message.pkey; can be in either flat string or JSON format; if missing/empty all active msgName subscriptions will be removed
+    }
+
+    message View {
+        
+        string msg_name = 118; // a SpiderRock message name (topic channel) (can be string name or protobuf message number)
+        string view = 121; // list (subset) of field names to return with this message type (eg. bidprice,askprice,bidsize,asksize)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 session_iD = 100; // (optional) actions below apply only to the sessionID virtual channel; should be zero for non-multiplexed web-socket connections.
+    int64 subscribe_iD = 103; // (optional) subscribeD will be reflected back in the corresponding MLinkSubscribeAck message; nothing is assumed about structure of this number
+    int32 active_latency = 106; // (optional) number of milliseconds between active send attempts (1 = minimum delay, 0 = wait for SignalReady) [default = 0]
+    MLinkCompression compression = 109; // (optional) FieldChangesOnly will supress fields in messages that have not changed since the previous send (resets automatically after every subscription)
+    YesNo do_reset = 112; // if Yes all current subscriptions will be removed prior to applying the actions below
+    repeated Subscribe subscribe = 133;
+    repeated Unsubscribe unsubscribe = 124;
+    repeated View view = 115;
+}
+
+

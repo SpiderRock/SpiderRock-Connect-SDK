@@ -1,0 +1,342 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrMLegBrkrState records are published by execution engines and describe the current state of a broker that is managing a SpiderRock parent order.  These records include a description of the active child orders managed by the broker.  Records are updated whenever a child order changes and also at other times but are not completely live and may not always reflect current market data or limit levels for working orders.
+*/    
+message SpdrMLegBrkrState {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11;
+        SpdrSource spdr_source = 12;
+        int64 grouping_code = 13;
+        BuySell order_side = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string engine_name = 100; // execution engine
+    int64 parent_number = 103; // SPDR parent number (most recent/currently active)
+    int64 base_parent_number = 106;
+    string alt_order_id = 109; // alternate order ID (usually clOrdId from client)
+    int64 package_id = 112; // groups related order/brokers together (eg. Legger w/MLeg Parent)
+    string client_firm = 115; // SR client firm code
+    string alt_accnt = 118; // alternate (client assigned) "long" account string (optional)
+    string alt_user_name = 121; // alternate (client assigned) user name (optional)
+    SpdrStageType stage_type = 124; // parent is a staged order [StageLock, StageModify, StageReview]
+    YesNo is_flagged = 127; // broker state records is flagged for action (user alert only)
+    int64 cross_notice_id = 130;
+    BuySell stock_side = 133;
+    ShortSaleFlag ssale_flag = 136;
+    int32 locate_quan = 139; // available locate quantity (if selling short) @ child order send time
+    string locate_firm = 142; // firm granting the locate (also locate firm used on street FIX orders)
+    string locate_pool = 145; // locate pool @ firm granting the locate
+    int32 stock_shares = 148; // number of shares included (zero if none)
+    int64 stock_leg_id = 151;
+    int32 stock_fill_quan = 154;
+    double stock_avg_fill_price = 157;
+    float ref_uPrc = 160; // reference underlier price (PrcDe orders)
+    float live_uPrc = 163;
+    PriceFormat u_price_format = 166; // underlier price format code
+    float stock_cpx = 169; // [child] best price
+    int32 stock_csz = 172; // [child] cumulative share represented at best price
+    uint32 stock_cex = 175; // [child] bit mask of all exchanges where we are representing this order
+    int32 num_legs = 178; // number of valid legs below
+    OptionKey sec_key1 = 181; // leg #1
+    SpdrKeyType sec_type1 = 184;
+    uint32 ratio1 = 187;
+    BuySell side1 = 190;
+    PositionType position_type1 = 193;
+    int64 leg_id1 = 196;
+    int32 fill_quan1 = 199;
+    double avg_fill_price1 = 202;
+    float vega1 = 205;
+    double ref_uPrc1 = 208; // reference underlier price (PrcDe orders)
+    float ref_delta1 = 211; // reference delta (for PrcDe order handling)
+    int32 ref_earn_cnt1 = 214; // reference # of earnings moves before expiration
+    double live_uPrc1 = 217;
+    PriceFormat price_format1 = 220; // option price format code
+    float leg_cpx1 = 223; // [child] best price
+    int32 leg_csz1 = 226; // [child] cumulative share represented at best price
+    uint32 leg_cex1 = 229; // [child] bit mask of all exchanges where we are representing this order
+    OptionKey sec_key2 = 232; // leg #2
+    SpdrKeyType sec_type2 = 235;
+    uint32 ratio2 = 238;
+    BuySell side2 = 241;
+    PositionType position_type2 = 244;
+    int64 leg_id2 = 247;
+    int32 fill_quan2 = 250;
+    double avg_fill_price2 = 253;
+    float vega2 = 256;
+    double ref_uPrc2 = 259; // reference underlier price (PrcDe orders)
+    float ref_delta2 = 262; // reference delta (for PrcDe order handling)
+    int32 ref_earn_cnt2 = 265; // reference # of earnings moves before expiration
+    double live_uPrc2 = 268;
+    PriceFormat price_format2 = 271; // option price format code
+    float leg_cpx2 = 274; // [child] best price
+    int32 leg_csz2 = 277; // [child] cumulative share represented at best price
+    uint32 leg_cex2 = 280; // [child] bit mask of all exchanges where we are representing this order
+    OptionKey sec_key3 = 283; // leg #3
+    SpdrKeyType sec_type3 = 286;
+    uint32 ratio3 = 289;
+    BuySell side3 = 292;
+    PositionType position_type3 = 295;
+    int64 leg_id3 = 298;
+    int32 fill_quan3 = 301;
+    double avg_fill_price3 = 304;
+    float vega3 = 307;
+    double ref_uPrc3 = 310; // reference underlier price (PrcDe orders)
+    float ref_delta3 = 313; // reference delta (for PrcDe order handling)
+    int32 ref_earn_cnt3 = 316; // reference # of earnings moves before expiration
+    double live_uPrc3 = 319;
+    PriceFormat price_format3 = 322; // option price format code
+    float leg_cpx3 = 325; // [child] best price
+    int32 leg_csz3 = 328; // [child] cumulative share represented at best price
+    uint32 leg_cex3 = 331; // [child] bit mask of all exchanges where we are representing this order
+    OptionKey sec_key4 = 334; // leg #4
+    SpdrKeyType sec_type4 = 337;
+    uint32 ratio4 = 340;
+    BuySell side4 = 343;
+    PositionType position_type4 = 346;
+    int64 leg_id4 = 349;
+    int32 fill_quan4 = 352;
+    double avg_fill_price4 = 355;
+    float vega4 = 358;
+    double ref_uPrc4 = 361; // reference underlier price (PrcDe orders)
+    float ref_delta4 = 364; // reference delta (for PrcDe order handling)
+    int32 ref_earn_cnt4 = 367; // reference # of earnings moves before expiration
+    double live_uPrc4 = 370;
+    PriceFormat price_format4 = 373; // option price format code
+    float leg_cpx4 = 376; // [child] best price
+    int32 leg_csz4 = 379; // [child] cumulative share represented at best price
+    uint32 leg_cex4 = 382; // [child] bit mask of all exchanges where we are representing this order
+    OptionKey sec_key5 = 385; // leg #5
+    SpdrKeyType sec_type5 = 388;
+    uint32 ratio5 = 391;
+    BuySell side5 = 394;
+    PositionType position_type5 = 397;
+    int64 leg_id5 = 400;
+    int32 fill_quan5 = 403;
+    double avg_fill_price5 = 406;
+    float vega5 = 409;
+    double ref_uPrc5 = 412; // reference underlier price (PrcDe orders)
+    float ref_delta5 = 415; // reference delta (for PrcDe order handling)
+    int32 ref_earn_cnt5 = 418; // reference # of earnings moves before expiration
+    double live_uPrc5 = 421;
+    PriceFormat price_format5 = 424; // option price format code
+    float leg_cpx5 = 427; // [child] best price
+    int32 leg_csz5 = 430; // [child] cumulative share represented at best price
+    uint32 leg_cex5 = 433; // [child] bit mask of all exchanges where we are representing this order
+    OptionKey sec_key6 = 436; // leg #6
+    SpdrKeyType sec_type6 = 439;
+    uint32 ratio6 = 442;
+    BuySell side6 = 445;
+    PositionType position_type6 = 448;
+    int64 leg_id6 = 451;
+    int32 fill_quan6 = 454;
+    double avg_fill_price6 = 457;
+    float vega6 = 460;
+    double ref_uPrc6 = 463; // reference underlier price (PrcDe orders)
+    float ref_delta6 = 466; // reference delta (for PrcDe order handling)
+    int32 ref_earn_cnt6 = 469; // reference # of earnings moves before expiration
+    double live_uPrc6 = 472;
+    PriceFormat price_format6 = 475; // option price format code
+    float leg_cpx6 = 478; // [child] best price
+    int32 leg_csz6 = 481; // [child] cumulative share represented at best price
+    uint32 leg_cex6 = 484; // [child] bit mask of all exchanges where we are representing this order
+    float mleg_vega = 487; // net vega per spread
+    float mleg_wt_vega = 490; // net wt vega per spread
+    float mleg_delta = 493; // net delta per spread
+    float mleg_gamma = 496; // net gamma per spread
+    float mleg_theta = 499; // net theta per spread
+    string description = 502; // user defined
+    int32 order_size = 505; // order size of most recent parent order
+    int32 order_active_size = 508; // total activated size (total size released for execution) (-2 = all available size)
+    int32 leaves_quantity = 511; // current child order leaves quantity (quantity actively working in the market;all child orders)
+    SpdrOrderStatus spdr_order_status = 514;
+    SpdrCloseReason spdr_close_reason = 517;
+    SpdrRejectReason spdr_reject_reason = 520;
+    string spdr_close_detail_txt = 523;
+    int32 open_legs = 526;
+    int32 cum_square_qty = 529; // cumulative spread quantity filled (all legs received)
+    double avg_square_prc = 532;
+    int32 cum_partial_qty = 535; // cumulative spread quantity partially filled (at least one leg received) [expected cumFilledQty if all legs square up]
+    float fill_vega = 538; // net vega filled
+    float fill_wt_vega = 541; // net wt vega filled
+    float fill_delta = 544; // net delta filled
+    float fill_dDelta = 547; // net $delta filled
+    float fill_gamma = 550; // net gamma filled
+    float fill_theta = 553; // net theta filled
+    google.protobuf.Timestamp last_fill_dttm = 556;
+    int32 risk_limit_size = 559; // risk limit size
+    SpdrRisk risk_limit_desc = 562; // reason for size reduction
+    MaxProgress max_progress = 565; // maximum point of progress for most recent parent order
+    string max_progress_detail = 568; // additional detail on point of maximum progress
+    google.protobuf.Timestamp max_progress_time = 571; // time of last max progress advance
+    AlgoState algo_state = 574; // [enum] current state of order handler (maker)
+    int32 algo_counter = 577; // number of times order checked by algo handler (note: most checks result in no action)
+    AlgoState make_state = 580; // [enum] current state of make handler (maker)
+    int32 make_counter = 583; // number of times order checked by make algo handler (note: most checks result in no action)
+    MktRespState mkt_resp_state = 586; // [enum] current state of response handler (if any)
+    int32 mkt_resp_counter = 589; // number of times order checked by market response handler (note: most checks result in no action)
+    BrokerState broker_state = 592; // broker monitor state
+    int32 broker_counter = 595; // number of times order checked by broker monitor (note: most checks result in no action)]
+    SpdrMarketState spdr_mkt_state = 598; // [enum] market state
+    SpdrBrokerStatus spdr_broker_status = 601;
+    string progress_rule_detail = 604; // Twap/Vwap progress detail
+    google.protobuf.Timestamp last_child_reject_dttm = 607; // last child order reject dttm (if any)
+    string last_child_reject_text = 610; // last child order reject reason/text (if any)
+    int64 risk_group_id = 613; // autohedge risk group
+    int64 trigger_group_id = 616; // WaitTrigger group Id
+    int64 hedge_grouping_code = 619; // autohedge risk group
+    AutoHedge auto_hedge = 622;
+    HedgeInst hedge_instrument = 625; // auto-hedge instrument (from parent order)
+    ExpiryKey hedge_sec_key = 628; // auto-hedge sec key (if any)
+    SpdrKeyType hedge_sec_type = 631; // auto-hedge sec type (Stock or Future)
+    float hedge_beta_ratio = 634; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
+    HedgeScope hedge_scope = 637; // hedge group scope [RiskGroup or Accnt]
+    string extern_hedge_ex_dest = 640; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_params = 643; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
+    float best_way_prc = 646; // current leg market nbbo (at time of record publish)
+    float wrst_way_prc = 649; // current leg market nbbo ask (at time of record publish)
+    int32 best_way_sz = 652; // current leg market nbbo cum bid size (at time of record publish)
+    int32 wrst_way_sz = 655; // current leg market nbbo cum ask size (at time of record publish)
+    float surface_prc = 658; // SR spread surface price @ record publish
+    float surface_vol = 661;
+    float surface_uPrc = 664;
+    double limit_price = 667; // spread limit price
+    LimitError limit_err = 670; // limit price error code
+    double make_limit_price = 673;
+    double take_limit_price = 676;
+    UPrcCxl cxl_uPrc_range = 679; // cancel spdr order if/when outside stock price range
+    float min_uBid = 682; // Used in conjunction with minMaxType & maxUAsk. When set, implements a lower bound on the underlying price and will either suspend or cancel an order when violated.
+    float max_uAsk = 685; // Used in conjunction with minMaxType & minUBid. When set, implements an upper bound on the underlying price and will either suspend or cancel an order when violated.
+    MinMaxType min_max_type = 688; // if Prc minUBid/maxUAsk are expressed as prices; if Pct then they are expresses as pct change since parent order arrival
+    BuySell lead_side = 691; // for legged orders, which side to lead with.  (optional, None ok)
+    double max_completion_slippage = 694; // maximum price slippage to complete an open basket or a cross auction (face side slippage)
+    float order_ref_premium = 697; // reference premium (mleg orders only)
+    string strategy = 700; // parent order strategy (description only)
+    string user_name = 703; // user that entered the most recent parent order
+    YesNo visible_in_sV = 706; // allow order to be visible in SV (do not use for high volume of orders)
+    string spdr_comment = 709;
+    ReachRule take_reach_rule = 712; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    int32 max_exposure_size = 715; // maximum simultaneous cumulative child order public size exposure (-2 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 2]
+    int32 num_make_exchanges = 718; // number of exchanges (2 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
+    PublicSizeHandling public_size = 721; // public order size handling
+    ProgressRule progress_rule = 724; // Immediate = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
+    int32 progress_slice_cnt = 727; // number of progress slices to use (default = 4 or 8) [max 20]
+    int32 progress_expose_time = 730; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
+    int32 max_child_orders = 733; // maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
+    uint32 exch_mask = 736; // eligible exchanges (0 = all)
+    TimeInForce time_in_force = 739;
+    google.protobuf.Timestamp start_dttm = 742; // [optional] (parent order start time)
+    int32 order_duration = 745; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 748; // [optional] (default: 2099-02-02)
+    ParentOrderHandling parent_order_handling = 751;
+    ParentBalanceHandling parent_balance_handling = 754;
+    BlockVisibility block_visibility = 757;
+    SpdrLimitType order_limit_type = 760;
+    double order_prc_limit = 763; // Applies if LimitType = Prc[]
+    double order_ref_uPrc = 766; // reference uPrc (PrcDe orders)
+    float order_ref_de = 769; // reference delta (PrcDe orders)
+    float order_ref_ga = 772; // reference gamma (PrcDe orders)
+    double order_prc_offset = 775; // default=0
+    SpdrLimitClass take_limit_class = 778; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    AlphaType take_alpha_type = 781; // Applies if limitClass = Probability
+    float take_alpha_factor = 784; // [-2,+2] ProbLimit = MAX(alphaProbability, ProbAvg + AlphaFactor * ProbStd) [if AlphaType = Relative]
+    float take_alpha_probability = 787; // ProbLimit = alphaProbability [if AlphaType = Static]
+    double take_surf_prc_offset = 790; // default=0
+    float take_surf_vol_offset = 793; // default=0
+    float take_surf_wid_offset = 796; // default=0
+    SpdrLimitClass make_limit_class = 799; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    AlphaType make_alpha_type = 802; // Applies if limitClass = Probability
+    float make_alpha_factor = 805; // [-2,+2] ProbLimit = MAX(alphaProbability, ProbAvg + AlphaFactor * ProbStd) [if AlphaType = Relative]
+    float make_alpha_probability = 808; // ProbLimit = alphaProbability [if AlphaType = Static]
+    double make_surf_prc_offset = 811; // default=0
+    float make_surf_vol_offset = 814; // default=0
+    float make_surf_wid_offset = 817; // default=0
+    float order_ref_event_mult = 820;
+    google.protobuf.Timestamp order_ref_event_dttm = 823;
+    float mleg_prob_limit = 826; // live prob limit
+    float mleg_surf_offset = 829; // live surface offset (in premium)
+    string extern_ex_dest = 832;
+    google.protobuf.Timestamp order_dttm = 835; // order entry date/time
+    float min_surf_vol = 838; // (minimum) SR spread surface vol [vega weighted] while parent order was working
+    float max_surf_vol = 841; // (maximum) SR spread surface vol [vega weighted] while parent order was working
+    float min_surf_prc = 844; // (minimum) SR spread surface price while parent order was working
+    float max_surf_prc = 847; // (maximum) SR spread surface price while parent order was working
+    float min_surf_uPrc = 850; // (minimum) SR spread surface uPrc while parent order was working
+    float max_surf_uPrc = 853; // (maximum) SR spread surface uPrc while parent order was working
+    float min_qte_width = 856; // minimum quote width during active order window
+    float avg_qte_width = 859; // average quote width (during active order window)
+    int32 cnt_qte_width = 862;
+    double arrive_bid = 865;
+    double arrive_ask = 868;
+    float total_seconds = 871; // number of seconds that the parent order was active
+    float working_seconds = 874; // number of seconds with one or more working child orders in an exchange order book
+    int32 prt_active_cnt = 877; // total print events while parent order was active
+    int32 prt_qty_active = 880; // total quantity printed while parent order was active
+    float cum_exch_fee = 883; // cumulative fill exch fee
+    float cum_m10_pnl = 886;
+    float cum_arrival_pnl = 889;
+    float u_prc_drift = 892; // underlier drift (since parent order start)
+    float s_vol_drift = 895; // surface vol drift (since parent order start)
+    float net_acc_day_wt_vega = 898; // net (+/-) account day wtVega; cumulative day wtVega (vol * vega / sqrt(T)) for the account this order is associated with
+    float net_acc_day_dDelta = 901; // net (+/-) account day $delta; cumulative day $delta (stock, future, option) for the account this order is associated with
+    float net_sym_day_wt_vega = 904; // net (+/-) symbol day (time weighted) vega; cumulative wt vega (options only) for the ticker+account this order is associated with
+    float net_sym_day_dDelta = 907; // net (+/-) symbol day $delta; cumulative $delta (stock, futures, options) for the ticker+account this order is associated with
+    float net_grp_day_vega = 910; // net (+/-) day risk group vega; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_grp_day_dDelta = 913; // net (+/-) day risk group $delta; cumulative (stock, futures, options) for the riskGroupId+account this order is associated with
+    float net_grp_day_premium = 916; // net (+/-) day risk group premium over parity; cumulative (options) for the riskGroupId+account this order is associated with
+    int32 net_grp_day_contracts = 919; // net (+/-) day risk group contracts; cumulative (futures, options) for the riskGroupId+account this order is associated with
+    float net_grp_rMetric1 = 922; // net (+/-) day risk group rmetric1; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_grp_rMetric2 = 925; // net (+/-) day risk group rmetric2; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_grp_rMetric3 = 928; // net (+/-) day risk group rmetric3; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_grp_rMetric4 = 931; // net (+/-) day risk group rmetric4; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_grp_rMetric5 = 934; // net (+/-) day risk group rmetric5; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_grp_rMetric7 = 937; // net (+/-) sym day risk rmetric7; cumulative (options) for the riskGroupId+account this order is associated with
+    float net_sym_ema_cxl_dDelta = 940; // acct+symbol 60s EMA $delta risk counter (options only)
+    float net_sym_ema_cxl_wt_vega = 943; // acct+symbol 60s EMA wtVega risk counter
+    float max_grp_day_dDelta_ln = 946; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_dDelta_sh = 949; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float grp_day_dDelta_ratio = 952; // target bot / sld ratio (eg ratio=2.0 means that neutral is bot ddelta = 2x sld ddelta)
+    float max_grp_day_vega_ln = 955; // max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_vega_sh = 958; // max acct+riskGroup day vega short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_vega_abs = 961; // max acct+riskGroup day vega abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_vega_ratio = 964; // target bot / sld ratio (eg ratio=2.0 means that neutral is bot vega = 2x sld vega)
+    float max_grp_day_premium_ln = 967; // max acct+riskGroup day premium over parity long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_premium_sh = 970; // max acct+riskGroup day premium over parity short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_premium_abs = 973; // max acct+riskGroup day premium over parity abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_premium_ratio = 976; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot premium = 0.5x sld premium)
+    int32 max_grp_day_contracts_ln = 979; // max acct+riskGroup day contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_contracts_sh = 982; // max acct+riskGroup day contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_contracts_abs = 985; // max acct+riskGroup day contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float sym_ema_cxl_dDelta_ln = 988; // max acct+symbol 60s EMA $delta long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
+    float sym_ema_cxl_dDelta_sh = 991; // max acct+symbol 60s EMA $delta short (positive number; <= 0 is no limit)
+    float sym_ema_cxl_wt_vega_ln = 994; // max acct+symbol 60s EMA wtVega long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
+    float sym_ema_cxl_wt_vega_sh = 997; // max acct+symbol 60s EMA wtVega short (positive number; <= 0 is no limit)
+    float cpx1 = 1000;
+    int32 csz1 = 1003; // cumulative size represented at this price
+    uint32 cex1 = 1006; // bit mask of all exchanges where we are representing this order
+    float cpx2 = 1009;
+    int32 csz2 = 1012; // cumulative size represented at this price
+    uint32 cex2 = 1015; // bit mask of all exchanges where we are representing this order
+    int32 c_more = 1018;
+    int32 num_new_orders = 1021; // number of new child orders
+    uint32 num_parent_limits = 1024; // number of parent limit messages received for this broker
+    string user_data1 = 1027; // user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
+    string user_data2 = 1030; // user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
+    int32 num_updates = 1033; // number of record updates (cumulative for the day)
+    google.protobuf.Timestamp timestamp = 1036;
+}
+
+

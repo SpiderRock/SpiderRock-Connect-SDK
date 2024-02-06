@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    WshFutureQuarters records contain future earnings projected dates from Wall Street Horizons.
+*/    
+message WshFutureQuarters {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        EventSource source = 11; // Live=currentEarningsDate; priorDay=previousEarningsDate
+    }
+
+    message Earnings {
+        
+        string confidence_ind = 109; // 3 Character code where first character captures historical reporting confidence: A: The company is highly reliable, B: The company is somewhat reliable, C: The company is less reliable, I: Insufficient Data Second and third characters are placeholders, set to 'X'
+        google.protobuf.Timestamp earning_date = 112; // FOrecasted Earnings Date
+        string quarter = 115; // Event time period, Q1 - Q4, H1 - H2, Q1T - Q4T, H1T - H2T
+        int32 fiscal_yr = 118; // Company’s fiscal year for event
+        string earning_date_status = 121; // CONFIRMED , UNCONFIRMED or INFERRED
+        google.protobuf.Timestamp quarter_end_date = 124; // Quarter or half-year period end date.
+        google.protobuf.Timestamp filling_due_date = 127; // SEC filing deadline for quarterly or annual results associated with quarter
+        string time_of_day = 130; // BEFORE MARKET, DURING MARKET, AFTER MARKET or UNSPECIFIED
+        string disclaimer = 133; // Y value indicates that Unconfirmed Date is provided by company with a disclaimer it may change
+        string audit_src = 136; // This field indicates how the data was obtained: RESEARCH – Via a call or email to the company as part of, Wall Street Horizon’s normal business process, NEWS – As a result of a news release or publication on website, BASE – System or data analyst forecast
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float stk_exch = 100; // Wall Street Horizon stock exchange code
+    google.protobuf.Timestamp ts = 103; // last update time (Date)
+    repeated Earnings earnings = 106;
+}
+
+

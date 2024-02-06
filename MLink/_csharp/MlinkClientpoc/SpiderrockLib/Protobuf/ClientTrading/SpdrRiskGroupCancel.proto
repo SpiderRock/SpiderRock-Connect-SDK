@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records inserted into this table causes the corresponding parent broker to cancel the current underlying parent order if active and cancellable.
+*/    
+message SpdrRiskGroupCancel {
+    message PKey {
+        
+        int64 risk_group_id = 10; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
+        string accnt = 11; // SR trading account
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysEnvironment sys_environment = 100; // original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 103; // original (source) run status [Prod,Beta]
+    SpdrSource spdr_source = 106;
+    string cxl_reason = 109;
+    string alt_cancel_id = 112;
+    string user_name = 115;
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

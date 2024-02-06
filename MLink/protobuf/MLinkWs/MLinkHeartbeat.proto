@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MLinkHeartbeat {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 seq_num = 100;
+    google.protobuf.Timestamp timestamp = 103;
+}
+
+

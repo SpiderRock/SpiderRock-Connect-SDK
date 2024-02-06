@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveAtmVol {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlying tickerKey (stock or product group) that this option expiration is associated with
+    float u_prc = 103; // underlier price (effective mid-market) used for fitting
+    float years = 106; // SR years to expiry metric
+    float rate = 109; // average expected interest rate to expiry (SR global rate curve)
+    float ddiv = 112; // (expected) cumulative discrete dividend $ amounts prior to expiration
+    float ddiv_pv = 115; // (expected) cumulative npv of discrete dividend $ amounts prior to expiration (SR global rate curve)
+    DDivSource ddiv_source = 118; // Forecast if any of the dividends prior to expiry are forecast rather than announced
+    float atm_vol = 121; // atm vol (xAxis = 0)
+    float atm_eMA = 124; // atm vol exp moving average (5 seconds)
+    float u_prc_offset = 127; // implied offset for use when fkey is not the natural underlier for this option expiry
+    float u_prc_offset_eMA = 130; // uPrcOffset exp moving average (half-live ~ 20 seconds)
+    float sdiv = 133; // stock dividend (borrow rate)
+    float sdiv_eMA = 136; // sdiv exp moving average (10 minutes)
+    float axis_fUPrc = 139; // forward underlier price;  also at-the-money (xAxis = 0) synthetic strike
+    float v_width = 142; // atm volatility market width (estimated from near expiries)
+    int32 num_atm_strikes = 145;
+    TradeableStatus tradeable_status = 148; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    SurfaceAdjResult surface_result = 151;
+    google.protobuf.Timestamp timestamp = 154;
+    SurfaceCurveType surface_type__v7 = 5000; // only v7 - enum values match with v8
+    RunStatus run_status__v7 = 5001; // only v7 - enum values match with v8
+    SRDataCenter_V7 data_center__v7 = 5002; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
+    SysEnvironment sys_environment__v7 = 5003; // only v7 - enum values match with v8
+    ExpiryKey fkey__v7 = 5004; // only V7
+    float u_bid__v7 = 5005; // only V7
+    float u_ask__v7 = 5006; // only V7
+    float atm_cen__v7 = 5007; // only V7
+    float atm_fixed_move__v7 = 5008; // only V7
+    float min_atm_vol__v7 = 5009; // only V7
+    float max_atm_vol__v7 = 5010; // only V7
+    float atm_strike_bid__v7 = 5011; // only V7
+    float atm_strike_ask__v7 = 5012; // only V7
+    float bid_strike_eMA__v7 = 5013; // only V7
+    float ask_strike_eMA__v7 = 5014; // only V7
+    float iv_adj_d07__v7 = 5015; // only V7
+    float iv_adj_d06__v7 = 5016; // only V7
+    float iv_adj_d05__v7 = 5017; // only V7
+    float iv_adj_d04__v7 = 5018; // only V7
+    float iv_adj_d03__v7 = 5019; // only V7
+    float iv_adj_d02__v7 = 5020; // only V7
+    float iv_adj_d01__v7 = 5021; // only V7
+    float iv_adj_u01__v7 = 5022; // only V7
+    float iv_adj_u02__v7 = 5023; // only V7
+    float iv_adj_u03__v7 = 5024; // only V7
+    float iv_adj_u04__v7 = 5025; // only V7
+    float iv_adj_u05__v7 = 5026; // only V7
+    float iv_adj_u06__v7 = 5027; // only V7
+    float iv_adj_u07__v7 = 5028; // only V7
+    float cp_adj_d04__v7 = 5029; // only V7
+    float cp_adj_d03__v7 = 5030; // only V7
+    float cp_adj_d02__v7 = 5031; // only V7
+    float cp_adj_d01__v7 = 5032; // only V7
+    float cp_adj_u01__v7 = 5033; // only V7
+    float cp_adj_u02__v7 = 5034; // only V7
+    float cp_adj_u03__v7 = 5035; // only V7
+    float cp_adj_u04__v7 = 5036; // only V7
+    CPAdjType cp_adj_type__v7 = 5037; // only v7 - enum values match with v8
+    float min_cPAdj_val__v7 = 5038; // only V7
+    float max_cPAdj_val__v7 = 5039; // only V7
+    float min_cPAdj_eMA__v7 = 5040; // only V7
+    float max_cPAdj_eMA__v7 = 5041; // only V7
+    int32 ema_counter__v7 = 5042; // only V7
+    uint32 num_fit_misses__v7 = 5043; // only V7
+    float c_mid_error__v7 = 5044; // only V7
+    float p_mid_error__v7 = 5045; // only V7
+    google.protobuf.Timestamp s_timestamp__v7 = 5046; // only V7
+    int32 cnt_elapsed__v7 = 5047; // only V7
+    double sum_elapsed__v7 = 5048; // only V7
+    int32 num_pair_resets__v7 = 5049; // only V7
+    google.protobuf.Duration time__v7 = 5050; // only V7
+}
+
+

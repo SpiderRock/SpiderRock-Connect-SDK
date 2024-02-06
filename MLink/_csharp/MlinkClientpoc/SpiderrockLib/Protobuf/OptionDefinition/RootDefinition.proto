@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    RootDefinition records are sourced from the listing exchange for future options and from OCC for US equity options.  Records are updated as SpiderRock receives changes.
+*/    
+message RootDefinition {
+    message PKey {
+        
+        TickerKey root = 10;
+    }
+
+    message Underlying {
+        
+        TickerKey ticker = 214;
+        float spc = 217; // note: _root basket = sum(spc * ticker) / 100
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // master underlying (can be a stock/product group; eg. @ES)
+    string osi_root = 103; // long version of the root.  the short version is used in the TickerKey (for example RYAAY1, not RYAA1)
+    TickerKey ccode = 106;
+    ExpiryKey u_prc_driver_key = 109; // (optional) option underlier price driver (all option expiries) (overrides optExpiryDefinition)
+    SpdrKeyType u_prc_driver_type = 112; // Stock or Future (note: if Future and uPrcDriverKey does not have an expiry month then FrontMonth will be used)
+    ExpiryKey u_prc_driver_key2 = 115; // (optional) alternate option underlier price driver (all option expiries) (overrides optExpiryDefinition)
+    SpdrKeyType u_prc_driver_type2 = 118; // Stock or Future (note: if Future and uPrcDriverKey does not have an expiry month then FrontMonth will be used)
+    YesNo u_prc_bound_cCode = 121; // if Yes and if a future exists with ccode=CCode and futExpiry = optExpiry the use this future as a pricing bound
+    ExpirationMap expiration_map = 124; // determines the underlying future (if any)
+    UnderlierMode underlier_mode = 127;
+    OptionType option_type = 130; // indicator for option type
+    Multihedge multihedge = 133; // indicates type of multihedge
+    ExerciseTime exercise_time = 136; // Exercise time type
+    ExerciseType exercise_type = 139; // Exercise style
+    TimeMetric time_metric = 142; // trading time metric - 252 or 365 trading days or a weekly cycle type
+    PricingModel pricing_model = 145;
+    MoneynessType moneyness_type = 148; // moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)
+    PriceQuoteType price_quote_type = 151; // quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)
+    VolumeTier volume_tier = 154;
+    int32 position_limit = 157; // max contract limit
+    string exchanges = 160; // exchange codes
+    float tick_value = 163; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 166; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 169;
+    double strike_scale = 172; // manual strike price adjustment multiplier (used for some CME products if set, otherwise displayFactor is used) (okey_xx = strikePrice * manualStrikeScale)
+    float strike_ratio = 175; // note: effective strike = strike * strikeRatio - cashOnExercise
+    float cash_on_exercise = 178; // note: cashOnExercise is positive if it decreases the effective strike price
+    int32 underliers_per_cn = 181; // note: always 100 if underlying list is in use
+    double premium_mult = 184; // note: OCC premium/strike multiplier (usually 100)
+    AdjConvention adj_convention = 187;
+    OptPriceInc opt_price_inc = 190;
+    PriceFormat price_format = 193; // price display format
+    Currency trade_curr = 196;
+    Currency settle_curr = 199;
+    Currency strike_curr = 202;
+    TickerKey default_surface_root = 205; // fallback ticker to use for option surfaces if no native surfaces are available
+    google.protobuf.Timestamp timestamp = 208;
+    repeated Underlying underlying = 211;
+}
+
+

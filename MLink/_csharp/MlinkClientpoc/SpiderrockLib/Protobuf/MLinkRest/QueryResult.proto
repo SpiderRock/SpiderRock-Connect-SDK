@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message QueryResult {
+
+
+    MessageMetadata _meta = 1;
+    
+    int64 num_bytes_sent = 100; // num bytes sent
+    int64 num_messages_sent = 103; // num messages sent
+    int64 num_messages_scanned = 106; // num messages scanned
+    float query_elapsed = 109; // query elapsed time (seconds)
+    QResult result = 112; // query result
+    string detail = 115; // query result detail
+}
+
+

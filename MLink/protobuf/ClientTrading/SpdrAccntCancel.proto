@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrAccntCancel {
+    message PKey {
+        
+        string accnt = 10; // SR trading account
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysEnvironment sys_environment = 100; // original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 103; // original (source) run status [Prod,Beta]
+    string cxl_reason = 106;
+    string alt_cancel_id = 109;
+    string engine_name = 112; // set by the engine handling event (should be blank on arrival)
+    string modified_by = 115; // user who last modified this record
+    SysEnvironment modified_in = 118;
+    google.protobuf.Timestamp timestamp = 121; // timestamp of last modification
+}
+
+

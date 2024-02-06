@@ -1,0 +1,204 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\MlinkExample1_JsonRq\\MlinkExample1_JsonRq_JsonRx.csproj": {}
+  },
+  "projects": {
+    "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\MlinkExample1_JsonRq\\MlinkExample1_JsonRq_JsonRx.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\MlinkExample1_JsonRq\\MlinkExample1_JsonRq_JsonRx.csproj",
+        "projectName": "MlinkExample1_JsonRq_JsonRx",
+        "projectPath": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\MlinkExample1_JsonRq\\MlinkExample1_JsonRq_JsonRx.csproj",
+        "packagesPath": "b:\\Users\\katha.biswas\\.nuget\\packages\\",
+        "outputPath": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\MlinkExample1_JsonRq\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "b:\\Users\\katha.biswas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\SpiderrockLib\\SpiderrockLib.csproj": {
+                "projectPath": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\SpiderrockLib\\SpiderrockLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AWSSDK.CognitoIdentity": {
+              "target": "Package",
+              "version": "[3.7.100.84, )"
+            },
+            "Amazon.CDK.AWS.Cognito": {
+              "target": "Package",
+              "version": "[1.195.0, )"
+            },
+            "Amazon.Extensions.CognitoAuthentication": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.22.0, )"
+            },
+            "Google.Protobuf.Tools": {
+              "target": "Package",
+              "version": "[3.22.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\SpiderrockLib\\SpiderrockLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\SpiderrockLib\\SpiderrockLib.csproj",
+        "projectName": "SpiderrockLib",
+        "projectPath": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\SpiderrockLib\\SpiderrockLib.csproj",
+        "packagesPath": "b:\\Users\\katha.biswas\\.nuget\\packages\\",
+        "outputPath": "D:\\git_users\\katha\\MLinkSamplesNew\\MLink-Samples\\client-csharp\\MlinkClientpoc\\SpiderrockLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "b:\\Users\\katha.biswas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AWSSDK.CognitoIdentity": {
+              "target": "Package",
+              "version": "[3.7.100.84, )"
+            },
+            "Amazon.CDK.AWS.Cognito": {
+              "target": "Package",
+              "version": "[1.195.0, )"
+            },
+            "Amazon.Extensions.CognitoAuthentication": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.21.12, )"
+            },
+            "Grpc.AspNetCore.Server": {
+              "target": "Package",
+              "version": "[2.50.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.51.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

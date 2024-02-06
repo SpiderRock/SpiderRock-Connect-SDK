@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message FieldDesc {
+
+
+    MessageMetadata _meta = 1;
+    
+    uint32 pos = 100; // position in message (1...N)
+    string name = 103; // field name
+    uint32 f_num = 106; // protobuf field number
+    YesNo is_pkey = 109; // YesNo enum  (if field is a primary key)
+    string in_repeater = 112; // if field is in a repeating group, the repeater's name
+    FieldType f_type = 115; // Field Type
+    string json_enc_type = 118; // overriden type specifically for JSON encoding
+    string proto_enc_type = 121; // overriden type specifically for protobuf encoding
+    uint32 s_len = 124; // string length (if fType is string)
+    string e_name = 127; // enum name (if fType is enum)
+    string e_set = 130; // comma separated list of enum or string values (can be specific for a given user; default complete set)
+    string default_val = 133; // from Core.def: (...) can be a string, number, xKey, or partial xKey
+    string desc = 136; // from core.def: ... # comment line
+    FieldControl f_ctrl = 139; // None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI (form level directive)
+    double min_v = 142; // form edit number range min bound (if field is a numeric type) [enforced on edit]
+    double max_v = 145; // form edit number range max bound (if field is a numeric type) [enforced on edit]
+    string meta_type = 148; // metatype associated with field
+    string label = 151; // column (grid) and widget (form) label
+    string group = 154; // form flow groups
+    string format = 157; // numeric format string (eg. '#,###.00') (both grid and form)
+    int32 c_color = 160; // grid column color number (color palette number) (0 means undefined)
+    string context_query = 163; // context query for pseudo enum fields with format of contextQuery=otherMsgType|selectField|contextField|contextField|...|contextField
+}
+
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkStream {
+
+
+    MessageMetadata _meta = 1;
+    
+    string msg_name = 100; // (required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
+    string where = 103; // (optional) where clause; eg. "(bidexch:eq:AMEX | bidexch:eq:CBOE) & bidsize:ge:100"  (default is all records)
+    string view = 106; // (optional) list (subset) of field names to return with this message (eg. bidprice,askprice,bidsize,asksize) (default is all names)
+    YesNo unsubscribe = 109; // (optional) if set to Yes the specified message type will be unsubscribed and thus no longer return
+    int32 session_iD = 112; // (optional) actions below apply only to the sessionID virtual session; should be zero for non-multiplexed web-socket connections.
+    int64 query_iD = 115; // (optional) queryID will be reflected back in the corresponding MLinkStreamAck message; nothing is assumed about structure of this number
+    string query_label = 118; // (optional) query label; used for logging and query tracking
+    int32 active_latency = 121; // (optional) number of milliseconds between active send attempts (1 = minimum delay, 0 = wait for SignalReady) [default = 0]
+    SysEnvironment sys_environment = 124; // (optional) records cannot have [sysEnvironment + sysRealm] in their route history (no loops)
+    SysRealm sys_realm = 127;
+    int64 highwater_ts = 130; // (optional) records must have a header.sentTs that is later than this value (nanoseconds after the UNIX epoch) [-1 means start from current server side highwaterTs]
+    string stripe_filter = 133; // (optional) if supplied records must be within the specified stripe
+    int64 schema_hash = 136; // (optional) message schema hash [if supplied and matches server schema hash for this message binary encoding will be used]
+    uint32 local_msg_type = 139; // (optional) if != 0 the msgType number will be translated from msgType to localMsgType in the mlink server (protobuf and binary messages)
+    string local_msg_name = 142; // (optional) if exists the message name will be translated from msgName to localMsgName in the mlink server (json messages)
+}
+
+

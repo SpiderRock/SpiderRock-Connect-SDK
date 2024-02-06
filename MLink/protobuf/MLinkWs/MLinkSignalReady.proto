@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkSignalReady {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 session_iD = 100; // (optional) subscription sessionID (if missing or -1 will signal all sessionIDs for this websocket connection)
+    int64 signal_iD = 103; // (optional) will be reflected back in xCheckPt.signalID fields that indicates that a specified signal ready triggered active send is complete.
+    ReadyScan ready_scan = 106; // (optional; default is Incremental) Incremental = messages w/changes (all fields; cumulative changes) since previous MLinkSignalReady; FullScan = all messages
+}
+
+

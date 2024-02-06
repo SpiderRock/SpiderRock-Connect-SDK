@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MLinkStreamCheckPt {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 session_iD = 100; // from MLinkStream.sessionID
+    int64 query_iD = 103; // from MLinkStream.queryID
+    int64 signal_iD = 106; // from MLinkSignalReady.signalID (if send sequence triggered by an MLinkSignalReady message)
+    MLinkStreamState state = 109;
+    string detail = 112;
+    int64 highwater_ts = 115;
+    int64 num_bytes_sent = 118;
+    int32 num_messages_sent = 121;
+    double wait_elapsed = 124; // wait time between active send operations (SRC or timer)
+    double query_elapsed = 127; // total time spent in active send loop
+    double try_fwd_elapsed = 130; // total time spent scan/skipping
+    double send_elapsed = 133; // total time spend encoding/copying to send buffer
+    double flush_elapsed = 136; // total time spend sending/blocking on web socket
+    google.protobuf.Timestamp timestamp = 139;
+}
+
+

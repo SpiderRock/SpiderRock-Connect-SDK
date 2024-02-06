@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkSubscribeAck {
+    message Subscribe {
+        
+        string msg_name = 142; // (required) a SpiderRock message name (topic channel)
+        string msg_pKey = 145; // (required) must be an existing message.pkey; can be in either flat string or JSON format
+        SubscribeMsgResult result = 148;
+        string detail = 151;
+    }
+
+    message Unsubscribe {
+        
+        string msg_name = 130; // (required) a SpiderRock message name (topic channel)
+        string msg_pKey = 133; // an existing message.pkey; can be in either flat string or JSON format; if missing/empty all active msgName subscriptions will be removed
+        SubscribeMsgResult result = 136;
+    }
+
+    message View {
+        
+        string msg_name = 115; // a SpiderRock message name (topic channel) (can be string name or protobuf message number)
+        string view = 118; // list (subset) of field names to return with this message type (eg. bidprice,askprice,bidsize,asksize)
+        SubscribeMsgResult result = 121;
+        string detail = 124;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 session_iD = 100; // from MLinkSubscribe.sessionID
+    int64 subscribe_iD = 103; // from MLinkSubscribe.subscribeID
+    int32 num_active_subscriptions = 106;
+    YesNo did_reset = 109; // if Yes all current subscriptions were removed prior to applying the actions below
+    repeated Subscribe subscribe = 139;
+    repeated Unsubscribe unsubscribe = 127;
+    repeated View view = 112;
+}
+
+

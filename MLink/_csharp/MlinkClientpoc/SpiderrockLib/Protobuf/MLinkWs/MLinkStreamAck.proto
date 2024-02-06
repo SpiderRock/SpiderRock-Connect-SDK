@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkStreamAck {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 session_iD = 100; // from MLinkStream.sessionID
+    int64 query_iD = 103; // from MLinkStream.queryID
+    int64 query_send_ts = 106; // MLinkStream.header.sentTs (should be unique)
+    string query_label = 109; // from MLinkStream.queryLabel
+    YesNo unsubscribe = 112; // from MLinkStream.unsubscribe
+    string msg_name = 115; // (required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
+    AckResult result = 118;
+    string detail = 121;
+}
+
+

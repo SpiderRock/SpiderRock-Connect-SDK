@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message BucketRange {
+
+
+    MessageMetadata _meta = 1;
+    
+    string name = 100; // field name from the 'group' clause
+    uint32 f_num = 103;
+    string key = 106; // is one of key1, key2, key3, or key4 from an aggregate composite bucket result
+    string min = 109; // bucket range is [min, max);  might be an int, double, string, or datetime (all encoded as strings)
+    string max = 112;
+    int32 cnt = 115; // number of items in this bucket
+}
+
+

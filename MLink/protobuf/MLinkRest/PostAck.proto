@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message PostAck {
+
+
+    MessageMetadata _meta = 1;
+    
+    uint32 msg_type = 100; // message type of the data object being ack'd
+    int64 send_ts = 103; // send timestamp of the data object being ack'd (note: MessageType + SendTimestamp should be unique)
+    string pkey = 106; // pkey (string) of the message being ack'd
+    PostAckResult result = 109;
+    string detail = 112;
+}
+
+

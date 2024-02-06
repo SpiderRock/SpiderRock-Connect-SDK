@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkSubscribeCheckPt {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 session_iD = 100; // from MLinkSubscribe.sessionID
+    int64 subscribe_iD = 103; // from MLinkSubscribe.subscribeID
+    int64 signal_iD = 106; // MLinkSignalReady.signalID (if send sequence triggered by an MLinkSignalReady message)
+    MLinkSubscribeState state = 109;
+    string detail = 112;
+}
+
+

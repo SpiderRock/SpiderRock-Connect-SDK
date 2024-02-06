@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message AggregateCount {
+
+
+    MessageMetadata _meta = 1;
+    
+    string key1 = 100; // bucket key for the 1st field in the 'group' clause
+    string key2 = 103; // bucket key for the 2nd field in the 'group' clause
+    string key3 = 106; // bucket key for the 3rd field in the 'group' clause
+    string key4 = 109; // bucket key for the 4th field in the 'group' clause
+    int32 rec_count = 112;
+}
+
+

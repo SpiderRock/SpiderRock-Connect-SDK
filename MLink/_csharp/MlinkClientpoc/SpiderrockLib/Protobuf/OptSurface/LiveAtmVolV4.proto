@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    LiveAtmVol records are computed and publish continuously during trading hours
+*/    
+message LiveAtmVolV4 {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlying tickerKey (stock or product group) that this option expiration is associated with
+    double u_prc = 103; // effective underlier price
+    float years = 106; // SR years to expiry metric
+    float rate = 109; // average expected interest rate to expiry (SR global rate curve)
+    float ddiv = 112; // (expected) cumulative discrete dividend $ amounts prior to expiration (if any)
+    float ddiv_pv = 115; // (expected) cumulative npv of discrete dividend $ amounts prior to expiration (SR global rate curve) (if any)
+    DDivSource ddiv_source = 118; // Forecast if any of the dividends prior to expiry are forecast rather than announced
+    float atm_vol = 121; // atm vol (xAxis = 0)
+    float atm_eMA = 124; // atm vol exp moving average (half-life ~ 30 seconds)
+    double u_prc_ratio = 127; // uPrc = uPrcDriver * uPrcRatio (when priceType = Future); uPrc = uPrcDriver (when priceType = Equity)
+    double u_prc_ratio_eMA = 130; // time smoothed implied uPrcRatio (half-life ~ 30 seconds)
+    float sdiv = 133; // stock dividend (borrow rate) (derived from call/put balance when priceType=Stock; =rate otherwise)
+    float sdiv_eMA = 136; // sdiv exp moving average (half-life ~ 30 seconds)
+    double min_cPAdj_val = 139; // minimum cpAdjVal (sdiv or uPrcRatio)
+    double max_cPAdj_val = 142; // minimum cpAdjVal (sdiv or uPrcRatio)
+    CPAdjType cp_adj_type = 145; // adjustment used to align calls/puts
+    CalcPriceType price_type = 148; // [Equity] has independent uPrc and rate with sdiv derived from call/put balance; [Future] has sdiv = rate with uPrc' derived from call/put balance
+    ExpiryKey u_prc_driver_key = 151; // underlier driver key
+    SpdrKeyType u_prc_driver_type = 154; // underlier driver key type (stock or future)
+    double u_prc_driver = 157; // underlier driver (mid-market)
+    float axis_fUPrc = 160; // forward underlier price;  also at-the-money (xAxis = 0) synthetic strike
+    double spot_uPrc = 163; // spotUPrc = uPrc if priceType = Equity; spotUPrc != uPrc priceType = Future
+    float v_width = 166; // atm volatility market width (estimated from near expiries)
+    int32 num_atm_strikes = 169;
+    TradeableStatus tradeable_status = 172; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    SurfaceAdjResult surface_result = 175;
+    int64 net_timestamp = 178; // most recent unix timestamp (all option quotes)
+    google.protobuf.Timestamp timestamp = 181;
+}
+
+
