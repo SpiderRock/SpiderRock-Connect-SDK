@@ -7,7 +7,7 @@ This repo contains documentation, specifications and general information for how
 ## Connection Methods
 1. **[MLink API](./MLink/README.md)** - Our newest proprietary connection method, is a server that supports an SQL-like API where a user can connect via REST or WebSocket connection. Currently this method is single-direction down to the user in order to consume data. Soon, we plan to extend this functionality so it's bi-directional so users can interact and manipulate their orders and related messages. 
 
-2. **SpiderStream API** - A proprietary connection method that allows for a low-latency stream of SpiderRock messages through C#, C++ or Python.
+2. **[SpiderStream API](./SpiderStream/README.md)** - A proprietary connection method that allows for a low-latency stream of SpiderRock messages through C#, C++ or Python.
 
 3. **[FIX](./FIX/README.md)** - The trading industry's standard protocol for messaging, our current specs are based on FIX 4.4. If you're a liquidity provider that is looking to connect into our ATS, this is the recommended connection method.
 
