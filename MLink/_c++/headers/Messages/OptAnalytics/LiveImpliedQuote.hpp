@@ -190,10 +190,10 @@ namespace api {
     DECL_STRONG_TYPE(dn08, float);
     #endif//_dn08__GUARD__
 
-    #ifndef _spot_uprc__float__GUARD__
-    #define _spot_uprc__float__GUARD__
-    DECL_STRONG_TYPE(spot_uprc__float, float);
-    #endif//_spot_uprc__float__GUARD__
+    #ifndef _syn_spot__GUARD__
+    #define _syn_spot__GUARD__
+    DECL_STRONG_TYPE(syn_spot, double);
+    #endif//_syn_spot__GUARD__
 
     #ifndef _price_type__CalcPriceType__GUARD__
     #define _price_type__CalcPriceType__GUARD__
@@ -354,7 +354,7 @@ namespace api {
         using dn15 = spiderrock::protobuf::api::dn15;
         using up06 = spiderrock::protobuf::api::up06;
         using dn08 = spiderrock::protobuf::api::dn08;
-        using spot_uprc = spiderrock::protobuf::api::spot_uprc__float;
+        using syn_spot = spiderrock::protobuf::api::syn_spot;
         using price_type = spiderrock::protobuf::api::price_type__CalcPriceType;
         using calc_err = spiderrock::protobuf::api::calc_err__ImpliedQuoteError;
         using calc_source = spiderrock::protobuf::api::calc_source;
@@ -397,7 +397,7 @@ namespace api {
         dn15 m_dn15{};
         up06 m_up06{};
         dn08 m_dn08{};
-        spot_uprc m_spot_uprc{};
+        syn_spot m_syn_spot{};
         price_type m_price_type{};
         calc_err m_calc_err{};
         calc_source m_calc_source{};
@@ -510,8 +510,8 @@ namespace api {
         dn08 get_dn08() const {
             return m_dn08;
         }		
-        spot_uprc get_spot_uprc() const {
-            return m_spot_uprc;
+        syn_spot get_syn_spot() const {
+            return m_syn_spot;
         }		
         price_type get_price_type() const {
             return m_price_type;
@@ -637,8 +637,8 @@ namespace api {
         void set_dn08(const dn08& value)  {
             m_dn08 = value;
         }
-        void set_spot_uprc(const spot_uprc& value)  {
-            m_spot_uprc = value;
+        void set_syn_spot(const syn_spot& value)  {
+            m_syn_spot = value;
         }
         void set_price_type(const price_type& value)  {
             m_price_type = value;
@@ -768,8 +768,8 @@ namespace api {
         void set(const dn08 & value) {
             set_dn08(value);
         }
-        void set(const spot_uprc & value) {
-            set_spot_uprc(value);
+        void set(const syn_spot & value) {
+            set_syn_spot(value);
         }
         void set(const price_type & value) {
             set_price_type(value);
@@ -825,7 +825,7 @@ namespace api {
             set(value.m_dn15);
             set(value.m_up06);
             set(value.m_dn08);
-            set(value.m_spot_uprc);
+            set(value.m_syn_spot);
             set(value.m_price_type);
             set(value.m_calc_err);
             set(value.m_calc_source);
@@ -986,8 +986,8 @@ namespace api {
         bool IncludeDn08() const {
             return !(m_dn08 == 0.0);
         }
-        bool IncludeSpotUprc() const {
-            return !(m_spot_uprc == 0.0);
+        bool IncludeSynSpot() const {
+            return !(m_syn_spot == 0.0);
         }
         bool IncludeSrcTimestamp() const {
             return !(m_src_timestamp == 0);
@@ -1110,8 +1110,8 @@ namespace api {
             if ( IncludeDn08()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(193,m_dn08);
             }
-            if ( IncludeSpotUprc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(196,m_spot_uprc);
+            if ( IncludeSynSpot()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(196,m_syn_spot);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ImpliedQuoteError>(m_calc_err)));
@@ -1237,8 +1237,8 @@ namespace api {
             if ( IncludeDn08()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,193,m_dn08);
             }
-            if ( IncludeSpotUprc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,196,m_spot_uprc);
+            if ( IncludeSynSpot()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,196,m_syn_spot);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ImpliedQuoteError>(m_calc_err)));
@@ -1476,8 +1476,8 @@ namespace api {
                         break;
                     }
                     case 196: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_spot_uprc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_syn_spot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
@@ -1557,7 +1557,7 @@ namespace api {
     template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::dn15>() const { return m_dn15; }
     template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::up06>() const { return m_up06; }
     template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::dn08>() const { return m_dn08; }
-    template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::spot_uprc>() const { return m_spot_uprc; }
+    template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::syn_spot>() const { return m_syn_spot; }
     template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::price_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>( m_price_type)); }
     template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::calc_err>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ImpliedQuoteError>( m_calc_err)); }
     template<> inline const auto LiveImpliedQuote::get<LiveImpliedQuote::calc_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcSource>( m_calc_source)); }
@@ -1608,7 +1608,7 @@ namespace api {
         o << ",\"dn15\":" << m.get<LiveImpliedQuote::dn15>();
         o << ",\"up06\":" << m.get<LiveImpliedQuote::up06>();
         o << ",\"dn08\":" << m.get<LiveImpliedQuote::dn08>();
-        o << ",\"spot_uprc\":" << m.get<LiveImpliedQuote::spot_uprc>();
+        o << ",\"syn_spot\":" << m.get<LiveImpliedQuote::syn_spot>();
         o << ",\"price_type\":" << (int64_t)m.get<LiveImpliedQuote::price_type>();
         o << ",\"calc_err\":" << (int64_t)m.get<LiveImpliedQuote::calc_err>();
         o << ",\"calc_source\":" << (int64_t)m.get<LiveImpliedQuote::calc_source>();

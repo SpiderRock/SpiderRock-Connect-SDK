@@ -519,7 +519,7 @@ namespace api {
         bool SerializeToArray(void* data, size_t size) const  {
             size_t length = ByteSizeLong();
             if (size <  _mlinkHeaderLength + length) return false;
-            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 7200, length);
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 7600, length);
             //Encode the message
             uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
             auto max = encodePos + length;
@@ -531,7 +531,7 @@ namespace api {
         bool SerializeToString(std::string *s) const {
             size_t length = ByteSizeLong();
             s->resize( _mlinkHeaderLength + length);
-            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 7200, length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 7600, length);
             return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 

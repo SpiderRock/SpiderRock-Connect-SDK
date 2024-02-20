@@ -148,6 +148,7 @@ class Observer {
     OptionCloseMark msgOptionCloseMark{};
     OptionOpenInterest msgOptionOpenInterest{};
     OptionOpenMark msgOptionOpenMark{};
+    OptionFlexEvent msgOptionFlexEvent{};
     OptionNbboQuote msgOptionNbboQuote{};
     OptionPrint msgOptionPrint{};
     OptionPrintProbability msgOptionPrintProbability{};
@@ -155,10 +156,13 @@ class Observer {
     OptionMarketSummary msgOptionMarketSummary{};
     HistoricalVolatilities msgHistoricalVolatilities{};
     LiveAtmVol msgLiveAtmVol{};
+    LiveAtmVolV4 msgLiveAtmVolV4{};
     LiveSurfaceCurve msgLiveSurfaceCurve{};
+    LiveSurfaceCurveV4 msgLiveSurfaceCurveV4{};
     LiveSurfaceFixedGrid msgLiveSurfaceFixedGrid{};
     LiveSurfaceFixedTerm msgLiveSurfaceFixedTerm{};
     OptionAtmMinuteBarData msgOptionAtmMinuteBarData{};
+    SkewBasisCurveV4 msgSkewBasisCurveV4{};
     GetOptionPrice msgGetOptionPrice{};
     GetOptionVolatility msgGetOptionVolatility{};
     SpreadExchOrder msgSpreadExchOrder{};
@@ -554,6 +558,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const OptionOpenMark &)msgOptionOpenMark);
                 break;
             }
+            case 2845: {  // OptionFlexEvent
+			    msgOptionFlexEvent.Clear();
+                msgOptionFlexEvent.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const OptionFlexEvent &)msgOptionFlexEvent);
+                break;
+            }
             case 2785: {  // OptionNbboQuote
 			    msgOptionNbboQuote.Clear();
                 msgOptionNbboQuote.ParseFromArray(buf, len);
@@ -596,10 +606,22 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const LiveAtmVol &)msgLiveAtmVol);
                 break;
             }
+            case 1120: {  // LiveAtmVolV4
+			    msgLiveAtmVolV4.Clear();
+                msgLiveAtmVolV4.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const LiveAtmVolV4 &)msgLiveAtmVolV4);
+                break;
+            }
             case 1035: {  // LiveSurfaceCurve
 			    msgLiveSurfaceCurve.Clear();
                 msgLiveSurfaceCurve.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const LiveSurfaceCurve &)msgLiveSurfaceCurve);
+                break;
+            }
+            case 1115: {  // LiveSurfaceCurveV4
+			    msgLiveSurfaceCurveV4.Clear();
+                msgLiveSurfaceCurveV4.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const LiveSurfaceCurveV4 &)msgLiveSurfaceCurveV4);
                 break;
             }
             case 1040: {  // LiveSurfaceFixedGrid
@@ -618,6 +640,12 @@ class Observer {
 			    msgOptionAtmMinuteBarData.Clear();
                 msgOptionAtmMinuteBarData.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const OptionAtmMinuteBarData &)msgOptionAtmMinuteBarData);
+                break;
+            }
+            case 1110: {  // SkewBasisCurveV4
+			    msgSkewBasisCurveV4.Clear();
+                msgSkewBasisCurveV4.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SkewBasisCurveV4 &)msgSkewBasisCurveV4);
                 break;
             }
             case 3335: {  // GetOptionPrice
@@ -662,7 +690,7 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const StockQuoteProbability &)msgStockQuoteProbability);
                 break;
             }
-            case 7200: {  // WshFutureQuarters
+            case 7600: {  // WshFutureQuarters
 			    msgWshFutureQuarters.Clear();
                 msgWshFutureQuarters.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const WshFutureQuarters &)msgWshFutureQuarters);

@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(axis_fuprc, float);
     #endif//_axis_fuprc__GUARD__
 
-    #ifndef _spot_uprc__float__GUARD__
-    #define _spot_uprc__float__GUARD__
-    DECL_STRONG_TYPE(spot_uprc__float, float);
-    #endif//_spot_uprc__float__GUARD__
+    #ifndef _syn_spot__GUARD__
+    #define _syn_spot__GUARD__
+    DECL_STRONG_TYPE(syn_spot, double);
+    #endif//_syn_spot__GUARD__
 
     #ifndef _v_width__GUARD__
     #define _v_width__GUARD__
@@ -287,7 +287,7 @@ namespace api {
         using u_prc_driver_type = spiderrock::protobuf::api::u_prc_driver_type;
         using u_prc_driver = spiderrock::protobuf::api::u_prc_driver;
         using axis_fuprc = spiderrock::protobuf::api::axis_fuprc;
-        using spot_uprc = spiderrock::protobuf::api::spot_uprc__float;
+        using syn_spot = spiderrock::protobuf::api::syn_spot;
         using v_width = spiderrock::protobuf::api::v_width;
         using num_atm_strikes = spiderrock::protobuf::api::num_atm_strikes;
         using tradeable_status = spiderrock::protobuf::api::tradeable_status;
@@ -319,7 +319,7 @@ namespace api {
         u_prc_driver_type m_u_prc_driver_type{};
         u_prc_driver m_u_prc_driver{};
         axis_fuprc m_axis_fuprc{};
-        spot_uprc m_spot_uprc{};
+        syn_spot m_syn_spot{};
         v_width m_v_width{};
         num_atm_strikes m_num_atm_strikes{};
         tradeable_status m_tradeable_status{};
@@ -399,8 +399,8 @@ namespace api {
         axis_fuprc get_axis_fuprc() const {
             return m_axis_fuprc;
         }		
-        spot_uprc get_spot_uprc() const {
-            return m_spot_uprc;
+        syn_spot get_syn_spot() const {
+            return m_syn_spot;
         }		
         v_width get_v_width() const {
             return m_v_width;
@@ -493,8 +493,8 @@ namespace api {
         void set_axis_fuprc(const axis_fuprc& value)  {
             m_axis_fuprc = value;
         }
-        void set_spot_uprc(const spot_uprc& value)  {
-            m_spot_uprc = value;
+        void set_syn_spot(const syn_spot& value)  {
+            m_syn_spot = value;
         }
         void set_v_width(const v_width& value)  {
             m_v_width = value;
@@ -591,8 +591,8 @@ namespace api {
         void set(const axis_fuprc & value) {
             set_axis_fuprc(value);
         }
-        void set(const spot_uprc & value) {
-            set_spot_uprc(value);
+        void set(const syn_spot & value) {
+            set_syn_spot(value);
         }
         void set(const v_width & value) {
             set_v_width(value);
@@ -637,7 +637,7 @@ namespace api {
             set(value.m_u_prc_driver_type);
             set(value.m_u_prc_driver);
             set(value.m_axis_fuprc);
-            set(value.m_spot_uprc);
+            set(value.m_syn_spot);
             set(value.m_v_width);
             set(value.m_num_atm_strikes);
             set(value.m_tradeable_status);
@@ -753,8 +753,8 @@ namespace api {
         bool IncludeAxisFuprc() const {
             return !(m_axis_fuprc == 0.0);
         }
-        bool IncludeSpotUprc() const {
-            return !(m_spot_uprc == 0.0);
+        bool IncludeSynSpot() const {
+            return !(m_syn_spot == 0.0);
         }
         bool IncludeVWidth() const {
             return !(m_v_width == 0.0);
@@ -841,8 +841,8 @@ namespace api {
             if ( IncludeAxisFuprc()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(160,m_axis_fuprc);
             }
-            if ( IncludeSpotUprc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(163,m_spot_uprc);
+            if ( IncludeSynSpot()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(163,m_syn_spot);
             }
             if ( IncludeVWidth()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(166,m_v_width);
@@ -931,8 +931,8 @@ namespace api {
             if ( IncludeAxisFuprc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,160,m_axis_fuprc);
             }
-            if ( IncludeSpotUprc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,163,m_spot_uprc);
+            if ( IncludeSynSpot()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,163,m_syn_spot);
             }
             if ( IncludeVWidth()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,166,m_v_width);
@@ -1103,8 +1103,8 @@ namespace api {
                         break;
                     }
                     case 163: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_spot_uprc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_syn_spot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
@@ -1174,7 +1174,7 @@ namespace api {
     template<> inline const auto LiveAtmVol::get<LiveAtmVol::u_prc_driver_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>( m_u_prc_driver_type)); }
     template<> inline const auto LiveAtmVol::get<LiveAtmVol::u_prc_driver>() const { return m_u_prc_driver; }
     template<> inline const auto LiveAtmVol::get<LiveAtmVol::axis_fuprc>() const { return m_axis_fuprc; }
-    template<> inline const auto LiveAtmVol::get<LiveAtmVol::spot_uprc>() const { return m_spot_uprc; }
+    template<> inline const auto LiveAtmVol::get<LiveAtmVol::syn_spot>() const { return m_syn_spot; }
     template<> inline const auto LiveAtmVol::get<LiveAtmVol::v_width>() const { return m_v_width; }
     template<> inline const auto LiveAtmVol::get<LiveAtmVol::num_atm_strikes>() const { return m_num_atm_strikes; }
     template<> inline const auto LiveAtmVol::get<LiveAtmVol::tradeable_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>( m_tradeable_status)); }
@@ -1214,7 +1214,7 @@ namespace api {
         o << ",\"u_prc_driver_type\":" << (int64_t)m.get<LiveAtmVol::u_prc_driver_type>();
         o << ",\"u_prc_driver\":" << m.get<LiveAtmVol::u_prc_driver>();
         o << ",\"axis_fuprc\":" << m.get<LiveAtmVol::axis_fuprc>();
-        o << ",\"spot_uprc\":" << m.get<LiveAtmVol::spot_uprc>();
+        o << ",\"syn_spot\":" << m.get<LiveAtmVol::syn_spot>();
         o << ",\"v_width\":" << m.get<LiveAtmVol::v_width>();
         o << ",\"num_atm_strikes\":" << m.get<LiveAtmVol::num_atm_strikes>();
         o << ",\"tradeable_status\":" << (int64_t)m.get<LiveAtmVol::tradeable_status>();

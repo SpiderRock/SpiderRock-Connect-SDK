@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(axis_fuprc, float);
     #endif//_axis_fuprc__GUARD__
 
-    #ifndef _spot_uprc__double__GUARD__
-    #define _spot_uprc__double__GUARD__
-    DECL_STRONG_TYPE(spot_uprc__double, double);
-    #endif//_spot_uprc__double__GUARD__
+    #ifndef _spot_uprc__GUARD__
+    #define _spot_uprc__GUARD__
+    DECL_STRONG_TYPE(spot_uprc, double);
+    #endif//_spot_uprc__GUARD__
 
     #ifndef _v_width__GUARD__
     #define _v_width__GUARD__
@@ -287,7 +287,7 @@ namespace api {
         using u_prc_driver_type = spiderrock::protobuf::api::u_prc_driver_type;
         using u_prc_driver = spiderrock::protobuf::api::u_prc_driver;
         using axis_fuprc = spiderrock::protobuf::api::axis_fuprc;
-        using spot_uprc = spiderrock::protobuf::api::spot_uprc__double;
+        using spot_uprc = spiderrock::protobuf::api::spot_uprc;
         using v_width = spiderrock::protobuf::api::v_width;
         using num_atm_strikes = spiderrock::protobuf::api::num_atm_strikes;
         using tradeable_status = spiderrock::protobuf::api::tradeable_status;
@@ -663,13 +663,22 @@ namespace api {
         }
 
         bool SerializeToArray(void* data, size_t size) const  {
-            
-            return false;
+            size_t length = ByteSizeLong();
+            if (size <  _mlinkHeaderLength + length) return false;
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 1120, length);
+            //Encode the message
+            uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
+            auto max = encodePos + length;
+            Encode(encodePos, max);
+            //End of encoding
+            return true;
         }
 
         bool SerializeToString(std::string *s) const {
-            
-            return false;
+            size_t length = ByteSizeLong();
+            s->resize( _mlinkHeaderLength + length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 1120, length);
+            return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 
         bool ParseFromString(const string& data) {
