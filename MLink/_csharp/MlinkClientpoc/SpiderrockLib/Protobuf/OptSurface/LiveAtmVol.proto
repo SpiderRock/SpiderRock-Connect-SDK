@@ -41,7 +41,7 @@ message LiveAtmVol {
     SpdrKeyType u_prc_driver_type = 154; // underlier driver key type (stock or future)
     double u_prc_driver = 157; // underlier driver (mid-market)
     float axis_fUPrc = 160; // forward underlier price;  also at-the-money (xAxis = 0) synthetic strike
-    float spot_uPrc = 163; // spotUPrc = uPrc if priceType = Equity; spotUPrc != uPrc priceType = Future
+    double syn_spot = 163; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
     float v_width = 166; // atm volatility market width (estimated from near expiries)
     int32 num_atm_strikes = 169;
     TradeableStatus tradeable_status = 172; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)

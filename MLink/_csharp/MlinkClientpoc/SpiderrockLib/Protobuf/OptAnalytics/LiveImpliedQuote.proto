@@ -55,7 +55,7 @@ message LiveImpliedQuote {
     float dn15 = 187; // underlier dn 15% slide
     float up06 = 190; // underlier up 6% slide
     float dn08 = 193; // underlier dn 8% slide
-    float spot_uPrc = 196; // spot underlier price (same as uPrc when priceType = 'Equity') (note: if Future and spotUPrc is known it will appear here)
+    double syn_spot = 196; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
     CalcPriceType price_type = 199; // Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate
     ImpliedQuoteError calc_err = 202; // option pricing calculation error (if any)
     CalcSource calc_source = 205;

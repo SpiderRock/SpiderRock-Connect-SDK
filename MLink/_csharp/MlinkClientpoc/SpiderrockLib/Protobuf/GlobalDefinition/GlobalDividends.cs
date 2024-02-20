@@ -54,6 +54,11 @@ namespace Spiderrock.Protobuf {
 
   }
   #region Messages
+  /// <summary>
+  ///
+  ///GlobalDividend records contain projected future discrete dividend payment dates and amounts for dividend paying equities.  These records are the dividend values that are incorporated into option pricing calculations.
+  ///Note: Missing/empty DateAmt strings are interpreted as non-dividend paying
+  /// </summary>
   public sealed partial class GlobalDividends : pb::IMessage<GlobalDividends>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

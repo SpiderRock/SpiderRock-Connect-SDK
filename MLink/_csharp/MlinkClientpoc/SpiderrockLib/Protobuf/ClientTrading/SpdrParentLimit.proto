@@ -64,68 +64,55 @@ message SpdrParentLimit {
     int32 order_duration = 208; // [optional] (number of seconds)
     google.protobuf.Timestamp good_till_dttm = 211; // [optional] (default: 2000-01-01)
     int32 progress_expose_time = 214; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking) (If the order is an Alpha type order, updating this will reset the alpha progression)
-    float max_acc_day_wt_vega_ln = 217; // max accnt day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
-    float max_acc_day_wt_vega_sh = 220; // max accnt day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    float acc_day_wt_vega_offset = 223; // accnt day (time weighted) vega offset (target position)
-    float max_acc_day_dDelta_ln = 226; // max accnt day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter	- offset)
-    float max_acc_day_dDelta_sh = 229; // max accnt day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    float acc_day_dDelta_offset = 232; // accnt day $delta offset (target position)
-    float max_exp_day_wt_vega_ln = 235; // max accnt+expiration day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
-    float max_exp_day_wt_vega_sh = 238; // max accnt+expiration day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    float exp_day_wt_vega_offset = 241; // accnt+expiration day (time weighted) vega offset (target position)
+    float exp_day_wt_vega_offset = 217; // max acct+symbol day wtVega offset (target)
+    float max_exp_day_wt_vega_ln = 220; // max accnt+expiration day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_exp_day_wt_vega_sh = 223; // max accnt+expiration day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float max_exp_day_rMetric6_ln = 226; // max acct+expiration day rMetric6 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_exp_day_rMetric6_sh = 229; // max acct+expiration day rMetric6 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float sym_day_dDelta_offset = 232; // max acct+symbol day $delta offset (target)
+    float max_sym_day_dDelta_ln = 235; // max acct+symbol day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_sym_day_dDelta_sh = 238; // max acct+symbol day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float sym_day_vega_offset = 241; // max acct+symbol day vega offset (target)
     float max_sym_day_vega_ln = 244; // max acct+symbol day vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
     float max_sym_day_vega_sh = 247; // max acct+symbol day vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    float sym_day_vega_offset = 250; // accnt+symbol day vega offset (target position)
+    float sym_day_wt_vega_offset = 250; // max acct+symbol day wtVega offset (target)
     float max_sym_day_wt_vega_ln = 253; // max acct+symbol day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
     float max_sym_day_wt_vega_sh = 256; // max acct+symbol day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    float sym_day_wt_vega_offset = 259; // accnt+symbol day (time weighted) vega offset (target position)
-    float max_sym_day_dDelta_ln = 262; // max acct+symbol day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
-    float max_sym_day_dDelta_sh = 265; // max acct+symbol day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    float sym_day_dDelta_offset = 268; // accnt+symbol day $delta offset (target position)
-    float max_exp_day_rMetric6_ln = 271; // max acct+expiration day rMetric6 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_exp_day_rMetric6_sh = 274; // max acct+expiration day rMetric6 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float exp_day_rMetric6_offset = 277; // accnt+expiration day rMetric6 offset (target position)
-    float max_sym_day_rMetric7_ln = 280; // max acct+symbol day rMetric7 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_sym_day_rMetric7_sh = 283; // max acct+symbol day rMetric7 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float sym_day_rMetric7_offset = 286; // accnt+symbol day rMetric7 offset (target position)
-    float max_grp_day_dDelta_ln = 289; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_dDelta_sh = 292; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float grp_day_dDelta_ratio = 295; // target bot / sld ratio (eg ratio=2.0 means that neutral is bot ddelta = 2x sld ddelta)
-    float max_grp_day_vega_ln = 298; // max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_vega_sh = 301; // max acct+riskGroup day vega short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float max_grp_day_vega_abs = 304; // max acct+riskGroup day vega abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
-    float grp_day_vega_ratio = 307; // target bot / sld ratio (eg ratio=2.0 means that neutral is bot vega = 2x sld vega)
-    float max_grp_day_premium_ln = 310; // max acct+riskGroup day premium over parity long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_premium_sh = 313; // max acct+riskGroup day premium over parity short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float max_grp_day_premium_abs = 316; // max acct+riskGroup day premium over parity abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
-    float grp_day_premium_ratio = 319; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot premium = 0.5x sld premium)
-    float max_grp_day_rMetric1_ln = 322; // max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_rMetric1_sh = 325; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float max_grp_day_rMetric1_abs = 328; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
-    float grp_day_rMetric1_ratio = 331; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
-    float max_grp_day_rMetric2_ln = 334; // max acct+riskGroup day rMetric2 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_rMetric2_sh = 337; // max acct+riskGroup day rMetric2 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float max_grp_day_rMetric3_ln = 340; // max acct+riskGroup day rMetric3 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_rMetric3_sh = 343; // max acct+riskGroup day rMetric3 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float max_grp_day_rMetric4_ln = 346; // max acct+riskGroup day rMetric4 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_rMetric4_sh = 349; // max acct+riskGroup day rMetric4 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    float max_grp_day_rMetric5_ln = 352; // max acct+riskGroup day rMetric5 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    float max_grp_day_rMetric5_sh = 355; // max acct+riskGroup day rMetric5 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    int32 max_grp_day_contracts_ln = 358; // max acct+riskGroup day contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
-    int32 max_grp_day_contracts_sh = 361; // max acct+riskGroup day contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
-    int32 max_grp_day_contracts_abs = 364; // max acct+riskGroup day contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
-    float sym_ema_cxl_dDelta_ln = 367; // max acct+symbol 60s EMA $delta long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
-    float sym_ema_cxl_dDelta_sh = 370; // max acct+symbol 60s EMA $delta short (positive number; <= 0 is no limit)
-    float sym_ema_cxl_wt_vega_ln = 373; // max acct+symbol 60s EMA wtVega long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
-    float sym_ema_cxl_wt_vega_sh = 376; // max acct+symbol 60s EMA wtVega short (positive number; <= 0 is no limit)
-    float theo_vol = 379; // client supplied theoretical volatility (used for markup only)
-    float cl_arrive_mark = 382; // client specified arrival mark (passed through to ParentExecution; markup only)
-    string user_data1 = 385; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
-    string user_data2 = 388; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
-    string exec_brkr_code = 391; // an SR assigned execBrkrCode
-    string modified_by = 394; // user who last modified this record
-    SysEnvironment modified_in = 397;
-    google.protobuf.Timestamp timestamp = 400; // timestamp of last modification
+    float max_sym_day_rMetric7_ln = 259; // max acct+symbol day rMetric7 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_sym_day_rMetric7_sh = 262; // max acct+symbol day rMetric7 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_dDelta_ln = 265; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_dDelta_sh = 268; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_vega_ln = 271; // max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_vega_sh = 274; // max acct+riskGroup day vega short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_vega_abs = 277; // max acct+riskGroup day vega abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_vega_ratio = 280; // target bot / sld ratio (eg ratio=2.0 means that neutral is bot vega = 2x sld vega)
+    int32 max_grp_day_contracts_ln = 283; // max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_contracts_sh = 286; // max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_contracts_abs = 289; // max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float max_grp_day_rMetric1_ln = 292; // max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric1_sh = 295; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric1_abs = 298; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_rMetric1_ratio = 301; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
+    float max_grp_day_rMetric2_ln = 304; // max acct+riskGroup day rMetric2 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric2_sh = 307; // max acct+riskGroup day rMetric2 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric3_ln = 310; // max acct+riskGroup day rMetric3 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric3_sh = 313; // max acct+riskGroup day rMetric3 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric4_ln = 316; // max acct+riskGroup day rMetric4 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric4_sh = 319; // max acct+riskGroup day rMetric4 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric5_ln = 322; // max acct+riskGroup day rMetric5 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric5_sh = 325; // max acct+riskGroup day rMetric5 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float sym_ema_cxl_dDelta_ln = 328; // max acct+symbol 60s EMA $delta long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
+    float sym_ema_cxl_dDelta_sh = 331; // max acct+symbol 60s EMA $delta short (positive number; <= 0 is no limit)
+    float sym_ema_cxl_wt_vega_ln = 334; // max acct+symbol 60s EMA wtVega long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
+    float sym_ema_cxl_wt_vega_sh = 337; // max acct+symbol 60s EMA wtVega short (positive number; <= 0 is no limit)
+    float theo_vol = 340; // client supplied theoretical volatility (used for markup only)
+    float cl_arrive_mark = 343; // client specified arrival mark (passed through to ParentExecution; markup only)
+    string user_data1 = 346; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 349; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string exec_brkr_code = 352; // an SR assigned execBrkrCode
+    string modified_by = 355; // user who last modified this record
+    SysEnvironment modified_in = 358;
+    google.protobuf.Timestamp timestamp = 361; // timestamp of last modification
 }
 
 

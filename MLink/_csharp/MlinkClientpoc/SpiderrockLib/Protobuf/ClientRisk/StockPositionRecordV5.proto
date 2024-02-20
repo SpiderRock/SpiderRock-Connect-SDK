@@ -67,9 +67,11 @@ message StockPositionRecordV5 {
     float borrow_rate = 214; // overnight rate required to borrow stock (if known)
     float beta = 217; // beta (usually beta to SPX; see AccountConfig.betaSource)
     BetaSource beta_source = 220;
-    int32 num_executions = 223; // number of included SpdrParentExecution records
-    google.protobuf.Timestamp max_exec_dttm = 226; // max (timestamp) of included SpdrParentExecution records
-    google.protobuf.Timestamp timestamp = 229;
+    float margin_uDn = 223; // Aggregate RiskSlide: uPrc dn
+    float margin_uUp = 226; // Aggregate RiskSlide: uPrc up
+    int32 num_executions = 229; // number of included SpdrParentExecution records
+    google.protobuf.Timestamp max_exec_dttm = 232; // max (timestamp) of included SpdrParentExecution records
+    google.protobuf.Timestamp timestamp = 235;
 }
 
 

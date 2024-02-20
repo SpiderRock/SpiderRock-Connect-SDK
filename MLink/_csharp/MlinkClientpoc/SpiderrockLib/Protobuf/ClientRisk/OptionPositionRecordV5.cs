@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9DbGllbnRSaXNrL09wdGlvblBvc2l0aW9uUmVjb3JkVjUu",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvggChZP",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItwhChZP",
             "cHRpb25Qb3NpdGlvblJlY29yZFY1EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESPgoEcGtleRgCIAEoCzIw",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uUG9zaXRpb25SZWNvcmRWNS5Q",
@@ -102,29 +102,32 @@ namespace Spiderrock.Protobuf {
             "+QMgASgCEhQKC2hlZGdlX2RlX3ByGPwDIAEoAhIRCgh0X3ZvbF9wchj/AyAB",
             "KAISEQoIdF9vcHhfcHIYggQgASgCEhAKB3RfZGVfcHIYhQQgASgCEhIKCXRf",
             "dm9sX3ByMhiIBCABKAISEgoJdF9vcHhfcHIyGIsEIAEoAhIRCgh0X2RlX3By",
-            "MhiOBCABKAISDwoGeGRlX3ByGJEEIAEoAhITCgpvcG5fcG5sX2RlGJQEIAEo",
-            "AhITCgpvcG5fcG5sX2dhGJcEIAEoAhITCgpvcG5fcG5sX3RoGJoEIAEoAhIT",
-            "CgpvcG5fcG5sX3ZlGJ0EIAEoAhITCgpvcG5fcG5sX3ZvGKAEIAEoAhITCgpv",
-            "cG5fcG5sX3ZhGKMEIAEoAhITCgpvcG5fcG5sX3NsGKYEIAEoAhIVCgxvcG5f",
-            "cG5sX3JhdGUYqQQgASgCEhUKDG9wbl9wbmxfc0RpdhisBCABKAISFQoMb3Bu",
-            "X3BubF9kRGl2GK8EIAEoAhITCgpvcG5fcG5sX3N2GLIEIAEoAhIUCgtvcG5f",
-            "cG5sX2Vychi1BCABKAISEgoJc2hfYm90X2MwGLgEIAEoBRISCglzaF9zbGRf",
-            "YzAYuwQgASgFEhIKCXNoX21ueV9jMBi+BCABKAISEgoJc2hfYm90X2MxGMEE",
-            "IAEoBRISCglzaF9zbGRfYzEYxAQgASgFEhIKCXNoX21ueV9jMRjHBCABKAIS",
-            "OwoObWFya19lcnJfY29kZXMYygQgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5NYXJrRXJyb3JDb2RlEhEKCGV4X3ZhbHVlGM0EIAEoAhIzCgpyaXNrX2Fs",
-            "ZXJ0GNAEIAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQWxlcnRDb2RlEhcK",
-            "Dm51bV9leGVjdXRpb25zGNMEIAEoBRIyCg1tYXhfZXhlY19kdHRtGNYEIAEo",
-            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoJdGltZXN0YW1wGNkE",
-            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAarQEKBFBLZXkSLAoE",
-            "b2tleRgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5Eg0K",
-            "BWFjY250GAsgASgJEjAKCnRyYWRlX2RhdGUYDCABKAsyHC5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkRhdGVLZXkSNgoMcmlza19zZXNzaW9uGA0gASgOMiAuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5SaXNrU2Vzc2lvbmIGcHJvdG8z"));
+            "MhiOBCABKAISDwoGeGRlX3ByGJEEIAEoAhIXCg5tYXJnaW5fdURuX3ZEbhiU",
+            "BCABKAISFwoObWFyZ2luX3VEbl92VXAYlwQgASgCEhcKDm1hcmdpbl91VXBf",
+            "dkRuGJoEIAEoAhIXCg5tYXJnaW5fdVVwX3ZVcBidBCABKAISEwoKb3BuX3Bu",
+            "bF9kZRigBCABKAISEwoKb3BuX3BubF9nYRijBCABKAISEwoKb3BuX3BubF90",
+            "aBimBCABKAISEwoKb3BuX3BubF92ZRipBCABKAISEwoKb3BuX3BubF92bxis",
+            "BCABKAISEwoKb3BuX3BubF92YRivBCABKAISEwoKb3BuX3BubF9zbBiyBCAB",
+            "KAISFQoMb3BuX3BubF9yYXRlGLUEIAEoAhIVCgxvcG5fcG5sX3NEaXYYuAQg",
+            "ASgCEhUKDG9wbl9wbmxfZERpdhi7BCABKAISEwoKb3BuX3BubF9zdhi+BCAB",
+            "KAISFAoLb3BuX3BubF9lcnIYwQQgASgCEhIKCXNoX2JvdF9jMBjEBCABKAUS",
+            "EgoJc2hfc2xkX2MwGMcEIAEoBRISCglzaF9tbnlfYzAYygQgASgCEhIKCXNo",
+            "X2JvdF9jMRjNBCABKAUSEgoJc2hfc2xkX2MxGNAEIAEoBRISCglzaF9tbnlf",
+            "YzEY0wQgASgCEjsKDm1hcmtfZXJyX2NvZGVzGNYEIAEoDjIiLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuTWFya0Vycm9yQ29kZRIRCghleF92YWx1ZRjZBCABKAIS",
+            "MwoKcmlza19hbGVydBjcBCABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkFs",
+            "ZXJ0Q29kZRIXCg5udW1fZXhlY3V0aW9ucxjfBCABKAUSMgoNbWF4X2V4ZWNf",
+            "ZHR0bRjiBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCXRp",
+            "bWVzdGFtcBjlBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGq0B",
+            "CgRQS2V5EiwKBG9rZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9w",
+            "dGlvbktleRINCgVhY2NudBgLIAEoCRIwCgp0cmFkZV9kYXRlGAwgASgLMhwu",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjYKDHJpc2tfc2Vzc2lvbhgN",
+            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuUmlza1Nlc3Npb25iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5), global::Spiderrock.Protobuf.OptionPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "RiskServerCode", "AggGroup", "Fkey", "Ticker", "ExType", "Multihedge", "MultihedgeSource", "MultihedgePVRatio", "OptionType", "CashOnEx", "StrikeRatio", "UPrcRatio", "UnderliersPerCn", "UnderlierType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "UPriceFormat", "UPrc", "UBid", "UAsk", "UMark", "UMarkSource", "OptBid", "OptAsk", "OptMidMark", "OptVolMark", "UOpnMark", "OptOpnVolMark", "OptOpnMidMark", "OptOpnClrMark", "OptOpnPosPrv", "OptOpnPosClr", "OptOpnPos", "OptOpnPosSrc", "CnBot", "CnSld", "CnOpened", "CnClosed", "EdgeOpened", "EdgeClosed", "TrdDelta", "TrdGamma", "TrdDeltaMny", "OptMnyBot", "OptMnySld", "DayPnl", "DnDayPnl", "OpnPnlMidMark", "OpnPnlVolMark", "OpnPnlClrMark", "CnNetOpnPos", "CnNetCurPos", "CnAtmEquiv", "Beta", "BetaSource", "DivDays", "HedgeDeltaRule", "BinaryDays", "Days", "Years", "Rate", "Sdiv", "Ddiv", "Dadj", "AtmVol", "AtmVega", "IVol", "IVolSrc", "De", "Ga", "Th", "Ve", "Rh", "Ph", "Vo", "Va", "DeDecay", "Err", "VeSlope", "HedgeDe", "HedgeGa", "SrSlope", "IsBinary", "PremOvPar", "Xde", "LoBound", "Su90", "Sd90", "Su50", "Sd50", "Su15", "Sd15", "Su10", "Sd10", "Su06", "Sd08", "Su05", "Sd05", "Su1E", "Sd1E", "Su2E", "Sd2E", "Earn", "Cash", "TheoModel", "TVol", "TOpx", "TBOpnPx", "TSOpnPx", "TBClsPx", "TSClsPx", "TDe", "TGa", "TErr", "TheoModel2", "TVol2", "TOpx2", "TErr2", "YearsPr", "RatePr", "SdivPr", "DdivPr", "IVolPr", "DePr", "GaPr", "ThPr", "VePr", "RhPr", "PhPr", "VoPr", "VaPr", "ErrPr", "VeSlopePr", "HedgeDePr", "TVolPr", "TOpxPr", "TDePr", "TVolPr2", "TOpxPr2", "TDePr2", "XdePr", "OpnPnlDe", "OpnPnlGa", "OpnPnlTh", "OpnPnlVe", "OpnPnlVo", "OpnPnlVa", "OpnPnlSl", "OpnPnlRate", "OpnPnlSDiv", "OpnPnlDDiv", "OpnPnlSv", "OpnPnlErr", "ShBotC0", "ShSldC0", "ShMnyC0", "ShBotC1", "ShSldC1", "ShMnyC1", "MarkErrCodes", "ExValue", "RiskAlert", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey.Parser, new[]{ "Okey", "Accnt", "TradeDate", "RiskSession" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5), global::Spiderrock.Protobuf.OptionPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "RiskServerCode", "AggGroup", "Fkey", "Ticker", "ExType", "Multihedge", "MultihedgeSource", "MultihedgePVRatio", "OptionType", "CashOnEx", "StrikeRatio", "UPrcRatio", "UnderliersPerCn", "UnderlierType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "UPriceFormat", "UPrc", "UBid", "UAsk", "UMark", "UMarkSource", "OptBid", "OptAsk", "OptMidMark", "OptVolMark", "UOpnMark", "OptOpnVolMark", "OptOpnMidMark", "OptOpnClrMark", "OptOpnPosPrv", "OptOpnPosClr", "OptOpnPos", "OptOpnPosSrc", "CnBot", "CnSld", "CnOpened", "CnClosed", "EdgeOpened", "EdgeClosed", "TrdDelta", "TrdGamma", "TrdDeltaMny", "OptMnyBot", "OptMnySld", "DayPnl", "DnDayPnl", "OpnPnlMidMark", "OpnPnlVolMark", "OpnPnlClrMark", "CnNetOpnPos", "CnNetCurPos", "CnAtmEquiv", "Beta", "BetaSource", "DivDays", "HedgeDeltaRule", "BinaryDays", "Days", "Years", "Rate", "Sdiv", "Ddiv", "Dadj", "AtmVol", "AtmVega", "IVol", "IVolSrc", "De", "Ga", "Th", "Ve", "Rh", "Ph", "Vo", "Va", "DeDecay", "Err", "VeSlope", "HedgeDe", "HedgeGa", "SrSlope", "IsBinary", "PremOvPar", "Xde", "LoBound", "Su90", "Sd90", "Su50", "Sd50", "Su15", "Sd15", "Su10", "Sd10", "Su06", "Sd08", "Su05", "Sd05", "Su1E", "Sd1E", "Su2E", "Sd2E", "Earn", "Cash", "TheoModel", "TVol", "TOpx", "TBOpnPx", "TSOpnPx", "TBClsPx", "TSClsPx", "TDe", "TGa", "TErr", "TheoModel2", "TVol2", "TOpx2", "TErr2", "YearsPr", "RatePr", "SdivPr", "DdivPr", "IVolPr", "DePr", "GaPr", "ThPr", "VePr", "RhPr", "PhPr", "VoPr", "VaPr", "ErrPr", "VeSlopePr", "HedgeDePr", "TVolPr", "TOpxPr", "TDePr", "TVolPr2", "TOpxPr2", "TDePr2", "XdePr", "MarginUDnVDn", "MarginUDnVUp", "MarginUUpVDn", "MarginUUpVUp", "OpnPnlDe", "OpnPnlGa", "OpnPnlTh", "OpnPnlVe", "OpnPnlVo", "OpnPnlVa", "OpnPnlSl", "OpnPnlRate", "OpnPnlSDiv", "OpnPnlDDiv", "OpnPnlSv", "OpnPnlErr", "ShBotC0", "ShSldC0", "ShMnyC0", "ShBotC1", "ShSldC1", "ShMnyC1", "MarkErrCodes", "ExValue", "RiskAlert", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey.Parser, new[]{ "Okey", "Accnt", "TradeDate", "RiskSession" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -318,6 +321,10 @@ namespace Spiderrock.Protobuf {
       tOpxPr2_ = other.tOpxPr2_;
       tDePr2_ = other.tDePr2_;
       xdePr_ = other.xdePr_;
+      marginUDnVDn_ = other.marginUDnVDn_;
+      marginUDnVUp_ = other.marginUDnVUp_;
+      marginUUpVDn_ = other.marginUUpVDn_;
+      marginUUpVUp_ = other.marginUUpVUp_;
       opnPnlDe_ = other.opnPnlDe_;
       opnPnlGa_ = other.opnPnlGa_;
       opnPnlTh_ = other.opnPnlTh_;
@@ -2457,8 +2464,68 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "margin_uDn_vDn" field.</summary>
+    public const int MarginUDnVDnFieldNumber = 532;
+    private float marginUDnVDn_;
+    /// <summary>
+    /// Aggregate RiskSlide: uPrc dn, vol dn
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MarginUDnVDn {
+      get { return marginUDnVDn_; }
+      set {
+        marginUDnVDn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "margin_uDn_vUp" field.</summary>
+    public const int MarginUDnVUpFieldNumber = 535;
+    private float marginUDnVUp_;
+    /// <summary>
+    /// Aggregate RiskSlide: uPrc dn, vol up
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MarginUDnVUp {
+      get { return marginUDnVUp_; }
+      set {
+        marginUDnVUp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "margin_uUp_vDn" field.</summary>
+    public const int MarginUUpVDnFieldNumber = 538;
+    private float marginUUpVDn_;
+    /// <summary>
+    /// Aggregate RiskSlide: uPrc up, vol dn
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MarginUUpVDn {
+      get { return marginUUpVDn_; }
+      set {
+        marginUUpVDn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "margin_uUp_vUp" field.</summary>
+    public const int MarginUUpVUpFieldNumber = 541;
+    private float marginUUpVUp_;
+    /// <summary>
+    /// Aggregate RiskSlide: uPrc up, vol up
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MarginUUpVUp {
+      get { return marginUUpVUp_; }
+      set {
+        marginUUpVUp_ = value;
+      }
+    }
+
     /// <summary>Field number for the "opn_pnl_de" field.</summary>
-    public const int OpnPnlDeFieldNumber = 532;
+    public const int OpnPnlDeFieldNumber = 544;
     private float opnPnlDe_;
     /// <summary>
     /// open position * mult * hedgeDe * dUPrc
@@ -2473,7 +2540,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_ga" field.</summary>
-    public const int OpnPnlGaFieldNumber = 535;
+    public const int OpnPnlGaFieldNumber = 547;
     private float opnPnlGa_;
     /// <summary>
     /// open position * mult * 0.5 * optGamma * dUPrc * dUPrc
@@ -2488,7 +2555,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_th" field.</summary>
-    public const int OpnPnlThFieldNumber = 538;
+    public const int OpnPnlThFieldNumber = 550;
     private float opnPnlTh_;
     /// <summary>
     /// open position * mult * optTheta * dTime
@@ -2503,7 +2570,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_ve" field.</summary>
-    public const int OpnPnlVeFieldNumber = 541;
+    public const int OpnPnlVeFieldNumber = 553;
     private float opnPnlVe_;
     /// <summary>
     /// open position * mult * optVega * dVol
@@ -2518,7 +2585,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_vo" field.</summary>
-    public const int OpnPnlVoFieldNumber = 544;
+    public const int OpnPnlVoFieldNumber = 556;
     private float opnPnlVo_;
     /// <summary>
     /// open position * mult * 0.5 * optVolga * dVol * dVol
@@ -2533,7 +2600,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_va" field.</summary>
-    public const int OpnPnlVaFieldNumber = 547;
+    public const int OpnPnlVaFieldNumber = 559;
     private float opnPnlVa_;
     /// <summary>
     /// open position * mult * optVanna * dVol * dUPrc
@@ -2548,7 +2615,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_sl" field.</summary>
-    public const int OpnPnlSlFieldNumber = 550;
+    public const int OpnPnlSlFieldNumber = 562;
     private float opnPnlSl_;
     /// <summary>
     /// open position * mult * vol/uPrc * slope * optVega * dUPrc
@@ -2563,7 +2630,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_rate" field.</summary>
-    public const int OpnPnlRateFieldNumber = 553;
+    public const int OpnPnlRateFieldNumber = 565;
     private float opnPnlRate_;
     /// <summary>
     /// open position * mult * optRho * dRate
@@ -2578,7 +2645,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_sDiv" field.</summary>
-    public const int OpnPnlSDivFieldNumber = 556;
+    public const int OpnPnlSDivFieldNumber = 568;
     private float opnPnlSDiv_;
     /// <summary>
     /// open position * mult * optPhi * dSDv
@@ -2593,7 +2660,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_dDiv" field.</summary>
-    public const int OpnPnlDDivFieldNumber = 559;
+    public const int OpnPnlDDivFieldNumber = 571;
     private float opnPnlDDiv_;
     /// <summary>
     /// open position * mult * optPhi * dDDv
@@ -2608,7 +2675,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_sv" field.</summary>
-    public const int OpnPnlSvFieldNumber = 562;
+    public const int OpnPnlSvFieldNumber = 574;
     private float opnPnlSv_;
     /// <summary>
     /// open position * mult * (SR Vol Pnl - opnPnlDe)
@@ -2623,7 +2690,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_pnl_err" field.</summary>
-    public const int OpnPnlErrFieldNumber = 565;
+    public const int OpnPnlErrFieldNumber = 577;
     private float opnPnlErr_;
     /// <summary>
     /// unattributed pnl: SR Vol Pnl - opnPnlDe - opnPnlGa - opnPnlTh - opnPnlVe - opnPnlRat - opnPnlSDiv - opnPnlDDiv
@@ -2638,7 +2705,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sh_bot_c0" field.</summary>
-    public const int ShBotC0FieldNumber = 568;
+    public const int ShBotC0FieldNumber = 580;
     private int shBotC0_;
     /// <summary>
     /// hypothetical shares bot (~1/minute intervals)
@@ -2653,7 +2720,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sh_sld_c0" field.</summary>
-    public const int ShSldC0FieldNumber = 571;
+    public const int ShSldC0FieldNumber = 583;
     private int shSldC0_;
     /// <summary>
     /// hypothetical shares sld
@@ -2668,7 +2735,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sh_mny_c0" field.</summary>
-    public const int ShMnyC0FieldNumber = 574;
+    public const int ShMnyC0FieldNumber = 586;
     private float shMnyC0_;
     /// <summary>
     /// hypothetical money
@@ -2683,7 +2750,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sh_bot_c1" field.</summary>
-    public const int ShBotC1FieldNumber = 577;
+    public const int ShBotC1FieldNumber = 589;
     private int shBotC1_;
     /// <summary>
     /// hypothetical shares bot (~10/minute intervals)
@@ -2698,7 +2765,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sh_sld_c1" field.</summary>
-    public const int ShSldC1FieldNumber = 580;
+    public const int ShSldC1FieldNumber = 592;
     private int shSldC1_;
     /// <summary>
     /// hypothetical shares sld
@@ -2713,7 +2780,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sh_mny_c1" field.</summary>
-    public const int ShMnyC1FieldNumber = 583;
+    public const int ShMnyC1FieldNumber = 595;
     private float shMnyC1_;
     /// <summary>
     /// hypothetical money
@@ -2728,7 +2795,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "mark_err_codes" field.</summary>
-    public const int MarkErrCodesFieldNumber = 586;
+    public const int MarkErrCodesFieldNumber = 598;
     private global::Spiderrock.Protobuf.MarkErrorCode markErrCodes_ = global::Spiderrock.Protobuf.MarkErrorCode.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2740,7 +2807,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ex_value" field.</summary>
-    public const int ExValueFieldNumber = 589;
+    public const int ExValueFieldNumber = 601;
     private float exValue_;
     /// <summary>
     /// early exercise value (amLimit - bsPrice)
@@ -2755,7 +2822,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "risk_alert" field.</summary>
-    public const int RiskAlertFieldNumber = 592;
+    public const int RiskAlertFieldNumber = 604;
     private global::Spiderrock.Protobuf.AlertCode riskAlert_ = global::Spiderrock.Protobuf.AlertCode.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2767,7 +2834,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_executions" field.</summary>
-    public const int NumExecutionsFieldNumber = 595;
+    public const int NumExecutionsFieldNumber = 607;
     private int numExecutions_;
     /// <summary>
     /// number of included SpdrParentExecution records
@@ -2782,7 +2849,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_exec_dttm" field.</summary>
-    public const int MaxExecDttmFieldNumber = 598;
+    public const int MaxExecDttmFieldNumber = 610;
     private global::Google.Protobuf.WellKnownTypes.Timestamp maxExecDttm_;
     /// <summary>
     /// maximum activity dttm of execution records included in this option risk summary
@@ -2797,7 +2864,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 601;
+    public const int TimestampFieldNumber = 613;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2969,6 +3036,10 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(TOpxPr2, other.TOpxPr2)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(TDePr2, other.TDePr2)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(XdePr, other.XdePr)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MarginUDnVDn, other.MarginUDnVDn)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MarginUDnVUp, other.MarginUDnVUp)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MarginUUpVDn, other.MarginUUpVDn)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MarginUUpVUp, other.MarginUUpVUp)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OpnPnlDe, other.OpnPnlDe)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OpnPnlGa, other.OpnPnlGa)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OpnPnlTh, other.OpnPnlTh)) return false;
@@ -3146,6 +3217,10 @@ namespace Spiderrock.Protobuf {
       if (TOpxPr2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(TOpxPr2);
       if (TDePr2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(TDePr2);
       if (XdePr != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(XdePr);
+      if (MarginUDnVDn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MarginUDnVDn);
+      if (MarginUDnVUp != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MarginUDnVUp);
+      if (MarginUUpVDn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MarginUUpVDn);
+      if (MarginUUpVUp != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MarginUUpVUp);
       if (OpnPnlDe != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OpnPnlDe);
       if (OpnPnlGa != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OpnPnlGa);
       if (OpnPnlTh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OpnPnlTh);
@@ -3772,100 +3847,116 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(141, 33);
         output.WriteFloat(XdePr);
       }
-      if (OpnPnlDe != 0F) {
+      if (MarginUDnVDn != 0F) {
         output.WriteRawTag(165, 33);
+        output.WriteFloat(MarginUDnVDn);
+      }
+      if (MarginUDnVUp != 0F) {
+        output.WriteRawTag(189, 33);
+        output.WriteFloat(MarginUDnVUp);
+      }
+      if (MarginUUpVDn != 0F) {
+        output.WriteRawTag(213, 33);
+        output.WriteFloat(MarginUUpVDn);
+      }
+      if (MarginUUpVUp != 0F) {
+        output.WriteRawTag(237, 33);
+        output.WriteFloat(MarginUUpVUp);
+      }
+      if (OpnPnlDe != 0F) {
+        output.WriteRawTag(133, 34);
         output.WriteFloat(OpnPnlDe);
       }
       if (OpnPnlGa != 0F) {
-        output.WriteRawTag(189, 33);
+        output.WriteRawTag(157, 34);
         output.WriteFloat(OpnPnlGa);
       }
       if (OpnPnlTh != 0F) {
-        output.WriteRawTag(213, 33);
+        output.WriteRawTag(181, 34);
         output.WriteFloat(OpnPnlTh);
       }
       if (OpnPnlVe != 0F) {
-        output.WriteRawTag(237, 33);
+        output.WriteRawTag(205, 34);
         output.WriteFloat(OpnPnlVe);
       }
       if (OpnPnlVo != 0F) {
-        output.WriteRawTag(133, 34);
+        output.WriteRawTag(229, 34);
         output.WriteFloat(OpnPnlVo);
       }
       if (OpnPnlVa != 0F) {
-        output.WriteRawTag(157, 34);
+        output.WriteRawTag(253, 34);
         output.WriteFloat(OpnPnlVa);
       }
       if (OpnPnlSl != 0F) {
-        output.WriteRawTag(181, 34);
+        output.WriteRawTag(149, 35);
         output.WriteFloat(OpnPnlSl);
       }
       if (OpnPnlRate != 0F) {
-        output.WriteRawTag(205, 34);
+        output.WriteRawTag(173, 35);
         output.WriteFloat(OpnPnlRate);
       }
       if (OpnPnlSDiv != 0F) {
-        output.WriteRawTag(229, 34);
+        output.WriteRawTag(197, 35);
         output.WriteFloat(OpnPnlSDiv);
       }
       if (OpnPnlDDiv != 0F) {
-        output.WriteRawTag(253, 34);
+        output.WriteRawTag(221, 35);
         output.WriteFloat(OpnPnlDDiv);
       }
       if (OpnPnlSv != 0F) {
-        output.WriteRawTag(149, 35);
+        output.WriteRawTag(245, 35);
         output.WriteFloat(OpnPnlSv);
       }
       if (OpnPnlErr != 0F) {
-        output.WriteRawTag(173, 35);
+        output.WriteRawTag(141, 36);
         output.WriteFloat(OpnPnlErr);
       }
       if (ShBotC0 != 0) {
-        output.WriteRawTag(192, 35);
+        output.WriteRawTag(160, 36);
         output.WriteInt32(ShBotC0);
       }
       if (ShSldC0 != 0) {
-        output.WriteRawTag(216, 35);
+        output.WriteRawTag(184, 36);
         output.WriteInt32(ShSldC0);
       }
       if (ShMnyC0 != 0F) {
-        output.WriteRawTag(245, 35);
+        output.WriteRawTag(213, 36);
         output.WriteFloat(ShMnyC0);
       }
       if (ShBotC1 != 0) {
-        output.WriteRawTag(136, 36);
+        output.WriteRawTag(232, 36);
         output.WriteInt32(ShBotC1);
       }
       if (ShSldC1 != 0) {
-        output.WriteRawTag(160, 36);
+        output.WriteRawTag(128, 37);
         output.WriteInt32(ShSldC1);
       }
       if (ShMnyC1 != 0F) {
-        output.WriteRawTag(189, 36);
+        output.WriteRawTag(157, 37);
         output.WriteFloat(ShMnyC1);
       }
       if (MarkErrCodes != global::Spiderrock.Protobuf.MarkErrorCode.Unspecified) {
-        output.WriteRawTag(208, 36);
+        output.WriteRawTag(176, 37);
         output.WriteEnum((int) MarkErrCodes);
       }
       if (ExValue != 0F) {
-        output.WriteRawTag(237, 36);
+        output.WriteRawTag(205, 37);
         output.WriteFloat(ExValue);
       }
       if (RiskAlert != global::Spiderrock.Protobuf.AlertCode.Unspecified) {
-        output.WriteRawTag(128, 37);
+        output.WriteRawTag(224, 37);
         output.WriteEnum((int) RiskAlert);
       }
       if (NumExecutions != 0) {
-        output.WriteRawTag(152, 37);
+        output.WriteRawTag(248, 37);
         output.WriteInt32(NumExecutions);
       }
       if (maxExecDttm_ != null) {
-        output.WriteRawTag(178, 37);
+        output.WriteRawTag(146, 38);
         output.WriteMessage(MaxExecDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(202, 37);
+        output.WriteRawTag(170, 38);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -4462,100 +4553,116 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(141, 33);
         output.WriteFloat(XdePr);
       }
-      if (OpnPnlDe != 0F) {
+      if (MarginUDnVDn != 0F) {
         output.WriteRawTag(165, 33);
+        output.WriteFloat(MarginUDnVDn);
+      }
+      if (MarginUDnVUp != 0F) {
+        output.WriteRawTag(189, 33);
+        output.WriteFloat(MarginUDnVUp);
+      }
+      if (MarginUUpVDn != 0F) {
+        output.WriteRawTag(213, 33);
+        output.WriteFloat(MarginUUpVDn);
+      }
+      if (MarginUUpVUp != 0F) {
+        output.WriteRawTag(237, 33);
+        output.WriteFloat(MarginUUpVUp);
+      }
+      if (OpnPnlDe != 0F) {
+        output.WriteRawTag(133, 34);
         output.WriteFloat(OpnPnlDe);
       }
       if (OpnPnlGa != 0F) {
-        output.WriteRawTag(189, 33);
+        output.WriteRawTag(157, 34);
         output.WriteFloat(OpnPnlGa);
       }
       if (OpnPnlTh != 0F) {
-        output.WriteRawTag(213, 33);
+        output.WriteRawTag(181, 34);
         output.WriteFloat(OpnPnlTh);
       }
       if (OpnPnlVe != 0F) {
-        output.WriteRawTag(237, 33);
+        output.WriteRawTag(205, 34);
         output.WriteFloat(OpnPnlVe);
       }
       if (OpnPnlVo != 0F) {
-        output.WriteRawTag(133, 34);
+        output.WriteRawTag(229, 34);
         output.WriteFloat(OpnPnlVo);
       }
       if (OpnPnlVa != 0F) {
-        output.WriteRawTag(157, 34);
+        output.WriteRawTag(253, 34);
         output.WriteFloat(OpnPnlVa);
       }
       if (OpnPnlSl != 0F) {
-        output.WriteRawTag(181, 34);
+        output.WriteRawTag(149, 35);
         output.WriteFloat(OpnPnlSl);
       }
       if (OpnPnlRate != 0F) {
-        output.WriteRawTag(205, 34);
+        output.WriteRawTag(173, 35);
         output.WriteFloat(OpnPnlRate);
       }
       if (OpnPnlSDiv != 0F) {
-        output.WriteRawTag(229, 34);
+        output.WriteRawTag(197, 35);
         output.WriteFloat(OpnPnlSDiv);
       }
       if (OpnPnlDDiv != 0F) {
-        output.WriteRawTag(253, 34);
+        output.WriteRawTag(221, 35);
         output.WriteFloat(OpnPnlDDiv);
       }
       if (OpnPnlSv != 0F) {
-        output.WriteRawTag(149, 35);
+        output.WriteRawTag(245, 35);
         output.WriteFloat(OpnPnlSv);
       }
       if (OpnPnlErr != 0F) {
-        output.WriteRawTag(173, 35);
+        output.WriteRawTag(141, 36);
         output.WriteFloat(OpnPnlErr);
       }
       if (ShBotC0 != 0) {
-        output.WriteRawTag(192, 35);
+        output.WriteRawTag(160, 36);
         output.WriteInt32(ShBotC0);
       }
       if (ShSldC0 != 0) {
-        output.WriteRawTag(216, 35);
+        output.WriteRawTag(184, 36);
         output.WriteInt32(ShSldC0);
       }
       if (ShMnyC0 != 0F) {
-        output.WriteRawTag(245, 35);
+        output.WriteRawTag(213, 36);
         output.WriteFloat(ShMnyC0);
       }
       if (ShBotC1 != 0) {
-        output.WriteRawTag(136, 36);
+        output.WriteRawTag(232, 36);
         output.WriteInt32(ShBotC1);
       }
       if (ShSldC1 != 0) {
-        output.WriteRawTag(160, 36);
+        output.WriteRawTag(128, 37);
         output.WriteInt32(ShSldC1);
       }
       if (ShMnyC1 != 0F) {
-        output.WriteRawTag(189, 36);
+        output.WriteRawTag(157, 37);
         output.WriteFloat(ShMnyC1);
       }
       if (MarkErrCodes != global::Spiderrock.Protobuf.MarkErrorCode.Unspecified) {
-        output.WriteRawTag(208, 36);
+        output.WriteRawTag(176, 37);
         output.WriteEnum((int) MarkErrCodes);
       }
       if (ExValue != 0F) {
-        output.WriteRawTag(237, 36);
+        output.WriteRawTag(205, 37);
         output.WriteFloat(ExValue);
       }
       if (RiskAlert != global::Spiderrock.Protobuf.AlertCode.Unspecified) {
-        output.WriteRawTag(128, 37);
+        output.WriteRawTag(224, 37);
         output.WriteEnum((int) RiskAlert);
       }
       if (NumExecutions != 0) {
-        output.WriteRawTag(152, 37);
+        output.WriteRawTag(248, 37);
         output.WriteInt32(NumExecutions);
       }
       if (maxExecDttm_ != null) {
-        output.WriteRawTag(178, 37);
+        output.WriteRawTag(146, 38);
         output.WriteMessage(MaxExecDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(202, 37);
+        output.WriteRawTag(170, 38);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -5004,6 +5111,18 @@ namespace Spiderrock.Protobuf {
         size += 2 + 4;
       }
       if (XdePr != 0F) {
+        size += 2 + 4;
+      }
+      if (MarginUDnVDn != 0F) {
+        size += 2 + 4;
+      }
+      if (MarginUDnVUp != 0F) {
+        size += 2 + 4;
+      }
+      if (MarginUUpVDn != 0F) {
+        size += 2 + 4;
+      }
+      if (MarginUUpVUp != 0F) {
         size += 2 + 4;
       }
       if (OpnPnlDe != 0F) {
@@ -5542,6 +5661,18 @@ namespace Spiderrock.Protobuf {
       }
       if (other.XdePr != 0F) {
         XdePr = other.XdePr;
+      }
+      if (other.MarginUDnVDn != 0F) {
+        MarginUDnVDn = other.MarginUDnVDn;
+      }
+      if (other.MarginUDnVUp != 0F) {
+        MarginUDnVUp = other.MarginUDnVUp;
+      }
+      if (other.MarginUUpVDn != 0F) {
+        MarginUUpVDn = other.MarginUUpVDn;
+      }
+      if (other.MarginUUpVUp != 0F) {
+        MarginUUpVUp = other.MarginUUpVUp;
       }
       if (other.OpnPnlDe != 0F) {
         OpnPnlDe = other.OpnPnlDe;
@@ -6236,101 +6367,117 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 4261: {
-            OpnPnlDe = input.ReadFloat();
+            MarginUDnVDn = input.ReadFloat();
             break;
           }
           case 4285: {
-            OpnPnlGa = input.ReadFloat();
+            MarginUDnVUp = input.ReadFloat();
             break;
           }
           case 4309: {
-            OpnPnlTh = input.ReadFloat();
+            MarginUUpVDn = input.ReadFloat();
             break;
           }
           case 4333: {
-            OpnPnlVe = input.ReadFloat();
+            MarginUUpVUp = input.ReadFloat();
             break;
           }
           case 4357: {
-            OpnPnlVo = input.ReadFloat();
+            OpnPnlDe = input.ReadFloat();
             break;
           }
           case 4381: {
-            OpnPnlVa = input.ReadFloat();
+            OpnPnlGa = input.ReadFloat();
             break;
           }
           case 4405: {
-            OpnPnlSl = input.ReadFloat();
+            OpnPnlTh = input.ReadFloat();
             break;
           }
           case 4429: {
-            OpnPnlRate = input.ReadFloat();
+            OpnPnlVe = input.ReadFloat();
             break;
           }
           case 4453: {
-            OpnPnlSDiv = input.ReadFloat();
+            OpnPnlVo = input.ReadFloat();
             break;
           }
           case 4477: {
-            OpnPnlDDiv = input.ReadFloat();
+            OpnPnlVa = input.ReadFloat();
             break;
           }
           case 4501: {
-            OpnPnlSv = input.ReadFloat();
+            OpnPnlSl = input.ReadFloat();
             break;
           }
           case 4525: {
-            OpnPnlErr = input.ReadFloat();
+            OpnPnlRate = input.ReadFloat();
             break;
           }
-          case 4544: {
-            ShBotC0 = input.ReadInt32();
+          case 4549: {
+            OpnPnlSDiv = input.ReadFloat();
             break;
           }
-          case 4568: {
-            ShSldC0 = input.ReadInt32();
+          case 4573: {
+            OpnPnlDDiv = input.ReadFloat();
             break;
           }
           case 4597: {
-            ShMnyC0 = input.ReadFloat();
+            OpnPnlSv = input.ReadFloat();
             break;
           }
-          case 4616: {
-            ShBotC1 = input.ReadInt32();
+          case 4621: {
+            OpnPnlErr = input.ReadFloat();
             break;
           }
           case 4640: {
-            ShSldC1 = input.ReadInt32();
+            ShBotC0 = input.ReadInt32();
             break;
           }
-          case 4669: {
-            ShMnyC1 = input.ReadFloat();
+          case 4664: {
+            ShSldC0 = input.ReadInt32();
             break;
           }
-          case 4688: {
-            MarkErrCodes = (global::Spiderrock.Protobuf.MarkErrorCode) input.ReadEnum();
+          case 4693: {
+            ShMnyC0 = input.ReadFloat();
             break;
           }
-          case 4717: {
-            ExValue = input.ReadFloat();
+          case 4712: {
+            ShBotC1 = input.ReadInt32();
             break;
           }
           case 4736: {
+            ShSldC1 = input.ReadInt32();
+            break;
+          }
+          case 4765: {
+            ShMnyC1 = input.ReadFloat();
+            break;
+          }
+          case 4784: {
+            MarkErrCodes = (global::Spiderrock.Protobuf.MarkErrorCode) input.ReadEnum();
+            break;
+          }
+          case 4813: {
+            ExValue = input.ReadFloat();
+            break;
+          }
+          case 4832: {
             RiskAlert = (global::Spiderrock.Protobuf.AlertCode) input.ReadEnum();
             break;
           }
-          case 4760: {
+          case 4856: {
             NumExecutions = input.ReadInt32();
             break;
           }
-          case 4786: {
+          case 4882: {
             if (maxExecDttm_ == null) {
               MaxExecDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxExecDttm);
             break;
           }
-          case 4810: {
+          case 4906: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -6952,101 +7099,117 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 4261: {
-            OpnPnlDe = input.ReadFloat();
+            MarginUDnVDn = input.ReadFloat();
             break;
           }
           case 4285: {
-            OpnPnlGa = input.ReadFloat();
+            MarginUDnVUp = input.ReadFloat();
             break;
           }
           case 4309: {
-            OpnPnlTh = input.ReadFloat();
+            MarginUUpVDn = input.ReadFloat();
             break;
           }
           case 4333: {
-            OpnPnlVe = input.ReadFloat();
+            MarginUUpVUp = input.ReadFloat();
             break;
           }
           case 4357: {
-            OpnPnlVo = input.ReadFloat();
+            OpnPnlDe = input.ReadFloat();
             break;
           }
           case 4381: {
-            OpnPnlVa = input.ReadFloat();
+            OpnPnlGa = input.ReadFloat();
             break;
           }
           case 4405: {
-            OpnPnlSl = input.ReadFloat();
+            OpnPnlTh = input.ReadFloat();
             break;
           }
           case 4429: {
-            OpnPnlRate = input.ReadFloat();
+            OpnPnlVe = input.ReadFloat();
             break;
           }
           case 4453: {
-            OpnPnlSDiv = input.ReadFloat();
+            OpnPnlVo = input.ReadFloat();
             break;
           }
           case 4477: {
-            OpnPnlDDiv = input.ReadFloat();
+            OpnPnlVa = input.ReadFloat();
             break;
           }
           case 4501: {
-            OpnPnlSv = input.ReadFloat();
+            OpnPnlSl = input.ReadFloat();
             break;
           }
           case 4525: {
-            OpnPnlErr = input.ReadFloat();
+            OpnPnlRate = input.ReadFloat();
             break;
           }
-          case 4544: {
-            ShBotC0 = input.ReadInt32();
+          case 4549: {
+            OpnPnlSDiv = input.ReadFloat();
             break;
           }
-          case 4568: {
-            ShSldC0 = input.ReadInt32();
+          case 4573: {
+            OpnPnlDDiv = input.ReadFloat();
             break;
           }
           case 4597: {
-            ShMnyC0 = input.ReadFloat();
+            OpnPnlSv = input.ReadFloat();
             break;
           }
-          case 4616: {
-            ShBotC1 = input.ReadInt32();
+          case 4621: {
+            OpnPnlErr = input.ReadFloat();
             break;
           }
           case 4640: {
-            ShSldC1 = input.ReadInt32();
+            ShBotC0 = input.ReadInt32();
             break;
           }
-          case 4669: {
-            ShMnyC1 = input.ReadFloat();
+          case 4664: {
+            ShSldC0 = input.ReadInt32();
             break;
           }
-          case 4688: {
-            MarkErrCodes = (global::Spiderrock.Protobuf.MarkErrorCode) input.ReadEnum();
+          case 4693: {
+            ShMnyC0 = input.ReadFloat();
             break;
           }
-          case 4717: {
-            ExValue = input.ReadFloat();
+          case 4712: {
+            ShBotC1 = input.ReadInt32();
             break;
           }
           case 4736: {
+            ShSldC1 = input.ReadInt32();
+            break;
+          }
+          case 4765: {
+            ShMnyC1 = input.ReadFloat();
+            break;
+          }
+          case 4784: {
+            MarkErrCodes = (global::Spiderrock.Protobuf.MarkErrorCode) input.ReadEnum();
+            break;
+          }
+          case 4813: {
+            ExValue = input.ReadFloat();
+            break;
+          }
+          case 4832: {
             RiskAlert = (global::Spiderrock.Protobuf.AlertCode) input.ReadEnum();
             break;
           }
-          case 4760: {
+          case 4856: {
             NumExecutions = input.ReadInt32();
             break;
           }
-          case 4786: {
+          case 4882: {
             if (maxExecDttm_ == null) {
               MaxExecDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxExecDttm);
             break;
           }
-          case 4810: {
+          case 4906: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

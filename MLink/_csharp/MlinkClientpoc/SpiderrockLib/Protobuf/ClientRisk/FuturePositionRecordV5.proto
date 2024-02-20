@@ -74,9 +74,11 @@ message FuturePositionRecordV5 {
     float ve = 235; // vega; (dPrc / dVol) - only for VIX futures
     float rate_pr = 238; // start of period global rate
     float years_pr = 241; // start of period years to expiration
-    int32 num_executions = 244; // number of included SpdrParentExecution records
-    google.protobuf.Timestamp max_exec_dttm = 247; // maximum activity dttm of execution records included in this future risk record
-    google.protobuf.Timestamp timestamp = 250;
+    float margin_uDn = 244; // Aggregate RiskSlide: uPrc dn
+    float margin_uUp = 247; // Aggregate RiskSlide: uPrc up
+    int32 num_executions = 250; // number of included SpdrParentExecution records
+    google.protobuf.Timestamp max_exec_dttm = 253; // maximum activity dttm of execution records included in this future risk record
+    google.protobuf.Timestamp timestamp = 256;
 }
 
 

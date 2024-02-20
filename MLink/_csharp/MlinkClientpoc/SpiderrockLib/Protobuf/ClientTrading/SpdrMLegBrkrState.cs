@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci5Qcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJNTGVnQnJrclN0YXRlLnBy",
             "b3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5w",
-            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKdUAoRU3Bk",
+            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLuSwoRU3Bk",
             "ck1MZWdCcmtyU3RhdGUSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnBy",
             "b3RvYnVmLk1lc3NhZ2VNZXRhZGF0YRI5CgRwa2V5GAIgASgLMisuc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5TcGRyTUxlZ0Jya3JTdGF0ZS5QS2V5EhMKC2VuZ2lu",
@@ -132,134 +132,121 @@ namespace Spiderrock.Protobuf {
             "aWxsX3RoZXRhGKkEIAEoAhIzCg5sYXN0X2ZpbGxfZHR0bRisBCABKAsyGi5n",
             "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEhgKD3Jpc2tfbGltaXRfc2l6ZRiv",
             "BCABKAUSNwoPcmlza19saW1pdF9kZXNjGLIEIAEoDjIdLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuU3BkclJpc2sSNwoMbWF4X3Byb2dyZXNzGLUEIAEoDjIgLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuTWF4UHJvZ3Jlc3MSHAoTbWF4X3Byb2dyZXNz",
-            "X2RldGFpbBi4BCABKAkSNgoRbWF4X3Byb2dyZXNzX3RpbWUYuwQgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCgphbGdvX3N0YXRlGL4EIAEo",
-            "DjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQWxnb1N0YXRlEhUKDGFsZ29fY291",
-            "bnRlchjBBCABKAUSMwoKbWFrZV9zdGF0ZRjEBCABKA4yHi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkFsZ29TdGF0ZRIVCgxtYWtlX2NvdW50ZXIYxwQgASgFEjoK",
-            "Dm1rdF9yZXNwX3N0YXRlGMoEIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "TWt0UmVzcFN0YXRlEhkKEG1rdF9yZXNwX2NvdW50ZXIYzQQgASgFEjcKDGJy",
-            "b2tlcl9zdGF0ZRjQBCABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLkJyb2tl",
-            "clN0YXRlEhcKDmJyb2tlcl9jb3VudGVyGNMEIAEoBRI9Cg5zcGRyX21rdF9z",
-            "dGF0ZRjWBCABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJNYXJrZXRT",
-            "dGF0ZRJCChJzcGRyX2Jyb2tlcl9zdGF0dXMY2QQgASgOMiUuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5TcGRyQnJva2VyU3RhdHVzEh0KFHByb2dyZXNzX3J1bGVf",
-            "ZGV0YWlsGNwEIAEoCRI7ChZsYXN0X2NoaWxkX3JlamVjdF9kdHRtGN8EIAEo",
-            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASHwoWbGFzdF9jaGlsZF9y",
-            "ZWplY3RfdGV4dBjiBCABKAkSFgoNcmlza19ncm91cF9pZBjlBCABKAMSGQoQ",
-            "dHJpZ2dlcl9ncm91cF9pZBjoBCABKAMSHAoTaGVkZ2VfZ3JvdXBpbmdfY29k",
-            "ZRjrBCABKAMSMwoKYXV0b19oZWRnZRjuBCABKA4yHi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLkF1dG9IZWRnZRI5ChBoZWRnZV9pbnN0cnVtZW50GPEEIAEoDjIe",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuSGVkZ2VJbnN0EjYKDWhlZGdlX3NlY19r",
-            "ZXkY9AQgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5FeHBpcnlLZXkSOQoO",
-            "aGVkZ2Vfc2VjX3R5cGUY9wQgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5T",
-            "cGRyS2V5VHlwZRIZChBoZWRnZV9iZXRhX3JhdGlvGPoEIAEoAhI1CgtoZWRn",
-            "ZV9zY29wZRj9BCABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLkhlZGdlU2Nv",
-            "cGUSHQoUZXh0ZXJuX2hlZGdlX2V4X2Rlc3QYgAUgASgJEhwKE2V4dGVybl9o",
-            "ZWRnZV9wYXJhbXMYgwUgASgJEhUKDGJlc3Rfd2F5X3ByYxiGBSABKAISFQoM",
-            "d3JzdF93YXlfcHJjGIkFIAEoAhIUCgtiZXN0X3dheV9zehiMBSABKAUSFAoL",
-            "d3JzdF93YXlfc3oYjwUgASgFEhQKC3N1cmZhY2VfcHJjGJIFIAEoAhIUCgtz",
-            "dXJmYWNlX3ZvbBiVBSABKAISFQoMc3VyZmFjZV91UHJjGJgFIAEoAhIUCgts",
-            "aW1pdF9wcmljZRibBSABKAESMwoJbGltaXRfZXJyGJ4FIAEoDjIfLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuTGltaXRFcnJvchIZChBtYWtlX2xpbWl0X3ByaWNl",
-            "GKEFIAEoARIZChB0YWtlX2xpbWl0X3ByaWNlGKQFIAEoARI1Cg5jeGxfdVBy",
-            "Y19yYW5nZRinBSABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLlVQcmNDeGwS",
-            "EQoIbWluX3VCaWQYqgUgASgCEhEKCG1heF91QXNrGK0FIAEoAhI2CgxtaW5f",
-            "bWF4X3R5cGUYsAUgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5NaW5NYXhU",
-            "eXBlEjAKCWxlYWRfc2lkZRizBSABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LkJ1eVNlbGwSIAoXbWF4X2NvbXBsZXRpb25fc2xpcHBhZ2UYtgUgASgBEhoK",
-            "EW9yZGVyX3JlZl9wcmVtaXVtGLkFIAEoAhIRCghzdHJhdGVneRi8BSABKAkS",
-            "EgoJdXNlcl9uYW1lGL8FIAEoCRIyCg12aXNpYmxlX2luX3NWGMIFIAEoDjIa",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SFQoMc3Bkcl9jb21tZW50GMUF",
-            "IAEoCRI4Cg90YWtlX3JlYWNoX3J1bGUYyAUgASgOMh4uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5SZWFjaFJ1bGUSGgoRbWF4X2V4cG9zdXJlX3NpemUYywUgASgF",
-            "EhsKEm51bV9tYWtlX2V4Y2hhbmdlcxjOBSABKAUSPQoLcHVibGljX3NpemUY",
-            "0QUgASgOMicuc3BpZGVycm9jay5wcm90b2J1Zi5QdWJsaWNTaXplSGFuZGxp",
-            "bmcSOQoNcHJvZ3Jlc3NfcnVsZRjUBSABKA4yIS5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlByb2dyZXNzUnVsZRIbChJwcm9ncmVzc19zbGljZV9jbnQY1wUgASgF",
-            "Eh0KFHByb2dyZXNzX2V4cG9zZV90aW1lGNoFIAEoBRIZChBtYXhfY2hpbGRf",
-            "b3JkZXJzGN0FIAEoBRISCglleGNoX21hc2sY4AUgASgNEjgKDXRpbWVfaW5f",
-            "Zm9yY2UY4wUgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5UaW1lSW5Gb3Jj",
-            "ZRIvCgpzdGFydF9kdHRtGOYFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXASFwoOb3JkZXJfZHVyYXRpb24Y6QUgASgFEjMKDmdvb2RfdGlsbF9k",
-            "dHRtGOwFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASSAoVcGFy",
-            "ZW50X29yZGVyX2hhbmRsaW5nGO8FIAEoDjIoLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuUGFyZW50T3JkZXJIYW5kbGluZxJMChdwYXJlbnRfYmFsYW5jZV9oYW5k",
-            "bGluZxjyBSABKA4yKi5zcGlkZXJyb2NrLnByb3RvYnVmLlBhcmVudEJhbGFu",
-            "Y2VIYW5kbGluZxI/ChBibG9ja192aXNpYmlsaXR5GPUFIAEoDjIkLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuQmxvY2tWaXNpYmlsaXR5Ej0KEG9yZGVyX2xpbWl0",
-            "X3R5cGUY+AUgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyTGltaXRU",
-            "eXBlEhgKD29yZGVyX3ByY19saW1pdBj7BSABKAESFwoOb3JkZXJfcmVmX3VQ",
-            "cmMY/gUgASgBEhUKDG9yZGVyX3JlZl9kZRiBBiABKAISFQoMb3JkZXJfcmVm",
-            "X2dhGIQGIAEoAhIZChBvcmRlcl9wcmNfb2Zmc2V0GIcGIAEoARI+ChB0YWtl",
-            "X2xpbWl0X2NsYXNzGIoGIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bk",
-            "ckxpbWl0Q2xhc3MSOAoPdGFrZV9hbHBoYV90eXBlGI0GIAEoDjIeLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuQWxwaGFUeXBlEhoKEXRha2VfYWxwaGFfZmFjdG9y",
-            "GJAGIAEoAhIfChZ0YWtlX2FscGhhX3Byb2JhYmlsaXR5GJMGIAEoAhIdChR0",
-            "YWtlX3N1cmZfcHJjX29mZnNldBiWBiABKAESHQoUdGFrZV9zdXJmX3ZvbF9v",
-            "ZmZzZXQYmQYgASgCEh0KFHRha2Vfc3VyZl93aWRfb2Zmc2V0GJwGIAEoAhI+",
-            "ChBtYWtlX2xpbWl0X2NsYXNzGJ8GIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuU3BkckxpbWl0Q2xhc3MSOAoPbWFrZV9hbHBoYV90eXBlGKIGIAEoDjIe",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuQWxwaGFUeXBlEhoKEW1ha2VfYWxwaGFf",
-            "ZmFjdG9yGKUGIAEoAhIfChZtYWtlX2FscGhhX3Byb2JhYmlsaXR5GKgGIAEo",
-            "AhIdChRtYWtlX3N1cmZfcHJjX29mZnNldBirBiABKAESHQoUbWFrZV9zdXJm",
-            "X3ZvbF9vZmZzZXQYrgYgASgCEh0KFG1ha2Vfc3VyZl93aWRfb2Zmc2V0GLEG",
-            "IAEoAhIdChRvcmRlcl9yZWZfZXZlbnRfbXVsdBi0BiABKAISOQoUb3JkZXJf",
-            "cmVmX2V2ZW50X2R0dG0YtwYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBIYCg9tbGVnX3Byb2JfbGltaXQYugYgASgCEhkKEG1sZWdfc3VyZl9v",
-            "ZmZzZXQYvQYgASgCEhcKDmV4dGVybl9leF9kZXN0GMAGIAEoCRIvCgpvcmRl",
-            "cl9kdHRtGMMGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASFQoM",
-            "bWluX3N1cmZfdm9sGMYGIAEoAhIVCgxtYXhfc3VyZl92b2wYyQYgASgCEhUK",
-            "DG1pbl9zdXJmX3ByYxjMBiABKAISFQoMbWF4X3N1cmZfcHJjGM8GIAEoAhIW",
-            "Cg1taW5fc3VyZl91UHJjGNIGIAEoAhIWCg1tYXhfc3VyZl91UHJjGNUGIAEo",
-            "AhIWCg1taW5fcXRlX3dpZHRoGNgGIAEoAhIWCg1hdmdfcXRlX3dpZHRoGNsG",
-            "IAEoAhIWCg1jbnRfcXRlX3dpZHRoGN4GIAEoBRITCgphcnJpdmVfYmlkGOEG",
-            "IAEoARITCgphcnJpdmVfYXNrGOQGIAEoARIWCg10b3RhbF9zZWNvbmRzGOcG",
-            "IAEoAhIYCg93b3JraW5nX3NlY29uZHMY6gYgASgCEhcKDnBydF9hY3RpdmVf",
-            "Y250GO0GIAEoBRIXCg5wcnRfcXR5X2FjdGl2ZRjwBiABKAUSFQoMY3VtX2V4",
-            "Y2hfZmVlGPMGIAEoAhIUCgtjdW1fbTEwX3BubBj2BiABKAISGAoPY3VtX2Fy",
-            "cml2YWxfcG5sGPkGIAEoAhIUCgt1X3ByY19kcmlmdBj8BiABKAISFAoLc192",
-            "b2xfZHJpZnQY/wYgASgCEhwKE25ldF9hY2NfZGF5X3d0X3ZlZ2EYggcgASgC",
-            "EhsKEm5ldF9hY2NfZGF5X2REZWx0YRiFByABKAISHAoTbmV0X3N5bV9kYXlf",
-            "d3RfdmVnYRiIByABKAISGwoSbmV0X3N5bV9kYXlfZERlbHRhGIsHIAEoAhIZ",
-            "ChBuZXRfZ3JwX2RheV92ZWdhGI4HIAEoAhIbChJuZXRfZ3JwX2RheV9kRGVs",
-            "dGEYkQcgASgCEhwKE25ldF9ncnBfZGF5X3ByZW1pdW0YlAcgASgCEh4KFW5l",
-            "dF9ncnBfZGF5X2NvbnRyYWN0cxiXByABKAUSGQoQbmV0X2dycF9yTWV0cmlj",
-            "MRiaByABKAISGQoQbmV0X2dycF9yTWV0cmljMhidByABKAISGQoQbmV0X2dy",
-            "cF9yTWV0cmljMxigByABKAISGQoQbmV0X2dycF9yTWV0cmljNBijByABKAIS",
-            "GQoQbmV0X2dycF9yTWV0cmljNRimByABKAISGQoQbmV0X2dycF9yTWV0cmlj",
-            "NxipByABKAISHwoWbmV0X3N5bV9lbWFfY3hsX2REZWx0YRisByABKAISIAoX",
-            "bmV0X3N5bV9lbWFfY3hsX3d0X3ZlZ2EYrwcgASgCEh4KFW1heF9ncnBfZGF5",
-            "X2REZWx0YV9sbhiyByABKAISHgoVbWF4X2dycF9kYXlfZERlbHRhX3NoGLUH",
-            "IAEoAhIdChRncnBfZGF5X2REZWx0YV9yYXRpbxi4ByABKAISHAoTbWF4X2dy",
-            "cF9kYXlfdmVnYV9sbhi7ByABKAISHAoTbWF4X2dycF9kYXlfdmVnYV9zaBi+",
-            "ByABKAISHQoUbWF4X2dycF9kYXlfdmVnYV9hYnMYwQcgASgCEhsKEmdycF9k",
-            "YXlfdmVnYV9yYXRpbxjEByABKAISHwoWbWF4X2dycF9kYXlfcHJlbWl1bV9s",
-            "bhjHByABKAISHwoWbWF4X2dycF9kYXlfcHJlbWl1bV9zaBjKByABKAISIAoX",
-            "bWF4X2dycF9kYXlfcHJlbWl1bV9hYnMYzQcgASgCEh4KFWdycF9kYXlfcHJl",
-            "bWl1bV9yYXRpbxjQByABKAISIQoYbWF4X2dycF9kYXlfY29udHJhY3RzX2xu",
-            "GNMHIAEoBRIhChhtYXhfZ3JwX2RheV9jb250cmFjdHNfc2gY1gcgASgFEiIK",
-            "GW1heF9ncnBfZGF5X2NvbnRyYWN0c19hYnMY2QcgASgFEh4KFXN5bV9lbWFf",
-            "Y3hsX2REZWx0YV9sbhjcByABKAISHgoVc3ltX2VtYV9jeGxfZERlbHRhX3No",
-            "GN8HIAEoAhIfChZzeW1fZW1hX2N4bF93dF92ZWdhX2xuGOIHIAEoAhIfChZz",
-            "eW1fZW1hX2N4bF93dF92ZWdhX3NoGOUHIAEoAhINCgRjcHgxGOgHIAEoAhIN",
-            "CgRjc3oxGOsHIAEoBRINCgRjZXgxGO4HIAEoDRINCgRjcHgyGPEHIAEoAhIN",
-            "CgRjc3oyGPQHIAEoBRINCgRjZXgyGPcHIAEoDRIPCgZjX21vcmUY+gcgASgF",
-            "EhcKDm51bV9uZXdfb3JkZXJzGP0HIAEoBRIaChFudW1fcGFyZW50X2xpbWl0",
-            "cxiACCABKA0SEwoKdXNlcl9kYXRhMRiDCCABKAkSEwoKdXNlcl9kYXRhMhiG",
-            "CCABKAkSFAoLbnVtX3VwZGF0ZXMYiQggASgFEi4KCXRpbWVzdGFtcBiMCCAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGsQBCgRQS2V5Ei4KBnRp",
-            "Y2tlchgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5Eg0K",
-            "BWFjY250GAsgASgJEjQKC3NwZHJfc291cmNlGAwgASgOMh8uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5TcGRyU291cmNlEhUKDWdyb3VwaW5nX2NvZGUYDSABKAMS",
-            "MAoKb3JkZXJfc2lkZRgOIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuQnV5",
-            "U2VsbGIGcHJvdG8z"));
+            "cHJvdG9idWYuU3BkclJpc2sSPQoQcmlza19saW1pdF9sZXZlbBi1BCABKA4y",
+            "Ii5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJSaXNrTGV2ZWwSNwoMbWF4X3By",
+            "b2dyZXNzGLgEIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuTWF4UHJvZ3Jl",
+            "c3MSHAoTbWF4X3Byb2dyZXNzX2RldGFpbBi7BCABKAkSNgoRbWF4X3Byb2dy",
+            "ZXNzX3RpbWUYvgQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIz",
+            "CgphbGdvX3N0YXRlGMEEIAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQWxn",
+            "b1N0YXRlEhUKDGFsZ29fY291bnRlchjEBCABKAUSMwoKbWFrZV9zdGF0ZRjH",
+            "BCABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkFsZ29TdGF0ZRIVCgxtYWtl",
+            "X2NvdW50ZXIYygQgASgFEjoKDm1rdF9yZXNwX3N0YXRlGM0EIAEoDjIhLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuTWt0UmVzcFN0YXRlEhkKEG1rdF9yZXNwX2Nv",
+            "dW50ZXIY0AQgASgFEjcKDGJyb2tlcl9zdGF0ZRjTBCABKA4yIC5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLkJyb2tlclN0YXRlEhcKDmJyb2tlcl9jb3VudGVyGNYE",
+            "IAEoBRI9Cg5zcGRyX21rdF9zdGF0ZRjZBCABKA4yJC5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlNwZHJNYXJrZXRTdGF0ZRJCChJzcGRyX2Jyb2tlcl9zdGF0dXMY",
+            "3AQgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyQnJva2VyU3RhdHVz",
+            "Eh0KFHByb2dyZXNzX3J1bGVfZGV0YWlsGN8EIAEoCRI7ChZsYXN0X2NoaWxk",
+            "X3JlamVjdF9kdHRtGOIEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
+            "bXASHwoWbGFzdF9jaGlsZF9yZWplY3RfdGV4dBjlBCABKAkSFgoNcmlza19n",
+            "cm91cF9pZBjoBCABKAMSGQoQdHJpZ2dlcl9ncm91cF9pZBjrBCABKAMSHAoT",
+            "aGVkZ2VfZ3JvdXBpbmdfY29kZRjuBCABKAMSMwoKYXV0b19oZWRnZRjxBCAB",
+            "KA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkF1dG9IZWRnZRI5ChBoZWRnZV9p",
+            "bnN0cnVtZW50GPQEIAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuSGVkZ2VJ",
+            "bnN0EjYKDWhlZGdlX3NlY19rZXkY9wQgASgLMh4uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5FeHBpcnlLZXkSOQoOaGVkZ2Vfc2VjX3R5cGUY+gQgASgOMiAuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5TcGRyS2V5VHlwZRIZChBoZWRnZV9iZXRhX3Jh",
+            "dGlvGP0EIAEoAhI1CgtoZWRnZV9zY29wZRiABSABKA4yHy5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkhlZGdlU2NvcGUSHQoUZXh0ZXJuX2hlZGdlX2V4X2Rlc3QY",
+            "gwUgASgJEhwKE2V4dGVybl9oZWRnZV9wYXJhbXMYhgUgASgJEhUKDGJlc3Rf",
+            "d2F5X3ByYxiJBSABKAISFQoMd3JzdF93YXlfcHJjGIwFIAEoAhIUCgtiZXN0",
+            "X3dheV9zehiPBSABKAUSFAoLd3JzdF93YXlfc3oYkgUgASgFEhQKC3N1cmZh",
+            "Y2VfcHJjGJUFIAEoAhIUCgtzdXJmYWNlX3ZvbBiYBSABKAISFQoMc3VyZmFj",
+            "ZV91UHJjGJsFIAEoAhIUCgtsaW1pdF9wcmljZRieBSABKAESMwoJbGltaXRf",
+            "ZXJyGKEFIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuTGltaXRFcnJvchIZ",
+            "ChBtYWtlX2xpbWl0X3ByaWNlGKQFIAEoARIZChB0YWtlX2xpbWl0X3ByaWNl",
+            "GKcFIAEoARI1Cg5jeGxfdVByY19yYW5nZRiqBSABKA4yHC5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlVQcmNDeGwSEQoIbWluX3VCaWQYrQUgASgCEhEKCG1heF91",
+            "QXNrGLAFIAEoAhI2CgxtaW5fbWF4X3R5cGUYswUgASgOMh8uc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5NaW5NYXhUeXBlEjAKCWxlYWRfc2lkZRi2BSABKA4yHC5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSIAoXbWF4X2NvbXBsZXRpb25f",
+            "c2xpcHBhZ2UYuQUgASgBEhoKEW9yZGVyX3JlZl9wcmVtaXVtGLwFIAEoAhIR",
+            "CghzdHJhdGVneRi/BSABKAkSEgoJdXNlcl9uYW1lGMIFIAEoCRIyCg12aXNp",
+            "YmxlX2luX3NWGMUFIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
+            "FQoMc3Bkcl9jb21tZW50GMgFIAEoCRI4Cg90YWtlX3JlYWNoX3J1bGUYywUg",
+            "ASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5SZWFjaFJ1bGUSGgoRbWF4X2V4",
+            "cG9zdXJlX3NpemUYzgUgASgFEhsKEm51bV9tYWtlX2V4Y2hhbmdlcxjRBSAB",
+            "KAUSPQoLcHVibGljX3NpemUY1AUgASgOMicuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5QdWJsaWNTaXplSGFuZGxpbmcSOQoNcHJvZ3Jlc3NfcnVsZRjXBSABKA4y",
+            "IS5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2dyZXNzUnVsZRIbChJwcm9ncmVz",
+            "c19zbGljZV9jbnQY2gUgASgFEh0KFHByb2dyZXNzX2V4cG9zZV90aW1lGN0F",
+            "IAEoBRIZChBtYXhfY2hpbGRfb3JkZXJzGOAFIAEoBRISCglleGNoX21hc2sY",
+            "4wUgASgNEjgKDXRpbWVfaW5fZm9yY2UY5gUgASgOMiAuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5UaW1lSW5Gb3JjZRIvCgpzdGFydF9kdHRtGOkFIAEoCzIaLmdv",
+            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASFwoOb3JkZXJfZHVyYXRpb24Y7AUg",
+            "ASgFEjMKDmdvb2RfdGlsbF9kdHRtGO8FIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXASSAoVcGFyZW50X29yZGVyX2hhbmRsaW5nGPIFIAEoDjIo",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuUGFyZW50T3JkZXJIYW5kbGluZxJMChdw",
+            "YXJlbnRfYmFsYW5jZV9oYW5kbGluZxj1BSABKA4yKi5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlBhcmVudEJhbGFuY2VIYW5kbGluZxI/ChBibG9ja192aXNpYmls",
+            "aXR5GPgFIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuQmxvY2tWaXNpYmls",
+            "aXR5Ej0KEG9yZGVyX2xpbWl0X3R5cGUY+wUgASgOMiIuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5TcGRyTGltaXRUeXBlEhgKD29yZGVyX3ByY19saW1pdBj+BSAB",
+            "KAESFwoOb3JkZXJfcmVmX3VQcmMYgQYgASgBEhUKDG9yZGVyX3JlZl9kZRiE",
+            "BiABKAISFQoMb3JkZXJfcmVmX2dhGIcGIAEoAhIZChBvcmRlcl9wcmNfb2Zm",
+            "c2V0GIoGIAEoARI+ChB0YWtlX2xpbWl0X2NsYXNzGI0GIAEoDjIjLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuU3BkckxpbWl0Q2xhc3MSOAoPdGFrZV9hbHBoYV90",
+            "eXBlGJAGIAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQWxwaGFUeXBlEhoK",
+            "EXRha2VfYWxwaGFfZmFjdG9yGJMGIAEoAhIfChZ0YWtlX2FscGhhX3Byb2Jh",
+            "YmlsaXR5GJYGIAEoAhIdChR0YWtlX3N1cmZfcHJjX29mZnNldBiZBiABKAES",
+            "HQoUdGFrZV9zdXJmX3ZvbF9vZmZzZXQYnAYgASgCEh0KFHRha2Vfc3VyZl93",
+            "aWRfb2Zmc2V0GJ8GIAEoAhI+ChBtYWtlX2xpbWl0X2NsYXNzGKIGIAEoDjIj",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuU3BkckxpbWl0Q2xhc3MSOAoPbWFrZV9h",
+            "bHBoYV90eXBlGKUGIAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQWxwaGFU",
+            "eXBlEhoKEW1ha2VfYWxwaGFfZmFjdG9yGKgGIAEoAhIfChZtYWtlX2FscGhh",
+            "X3Byb2JhYmlsaXR5GKsGIAEoAhIdChRtYWtlX3N1cmZfcHJjX29mZnNldBiu",
+            "BiABKAESHQoUbWFrZV9zdXJmX3ZvbF9vZmZzZXQYsQYgASgCEh0KFG1ha2Vf",
+            "c3VyZl93aWRfb2Zmc2V0GLQGIAEoAhIdChRvcmRlcl9yZWZfZXZlbnRfbXVs",
+            "dBi3BiABKAISOQoUb3JkZXJfcmVmX2V2ZW50X2R0dG0YugYgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBIYCg9tbGVnX3Byb2JfbGltaXQYvQYg",
+            "ASgCEhkKEG1sZWdfc3VyZl9vZmZzZXQYwAYgASgCEhcKDmV4dGVybl9leF9k",
+            "ZXN0GMMGIAEoCRIvCgpvcmRlcl9kdHRtGMYGIAEoCzIaLmdvb2dsZS5wcm90",
+            "b2J1Zi5UaW1lc3RhbXASFQoMbWluX3N1cmZfdm9sGMkGIAEoAhIVCgxtYXhf",
+            "c3VyZl92b2wYzAYgASgCEhUKDG1pbl9zdXJmX3ByYxjPBiABKAISFQoMbWF4",
+            "X3N1cmZfcHJjGNIGIAEoAhIWCg1taW5fc3VyZl91UHJjGNUGIAEoAhIWCg1t",
+            "YXhfc3VyZl91UHJjGNgGIAEoAhIWCg1taW5fcXRlX3dpZHRoGNsGIAEoAhIW",
+            "Cg1hdmdfcXRlX3dpZHRoGN4GIAEoAhIWCg1jbnRfcXRlX3dpZHRoGOEGIAEo",
+            "BRITCgphcnJpdmVfYmlkGOQGIAEoARITCgphcnJpdmVfYXNrGOcGIAEoARIW",
+            "Cg10b3RhbF9zZWNvbmRzGOoGIAEoAhIYCg93b3JraW5nX3NlY29uZHMY7QYg",
+            "ASgCEhcKDnBydF9hY3RpdmVfY250GPAGIAEoBRIXCg5wcnRfcXR5X2FjdGl2",
+            "ZRjzBiABKAUSFQoMY3VtX2V4Y2hfZmVlGPYGIAEoAhIUCgtjdW1fbTEwX3Bu",
+            "bBj5BiABKAISGAoPY3VtX2Fycml2YWxfcG5sGPwGIAEoAhIUCgt1X3ByY19k",
+            "cmlmdBj/BiABKAISFAoLc192b2xfZHJpZnQYggcgASgCEh4KFW1heF9ncnBf",
+            "ZGF5X2REZWx0YV9sbhiFByABKAISHgoVbWF4X2dycF9kYXlfZERlbHRhX3No",
+            "GIgHIAEoAhIhChhtYXhfZ3JwX2RheV9jb250cmFjdHNfbG4YiwcgASgFEiEK",
+            "GG1heF9ncnBfZGF5X2NvbnRyYWN0c19zaBiOByABKAUSIgoZbWF4X2dycF9k",
+            "YXlfY29udHJhY3RzX2FicxiRByABKAUSHAoTbWF4X2dycF9kYXlfdmVnYV9s",
+            "bhiUByABKAISHAoTbWF4X2dycF9kYXlfdmVnYV9zaBiXByABKAISHQoUbWF4",
+            "X2dycF9kYXlfdmVnYV9hYnMYmgcgASgCEhsKEmdycF9kYXlfdmVnYV9yYXRp",
+            "bxidByABKAISIAoXbWF4X2dycF9kYXlfck1ldHJpYzFfbG4YoAcgASgCEiAK",
+            "F21heF9ncnBfZGF5X3JNZXRyaWMxX3NoGKMHIAEoAhIhChhtYXhfZ3JwX2Rh",
+            "eV9yTWV0cmljMV9hYnMYpgcgASgCEh8KFmdycF9kYXlfck1ldHJpYzFfcmF0",
+            "aW8YqQcgASgCEg0KBGNweDEYrAcgASgCEg0KBGNzejEYrwcgASgFEg0KBGNl",
+            "eDEYsgcgASgNEg0KBGNweDIYtQcgASgCEg0KBGNzejIYuAcgASgFEg0KBGNl",
+            "eDIYuwcgASgNEg8KBmNfbW9yZRi+ByABKAUSFwoObnVtX25ld19vcmRlcnMY",
+            "wQcgASgFEhoKEW51bV9wYXJlbnRfbGltaXRzGMQHIAEoDRITCgp1c2VyX2Rh",
+            "dGExGMcHIAEoCRITCgp1c2VyX2RhdGEyGMoHIAEoCRIUCgtudW1fdXBkYXRl",
+            "cxjNByABKAUSLgoJdGltZXN0YW1wGNAHIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXAaxAEKBFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSDQoFYWNjbnQYCyABKAkSNAoLc3Bk",
+            "cl9zb3VyY2UYDCABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJTb3Vy",
+            "Y2USFQoNZ3JvdXBpbmdfY29kZRgNIAEoAxIwCgpvcmRlcl9zaWRlGA4gASgO",
+            "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrMLegBrkrState), global::Spiderrock.Protobuf.SpdrMLegBrkrState.Parser, new[]{ "Meta", "Pkey", "EngineName", "ParentNumber", "BaseParentNumber", "AltOrderId", "PackageId", "ClientFirm", "AltAccnt", "AltUserName", "StageType", "IsFlagged", "CrossNoticeId", "StockSide", "SsaleFlag", "LocateQuan", "LocateFirm", "LocatePool", "StockShares", "StockLegId", "StockFillQuan", "StockAvgFillPrice", "RefUPrc", "LiveUPrc", "UPriceFormat", "StockCpx", "StockCsz", "StockCex", "NumLegs", "SecKey1", "SecType1", "Ratio1", "Side1", "PositionType1", "LegId1", "FillQuan1", "AvgFillPrice1", "Vega1", "RefUPrc1", "RefDelta1", "RefEarnCnt1", "LiveUPrc1", "PriceFormat1", "LegCpx1", "LegCsz1", "LegCex1", "SecKey2", "SecType2", "Ratio2", "Side2", "PositionType2", "LegId2", "FillQuan2", "AvgFillPrice2", "Vega2", "RefUPrc2", "RefDelta2", "RefEarnCnt2", "LiveUPrc2", "PriceFormat2", "LegCpx2", "LegCsz2", "LegCex2", "SecKey3", "SecType3", "Ratio3", "Side3", "PositionType3", "LegId3", "FillQuan3", "AvgFillPrice3", "Vega3", "RefUPrc3", "RefDelta3", "RefEarnCnt3", "LiveUPrc3", "PriceFormat3", "LegCpx3", "LegCsz3", "LegCex3", "SecKey4", "SecType4", "Ratio4", "Side4", "PositionType4", "LegId4", "FillQuan4", "AvgFillPrice4", "Vega4", "RefUPrc4", "RefDelta4", "RefEarnCnt4", "LiveUPrc4", "PriceFormat4", "LegCpx4", "LegCsz4", "LegCex4", "SecKey5", "SecType5", "Ratio5", "Side5", "PositionType5", "LegId5", "FillQuan5", "AvgFillPrice5", "Vega5", "RefUPrc5", "RefDelta5", "RefEarnCnt5", "LiveUPrc5", "PriceFormat5", "LegCpx5", "LegCsz5", "LegCex5", "SecKey6", "SecType6", "Ratio6", "Side6", "PositionType6", "LegId6", "FillQuan6", "AvgFillPrice6", "Vega6", "RefUPrc6", "RefDelta6", "RefEarnCnt6", "LiveUPrc6", "PriceFormat6", "LegCpx6", "LegCsz6", "LegCex6", "MlegVega", "MlegWtVega", "MlegDelta", "MlegGamma", "MlegTheta", "Description", "OrderSize", "OrderActiveSize", "LeavesQuantity", "SpdrOrderStatus", "SpdrCloseReason", "SpdrRejectReason", "SpdrCloseDetailTxt", "OpenLegs", "CumSquareQty", "AvgSquarePrc", "CumPartialQty", "FillVega", "FillWtVega", "FillDelta", "FillDDelta", "FillGamma", "FillTheta", "LastFillDttm", "RiskLimitSize", "RiskLimitDesc", "MaxProgress", "MaxProgressDetail", "MaxProgressTime", "AlgoState", "AlgoCounter", "MakeState", "MakeCounter", "MktRespState", "MktRespCounter", "BrokerState", "BrokerCounter", "SpdrMktState", "SpdrBrokerStatus", "ProgressRuleDetail", "LastChildRejectDttm", "LastChildRejectText", "RiskGroupId", "TriggerGroupId", "HedgeGroupingCode", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeSecType", "HedgeBetaRatio", "HedgeScope", "ExternHedgeExDest", "ExternHedgeParams", "BestWayPrc", "WrstWayPrc", "BestWaySz", "WrstWaySz", "SurfacePrc", "SurfaceVol", "SurfaceUPrc", "LimitPrice", "LimitErr", "MakeLimitPrice", "TakeLimitPrice", "CxlUPrcRange", "MinUBid", "MaxUAsk", "MinMaxType", "LeadSide", "MaxCompletionSlippage", "OrderRefPremium", "Strategy", "UserName", "VisibleInSV", "SpdrComment", "TakeReachRule", "MaxExposureSize", "NumMakeExchanges", "PublicSize", "ProgressRule", "ProgressSliceCnt", "ProgressExposeTime", "MaxChildOrders", "ExchMask", "TimeInForce", "StartDttm", "OrderDuration", "GoodTillDttm", "ParentOrderHandling", "ParentBalanceHandling", "BlockVisibility", "OrderLimitType", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDe", "OrderRefGa", "OrderPrcOffset", "TakeLimitClass", "TakeAlphaType", "TakeAlphaFactor", "TakeAlphaProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidOffset", "MakeLimitClass", "MakeAlphaType", "MakeAlphaFactor", "MakeAlphaProbability", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidOffset", "OrderRefEventMult", "OrderRefEventDttm", "MlegProbLimit", "MlegSurfOffset", "ExternExDest", "OrderDttm", "MinSurfVol", "MaxSurfVol", "MinSurfPrc", "MaxSurfPrc", "MinSurfUPrc", "MaxSurfUPrc", "MinQteWidth", "AvgQteWidth", "CntQteWidth", "ArriveBid", "ArriveAsk", "TotalSeconds", "WorkingSeconds", "PrtActiveCnt", "PrtQtyActive", "CumExchFee", "CumM10Pnl", "CumArrivalPnl", "UPrcDrift", "SVolDrift", "NetAccDayWtVega", "NetAccDayDDelta", "NetSymDayWtVega", "NetSymDayDDelta", "NetGrpDayVega", "NetGrpDayDDelta", "NetGrpDayPremium", "NetGrpDayContracts", "NetGrpRMetric1", "NetGrpRMetric2", "NetGrpRMetric3", "NetGrpRMetric4", "NetGrpRMetric5", "NetGrpRMetric7", "NetSymEmaCxlDDelta", "NetSymEmaCxlWtVega", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "GrpDayDDeltaRatio", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayPremiumLn", "MaxGrpDayPremiumSh", "MaxGrpDayPremiumAbs", "GrpDayPremiumRatio", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "Cpx1", "Csz1", "Cex1", "Cpx2", "Csz2", "Cex2", "CMore", "NumNewOrders", "NumParentLimits", "UserData1", "UserData2", "NumUpdates", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrMLegBrkrState.Types.PKey), global::Spiderrock.Protobuf.SpdrMLegBrkrState.Types.PKey.Parser, new[]{ "Ticker", "Accnt", "SpdrSource", "GroupingCode", "OrderSide" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrMLegBrkrState), global::Spiderrock.Protobuf.SpdrMLegBrkrState.Parser, new[]{ "Meta", "Pkey", "EngineName", "ParentNumber", "BaseParentNumber", "AltOrderId", "PackageId", "ClientFirm", "AltAccnt", "AltUserName", "StageType", "IsFlagged", "CrossNoticeId", "StockSide", "SsaleFlag", "LocateQuan", "LocateFirm", "LocatePool", "StockShares", "StockLegId", "StockFillQuan", "StockAvgFillPrice", "RefUPrc", "LiveUPrc", "UPriceFormat", "StockCpx", "StockCsz", "StockCex", "NumLegs", "SecKey1", "SecType1", "Ratio1", "Side1", "PositionType1", "LegId1", "FillQuan1", "AvgFillPrice1", "Vega1", "RefUPrc1", "RefDelta1", "RefEarnCnt1", "LiveUPrc1", "PriceFormat1", "LegCpx1", "LegCsz1", "LegCex1", "SecKey2", "SecType2", "Ratio2", "Side2", "PositionType2", "LegId2", "FillQuan2", "AvgFillPrice2", "Vega2", "RefUPrc2", "RefDelta2", "RefEarnCnt2", "LiveUPrc2", "PriceFormat2", "LegCpx2", "LegCsz2", "LegCex2", "SecKey3", "SecType3", "Ratio3", "Side3", "PositionType3", "LegId3", "FillQuan3", "AvgFillPrice3", "Vega3", "RefUPrc3", "RefDelta3", "RefEarnCnt3", "LiveUPrc3", "PriceFormat3", "LegCpx3", "LegCsz3", "LegCex3", "SecKey4", "SecType4", "Ratio4", "Side4", "PositionType4", "LegId4", "FillQuan4", "AvgFillPrice4", "Vega4", "RefUPrc4", "RefDelta4", "RefEarnCnt4", "LiveUPrc4", "PriceFormat4", "LegCpx4", "LegCsz4", "LegCex4", "SecKey5", "SecType5", "Ratio5", "Side5", "PositionType5", "LegId5", "FillQuan5", "AvgFillPrice5", "Vega5", "RefUPrc5", "RefDelta5", "RefEarnCnt5", "LiveUPrc5", "PriceFormat5", "LegCpx5", "LegCsz5", "LegCex5", "SecKey6", "SecType6", "Ratio6", "Side6", "PositionType6", "LegId6", "FillQuan6", "AvgFillPrice6", "Vega6", "RefUPrc6", "RefDelta6", "RefEarnCnt6", "LiveUPrc6", "PriceFormat6", "LegCpx6", "LegCsz6", "LegCex6", "MlegVega", "MlegWtVega", "MlegDelta", "MlegGamma", "MlegTheta", "Description", "OrderSize", "OrderActiveSize", "LeavesQuantity", "SpdrOrderStatus", "SpdrCloseReason", "SpdrRejectReason", "SpdrCloseDetailTxt", "OpenLegs", "CumSquareQty", "AvgSquarePrc", "CumPartialQty", "FillVega", "FillWtVega", "FillDelta", "FillDDelta", "FillGamma", "FillTheta", "LastFillDttm", "RiskLimitSize", "RiskLimitDesc", "RiskLimitLevel", "MaxProgress", "MaxProgressDetail", "MaxProgressTime", "AlgoState", "AlgoCounter", "MakeState", "MakeCounter", "MktRespState", "MktRespCounter", "BrokerState", "BrokerCounter", "SpdrMktState", "SpdrBrokerStatus", "ProgressRuleDetail", "LastChildRejectDttm", "LastChildRejectText", "RiskGroupId", "TriggerGroupId", "HedgeGroupingCode", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeSecType", "HedgeBetaRatio", "HedgeScope", "ExternHedgeExDest", "ExternHedgeParams", "BestWayPrc", "WrstWayPrc", "BestWaySz", "WrstWaySz", "SurfacePrc", "SurfaceVol", "SurfaceUPrc", "LimitPrice", "LimitErr", "MakeLimitPrice", "TakeLimitPrice", "CxlUPrcRange", "MinUBid", "MaxUAsk", "MinMaxType", "LeadSide", "MaxCompletionSlippage", "OrderRefPremium", "Strategy", "UserName", "VisibleInSV", "SpdrComment", "TakeReachRule", "MaxExposureSize", "NumMakeExchanges", "PublicSize", "ProgressRule", "ProgressSliceCnt", "ProgressExposeTime", "MaxChildOrders", "ExchMask", "TimeInForce", "StartDttm", "OrderDuration", "GoodTillDttm", "ParentOrderHandling", "ParentBalanceHandling", "BlockVisibility", "OrderLimitType", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDe", "OrderRefGa", "OrderPrcOffset", "TakeLimitClass", "TakeAlphaType", "TakeAlphaFactor", "TakeAlphaProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidOffset", "MakeLimitClass", "MakeAlphaType", "MakeAlphaFactor", "MakeAlphaProbability", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidOffset", "OrderRefEventMult", "OrderRefEventDttm", "MlegProbLimit", "MlegSurfOffset", "ExternExDest", "OrderDttm", "MinSurfVol", "MaxSurfVol", "MinSurfPrc", "MaxSurfPrc", "MinSurfUPrc", "MaxSurfUPrc", "MinQteWidth", "AvgQteWidth", "CntQteWidth", "ArriveBid", "ArriveAsk", "TotalSeconds", "WorkingSeconds", "PrtActiveCnt", "PrtQtyActive", "CumExchFee", "CumM10Pnl", "CumArrivalPnl", "UPrcDrift", "SVolDrift", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "Cpx1", "Csz1", "Cex1", "Cpx2", "Csz2", "Cex2", "CMore", "NumNewOrders", "NumParentLimits", "UserData1", "UserData2", "NumUpdates", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrMLegBrkrState.Types.PKey), global::Spiderrock.Protobuf.SpdrMLegBrkrState.Types.PKey.Parser, new[]{ "Ticker", "Accnt", "SpdrSource", "GroupingCode", "OrderSide" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -461,6 +448,7 @@ namespace Spiderrock.Protobuf {
       lastFillDttm_ = other.lastFillDttm_ != null ? other.lastFillDttm_.Clone() : null;
       riskLimitSize_ = other.riskLimitSize_;
       riskLimitDesc_ = other.riskLimitDesc_;
+      riskLimitLevel_ = other.riskLimitLevel_;
       maxProgress_ = other.maxProgress_;
       maxProgressDetail_ = other.maxProgressDetail_;
       maxProgressTime_ = other.maxProgressTime_ != null ? other.maxProgressTime_.Clone() : null;
@@ -572,40 +560,19 @@ namespace Spiderrock.Protobuf {
       cumArrivalPnl_ = other.cumArrivalPnl_;
       uPrcDrift_ = other.uPrcDrift_;
       sVolDrift_ = other.sVolDrift_;
-      netAccDayWtVega_ = other.netAccDayWtVega_;
-      netAccDayDDelta_ = other.netAccDayDDelta_;
-      netSymDayWtVega_ = other.netSymDayWtVega_;
-      netSymDayDDelta_ = other.netSymDayDDelta_;
-      netGrpDayVega_ = other.netGrpDayVega_;
-      netGrpDayDDelta_ = other.netGrpDayDDelta_;
-      netGrpDayPremium_ = other.netGrpDayPremium_;
-      netGrpDayContracts_ = other.netGrpDayContracts_;
-      netGrpRMetric1_ = other.netGrpRMetric1_;
-      netGrpRMetric2_ = other.netGrpRMetric2_;
-      netGrpRMetric3_ = other.netGrpRMetric3_;
-      netGrpRMetric4_ = other.netGrpRMetric4_;
-      netGrpRMetric5_ = other.netGrpRMetric5_;
-      netGrpRMetric7_ = other.netGrpRMetric7_;
-      netSymEmaCxlDDelta_ = other.netSymEmaCxlDDelta_;
-      netSymEmaCxlWtVega_ = other.netSymEmaCxlWtVega_;
       maxGrpDayDDeltaLn_ = other.maxGrpDayDDeltaLn_;
       maxGrpDayDDeltaSh_ = other.maxGrpDayDDeltaSh_;
-      grpDayDDeltaRatio_ = other.grpDayDDeltaRatio_;
+      maxGrpDayContractsLn_ = other.maxGrpDayContractsLn_;
+      maxGrpDayContractsSh_ = other.maxGrpDayContractsSh_;
+      maxGrpDayContractsAbs_ = other.maxGrpDayContractsAbs_;
       maxGrpDayVegaLn_ = other.maxGrpDayVegaLn_;
       maxGrpDayVegaSh_ = other.maxGrpDayVegaSh_;
       maxGrpDayVegaAbs_ = other.maxGrpDayVegaAbs_;
       grpDayVegaRatio_ = other.grpDayVegaRatio_;
-      maxGrpDayPremiumLn_ = other.maxGrpDayPremiumLn_;
-      maxGrpDayPremiumSh_ = other.maxGrpDayPremiumSh_;
-      maxGrpDayPremiumAbs_ = other.maxGrpDayPremiumAbs_;
-      grpDayPremiumRatio_ = other.grpDayPremiumRatio_;
-      maxGrpDayContractsLn_ = other.maxGrpDayContractsLn_;
-      maxGrpDayContractsSh_ = other.maxGrpDayContractsSh_;
-      maxGrpDayContractsAbs_ = other.maxGrpDayContractsAbs_;
-      symEmaCxlDDeltaLn_ = other.symEmaCxlDDeltaLn_;
-      symEmaCxlDDeltaSh_ = other.symEmaCxlDDeltaSh_;
-      symEmaCxlWtVegaLn_ = other.symEmaCxlWtVegaLn_;
-      symEmaCxlWtVegaSh_ = other.symEmaCxlWtVegaSh_;
+      maxGrpDayRMetric1Ln_ = other.maxGrpDayRMetric1Ln_;
+      maxGrpDayRMetric1Sh_ = other.maxGrpDayRMetric1Sh_;
+      maxGrpDayRMetric1Abs_ = other.maxGrpDayRMetric1Abs_;
+      grpDayRMetric1Ratio_ = other.grpDayRMetric1Ratio_;
       cpx1_ = other.cpx1_;
       csz1_ = other.csz1_;
       cex1_ = other.cex1_;
@@ -2770,8 +2737,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "risk_limit_level" field.</summary>
+    public const int RiskLimitLevelFieldNumber = 565;
+    private global::Spiderrock.Protobuf.SpdrRiskLevel riskLimitLevel_ = global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified;
+    /// <summary>
+    /// risk limit level responsible for reduction
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.SpdrRiskLevel RiskLimitLevel {
+      get { return riskLimitLevel_; }
+      set {
+        riskLimitLevel_ = value;
+      }
+    }
+
     /// <summary>Field number for the "max_progress" field.</summary>
-    public const int MaxProgressFieldNumber = 565;
+    public const int MaxProgressFieldNumber = 568;
     private global::Spiderrock.Protobuf.MaxProgress maxProgress_ = global::Spiderrock.Protobuf.MaxProgress.Unspecified;
     /// <summary>
     /// maximum point of progress for most recent parent order
@@ -2786,7 +2768,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_progress_detail" field.</summary>
-    public const int MaxProgressDetailFieldNumber = 568;
+    public const int MaxProgressDetailFieldNumber = 571;
     private string maxProgressDetail_ = "";
     /// <summary>
     /// additional detail on point of maximum progress
@@ -2801,7 +2783,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_progress_time" field.</summary>
-    public const int MaxProgressTimeFieldNumber = 571;
+    public const int MaxProgressTimeFieldNumber = 574;
     private global::Google.Protobuf.WellKnownTypes.Timestamp maxProgressTime_;
     /// <summary>
     /// time of last max progress advance
@@ -2816,7 +2798,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "algo_state" field.</summary>
-    public const int AlgoStateFieldNumber = 574;
+    public const int AlgoStateFieldNumber = 577;
     private global::Spiderrock.Protobuf.AlgoState algoState_ = global::Spiderrock.Protobuf.AlgoState.Unspecified;
     /// <summary>
     /// [enum] current state of order handler (maker)
@@ -2831,7 +2813,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "algo_counter" field.</summary>
-    public const int AlgoCounterFieldNumber = 577;
+    public const int AlgoCounterFieldNumber = 580;
     private int algoCounter_;
     /// <summary>
     /// number of times order checked by algo handler (note: most checks result in no action)
@@ -2846,7 +2828,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_state" field.</summary>
-    public const int MakeStateFieldNumber = 580;
+    public const int MakeStateFieldNumber = 583;
     private global::Spiderrock.Protobuf.AlgoState makeState_ = global::Spiderrock.Protobuf.AlgoState.Unspecified;
     /// <summary>
     /// [enum] current state of make handler (maker)
@@ -2861,7 +2843,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_counter" field.</summary>
-    public const int MakeCounterFieldNumber = 583;
+    public const int MakeCounterFieldNumber = 586;
     private int makeCounter_;
     /// <summary>
     /// number of times order checked by make algo handler (note: most checks result in no action)
@@ -2876,7 +2858,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "mkt_resp_state" field.</summary>
-    public const int MktRespStateFieldNumber = 586;
+    public const int MktRespStateFieldNumber = 589;
     private global::Spiderrock.Protobuf.MktRespState mktRespState_ = global::Spiderrock.Protobuf.MktRespState.Unspecified;
     /// <summary>
     /// [enum] current state of response handler (if any)
@@ -2891,7 +2873,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "mkt_resp_counter" field.</summary>
-    public const int MktRespCounterFieldNumber = 589;
+    public const int MktRespCounterFieldNumber = 592;
     private int mktRespCounter_;
     /// <summary>
     /// number of times order checked by market response handler (note: most checks result in no action)
@@ -2906,7 +2888,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "broker_state" field.</summary>
-    public const int BrokerStateFieldNumber = 592;
+    public const int BrokerStateFieldNumber = 595;
     private global::Spiderrock.Protobuf.BrokerState brokerState_ = global::Spiderrock.Protobuf.BrokerState.Unspecified;
     /// <summary>
     /// broker monitor state
@@ -2921,7 +2903,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "broker_counter" field.</summary>
-    public const int BrokerCounterFieldNumber = 595;
+    public const int BrokerCounterFieldNumber = 598;
     private int brokerCounter_;
     /// <summary>
     /// number of times order checked by broker monitor (note: most checks result in no action)]
@@ -2936,7 +2918,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "spdr_mkt_state" field.</summary>
-    public const int SpdrMktStateFieldNumber = 598;
+    public const int SpdrMktStateFieldNumber = 601;
     private global::Spiderrock.Protobuf.SpdrMarketState spdrMktState_ = global::Spiderrock.Protobuf.SpdrMarketState.Unspecified;
     /// <summary>
     /// [enum] market state
@@ -2951,7 +2933,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "spdr_broker_status" field.</summary>
-    public const int SpdrBrokerStatusFieldNumber = 601;
+    public const int SpdrBrokerStatusFieldNumber = 604;
     private global::Spiderrock.Protobuf.SpdrBrokerStatus spdrBrokerStatus_ = global::Spiderrock.Protobuf.SpdrBrokerStatus.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2963,7 +2945,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "progress_rule_detail" field.</summary>
-    public const int ProgressRuleDetailFieldNumber = 604;
+    public const int ProgressRuleDetailFieldNumber = 607;
     private string progressRuleDetail_ = "";
     /// <summary>
     /// Twap/Vwap progress detail
@@ -2978,7 +2960,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "last_child_reject_dttm" field.</summary>
-    public const int LastChildRejectDttmFieldNumber = 607;
+    public const int LastChildRejectDttmFieldNumber = 610;
     private global::Google.Protobuf.WellKnownTypes.Timestamp lastChildRejectDttm_;
     /// <summary>
     /// last child order reject dttm (if any)
@@ -2993,7 +2975,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "last_child_reject_text" field.</summary>
-    public const int LastChildRejectTextFieldNumber = 610;
+    public const int LastChildRejectTextFieldNumber = 613;
     private string lastChildRejectText_ = "";
     /// <summary>
     /// last child order reject reason/text (if any)
@@ -3008,7 +2990,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "risk_group_id" field.</summary>
-    public const int RiskGroupIdFieldNumber = 613;
+    public const int RiskGroupIdFieldNumber = 616;
     private long riskGroupId_;
     /// <summary>
     /// autohedge risk group
@@ -3023,7 +3005,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "trigger_group_id" field.</summary>
-    public const int TriggerGroupIdFieldNumber = 616;
+    public const int TriggerGroupIdFieldNumber = 619;
     private long triggerGroupId_;
     /// <summary>
     /// WaitTrigger group Id
@@ -3038,7 +3020,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_grouping_code" field.</summary>
-    public const int HedgeGroupingCodeFieldNumber = 619;
+    public const int HedgeGroupingCodeFieldNumber = 622;
     private long hedgeGroupingCode_;
     /// <summary>
     /// autohedge risk group
@@ -3053,7 +3035,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "auto_hedge" field.</summary>
-    public const int AutoHedgeFieldNumber = 622;
+    public const int AutoHedgeFieldNumber = 625;
     private global::Spiderrock.Protobuf.AutoHedge autoHedge_ = global::Spiderrock.Protobuf.AutoHedge.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3065,7 +3047,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_instrument" field.</summary>
-    public const int HedgeInstrumentFieldNumber = 625;
+    public const int HedgeInstrumentFieldNumber = 628;
     private global::Spiderrock.Protobuf.HedgeInst hedgeInstrument_ = global::Spiderrock.Protobuf.HedgeInst.Unspecified;
     /// <summary>
     /// auto-hedge instrument (from parent order)
@@ -3080,7 +3062,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_sec_key" field.</summary>
-    public const int HedgeSecKeyFieldNumber = 628;
+    public const int HedgeSecKeyFieldNumber = 631;
     private global::Spiderrock.Protobuf.ExpiryKey hedgeSecKey_;
     /// <summary>
     /// auto-hedge sec key (if any)
@@ -3095,7 +3077,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_sec_type" field.</summary>
-    public const int HedgeSecTypeFieldNumber = 631;
+    public const int HedgeSecTypeFieldNumber = 634;
     private global::Spiderrock.Protobuf.SpdrKeyType hedgeSecType_ = global::Spiderrock.Protobuf.SpdrKeyType.Unspecified;
     /// <summary>
     /// auto-hedge sec type (Stock or Future)
@@ -3110,7 +3092,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_beta_ratio" field.</summary>
-    public const int HedgeBetaRatioFieldNumber = 634;
+    public const int HedgeBetaRatioFieldNumber = 637;
     private float hedgeBetaRatio_;
     /// <summary>
     /// auto-hedge ratio [from parent order (if supplied) or computed by SR]
@@ -3125,7 +3107,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_scope" field.</summary>
-    public const int HedgeScopeFieldNumber = 637;
+    public const int HedgeScopeFieldNumber = 640;
     private global::Spiderrock.Protobuf.HedgeScope hedgeScope_ = global::Spiderrock.Protobuf.HedgeScope.Unspecified;
     /// <summary>
     /// hedge group scope [RiskGroup or Accnt]
@@ -3140,7 +3122,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_hedge_ex_dest" field.</summary>
-    public const int ExternHedgeExDestFieldNumber = 640;
+    public const int ExternHedgeExDestFieldNumber = 643;
     private string externHedgeExDest_ = "";
     /// <summary>
     /// external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
@@ -3155,7 +3137,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_hedge_params" field.</summary>
-    public const int ExternHedgeParamsFieldNumber = 643;
+    public const int ExternHedgeParamsFieldNumber = 646;
     private string externHedgeParams_ = "";
     /// <summary>
     /// external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
@@ -3170,7 +3152,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "best_way_prc" field.</summary>
-    public const int BestWayPrcFieldNumber = 646;
+    public const int BestWayPrcFieldNumber = 649;
     private float bestWayPrc_;
     /// <summary>
     /// current leg market nbbo (at time of record publish)
@@ -3185,7 +3167,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "wrst_way_prc" field.</summary>
-    public const int WrstWayPrcFieldNumber = 649;
+    public const int WrstWayPrcFieldNumber = 652;
     private float wrstWayPrc_;
     /// <summary>
     /// current leg market nbbo ask (at time of record publish)
@@ -3200,7 +3182,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "best_way_sz" field.</summary>
-    public const int BestWaySzFieldNumber = 652;
+    public const int BestWaySzFieldNumber = 655;
     private int bestWaySz_;
     /// <summary>
     /// current leg market nbbo cum bid size (at time of record publish)
@@ -3215,7 +3197,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "wrst_way_sz" field.</summary>
-    public const int WrstWaySzFieldNumber = 655;
+    public const int WrstWaySzFieldNumber = 658;
     private int wrstWaySz_;
     /// <summary>
     /// current leg market nbbo cum ask size (at time of record publish)
@@ -3230,7 +3212,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_prc" field.</summary>
-    public const int SurfacePrcFieldNumber = 658;
+    public const int SurfacePrcFieldNumber = 661;
     private float surfacePrc_;
     /// <summary>
     /// SR spread surface price @ record publish
@@ -3245,7 +3227,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_vol" field.</summary>
-    public const int SurfaceVolFieldNumber = 661;
+    public const int SurfaceVolFieldNumber = 664;
     private float surfaceVol_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3257,7 +3239,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_uPrc" field.</summary>
-    public const int SurfaceUPrcFieldNumber = 664;
+    public const int SurfaceUPrcFieldNumber = 667;
     private float surfaceUPrc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3269,7 +3251,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "limit_price" field.</summary>
-    public const int LimitPriceFieldNumber = 667;
+    public const int LimitPriceFieldNumber = 670;
     private double limitPrice_;
     /// <summary>
     /// spread limit price
@@ -3284,7 +3266,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "limit_err" field.</summary>
-    public const int LimitErrFieldNumber = 670;
+    public const int LimitErrFieldNumber = 673;
     private global::Spiderrock.Protobuf.LimitError limitErr_ = global::Spiderrock.Protobuf.LimitError.Unspecified;
     /// <summary>
     /// limit price error code
@@ -3299,7 +3281,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_limit_price" field.</summary>
-    public const int MakeLimitPriceFieldNumber = 673;
+    public const int MakeLimitPriceFieldNumber = 676;
     private double makeLimitPrice_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3311,7 +3293,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_limit_price" field.</summary>
-    public const int TakeLimitPriceFieldNumber = 676;
+    public const int TakeLimitPriceFieldNumber = 679;
     private double takeLimitPrice_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3323,7 +3305,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cxl_uPrc_range" field.</summary>
-    public const int CxlUPrcRangeFieldNumber = 679;
+    public const int CxlUPrcRangeFieldNumber = 682;
     private global::Spiderrock.Protobuf.UPrcCxl cxlUPrcRange_ = global::Spiderrock.Protobuf.UPrcCxl.Unspecified;
     /// <summary>
     /// cancel spdr order if/when outside stock price range
@@ -3338,7 +3320,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_uBid" field.</summary>
-    public const int MinUBidFieldNumber = 682;
+    public const int MinUBidFieldNumber = 685;
     private float minUBid_;
     /// <summary>
     /// Used in conjunction with minMaxType &amp; maxUAsk. When set, implements a lower bound on the underlying price and will either suspend or cancel an order when violated.
@@ -3353,7 +3335,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_uAsk" field.</summary>
-    public const int MaxUAskFieldNumber = 685;
+    public const int MaxUAskFieldNumber = 688;
     private float maxUAsk_;
     /// <summary>
     /// Used in conjunction with minMaxType &amp; minUBid. When set, implements an upper bound on the underlying price and will either suspend or cancel an order when violated.
@@ -3368,7 +3350,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_max_type" field.</summary>
-    public const int MinMaxTypeFieldNumber = 688;
+    public const int MinMaxTypeFieldNumber = 691;
     private global::Spiderrock.Protobuf.MinMaxType minMaxType_ = global::Spiderrock.Protobuf.MinMaxType.Unspecified;
     /// <summary>
     /// if Prc minUBid/maxUAsk are expressed as prices; if Pct then they are expresses as pct change since parent order arrival
@@ -3383,7 +3365,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "lead_side" field.</summary>
-    public const int LeadSideFieldNumber = 691;
+    public const int LeadSideFieldNumber = 694;
     private global::Spiderrock.Protobuf.BuySell leadSide_ = global::Spiderrock.Protobuf.BuySell.Unspecified;
     /// <summary>
     /// for legged orders, which side to lead with.  (optional, None ok)
@@ -3398,7 +3380,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_completion_slippage" field.</summary>
-    public const int MaxCompletionSlippageFieldNumber = 694;
+    public const int MaxCompletionSlippageFieldNumber = 697;
     private double maxCompletionSlippage_;
     /// <summary>
     /// maximum price slippage to complete an open basket or a cross auction (face side slippage)
@@ -3413,7 +3395,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_ref_premium" field.</summary>
-    public const int OrderRefPremiumFieldNumber = 697;
+    public const int OrderRefPremiumFieldNumber = 700;
     private float orderRefPremium_;
     /// <summary>
     /// reference premium (mleg orders only)
@@ -3428,7 +3410,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "strategy" field.</summary>
-    public const int StrategyFieldNumber = 700;
+    public const int StrategyFieldNumber = 703;
     private string strategy_ = "";
     /// <summary>
     /// parent order strategy (description only)
@@ -3443,7 +3425,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "user_name" field.</summary>
-    public const int UserNameFieldNumber = 703;
+    public const int UserNameFieldNumber = 706;
     private string userName_ = "";
     /// <summary>
     /// user that entered the most recent parent order
@@ -3458,7 +3440,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "visible_in_sV" field.</summary>
-    public const int VisibleInSVFieldNumber = 706;
+    public const int VisibleInSVFieldNumber = 709;
     private global::Spiderrock.Protobuf.YesNo visibleInSV_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// allow order to be visible in SV (do not use for high volume of orders)
@@ -3473,7 +3455,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "spdr_comment" field.</summary>
-    public const int SpdrCommentFieldNumber = 709;
+    public const int SpdrCommentFieldNumber = 712;
     private string spdrComment_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3485,7 +3467,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_reach_rule" field.</summary>
-    public const int TakeReachRuleFieldNumber = 712;
+    public const int TakeReachRuleFieldNumber = 715;
     private global::Spiderrock.Protobuf.ReachRule takeReachRule_ = global::Spiderrock.Protobuf.ReachRule.Unspecified;
     /// <summary>
     /// Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size &lt; avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
@@ -3500,7 +3482,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_exposure_size" field.</summary>
-    public const int MaxExposureSizeFieldNumber = 715;
+    public const int MaxExposureSizeFieldNumber = 718;
     private int maxExposureSize_;
     /// <summary>
     /// maximum simultaneous cumulative child order public size exposure (-2 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 2]
@@ -3515,7 +3497,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_make_exchanges" field.</summary>
-    public const int NumMakeExchangesFieldNumber = 718;
+    public const int NumMakeExchangesFieldNumber = 721;
     private int numMakeExchanges_;
     /// <summary>
     /// number of exchanges (2 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
@@ -3530,7 +3512,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "public_size" field.</summary>
-    public const int PublicSizeFieldNumber = 721;
+    public const int PublicSizeFieldNumber = 724;
     private global::Spiderrock.Protobuf.PublicSizeHandling publicSize_ = global::Spiderrock.Protobuf.PublicSizeHandling.Unspecified;
     /// <summary>
     /// public order size handling
@@ -3545,7 +3527,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "progress_rule" field.</summary>
-    public const int ProgressRuleFieldNumber = 724;
+    public const int ProgressRuleFieldNumber = 727;
     private global::Spiderrock.Protobuf.ProgressRule progressRule_ = global::Spiderrock.Protobuf.ProgressRule.Unspecified;
     /// <summary>
     /// Immediate = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
@@ -3560,7 +3542,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "progress_slice_cnt" field.</summary>
-    public const int ProgressSliceCntFieldNumber = 727;
+    public const int ProgressSliceCntFieldNumber = 730;
     private int progressSliceCnt_;
     /// <summary>
     /// number of progress slices to use (default = 4 or 8) [max 20]
@@ -3575,7 +3557,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "progress_expose_time" field.</summary>
-    public const int ProgressExposeTimeFieldNumber = 730;
+    public const int ProgressExposeTimeFieldNumber = 733;
     private int progressExposeTime_;
     /// <summary>
     /// minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
@@ -3590,7 +3572,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_child_orders" field.</summary>
-    public const int MaxChildOrdersFieldNumber = 733;
+    public const int MaxChildOrdersFieldNumber = 736;
     private int maxChildOrders_;
     /// <summary>
     /// maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
@@ -3605,7 +3587,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exch_mask" field.</summary>
-    public const int ExchMaskFieldNumber = 736;
+    public const int ExchMaskFieldNumber = 739;
     private uint exchMask_;
     /// <summary>
     /// eligible exchanges (0 = all)
@@ -3620,7 +3602,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "time_in_force" field.</summary>
-    public const int TimeInForceFieldNumber = 739;
+    public const int TimeInForceFieldNumber = 742;
     private global::Spiderrock.Protobuf.TimeInForce timeInForce_ = global::Spiderrock.Protobuf.TimeInForce.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3632,7 +3614,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "start_dttm" field.</summary>
-    public const int StartDttmFieldNumber = 742;
+    public const int StartDttmFieldNumber = 745;
     private global::Google.Protobuf.WellKnownTypes.Timestamp startDttm_;
     /// <summary>
     /// [optional] (parent order start time)
@@ -3647,7 +3629,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_duration" field.</summary>
-    public const int OrderDurationFieldNumber = 745;
+    public const int OrderDurationFieldNumber = 748;
     private int orderDuration_;
     /// <summary>
     /// [optional] (number of seconds)
@@ -3662,7 +3644,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "good_till_dttm" field.</summary>
-    public const int GoodTillDttmFieldNumber = 748;
+    public const int GoodTillDttmFieldNumber = 751;
     private global::Google.Protobuf.WellKnownTypes.Timestamp goodTillDttm_;
     /// <summary>
     /// [optional] (default: 2099-02-02)
@@ -3677,7 +3659,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "parent_order_handling" field.</summary>
-    public const int ParentOrderHandlingFieldNumber = 751;
+    public const int ParentOrderHandlingFieldNumber = 754;
     private global::Spiderrock.Protobuf.ParentOrderHandling parentOrderHandling_ = global::Spiderrock.Protobuf.ParentOrderHandling.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3689,7 +3671,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "parent_balance_handling" field.</summary>
-    public const int ParentBalanceHandlingFieldNumber = 754;
+    public const int ParentBalanceHandlingFieldNumber = 757;
     private global::Spiderrock.Protobuf.ParentBalanceHandling parentBalanceHandling_ = global::Spiderrock.Protobuf.ParentBalanceHandling.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3701,7 +3683,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "block_visibility" field.</summary>
-    public const int BlockVisibilityFieldNumber = 757;
+    public const int BlockVisibilityFieldNumber = 760;
     private global::Spiderrock.Protobuf.BlockVisibility blockVisibility_ = global::Spiderrock.Protobuf.BlockVisibility.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3713,7 +3695,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_limit_type" field.</summary>
-    public const int OrderLimitTypeFieldNumber = 760;
+    public const int OrderLimitTypeFieldNumber = 763;
     private global::Spiderrock.Protobuf.SpdrLimitType orderLimitType_ = global::Spiderrock.Protobuf.SpdrLimitType.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3725,7 +3707,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_prc_limit" field.</summary>
-    public const int OrderPrcLimitFieldNumber = 763;
+    public const int OrderPrcLimitFieldNumber = 766;
     private double orderPrcLimit_;
     /// <summary>
     /// Applies if LimitType = Prc[]
@@ -3740,7 +3722,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_ref_uPrc" field.</summary>
-    public const int OrderRefUPrcFieldNumber = 766;
+    public const int OrderRefUPrcFieldNumber = 769;
     private double orderRefUPrc_;
     /// <summary>
     /// reference uPrc (PrcDe orders)
@@ -3755,7 +3737,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_ref_de" field.</summary>
-    public const int OrderRefDeFieldNumber = 769;
+    public const int OrderRefDeFieldNumber = 772;
     private float orderRefDe_;
     /// <summary>
     /// reference delta (PrcDe orders)
@@ -3770,7 +3752,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_ref_ga" field.</summary>
-    public const int OrderRefGaFieldNumber = 772;
+    public const int OrderRefGaFieldNumber = 775;
     private float orderRefGa_;
     /// <summary>
     /// reference gamma (PrcDe orders)
@@ -3785,7 +3767,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_prc_offset" field.</summary>
-    public const int OrderPrcOffsetFieldNumber = 775;
+    public const int OrderPrcOffsetFieldNumber = 778;
     private double orderPrcOffset_;
     /// <summary>
     /// default=0
@@ -3800,7 +3782,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_limit_class" field.</summary>
-    public const int TakeLimitClassFieldNumber = 778;
+    public const int TakeLimitClassFieldNumber = 781;
     private global::Spiderrock.Protobuf.SpdrLimitClass takeLimitClass_ = global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified;
     /// <summary>
     /// Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
@@ -3815,7 +3797,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_alpha_type" field.</summary>
-    public const int TakeAlphaTypeFieldNumber = 781;
+    public const int TakeAlphaTypeFieldNumber = 784;
     private global::Spiderrock.Protobuf.AlphaType takeAlphaType_ = global::Spiderrock.Protobuf.AlphaType.Unspecified;
     /// <summary>
     /// Applies if limitClass = Probability
@@ -3830,7 +3812,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_alpha_factor" field.</summary>
-    public const int TakeAlphaFactorFieldNumber = 784;
+    public const int TakeAlphaFactorFieldNumber = 787;
     private float takeAlphaFactor_;
     /// <summary>
     /// [-2,+2] ProbLimit = MAX(alphaProbability, ProbAvg + AlphaFactor * ProbStd) [if AlphaType = Relative]
@@ -3845,7 +3827,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_alpha_probability" field.</summary>
-    public const int TakeAlphaProbabilityFieldNumber = 787;
+    public const int TakeAlphaProbabilityFieldNumber = 790;
     private float takeAlphaProbability_;
     /// <summary>
     /// ProbLimit = alphaProbability [if AlphaType = Static]
@@ -3860,7 +3842,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_surf_prc_offset" field.</summary>
-    public const int TakeSurfPrcOffsetFieldNumber = 790;
+    public const int TakeSurfPrcOffsetFieldNumber = 793;
     private double takeSurfPrcOffset_;
     /// <summary>
     /// default=0
@@ -3875,7 +3857,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_surf_vol_offset" field.</summary>
-    public const int TakeSurfVolOffsetFieldNumber = 793;
+    public const int TakeSurfVolOffsetFieldNumber = 796;
     private float takeSurfVolOffset_;
     /// <summary>
     /// default=0
@@ -3890,7 +3872,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "take_surf_wid_offset" field.</summary>
-    public const int TakeSurfWidOffsetFieldNumber = 796;
+    public const int TakeSurfWidOffsetFieldNumber = 799;
     private float takeSurfWidOffset_;
     /// <summary>
     /// default=0
@@ -3905,7 +3887,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_limit_class" field.</summary>
-    public const int MakeLimitClassFieldNumber = 799;
+    public const int MakeLimitClassFieldNumber = 802;
     private global::Spiderrock.Protobuf.SpdrLimitClass makeLimitClass_ = global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified;
     /// <summary>
     /// Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
@@ -3920,7 +3902,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_alpha_type" field.</summary>
-    public const int MakeAlphaTypeFieldNumber = 802;
+    public const int MakeAlphaTypeFieldNumber = 805;
     private global::Spiderrock.Protobuf.AlphaType makeAlphaType_ = global::Spiderrock.Protobuf.AlphaType.Unspecified;
     /// <summary>
     /// Applies if limitClass = Probability
@@ -3935,7 +3917,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_alpha_factor" field.</summary>
-    public const int MakeAlphaFactorFieldNumber = 805;
+    public const int MakeAlphaFactorFieldNumber = 808;
     private float makeAlphaFactor_;
     /// <summary>
     /// [-2,+2] ProbLimit = MAX(alphaProbability, ProbAvg + AlphaFactor * ProbStd) [if AlphaType = Relative]
@@ -3950,7 +3932,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_alpha_probability" field.</summary>
-    public const int MakeAlphaProbabilityFieldNumber = 808;
+    public const int MakeAlphaProbabilityFieldNumber = 811;
     private float makeAlphaProbability_;
     /// <summary>
     /// ProbLimit = alphaProbability [if AlphaType = Static]
@@ -3965,7 +3947,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_surf_prc_offset" field.</summary>
-    public const int MakeSurfPrcOffsetFieldNumber = 811;
+    public const int MakeSurfPrcOffsetFieldNumber = 814;
     private double makeSurfPrcOffset_;
     /// <summary>
     /// default=0
@@ -3980,7 +3962,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_surf_vol_offset" field.</summary>
-    public const int MakeSurfVolOffsetFieldNumber = 814;
+    public const int MakeSurfVolOffsetFieldNumber = 817;
     private float makeSurfVolOffset_;
     /// <summary>
     /// default=0
@@ -3995,7 +3977,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "make_surf_wid_offset" field.</summary>
-    public const int MakeSurfWidOffsetFieldNumber = 817;
+    public const int MakeSurfWidOffsetFieldNumber = 820;
     private float makeSurfWidOffset_;
     /// <summary>
     /// default=0
@@ -4010,7 +3992,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_ref_event_mult" field.</summary>
-    public const int OrderRefEventMultFieldNumber = 820;
+    public const int OrderRefEventMultFieldNumber = 823;
     private float orderRefEventMult_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4022,7 +4004,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_ref_event_dttm" field.</summary>
-    public const int OrderRefEventDttmFieldNumber = 823;
+    public const int OrderRefEventDttmFieldNumber = 826;
     private global::Google.Protobuf.WellKnownTypes.Timestamp orderRefEventDttm_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4034,7 +4016,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "mleg_prob_limit" field.</summary>
-    public const int MlegProbLimitFieldNumber = 826;
+    public const int MlegProbLimitFieldNumber = 829;
     private float mlegProbLimit_;
     /// <summary>
     /// live prob limit
@@ -4049,7 +4031,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "mleg_surf_offset" field.</summary>
-    public const int MlegSurfOffsetFieldNumber = 829;
+    public const int MlegSurfOffsetFieldNumber = 832;
     private float mlegSurfOffset_;
     /// <summary>
     /// live surface offset (in premium)
@@ -4064,7 +4046,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_ex_dest" field.</summary>
-    public const int ExternExDestFieldNumber = 832;
+    public const int ExternExDestFieldNumber = 835;
     private string externExDest_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4076,7 +4058,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "order_dttm" field.</summary>
-    public const int OrderDttmFieldNumber = 835;
+    public const int OrderDttmFieldNumber = 838;
     private global::Google.Protobuf.WellKnownTypes.Timestamp orderDttm_;
     /// <summary>
     /// order entry date/time
@@ -4091,7 +4073,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_surf_vol" field.</summary>
-    public const int MinSurfVolFieldNumber = 838;
+    public const int MinSurfVolFieldNumber = 841;
     private float minSurfVol_;
     /// <summary>
     /// (minimum) SR spread surface vol [vega weighted] while parent order was working
@@ -4106,7 +4088,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_surf_vol" field.</summary>
-    public const int MaxSurfVolFieldNumber = 841;
+    public const int MaxSurfVolFieldNumber = 844;
     private float maxSurfVol_;
     /// <summary>
     /// (maximum) SR spread surface vol [vega weighted] while parent order was working
@@ -4121,7 +4103,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_surf_prc" field.</summary>
-    public const int MinSurfPrcFieldNumber = 844;
+    public const int MinSurfPrcFieldNumber = 847;
     private float minSurfPrc_;
     /// <summary>
     /// (minimum) SR spread surface price while parent order was working
@@ -4136,7 +4118,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_surf_prc" field.</summary>
-    public const int MaxSurfPrcFieldNumber = 847;
+    public const int MaxSurfPrcFieldNumber = 850;
     private float maxSurfPrc_;
     /// <summary>
     /// (maximum) SR spread surface price while parent order was working
@@ -4151,7 +4133,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_surf_uPrc" field.</summary>
-    public const int MinSurfUPrcFieldNumber = 850;
+    public const int MinSurfUPrcFieldNumber = 853;
     private float minSurfUPrc_;
     /// <summary>
     /// (minimum) SR spread surface uPrc while parent order was working
@@ -4166,7 +4148,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_surf_uPrc" field.</summary>
-    public const int MaxSurfUPrcFieldNumber = 853;
+    public const int MaxSurfUPrcFieldNumber = 856;
     private float maxSurfUPrc_;
     /// <summary>
     /// (maximum) SR spread surface uPrc while parent order was working
@@ -4181,7 +4163,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_qte_width" field.</summary>
-    public const int MinQteWidthFieldNumber = 856;
+    public const int MinQteWidthFieldNumber = 859;
     private float minQteWidth_;
     /// <summary>
     /// minimum quote width during active order window
@@ -4196,7 +4178,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "avg_qte_width" field.</summary>
-    public const int AvgQteWidthFieldNumber = 859;
+    public const int AvgQteWidthFieldNumber = 862;
     private float avgQteWidth_;
     /// <summary>
     /// average quote width (during active order window)
@@ -4211,7 +4193,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cnt_qte_width" field.</summary>
-    public const int CntQteWidthFieldNumber = 862;
+    public const int CntQteWidthFieldNumber = 865;
     private int cntQteWidth_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4223,7 +4205,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "arrive_bid" field.</summary>
-    public const int ArriveBidFieldNumber = 865;
+    public const int ArriveBidFieldNumber = 868;
     private double arriveBid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4235,7 +4217,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "arrive_ask" field.</summary>
-    public const int ArriveAskFieldNumber = 868;
+    public const int ArriveAskFieldNumber = 871;
     private double arriveAsk_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4247,7 +4229,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "total_seconds" field.</summary>
-    public const int TotalSecondsFieldNumber = 871;
+    public const int TotalSecondsFieldNumber = 874;
     private float totalSeconds_;
     /// <summary>
     /// number of seconds that the parent order was active
@@ -4262,7 +4244,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "working_seconds" field.</summary>
-    public const int WorkingSecondsFieldNumber = 874;
+    public const int WorkingSecondsFieldNumber = 877;
     private float workingSeconds_;
     /// <summary>
     /// number of seconds with one or more working child orders in an exchange order book
@@ -4277,7 +4259,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_active_cnt" field.</summary>
-    public const int PrtActiveCntFieldNumber = 877;
+    public const int PrtActiveCntFieldNumber = 880;
     private int prtActiveCnt_;
     /// <summary>
     /// total print events while parent order was active
@@ -4292,7 +4274,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_qty_active" field.</summary>
-    public const int PrtQtyActiveFieldNumber = 880;
+    public const int PrtQtyActiveFieldNumber = 883;
     private int prtQtyActive_;
     /// <summary>
     /// total quantity printed while parent order was active
@@ -4307,7 +4289,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cum_exch_fee" field.</summary>
-    public const int CumExchFeeFieldNumber = 883;
+    public const int CumExchFeeFieldNumber = 886;
     private float cumExchFee_;
     /// <summary>
     /// cumulative fill exch fee
@@ -4322,7 +4304,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cum_m10_pnl" field.</summary>
-    public const int CumM10PnlFieldNumber = 886;
+    public const int CumM10PnlFieldNumber = 889;
     private float cumM10Pnl_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4334,7 +4316,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cum_arrival_pnl" field.</summary>
-    public const int CumArrivalPnlFieldNumber = 889;
+    public const int CumArrivalPnlFieldNumber = 892;
     private float cumArrivalPnl_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4346,7 +4328,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_prc_drift" field.</summary>
-    public const int UPrcDriftFieldNumber = 892;
+    public const int UPrcDriftFieldNumber = 895;
     private float uPrcDrift_;
     /// <summary>
     /// underlier drift (since parent order start)
@@ -4361,7 +4343,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_vol_drift" field.</summary>
-    public const int SVolDriftFieldNumber = 895;
+    public const int SVolDriftFieldNumber = 898;
     private float sVolDrift_;
     /// <summary>
     /// surface vol drift (since parent order start)
@@ -4375,248 +4357,8 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "net_acc_day_wt_vega" field.</summary>
-    public const int NetAccDayWtVegaFieldNumber = 898;
-    private float netAccDayWtVega_;
-    /// <summary>
-    /// net (+/-) account day wtVega; cumulative day wtVega (vol * vega / sqrt(T)) for the account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetAccDayWtVega {
-      get { return netAccDayWtVega_; }
-      set {
-        netAccDayWtVega_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_acc_day_dDelta" field.</summary>
-    public const int NetAccDayDDeltaFieldNumber = 901;
-    private float netAccDayDDelta_;
-    /// <summary>
-    /// net (+/-) account day $delta; cumulative day $delta (stock, future, option) for the account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetAccDayDDelta {
-      get { return netAccDayDDelta_; }
-      set {
-        netAccDayDDelta_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_sym_day_wt_vega" field.</summary>
-    public const int NetSymDayWtVegaFieldNumber = 904;
-    private float netSymDayWtVega_;
-    /// <summary>
-    /// net (+/-) symbol day (time weighted) vega; cumulative wt vega (options only) for the ticker+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetSymDayWtVega {
-      get { return netSymDayWtVega_; }
-      set {
-        netSymDayWtVega_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_sym_day_dDelta" field.</summary>
-    public const int NetSymDayDDeltaFieldNumber = 907;
-    private float netSymDayDDelta_;
-    /// <summary>
-    /// net (+/-) symbol day $delta; cumulative $delta (stock, futures, options) for the ticker+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetSymDayDDelta {
-      get { return netSymDayDDelta_; }
-      set {
-        netSymDayDDelta_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_day_vega" field.</summary>
-    public const int NetGrpDayVegaFieldNumber = 910;
-    private float netGrpDayVega_;
-    /// <summary>
-    /// net (+/-) day risk group vega; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpDayVega {
-      get { return netGrpDayVega_; }
-      set {
-        netGrpDayVega_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_day_dDelta" field.</summary>
-    public const int NetGrpDayDDeltaFieldNumber = 913;
-    private float netGrpDayDDelta_;
-    /// <summary>
-    /// net (+/-) day risk group $delta; cumulative (stock, futures, options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpDayDDelta {
-      get { return netGrpDayDDelta_; }
-      set {
-        netGrpDayDDelta_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_day_premium" field.</summary>
-    public const int NetGrpDayPremiumFieldNumber = 916;
-    private float netGrpDayPremium_;
-    /// <summary>
-    /// net (+/-) day risk group premium over parity; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpDayPremium {
-      get { return netGrpDayPremium_; }
-      set {
-        netGrpDayPremium_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_day_contracts" field.</summary>
-    public const int NetGrpDayContractsFieldNumber = 919;
-    private int netGrpDayContracts_;
-    /// <summary>
-    /// net (+/-) day risk group contracts; cumulative (futures, options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int NetGrpDayContracts {
-      get { return netGrpDayContracts_; }
-      set {
-        netGrpDayContracts_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_rMetric1" field.</summary>
-    public const int NetGrpRMetric1FieldNumber = 922;
-    private float netGrpRMetric1_;
-    /// <summary>
-    /// net (+/-) day risk group rmetric1; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpRMetric1 {
-      get { return netGrpRMetric1_; }
-      set {
-        netGrpRMetric1_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_rMetric2" field.</summary>
-    public const int NetGrpRMetric2FieldNumber = 925;
-    private float netGrpRMetric2_;
-    /// <summary>
-    /// net (+/-) day risk group rmetric2; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpRMetric2 {
-      get { return netGrpRMetric2_; }
-      set {
-        netGrpRMetric2_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_rMetric3" field.</summary>
-    public const int NetGrpRMetric3FieldNumber = 928;
-    private float netGrpRMetric3_;
-    /// <summary>
-    /// net (+/-) day risk group rmetric3; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpRMetric3 {
-      get { return netGrpRMetric3_; }
-      set {
-        netGrpRMetric3_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_rMetric4" field.</summary>
-    public const int NetGrpRMetric4FieldNumber = 931;
-    private float netGrpRMetric4_;
-    /// <summary>
-    /// net (+/-) day risk group rmetric4; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpRMetric4 {
-      get { return netGrpRMetric4_; }
-      set {
-        netGrpRMetric4_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_rMetric5" field.</summary>
-    public const int NetGrpRMetric5FieldNumber = 934;
-    private float netGrpRMetric5_;
-    /// <summary>
-    /// net (+/-) day risk group rmetric5; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpRMetric5 {
-      get { return netGrpRMetric5_; }
-      set {
-        netGrpRMetric5_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_grp_rMetric7" field.</summary>
-    public const int NetGrpRMetric7FieldNumber = 937;
-    private float netGrpRMetric7_;
-    /// <summary>
-    /// net (+/-) sym day risk rmetric7; cumulative (options) for the riskGroupId+account this order is associated with
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetGrpRMetric7 {
-      get { return netGrpRMetric7_; }
-      set {
-        netGrpRMetric7_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_sym_ema_cxl_dDelta" field.</summary>
-    public const int NetSymEmaCxlDDeltaFieldNumber = 940;
-    private float netSymEmaCxlDDelta_;
-    /// <summary>
-    /// acct+symbol 60s EMA $delta risk counter (options only)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetSymEmaCxlDDelta {
-      get { return netSymEmaCxlDDelta_; }
-      set {
-        netSymEmaCxlDDelta_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "net_sym_ema_cxl_wt_vega" field.</summary>
-    public const int NetSymEmaCxlWtVegaFieldNumber = 943;
-    private float netSymEmaCxlWtVega_;
-    /// <summary>
-    /// acct+symbol 60s EMA wtVega risk counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NetSymEmaCxlWtVega {
-      get { return netSymEmaCxlWtVega_; }
-      set {
-        netSymEmaCxlWtVega_ = value;
-      }
-    }
-
     /// <summary>Field number for the "max_grp_day_dDelta_ln" field.</summary>
-    public const int MaxGrpDayDDeltaLnFieldNumber = 946;
+    public const int MaxGrpDayDDeltaLnFieldNumber = 901;
     private float maxGrpDayDDeltaLn_;
     /// <summary>
     /// max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -4631,7 +4373,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_dDelta_sh" field.</summary>
-    public const int MaxGrpDayDDeltaShFieldNumber = 949;
+    public const int MaxGrpDayDDeltaShFieldNumber = 904;
     private float maxGrpDayDDeltaSh_;
     /// <summary>
     /// max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -4645,23 +4387,53 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "grp_day_dDelta_ratio" field.</summary>
-    public const int GrpDayDDeltaRatioFieldNumber = 952;
-    private float grpDayDDeltaRatio_;
+    /// <summary>Field number for the "max_grp_day_contracts_ln" field.</summary>
+    public const int MaxGrpDayContractsLnFieldNumber = 907;
+    private int maxGrpDayContractsLn_;
     /// <summary>
-    /// target bot / sld ratio (eg ratio=2.0 means that neutral is bot ddelta = 2x sld ddelta)
+    /// max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float GrpDayDDeltaRatio {
-      get { return grpDayDDeltaRatio_; }
+    public int MaxGrpDayContractsLn {
+      get { return maxGrpDayContractsLn_; }
       set {
-        grpDayDDeltaRatio_ = value;
+        maxGrpDayContractsLn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_grp_day_contracts_sh" field.</summary>
+    public const int MaxGrpDayContractsShFieldNumber = 910;
+    private int maxGrpDayContractsSh_;
+    /// <summary>
+    /// max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MaxGrpDayContractsSh {
+      get { return maxGrpDayContractsSh_; }
+      set {
+        maxGrpDayContractsSh_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_grp_day_contracts_abs" field.</summary>
+    public const int MaxGrpDayContractsAbsFieldNumber = 913;
+    private int maxGrpDayContractsAbs_;
+    /// <summary>
+    /// max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MaxGrpDayContractsAbs {
+      get { return maxGrpDayContractsAbs_; }
+      set {
+        maxGrpDayContractsAbs_ = value;
       }
     }
 
     /// <summary>Field number for the "max_grp_day_vega_ln" field.</summary>
-    public const int MaxGrpDayVegaLnFieldNumber = 955;
+    public const int MaxGrpDayVegaLnFieldNumber = 916;
     private float maxGrpDayVegaLn_;
     /// <summary>
     /// max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -4676,7 +4448,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_vega_sh" field.</summary>
-    public const int MaxGrpDayVegaShFieldNumber = 958;
+    public const int MaxGrpDayVegaShFieldNumber = 919;
     private float maxGrpDayVegaSh_;
     /// <summary>
     /// max acct+riskGroup day vega short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -4691,7 +4463,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_vega_abs" field.</summary>
-    public const int MaxGrpDayVegaAbsFieldNumber = 961;
+    public const int MaxGrpDayVegaAbsFieldNumber = 922;
     private float maxGrpDayVegaAbs_;
     /// <summary>
     /// max acct+riskGroup day vega abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
@@ -4706,7 +4478,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "grp_day_vega_ratio" field.</summary>
-    public const int GrpDayVegaRatioFieldNumber = 964;
+    public const int GrpDayVegaRatioFieldNumber = 925;
     private float grpDayVegaRatio_;
     /// <summary>
     /// target bot / sld ratio (eg ratio=2.0 means that neutral is bot vega = 2x sld vega)
@@ -4720,173 +4492,68 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_premium_ln" field.</summary>
-    public const int MaxGrpDayPremiumLnFieldNumber = 967;
-    private float maxGrpDayPremiumLn_;
+    /// <summary>Field number for the "max_grp_day_rMetric1_ln" field.</summary>
+    public const int MaxGrpDayRMetric1LnFieldNumber = 928;
+    private float maxGrpDayRMetric1Ln_;
     /// <summary>
-    /// max acct+riskGroup day premium over parity long (positive number;-1=no limit);risk limit = max limit - current net counter
+    /// max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxGrpDayPremiumLn {
-      get { return maxGrpDayPremiumLn_; }
+    public float MaxGrpDayRMetric1Ln {
+      get { return maxGrpDayRMetric1Ln_; }
       set {
-        maxGrpDayPremiumLn_ = value;
+        maxGrpDayRMetric1Ln_ = value;
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_premium_sh" field.</summary>
-    public const int MaxGrpDayPremiumShFieldNumber = 970;
-    private float maxGrpDayPremiumSh_;
+    /// <summary>Field number for the "max_grp_day_rMetric1_sh" field.</summary>
+    public const int MaxGrpDayRMetric1ShFieldNumber = 931;
+    private float maxGrpDayRMetric1Sh_;
     /// <summary>
-    /// max acct+riskGroup day premium over parity short (positive number;-1=no limit);risk limit = max limit + current net counter
+    /// max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxGrpDayPremiumSh {
-      get { return maxGrpDayPremiumSh_; }
+    public float MaxGrpDayRMetric1Sh {
+      get { return maxGrpDayRMetric1Sh_; }
       set {
-        maxGrpDayPremiumSh_ = value;
+        maxGrpDayRMetric1Sh_ = value;
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_premium_abs" field.</summary>
-    public const int MaxGrpDayPremiumAbsFieldNumber = 973;
-    private float maxGrpDayPremiumAbs_;
+    /// <summary>Field number for the "max_grp_day_rMetric1_abs" field.</summary>
+    public const int MaxGrpDayRMetric1AbsFieldNumber = 934;
+    private float maxGrpDayRMetric1Abs_;
     /// <summary>
-    /// max acct+riskGroup day premium over parity abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    /// max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxGrpDayPremiumAbs {
-      get { return maxGrpDayPremiumAbs_; }
+    public float MaxGrpDayRMetric1Abs {
+      get { return maxGrpDayRMetric1Abs_; }
       set {
-        maxGrpDayPremiumAbs_ = value;
+        maxGrpDayRMetric1Abs_ = value;
       }
     }
 
-    /// <summary>Field number for the "grp_day_premium_ratio" field.</summary>
-    public const int GrpDayPremiumRatioFieldNumber = 976;
-    private float grpDayPremiumRatio_;
+    /// <summary>Field number for the "grp_day_rMetric1_ratio" field.</summary>
+    public const int GrpDayRMetric1RatioFieldNumber = 937;
+    private float grpDayRMetric1Ratio_;
     /// <summary>
-    /// target bot / sld ratio (eg ratio=0.5 means that neutral is bot premium = 0.5x sld premium)
+    /// target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float GrpDayPremiumRatio {
-      get { return grpDayPremiumRatio_; }
+    public float GrpDayRMetric1Ratio {
+      get { return grpDayRMetric1Ratio_; }
       set {
-        grpDayPremiumRatio_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_grp_day_contracts_ln" field.</summary>
-    public const int MaxGrpDayContractsLnFieldNumber = 979;
-    private int maxGrpDayContractsLn_;
-    /// <summary>
-    /// max acct+riskGroup day contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MaxGrpDayContractsLn {
-      get { return maxGrpDayContractsLn_; }
-      set {
-        maxGrpDayContractsLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_grp_day_contracts_sh" field.</summary>
-    public const int MaxGrpDayContractsShFieldNumber = 982;
-    private int maxGrpDayContractsSh_;
-    /// <summary>
-    /// max acct+riskGroup day contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MaxGrpDayContractsSh {
-      get { return maxGrpDayContractsSh_; }
-      set {
-        maxGrpDayContractsSh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_grp_day_contracts_abs" field.</summary>
-    public const int MaxGrpDayContractsAbsFieldNumber = 985;
-    private int maxGrpDayContractsAbs_;
-    /// <summary>
-    /// max acct+riskGroup day contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MaxGrpDayContractsAbs {
-      get { return maxGrpDayContractsAbs_; }
-      set {
-        maxGrpDayContractsAbs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "sym_ema_cxl_dDelta_ln" field.</summary>
-    public const int SymEmaCxlDDeltaLnFieldNumber = 988;
-    private float symEmaCxlDDeltaLn_;
-    /// <summary>
-    /// max acct+symbol 60s EMA $delta long (positive number; &lt;= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymEmaCxlDDeltaLn {
-      get { return symEmaCxlDDeltaLn_; }
-      set {
-        symEmaCxlDDeltaLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "sym_ema_cxl_dDelta_sh" field.</summary>
-    public const int SymEmaCxlDDeltaShFieldNumber = 991;
-    private float symEmaCxlDDeltaSh_;
-    /// <summary>
-    /// max acct+symbol 60s EMA $delta short (positive number; &lt;= 0 is no limit)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymEmaCxlDDeltaSh {
-      get { return symEmaCxlDDeltaSh_; }
-      set {
-        symEmaCxlDDeltaSh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "sym_ema_cxl_wt_vega_ln" field.</summary>
-    public const int SymEmaCxlWtVegaLnFieldNumber = 994;
-    private float symEmaCxlWtVegaLn_;
-    /// <summary>
-    /// max acct+symbol 60s EMA wtVega long (positive number; &lt;= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymEmaCxlWtVegaLn {
-      get { return symEmaCxlWtVegaLn_; }
-      set {
-        symEmaCxlWtVegaLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "sym_ema_cxl_wt_vega_sh" field.</summary>
-    public const int SymEmaCxlWtVegaShFieldNumber = 997;
-    private float symEmaCxlWtVegaSh_;
-    /// <summary>
-    /// max acct+symbol 60s EMA wtVega short (positive number; &lt;= 0 is no limit)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymEmaCxlWtVegaSh {
-      get { return symEmaCxlWtVegaSh_; }
-      set {
-        symEmaCxlWtVegaSh_ = value;
+        grpDayRMetric1Ratio_ = value;
       }
     }
 
     /// <summary>Field number for the "cpx1" field.</summary>
-    public const int Cpx1FieldNumber = 1000;
+    public const int Cpx1FieldNumber = 940;
     private float cpx1_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4898,7 +4565,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "csz1" field.</summary>
-    public const int Csz1FieldNumber = 1003;
+    public const int Csz1FieldNumber = 943;
     private int csz1_;
     /// <summary>
     /// cumulative size represented at this price
@@ -4913,7 +4580,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cex1" field.</summary>
-    public const int Cex1FieldNumber = 1006;
+    public const int Cex1FieldNumber = 946;
     private uint cex1_;
     /// <summary>
     /// bit mask of all exchanges where we are representing this order
@@ -4928,7 +4595,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cpx2" field.</summary>
-    public const int Cpx2FieldNumber = 1009;
+    public const int Cpx2FieldNumber = 949;
     private float cpx2_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4940,7 +4607,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "csz2" field.</summary>
-    public const int Csz2FieldNumber = 1012;
+    public const int Csz2FieldNumber = 952;
     private int csz2_;
     /// <summary>
     /// cumulative size represented at this price
@@ -4955,7 +4622,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cex2" field.</summary>
-    public const int Cex2FieldNumber = 1015;
+    public const int Cex2FieldNumber = 955;
     private uint cex2_;
     /// <summary>
     /// bit mask of all exchanges where we are representing this order
@@ -4970,7 +4637,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "c_more" field.</summary>
-    public const int CMoreFieldNumber = 1018;
+    public const int CMoreFieldNumber = 958;
     private int cMore_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4982,7 +4649,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_new_orders" field.</summary>
-    public const int NumNewOrdersFieldNumber = 1021;
+    public const int NumNewOrdersFieldNumber = 961;
     private int numNewOrders_;
     /// <summary>
     /// number of new child orders
@@ -4997,7 +4664,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_parent_limits" field.</summary>
-    public const int NumParentLimitsFieldNumber = 1024;
+    public const int NumParentLimitsFieldNumber = 964;
     private uint numParentLimits_;
     /// <summary>
     /// number of parent limit messages received for this broker
@@ -5012,7 +4679,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "user_data1" field.</summary>
-    public const int UserData1FieldNumber = 1027;
+    public const int UserData1FieldNumber = 967;
     private string userData1_ = "";
     /// <summary>
     /// user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
@@ -5027,7 +4694,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "user_data2" field.</summary>
-    public const int UserData2FieldNumber = 1030;
+    public const int UserData2FieldNumber = 970;
     private string userData2_ = "";
     /// <summary>
     /// user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
@@ -5042,7 +4709,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_updates" field.</summary>
-    public const int NumUpdatesFieldNumber = 1033;
+    public const int NumUpdatesFieldNumber = 973;
     private int numUpdates_;
     /// <summary>
     /// number of record updates (cumulative for the day)
@@ -5057,7 +4724,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 1036;
+    public const int TimestampFieldNumber = 976;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5240,6 +4907,7 @@ namespace Spiderrock.Protobuf {
       if (!object.Equals(LastFillDttm, other.LastFillDttm)) return false;
       if (RiskLimitSize != other.RiskLimitSize) return false;
       if (RiskLimitDesc != other.RiskLimitDesc) return false;
+      if (RiskLimitLevel != other.RiskLimitLevel) return false;
       if (MaxProgress != other.MaxProgress) return false;
       if (MaxProgressDetail != other.MaxProgressDetail) return false;
       if (!object.Equals(MaxProgressTime, other.MaxProgressTime)) return false;
@@ -5351,40 +5019,19 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(CumArrivalPnl, other.CumArrivalPnl)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(UPrcDrift, other.UPrcDrift)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SVolDrift, other.SVolDrift)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetAccDayWtVega, other.NetAccDayWtVega)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetAccDayDDelta, other.NetAccDayDDelta)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetSymDayWtVega, other.NetSymDayWtVega)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetSymDayDDelta, other.NetSymDayDDelta)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpDayVega, other.NetGrpDayVega)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpDayDDelta, other.NetGrpDayDDelta)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpDayPremium, other.NetGrpDayPremium)) return false;
-      if (NetGrpDayContracts != other.NetGrpDayContracts) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpRMetric1, other.NetGrpRMetric1)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpRMetric2, other.NetGrpRMetric2)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpRMetric3, other.NetGrpRMetric3)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpRMetric4, other.NetGrpRMetric4)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpRMetric5, other.NetGrpRMetric5)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetGrpRMetric7, other.NetGrpRMetric7)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetSymEmaCxlDDelta, other.NetSymEmaCxlDDelta)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NetSymEmaCxlWtVega, other.NetSymEmaCxlWtVega)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayDDeltaLn, other.MaxGrpDayDDeltaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayDDeltaSh, other.MaxGrpDayDDeltaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayDDeltaRatio, other.GrpDayDDeltaRatio)) return false;
+      if (MaxGrpDayContractsLn != other.MaxGrpDayContractsLn) return false;
+      if (MaxGrpDayContractsSh != other.MaxGrpDayContractsSh) return false;
+      if (MaxGrpDayContractsAbs != other.MaxGrpDayContractsAbs) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayVegaLn, other.MaxGrpDayVegaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayVegaSh, other.MaxGrpDayVegaSh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayVegaAbs, other.MaxGrpDayVegaAbs)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayVegaRatio, other.GrpDayVegaRatio)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayPremiumLn, other.MaxGrpDayPremiumLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayPremiumSh, other.MaxGrpDayPremiumSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayPremiumAbs, other.MaxGrpDayPremiumAbs)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayPremiumRatio, other.GrpDayPremiumRatio)) return false;
-      if (MaxGrpDayContractsLn != other.MaxGrpDayContractsLn) return false;
-      if (MaxGrpDayContractsSh != other.MaxGrpDayContractsSh) return false;
-      if (MaxGrpDayContractsAbs != other.MaxGrpDayContractsAbs) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlDDeltaLn, other.SymEmaCxlDDeltaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlDDeltaSh, other.SymEmaCxlDDeltaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlWtVegaLn, other.SymEmaCxlWtVegaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlWtVegaSh, other.SymEmaCxlWtVegaSh)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric1Ln, other.MaxGrpDayRMetric1Ln)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric1Sh, other.MaxGrpDayRMetric1Sh)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric1Abs, other.MaxGrpDayRMetric1Abs)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayRMetric1Ratio, other.GrpDayRMetric1Ratio)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Cpx1, other.Cpx1)) return false;
       if (Csz1 != other.Csz1) return false;
       if (Cex1 != other.Cex1) return false;
@@ -5562,6 +5209,7 @@ namespace Spiderrock.Protobuf {
       if (lastFillDttm_ != null) hash ^= LastFillDttm.GetHashCode();
       if (RiskLimitSize != 0) hash ^= RiskLimitSize.GetHashCode();
       if (RiskLimitDesc != global::Spiderrock.Protobuf.SpdrRisk.Unspecified) hash ^= RiskLimitDesc.GetHashCode();
+      if (RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) hash ^= RiskLimitLevel.GetHashCode();
       if (MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) hash ^= MaxProgress.GetHashCode();
       if (MaxProgressDetail.Length != 0) hash ^= MaxProgressDetail.GetHashCode();
       if (maxProgressTime_ != null) hash ^= MaxProgressTime.GetHashCode();
@@ -5673,40 +5321,19 @@ namespace Spiderrock.Protobuf {
       if (CumArrivalPnl != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(CumArrivalPnl);
       if (UPrcDrift != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(UPrcDrift);
       if (SVolDrift != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SVolDrift);
-      if (NetAccDayWtVega != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetAccDayWtVega);
-      if (NetAccDayDDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetAccDayDDelta);
-      if (NetSymDayWtVega != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetSymDayWtVega);
-      if (NetSymDayDDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetSymDayDDelta);
-      if (NetGrpDayVega != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpDayVega);
-      if (NetGrpDayDDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpDayDDelta);
-      if (NetGrpDayPremium != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpDayPremium);
-      if (NetGrpDayContracts != 0) hash ^= NetGrpDayContracts.GetHashCode();
-      if (NetGrpRMetric1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpRMetric1);
-      if (NetGrpRMetric2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpRMetric2);
-      if (NetGrpRMetric3 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpRMetric3);
-      if (NetGrpRMetric4 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpRMetric4);
-      if (NetGrpRMetric5 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpRMetric5);
-      if (NetGrpRMetric7 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetGrpRMetric7);
-      if (NetSymEmaCxlDDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetSymEmaCxlDDelta);
-      if (NetSymEmaCxlWtVega != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NetSymEmaCxlWtVega);
       if (MaxGrpDayDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayDDeltaLn);
       if (MaxGrpDayDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayDDeltaSh);
-      if (GrpDayDDeltaRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayDDeltaRatio);
+      if (MaxGrpDayContractsLn != 0) hash ^= MaxGrpDayContractsLn.GetHashCode();
+      if (MaxGrpDayContractsSh != 0) hash ^= MaxGrpDayContractsSh.GetHashCode();
+      if (MaxGrpDayContractsAbs != 0) hash ^= MaxGrpDayContractsAbs.GetHashCode();
       if (MaxGrpDayVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayVegaLn);
       if (MaxGrpDayVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayVegaSh);
       if (MaxGrpDayVegaAbs != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayVegaAbs);
       if (GrpDayVegaRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayVegaRatio);
-      if (MaxGrpDayPremiumLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayPremiumLn);
-      if (MaxGrpDayPremiumSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayPremiumSh);
-      if (MaxGrpDayPremiumAbs != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayPremiumAbs);
-      if (GrpDayPremiumRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayPremiumRatio);
-      if (MaxGrpDayContractsLn != 0) hash ^= MaxGrpDayContractsLn.GetHashCode();
-      if (MaxGrpDayContractsSh != 0) hash ^= MaxGrpDayContractsSh.GetHashCode();
-      if (MaxGrpDayContractsAbs != 0) hash ^= MaxGrpDayContractsAbs.GetHashCode();
-      if (SymEmaCxlDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlDDeltaLn);
-      if (SymEmaCxlDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlDDeltaSh);
-      if (SymEmaCxlWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlWtVegaLn);
-      if (SymEmaCxlWtVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlWtVegaSh);
+      if (MaxGrpDayRMetric1Ln != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric1Ln);
+      if (MaxGrpDayRMetric1Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric1Sh);
+      if (MaxGrpDayRMetric1Abs != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric1Abs);
+      if (GrpDayRMetric1Ratio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayRMetric1Ratio);
       if (Cpx1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Cpx1);
       if (Csz1 != 0) hash ^= Csz1.GetHashCode();
       if (Cex1 != 0) hash ^= Cex1.GetHashCode();
@@ -6366,636 +5993,556 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(144, 35);
         output.WriteEnum((int) RiskLimitDesc);
       }
-      if (MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) {
+      if (RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) {
         output.WriteRawTag(168, 35);
+        output.WriteEnum((int) RiskLimitLevel);
+      }
+      if (MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) {
+        output.WriteRawTag(192, 35);
         output.WriteEnum((int) MaxProgress);
       }
       if (MaxProgressDetail.Length != 0) {
-        output.WriteRawTag(194, 35);
+        output.WriteRawTag(218, 35);
         output.WriteString(MaxProgressDetail);
       }
       if (maxProgressTime_ != null) {
-        output.WriteRawTag(218, 35);
+        output.WriteRawTag(242, 35);
         output.WriteMessage(MaxProgressTime);
       }
       if (AlgoState != global::Spiderrock.Protobuf.AlgoState.Unspecified) {
-        output.WriteRawTag(240, 35);
+        output.WriteRawTag(136, 36);
         output.WriteEnum((int) AlgoState);
       }
       if (AlgoCounter != 0) {
-        output.WriteRawTag(136, 36);
+        output.WriteRawTag(160, 36);
         output.WriteInt32(AlgoCounter);
       }
       if (MakeState != global::Spiderrock.Protobuf.AlgoState.Unspecified) {
-        output.WriteRawTag(160, 36);
+        output.WriteRawTag(184, 36);
         output.WriteEnum((int) MakeState);
       }
       if (MakeCounter != 0) {
-        output.WriteRawTag(184, 36);
+        output.WriteRawTag(208, 36);
         output.WriteInt32(MakeCounter);
       }
       if (MktRespState != global::Spiderrock.Protobuf.MktRespState.Unspecified) {
-        output.WriteRawTag(208, 36);
+        output.WriteRawTag(232, 36);
         output.WriteEnum((int) MktRespState);
       }
       if (MktRespCounter != 0) {
-        output.WriteRawTag(232, 36);
+        output.WriteRawTag(128, 37);
         output.WriteInt32(MktRespCounter);
       }
       if (BrokerState != global::Spiderrock.Protobuf.BrokerState.Unspecified) {
-        output.WriteRawTag(128, 37);
+        output.WriteRawTag(152, 37);
         output.WriteEnum((int) BrokerState);
       }
       if (BrokerCounter != 0) {
-        output.WriteRawTag(152, 37);
+        output.WriteRawTag(176, 37);
         output.WriteInt32(BrokerCounter);
       }
       if (SpdrMktState != global::Spiderrock.Protobuf.SpdrMarketState.Unspecified) {
-        output.WriteRawTag(176, 37);
+        output.WriteRawTag(200, 37);
         output.WriteEnum((int) SpdrMktState);
       }
       if (SpdrBrokerStatus != global::Spiderrock.Protobuf.SpdrBrokerStatus.Unspecified) {
-        output.WriteRawTag(200, 37);
+        output.WriteRawTag(224, 37);
         output.WriteEnum((int) SpdrBrokerStatus);
       }
       if (ProgressRuleDetail.Length != 0) {
-        output.WriteRawTag(226, 37);
+        output.WriteRawTag(250, 37);
         output.WriteString(ProgressRuleDetail);
       }
       if (lastChildRejectDttm_ != null) {
-        output.WriteRawTag(250, 37);
+        output.WriteRawTag(146, 38);
         output.WriteMessage(LastChildRejectDttm);
       }
       if (LastChildRejectText.Length != 0) {
-        output.WriteRawTag(146, 38);
+        output.WriteRawTag(170, 38);
         output.WriteString(LastChildRejectText);
       }
       if (RiskGroupId != 0L) {
-        output.WriteRawTag(168, 38);
+        output.WriteRawTag(192, 38);
         output.WriteInt64(RiskGroupId);
       }
       if (TriggerGroupId != 0L) {
-        output.WriteRawTag(192, 38);
+        output.WriteRawTag(216, 38);
         output.WriteInt64(TriggerGroupId);
       }
       if (HedgeGroupingCode != 0L) {
-        output.WriteRawTag(216, 38);
+        output.WriteRawTag(240, 38);
         output.WriteInt64(HedgeGroupingCode);
       }
       if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
-        output.WriteRawTag(240, 38);
+        output.WriteRawTag(136, 39);
         output.WriteEnum((int) AutoHedge);
       }
       if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) {
-        output.WriteRawTag(136, 39);
+        output.WriteRawTag(160, 39);
         output.WriteEnum((int) HedgeInstrument);
       }
       if (hedgeSecKey_ != null) {
-        output.WriteRawTag(162, 39);
+        output.WriteRawTag(186, 39);
         output.WriteMessage(HedgeSecKey);
       }
       if (HedgeSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) {
-        output.WriteRawTag(184, 39);
+        output.WriteRawTag(208, 39);
         output.WriteEnum((int) HedgeSecType);
       }
       if (HedgeBetaRatio != 0F) {
-        output.WriteRawTag(213, 39);
+        output.WriteRawTag(237, 39);
         output.WriteFloat(HedgeBetaRatio);
       }
       if (HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) {
-        output.WriteRawTag(232, 39);
+        output.WriteRawTag(128, 40);
         output.WriteEnum((int) HedgeScope);
       }
       if (ExternHedgeExDest.Length != 0) {
-        output.WriteRawTag(130, 40);
+        output.WriteRawTag(154, 40);
         output.WriteString(ExternHedgeExDest);
       }
       if (ExternHedgeParams.Length != 0) {
-        output.WriteRawTag(154, 40);
+        output.WriteRawTag(178, 40);
         output.WriteString(ExternHedgeParams);
       }
       if (BestWayPrc != 0F) {
-        output.WriteRawTag(181, 40);
+        output.WriteRawTag(205, 40);
         output.WriteFloat(BestWayPrc);
       }
       if (WrstWayPrc != 0F) {
-        output.WriteRawTag(205, 40);
+        output.WriteRawTag(229, 40);
         output.WriteFloat(WrstWayPrc);
       }
       if (BestWaySz != 0) {
-        output.WriteRawTag(224, 40);
+        output.WriteRawTag(248, 40);
         output.WriteInt32(BestWaySz);
       }
       if (WrstWaySz != 0) {
-        output.WriteRawTag(248, 40);
+        output.WriteRawTag(144, 41);
         output.WriteInt32(WrstWaySz);
       }
       if (SurfacePrc != 0F) {
-        output.WriteRawTag(149, 41);
+        output.WriteRawTag(173, 41);
         output.WriteFloat(SurfacePrc);
       }
       if (SurfaceVol != 0F) {
-        output.WriteRawTag(173, 41);
+        output.WriteRawTag(197, 41);
         output.WriteFloat(SurfaceVol);
       }
       if (SurfaceUPrc != 0F) {
-        output.WriteRawTag(197, 41);
+        output.WriteRawTag(221, 41);
         output.WriteFloat(SurfaceUPrc);
       }
       if (LimitPrice != 0D) {
-        output.WriteRawTag(217, 41);
+        output.WriteRawTag(241, 41);
         output.WriteDouble(LimitPrice);
       }
       if (LimitErr != global::Spiderrock.Protobuf.LimitError.Unspecified) {
-        output.WriteRawTag(240, 41);
+        output.WriteRawTag(136, 42);
         output.WriteEnum((int) LimitErr);
       }
       if (MakeLimitPrice != 0D) {
-        output.WriteRawTag(137, 42);
+        output.WriteRawTag(161, 42);
         output.WriteDouble(MakeLimitPrice);
       }
       if (TakeLimitPrice != 0D) {
-        output.WriteRawTag(161, 42);
+        output.WriteRawTag(185, 42);
         output.WriteDouble(TakeLimitPrice);
       }
       if (CxlUPrcRange != global::Spiderrock.Protobuf.UPrcCxl.Unspecified) {
-        output.WriteRawTag(184, 42);
+        output.WriteRawTag(208, 42);
         output.WriteEnum((int) CxlUPrcRange);
       }
       if (MinUBid != 0F) {
-        output.WriteRawTag(213, 42);
+        output.WriteRawTag(237, 42);
         output.WriteFloat(MinUBid);
       }
       if (MaxUAsk != 0F) {
-        output.WriteRawTag(237, 42);
+        output.WriteRawTag(133, 43);
         output.WriteFloat(MaxUAsk);
       }
       if (MinMaxType != global::Spiderrock.Protobuf.MinMaxType.Unspecified) {
-        output.WriteRawTag(128, 43);
+        output.WriteRawTag(152, 43);
         output.WriteEnum((int) MinMaxType);
       }
       if (LeadSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-        output.WriteRawTag(152, 43);
+        output.WriteRawTag(176, 43);
         output.WriteEnum((int) LeadSide);
       }
       if (MaxCompletionSlippage != 0D) {
-        output.WriteRawTag(177, 43);
+        output.WriteRawTag(201, 43);
         output.WriteDouble(MaxCompletionSlippage);
       }
       if (OrderRefPremium != 0F) {
-        output.WriteRawTag(205, 43);
+        output.WriteRawTag(229, 43);
         output.WriteFloat(OrderRefPremium);
       }
       if (Strategy.Length != 0) {
-        output.WriteRawTag(226, 43);
+        output.WriteRawTag(250, 43);
         output.WriteString(Strategy);
       }
       if (UserName.Length != 0) {
-        output.WriteRawTag(250, 43);
+        output.WriteRawTag(146, 44);
         output.WriteString(UserName);
       }
       if (VisibleInSV != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(144, 44);
+        output.WriteRawTag(168, 44);
         output.WriteEnum((int) VisibleInSV);
       }
       if (SpdrComment.Length != 0) {
-        output.WriteRawTag(170, 44);
+        output.WriteRawTag(194, 44);
         output.WriteString(SpdrComment);
       }
       if (TakeReachRule != global::Spiderrock.Protobuf.ReachRule.Unspecified) {
-        output.WriteRawTag(192, 44);
+        output.WriteRawTag(216, 44);
         output.WriteEnum((int) TakeReachRule);
       }
       if (MaxExposureSize != 0) {
-        output.WriteRawTag(216, 44);
+        output.WriteRawTag(240, 44);
         output.WriteInt32(MaxExposureSize);
       }
       if (NumMakeExchanges != 0) {
-        output.WriteRawTag(240, 44);
+        output.WriteRawTag(136, 45);
         output.WriteInt32(NumMakeExchanges);
       }
       if (PublicSize != global::Spiderrock.Protobuf.PublicSizeHandling.Unspecified) {
-        output.WriteRawTag(136, 45);
+        output.WriteRawTag(160, 45);
         output.WriteEnum((int) PublicSize);
       }
       if (ProgressRule != global::Spiderrock.Protobuf.ProgressRule.Unspecified) {
-        output.WriteRawTag(160, 45);
+        output.WriteRawTag(184, 45);
         output.WriteEnum((int) ProgressRule);
       }
       if (ProgressSliceCnt != 0) {
-        output.WriteRawTag(184, 45);
+        output.WriteRawTag(208, 45);
         output.WriteInt32(ProgressSliceCnt);
       }
       if (ProgressExposeTime != 0) {
-        output.WriteRawTag(208, 45);
+        output.WriteRawTag(232, 45);
         output.WriteInt32(ProgressExposeTime);
       }
       if (MaxChildOrders != 0) {
-        output.WriteRawTag(232, 45);
+        output.WriteRawTag(128, 46);
         output.WriteInt32(MaxChildOrders);
       }
       if (ExchMask != 0) {
-        output.WriteRawTag(128, 46);
+        output.WriteRawTag(152, 46);
         output.WriteUInt32(ExchMask);
       }
       if (TimeInForce != global::Spiderrock.Protobuf.TimeInForce.Unspecified) {
-        output.WriteRawTag(152, 46);
+        output.WriteRawTag(176, 46);
         output.WriteEnum((int) TimeInForce);
       }
       if (startDttm_ != null) {
-        output.WriteRawTag(178, 46);
+        output.WriteRawTag(202, 46);
         output.WriteMessage(StartDttm);
       }
       if (OrderDuration != 0) {
-        output.WriteRawTag(200, 46);
+        output.WriteRawTag(224, 46);
         output.WriteInt32(OrderDuration);
       }
       if (goodTillDttm_ != null) {
-        output.WriteRawTag(226, 46);
+        output.WriteRawTag(250, 46);
         output.WriteMessage(GoodTillDttm);
       }
       if (ParentOrderHandling != global::Spiderrock.Protobuf.ParentOrderHandling.Unspecified) {
-        output.WriteRawTag(248, 46);
+        output.WriteRawTag(144, 47);
         output.WriteEnum((int) ParentOrderHandling);
       }
       if (ParentBalanceHandling != global::Spiderrock.Protobuf.ParentBalanceHandling.Unspecified) {
-        output.WriteRawTag(144, 47);
+        output.WriteRawTag(168, 47);
         output.WriteEnum((int) ParentBalanceHandling);
       }
       if (BlockVisibility != global::Spiderrock.Protobuf.BlockVisibility.Unspecified) {
-        output.WriteRawTag(168, 47);
+        output.WriteRawTag(192, 47);
         output.WriteEnum((int) BlockVisibility);
       }
       if (OrderLimitType != global::Spiderrock.Protobuf.SpdrLimitType.Unspecified) {
-        output.WriteRawTag(192, 47);
+        output.WriteRawTag(216, 47);
         output.WriteEnum((int) OrderLimitType);
       }
       if (OrderPrcLimit != 0D) {
-        output.WriteRawTag(217, 47);
+        output.WriteRawTag(241, 47);
         output.WriteDouble(OrderPrcLimit);
       }
       if (OrderRefUPrc != 0D) {
-        output.WriteRawTag(241, 47);
+        output.WriteRawTag(137, 48);
         output.WriteDouble(OrderRefUPrc);
       }
       if (OrderRefDe != 0F) {
-        output.WriteRawTag(141, 48);
+        output.WriteRawTag(165, 48);
         output.WriteFloat(OrderRefDe);
       }
       if (OrderRefGa != 0F) {
-        output.WriteRawTag(165, 48);
+        output.WriteRawTag(189, 48);
         output.WriteFloat(OrderRefGa);
       }
       if (OrderPrcOffset != 0D) {
-        output.WriteRawTag(185, 48);
+        output.WriteRawTag(209, 48);
         output.WriteDouble(OrderPrcOffset);
       }
       if (TakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) {
-        output.WriteRawTag(208, 48);
+        output.WriteRawTag(232, 48);
         output.WriteEnum((int) TakeLimitClass);
       }
       if (TakeAlphaType != global::Spiderrock.Protobuf.AlphaType.Unspecified) {
-        output.WriteRawTag(232, 48);
+        output.WriteRawTag(128, 49);
         output.WriteEnum((int) TakeAlphaType);
       }
       if (TakeAlphaFactor != 0F) {
-        output.WriteRawTag(133, 49);
+        output.WriteRawTag(157, 49);
         output.WriteFloat(TakeAlphaFactor);
       }
       if (TakeAlphaProbability != 0F) {
-        output.WriteRawTag(157, 49);
+        output.WriteRawTag(181, 49);
         output.WriteFloat(TakeAlphaProbability);
       }
       if (TakeSurfPrcOffset != 0D) {
-        output.WriteRawTag(177, 49);
+        output.WriteRawTag(201, 49);
         output.WriteDouble(TakeSurfPrcOffset);
       }
       if (TakeSurfVolOffset != 0F) {
-        output.WriteRawTag(205, 49);
+        output.WriteRawTag(229, 49);
         output.WriteFloat(TakeSurfVolOffset);
       }
       if (TakeSurfWidOffset != 0F) {
-        output.WriteRawTag(229, 49);
+        output.WriteRawTag(253, 49);
         output.WriteFloat(TakeSurfWidOffset);
       }
       if (MakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) {
-        output.WriteRawTag(248, 49);
+        output.WriteRawTag(144, 50);
         output.WriteEnum((int) MakeLimitClass);
       }
       if (MakeAlphaType != global::Spiderrock.Protobuf.AlphaType.Unspecified) {
-        output.WriteRawTag(144, 50);
+        output.WriteRawTag(168, 50);
         output.WriteEnum((int) MakeAlphaType);
       }
       if (MakeAlphaFactor != 0F) {
-        output.WriteRawTag(173, 50);
+        output.WriteRawTag(197, 50);
         output.WriteFloat(MakeAlphaFactor);
       }
       if (MakeAlphaProbability != 0F) {
-        output.WriteRawTag(197, 50);
+        output.WriteRawTag(221, 50);
         output.WriteFloat(MakeAlphaProbability);
       }
       if (MakeSurfPrcOffset != 0D) {
-        output.WriteRawTag(217, 50);
+        output.WriteRawTag(241, 50);
         output.WriteDouble(MakeSurfPrcOffset);
       }
       if (MakeSurfVolOffset != 0F) {
-        output.WriteRawTag(245, 50);
+        output.WriteRawTag(141, 51);
         output.WriteFloat(MakeSurfVolOffset);
       }
       if (MakeSurfWidOffset != 0F) {
-        output.WriteRawTag(141, 51);
+        output.WriteRawTag(165, 51);
         output.WriteFloat(MakeSurfWidOffset);
       }
       if (OrderRefEventMult != 0F) {
-        output.WriteRawTag(165, 51);
+        output.WriteRawTag(189, 51);
         output.WriteFloat(OrderRefEventMult);
       }
       if (orderRefEventDttm_ != null) {
-        output.WriteRawTag(186, 51);
+        output.WriteRawTag(210, 51);
         output.WriteMessage(OrderRefEventDttm);
       }
       if (MlegProbLimit != 0F) {
-        output.WriteRawTag(213, 51);
+        output.WriteRawTag(237, 51);
         output.WriteFloat(MlegProbLimit);
       }
       if (MlegSurfOffset != 0F) {
-        output.WriteRawTag(237, 51);
+        output.WriteRawTag(133, 52);
         output.WriteFloat(MlegSurfOffset);
       }
       if (ExternExDest.Length != 0) {
-        output.WriteRawTag(130, 52);
+        output.WriteRawTag(154, 52);
         output.WriteString(ExternExDest);
       }
       if (orderDttm_ != null) {
-        output.WriteRawTag(154, 52);
+        output.WriteRawTag(178, 52);
         output.WriteMessage(OrderDttm);
       }
       if (MinSurfVol != 0F) {
-        output.WriteRawTag(181, 52);
+        output.WriteRawTag(205, 52);
         output.WriteFloat(MinSurfVol);
       }
       if (MaxSurfVol != 0F) {
-        output.WriteRawTag(205, 52);
+        output.WriteRawTag(229, 52);
         output.WriteFloat(MaxSurfVol);
       }
       if (MinSurfPrc != 0F) {
-        output.WriteRawTag(229, 52);
+        output.WriteRawTag(253, 52);
         output.WriteFloat(MinSurfPrc);
       }
       if (MaxSurfPrc != 0F) {
-        output.WriteRawTag(253, 52);
+        output.WriteRawTag(149, 53);
         output.WriteFloat(MaxSurfPrc);
       }
       if (MinSurfUPrc != 0F) {
-        output.WriteRawTag(149, 53);
+        output.WriteRawTag(173, 53);
         output.WriteFloat(MinSurfUPrc);
       }
       if (MaxSurfUPrc != 0F) {
-        output.WriteRawTag(173, 53);
+        output.WriteRawTag(197, 53);
         output.WriteFloat(MaxSurfUPrc);
       }
       if (MinQteWidth != 0F) {
-        output.WriteRawTag(197, 53);
+        output.WriteRawTag(221, 53);
         output.WriteFloat(MinQteWidth);
       }
       if (AvgQteWidth != 0F) {
-        output.WriteRawTag(221, 53);
+        output.WriteRawTag(245, 53);
         output.WriteFloat(AvgQteWidth);
       }
       if (CntQteWidth != 0) {
-        output.WriteRawTag(240, 53);
+        output.WriteRawTag(136, 54);
         output.WriteInt32(CntQteWidth);
       }
       if (ArriveBid != 0D) {
-        output.WriteRawTag(137, 54);
+        output.WriteRawTag(161, 54);
         output.WriteDouble(ArriveBid);
       }
       if (ArriveAsk != 0D) {
-        output.WriteRawTag(161, 54);
+        output.WriteRawTag(185, 54);
         output.WriteDouble(ArriveAsk);
       }
       if (TotalSeconds != 0F) {
-        output.WriteRawTag(189, 54);
+        output.WriteRawTag(213, 54);
         output.WriteFloat(TotalSeconds);
       }
       if (WorkingSeconds != 0F) {
-        output.WriteRawTag(213, 54);
+        output.WriteRawTag(237, 54);
         output.WriteFloat(WorkingSeconds);
       }
       if (PrtActiveCnt != 0) {
-        output.WriteRawTag(232, 54);
+        output.WriteRawTag(128, 55);
         output.WriteInt32(PrtActiveCnt);
       }
       if (PrtQtyActive != 0) {
-        output.WriteRawTag(128, 55);
+        output.WriteRawTag(152, 55);
         output.WriteInt32(PrtQtyActive);
       }
       if (CumExchFee != 0F) {
-        output.WriteRawTag(157, 55);
+        output.WriteRawTag(181, 55);
         output.WriteFloat(CumExchFee);
       }
       if (CumM10Pnl != 0F) {
-        output.WriteRawTag(181, 55);
+        output.WriteRawTag(205, 55);
         output.WriteFloat(CumM10Pnl);
       }
       if (CumArrivalPnl != 0F) {
-        output.WriteRawTag(205, 55);
+        output.WriteRawTag(229, 55);
         output.WriteFloat(CumArrivalPnl);
       }
       if (UPrcDrift != 0F) {
-        output.WriteRawTag(229, 55);
+        output.WriteRawTag(253, 55);
         output.WriteFloat(UPrcDrift);
       }
       if (SVolDrift != 0F) {
-        output.WriteRawTag(253, 55);
+        output.WriteRawTag(149, 56);
         output.WriteFloat(SVolDrift);
       }
-      if (NetAccDayWtVega != 0F) {
-        output.WriteRawTag(149, 56);
-        output.WriteFloat(NetAccDayWtVega);
-      }
-      if (NetAccDayDDelta != 0F) {
-        output.WriteRawTag(173, 56);
-        output.WriteFloat(NetAccDayDDelta);
-      }
-      if (NetSymDayWtVega != 0F) {
-        output.WriteRawTag(197, 56);
-        output.WriteFloat(NetSymDayWtVega);
-      }
-      if (NetSymDayDDelta != 0F) {
-        output.WriteRawTag(221, 56);
-        output.WriteFloat(NetSymDayDDelta);
-      }
-      if (NetGrpDayVega != 0F) {
-        output.WriteRawTag(245, 56);
-        output.WriteFloat(NetGrpDayVega);
-      }
-      if (NetGrpDayDDelta != 0F) {
-        output.WriteRawTag(141, 57);
-        output.WriteFloat(NetGrpDayDDelta);
-      }
-      if (NetGrpDayPremium != 0F) {
-        output.WriteRawTag(165, 57);
-        output.WriteFloat(NetGrpDayPremium);
-      }
-      if (NetGrpDayContracts != 0) {
-        output.WriteRawTag(184, 57);
-        output.WriteInt32(NetGrpDayContracts);
-      }
-      if (NetGrpRMetric1 != 0F) {
-        output.WriteRawTag(213, 57);
-        output.WriteFloat(NetGrpRMetric1);
-      }
-      if (NetGrpRMetric2 != 0F) {
-        output.WriteRawTag(237, 57);
-        output.WriteFloat(NetGrpRMetric2);
-      }
-      if (NetGrpRMetric3 != 0F) {
-        output.WriteRawTag(133, 58);
-        output.WriteFloat(NetGrpRMetric3);
-      }
-      if (NetGrpRMetric4 != 0F) {
-        output.WriteRawTag(157, 58);
-        output.WriteFloat(NetGrpRMetric4);
-      }
-      if (NetGrpRMetric5 != 0F) {
-        output.WriteRawTag(181, 58);
-        output.WriteFloat(NetGrpRMetric5);
-      }
-      if (NetGrpRMetric7 != 0F) {
-        output.WriteRawTag(205, 58);
-        output.WriteFloat(NetGrpRMetric7);
-      }
-      if (NetSymEmaCxlDDelta != 0F) {
-        output.WriteRawTag(229, 58);
-        output.WriteFloat(NetSymEmaCxlDDelta);
-      }
-      if (NetSymEmaCxlWtVega != 0F) {
-        output.WriteRawTag(253, 58);
-        output.WriteFloat(NetSymEmaCxlWtVega);
-      }
       if (MaxGrpDayDDeltaLn != 0F) {
-        output.WriteRawTag(149, 59);
+        output.WriteRawTag(173, 56);
         output.WriteFloat(MaxGrpDayDDeltaLn);
       }
       if (MaxGrpDayDDeltaSh != 0F) {
-        output.WriteRawTag(173, 59);
+        output.WriteRawTag(197, 56);
         output.WriteFloat(MaxGrpDayDDeltaSh);
       }
-      if (GrpDayDDeltaRatio != 0F) {
-        output.WriteRawTag(197, 59);
-        output.WriteFloat(GrpDayDDeltaRatio);
-      }
-      if (MaxGrpDayVegaLn != 0F) {
-        output.WriteRawTag(221, 59);
-        output.WriteFloat(MaxGrpDayVegaLn);
-      }
-      if (MaxGrpDayVegaSh != 0F) {
-        output.WriteRawTag(245, 59);
-        output.WriteFloat(MaxGrpDayVegaSh);
-      }
-      if (MaxGrpDayVegaAbs != 0F) {
-        output.WriteRawTag(141, 60);
-        output.WriteFloat(MaxGrpDayVegaAbs);
-      }
-      if (GrpDayVegaRatio != 0F) {
-        output.WriteRawTag(165, 60);
-        output.WriteFloat(GrpDayVegaRatio);
-      }
-      if (MaxGrpDayPremiumLn != 0F) {
-        output.WriteRawTag(189, 60);
-        output.WriteFloat(MaxGrpDayPremiumLn);
-      }
-      if (MaxGrpDayPremiumSh != 0F) {
-        output.WriteRawTag(213, 60);
-        output.WriteFloat(MaxGrpDayPremiumSh);
-      }
-      if (MaxGrpDayPremiumAbs != 0F) {
-        output.WriteRawTag(237, 60);
-        output.WriteFloat(MaxGrpDayPremiumAbs);
-      }
-      if (GrpDayPremiumRatio != 0F) {
-        output.WriteRawTag(133, 61);
-        output.WriteFloat(GrpDayPremiumRatio);
-      }
       if (MaxGrpDayContractsLn != 0) {
-        output.WriteRawTag(152, 61);
+        output.WriteRawTag(216, 56);
         output.WriteInt32(MaxGrpDayContractsLn);
       }
       if (MaxGrpDayContractsSh != 0) {
-        output.WriteRawTag(176, 61);
+        output.WriteRawTag(240, 56);
         output.WriteInt32(MaxGrpDayContractsSh);
       }
       if (MaxGrpDayContractsAbs != 0) {
-        output.WriteRawTag(200, 61);
+        output.WriteRawTag(136, 57);
         output.WriteInt32(MaxGrpDayContractsAbs);
       }
-      if (SymEmaCxlDDeltaLn != 0F) {
-        output.WriteRawTag(229, 61);
-        output.WriteFloat(SymEmaCxlDDeltaLn);
+      if (MaxGrpDayVegaLn != 0F) {
+        output.WriteRawTag(165, 57);
+        output.WriteFloat(MaxGrpDayVegaLn);
       }
-      if (SymEmaCxlDDeltaSh != 0F) {
-        output.WriteRawTag(253, 61);
-        output.WriteFloat(SymEmaCxlDDeltaSh);
+      if (MaxGrpDayVegaSh != 0F) {
+        output.WriteRawTag(189, 57);
+        output.WriteFloat(MaxGrpDayVegaSh);
       }
-      if (SymEmaCxlWtVegaLn != 0F) {
-        output.WriteRawTag(149, 62);
-        output.WriteFloat(SymEmaCxlWtVegaLn);
+      if (MaxGrpDayVegaAbs != 0F) {
+        output.WriteRawTag(213, 57);
+        output.WriteFloat(MaxGrpDayVegaAbs);
       }
-      if (SymEmaCxlWtVegaSh != 0F) {
-        output.WriteRawTag(173, 62);
-        output.WriteFloat(SymEmaCxlWtVegaSh);
+      if (GrpDayVegaRatio != 0F) {
+        output.WriteRawTag(237, 57);
+        output.WriteFloat(GrpDayVegaRatio);
+      }
+      if (MaxGrpDayRMetric1Ln != 0F) {
+        output.WriteRawTag(133, 58);
+        output.WriteFloat(MaxGrpDayRMetric1Ln);
+      }
+      if (MaxGrpDayRMetric1Sh != 0F) {
+        output.WriteRawTag(157, 58);
+        output.WriteFloat(MaxGrpDayRMetric1Sh);
+      }
+      if (MaxGrpDayRMetric1Abs != 0F) {
+        output.WriteRawTag(181, 58);
+        output.WriteFloat(MaxGrpDayRMetric1Abs);
+      }
+      if (GrpDayRMetric1Ratio != 0F) {
+        output.WriteRawTag(205, 58);
+        output.WriteFloat(GrpDayRMetric1Ratio);
       }
       if (Cpx1 != 0F) {
-        output.WriteRawTag(197, 62);
+        output.WriteRawTag(229, 58);
         output.WriteFloat(Cpx1);
       }
       if (Csz1 != 0) {
-        output.WriteRawTag(216, 62);
+        output.WriteRawTag(248, 58);
         output.WriteInt32(Csz1);
       }
       if (Cex1 != 0) {
-        output.WriteRawTag(240, 62);
+        output.WriteRawTag(144, 59);
         output.WriteUInt32(Cex1);
       }
       if (Cpx2 != 0F) {
-        output.WriteRawTag(141, 63);
+        output.WriteRawTag(173, 59);
         output.WriteFloat(Cpx2);
       }
       if (Csz2 != 0) {
-        output.WriteRawTag(160, 63);
+        output.WriteRawTag(192, 59);
         output.WriteInt32(Csz2);
       }
       if (Cex2 != 0) {
-        output.WriteRawTag(184, 63);
+        output.WriteRawTag(216, 59);
         output.WriteUInt32(Cex2);
       }
       if (CMore != 0) {
-        output.WriteRawTag(208, 63);
+        output.WriteRawTag(240, 59);
         output.WriteInt32(CMore);
       }
       if (NumNewOrders != 0) {
-        output.WriteRawTag(232, 63);
+        output.WriteRawTag(136, 60);
         output.WriteInt32(NumNewOrders);
       }
       if (NumParentLimits != 0) {
-        output.WriteRawTag(128, 64);
+        output.WriteRawTag(160, 60);
         output.WriteUInt32(NumParentLimits);
       }
       if (UserData1.Length != 0) {
-        output.WriteRawTag(154, 64);
+        output.WriteRawTag(186, 60);
         output.WriteString(UserData1);
       }
       if (UserData2.Length != 0) {
-        output.WriteRawTag(178, 64);
+        output.WriteRawTag(210, 60);
         output.WriteString(UserData2);
       }
       if (NumUpdates != 0) {
-        output.WriteRawTag(200, 64);
+        output.WriteRawTag(232, 60);
         output.WriteInt32(NumUpdates);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(226, 64);
+        output.WriteRawTag(130, 61);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -7636,636 +7183,556 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(144, 35);
         output.WriteEnum((int) RiskLimitDesc);
       }
-      if (MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) {
+      if (RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) {
         output.WriteRawTag(168, 35);
+        output.WriteEnum((int) RiskLimitLevel);
+      }
+      if (MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) {
+        output.WriteRawTag(192, 35);
         output.WriteEnum((int) MaxProgress);
       }
       if (MaxProgressDetail.Length != 0) {
-        output.WriteRawTag(194, 35);
+        output.WriteRawTag(218, 35);
         output.WriteString(MaxProgressDetail);
       }
       if (maxProgressTime_ != null) {
-        output.WriteRawTag(218, 35);
+        output.WriteRawTag(242, 35);
         output.WriteMessage(MaxProgressTime);
       }
       if (AlgoState != global::Spiderrock.Protobuf.AlgoState.Unspecified) {
-        output.WriteRawTag(240, 35);
+        output.WriteRawTag(136, 36);
         output.WriteEnum((int) AlgoState);
       }
       if (AlgoCounter != 0) {
-        output.WriteRawTag(136, 36);
+        output.WriteRawTag(160, 36);
         output.WriteInt32(AlgoCounter);
       }
       if (MakeState != global::Spiderrock.Protobuf.AlgoState.Unspecified) {
-        output.WriteRawTag(160, 36);
+        output.WriteRawTag(184, 36);
         output.WriteEnum((int) MakeState);
       }
       if (MakeCounter != 0) {
-        output.WriteRawTag(184, 36);
+        output.WriteRawTag(208, 36);
         output.WriteInt32(MakeCounter);
       }
       if (MktRespState != global::Spiderrock.Protobuf.MktRespState.Unspecified) {
-        output.WriteRawTag(208, 36);
+        output.WriteRawTag(232, 36);
         output.WriteEnum((int) MktRespState);
       }
       if (MktRespCounter != 0) {
-        output.WriteRawTag(232, 36);
+        output.WriteRawTag(128, 37);
         output.WriteInt32(MktRespCounter);
       }
       if (BrokerState != global::Spiderrock.Protobuf.BrokerState.Unspecified) {
-        output.WriteRawTag(128, 37);
+        output.WriteRawTag(152, 37);
         output.WriteEnum((int) BrokerState);
       }
       if (BrokerCounter != 0) {
-        output.WriteRawTag(152, 37);
+        output.WriteRawTag(176, 37);
         output.WriteInt32(BrokerCounter);
       }
       if (SpdrMktState != global::Spiderrock.Protobuf.SpdrMarketState.Unspecified) {
-        output.WriteRawTag(176, 37);
+        output.WriteRawTag(200, 37);
         output.WriteEnum((int) SpdrMktState);
       }
       if (SpdrBrokerStatus != global::Spiderrock.Protobuf.SpdrBrokerStatus.Unspecified) {
-        output.WriteRawTag(200, 37);
+        output.WriteRawTag(224, 37);
         output.WriteEnum((int) SpdrBrokerStatus);
       }
       if (ProgressRuleDetail.Length != 0) {
-        output.WriteRawTag(226, 37);
+        output.WriteRawTag(250, 37);
         output.WriteString(ProgressRuleDetail);
       }
       if (lastChildRejectDttm_ != null) {
-        output.WriteRawTag(250, 37);
+        output.WriteRawTag(146, 38);
         output.WriteMessage(LastChildRejectDttm);
       }
       if (LastChildRejectText.Length != 0) {
-        output.WriteRawTag(146, 38);
+        output.WriteRawTag(170, 38);
         output.WriteString(LastChildRejectText);
       }
       if (RiskGroupId != 0L) {
-        output.WriteRawTag(168, 38);
+        output.WriteRawTag(192, 38);
         output.WriteInt64(RiskGroupId);
       }
       if (TriggerGroupId != 0L) {
-        output.WriteRawTag(192, 38);
+        output.WriteRawTag(216, 38);
         output.WriteInt64(TriggerGroupId);
       }
       if (HedgeGroupingCode != 0L) {
-        output.WriteRawTag(216, 38);
+        output.WriteRawTag(240, 38);
         output.WriteInt64(HedgeGroupingCode);
       }
       if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
-        output.WriteRawTag(240, 38);
+        output.WriteRawTag(136, 39);
         output.WriteEnum((int) AutoHedge);
       }
       if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) {
-        output.WriteRawTag(136, 39);
+        output.WriteRawTag(160, 39);
         output.WriteEnum((int) HedgeInstrument);
       }
       if (hedgeSecKey_ != null) {
-        output.WriteRawTag(162, 39);
+        output.WriteRawTag(186, 39);
         output.WriteMessage(HedgeSecKey);
       }
       if (HedgeSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) {
-        output.WriteRawTag(184, 39);
+        output.WriteRawTag(208, 39);
         output.WriteEnum((int) HedgeSecType);
       }
       if (HedgeBetaRatio != 0F) {
-        output.WriteRawTag(213, 39);
+        output.WriteRawTag(237, 39);
         output.WriteFloat(HedgeBetaRatio);
       }
       if (HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) {
-        output.WriteRawTag(232, 39);
+        output.WriteRawTag(128, 40);
         output.WriteEnum((int) HedgeScope);
       }
       if (ExternHedgeExDest.Length != 0) {
-        output.WriteRawTag(130, 40);
+        output.WriteRawTag(154, 40);
         output.WriteString(ExternHedgeExDest);
       }
       if (ExternHedgeParams.Length != 0) {
-        output.WriteRawTag(154, 40);
+        output.WriteRawTag(178, 40);
         output.WriteString(ExternHedgeParams);
       }
       if (BestWayPrc != 0F) {
-        output.WriteRawTag(181, 40);
+        output.WriteRawTag(205, 40);
         output.WriteFloat(BestWayPrc);
       }
       if (WrstWayPrc != 0F) {
-        output.WriteRawTag(205, 40);
+        output.WriteRawTag(229, 40);
         output.WriteFloat(WrstWayPrc);
       }
       if (BestWaySz != 0) {
-        output.WriteRawTag(224, 40);
+        output.WriteRawTag(248, 40);
         output.WriteInt32(BestWaySz);
       }
       if (WrstWaySz != 0) {
-        output.WriteRawTag(248, 40);
+        output.WriteRawTag(144, 41);
         output.WriteInt32(WrstWaySz);
       }
       if (SurfacePrc != 0F) {
-        output.WriteRawTag(149, 41);
+        output.WriteRawTag(173, 41);
         output.WriteFloat(SurfacePrc);
       }
       if (SurfaceVol != 0F) {
-        output.WriteRawTag(173, 41);
+        output.WriteRawTag(197, 41);
         output.WriteFloat(SurfaceVol);
       }
       if (SurfaceUPrc != 0F) {
-        output.WriteRawTag(197, 41);
+        output.WriteRawTag(221, 41);
         output.WriteFloat(SurfaceUPrc);
       }
       if (LimitPrice != 0D) {
-        output.WriteRawTag(217, 41);
+        output.WriteRawTag(241, 41);
         output.WriteDouble(LimitPrice);
       }
       if (LimitErr != global::Spiderrock.Protobuf.LimitError.Unspecified) {
-        output.WriteRawTag(240, 41);
+        output.WriteRawTag(136, 42);
         output.WriteEnum((int) LimitErr);
       }
       if (MakeLimitPrice != 0D) {
-        output.WriteRawTag(137, 42);
+        output.WriteRawTag(161, 42);
         output.WriteDouble(MakeLimitPrice);
       }
       if (TakeLimitPrice != 0D) {
-        output.WriteRawTag(161, 42);
+        output.WriteRawTag(185, 42);
         output.WriteDouble(TakeLimitPrice);
       }
       if (CxlUPrcRange != global::Spiderrock.Protobuf.UPrcCxl.Unspecified) {
-        output.WriteRawTag(184, 42);
+        output.WriteRawTag(208, 42);
         output.WriteEnum((int) CxlUPrcRange);
       }
       if (MinUBid != 0F) {
-        output.WriteRawTag(213, 42);
+        output.WriteRawTag(237, 42);
         output.WriteFloat(MinUBid);
       }
       if (MaxUAsk != 0F) {
-        output.WriteRawTag(237, 42);
+        output.WriteRawTag(133, 43);
         output.WriteFloat(MaxUAsk);
       }
       if (MinMaxType != global::Spiderrock.Protobuf.MinMaxType.Unspecified) {
-        output.WriteRawTag(128, 43);
+        output.WriteRawTag(152, 43);
         output.WriteEnum((int) MinMaxType);
       }
       if (LeadSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-        output.WriteRawTag(152, 43);
+        output.WriteRawTag(176, 43);
         output.WriteEnum((int) LeadSide);
       }
       if (MaxCompletionSlippage != 0D) {
-        output.WriteRawTag(177, 43);
+        output.WriteRawTag(201, 43);
         output.WriteDouble(MaxCompletionSlippage);
       }
       if (OrderRefPremium != 0F) {
-        output.WriteRawTag(205, 43);
+        output.WriteRawTag(229, 43);
         output.WriteFloat(OrderRefPremium);
       }
       if (Strategy.Length != 0) {
-        output.WriteRawTag(226, 43);
+        output.WriteRawTag(250, 43);
         output.WriteString(Strategy);
       }
       if (UserName.Length != 0) {
-        output.WriteRawTag(250, 43);
+        output.WriteRawTag(146, 44);
         output.WriteString(UserName);
       }
       if (VisibleInSV != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(144, 44);
+        output.WriteRawTag(168, 44);
         output.WriteEnum((int) VisibleInSV);
       }
       if (SpdrComment.Length != 0) {
-        output.WriteRawTag(170, 44);
+        output.WriteRawTag(194, 44);
         output.WriteString(SpdrComment);
       }
       if (TakeReachRule != global::Spiderrock.Protobuf.ReachRule.Unspecified) {
-        output.WriteRawTag(192, 44);
+        output.WriteRawTag(216, 44);
         output.WriteEnum((int) TakeReachRule);
       }
       if (MaxExposureSize != 0) {
-        output.WriteRawTag(216, 44);
+        output.WriteRawTag(240, 44);
         output.WriteInt32(MaxExposureSize);
       }
       if (NumMakeExchanges != 0) {
-        output.WriteRawTag(240, 44);
+        output.WriteRawTag(136, 45);
         output.WriteInt32(NumMakeExchanges);
       }
       if (PublicSize != global::Spiderrock.Protobuf.PublicSizeHandling.Unspecified) {
-        output.WriteRawTag(136, 45);
+        output.WriteRawTag(160, 45);
         output.WriteEnum((int) PublicSize);
       }
       if (ProgressRule != global::Spiderrock.Protobuf.ProgressRule.Unspecified) {
-        output.WriteRawTag(160, 45);
+        output.WriteRawTag(184, 45);
         output.WriteEnum((int) ProgressRule);
       }
       if (ProgressSliceCnt != 0) {
-        output.WriteRawTag(184, 45);
+        output.WriteRawTag(208, 45);
         output.WriteInt32(ProgressSliceCnt);
       }
       if (ProgressExposeTime != 0) {
-        output.WriteRawTag(208, 45);
+        output.WriteRawTag(232, 45);
         output.WriteInt32(ProgressExposeTime);
       }
       if (MaxChildOrders != 0) {
-        output.WriteRawTag(232, 45);
+        output.WriteRawTag(128, 46);
         output.WriteInt32(MaxChildOrders);
       }
       if (ExchMask != 0) {
-        output.WriteRawTag(128, 46);
+        output.WriteRawTag(152, 46);
         output.WriteUInt32(ExchMask);
       }
       if (TimeInForce != global::Spiderrock.Protobuf.TimeInForce.Unspecified) {
-        output.WriteRawTag(152, 46);
+        output.WriteRawTag(176, 46);
         output.WriteEnum((int) TimeInForce);
       }
       if (startDttm_ != null) {
-        output.WriteRawTag(178, 46);
+        output.WriteRawTag(202, 46);
         output.WriteMessage(StartDttm);
       }
       if (OrderDuration != 0) {
-        output.WriteRawTag(200, 46);
+        output.WriteRawTag(224, 46);
         output.WriteInt32(OrderDuration);
       }
       if (goodTillDttm_ != null) {
-        output.WriteRawTag(226, 46);
+        output.WriteRawTag(250, 46);
         output.WriteMessage(GoodTillDttm);
       }
       if (ParentOrderHandling != global::Spiderrock.Protobuf.ParentOrderHandling.Unspecified) {
-        output.WriteRawTag(248, 46);
+        output.WriteRawTag(144, 47);
         output.WriteEnum((int) ParentOrderHandling);
       }
       if (ParentBalanceHandling != global::Spiderrock.Protobuf.ParentBalanceHandling.Unspecified) {
-        output.WriteRawTag(144, 47);
+        output.WriteRawTag(168, 47);
         output.WriteEnum((int) ParentBalanceHandling);
       }
       if (BlockVisibility != global::Spiderrock.Protobuf.BlockVisibility.Unspecified) {
-        output.WriteRawTag(168, 47);
+        output.WriteRawTag(192, 47);
         output.WriteEnum((int) BlockVisibility);
       }
       if (OrderLimitType != global::Spiderrock.Protobuf.SpdrLimitType.Unspecified) {
-        output.WriteRawTag(192, 47);
+        output.WriteRawTag(216, 47);
         output.WriteEnum((int) OrderLimitType);
       }
       if (OrderPrcLimit != 0D) {
-        output.WriteRawTag(217, 47);
+        output.WriteRawTag(241, 47);
         output.WriteDouble(OrderPrcLimit);
       }
       if (OrderRefUPrc != 0D) {
-        output.WriteRawTag(241, 47);
+        output.WriteRawTag(137, 48);
         output.WriteDouble(OrderRefUPrc);
       }
       if (OrderRefDe != 0F) {
-        output.WriteRawTag(141, 48);
+        output.WriteRawTag(165, 48);
         output.WriteFloat(OrderRefDe);
       }
       if (OrderRefGa != 0F) {
-        output.WriteRawTag(165, 48);
+        output.WriteRawTag(189, 48);
         output.WriteFloat(OrderRefGa);
       }
       if (OrderPrcOffset != 0D) {
-        output.WriteRawTag(185, 48);
+        output.WriteRawTag(209, 48);
         output.WriteDouble(OrderPrcOffset);
       }
       if (TakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) {
-        output.WriteRawTag(208, 48);
+        output.WriteRawTag(232, 48);
         output.WriteEnum((int) TakeLimitClass);
       }
       if (TakeAlphaType != global::Spiderrock.Protobuf.AlphaType.Unspecified) {
-        output.WriteRawTag(232, 48);
+        output.WriteRawTag(128, 49);
         output.WriteEnum((int) TakeAlphaType);
       }
       if (TakeAlphaFactor != 0F) {
-        output.WriteRawTag(133, 49);
+        output.WriteRawTag(157, 49);
         output.WriteFloat(TakeAlphaFactor);
       }
       if (TakeAlphaProbability != 0F) {
-        output.WriteRawTag(157, 49);
+        output.WriteRawTag(181, 49);
         output.WriteFloat(TakeAlphaProbability);
       }
       if (TakeSurfPrcOffset != 0D) {
-        output.WriteRawTag(177, 49);
+        output.WriteRawTag(201, 49);
         output.WriteDouble(TakeSurfPrcOffset);
       }
       if (TakeSurfVolOffset != 0F) {
-        output.WriteRawTag(205, 49);
+        output.WriteRawTag(229, 49);
         output.WriteFloat(TakeSurfVolOffset);
       }
       if (TakeSurfWidOffset != 0F) {
-        output.WriteRawTag(229, 49);
+        output.WriteRawTag(253, 49);
         output.WriteFloat(TakeSurfWidOffset);
       }
       if (MakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) {
-        output.WriteRawTag(248, 49);
+        output.WriteRawTag(144, 50);
         output.WriteEnum((int) MakeLimitClass);
       }
       if (MakeAlphaType != global::Spiderrock.Protobuf.AlphaType.Unspecified) {
-        output.WriteRawTag(144, 50);
+        output.WriteRawTag(168, 50);
         output.WriteEnum((int) MakeAlphaType);
       }
       if (MakeAlphaFactor != 0F) {
-        output.WriteRawTag(173, 50);
+        output.WriteRawTag(197, 50);
         output.WriteFloat(MakeAlphaFactor);
       }
       if (MakeAlphaProbability != 0F) {
-        output.WriteRawTag(197, 50);
+        output.WriteRawTag(221, 50);
         output.WriteFloat(MakeAlphaProbability);
       }
       if (MakeSurfPrcOffset != 0D) {
-        output.WriteRawTag(217, 50);
+        output.WriteRawTag(241, 50);
         output.WriteDouble(MakeSurfPrcOffset);
       }
       if (MakeSurfVolOffset != 0F) {
-        output.WriteRawTag(245, 50);
+        output.WriteRawTag(141, 51);
         output.WriteFloat(MakeSurfVolOffset);
       }
       if (MakeSurfWidOffset != 0F) {
-        output.WriteRawTag(141, 51);
+        output.WriteRawTag(165, 51);
         output.WriteFloat(MakeSurfWidOffset);
       }
       if (OrderRefEventMult != 0F) {
-        output.WriteRawTag(165, 51);
+        output.WriteRawTag(189, 51);
         output.WriteFloat(OrderRefEventMult);
       }
       if (orderRefEventDttm_ != null) {
-        output.WriteRawTag(186, 51);
+        output.WriteRawTag(210, 51);
         output.WriteMessage(OrderRefEventDttm);
       }
       if (MlegProbLimit != 0F) {
-        output.WriteRawTag(213, 51);
+        output.WriteRawTag(237, 51);
         output.WriteFloat(MlegProbLimit);
       }
       if (MlegSurfOffset != 0F) {
-        output.WriteRawTag(237, 51);
+        output.WriteRawTag(133, 52);
         output.WriteFloat(MlegSurfOffset);
       }
       if (ExternExDest.Length != 0) {
-        output.WriteRawTag(130, 52);
+        output.WriteRawTag(154, 52);
         output.WriteString(ExternExDest);
       }
       if (orderDttm_ != null) {
-        output.WriteRawTag(154, 52);
+        output.WriteRawTag(178, 52);
         output.WriteMessage(OrderDttm);
       }
       if (MinSurfVol != 0F) {
-        output.WriteRawTag(181, 52);
+        output.WriteRawTag(205, 52);
         output.WriteFloat(MinSurfVol);
       }
       if (MaxSurfVol != 0F) {
-        output.WriteRawTag(205, 52);
+        output.WriteRawTag(229, 52);
         output.WriteFloat(MaxSurfVol);
       }
       if (MinSurfPrc != 0F) {
-        output.WriteRawTag(229, 52);
+        output.WriteRawTag(253, 52);
         output.WriteFloat(MinSurfPrc);
       }
       if (MaxSurfPrc != 0F) {
-        output.WriteRawTag(253, 52);
+        output.WriteRawTag(149, 53);
         output.WriteFloat(MaxSurfPrc);
       }
       if (MinSurfUPrc != 0F) {
-        output.WriteRawTag(149, 53);
+        output.WriteRawTag(173, 53);
         output.WriteFloat(MinSurfUPrc);
       }
       if (MaxSurfUPrc != 0F) {
-        output.WriteRawTag(173, 53);
+        output.WriteRawTag(197, 53);
         output.WriteFloat(MaxSurfUPrc);
       }
       if (MinQteWidth != 0F) {
-        output.WriteRawTag(197, 53);
+        output.WriteRawTag(221, 53);
         output.WriteFloat(MinQteWidth);
       }
       if (AvgQteWidth != 0F) {
-        output.WriteRawTag(221, 53);
+        output.WriteRawTag(245, 53);
         output.WriteFloat(AvgQteWidth);
       }
       if (CntQteWidth != 0) {
-        output.WriteRawTag(240, 53);
+        output.WriteRawTag(136, 54);
         output.WriteInt32(CntQteWidth);
       }
       if (ArriveBid != 0D) {
-        output.WriteRawTag(137, 54);
+        output.WriteRawTag(161, 54);
         output.WriteDouble(ArriveBid);
       }
       if (ArriveAsk != 0D) {
-        output.WriteRawTag(161, 54);
+        output.WriteRawTag(185, 54);
         output.WriteDouble(ArriveAsk);
       }
       if (TotalSeconds != 0F) {
-        output.WriteRawTag(189, 54);
+        output.WriteRawTag(213, 54);
         output.WriteFloat(TotalSeconds);
       }
       if (WorkingSeconds != 0F) {
-        output.WriteRawTag(213, 54);
+        output.WriteRawTag(237, 54);
         output.WriteFloat(WorkingSeconds);
       }
       if (PrtActiveCnt != 0) {
-        output.WriteRawTag(232, 54);
+        output.WriteRawTag(128, 55);
         output.WriteInt32(PrtActiveCnt);
       }
       if (PrtQtyActive != 0) {
-        output.WriteRawTag(128, 55);
+        output.WriteRawTag(152, 55);
         output.WriteInt32(PrtQtyActive);
       }
       if (CumExchFee != 0F) {
-        output.WriteRawTag(157, 55);
+        output.WriteRawTag(181, 55);
         output.WriteFloat(CumExchFee);
       }
       if (CumM10Pnl != 0F) {
-        output.WriteRawTag(181, 55);
+        output.WriteRawTag(205, 55);
         output.WriteFloat(CumM10Pnl);
       }
       if (CumArrivalPnl != 0F) {
-        output.WriteRawTag(205, 55);
+        output.WriteRawTag(229, 55);
         output.WriteFloat(CumArrivalPnl);
       }
       if (UPrcDrift != 0F) {
-        output.WriteRawTag(229, 55);
+        output.WriteRawTag(253, 55);
         output.WriteFloat(UPrcDrift);
       }
       if (SVolDrift != 0F) {
-        output.WriteRawTag(253, 55);
+        output.WriteRawTag(149, 56);
         output.WriteFloat(SVolDrift);
       }
-      if (NetAccDayWtVega != 0F) {
-        output.WriteRawTag(149, 56);
-        output.WriteFloat(NetAccDayWtVega);
-      }
-      if (NetAccDayDDelta != 0F) {
-        output.WriteRawTag(173, 56);
-        output.WriteFloat(NetAccDayDDelta);
-      }
-      if (NetSymDayWtVega != 0F) {
-        output.WriteRawTag(197, 56);
-        output.WriteFloat(NetSymDayWtVega);
-      }
-      if (NetSymDayDDelta != 0F) {
-        output.WriteRawTag(221, 56);
-        output.WriteFloat(NetSymDayDDelta);
-      }
-      if (NetGrpDayVega != 0F) {
-        output.WriteRawTag(245, 56);
-        output.WriteFloat(NetGrpDayVega);
-      }
-      if (NetGrpDayDDelta != 0F) {
-        output.WriteRawTag(141, 57);
-        output.WriteFloat(NetGrpDayDDelta);
-      }
-      if (NetGrpDayPremium != 0F) {
-        output.WriteRawTag(165, 57);
-        output.WriteFloat(NetGrpDayPremium);
-      }
-      if (NetGrpDayContracts != 0) {
-        output.WriteRawTag(184, 57);
-        output.WriteInt32(NetGrpDayContracts);
-      }
-      if (NetGrpRMetric1 != 0F) {
-        output.WriteRawTag(213, 57);
-        output.WriteFloat(NetGrpRMetric1);
-      }
-      if (NetGrpRMetric2 != 0F) {
-        output.WriteRawTag(237, 57);
-        output.WriteFloat(NetGrpRMetric2);
-      }
-      if (NetGrpRMetric3 != 0F) {
-        output.WriteRawTag(133, 58);
-        output.WriteFloat(NetGrpRMetric3);
-      }
-      if (NetGrpRMetric4 != 0F) {
-        output.WriteRawTag(157, 58);
-        output.WriteFloat(NetGrpRMetric4);
-      }
-      if (NetGrpRMetric5 != 0F) {
-        output.WriteRawTag(181, 58);
-        output.WriteFloat(NetGrpRMetric5);
-      }
-      if (NetGrpRMetric7 != 0F) {
-        output.WriteRawTag(205, 58);
-        output.WriteFloat(NetGrpRMetric7);
-      }
-      if (NetSymEmaCxlDDelta != 0F) {
-        output.WriteRawTag(229, 58);
-        output.WriteFloat(NetSymEmaCxlDDelta);
-      }
-      if (NetSymEmaCxlWtVega != 0F) {
-        output.WriteRawTag(253, 58);
-        output.WriteFloat(NetSymEmaCxlWtVega);
-      }
       if (MaxGrpDayDDeltaLn != 0F) {
-        output.WriteRawTag(149, 59);
+        output.WriteRawTag(173, 56);
         output.WriteFloat(MaxGrpDayDDeltaLn);
       }
       if (MaxGrpDayDDeltaSh != 0F) {
-        output.WriteRawTag(173, 59);
+        output.WriteRawTag(197, 56);
         output.WriteFloat(MaxGrpDayDDeltaSh);
       }
-      if (GrpDayDDeltaRatio != 0F) {
-        output.WriteRawTag(197, 59);
-        output.WriteFloat(GrpDayDDeltaRatio);
-      }
-      if (MaxGrpDayVegaLn != 0F) {
-        output.WriteRawTag(221, 59);
-        output.WriteFloat(MaxGrpDayVegaLn);
-      }
-      if (MaxGrpDayVegaSh != 0F) {
-        output.WriteRawTag(245, 59);
-        output.WriteFloat(MaxGrpDayVegaSh);
-      }
-      if (MaxGrpDayVegaAbs != 0F) {
-        output.WriteRawTag(141, 60);
-        output.WriteFloat(MaxGrpDayVegaAbs);
-      }
-      if (GrpDayVegaRatio != 0F) {
-        output.WriteRawTag(165, 60);
-        output.WriteFloat(GrpDayVegaRatio);
-      }
-      if (MaxGrpDayPremiumLn != 0F) {
-        output.WriteRawTag(189, 60);
-        output.WriteFloat(MaxGrpDayPremiumLn);
-      }
-      if (MaxGrpDayPremiumSh != 0F) {
-        output.WriteRawTag(213, 60);
-        output.WriteFloat(MaxGrpDayPremiumSh);
-      }
-      if (MaxGrpDayPremiumAbs != 0F) {
-        output.WriteRawTag(237, 60);
-        output.WriteFloat(MaxGrpDayPremiumAbs);
-      }
-      if (GrpDayPremiumRatio != 0F) {
-        output.WriteRawTag(133, 61);
-        output.WriteFloat(GrpDayPremiumRatio);
-      }
       if (MaxGrpDayContractsLn != 0) {
-        output.WriteRawTag(152, 61);
+        output.WriteRawTag(216, 56);
         output.WriteInt32(MaxGrpDayContractsLn);
       }
       if (MaxGrpDayContractsSh != 0) {
-        output.WriteRawTag(176, 61);
+        output.WriteRawTag(240, 56);
         output.WriteInt32(MaxGrpDayContractsSh);
       }
       if (MaxGrpDayContractsAbs != 0) {
-        output.WriteRawTag(200, 61);
+        output.WriteRawTag(136, 57);
         output.WriteInt32(MaxGrpDayContractsAbs);
       }
-      if (SymEmaCxlDDeltaLn != 0F) {
-        output.WriteRawTag(229, 61);
-        output.WriteFloat(SymEmaCxlDDeltaLn);
+      if (MaxGrpDayVegaLn != 0F) {
+        output.WriteRawTag(165, 57);
+        output.WriteFloat(MaxGrpDayVegaLn);
       }
-      if (SymEmaCxlDDeltaSh != 0F) {
-        output.WriteRawTag(253, 61);
-        output.WriteFloat(SymEmaCxlDDeltaSh);
+      if (MaxGrpDayVegaSh != 0F) {
+        output.WriteRawTag(189, 57);
+        output.WriteFloat(MaxGrpDayVegaSh);
       }
-      if (SymEmaCxlWtVegaLn != 0F) {
-        output.WriteRawTag(149, 62);
-        output.WriteFloat(SymEmaCxlWtVegaLn);
+      if (MaxGrpDayVegaAbs != 0F) {
+        output.WriteRawTag(213, 57);
+        output.WriteFloat(MaxGrpDayVegaAbs);
       }
-      if (SymEmaCxlWtVegaSh != 0F) {
-        output.WriteRawTag(173, 62);
-        output.WriteFloat(SymEmaCxlWtVegaSh);
+      if (GrpDayVegaRatio != 0F) {
+        output.WriteRawTag(237, 57);
+        output.WriteFloat(GrpDayVegaRatio);
+      }
+      if (MaxGrpDayRMetric1Ln != 0F) {
+        output.WriteRawTag(133, 58);
+        output.WriteFloat(MaxGrpDayRMetric1Ln);
+      }
+      if (MaxGrpDayRMetric1Sh != 0F) {
+        output.WriteRawTag(157, 58);
+        output.WriteFloat(MaxGrpDayRMetric1Sh);
+      }
+      if (MaxGrpDayRMetric1Abs != 0F) {
+        output.WriteRawTag(181, 58);
+        output.WriteFloat(MaxGrpDayRMetric1Abs);
+      }
+      if (GrpDayRMetric1Ratio != 0F) {
+        output.WriteRawTag(205, 58);
+        output.WriteFloat(GrpDayRMetric1Ratio);
       }
       if (Cpx1 != 0F) {
-        output.WriteRawTag(197, 62);
+        output.WriteRawTag(229, 58);
         output.WriteFloat(Cpx1);
       }
       if (Csz1 != 0) {
-        output.WriteRawTag(216, 62);
+        output.WriteRawTag(248, 58);
         output.WriteInt32(Csz1);
       }
       if (Cex1 != 0) {
-        output.WriteRawTag(240, 62);
+        output.WriteRawTag(144, 59);
         output.WriteUInt32(Cex1);
       }
       if (Cpx2 != 0F) {
-        output.WriteRawTag(141, 63);
+        output.WriteRawTag(173, 59);
         output.WriteFloat(Cpx2);
       }
       if (Csz2 != 0) {
-        output.WriteRawTag(160, 63);
+        output.WriteRawTag(192, 59);
         output.WriteInt32(Csz2);
       }
       if (Cex2 != 0) {
-        output.WriteRawTag(184, 63);
+        output.WriteRawTag(216, 59);
         output.WriteUInt32(Cex2);
       }
       if (CMore != 0) {
-        output.WriteRawTag(208, 63);
+        output.WriteRawTag(240, 59);
         output.WriteInt32(CMore);
       }
       if (NumNewOrders != 0) {
-        output.WriteRawTag(232, 63);
+        output.WriteRawTag(136, 60);
         output.WriteInt32(NumNewOrders);
       }
       if (NumParentLimits != 0) {
-        output.WriteRawTag(128, 64);
+        output.WriteRawTag(160, 60);
         output.WriteUInt32(NumParentLimits);
       }
       if (UserData1.Length != 0) {
-        output.WriteRawTag(154, 64);
+        output.WriteRawTag(186, 60);
         output.WriteString(UserData1);
       }
       if (UserData2.Length != 0) {
-        output.WriteRawTag(178, 64);
+        output.WriteRawTag(210, 60);
         output.WriteString(UserData2);
       }
       if (NumUpdates != 0) {
-        output.WriteRawTag(200, 64);
+        output.WriteRawTag(232, 60);
         output.WriteInt32(NumUpdates);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(226, 64);
+        output.WriteRawTag(130, 61);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -8749,6 +8216,9 @@ namespace Spiderrock.Protobuf {
       if (RiskLimitDesc != global::Spiderrock.Protobuf.SpdrRisk.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RiskLimitDesc);
       }
+      if (RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RiskLimitLevel);
+      }
       if (MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) MaxProgress);
       }
@@ -9082,62 +8552,20 @@ namespace Spiderrock.Protobuf {
       if (SVolDrift != 0F) {
         size += 2 + 4;
       }
-      if (NetAccDayWtVega != 0F) {
-        size += 2 + 4;
-      }
-      if (NetAccDayDDelta != 0F) {
-        size += 2 + 4;
-      }
-      if (NetSymDayWtVega != 0F) {
-        size += 2 + 4;
-      }
-      if (NetSymDayDDelta != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpDayVega != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpDayDDelta != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpDayPremium != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpDayContracts != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(NetGrpDayContracts);
-      }
-      if (NetGrpRMetric1 != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpRMetric2 != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpRMetric3 != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpRMetric4 != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpRMetric5 != 0F) {
-        size += 2 + 4;
-      }
-      if (NetGrpRMetric7 != 0F) {
-        size += 2 + 4;
-      }
-      if (NetSymEmaCxlDDelta != 0F) {
-        size += 2 + 4;
-      }
-      if (NetSymEmaCxlWtVega != 0F) {
-        size += 2 + 4;
-      }
       if (MaxGrpDayDDeltaLn != 0F) {
         size += 2 + 4;
       }
       if (MaxGrpDayDDeltaSh != 0F) {
         size += 2 + 4;
       }
-      if (GrpDayDDeltaRatio != 0F) {
-        size += 2 + 4;
+      if (MaxGrpDayContractsLn != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsLn);
+      }
+      if (MaxGrpDayContractsSh != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsSh);
+      }
+      if (MaxGrpDayContractsAbs != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsAbs);
       }
       if (MaxGrpDayVegaLn != 0F) {
         size += 2 + 4;
@@ -9151,37 +8579,16 @@ namespace Spiderrock.Protobuf {
       if (GrpDayVegaRatio != 0F) {
         size += 2 + 4;
       }
-      if (MaxGrpDayPremiumLn != 0F) {
+      if (MaxGrpDayRMetric1Ln != 0F) {
         size += 2 + 4;
       }
-      if (MaxGrpDayPremiumSh != 0F) {
+      if (MaxGrpDayRMetric1Sh != 0F) {
         size += 2 + 4;
       }
-      if (MaxGrpDayPremiumAbs != 0F) {
+      if (MaxGrpDayRMetric1Abs != 0F) {
         size += 2 + 4;
       }
-      if (GrpDayPremiumRatio != 0F) {
-        size += 2 + 4;
-      }
-      if (MaxGrpDayContractsLn != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsLn);
-      }
-      if (MaxGrpDayContractsSh != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsSh);
-      }
-      if (MaxGrpDayContractsAbs != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsAbs);
-      }
-      if (SymEmaCxlDDeltaLn != 0F) {
-        size += 2 + 4;
-      }
-      if (SymEmaCxlDDeltaSh != 0F) {
-        size += 2 + 4;
-      }
-      if (SymEmaCxlWtVegaLn != 0F) {
-        size += 2 + 4;
-      }
-      if (SymEmaCxlWtVegaSh != 0F) {
+      if (GrpDayRMetric1Ratio != 0F) {
         size += 2 + 4;
       }
       if (Cpx1 != 0F) {
@@ -9733,6 +9140,9 @@ namespace Spiderrock.Protobuf {
       if (other.RiskLimitDesc != global::Spiderrock.Protobuf.SpdrRisk.Unspecified) {
         RiskLimitDesc = other.RiskLimitDesc;
       }
+      if (other.RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) {
+        RiskLimitLevel = other.RiskLimitLevel;
+      }
       if (other.MaxProgress != global::Spiderrock.Protobuf.MaxProgress.Unspecified) {
         MaxProgress = other.MaxProgress;
       }
@@ -10087,62 +9497,20 @@ namespace Spiderrock.Protobuf {
       if (other.SVolDrift != 0F) {
         SVolDrift = other.SVolDrift;
       }
-      if (other.NetAccDayWtVega != 0F) {
-        NetAccDayWtVega = other.NetAccDayWtVega;
-      }
-      if (other.NetAccDayDDelta != 0F) {
-        NetAccDayDDelta = other.NetAccDayDDelta;
-      }
-      if (other.NetSymDayWtVega != 0F) {
-        NetSymDayWtVega = other.NetSymDayWtVega;
-      }
-      if (other.NetSymDayDDelta != 0F) {
-        NetSymDayDDelta = other.NetSymDayDDelta;
-      }
-      if (other.NetGrpDayVega != 0F) {
-        NetGrpDayVega = other.NetGrpDayVega;
-      }
-      if (other.NetGrpDayDDelta != 0F) {
-        NetGrpDayDDelta = other.NetGrpDayDDelta;
-      }
-      if (other.NetGrpDayPremium != 0F) {
-        NetGrpDayPremium = other.NetGrpDayPremium;
-      }
-      if (other.NetGrpDayContracts != 0) {
-        NetGrpDayContracts = other.NetGrpDayContracts;
-      }
-      if (other.NetGrpRMetric1 != 0F) {
-        NetGrpRMetric1 = other.NetGrpRMetric1;
-      }
-      if (other.NetGrpRMetric2 != 0F) {
-        NetGrpRMetric2 = other.NetGrpRMetric2;
-      }
-      if (other.NetGrpRMetric3 != 0F) {
-        NetGrpRMetric3 = other.NetGrpRMetric3;
-      }
-      if (other.NetGrpRMetric4 != 0F) {
-        NetGrpRMetric4 = other.NetGrpRMetric4;
-      }
-      if (other.NetGrpRMetric5 != 0F) {
-        NetGrpRMetric5 = other.NetGrpRMetric5;
-      }
-      if (other.NetGrpRMetric7 != 0F) {
-        NetGrpRMetric7 = other.NetGrpRMetric7;
-      }
-      if (other.NetSymEmaCxlDDelta != 0F) {
-        NetSymEmaCxlDDelta = other.NetSymEmaCxlDDelta;
-      }
-      if (other.NetSymEmaCxlWtVega != 0F) {
-        NetSymEmaCxlWtVega = other.NetSymEmaCxlWtVega;
-      }
       if (other.MaxGrpDayDDeltaLn != 0F) {
         MaxGrpDayDDeltaLn = other.MaxGrpDayDDeltaLn;
       }
       if (other.MaxGrpDayDDeltaSh != 0F) {
         MaxGrpDayDDeltaSh = other.MaxGrpDayDDeltaSh;
       }
-      if (other.GrpDayDDeltaRatio != 0F) {
-        GrpDayDDeltaRatio = other.GrpDayDDeltaRatio;
+      if (other.MaxGrpDayContractsLn != 0) {
+        MaxGrpDayContractsLn = other.MaxGrpDayContractsLn;
+      }
+      if (other.MaxGrpDayContractsSh != 0) {
+        MaxGrpDayContractsSh = other.MaxGrpDayContractsSh;
+      }
+      if (other.MaxGrpDayContractsAbs != 0) {
+        MaxGrpDayContractsAbs = other.MaxGrpDayContractsAbs;
       }
       if (other.MaxGrpDayVegaLn != 0F) {
         MaxGrpDayVegaLn = other.MaxGrpDayVegaLn;
@@ -10156,38 +9524,17 @@ namespace Spiderrock.Protobuf {
       if (other.GrpDayVegaRatio != 0F) {
         GrpDayVegaRatio = other.GrpDayVegaRatio;
       }
-      if (other.MaxGrpDayPremiumLn != 0F) {
-        MaxGrpDayPremiumLn = other.MaxGrpDayPremiumLn;
+      if (other.MaxGrpDayRMetric1Ln != 0F) {
+        MaxGrpDayRMetric1Ln = other.MaxGrpDayRMetric1Ln;
       }
-      if (other.MaxGrpDayPremiumSh != 0F) {
-        MaxGrpDayPremiumSh = other.MaxGrpDayPremiumSh;
+      if (other.MaxGrpDayRMetric1Sh != 0F) {
+        MaxGrpDayRMetric1Sh = other.MaxGrpDayRMetric1Sh;
       }
-      if (other.MaxGrpDayPremiumAbs != 0F) {
-        MaxGrpDayPremiumAbs = other.MaxGrpDayPremiumAbs;
+      if (other.MaxGrpDayRMetric1Abs != 0F) {
+        MaxGrpDayRMetric1Abs = other.MaxGrpDayRMetric1Abs;
       }
-      if (other.GrpDayPremiumRatio != 0F) {
-        GrpDayPremiumRatio = other.GrpDayPremiumRatio;
-      }
-      if (other.MaxGrpDayContractsLn != 0) {
-        MaxGrpDayContractsLn = other.MaxGrpDayContractsLn;
-      }
-      if (other.MaxGrpDayContractsSh != 0) {
-        MaxGrpDayContractsSh = other.MaxGrpDayContractsSh;
-      }
-      if (other.MaxGrpDayContractsAbs != 0) {
-        MaxGrpDayContractsAbs = other.MaxGrpDayContractsAbs;
-      }
-      if (other.SymEmaCxlDDeltaLn != 0F) {
-        SymEmaCxlDDeltaLn = other.SymEmaCxlDDeltaLn;
-      }
-      if (other.SymEmaCxlDDeltaSh != 0F) {
-        SymEmaCxlDDeltaSh = other.SymEmaCxlDDeltaSh;
-      }
-      if (other.SymEmaCxlWtVegaLn != 0F) {
-        SymEmaCxlWtVegaLn = other.SymEmaCxlWtVegaLn;
-      }
-      if (other.SymEmaCxlWtVegaSh != 0F) {
-        SymEmaCxlWtVegaSh = other.SymEmaCxlWtVegaSh;
+      if (other.GrpDayRMetric1Ratio != 0F) {
+        GrpDayRMetric1Ratio = other.GrpDayRMetric1Ratio;
       }
       if (other.Cpx1 != 0F) {
         Cpx1 = other.Cpx1;
@@ -10902,655 +10249,575 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 4520: {
+            RiskLimitLevel = (global::Spiderrock.Protobuf.SpdrRiskLevel) input.ReadEnum();
+            break;
+          }
+          case 4544: {
             MaxProgress = (global::Spiderrock.Protobuf.MaxProgress) input.ReadEnum();
             break;
           }
-          case 4546: {
+          case 4570: {
             MaxProgressDetail = input.ReadString();
             break;
           }
-          case 4570: {
+          case 4594: {
             if (maxProgressTime_ == null) {
               MaxProgressTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxProgressTime);
             break;
           }
-          case 4592: {
+          case 4616: {
             AlgoState = (global::Spiderrock.Protobuf.AlgoState) input.ReadEnum();
             break;
           }
-          case 4616: {
+          case 4640: {
             AlgoCounter = input.ReadInt32();
             break;
           }
-          case 4640: {
+          case 4664: {
             MakeState = (global::Spiderrock.Protobuf.AlgoState) input.ReadEnum();
             break;
           }
-          case 4664: {
+          case 4688: {
             MakeCounter = input.ReadInt32();
             break;
           }
-          case 4688: {
+          case 4712: {
             MktRespState = (global::Spiderrock.Protobuf.MktRespState) input.ReadEnum();
             break;
           }
-          case 4712: {
+          case 4736: {
             MktRespCounter = input.ReadInt32();
             break;
           }
-          case 4736: {
+          case 4760: {
             BrokerState = (global::Spiderrock.Protobuf.BrokerState) input.ReadEnum();
             break;
           }
-          case 4760: {
+          case 4784: {
             BrokerCounter = input.ReadInt32();
             break;
           }
-          case 4784: {
+          case 4808: {
             SpdrMktState = (global::Spiderrock.Protobuf.SpdrMarketState) input.ReadEnum();
             break;
           }
-          case 4808: {
+          case 4832: {
             SpdrBrokerStatus = (global::Spiderrock.Protobuf.SpdrBrokerStatus) input.ReadEnum();
             break;
           }
-          case 4834: {
+          case 4858: {
             ProgressRuleDetail = input.ReadString();
             break;
           }
-          case 4858: {
+          case 4882: {
             if (lastChildRejectDttm_ == null) {
               LastChildRejectDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(LastChildRejectDttm);
             break;
           }
-          case 4882: {
+          case 4906: {
             LastChildRejectText = input.ReadString();
             break;
           }
-          case 4904: {
+          case 4928: {
             RiskGroupId = input.ReadInt64();
             break;
           }
-          case 4928: {
+          case 4952: {
             TriggerGroupId = input.ReadInt64();
             break;
           }
-          case 4952: {
+          case 4976: {
             HedgeGroupingCode = input.ReadInt64();
             break;
           }
-          case 4976: {
+          case 5000: {
             AutoHedge = (global::Spiderrock.Protobuf.AutoHedge) input.ReadEnum();
             break;
           }
-          case 5000: {
+          case 5024: {
             HedgeInstrument = (global::Spiderrock.Protobuf.HedgeInst) input.ReadEnum();
             break;
           }
-          case 5026: {
+          case 5050: {
             if (hedgeSecKey_ == null) {
               HedgeSecKey = new global::Spiderrock.Protobuf.ExpiryKey();
             }
             input.ReadMessage(HedgeSecKey);
             break;
           }
-          case 5048: {
+          case 5072: {
             HedgeSecType = (global::Spiderrock.Protobuf.SpdrKeyType) input.ReadEnum();
             break;
           }
-          case 5077: {
+          case 5101: {
             HedgeBetaRatio = input.ReadFloat();
             break;
           }
-          case 5096: {
+          case 5120: {
             HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
             break;
           }
-          case 5122: {
+          case 5146: {
             ExternHedgeExDest = input.ReadString();
             break;
           }
-          case 5146: {
+          case 5170: {
             ExternHedgeParams = input.ReadString();
             break;
           }
-          case 5173: {
+          case 5197: {
             BestWayPrc = input.ReadFloat();
             break;
           }
-          case 5197: {
+          case 5221: {
             WrstWayPrc = input.ReadFloat();
             break;
           }
-          case 5216: {
+          case 5240: {
             BestWaySz = input.ReadInt32();
             break;
           }
-          case 5240: {
+          case 5264: {
             WrstWaySz = input.ReadInt32();
             break;
           }
-          case 5269: {
+          case 5293: {
             SurfacePrc = input.ReadFloat();
             break;
           }
-          case 5293: {
+          case 5317: {
             SurfaceVol = input.ReadFloat();
             break;
           }
-          case 5317: {
+          case 5341: {
             SurfaceUPrc = input.ReadFloat();
             break;
           }
-          case 5337: {
+          case 5361: {
             LimitPrice = input.ReadDouble();
             break;
           }
-          case 5360: {
+          case 5384: {
             LimitErr = (global::Spiderrock.Protobuf.LimitError) input.ReadEnum();
             break;
           }
-          case 5385: {
+          case 5409: {
             MakeLimitPrice = input.ReadDouble();
             break;
           }
-          case 5409: {
+          case 5433: {
             TakeLimitPrice = input.ReadDouble();
             break;
           }
-          case 5432: {
+          case 5456: {
             CxlUPrcRange = (global::Spiderrock.Protobuf.UPrcCxl) input.ReadEnum();
             break;
           }
-          case 5461: {
+          case 5485: {
             MinUBid = input.ReadFloat();
             break;
           }
-          case 5485: {
+          case 5509: {
             MaxUAsk = input.ReadFloat();
             break;
           }
-          case 5504: {
+          case 5528: {
             MinMaxType = (global::Spiderrock.Protobuf.MinMaxType) input.ReadEnum();
             break;
           }
-          case 5528: {
+          case 5552: {
             LeadSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
             break;
           }
-          case 5553: {
+          case 5577: {
             MaxCompletionSlippage = input.ReadDouble();
             break;
           }
-          case 5581: {
+          case 5605: {
             OrderRefPremium = input.ReadFloat();
             break;
           }
-          case 5602: {
+          case 5626: {
             Strategy = input.ReadString();
             break;
           }
-          case 5626: {
+          case 5650: {
             UserName = input.ReadString();
             break;
           }
-          case 5648: {
+          case 5672: {
             VisibleInSV = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 5674: {
+          case 5698: {
             SpdrComment = input.ReadString();
             break;
           }
-          case 5696: {
+          case 5720: {
             TakeReachRule = (global::Spiderrock.Protobuf.ReachRule) input.ReadEnum();
             break;
           }
-          case 5720: {
+          case 5744: {
             MaxExposureSize = input.ReadInt32();
             break;
           }
-          case 5744: {
+          case 5768: {
             NumMakeExchanges = input.ReadInt32();
             break;
           }
-          case 5768: {
+          case 5792: {
             PublicSize = (global::Spiderrock.Protobuf.PublicSizeHandling) input.ReadEnum();
             break;
           }
-          case 5792: {
+          case 5816: {
             ProgressRule = (global::Spiderrock.Protobuf.ProgressRule) input.ReadEnum();
             break;
           }
-          case 5816: {
+          case 5840: {
             ProgressSliceCnt = input.ReadInt32();
             break;
           }
-          case 5840: {
+          case 5864: {
             ProgressExposeTime = input.ReadInt32();
             break;
           }
-          case 5864: {
+          case 5888: {
             MaxChildOrders = input.ReadInt32();
             break;
           }
-          case 5888: {
+          case 5912: {
             ExchMask = input.ReadUInt32();
             break;
           }
-          case 5912: {
+          case 5936: {
             TimeInForce = (global::Spiderrock.Protobuf.TimeInForce) input.ReadEnum();
             break;
           }
-          case 5938: {
+          case 5962: {
             if (startDttm_ == null) {
               StartDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(StartDttm);
             break;
           }
-          case 5960: {
+          case 5984: {
             OrderDuration = input.ReadInt32();
             break;
           }
-          case 5986: {
+          case 6010: {
             if (goodTillDttm_ == null) {
               GoodTillDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(GoodTillDttm);
             break;
           }
-          case 6008: {
+          case 6032: {
             ParentOrderHandling = (global::Spiderrock.Protobuf.ParentOrderHandling) input.ReadEnum();
             break;
           }
-          case 6032: {
+          case 6056: {
             ParentBalanceHandling = (global::Spiderrock.Protobuf.ParentBalanceHandling) input.ReadEnum();
             break;
           }
-          case 6056: {
+          case 6080: {
             BlockVisibility = (global::Spiderrock.Protobuf.BlockVisibility) input.ReadEnum();
             break;
           }
-          case 6080: {
+          case 6104: {
             OrderLimitType = (global::Spiderrock.Protobuf.SpdrLimitType) input.ReadEnum();
             break;
           }
-          case 6105: {
+          case 6129: {
             OrderPrcLimit = input.ReadDouble();
             break;
           }
-          case 6129: {
+          case 6153: {
             OrderRefUPrc = input.ReadDouble();
             break;
           }
-          case 6157: {
+          case 6181: {
             OrderRefDe = input.ReadFloat();
             break;
           }
-          case 6181: {
+          case 6205: {
             OrderRefGa = input.ReadFloat();
             break;
           }
-          case 6201: {
+          case 6225: {
             OrderPrcOffset = input.ReadDouble();
             break;
           }
-          case 6224: {
+          case 6248: {
             TakeLimitClass = (global::Spiderrock.Protobuf.SpdrLimitClass) input.ReadEnum();
             break;
           }
-          case 6248: {
+          case 6272: {
             TakeAlphaType = (global::Spiderrock.Protobuf.AlphaType) input.ReadEnum();
             break;
           }
-          case 6277: {
+          case 6301: {
             TakeAlphaFactor = input.ReadFloat();
             break;
           }
-          case 6301: {
+          case 6325: {
             TakeAlphaProbability = input.ReadFloat();
             break;
           }
-          case 6321: {
+          case 6345: {
             TakeSurfPrcOffset = input.ReadDouble();
             break;
           }
-          case 6349: {
+          case 6373: {
             TakeSurfVolOffset = input.ReadFloat();
             break;
           }
-          case 6373: {
+          case 6397: {
             TakeSurfWidOffset = input.ReadFloat();
             break;
           }
-          case 6392: {
+          case 6416: {
             MakeLimitClass = (global::Spiderrock.Protobuf.SpdrLimitClass) input.ReadEnum();
             break;
           }
-          case 6416: {
+          case 6440: {
             MakeAlphaType = (global::Spiderrock.Protobuf.AlphaType) input.ReadEnum();
             break;
           }
-          case 6445: {
+          case 6469: {
             MakeAlphaFactor = input.ReadFloat();
             break;
           }
-          case 6469: {
+          case 6493: {
             MakeAlphaProbability = input.ReadFloat();
             break;
           }
-          case 6489: {
+          case 6513: {
             MakeSurfPrcOffset = input.ReadDouble();
             break;
           }
-          case 6517: {
+          case 6541: {
             MakeSurfVolOffset = input.ReadFloat();
             break;
           }
-          case 6541: {
+          case 6565: {
             MakeSurfWidOffset = input.ReadFloat();
             break;
           }
-          case 6565: {
+          case 6589: {
             OrderRefEventMult = input.ReadFloat();
             break;
           }
-          case 6586: {
+          case 6610: {
             if (orderRefEventDttm_ == null) {
               OrderRefEventDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(OrderRefEventDttm);
             break;
           }
-          case 6613: {
+          case 6637: {
             MlegProbLimit = input.ReadFloat();
             break;
           }
-          case 6637: {
+          case 6661: {
             MlegSurfOffset = input.ReadFloat();
             break;
           }
-          case 6658: {
+          case 6682: {
             ExternExDest = input.ReadString();
             break;
           }
-          case 6682: {
+          case 6706: {
             if (orderDttm_ == null) {
               OrderDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(OrderDttm);
             break;
           }
-          case 6709: {
+          case 6733: {
             MinSurfVol = input.ReadFloat();
             break;
           }
-          case 6733: {
+          case 6757: {
             MaxSurfVol = input.ReadFloat();
             break;
           }
-          case 6757: {
+          case 6781: {
             MinSurfPrc = input.ReadFloat();
             break;
           }
-          case 6781: {
+          case 6805: {
             MaxSurfPrc = input.ReadFloat();
             break;
           }
-          case 6805: {
+          case 6829: {
             MinSurfUPrc = input.ReadFloat();
             break;
           }
-          case 6829: {
+          case 6853: {
             MaxSurfUPrc = input.ReadFloat();
             break;
           }
-          case 6853: {
+          case 6877: {
             MinQteWidth = input.ReadFloat();
             break;
           }
-          case 6877: {
+          case 6901: {
             AvgQteWidth = input.ReadFloat();
             break;
           }
-          case 6896: {
+          case 6920: {
             CntQteWidth = input.ReadInt32();
             break;
           }
-          case 6921: {
+          case 6945: {
             ArriveBid = input.ReadDouble();
             break;
           }
-          case 6945: {
+          case 6969: {
             ArriveAsk = input.ReadDouble();
             break;
           }
-          case 6973: {
+          case 6997: {
             TotalSeconds = input.ReadFloat();
             break;
           }
-          case 6997: {
+          case 7021: {
             WorkingSeconds = input.ReadFloat();
             break;
           }
-          case 7016: {
+          case 7040: {
             PrtActiveCnt = input.ReadInt32();
             break;
           }
-          case 7040: {
+          case 7064: {
             PrtQtyActive = input.ReadInt32();
             break;
           }
-          case 7069: {
+          case 7093: {
             CumExchFee = input.ReadFloat();
             break;
           }
-          case 7093: {
+          case 7117: {
             CumM10Pnl = input.ReadFloat();
             break;
           }
-          case 7117: {
+          case 7141: {
             CumArrivalPnl = input.ReadFloat();
             break;
           }
-          case 7141: {
+          case 7165: {
             UPrcDrift = input.ReadFloat();
             break;
           }
-          case 7165: {
+          case 7189: {
             SVolDrift = input.ReadFloat();
             break;
           }
-          case 7189: {
-            NetAccDayWtVega = input.ReadFloat();
-            break;
-          }
           case 7213: {
-            NetAccDayDDelta = input.ReadFloat();
-            break;
-          }
-          case 7237: {
-            NetSymDayWtVega = input.ReadFloat();
-            break;
-          }
-          case 7261: {
-            NetSymDayDDelta = input.ReadFloat();
-            break;
-          }
-          case 7285: {
-            NetGrpDayVega = input.ReadFloat();
-            break;
-          }
-          case 7309: {
-            NetGrpDayDDelta = input.ReadFloat();
-            break;
-          }
-          case 7333: {
-            NetGrpDayPremium = input.ReadFloat();
-            break;
-          }
-          case 7352: {
-            NetGrpDayContracts = input.ReadInt32();
-            break;
-          }
-          case 7381: {
-            NetGrpRMetric1 = input.ReadFloat();
-            break;
-          }
-          case 7405: {
-            NetGrpRMetric2 = input.ReadFloat();
-            break;
-          }
-          case 7429: {
-            NetGrpRMetric3 = input.ReadFloat();
-            break;
-          }
-          case 7453: {
-            NetGrpRMetric4 = input.ReadFloat();
-            break;
-          }
-          case 7477: {
-            NetGrpRMetric5 = input.ReadFloat();
-            break;
-          }
-          case 7501: {
-            NetGrpRMetric7 = input.ReadFloat();
-            break;
-          }
-          case 7525: {
-            NetSymEmaCxlDDelta = input.ReadFloat();
-            break;
-          }
-          case 7549: {
-            NetSymEmaCxlWtVega = input.ReadFloat();
-            break;
-          }
-          case 7573: {
             MaxGrpDayDDeltaLn = input.ReadFloat();
             break;
           }
-          case 7597: {
+          case 7237: {
             MaxGrpDayDDeltaSh = input.ReadFloat();
             break;
           }
-          case 7621: {
-            GrpDayDDeltaRatio = input.ReadFloat();
-            break;
-          }
-          case 7645: {
-            MaxGrpDayVegaLn = input.ReadFloat();
-            break;
-          }
-          case 7669: {
-            MaxGrpDayVegaSh = input.ReadFloat();
-            break;
-          }
-          case 7693: {
-            MaxGrpDayVegaAbs = input.ReadFloat();
-            break;
-          }
-          case 7717: {
-            GrpDayVegaRatio = input.ReadFloat();
-            break;
-          }
-          case 7741: {
-            MaxGrpDayPremiumLn = input.ReadFloat();
-            break;
-          }
-          case 7765: {
-            MaxGrpDayPremiumSh = input.ReadFloat();
-            break;
-          }
-          case 7789: {
-            MaxGrpDayPremiumAbs = input.ReadFloat();
-            break;
-          }
-          case 7813: {
-            GrpDayPremiumRatio = input.ReadFloat();
-            break;
-          }
-          case 7832: {
+          case 7256: {
             MaxGrpDayContractsLn = input.ReadInt32();
             break;
           }
-          case 7856: {
+          case 7280: {
             MaxGrpDayContractsSh = input.ReadInt32();
             break;
           }
-          case 7880: {
+          case 7304: {
             MaxGrpDayContractsAbs = input.ReadInt32();
             break;
           }
-          case 7909: {
-            SymEmaCxlDDeltaLn = input.ReadFloat();
+          case 7333: {
+            MaxGrpDayVegaLn = input.ReadFloat();
             break;
           }
-          case 7933: {
-            SymEmaCxlDDeltaSh = input.ReadFloat();
+          case 7357: {
+            MaxGrpDayVegaSh = input.ReadFloat();
             break;
           }
-          case 7957: {
-            SymEmaCxlWtVegaLn = input.ReadFloat();
+          case 7381: {
+            MaxGrpDayVegaAbs = input.ReadFloat();
             break;
           }
-          case 7981: {
-            SymEmaCxlWtVegaSh = input.ReadFloat();
+          case 7405: {
+            GrpDayVegaRatio = input.ReadFloat();
             break;
           }
-          case 8005: {
+          case 7429: {
+            MaxGrpDayRMetric1Ln = input.ReadFloat();
+            break;
+          }
+          case 7453: {
+            MaxGrpDayRMetric1Sh = input.ReadFloat();
+            break;
+          }
+          case 7477: {
+            MaxGrpDayRMetric1Abs = input.ReadFloat();
+            break;
+          }
+          case 7501: {
+            GrpDayRMetric1Ratio = input.ReadFloat();
+            break;
+          }
+          case 7525: {
             Cpx1 = input.ReadFloat();
             break;
           }
-          case 8024: {
+          case 7544: {
             Csz1 = input.ReadInt32();
             break;
           }
-          case 8048: {
+          case 7568: {
             Cex1 = input.ReadUInt32();
             break;
           }
-          case 8077: {
+          case 7597: {
             Cpx2 = input.ReadFloat();
             break;
           }
-          case 8096: {
+          case 7616: {
             Csz2 = input.ReadInt32();
             break;
           }
-          case 8120: {
+          case 7640: {
             Cex2 = input.ReadUInt32();
             break;
           }
-          case 8144: {
+          case 7664: {
             CMore = input.ReadInt32();
             break;
           }
-          case 8168: {
+          case 7688: {
             NumNewOrders = input.ReadInt32();
             break;
           }
-          case 8192: {
+          case 7712: {
             NumParentLimits = input.ReadUInt32();
             break;
           }
-          case 8218: {
+          case 7738: {
             UserData1 = input.ReadString();
             break;
           }
-          case 8242: {
+          case 7762: {
             UserData2 = input.ReadString();
             break;
           }
-          case 8264: {
+          case 7784: {
             NumUpdates = input.ReadInt32();
             break;
           }
-          case 8290: {
+          case 7810: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -12228,655 +11495,575 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 4520: {
+            RiskLimitLevel = (global::Spiderrock.Protobuf.SpdrRiskLevel) input.ReadEnum();
+            break;
+          }
+          case 4544: {
             MaxProgress = (global::Spiderrock.Protobuf.MaxProgress) input.ReadEnum();
             break;
           }
-          case 4546: {
+          case 4570: {
             MaxProgressDetail = input.ReadString();
             break;
           }
-          case 4570: {
+          case 4594: {
             if (maxProgressTime_ == null) {
               MaxProgressTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxProgressTime);
             break;
           }
-          case 4592: {
+          case 4616: {
             AlgoState = (global::Spiderrock.Protobuf.AlgoState) input.ReadEnum();
             break;
           }
-          case 4616: {
+          case 4640: {
             AlgoCounter = input.ReadInt32();
             break;
           }
-          case 4640: {
+          case 4664: {
             MakeState = (global::Spiderrock.Protobuf.AlgoState) input.ReadEnum();
             break;
           }
-          case 4664: {
+          case 4688: {
             MakeCounter = input.ReadInt32();
             break;
           }
-          case 4688: {
+          case 4712: {
             MktRespState = (global::Spiderrock.Protobuf.MktRespState) input.ReadEnum();
             break;
           }
-          case 4712: {
+          case 4736: {
             MktRespCounter = input.ReadInt32();
             break;
           }
-          case 4736: {
+          case 4760: {
             BrokerState = (global::Spiderrock.Protobuf.BrokerState) input.ReadEnum();
             break;
           }
-          case 4760: {
+          case 4784: {
             BrokerCounter = input.ReadInt32();
             break;
           }
-          case 4784: {
+          case 4808: {
             SpdrMktState = (global::Spiderrock.Protobuf.SpdrMarketState) input.ReadEnum();
             break;
           }
-          case 4808: {
+          case 4832: {
             SpdrBrokerStatus = (global::Spiderrock.Protobuf.SpdrBrokerStatus) input.ReadEnum();
             break;
           }
-          case 4834: {
+          case 4858: {
             ProgressRuleDetail = input.ReadString();
             break;
           }
-          case 4858: {
+          case 4882: {
             if (lastChildRejectDttm_ == null) {
               LastChildRejectDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(LastChildRejectDttm);
             break;
           }
-          case 4882: {
+          case 4906: {
             LastChildRejectText = input.ReadString();
             break;
           }
-          case 4904: {
+          case 4928: {
             RiskGroupId = input.ReadInt64();
             break;
           }
-          case 4928: {
+          case 4952: {
             TriggerGroupId = input.ReadInt64();
             break;
           }
-          case 4952: {
+          case 4976: {
             HedgeGroupingCode = input.ReadInt64();
             break;
           }
-          case 4976: {
+          case 5000: {
             AutoHedge = (global::Spiderrock.Protobuf.AutoHedge) input.ReadEnum();
             break;
           }
-          case 5000: {
+          case 5024: {
             HedgeInstrument = (global::Spiderrock.Protobuf.HedgeInst) input.ReadEnum();
             break;
           }
-          case 5026: {
+          case 5050: {
             if (hedgeSecKey_ == null) {
               HedgeSecKey = new global::Spiderrock.Protobuf.ExpiryKey();
             }
             input.ReadMessage(HedgeSecKey);
             break;
           }
-          case 5048: {
+          case 5072: {
             HedgeSecType = (global::Spiderrock.Protobuf.SpdrKeyType) input.ReadEnum();
             break;
           }
-          case 5077: {
+          case 5101: {
             HedgeBetaRatio = input.ReadFloat();
             break;
           }
-          case 5096: {
+          case 5120: {
             HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
             break;
           }
-          case 5122: {
+          case 5146: {
             ExternHedgeExDest = input.ReadString();
             break;
           }
-          case 5146: {
+          case 5170: {
             ExternHedgeParams = input.ReadString();
             break;
           }
-          case 5173: {
+          case 5197: {
             BestWayPrc = input.ReadFloat();
             break;
           }
-          case 5197: {
+          case 5221: {
             WrstWayPrc = input.ReadFloat();
             break;
           }
-          case 5216: {
+          case 5240: {
             BestWaySz = input.ReadInt32();
             break;
           }
-          case 5240: {
+          case 5264: {
             WrstWaySz = input.ReadInt32();
             break;
           }
-          case 5269: {
+          case 5293: {
             SurfacePrc = input.ReadFloat();
             break;
           }
-          case 5293: {
+          case 5317: {
             SurfaceVol = input.ReadFloat();
             break;
           }
-          case 5317: {
+          case 5341: {
             SurfaceUPrc = input.ReadFloat();
             break;
           }
-          case 5337: {
+          case 5361: {
             LimitPrice = input.ReadDouble();
             break;
           }
-          case 5360: {
+          case 5384: {
             LimitErr = (global::Spiderrock.Protobuf.LimitError) input.ReadEnum();
             break;
           }
-          case 5385: {
+          case 5409: {
             MakeLimitPrice = input.ReadDouble();
             break;
           }
-          case 5409: {
+          case 5433: {
             TakeLimitPrice = input.ReadDouble();
             break;
           }
-          case 5432: {
+          case 5456: {
             CxlUPrcRange = (global::Spiderrock.Protobuf.UPrcCxl) input.ReadEnum();
             break;
           }
-          case 5461: {
+          case 5485: {
             MinUBid = input.ReadFloat();
             break;
           }
-          case 5485: {
+          case 5509: {
             MaxUAsk = input.ReadFloat();
             break;
           }
-          case 5504: {
+          case 5528: {
             MinMaxType = (global::Spiderrock.Protobuf.MinMaxType) input.ReadEnum();
             break;
           }
-          case 5528: {
+          case 5552: {
             LeadSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
             break;
           }
-          case 5553: {
+          case 5577: {
             MaxCompletionSlippage = input.ReadDouble();
             break;
           }
-          case 5581: {
+          case 5605: {
             OrderRefPremium = input.ReadFloat();
             break;
           }
-          case 5602: {
+          case 5626: {
             Strategy = input.ReadString();
             break;
           }
-          case 5626: {
+          case 5650: {
             UserName = input.ReadString();
             break;
           }
-          case 5648: {
+          case 5672: {
             VisibleInSV = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 5674: {
+          case 5698: {
             SpdrComment = input.ReadString();
             break;
           }
-          case 5696: {
+          case 5720: {
             TakeReachRule = (global::Spiderrock.Protobuf.ReachRule) input.ReadEnum();
             break;
           }
-          case 5720: {
+          case 5744: {
             MaxExposureSize = input.ReadInt32();
             break;
           }
-          case 5744: {
+          case 5768: {
             NumMakeExchanges = input.ReadInt32();
             break;
           }
-          case 5768: {
+          case 5792: {
             PublicSize = (global::Spiderrock.Protobuf.PublicSizeHandling) input.ReadEnum();
             break;
           }
-          case 5792: {
+          case 5816: {
             ProgressRule = (global::Spiderrock.Protobuf.ProgressRule) input.ReadEnum();
             break;
           }
-          case 5816: {
+          case 5840: {
             ProgressSliceCnt = input.ReadInt32();
             break;
           }
-          case 5840: {
+          case 5864: {
             ProgressExposeTime = input.ReadInt32();
             break;
           }
-          case 5864: {
+          case 5888: {
             MaxChildOrders = input.ReadInt32();
             break;
           }
-          case 5888: {
+          case 5912: {
             ExchMask = input.ReadUInt32();
             break;
           }
-          case 5912: {
+          case 5936: {
             TimeInForce = (global::Spiderrock.Protobuf.TimeInForce) input.ReadEnum();
             break;
           }
-          case 5938: {
+          case 5962: {
             if (startDttm_ == null) {
               StartDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(StartDttm);
             break;
           }
-          case 5960: {
+          case 5984: {
             OrderDuration = input.ReadInt32();
             break;
           }
-          case 5986: {
+          case 6010: {
             if (goodTillDttm_ == null) {
               GoodTillDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(GoodTillDttm);
             break;
           }
-          case 6008: {
+          case 6032: {
             ParentOrderHandling = (global::Spiderrock.Protobuf.ParentOrderHandling) input.ReadEnum();
             break;
           }
-          case 6032: {
+          case 6056: {
             ParentBalanceHandling = (global::Spiderrock.Protobuf.ParentBalanceHandling) input.ReadEnum();
             break;
           }
-          case 6056: {
+          case 6080: {
             BlockVisibility = (global::Spiderrock.Protobuf.BlockVisibility) input.ReadEnum();
             break;
           }
-          case 6080: {
+          case 6104: {
             OrderLimitType = (global::Spiderrock.Protobuf.SpdrLimitType) input.ReadEnum();
             break;
           }
-          case 6105: {
+          case 6129: {
             OrderPrcLimit = input.ReadDouble();
             break;
           }
-          case 6129: {
+          case 6153: {
             OrderRefUPrc = input.ReadDouble();
             break;
           }
-          case 6157: {
+          case 6181: {
             OrderRefDe = input.ReadFloat();
             break;
           }
-          case 6181: {
+          case 6205: {
             OrderRefGa = input.ReadFloat();
             break;
           }
-          case 6201: {
+          case 6225: {
             OrderPrcOffset = input.ReadDouble();
             break;
           }
-          case 6224: {
+          case 6248: {
             TakeLimitClass = (global::Spiderrock.Protobuf.SpdrLimitClass) input.ReadEnum();
             break;
           }
-          case 6248: {
+          case 6272: {
             TakeAlphaType = (global::Spiderrock.Protobuf.AlphaType) input.ReadEnum();
             break;
           }
-          case 6277: {
+          case 6301: {
             TakeAlphaFactor = input.ReadFloat();
             break;
           }
-          case 6301: {
+          case 6325: {
             TakeAlphaProbability = input.ReadFloat();
             break;
           }
-          case 6321: {
+          case 6345: {
             TakeSurfPrcOffset = input.ReadDouble();
             break;
           }
-          case 6349: {
+          case 6373: {
             TakeSurfVolOffset = input.ReadFloat();
             break;
           }
-          case 6373: {
+          case 6397: {
             TakeSurfWidOffset = input.ReadFloat();
             break;
           }
-          case 6392: {
+          case 6416: {
             MakeLimitClass = (global::Spiderrock.Protobuf.SpdrLimitClass) input.ReadEnum();
             break;
           }
-          case 6416: {
+          case 6440: {
             MakeAlphaType = (global::Spiderrock.Protobuf.AlphaType) input.ReadEnum();
             break;
           }
-          case 6445: {
+          case 6469: {
             MakeAlphaFactor = input.ReadFloat();
             break;
           }
-          case 6469: {
+          case 6493: {
             MakeAlphaProbability = input.ReadFloat();
             break;
           }
-          case 6489: {
+          case 6513: {
             MakeSurfPrcOffset = input.ReadDouble();
             break;
           }
-          case 6517: {
+          case 6541: {
             MakeSurfVolOffset = input.ReadFloat();
             break;
           }
-          case 6541: {
+          case 6565: {
             MakeSurfWidOffset = input.ReadFloat();
             break;
           }
-          case 6565: {
+          case 6589: {
             OrderRefEventMult = input.ReadFloat();
             break;
           }
-          case 6586: {
+          case 6610: {
             if (orderRefEventDttm_ == null) {
               OrderRefEventDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(OrderRefEventDttm);
             break;
           }
-          case 6613: {
+          case 6637: {
             MlegProbLimit = input.ReadFloat();
             break;
           }
-          case 6637: {
+          case 6661: {
             MlegSurfOffset = input.ReadFloat();
             break;
           }
-          case 6658: {
+          case 6682: {
             ExternExDest = input.ReadString();
             break;
           }
-          case 6682: {
+          case 6706: {
             if (orderDttm_ == null) {
               OrderDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(OrderDttm);
             break;
           }
-          case 6709: {
+          case 6733: {
             MinSurfVol = input.ReadFloat();
             break;
           }
-          case 6733: {
+          case 6757: {
             MaxSurfVol = input.ReadFloat();
             break;
           }
-          case 6757: {
+          case 6781: {
             MinSurfPrc = input.ReadFloat();
             break;
           }
-          case 6781: {
+          case 6805: {
             MaxSurfPrc = input.ReadFloat();
             break;
           }
-          case 6805: {
+          case 6829: {
             MinSurfUPrc = input.ReadFloat();
             break;
           }
-          case 6829: {
+          case 6853: {
             MaxSurfUPrc = input.ReadFloat();
             break;
           }
-          case 6853: {
+          case 6877: {
             MinQteWidth = input.ReadFloat();
             break;
           }
-          case 6877: {
+          case 6901: {
             AvgQteWidth = input.ReadFloat();
             break;
           }
-          case 6896: {
+          case 6920: {
             CntQteWidth = input.ReadInt32();
             break;
           }
-          case 6921: {
+          case 6945: {
             ArriveBid = input.ReadDouble();
             break;
           }
-          case 6945: {
+          case 6969: {
             ArriveAsk = input.ReadDouble();
             break;
           }
-          case 6973: {
+          case 6997: {
             TotalSeconds = input.ReadFloat();
             break;
           }
-          case 6997: {
+          case 7021: {
             WorkingSeconds = input.ReadFloat();
             break;
           }
-          case 7016: {
+          case 7040: {
             PrtActiveCnt = input.ReadInt32();
             break;
           }
-          case 7040: {
+          case 7064: {
             PrtQtyActive = input.ReadInt32();
             break;
           }
-          case 7069: {
+          case 7093: {
             CumExchFee = input.ReadFloat();
             break;
           }
-          case 7093: {
+          case 7117: {
             CumM10Pnl = input.ReadFloat();
             break;
           }
-          case 7117: {
+          case 7141: {
             CumArrivalPnl = input.ReadFloat();
             break;
           }
-          case 7141: {
+          case 7165: {
             UPrcDrift = input.ReadFloat();
             break;
           }
-          case 7165: {
+          case 7189: {
             SVolDrift = input.ReadFloat();
             break;
           }
-          case 7189: {
-            NetAccDayWtVega = input.ReadFloat();
-            break;
-          }
           case 7213: {
-            NetAccDayDDelta = input.ReadFloat();
-            break;
-          }
-          case 7237: {
-            NetSymDayWtVega = input.ReadFloat();
-            break;
-          }
-          case 7261: {
-            NetSymDayDDelta = input.ReadFloat();
-            break;
-          }
-          case 7285: {
-            NetGrpDayVega = input.ReadFloat();
-            break;
-          }
-          case 7309: {
-            NetGrpDayDDelta = input.ReadFloat();
-            break;
-          }
-          case 7333: {
-            NetGrpDayPremium = input.ReadFloat();
-            break;
-          }
-          case 7352: {
-            NetGrpDayContracts = input.ReadInt32();
-            break;
-          }
-          case 7381: {
-            NetGrpRMetric1 = input.ReadFloat();
-            break;
-          }
-          case 7405: {
-            NetGrpRMetric2 = input.ReadFloat();
-            break;
-          }
-          case 7429: {
-            NetGrpRMetric3 = input.ReadFloat();
-            break;
-          }
-          case 7453: {
-            NetGrpRMetric4 = input.ReadFloat();
-            break;
-          }
-          case 7477: {
-            NetGrpRMetric5 = input.ReadFloat();
-            break;
-          }
-          case 7501: {
-            NetGrpRMetric7 = input.ReadFloat();
-            break;
-          }
-          case 7525: {
-            NetSymEmaCxlDDelta = input.ReadFloat();
-            break;
-          }
-          case 7549: {
-            NetSymEmaCxlWtVega = input.ReadFloat();
-            break;
-          }
-          case 7573: {
             MaxGrpDayDDeltaLn = input.ReadFloat();
             break;
           }
-          case 7597: {
+          case 7237: {
             MaxGrpDayDDeltaSh = input.ReadFloat();
             break;
           }
-          case 7621: {
-            GrpDayDDeltaRatio = input.ReadFloat();
-            break;
-          }
-          case 7645: {
-            MaxGrpDayVegaLn = input.ReadFloat();
-            break;
-          }
-          case 7669: {
-            MaxGrpDayVegaSh = input.ReadFloat();
-            break;
-          }
-          case 7693: {
-            MaxGrpDayVegaAbs = input.ReadFloat();
-            break;
-          }
-          case 7717: {
-            GrpDayVegaRatio = input.ReadFloat();
-            break;
-          }
-          case 7741: {
-            MaxGrpDayPremiumLn = input.ReadFloat();
-            break;
-          }
-          case 7765: {
-            MaxGrpDayPremiumSh = input.ReadFloat();
-            break;
-          }
-          case 7789: {
-            MaxGrpDayPremiumAbs = input.ReadFloat();
-            break;
-          }
-          case 7813: {
-            GrpDayPremiumRatio = input.ReadFloat();
-            break;
-          }
-          case 7832: {
+          case 7256: {
             MaxGrpDayContractsLn = input.ReadInt32();
             break;
           }
-          case 7856: {
+          case 7280: {
             MaxGrpDayContractsSh = input.ReadInt32();
             break;
           }
-          case 7880: {
+          case 7304: {
             MaxGrpDayContractsAbs = input.ReadInt32();
             break;
           }
-          case 7909: {
-            SymEmaCxlDDeltaLn = input.ReadFloat();
+          case 7333: {
+            MaxGrpDayVegaLn = input.ReadFloat();
             break;
           }
-          case 7933: {
-            SymEmaCxlDDeltaSh = input.ReadFloat();
+          case 7357: {
+            MaxGrpDayVegaSh = input.ReadFloat();
             break;
           }
-          case 7957: {
-            SymEmaCxlWtVegaLn = input.ReadFloat();
+          case 7381: {
+            MaxGrpDayVegaAbs = input.ReadFloat();
             break;
           }
-          case 7981: {
-            SymEmaCxlWtVegaSh = input.ReadFloat();
+          case 7405: {
+            GrpDayVegaRatio = input.ReadFloat();
             break;
           }
-          case 8005: {
+          case 7429: {
+            MaxGrpDayRMetric1Ln = input.ReadFloat();
+            break;
+          }
+          case 7453: {
+            MaxGrpDayRMetric1Sh = input.ReadFloat();
+            break;
+          }
+          case 7477: {
+            MaxGrpDayRMetric1Abs = input.ReadFloat();
+            break;
+          }
+          case 7501: {
+            GrpDayRMetric1Ratio = input.ReadFloat();
+            break;
+          }
+          case 7525: {
             Cpx1 = input.ReadFloat();
             break;
           }
-          case 8024: {
+          case 7544: {
             Csz1 = input.ReadInt32();
             break;
           }
-          case 8048: {
+          case 7568: {
             Cex1 = input.ReadUInt32();
             break;
           }
-          case 8077: {
+          case 7597: {
             Cpx2 = input.ReadFloat();
             break;
           }
-          case 8096: {
+          case 7616: {
             Csz2 = input.ReadInt32();
             break;
           }
-          case 8120: {
+          case 7640: {
             Cex2 = input.ReadUInt32();
             break;
           }
-          case 8144: {
+          case 7664: {
             CMore = input.ReadInt32();
             break;
           }
-          case 8168: {
+          case 7688: {
             NumNewOrders = input.ReadInt32();
             break;
           }
-          case 8192: {
+          case 7712: {
             NumParentLimits = input.ReadUInt32();
             break;
           }
-          case 8218: {
+          case 7738: {
             UserData1 = input.ReadString();
             break;
           }
-          case 8242: {
+          case 7762: {
             UserData2 = input.ReadString();
             break;
           }
-          case 8264: {
+          case 7784: {
             NumUpdates = input.ReadInt32();
             break;
           }
-          case 8290: {
+          case 7810: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

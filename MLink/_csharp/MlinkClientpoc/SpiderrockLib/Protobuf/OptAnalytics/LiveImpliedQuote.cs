@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9PcHRBbmFseXRpY3MvTGl2ZUltcGxpZWRRdW90ZS5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i3AcKEExpdmVJ",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i2wcKEExpdmVJ",
             "bXBsaWVkUXVvdGUSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI4CgRwa2V5GAIgASgLMiouc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5MaXZlSW1wbGllZFF1b3RlLlBLZXkSLgoGdGlja2VyGGQg",
@@ -41,18 +41,18 @@ namespace Spiderrock.Protobuf {
             "AnZvGKYBIAEoAhILCgJybxipASABKAISCwoCcGgYrAEgASgCEhEKCGRlX2Rl",
             "Y2F5GK8BIAEoAhINCgR1cDUwGLIBIAEoAhINCgRkbjUwGLUBIAEoAhINCgR1",
             "cDE1GLgBIAEoAhINCgRkbjE1GLsBIAEoAhINCgR1cDA2GL4BIAEoAhINCgRk",
-            "bjA4GMEBIAEoAhISCglzcG90X3VQcmMYxAEgASgCEjcKCnByaWNlX3R5cGUY",
-            "xwEgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5DYWxjUHJpY2VUeXBlEjkK",
-            "CGNhbGNfZXJyGMoBIAEoDjImLnNwaWRlcnJvY2sucHJvdG9idWYuSW1wbGll",
-            "ZFF1b3RlRXJyb3ISNQoLY2FsY19zb3VyY2UYzQEgASgOMh8uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5DYWxjU291cmNlEhYKDXNyY190aW1lc3RhbXAY0AEgASgD",
-            "EhYKDW5ldF90aW1lc3RhbXAY0wEgASgDEi4KCXRpbWVzdGFtcBjWASABKAsy",
-            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGjQKBFBLZXkSLAoEb2tleRgK",
-            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5YgZwcm90bzM="));
+            "bjA4GMEBIAEoAhIRCghzeW5fc3BvdBjEASABKAESNwoKcHJpY2VfdHlwZRjH",
+            "ASABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLkNhbGNQcmljZVR5cGUSOQoI",
+            "Y2FsY19lcnIYygEgASgOMiYuc3BpZGVycm9jay5wcm90b2J1Zi5JbXBsaWVk",
+            "UXVvdGVFcnJvchI1CgtjYWxjX3NvdXJjZRjNASABKA4yHy5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkNhbGNTb3VyY2USFgoNc3JjX3RpbWVzdGFtcBjQASABKAMS",
+            "FgoNbmV0X3RpbWVzdGFtcBjTASABKAMSLgoJdGltZXN0YW1wGNYBIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaNAoEUEtleRIsCgRva2V5GAog",
+            "ASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveImpliedQuote), global::Spiderrock.Protobuf.LiveImpliedQuote.Parser, new[]{ "Meta", "Pkey", "Ticker", "UPrc", "UOff", "Years", "XAxis", "Rate", "Sdiv", "Ddiv", "OBid", "OAsk", "OBidIv", "OAskIv", "AtmVol", "SVol", "SPrc", "SMark", "VeSlope", "De", "Ga", "Th", "Ve", "Va", "Vo", "Ro", "Ph", "DeDecay", "Up50", "Dn50", "Up15", "Dn15", "Up06", "Dn08", "SpotUPrc", "PriceType", "CalcErr", "CalcSource", "SrcTimestamp", "NetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveImpliedQuote.Types.PKey), global::Spiderrock.Protobuf.LiveImpliedQuote.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveImpliedQuote), global::Spiderrock.Protobuf.LiveImpliedQuote.Parser, new[]{ "Meta", "Pkey", "Ticker", "UPrc", "UOff", "Years", "XAxis", "Rate", "Sdiv", "Ddiv", "OBid", "OAsk", "OBidIv", "OAskIv", "AtmVol", "SVol", "SPrc", "SMark", "VeSlope", "De", "Ga", "Th", "Ve", "Va", "Vo", "Ro", "Ph", "DeDecay", "Up50", "Dn50", "Up15", "Dn15", "Up06", "Dn08", "SynSpot", "PriceType", "CalcErr", "CalcSource", "SrcTimestamp", "NetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveImpliedQuote.Types.PKey), global::Spiderrock.Protobuf.LiveImpliedQuote.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -134,7 +134,7 @@ namespace Spiderrock.Protobuf {
       dn15_ = other.dn15_;
       up06_ = other.up06_;
       dn08_ = other.dn08_;
-      spotUPrc_ = other.spotUPrc_;
+      synSpot_ = other.synSpot_;
       priceType_ = other.priceType_;
       calcErr_ = other.calcErr_;
       calcSource_ = other.calcSource_;
@@ -654,18 +654,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "spot_uPrc" field.</summary>
-    public const int SpotUPrcFieldNumber = 196;
-    private float spotUPrc_;
+    /// <summary>Field number for the "syn_spot" field.</summary>
+    public const int SynSpotFieldNumber = 196;
+    private double synSpot_;
     /// <summary>
-    /// spot underlier price (same as uPrc when priceType = 'Equity') (note: if Future and spotUPrc is known it will appear here)
+    /// Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SpotUPrc {
-      get { return spotUPrc_; }
+    public double SynSpot {
+      get { return synSpot_; }
       set {
-        spotUPrc_ = value;
+        synSpot_ = value;
       }
     }
 
@@ -802,7 +802,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Dn15, other.Dn15)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Up06, other.Up06)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Dn08, other.Dn08)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SpotUPrc, other.SpotUPrc)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(SynSpot, other.SynSpot)) return false;
       if (PriceType != other.PriceType) return false;
       if (CalcErr != other.CalcErr) return false;
       if (CalcSource != other.CalcSource) return false;
@@ -850,7 +850,7 @@ namespace Spiderrock.Protobuf {
       if (Dn15 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Dn15);
       if (Up06 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Up06);
       if (Dn08 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Dn08);
-      if (SpotUPrc != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SpotUPrc);
+      if (SynSpot != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(SynSpot);
       if (PriceType != global::Spiderrock.Protobuf.CalcPriceType.Unspecified) hash ^= PriceType.GetHashCode();
       if (CalcErr != global::Spiderrock.Protobuf.ImpliedQuoteError.Unspecified) hash ^= CalcErr.GetHashCode();
       if (CalcSource != global::Spiderrock.Protobuf.CalcSource.Unspecified) hash ^= CalcSource.GetHashCode();
@@ -1011,9 +1011,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(141, 12);
         output.WriteFloat(Dn08);
       }
-      if (SpotUPrc != 0F) {
-        output.WriteRawTag(165, 12);
-        output.WriteFloat(SpotUPrc);
+      if (SynSpot != 0D) {
+        output.WriteRawTag(161, 12);
+        output.WriteDouble(SynSpot);
       }
       if (PriceType != global::Spiderrock.Protobuf.CalcPriceType.Unspecified) {
         output.WriteRawTag(184, 12);
@@ -1185,9 +1185,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(141, 12);
         output.WriteFloat(Dn08);
       }
-      if (SpotUPrc != 0F) {
-        output.WriteRawTag(165, 12);
-        output.WriteFloat(SpotUPrc);
+      if (SynSpot != 0D) {
+        output.WriteRawTag(161, 12);
+        output.WriteDouble(SynSpot);
       }
       if (PriceType != global::Spiderrock.Protobuf.CalcPriceType.Unspecified) {
         output.WriteRawTag(184, 12);
@@ -1325,8 +1325,8 @@ namespace Spiderrock.Protobuf {
       if (Dn08 != 0F) {
         size += 2 + 4;
       }
-      if (SpotUPrc != 0F) {
-        size += 2 + 4;
+      if (SynSpot != 0D) {
+        size += 2 + 8;
       }
       if (PriceType != global::Spiderrock.Protobuf.CalcPriceType.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PriceType);
@@ -1469,8 +1469,8 @@ namespace Spiderrock.Protobuf {
       if (other.Dn08 != 0F) {
         Dn08 = other.Dn08;
       }
-      if (other.SpotUPrc != 0F) {
-        SpotUPrc = other.SpotUPrc;
+      if (other.SynSpot != 0D) {
+        SynSpot = other.SynSpot;
       }
       if (other.PriceType != global::Spiderrock.Protobuf.CalcPriceType.Unspecified) {
         PriceType = other.PriceType;
@@ -1653,8 +1653,8 @@ namespace Spiderrock.Protobuf {
             Dn08 = input.ReadFloat();
             break;
           }
-          case 1573: {
-            SpotUPrc = input.ReadFloat();
+          case 1569: {
+            SynSpot = input.ReadDouble();
             break;
           }
           case 1592: {
@@ -1844,8 +1844,8 @@ namespace Spiderrock.Protobuf {
             Dn08 = input.ReadFloat();
             break;
           }
-          case 1573: {
-            SpotUPrc = input.ReadFloat();
+          case 1569: {
+            SynSpot = input.ReadDouble();
             break;
           }
           case 1592: {

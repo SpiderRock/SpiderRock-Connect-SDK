@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci9Qcm90b2J1Zi9DbGllbnRSaXNrL1N0b2NrUG9zaXRpb25SZWNvcmRWNS5w",
             "cm90bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24u",
-            "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8irgwKFVN0",
+            "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i2AwKFVN0",
             "b2NrUG9zaXRpb25SZWNvcmRWNRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEj0KBHBrZXkYAiABKAsyLy5z",
             "cGlkZXJyb2NrLnByb3RvYnVmLlN0b2NrUG9zaXRpb25SZWNvcmRWNS5QS2V5",
@@ -55,18 +55,19 @@ namespace Spiderrock.Protobuf {
             "YXJrGM0BIAEoAhIZChBvcG5fcG5sX2Nscl9tYXJrGNABIAEoAhITCgpleF9k",
             "aXZfYW10GNMBIAEoAhIUCgtib3Jyb3dfcmF0ZRjWASABKAISDQoEYmV0YRjZ",
             "ASABKAISNQoLYmV0YV9zb3VyY2UY3AEgASgOMh8uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5CZXRhU291cmNlEhcKDm51bV9leGVjdXRpb25zGN8BIAEoBRIyCg1t",
-            "YXhfZXhlY19kdHRtGOIBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXASLgoJdGltZXN0YW1wGOUBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXAarwEKBFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5UaWNrZXJLZXkSDQoFYWNjbnQYCyABKAkSMAoKdHJhZGVfZGF0",
-            "ZRgMIAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRI2CgxyaXNr",
-            "X3Nlc3Npb24YDSABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlJpc2tTZXNz",
-            "aW9uYgZwcm90bzM="));
+            "b2J1Zi5CZXRhU291cmNlEhMKCm1hcmdpbl91RG4Y3wEgASgCEhMKCm1hcmdp",
+            "bl91VXAY4gEgASgCEhcKDm51bV9leGVjdXRpb25zGOUBIAEoBRIyCg1tYXhf",
+            "ZXhlY19kdHRtGOgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "LgoJdGltZXN0YW1wGOsBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
+            "bXAarwEKBFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5UaWNrZXJLZXkSDQoFYWNjbnQYCyABKAkSMAoKdHJhZGVfZGF0ZRgM",
+            "IAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRI2CgxyaXNrX3Nl",
+            "c3Npb24YDSABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlJpc2tTZXNzaW9u",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5), global::Spiderrock.Protobuf.StockPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "RiskServerCode", "PriAggGroup", "SecAggGroup", "SymbolType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "StkPrc", "StkBid", "StkAsk", "StkMark", "StkMarkErrCodes", "StkMarkSource", "StkOpnMidMark", "StkOpnClrMark", "StkOpnPosPrv", "StkOpnPosClr", "StkOpnPos", "StkOpnPosSrc", "ShBot", "ShSld", "ShSldShrt", "ShBotHdg", "ShSldHdg", "ShBotTrh", "ShSldTrh", "ShBotOpn", "ShSldOpn", "ShBotTrd", "ShSldTrd", "StkMnyBot", "StkMnySld", "DayPnl", "OpnPnlMidMark", "OpnPnlClrMark", "ExDivAmt", "BorrowRate", "Beta", "BetaSource", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey.Parser, new[]{ "Ticker", "Accnt", "TradeDate", "RiskSession" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5), global::Spiderrock.Protobuf.StockPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "RiskServerCode", "PriAggGroup", "SecAggGroup", "SymbolType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "StkPrc", "StkBid", "StkAsk", "StkMark", "StkMarkErrCodes", "StkMarkSource", "StkOpnMidMark", "StkOpnClrMark", "StkOpnPosPrv", "StkOpnPosClr", "StkOpnPos", "StkOpnPosSrc", "ShBot", "ShSld", "ShSldShrt", "ShBotHdg", "ShSldHdg", "ShBotTrh", "ShSldTrh", "ShBotOpn", "ShSldOpn", "ShBotTrd", "ShSldTrd", "StkMnyBot", "StkMnySld", "DayPnl", "OpnPnlMidMark", "OpnPnlClrMark", "ExDivAmt", "BorrowRate", "Beta", "BetaSource", "MarginUDn", "MarginUUp", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey.Parser, new[]{ "Ticker", "Accnt", "TradeDate", "RiskSession" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -157,6 +158,8 @@ namespace Spiderrock.Protobuf {
       borrowRate_ = other.borrowRate_;
       beta_ = other.beta_;
       betaSource_ = other.betaSource_;
+      marginUDn_ = other.marginUDn_;
+      marginUUp_ = other.marginUUp_;
       numExecutions_ = other.numExecutions_;
       maxExecDttm_ = other.maxExecDttm_ != null ? other.maxExecDttm_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
@@ -781,8 +784,38 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "margin_uDn" field.</summary>
+    public const int MarginUDnFieldNumber = 223;
+    private float marginUDn_;
+    /// <summary>
+    /// Aggregate RiskSlide: uPrc dn
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MarginUDn {
+      get { return marginUDn_; }
+      set {
+        marginUDn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "margin_uUp" field.</summary>
+    public const int MarginUUpFieldNumber = 226;
+    private float marginUUp_;
+    /// <summary>
+    /// Aggregate RiskSlide: uPrc up
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MarginUUp {
+      get { return marginUUp_; }
+      set {
+        marginUUp_ = value;
+      }
+    }
+
     /// <summary>Field number for the "num_executions" field.</summary>
-    public const int NumExecutionsFieldNumber = 223;
+    public const int NumExecutionsFieldNumber = 229;
     private int numExecutions_;
     /// <summary>
     /// number of included SpdrParentExecution records
@@ -797,7 +830,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_exec_dttm" field.</summary>
-    public const int MaxExecDttmFieldNumber = 226;
+    public const int MaxExecDttmFieldNumber = 232;
     private global::Google.Protobuf.WellKnownTypes.Timestamp maxExecDttm_;
     /// <summary>
     /// max (timestamp) of included SpdrParentExecution records
@@ -812,7 +845,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 229;
+    public const int TimestampFieldNumber = 235;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -881,6 +914,8 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(BorrowRate, other.BorrowRate)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Beta, other.Beta)) return false;
       if (BetaSource != other.BetaSource) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MarginUDn, other.MarginUDn)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MarginUUp, other.MarginUUp)) return false;
       if (NumExecutions != other.NumExecutions) return false;
       if (!object.Equals(MaxExecDttm, other.MaxExecDttm)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
@@ -934,6 +969,8 @@ namespace Spiderrock.Protobuf {
       if (BorrowRate != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(BorrowRate);
       if (Beta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Beta);
       if (BetaSource != global::Spiderrock.Protobuf.BetaSource.Unspecified) hash ^= BetaSource.GetHashCode();
+      if (MarginUDn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MarginUDn);
+      if (MarginUUp != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MarginUUp);
       if (NumExecutions != 0) hash ^= NumExecutions.GetHashCode();
       if (maxExecDttm_ != null) hash ^= MaxExecDttm.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
@@ -1127,16 +1164,24 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 13);
         output.WriteEnum((int) BetaSource);
       }
+      if (MarginUDn != 0F) {
+        output.WriteRawTag(253, 13);
+        output.WriteFloat(MarginUDn);
+      }
+      if (MarginUUp != 0F) {
+        output.WriteRawTag(149, 14);
+        output.WriteFloat(MarginUUp);
+      }
       if (NumExecutions != 0) {
-        output.WriteRawTag(248, 13);
+        output.WriteRawTag(168, 14);
         output.WriteInt32(NumExecutions);
       }
       if (maxExecDttm_ != null) {
-        output.WriteRawTag(146, 14);
+        output.WriteRawTag(194, 14);
         output.WriteMessage(MaxExecDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(170, 14);
+        output.WriteRawTag(218, 14);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -1321,16 +1366,24 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 13);
         output.WriteEnum((int) BetaSource);
       }
+      if (MarginUDn != 0F) {
+        output.WriteRawTag(253, 13);
+        output.WriteFloat(MarginUDn);
+      }
+      if (MarginUUp != 0F) {
+        output.WriteRawTag(149, 14);
+        output.WriteFloat(MarginUUp);
+      }
       if (NumExecutions != 0) {
-        output.WriteRawTag(248, 13);
+        output.WriteRawTag(168, 14);
         output.WriteInt32(NumExecutions);
       }
       if (maxExecDttm_ != null) {
-        output.WriteRawTag(146, 14);
+        output.WriteRawTag(194, 14);
         output.WriteMessage(MaxExecDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(170, 14);
+        output.WriteRawTag(218, 14);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -1471,6 +1524,12 @@ namespace Spiderrock.Protobuf {
       }
       if (BetaSource != global::Spiderrock.Protobuf.BetaSource.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) BetaSource);
+      }
+      if (MarginUDn != 0F) {
+        size += 2 + 4;
+      }
+      if (MarginUUp != 0F) {
+        size += 2 + 4;
       }
       if (NumExecutions != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(NumExecutions);
@@ -1627,6 +1686,12 @@ namespace Spiderrock.Protobuf {
       }
       if (other.BetaSource != global::Spiderrock.Protobuf.BetaSource.Unspecified) {
         BetaSource = other.BetaSource;
+      }
+      if (other.MarginUDn != 0F) {
+        MarginUDn = other.MarginUDn;
+      }
+      if (other.MarginUUp != 0F) {
+        MarginUUp = other.MarginUUp;
       }
       if (other.NumExecutions != 0) {
         NumExecutions = other.NumExecutions;
@@ -1836,18 +1901,26 @@ namespace Spiderrock.Protobuf {
             BetaSource = (global::Spiderrock.Protobuf.BetaSource) input.ReadEnum();
             break;
           }
-          case 1784: {
+          case 1789: {
+            MarginUDn = input.ReadFloat();
+            break;
+          }
+          case 1813: {
+            MarginUUp = input.ReadFloat();
+            break;
+          }
+          case 1832: {
             NumExecutions = input.ReadInt32();
             break;
           }
-          case 1810: {
+          case 1858: {
             if (maxExecDttm_ == null) {
               MaxExecDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxExecDttm);
             break;
           }
-          case 1834: {
+          case 1882: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -2047,18 +2120,26 @@ namespace Spiderrock.Protobuf {
             BetaSource = (global::Spiderrock.Protobuf.BetaSource) input.ReadEnum();
             break;
           }
-          case 1784: {
+          case 1789: {
+            MarginUDn = input.ReadFloat();
+            break;
+          }
+          case 1813: {
+            MarginUUp = input.ReadFloat();
+            break;
+          }
+          case 1832: {
             NumExecutions = input.ReadInt32();
             break;
           }
-          case 1810: {
+          case 1858: {
             if (maxExecDttm_ == null) {
               MaxExecDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxExecDttm);
             break;
           }
-          case 1834: {
+          case 1882: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

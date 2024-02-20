@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJQYXJlbnRMaW1pdC5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8izx4KD1NwZHJQ",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ipRsKD1NwZHJQ",
             "YXJlbnRMaW1pdBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJyb2Nr",
             "LnByb3RvYnVmLlNwZHJQYXJlbnRMaW1pdC5QS2V5EjwKD3N5c19lbnZpcm9u",
@@ -63,62 +63,52 @@ namespace Spiderrock.Protobuf {
             "cmNlEi8KCnN0YXJ0X2R0dG0YzQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
             "bWVzdGFtcBIXCg5vcmRlcl9kdXJhdGlvbhjQASABKAUSMwoOZ29vZF90aWxs",
             "X2R0dG0Y0wEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIdChRw",
-            "cm9ncmVzc19leHBvc2VfdGltZRjWASABKAUSHwoWbWF4X2FjY19kYXlfd3Rf",
-            "dmVnYV9sbhjZASABKAISHwoWbWF4X2FjY19kYXlfd3RfdmVnYV9zaBjcASAB",
-            "KAISHwoWYWNjX2RheV93dF92ZWdhX29mZnNldBjfASABKAISHgoVbWF4X2Fj",
-            "Y19kYXlfZERlbHRhX2xuGOIBIAEoAhIeChVtYXhfYWNjX2RheV9kRGVsdGFf",
-            "c2gY5QEgASgCEh4KFWFjY19kYXlfZERlbHRhX29mZnNldBjoASABKAISHwoW",
-            "bWF4X2V4cF9kYXlfd3RfdmVnYV9sbhjrASABKAISHwoWbWF4X2V4cF9kYXlf",
-            "d3RfdmVnYV9zaBjuASABKAISHwoWZXhwX2RheV93dF92ZWdhX29mZnNldBjx",
-            "ASABKAISHAoTbWF4X3N5bV9kYXlfdmVnYV9sbhj0ASABKAISHAoTbWF4X3N5",
-            "bV9kYXlfdmVnYV9zaBj3ASABKAISHAoTc3ltX2RheV92ZWdhX29mZnNldBj6",
-            "ASABKAISHwoWbWF4X3N5bV9kYXlfd3RfdmVnYV9sbhj9ASABKAISHwoWbWF4",
-            "X3N5bV9kYXlfd3RfdmVnYV9zaBiAAiABKAISHwoWc3ltX2RheV93dF92ZWdh",
-            "X29mZnNldBiDAiABKAISHgoVbWF4X3N5bV9kYXlfZERlbHRhX2xuGIYCIAEo",
-            "AhIeChVtYXhfc3ltX2RheV9kRGVsdGFfc2gYiQIgASgCEh4KFXN5bV9kYXlf",
-            "ZERlbHRhX29mZnNldBiMAiABKAISIAoXbWF4X2V4cF9kYXlfck1ldHJpYzZf",
-            "bG4YjwIgASgCEiAKF21heF9leHBfZGF5X3JNZXRyaWM2X3NoGJICIAEoAhIg",
-            "ChdleHBfZGF5X3JNZXRyaWM2X29mZnNldBiVAiABKAISIAoXbWF4X3N5bV9k",
-            "YXlfck1ldHJpYzdfbG4YmAIgASgCEiAKF21heF9zeW1fZGF5X3JNZXRyaWM3",
-            "X3NoGJsCIAEoAhIgChdzeW1fZGF5X3JNZXRyaWM3X29mZnNldBieAiABKAIS",
-            "HgoVbWF4X2dycF9kYXlfZERlbHRhX2xuGKECIAEoAhIeChVtYXhfZ3JwX2Rh",
-            "eV9kRGVsdGFfc2gYpAIgASgCEh0KFGdycF9kYXlfZERlbHRhX3JhdGlvGKcC",
-            "IAEoAhIcChNtYXhfZ3JwX2RheV92ZWdhX2xuGKoCIAEoAhIcChNtYXhfZ3Jw",
-            "X2RheV92ZWdhX3NoGK0CIAEoAhIdChRtYXhfZ3JwX2RheV92ZWdhX2Ficxiw",
-            "AiABKAISGwoSZ3JwX2RheV92ZWdhX3JhdGlvGLMCIAEoAhIfChZtYXhfZ3Jw",
-            "X2RheV9wcmVtaXVtX2xuGLYCIAEoAhIfChZtYXhfZ3JwX2RheV9wcmVtaXVt",
-            "X3NoGLkCIAEoAhIgChdtYXhfZ3JwX2RheV9wcmVtaXVtX2Ficxi8AiABKAIS",
-            "HgoVZ3JwX2RheV9wcmVtaXVtX3JhdGlvGL8CIAEoAhIgChdtYXhfZ3JwX2Rh",
-            "eV9yTWV0cmljMV9sbhjCAiABKAISIAoXbWF4X2dycF9kYXlfck1ldHJpYzFf",
-            "c2gYxQIgASgCEiEKGG1heF9ncnBfZGF5X3JNZXRyaWMxX2FicxjIAiABKAIS",
-            "HwoWZ3JwX2RheV9yTWV0cmljMV9yYXRpbxjLAiABKAISIAoXbWF4X2dycF9k",
-            "YXlfck1ldHJpYzJfbG4YzgIgASgCEiAKF21heF9ncnBfZGF5X3JNZXRyaWMy",
-            "X3NoGNECIAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmljM19sbhjUAiABKAIS",
-            "IAoXbWF4X2dycF9kYXlfck1ldHJpYzNfc2gY1wIgASgCEiAKF21heF9ncnBf",
-            "ZGF5X3JNZXRyaWM0X2xuGNoCIAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmlj",
-            "NF9zaBjdAiABKAISIAoXbWF4X2dycF9kYXlfck1ldHJpYzVfbG4Y4AIgASgC",
-            "EiAKF21heF9ncnBfZGF5X3JNZXRyaWM1X3NoGOMCIAEoAhIhChhtYXhfZ3Jw",
-            "X2RheV9jb250cmFjdHNfbG4Y5gIgASgFEiEKGG1heF9ncnBfZGF5X2NvbnRy",
-            "YWN0c19zaBjpAiABKAUSIgoZbWF4X2dycF9kYXlfY29udHJhY3RzX2Ficxjs",
-            "AiABKAUSHgoVc3ltX2VtYV9jeGxfZERlbHRhX2xuGO8CIAEoAhIeChVzeW1f",
-            "ZW1hX2N4bF9kRGVsdGFfc2gY8gIgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3Zl",
-            "Z2FfbG4Y9QIgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ffc2gY+AIgASgC",
-            "EhEKCHRoZW9fdm9sGPsCIAEoAhIXCg5jbF9hcnJpdmVfbWFyaxj+AiABKAIS",
-            "EwoKdXNlcl9kYXRhMRiBAyABKAkSEwoKdXNlcl9kYXRhMhiEAyABKAkSFwoO",
-            "ZXhlY19icmtyX2NvZGUYhwMgASgJEhQKC21vZGlmaWVkX2J5GIoDIAEoCRI5",
-            "Cgttb2RpZmllZF9pbhiNAyABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5",
-            "c0Vudmlyb25tZW50Ei4KCXRpbWVzdGFtcBiQAyABKAsyGi5nb29nbGUucHJv",
-            "dG9idWYuVGltZXN0YW1wGvkBCgRQS2V5Eg0KBWFjY250GAogASgJEi8KB3Nl",
-            "Y19rZXkYCyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRIy",
-            "CghzZWNfdHlwZRgMIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bkcktl",
-            "eVR5cGUSNAoLc3Bkcl9zb3VyY2UYDSABKA4yHy5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlNwZHJTb3VyY2USMAoKb3JkZXJfc2lkZRgOIAEoDjIcLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuQnV5U2VsbBIVCg1ncm91cGluZ19jb2RlGA8gASgDYgZw",
-            "cm90bzM="));
+            "cm9ncmVzc19leHBvc2VfdGltZRjWASABKAUSHwoWZXhwX2RheV93dF92ZWdh",
+            "X29mZnNldBjZASABKAISHwoWbWF4X2V4cF9kYXlfd3RfdmVnYV9sbhjcASAB",
+            "KAISHwoWbWF4X2V4cF9kYXlfd3RfdmVnYV9zaBjfASABKAISIAoXbWF4X2V4",
+            "cF9kYXlfck1ldHJpYzZfbG4Y4gEgASgCEiAKF21heF9leHBfZGF5X3JNZXRy",
+            "aWM2X3NoGOUBIAEoAhIeChVzeW1fZGF5X2REZWx0YV9vZmZzZXQY6AEgASgC",
+            "Eh4KFW1heF9zeW1fZGF5X2REZWx0YV9sbhjrASABKAISHgoVbWF4X3N5bV9k",
+            "YXlfZERlbHRhX3NoGO4BIAEoAhIcChNzeW1fZGF5X3ZlZ2Ffb2Zmc2V0GPEB",
+            "IAEoAhIcChNtYXhfc3ltX2RheV92ZWdhX2xuGPQBIAEoAhIcChNtYXhfc3lt",
+            "X2RheV92ZWdhX3NoGPcBIAEoAhIfChZzeW1fZGF5X3d0X3ZlZ2Ffb2Zmc2V0",
+            "GPoBIAEoAhIfChZtYXhfc3ltX2RheV93dF92ZWdhX2xuGP0BIAEoAhIfChZt",
+            "YXhfc3ltX2RheV93dF92ZWdhX3NoGIACIAEoAhIgChdtYXhfc3ltX2RheV9y",
+            "TWV0cmljN19sbhiDAiABKAISIAoXbWF4X3N5bV9kYXlfck1ldHJpYzdfc2gY",
+            "hgIgASgCEh4KFW1heF9ncnBfZGF5X2REZWx0YV9sbhiJAiABKAISHgoVbWF4",
+            "X2dycF9kYXlfZERlbHRhX3NoGIwCIAEoAhIcChNtYXhfZ3JwX2RheV92ZWdh",
+            "X2xuGI8CIAEoAhIcChNtYXhfZ3JwX2RheV92ZWdhX3NoGJICIAEoAhIdChRt",
+            "YXhfZ3JwX2RheV92ZWdhX2FicxiVAiABKAISGwoSZ3JwX2RheV92ZWdhX3Jh",
+            "dGlvGJgCIAEoAhIhChhtYXhfZ3JwX2RheV9jb250cmFjdHNfbG4YmwIgASgF",
+            "EiEKGG1heF9ncnBfZGF5X2NvbnRyYWN0c19zaBieAiABKAUSIgoZbWF4X2dy",
+            "cF9kYXlfY29udHJhY3RzX2FicxihAiABKAUSIAoXbWF4X2dycF9kYXlfck1l",
+            "dHJpYzFfbG4YpAIgASgCEiAKF21heF9ncnBfZGF5X3JNZXRyaWMxX3NoGKcC",
+            "IAEoAhIhChhtYXhfZ3JwX2RheV9yTWV0cmljMV9hYnMYqgIgASgCEh8KFmdy",
+            "cF9kYXlfck1ldHJpYzFfcmF0aW8YrQIgASgCEiAKF21heF9ncnBfZGF5X3JN",
+            "ZXRyaWMyX2xuGLACIAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmljMl9zaBiz",
+            "AiABKAISIAoXbWF4X2dycF9kYXlfck1ldHJpYzNfbG4YtgIgASgCEiAKF21h",
+            "eF9ncnBfZGF5X3JNZXRyaWMzX3NoGLkCIAEoAhIgChdtYXhfZ3JwX2RheV9y",
+            "TWV0cmljNF9sbhi8AiABKAISIAoXbWF4X2dycF9kYXlfck1ldHJpYzRfc2gY",
+            "vwIgASgCEiAKF21heF9ncnBfZGF5X3JNZXRyaWM1X2xuGMICIAEoAhIgChdt",
+            "YXhfZ3JwX2RheV9yTWV0cmljNV9zaBjFAiABKAISHgoVc3ltX2VtYV9jeGxf",
+            "ZERlbHRhX2xuGMgCIAEoAhIeChVzeW1fZW1hX2N4bF9kRGVsdGFfc2gYywIg",
+            "ASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2FfbG4YzgIgASgCEh8KFnN5bV9l",
+            "bWFfY3hsX3d0X3ZlZ2Ffc2gY0QIgASgCEhEKCHRoZW9fdm9sGNQCIAEoAhIX",
+            "Cg5jbF9hcnJpdmVfbWFyaxjXAiABKAISEwoKdXNlcl9kYXRhMRjaAiABKAkS",
+            "EwoKdXNlcl9kYXRhMhjdAiABKAkSFwoOZXhlY19icmtyX2NvZGUY4AIgASgJ",
+            "EhQKC21vZGlmaWVkX2J5GOMCIAEoCRI5Cgttb2RpZmllZF9pbhjmAiABKA4y",
+            "Iy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vudmlyb25tZW50Ei4KCXRpbWVz",
+            "dGFtcBjpAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGvkBCgRQ",
+            "S2V5Eg0KBWFjY250GAogASgJEi8KB3NlY19rZXkYCyABKAsyHi5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLk9wdGlvbktleRIyCghzZWNfdHlwZRgMIAEoDjIgLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSNAoLc3Bkcl9zb3VyY2UY",
+            "DSABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJTb3VyY2USMAoKb3Jk",
+            "ZXJfc2lkZRgOIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuQnV5U2VsbBIV",
+            "Cg1ncm91cGluZ19jb2RlGA8gASgDYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit), global::Spiderrock.Protobuf.SpdrParentLimit.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "OrderActiveSize", "AddCumFillQuantity", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDelta", "OrderRefGamma", "OrderVolLimit", "RateOverride", "SdivOverride", "DdivOverride", "OverrideCode", "OrderPrcOffset", "StateModel", "UStateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidthOffset", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidthOffset", "OrderRefEventMult", "OrderRefEventDttm", "ExchMask", "TimeInForce", "StartDttm", "OrderDuration", "GoodTillDttm", "ProgressExposeTime", "MaxAccDayWtVegaLn", "MaxAccDayWtVegaSh", "AccDayWtVegaOffset", "MaxAccDayDDeltaLn", "MaxAccDayDDeltaSh", "AccDayDDeltaOffset", "MaxExpDayWtVegaLn", "MaxExpDayWtVegaSh", "ExpDayWtVegaOffset", "MaxSymDayVegaLn", "MaxSymDayVegaSh", "SymDayVegaOffset", "MaxSymDayWtVegaLn", "MaxSymDayWtVegaSh", "SymDayWtVegaOffset", "MaxSymDayDDeltaLn", "MaxSymDayDDeltaSh", "SymDayDDeltaOffset", "MaxExpDayRMetric6Ln", "MaxExpDayRMetric6Sh", "ExpDayRMetric6Offset", "MaxSymDayRMetric7Ln", "MaxSymDayRMetric7Sh", "SymDayRMetric7Offset", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "GrpDayDDeltaRatio", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayPremiumLn", "MaxGrpDayPremiumSh", "MaxGrpDayPremiumAbs", "GrpDayPremiumRatio", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "MaxGrpDayRMetric2Ln", "MaxGrpDayRMetric2Sh", "MaxGrpDayRMetric3Ln", "MaxGrpDayRMetric3Sh", "MaxGrpDayRMetric4Ln", "MaxGrpDayRMetric4Sh", "MaxGrpDayRMetric5Ln", "MaxGrpDayRMetric5Sh", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "TheoVol", "ClArriveMark", "UserData1", "UserData2", "ExecBrkrCode", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey), global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey.Parser, new[]{ "Accnt", "SecKey", "SecType", "SpdrSource", "OrderSide", "GroupingCode" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit), global::Spiderrock.Protobuf.SpdrParentLimit.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "OrderActiveSize", "AddCumFillQuantity", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDelta", "OrderRefGamma", "OrderVolLimit", "RateOverride", "SdivOverride", "DdivOverride", "OverrideCode", "OrderPrcOffset", "StateModel", "UStateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidthOffset", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidthOffset", "OrderRefEventMult", "OrderRefEventDttm", "ExchMask", "TimeInForce", "StartDttm", "OrderDuration", "GoodTillDttm", "ProgressExposeTime", "ExpDayWtVegaOffset", "MaxExpDayWtVegaLn", "MaxExpDayWtVegaSh", "MaxExpDayRMetric6Ln", "MaxExpDayRMetric6Sh", "SymDayDDeltaOffset", "MaxSymDayDDeltaLn", "MaxSymDayDDeltaSh", "SymDayVegaOffset", "MaxSymDayVegaLn", "MaxSymDayVegaSh", "SymDayWtVegaOffset", "MaxSymDayWtVegaLn", "MaxSymDayWtVegaSh", "MaxSymDayRMetric7Ln", "MaxSymDayRMetric7Sh", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "MaxGrpDayRMetric2Ln", "MaxGrpDayRMetric2Sh", "MaxGrpDayRMetric3Ln", "MaxGrpDayRMetric3Sh", "MaxGrpDayRMetric4Ln", "MaxGrpDayRMetric4Sh", "MaxGrpDayRMetric5Ln", "MaxGrpDayRMetric5Sh", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "TheoVol", "ClArriveMark", "UserData1", "UserData2", "ExecBrkrCode", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey), global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey.Parser, new[]{ "Accnt", "SecKey", "SecType", "SpdrSource", "OrderSide", "GroupingCode" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -204,41 +194,31 @@ namespace Spiderrock.Protobuf {
       orderDuration_ = other.orderDuration_;
       goodTillDttm_ = other.goodTillDttm_ != null ? other.goodTillDttm_.Clone() : null;
       progressExposeTime_ = other.progressExposeTime_;
-      maxAccDayWtVegaLn_ = other.maxAccDayWtVegaLn_;
-      maxAccDayWtVegaSh_ = other.maxAccDayWtVegaSh_;
-      accDayWtVegaOffset_ = other.accDayWtVegaOffset_;
-      maxAccDayDDeltaLn_ = other.maxAccDayDDeltaLn_;
-      maxAccDayDDeltaSh_ = other.maxAccDayDDeltaSh_;
-      accDayDDeltaOffset_ = other.accDayDDeltaOffset_;
+      expDayWtVegaOffset_ = other.expDayWtVegaOffset_;
       maxExpDayWtVegaLn_ = other.maxExpDayWtVegaLn_;
       maxExpDayWtVegaSh_ = other.maxExpDayWtVegaSh_;
-      expDayWtVegaOffset_ = other.expDayWtVegaOffset_;
-      maxSymDayVegaLn_ = other.maxSymDayVegaLn_;
-      maxSymDayVegaSh_ = other.maxSymDayVegaSh_;
-      symDayVegaOffset_ = other.symDayVegaOffset_;
-      maxSymDayWtVegaLn_ = other.maxSymDayWtVegaLn_;
-      maxSymDayWtVegaSh_ = other.maxSymDayWtVegaSh_;
-      symDayWtVegaOffset_ = other.symDayWtVegaOffset_;
-      maxSymDayDDeltaLn_ = other.maxSymDayDDeltaLn_;
-      maxSymDayDDeltaSh_ = other.maxSymDayDDeltaSh_;
-      symDayDDeltaOffset_ = other.symDayDDeltaOffset_;
       maxExpDayRMetric6Ln_ = other.maxExpDayRMetric6Ln_;
       maxExpDayRMetric6Sh_ = other.maxExpDayRMetric6Sh_;
-      expDayRMetric6Offset_ = other.expDayRMetric6Offset_;
+      symDayDDeltaOffset_ = other.symDayDDeltaOffset_;
+      maxSymDayDDeltaLn_ = other.maxSymDayDDeltaLn_;
+      maxSymDayDDeltaSh_ = other.maxSymDayDDeltaSh_;
+      symDayVegaOffset_ = other.symDayVegaOffset_;
+      maxSymDayVegaLn_ = other.maxSymDayVegaLn_;
+      maxSymDayVegaSh_ = other.maxSymDayVegaSh_;
+      symDayWtVegaOffset_ = other.symDayWtVegaOffset_;
+      maxSymDayWtVegaLn_ = other.maxSymDayWtVegaLn_;
+      maxSymDayWtVegaSh_ = other.maxSymDayWtVegaSh_;
       maxSymDayRMetric7Ln_ = other.maxSymDayRMetric7Ln_;
       maxSymDayRMetric7Sh_ = other.maxSymDayRMetric7Sh_;
-      symDayRMetric7Offset_ = other.symDayRMetric7Offset_;
       maxGrpDayDDeltaLn_ = other.maxGrpDayDDeltaLn_;
       maxGrpDayDDeltaSh_ = other.maxGrpDayDDeltaSh_;
-      grpDayDDeltaRatio_ = other.grpDayDDeltaRatio_;
       maxGrpDayVegaLn_ = other.maxGrpDayVegaLn_;
       maxGrpDayVegaSh_ = other.maxGrpDayVegaSh_;
       maxGrpDayVegaAbs_ = other.maxGrpDayVegaAbs_;
       grpDayVegaRatio_ = other.grpDayVegaRatio_;
-      maxGrpDayPremiumLn_ = other.maxGrpDayPremiumLn_;
-      maxGrpDayPremiumSh_ = other.maxGrpDayPremiumSh_;
-      maxGrpDayPremiumAbs_ = other.maxGrpDayPremiumAbs_;
-      grpDayPremiumRatio_ = other.grpDayPremiumRatio_;
+      maxGrpDayContractsLn_ = other.maxGrpDayContractsLn_;
+      maxGrpDayContractsSh_ = other.maxGrpDayContractsSh_;
+      maxGrpDayContractsAbs_ = other.maxGrpDayContractsAbs_;
       maxGrpDayRMetric1Ln_ = other.maxGrpDayRMetric1Ln_;
       maxGrpDayRMetric1Sh_ = other.maxGrpDayRMetric1Sh_;
       maxGrpDayRMetric1Abs_ = other.maxGrpDayRMetric1Abs_;
@@ -251,9 +231,6 @@ namespace Spiderrock.Protobuf {
       maxGrpDayRMetric4Sh_ = other.maxGrpDayRMetric4Sh_;
       maxGrpDayRMetric5Ln_ = other.maxGrpDayRMetric5Ln_;
       maxGrpDayRMetric5Sh_ = other.maxGrpDayRMetric5Sh_;
-      maxGrpDayContractsLn_ = other.maxGrpDayContractsLn_;
-      maxGrpDayContractsSh_ = other.maxGrpDayContractsSh_;
-      maxGrpDayContractsAbs_ = other.maxGrpDayContractsAbs_;
       symEmaCxlDDeltaLn_ = other.symEmaCxlDDeltaLn_;
       symEmaCxlDDeltaSh_ = other.symEmaCxlDDeltaSh_;
       symEmaCxlWtVegaLn_ = other.symEmaCxlWtVegaLn_;
@@ -869,98 +846,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "max_acc_day_wt_vega_ln" field.</summary>
-    public const int MaxAccDayWtVegaLnFieldNumber = 217;
-    private float maxAccDayWtVegaLn_;
+    /// <summary>Field number for the "exp_day_wt_vega_offset" field.</summary>
+    public const int ExpDayWtVegaOffsetFieldNumber = 217;
+    private float expDayWtVegaOffset_;
     /// <summary>
-    /// max accnt day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    /// max acct+symbol day wtVega offset (target)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxAccDayWtVegaLn {
-      get { return maxAccDayWtVegaLn_; }
+    public float ExpDayWtVegaOffset {
+      get { return expDayWtVegaOffset_; }
       set {
-        maxAccDayWtVegaLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_acc_day_wt_vega_sh" field.</summary>
-    public const int MaxAccDayWtVegaShFieldNumber = 220;
-    private float maxAccDayWtVegaSh_;
-    /// <summary>
-    /// max accnt day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxAccDayWtVegaSh {
-      get { return maxAccDayWtVegaSh_; }
-      set {
-        maxAccDayWtVegaSh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "acc_day_wt_vega_offset" field.</summary>
-    public const int AccDayWtVegaOffsetFieldNumber = 223;
-    private float accDayWtVegaOffset_;
-    /// <summary>
-    /// accnt day (time weighted) vega offset (target position)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float AccDayWtVegaOffset {
-      get { return accDayWtVegaOffset_; }
-      set {
-        accDayWtVegaOffset_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_acc_day_dDelta_ln" field.</summary>
-    public const int MaxAccDayDDeltaLnFieldNumber = 226;
-    private float maxAccDayDDeltaLn_;
-    /// <summary>
-    /// max accnt day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter	- offset)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxAccDayDDeltaLn {
-      get { return maxAccDayDDeltaLn_; }
-      set {
-        maxAccDayDDeltaLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_acc_day_dDelta_sh" field.</summary>
-    public const int MaxAccDayDDeltaShFieldNumber = 229;
-    private float maxAccDayDDeltaSh_;
-    /// <summary>
-    /// max accnt day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxAccDayDDeltaSh {
-      get { return maxAccDayDDeltaSh_; }
-      set {
-        maxAccDayDDeltaSh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "acc_day_dDelta_offset" field.</summary>
-    public const int AccDayDDeltaOffsetFieldNumber = 232;
-    private float accDayDDeltaOffset_;
-    /// <summary>
-    /// accnt day $delta offset (target position)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float AccDayDDeltaOffset {
-      get { return accDayDDeltaOffset_; }
-      set {
-        accDayDDeltaOffset_ = value;
+        expDayWtVegaOffset_ = value;
       }
     }
 
     /// <summary>Field number for the "max_exp_day_wt_vega_ln" field.</summary>
-    public const int MaxExpDayWtVegaLnFieldNumber = 235;
+    public const int MaxExpDayWtVegaLnFieldNumber = 220;
     private float maxExpDayWtVegaLn_;
     /// <summary>
     /// max accnt+expiration day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
@@ -975,7 +877,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_exp_day_wt_vega_sh" field.</summary>
-    public const int MaxExpDayWtVegaShFieldNumber = 238;
+    public const int MaxExpDayWtVegaShFieldNumber = 223;
     private float maxExpDayWtVegaSh_;
     /// <summary>
     /// max accnt+expiration day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
@@ -989,18 +891,93 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "exp_day_wt_vega_offset" field.</summary>
-    public const int ExpDayWtVegaOffsetFieldNumber = 241;
-    private float expDayWtVegaOffset_;
+    /// <summary>Field number for the "max_exp_day_rMetric6_ln" field.</summary>
+    public const int MaxExpDayRMetric6LnFieldNumber = 226;
+    private float maxExpDayRMetric6Ln_;
     /// <summary>
-    /// accnt+expiration day (time weighted) vega offset (target position)
+    /// max acct+expiration day rMetric6 long (positive number;-1=no limit);risk limit = max limit - current net counter
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float ExpDayWtVegaOffset {
-      get { return expDayWtVegaOffset_; }
+    public float MaxExpDayRMetric6Ln {
+      get { return maxExpDayRMetric6Ln_; }
       set {
-        expDayWtVegaOffset_ = value;
+        maxExpDayRMetric6Ln_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_exp_day_rMetric6_sh" field.</summary>
+    public const int MaxExpDayRMetric6ShFieldNumber = 229;
+    private float maxExpDayRMetric6Sh_;
+    /// <summary>
+    /// max acct+expiration day rMetric6 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MaxExpDayRMetric6Sh {
+      get { return maxExpDayRMetric6Sh_; }
+      set {
+        maxExpDayRMetric6Sh_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sym_day_dDelta_offset" field.</summary>
+    public const int SymDayDDeltaOffsetFieldNumber = 232;
+    private float symDayDDeltaOffset_;
+    /// <summary>
+    /// max acct+symbol day $delta offset (target)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SymDayDDeltaOffset {
+      get { return symDayDDeltaOffset_; }
+      set {
+        symDayDDeltaOffset_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_sym_day_dDelta_ln" field.</summary>
+    public const int MaxSymDayDDeltaLnFieldNumber = 235;
+    private float maxSymDayDDeltaLn_;
+    /// <summary>
+    /// max acct+symbol day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MaxSymDayDDeltaLn {
+      get { return maxSymDayDDeltaLn_; }
+      set {
+        maxSymDayDDeltaLn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_sym_day_dDelta_sh" field.</summary>
+    public const int MaxSymDayDDeltaShFieldNumber = 238;
+    private float maxSymDayDDeltaSh_;
+    /// <summary>
+    /// max acct+symbol day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MaxSymDayDDeltaSh {
+      get { return maxSymDayDDeltaSh_; }
+      set {
+        maxSymDayDDeltaSh_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sym_day_vega_offset" field.</summary>
+    public const int SymDayVegaOffsetFieldNumber = 241;
+    private float symDayVegaOffset_;
+    /// <summary>
+    /// max acct+symbol day vega offset (target)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SymDayVegaOffset {
+      get { return symDayVegaOffset_; }
+      set {
+        symDayVegaOffset_ = value;
       }
     }
 
@@ -1034,18 +1011,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "sym_day_vega_offset" field.</summary>
-    public const int SymDayVegaOffsetFieldNumber = 250;
-    private float symDayVegaOffset_;
+    /// <summary>Field number for the "sym_day_wt_vega_offset" field.</summary>
+    public const int SymDayWtVegaOffsetFieldNumber = 250;
+    private float symDayWtVegaOffset_;
     /// <summary>
-    /// accnt+symbol day vega offset (target position)
+    /// max acct+symbol day wtVega offset (target)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymDayVegaOffset {
-      get { return symDayVegaOffset_; }
+    public float SymDayWtVegaOffset {
+      get { return symDayWtVegaOffset_; }
       set {
-        symDayVegaOffset_ = value;
+        symDayWtVegaOffset_ = value;
       }
     }
 
@@ -1079,113 +1056,8 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "sym_day_wt_vega_offset" field.</summary>
-    public const int SymDayWtVegaOffsetFieldNumber = 259;
-    private float symDayWtVegaOffset_;
-    /// <summary>
-    /// accnt+symbol day (time weighted) vega offset (target position)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymDayWtVegaOffset {
-      get { return symDayWtVegaOffset_; }
-      set {
-        symDayWtVegaOffset_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_sym_day_dDelta_ln" field.</summary>
-    public const int MaxSymDayDDeltaLnFieldNumber = 262;
-    private float maxSymDayDDeltaLn_;
-    /// <summary>
-    /// max acct+symbol day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxSymDayDDeltaLn {
-      get { return maxSymDayDDeltaLn_; }
-      set {
-        maxSymDayDDeltaLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_sym_day_dDelta_sh" field.</summary>
-    public const int MaxSymDayDDeltaShFieldNumber = 265;
-    private float maxSymDayDDeltaSh_;
-    /// <summary>
-    /// max acct+symbol day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxSymDayDDeltaSh {
-      get { return maxSymDayDDeltaSh_; }
-      set {
-        maxSymDayDDeltaSh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "sym_day_dDelta_offset" field.</summary>
-    public const int SymDayDDeltaOffsetFieldNumber = 268;
-    private float symDayDDeltaOffset_;
-    /// <summary>
-    /// accnt+symbol day $delta offset (target position)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymDayDDeltaOffset {
-      get { return symDayDDeltaOffset_; }
-      set {
-        symDayDDeltaOffset_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_exp_day_rMetric6_ln" field.</summary>
-    public const int MaxExpDayRMetric6LnFieldNumber = 271;
-    private float maxExpDayRMetric6Ln_;
-    /// <summary>
-    /// max acct+expiration day rMetric6 long (positive number;-1=no limit);risk limit = max limit - current net counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxExpDayRMetric6Ln {
-      get { return maxExpDayRMetric6Ln_; }
-      set {
-        maxExpDayRMetric6Ln_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_exp_day_rMetric6_sh" field.</summary>
-    public const int MaxExpDayRMetric6ShFieldNumber = 274;
-    private float maxExpDayRMetric6Sh_;
-    /// <summary>
-    /// max acct+expiration day rMetric6 short (positive number;-1=no limit);risk limit = max limit + current net counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxExpDayRMetric6Sh {
-      get { return maxExpDayRMetric6Sh_; }
-      set {
-        maxExpDayRMetric6Sh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "exp_day_rMetric6_offset" field.</summary>
-    public const int ExpDayRMetric6OffsetFieldNumber = 277;
-    private float expDayRMetric6Offset_;
-    /// <summary>
-    /// accnt+expiration day rMetric6 offset (target position)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float ExpDayRMetric6Offset {
-      get { return expDayRMetric6Offset_; }
-      set {
-        expDayRMetric6Offset_ = value;
-      }
-    }
-
     /// <summary>Field number for the "max_sym_day_rMetric7_ln" field.</summary>
-    public const int MaxSymDayRMetric7LnFieldNumber = 280;
+    public const int MaxSymDayRMetric7LnFieldNumber = 259;
     private float maxSymDayRMetric7Ln_;
     /// <summary>
     /// max acct+symbol day rMetric7 long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1200,7 +1072,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_sym_day_rMetric7_sh" field.</summary>
-    public const int MaxSymDayRMetric7ShFieldNumber = 283;
+    public const int MaxSymDayRMetric7ShFieldNumber = 262;
     private float maxSymDayRMetric7Sh_;
     /// <summary>
     /// max acct+symbol day rMetric7 short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1214,23 +1086,8 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "sym_day_rMetric7_offset" field.</summary>
-    public const int SymDayRMetric7OffsetFieldNumber = 286;
-    private float symDayRMetric7Offset_;
-    /// <summary>
-    /// accnt+symbol day rMetric7 offset (target position)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SymDayRMetric7Offset {
-      get { return symDayRMetric7Offset_; }
-      set {
-        symDayRMetric7Offset_ = value;
-      }
-    }
-
     /// <summary>Field number for the "max_grp_day_dDelta_ln" field.</summary>
-    public const int MaxGrpDayDDeltaLnFieldNumber = 289;
+    public const int MaxGrpDayDDeltaLnFieldNumber = 265;
     private float maxGrpDayDDeltaLn_;
     /// <summary>
     /// max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1245,7 +1102,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_dDelta_sh" field.</summary>
-    public const int MaxGrpDayDDeltaShFieldNumber = 292;
+    public const int MaxGrpDayDDeltaShFieldNumber = 268;
     private float maxGrpDayDDeltaSh_;
     /// <summary>
     /// max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1259,23 +1116,8 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "grp_day_dDelta_ratio" field.</summary>
-    public const int GrpDayDDeltaRatioFieldNumber = 295;
-    private float grpDayDDeltaRatio_;
-    /// <summary>
-    /// target bot / sld ratio (eg ratio=2.0 means that neutral is bot ddelta = 2x sld ddelta)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float GrpDayDDeltaRatio {
-      get { return grpDayDDeltaRatio_; }
-      set {
-        grpDayDDeltaRatio_ = value;
-      }
-    }
-
     /// <summary>Field number for the "max_grp_day_vega_ln" field.</summary>
-    public const int MaxGrpDayVegaLnFieldNumber = 298;
+    public const int MaxGrpDayVegaLnFieldNumber = 271;
     private float maxGrpDayVegaLn_;
     /// <summary>
     /// max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1290,7 +1132,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_vega_sh" field.</summary>
-    public const int MaxGrpDayVegaShFieldNumber = 301;
+    public const int MaxGrpDayVegaShFieldNumber = 274;
     private float maxGrpDayVegaSh_;
     /// <summary>
     /// max acct+riskGroup day vega short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1305,7 +1147,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_vega_abs" field.</summary>
-    public const int MaxGrpDayVegaAbsFieldNumber = 304;
+    public const int MaxGrpDayVegaAbsFieldNumber = 277;
     private float maxGrpDayVegaAbs_;
     /// <summary>
     /// max acct+riskGroup day vega abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
@@ -1320,7 +1162,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "grp_day_vega_ratio" field.</summary>
-    public const int GrpDayVegaRatioFieldNumber = 307;
+    public const int GrpDayVegaRatioFieldNumber = 280;
     private float grpDayVegaRatio_;
     /// <summary>
     /// target bot / sld ratio (eg ratio=2.0 means that neutral is bot vega = 2x sld vega)
@@ -1334,68 +1176,53 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_premium_ln" field.</summary>
-    public const int MaxGrpDayPremiumLnFieldNumber = 310;
-    private float maxGrpDayPremiumLn_;
+    /// <summary>Field number for the "max_grp_day_contracts_ln" field.</summary>
+    public const int MaxGrpDayContractsLnFieldNumber = 283;
+    private int maxGrpDayContractsLn_;
     /// <summary>
-    /// max acct+riskGroup day premium over parity long (positive number;-1=no limit);risk limit = max limit - current net counter
+    /// max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxGrpDayPremiumLn {
-      get { return maxGrpDayPremiumLn_; }
+    public int MaxGrpDayContractsLn {
+      get { return maxGrpDayContractsLn_; }
       set {
-        maxGrpDayPremiumLn_ = value;
+        maxGrpDayContractsLn_ = value;
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_premium_sh" field.</summary>
-    public const int MaxGrpDayPremiumShFieldNumber = 313;
-    private float maxGrpDayPremiumSh_;
+    /// <summary>Field number for the "max_grp_day_contracts_sh" field.</summary>
+    public const int MaxGrpDayContractsShFieldNumber = 286;
+    private int maxGrpDayContractsSh_;
     /// <summary>
-    /// max acct+riskGroup day premium over parity short (positive number;-1=no limit);risk limit = max limit + current net counter
+    /// max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxGrpDayPremiumSh {
-      get { return maxGrpDayPremiumSh_; }
+    public int MaxGrpDayContractsSh {
+      get { return maxGrpDayContractsSh_; }
       set {
-        maxGrpDayPremiumSh_ = value;
+        maxGrpDayContractsSh_ = value;
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_premium_abs" field.</summary>
-    public const int MaxGrpDayPremiumAbsFieldNumber = 316;
-    private float maxGrpDayPremiumAbs_;
+    /// <summary>Field number for the "max_grp_day_contracts_abs" field.</summary>
+    public const int MaxGrpDayContractsAbsFieldNumber = 289;
+    private int maxGrpDayContractsAbs_;
     /// <summary>
-    /// max acct+riskGroup day premium over parity abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    /// max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float MaxGrpDayPremiumAbs {
-      get { return maxGrpDayPremiumAbs_; }
+    public int MaxGrpDayContractsAbs {
+      get { return maxGrpDayContractsAbs_; }
       set {
-        maxGrpDayPremiumAbs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "grp_day_premium_ratio" field.</summary>
-    public const int GrpDayPremiumRatioFieldNumber = 319;
-    private float grpDayPremiumRatio_;
-    /// <summary>
-    /// target bot / sld ratio (eg ratio=0.5 means that neutral is bot premium = 0.5x sld premium)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float GrpDayPremiumRatio {
-      get { return grpDayPremiumRatio_; }
-      set {
-        grpDayPremiumRatio_ = value;
+        maxGrpDayContractsAbs_ = value;
       }
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric1_ln" field.</summary>
-    public const int MaxGrpDayRMetric1LnFieldNumber = 322;
+    public const int MaxGrpDayRMetric1LnFieldNumber = 292;
     private float maxGrpDayRMetric1Ln_;
     /// <summary>
     /// max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1410,7 +1237,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric1_sh" field.</summary>
-    public const int MaxGrpDayRMetric1ShFieldNumber = 325;
+    public const int MaxGrpDayRMetric1ShFieldNumber = 295;
     private float maxGrpDayRMetric1Sh_;
     /// <summary>
     /// max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1425,7 +1252,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric1_abs" field.</summary>
-    public const int MaxGrpDayRMetric1AbsFieldNumber = 328;
+    public const int MaxGrpDayRMetric1AbsFieldNumber = 298;
     private float maxGrpDayRMetric1Abs_;
     /// <summary>
     /// max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
@@ -1440,7 +1267,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "grp_day_rMetric1_ratio" field.</summary>
-    public const int GrpDayRMetric1RatioFieldNumber = 331;
+    public const int GrpDayRMetric1RatioFieldNumber = 301;
     private float grpDayRMetric1Ratio_;
     /// <summary>
     /// target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
@@ -1455,7 +1282,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric2_ln" field.</summary>
-    public const int MaxGrpDayRMetric2LnFieldNumber = 334;
+    public const int MaxGrpDayRMetric2LnFieldNumber = 304;
     private float maxGrpDayRMetric2Ln_;
     /// <summary>
     /// max acct+riskGroup day rMetric2 long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1470,7 +1297,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric2_sh" field.</summary>
-    public const int MaxGrpDayRMetric2ShFieldNumber = 337;
+    public const int MaxGrpDayRMetric2ShFieldNumber = 307;
     private float maxGrpDayRMetric2Sh_;
     /// <summary>
     /// max acct+riskGroup day rMetric2 short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1485,7 +1312,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric3_ln" field.</summary>
-    public const int MaxGrpDayRMetric3LnFieldNumber = 340;
+    public const int MaxGrpDayRMetric3LnFieldNumber = 310;
     private float maxGrpDayRMetric3Ln_;
     /// <summary>
     /// max acct+riskGroup day rMetric3 long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1500,7 +1327,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric3_sh" field.</summary>
-    public const int MaxGrpDayRMetric3ShFieldNumber = 343;
+    public const int MaxGrpDayRMetric3ShFieldNumber = 313;
     private float maxGrpDayRMetric3Sh_;
     /// <summary>
     /// max acct+riskGroup day rMetric3 short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1515,7 +1342,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric4_ln" field.</summary>
-    public const int MaxGrpDayRMetric4LnFieldNumber = 346;
+    public const int MaxGrpDayRMetric4LnFieldNumber = 316;
     private float maxGrpDayRMetric4Ln_;
     /// <summary>
     /// max acct+riskGroup day rMetric4 long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1530,7 +1357,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric4_sh" field.</summary>
-    public const int MaxGrpDayRMetric4ShFieldNumber = 349;
+    public const int MaxGrpDayRMetric4ShFieldNumber = 319;
     private float maxGrpDayRMetric4Sh_;
     /// <summary>
     /// max acct+riskGroup day rMetric4 short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1545,7 +1372,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric5_ln" field.</summary>
-    public const int MaxGrpDayRMetric5LnFieldNumber = 352;
+    public const int MaxGrpDayRMetric5LnFieldNumber = 322;
     private float maxGrpDayRMetric5Ln_;
     /// <summary>
     /// max acct+riskGroup day rMetric5 long (positive number;-1=no limit);risk limit = max limit - current net counter
@@ -1560,7 +1387,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_grp_day_rMetric5_sh" field.</summary>
-    public const int MaxGrpDayRMetric5ShFieldNumber = 355;
+    public const int MaxGrpDayRMetric5ShFieldNumber = 325;
     private float maxGrpDayRMetric5Sh_;
     /// <summary>
     /// max acct+riskGroup day rMetric5 short (positive number;-1=no limit);risk limit = max limit + current net counter
@@ -1574,53 +1401,8 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "max_grp_day_contracts_ln" field.</summary>
-    public const int MaxGrpDayContractsLnFieldNumber = 358;
-    private int maxGrpDayContractsLn_;
-    /// <summary>
-    /// max acct+riskGroup day contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MaxGrpDayContractsLn {
-      get { return maxGrpDayContractsLn_; }
-      set {
-        maxGrpDayContractsLn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_grp_day_contracts_sh" field.</summary>
-    public const int MaxGrpDayContractsShFieldNumber = 361;
-    private int maxGrpDayContractsSh_;
-    /// <summary>
-    /// max acct+riskGroup day contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MaxGrpDayContractsSh {
-      get { return maxGrpDayContractsSh_; }
-      set {
-        maxGrpDayContractsSh_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_grp_day_contracts_abs" field.</summary>
-    public const int MaxGrpDayContractsAbsFieldNumber = 364;
-    private int maxGrpDayContractsAbs_;
-    /// <summary>
-    /// max acct+riskGroup day contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MaxGrpDayContractsAbs {
-      get { return maxGrpDayContractsAbs_; }
-      set {
-        maxGrpDayContractsAbs_ = value;
-      }
-    }
-
     /// <summary>Field number for the "sym_ema_cxl_dDelta_ln" field.</summary>
-    public const int SymEmaCxlDDeltaLnFieldNumber = 367;
+    public const int SymEmaCxlDDeltaLnFieldNumber = 328;
     private float symEmaCxlDDeltaLn_;
     /// <summary>
     /// max acct+symbol 60s EMA $delta long (positive number; &lt;= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
@@ -1635,7 +1417,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sym_ema_cxl_dDelta_sh" field.</summary>
-    public const int SymEmaCxlDDeltaShFieldNumber = 370;
+    public const int SymEmaCxlDDeltaShFieldNumber = 331;
     private float symEmaCxlDDeltaSh_;
     /// <summary>
     /// max acct+symbol 60s EMA $delta short (positive number; &lt;= 0 is no limit)
@@ -1650,7 +1432,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sym_ema_cxl_wt_vega_ln" field.</summary>
-    public const int SymEmaCxlWtVegaLnFieldNumber = 373;
+    public const int SymEmaCxlWtVegaLnFieldNumber = 334;
     private float symEmaCxlWtVegaLn_;
     /// <summary>
     /// max acct+symbol 60s EMA wtVega long (positive number; &lt;= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
@@ -1665,7 +1447,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sym_ema_cxl_wt_vega_sh" field.</summary>
-    public const int SymEmaCxlWtVegaShFieldNumber = 376;
+    public const int SymEmaCxlWtVegaShFieldNumber = 337;
     private float symEmaCxlWtVegaSh_;
     /// <summary>
     /// max acct+symbol 60s EMA wtVega short (positive number; &lt;= 0 is no limit)
@@ -1680,7 +1462,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "theo_vol" field.</summary>
-    public const int TheoVolFieldNumber = 379;
+    public const int TheoVolFieldNumber = 340;
     private float theoVol_;
     /// <summary>
     /// client supplied theoretical volatility (used for markup only)
@@ -1695,7 +1477,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cl_arrive_mark" field.</summary>
-    public const int ClArriveMarkFieldNumber = 382;
+    public const int ClArriveMarkFieldNumber = 343;
     private float clArriveMark_;
     /// <summary>
     /// client specified arrival mark (passed through to ParentExecution; markup only)
@@ -1710,7 +1492,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "user_data1" field.</summary>
-    public const int UserData1FieldNumber = 385;
+    public const int UserData1FieldNumber = 346;
     private string userData1_ = "";
     /// <summary>
     /// client supplied data field; passes through to parent and child executions and reports as well as FIX drops
@@ -1725,7 +1507,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "user_data2" field.</summary>
-    public const int UserData2FieldNumber = 388;
+    public const int UserData2FieldNumber = 349;
     private string userData2_ = "";
     /// <summary>
     /// client supplied data field; passes through to parent and child executions and reports as well as FIX drops
@@ -1740,7 +1522,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exec_brkr_code" field.</summary>
-    public const int ExecBrkrCodeFieldNumber = 391;
+    public const int ExecBrkrCodeFieldNumber = 352;
     private string execBrkrCode_ = "";
     /// <summary>
     /// an SR assigned execBrkrCode
@@ -1755,7 +1537,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "modified_by" field.</summary>
-    public const int ModifiedByFieldNumber = 394;
+    public const int ModifiedByFieldNumber = 355;
     private string modifiedBy_ = "";
     /// <summary>
     /// user who last modified this record
@@ -1770,7 +1552,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "modified_in" field.</summary>
-    public const int ModifiedInFieldNumber = 397;
+    public const int ModifiedInFieldNumber = 358;
     private global::Spiderrock.Protobuf.SysEnvironment modifiedIn_ = global::Spiderrock.Protobuf.SysEnvironment.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1782,7 +1564,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 400;
+    public const int TimestampFieldNumber = 361;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     /// <summary>
     /// timestamp of last modification
@@ -1852,41 +1634,31 @@ namespace Spiderrock.Protobuf {
       if (OrderDuration != other.OrderDuration) return false;
       if (!object.Equals(GoodTillDttm, other.GoodTillDttm)) return false;
       if (ProgressExposeTime != other.ProgressExposeTime) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxAccDayWtVegaLn, other.MaxAccDayWtVegaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxAccDayWtVegaSh, other.MaxAccDayWtVegaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AccDayWtVegaOffset, other.AccDayWtVegaOffset)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxAccDayDDeltaLn, other.MaxAccDayDDeltaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxAccDayDDeltaSh, other.MaxAccDayDDeltaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AccDayDDeltaOffset, other.AccDayDDeltaOffset)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ExpDayWtVegaOffset, other.ExpDayWtVegaOffset)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxExpDayWtVegaLn, other.MaxExpDayWtVegaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxExpDayWtVegaSh, other.MaxExpDayWtVegaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ExpDayWtVegaOffset, other.ExpDayWtVegaOffset)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayVegaLn, other.MaxSymDayVegaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayVegaSh, other.MaxSymDayVegaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayVegaOffset, other.SymDayVegaOffset)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayWtVegaLn, other.MaxSymDayWtVegaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayWtVegaSh, other.MaxSymDayWtVegaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayWtVegaOffset, other.SymDayWtVegaOffset)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayDDeltaLn, other.MaxSymDayDDeltaLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayDDeltaSh, other.MaxSymDayDDeltaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayDDeltaOffset, other.SymDayDDeltaOffset)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxExpDayRMetric6Ln, other.MaxExpDayRMetric6Ln)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxExpDayRMetric6Sh, other.MaxExpDayRMetric6Sh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ExpDayRMetric6Offset, other.ExpDayRMetric6Offset)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayDDeltaOffset, other.SymDayDDeltaOffset)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayDDeltaLn, other.MaxSymDayDDeltaLn)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayDDeltaSh, other.MaxSymDayDDeltaSh)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayVegaOffset, other.SymDayVegaOffset)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayVegaLn, other.MaxSymDayVegaLn)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayVegaSh, other.MaxSymDayVegaSh)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayWtVegaOffset, other.SymDayWtVegaOffset)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayWtVegaLn, other.MaxSymDayWtVegaLn)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayWtVegaSh, other.MaxSymDayWtVegaSh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayRMetric7Ln, other.MaxSymDayRMetric7Ln)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSymDayRMetric7Sh, other.MaxSymDayRMetric7Sh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymDayRMetric7Offset, other.SymDayRMetric7Offset)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayDDeltaLn, other.MaxGrpDayDDeltaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayDDeltaSh, other.MaxGrpDayDDeltaSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayDDeltaRatio, other.GrpDayDDeltaRatio)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayVegaLn, other.MaxGrpDayVegaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayVegaSh, other.MaxGrpDayVegaSh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayVegaAbs, other.MaxGrpDayVegaAbs)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayVegaRatio, other.GrpDayVegaRatio)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayPremiumLn, other.MaxGrpDayPremiumLn)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayPremiumSh, other.MaxGrpDayPremiumSh)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayPremiumAbs, other.MaxGrpDayPremiumAbs)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(GrpDayPremiumRatio, other.GrpDayPremiumRatio)) return false;
+      if (MaxGrpDayContractsLn != other.MaxGrpDayContractsLn) return false;
+      if (MaxGrpDayContractsSh != other.MaxGrpDayContractsSh) return false;
+      if (MaxGrpDayContractsAbs != other.MaxGrpDayContractsAbs) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric1Ln, other.MaxGrpDayRMetric1Ln)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric1Sh, other.MaxGrpDayRMetric1Sh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric1Abs, other.MaxGrpDayRMetric1Abs)) return false;
@@ -1899,9 +1671,6 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric4Sh, other.MaxGrpDayRMetric4Sh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric5Ln, other.MaxGrpDayRMetric5Ln)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric5Sh, other.MaxGrpDayRMetric5Sh)) return false;
-      if (MaxGrpDayContractsLn != other.MaxGrpDayContractsLn) return false;
-      if (MaxGrpDayContractsSh != other.MaxGrpDayContractsSh) return false;
-      if (MaxGrpDayContractsAbs != other.MaxGrpDayContractsAbs) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlDDeltaLn, other.SymEmaCxlDDeltaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlDDeltaSh, other.SymEmaCxlDDeltaSh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlWtVegaLn, other.SymEmaCxlWtVegaLn)) return false;
@@ -1962,41 +1731,31 @@ namespace Spiderrock.Protobuf {
       if (OrderDuration != 0) hash ^= OrderDuration.GetHashCode();
       if (goodTillDttm_ != null) hash ^= GoodTillDttm.GetHashCode();
       if (ProgressExposeTime != 0) hash ^= ProgressExposeTime.GetHashCode();
-      if (MaxAccDayWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxAccDayWtVegaLn);
-      if (MaxAccDayWtVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxAccDayWtVegaSh);
-      if (AccDayWtVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AccDayWtVegaOffset);
-      if (MaxAccDayDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxAccDayDDeltaLn);
-      if (MaxAccDayDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxAccDayDDeltaSh);
-      if (AccDayDDeltaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AccDayDDeltaOffset);
+      if (ExpDayWtVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ExpDayWtVegaOffset);
       if (MaxExpDayWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxExpDayWtVegaLn);
       if (MaxExpDayWtVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxExpDayWtVegaSh);
-      if (ExpDayWtVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ExpDayWtVegaOffset);
-      if (MaxSymDayVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayVegaLn);
-      if (MaxSymDayVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayVegaSh);
-      if (SymDayVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayVegaOffset);
-      if (MaxSymDayWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayWtVegaLn);
-      if (MaxSymDayWtVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayWtVegaSh);
-      if (SymDayWtVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayWtVegaOffset);
-      if (MaxSymDayDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayDDeltaLn);
-      if (MaxSymDayDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayDDeltaSh);
-      if (SymDayDDeltaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayDDeltaOffset);
       if (MaxExpDayRMetric6Ln != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxExpDayRMetric6Ln);
       if (MaxExpDayRMetric6Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxExpDayRMetric6Sh);
-      if (ExpDayRMetric6Offset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ExpDayRMetric6Offset);
+      if (SymDayDDeltaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayDDeltaOffset);
+      if (MaxSymDayDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayDDeltaLn);
+      if (MaxSymDayDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayDDeltaSh);
+      if (SymDayVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayVegaOffset);
+      if (MaxSymDayVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayVegaLn);
+      if (MaxSymDayVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayVegaSh);
+      if (SymDayWtVegaOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayWtVegaOffset);
+      if (MaxSymDayWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayWtVegaLn);
+      if (MaxSymDayWtVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayWtVegaSh);
       if (MaxSymDayRMetric7Ln != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayRMetric7Ln);
       if (MaxSymDayRMetric7Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSymDayRMetric7Sh);
-      if (SymDayRMetric7Offset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymDayRMetric7Offset);
       if (MaxGrpDayDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayDDeltaLn);
       if (MaxGrpDayDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayDDeltaSh);
-      if (GrpDayDDeltaRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayDDeltaRatio);
       if (MaxGrpDayVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayVegaLn);
       if (MaxGrpDayVegaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayVegaSh);
       if (MaxGrpDayVegaAbs != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayVegaAbs);
       if (GrpDayVegaRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayVegaRatio);
-      if (MaxGrpDayPremiumLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayPremiumLn);
-      if (MaxGrpDayPremiumSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayPremiumSh);
-      if (MaxGrpDayPremiumAbs != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayPremiumAbs);
-      if (GrpDayPremiumRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(GrpDayPremiumRatio);
+      if (MaxGrpDayContractsLn != 0) hash ^= MaxGrpDayContractsLn.GetHashCode();
+      if (MaxGrpDayContractsSh != 0) hash ^= MaxGrpDayContractsSh.GetHashCode();
+      if (MaxGrpDayContractsAbs != 0) hash ^= MaxGrpDayContractsAbs.GetHashCode();
       if (MaxGrpDayRMetric1Ln != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric1Ln);
       if (MaxGrpDayRMetric1Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric1Sh);
       if (MaxGrpDayRMetric1Abs != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric1Abs);
@@ -2009,9 +1768,6 @@ namespace Spiderrock.Protobuf {
       if (MaxGrpDayRMetric4Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric4Sh);
       if (MaxGrpDayRMetric5Ln != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric5Ln);
       if (MaxGrpDayRMetric5Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric5Sh);
-      if (MaxGrpDayContractsLn != 0) hash ^= MaxGrpDayContractsLn.GetHashCode();
-      if (MaxGrpDayContractsSh != 0) hash ^= MaxGrpDayContractsSh.GetHashCode();
-      if (MaxGrpDayContractsAbs != 0) hash ^= MaxGrpDayContractsAbs.GetHashCode();
       if (SymEmaCxlDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlDDeltaLn);
       if (SymEmaCxlDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlDDeltaSh);
       if (SymEmaCxlWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlWtVegaLn);
@@ -2206,41 +1962,41 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(176, 13);
         output.WriteInt32(ProgressExposeTime);
       }
-      if (MaxAccDayWtVegaLn != 0F) {
+      if (ExpDayWtVegaOffset != 0F) {
         output.WriteRawTag(205, 13);
-        output.WriteFloat(MaxAccDayWtVegaLn);
-      }
-      if (MaxAccDayWtVegaSh != 0F) {
-        output.WriteRawTag(229, 13);
-        output.WriteFloat(MaxAccDayWtVegaSh);
-      }
-      if (AccDayWtVegaOffset != 0F) {
-        output.WriteRawTag(253, 13);
-        output.WriteFloat(AccDayWtVegaOffset);
-      }
-      if (MaxAccDayDDeltaLn != 0F) {
-        output.WriteRawTag(149, 14);
-        output.WriteFloat(MaxAccDayDDeltaLn);
-      }
-      if (MaxAccDayDDeltaSh != 0F) {
-        output.WriteRawTag(173, 14);
-        output.WriteFloat(MaxAccDayDDeltaSh);
-      }
-      if (AccDayDDeltaOffset != 0F) {
-        output.WriteRawTag(197, 14);
-        output.WriteFloat(AccDayDDeltaOffset);
+        output.WriteFloat(ExpDayWtVegaOffset);
       }
       if (MaxExpDayWtVegaLn != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(229, 13);
         output.WriteFloat(MaxExpDayWtVegaLn);
       }
       if (MaxExpDayWtVegaSh != 0F) {
-        output.WriteRawTag(245, 14);
+        output.WriteRawTag(253, 13);
         output.WriteFloat(MaxExpDayWtVegaSh);
       }
-      if (ExpDayWtVegaOffset != 0F) {
+      if (MaxExpDayRMetric6Ln != 0F) {
+        output.WriteRawTag(149, 14);
+        output.WriteFloat(MaxExpDayRMetric6Ln);
+      }
+      if (MaxExpDayRMetric6Sh != 0F) {
+        output.WriteRawTag(173, 14);
+        output.WriteFloat(MaxExpDayRMetric6Sh);
+      }
+      if (SymDayDDeltaOffset != 0F) {
+        output.WriteRawTag(197, 14);
+        output.WriteFloat(SymDayDDeltaOffset);
+      }
+      if (MaxSymDayDDeltaLn != 0F) {
+        output.WriteRawTag(221, 14);
+        output.WriteFloat(MaxSymDayDDeltaLn);
+      }
+      if (MaxSymDayDDeltaSh != 0F) {
+        output.WriteRawTag(245, 14);
+        output.WriteFloat(MaxSymDayDDeltaSh);
+      }
+      if (SymDayVegaOffset != 0F) {
         output.WriteRawTag(141, 15);
-        output.WriteFloat(ExpDayWtVegaOffset);
+        output.WriteFloat(SymDayVegaOffset);
       }
       if (MaxSymDayVegaLn != 0F) {
         output.WriteRawTag(165, 15);
@@ -2250,9 +2006,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(189, 15);
         output.WriteFloat(MaxSymDayVegaSh);
       }
-      if (SymDayVegaOffset != 0F) {
+      if (SymDayWtVegaOffset != 0F) {
         output.WriteRawTag(213, 15);
-        output.WriteFloat(SymDayVegaOffset);
+        output.WriteFloat(SymDayWtVegaOffset);
       }
       if (MaxSymDayWtVegaLn != 0F) {
         output.WriteRawTag(237, 15);
@@ -2262,196 +2018,144 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(133, 16);
         output.WriteFloat(MaxSymDayWtVegaSh);
       }
-      if (SymDayWtVegaOffset != 0F) {
-        output.WriteRawTag(157, 16);
-        output.WriteFloat(SymDayWtVegaOffset);
-      }
-      if (MaxSymDayDDeltaLn != 0F) {
-        output.WriteRawTag(181, 16);
-        output.WriteFloat(MaxSymDayDDeltaLn);
-      }
-      if (MaxSymDayDDeltaSh != 0F) {
-        output.WriteRawTag(205, 16);
-        output.WriteFloat(MaxSymDayDDeltaSh);
-      }
-      if (SymDayDDeltaOffset != 0F) {
-        output.WriteRawTag(229, 16);
-        output.WriteFloat(SymDayDDeltaOffset);
-      }
-      if (MaxExpDayRMetric6Ln != 0F) {
-        output.WriteRawTag(253, 16);
-        output.WriteFloat(MaxExpDayRMetric6Ln);
-      }
-      if (MaxExpDayRMetric6Sh != 0F) {
-        output.WriteRawTag(149, 17);
-        output.WriteFloat(MaxExpDayRMetric6Sh);
-      }
-      if (ExpDayRMetric6Offset != 0F) {
-        output.WriteRawTag(173, 17);
-        output.WriteFloat(ExpDayRMetric6Offset);
-      }
       if (MaxSymDayRMetric7Ln != 0F) {
-        output.WriteRawTag(197, 17);
+        output.WriteRawTag(157, 16);
         output.WriteFloat(MaxSymDayRMetric7Ln);
       }
       if (MaxSymDayRMetric7Sh != 0F) {
-        output.WriteRawTag(221, 17);
+        output.WriteRawTag(181, 16);
         output.WriteFloat(MaxSymDayRMetric7Sh);
       }
-      if (SymDayRMetric7Offset != 0F) {
-        output.WriteRawTag(245, 17);
-        output.WriteFloat(SymDayRMetric7Offset);
-      }
       if (MaxGrpDayDDeltaLn != 0F) {
-        output.WriteRawTag(141, 18);
+        output.WriteRawTag(205, 16);
         output.WriteFloat(MaxGrpDayDDeltaLn);
       }
       if (MaxGrpDayDDeltaSh != 0F) {
-        output.WriteRawTag(165, 18);
+        output.WriteRawTag(229, 16);
         output.WriteFloat(MaxGrpDayDDeltaSh);
       }
-      if (GrpDayDDeltaRatio != 0F) {
-        output.WriteRawTag(189, 18);
-        output.WriteFloat(GrpDayDDeltaRatio);
-      }
       if (MaxGrpDayVegaLn != 0F) {
-        output.WriteRawTag(213, 18);
+        output.WriteRawTag(253, 16);
         output.WriteFloat(MaxGrpDayVegaLn);
       }
       if (MaxGrpDayVegaSh != 0F) {
-        output.WriteRawTag(237, 18);
+        output.WriteRawTag(149, 17);
         output.WriteFloat(MaxGrpDayVegaSh);
       }
       if (MaxGrpDayVegaAbs != 0F) {
-        output.WriteRawTag(133, 19);
+        output.WriteRawTag(173, 17);
         output.WriteFloat(MaxGrpDayVegaAbs);
       }
       if (GrpDayVegaRatio != 0F) {
-        output.WriteRawTag(157, 19);
+        output.WriteRawTag(197, 17);
         output.WriteFloat(GrpDayVegaRatio);
       }
-      if (MaxGrpDayPremiumLn != 0F) {
-        output.WriteRawTag(181, 19);
-        output.WriteFloat(MaxGrpDayPremiumLn);
-      }
-      if (MaxGrpDayPremiumSh != 0F) {
-        output.WriteRawTag(205, 19);
-        output.WriteFloat(MaxGrpDayPremiumSh);
-      }
-      if (MaxGrpDayPremiumAbs != 0F) {
-        output.WriteRawTag(229, 19);
-        output.WriteFloat(MaxGrpDayPremiumAbs);
-      }
-      if (GrpDayPremiumRatio != 0F) {
-        output.WriteRawTag(253, 19);
-        output.WriteFloat(GrpDayPremiumRatio);
-      }
-      if (MaxGrpDayRMetric1Ln != 0F) {
-        output.WriteRawTag(149, 20);
-        output.WriteFloat(MaxGrpDayRMetric1Ln);
-      }
-      if (MaxGrpDayRMetric1Sh != 0F) {
-        output.WriteRawTag(173, 20);
-        output.WriteFloat(MaxGrpDayRMetric1Sh);
-      }
-      if (MaxGrpDayRMetric1Abs != 0F) {
-        output.WriteRawTag(197, 20);
-        output.WriteFloat(MaxGrpDayRMetric1Abs);
-      }
-      if (GrpDayRMetric1Ratio != 0F) {
-        output.WriteRawTag(221, 20);
-        output.WriteFloat(GrpDayRMetric1Ratio);
-      }
-      if (MaxGrpDayRMetric2Ln != 0F) {
-        output.WriteRawTag(245, 20);
-        output.WriteFloat(MaxGrpDayRMetric2Ln);
-      }
-      if (MaxGrpDayRMetric2Sh != 0F) {
-        output.WriteRawTag(141, 21);
-        output.WriteFloat(MaxGrpDayRMetric2Sh);
-      }
-      if (MaxGrpDayRMetric3Ln != 0F) {
-        output.WriteRawTag(165, 21);
-        output.WriteFloat(MaxGrpDayRMetric3Ln);
-      }
-      if (MaxGrpDayRMetric3Sh != 0F) {
-        output.WriteRawTag(189, 21);
-        output.WriteFloat(MaxGrpDayRMetric3Sh);
-      }
-      if (MaxGrpDayRMetric4Ln != 0F) {
-        output.WriteRawTag(213, 21);
-        output.WriteFloat(MaxGrpDayRMetric4Ln);
-      }
-      if (MaxGrpDayRMetric4Sh != 0F) {
-        output.WriteRawTag(237, 21);
-        output.WriteFloat(MaxGrpDayRMetric4Sh);
-      }
-      if (MaxGrpDayRMetric5Ln != 0F) {
-        output.WriteRawTag(133, 22);
-        output.WriteFloat(MaxGrpDayRMetric5Ln);
-      }
-      if (MaxGrpDayRMetric5Sh != 0F) {
-        output.WriteRawTag(157, 22);
-        output.WriteFloat(MaxGrpDayRMetric5Sh);
-      }
       if (MaxGrpDayContractsLn != 0) {
-        output.WriteRawTag(176, 22);
+        output.WriteRawTag(216, 17);
         output.WriteInt32(MaxGrpDayContractsLn);
       }
       if (MaxGrpDayContractsSh != 0) {
-        output.WriteRawTag(200, 22);
+        output.WriteRawTag(240, 17);
         output.WriteInt32(MaxGrpDayContractsSh);
       }
       if (MaxGrpDayContractsAbs != 0) {
-        output.WriteRawTag(224, 22);
+        output.WriteRawTag(136, 18);
         output.WriteInt32(MaxGrpDayContractsAbs);
       }
+      if (MaxGrpDayRMetric1Ln != 0F) {
+        output.WriteRawTag(165, 18);
+        output.WriteFloat(MaxGrpDayRMetric1Ln);
+      }
+      if (MaxGrpDayRMetric1Sh != 0F) {
+        output.WriteRawTag(189, 18);
+        output.WriteFloat(MaxGrpDayRMetric1Sh);
+      }
+      if (MaxGrpDayRMetric1Abs != 0F) {
+        output.WriteRawTag(213, 18);
+        output.WriteFloat(MaxGrpDayRMetric1Abs);
+      }
+      if (GrpDayRMetric1Ratio != 0F) {
+        output.WriteRawTag(237, 18);
+        output.WriteFloat(GrpDayRMetric1Ratio);
+      }
+      if (MaxGrpDayRMetric2Ln != 0F) {
+        output.WriteRawTag(133, 19);
+        output.WriteFloat(MaxGrpDayRMetric2Ln);
+      }
+      if (MaxGrpDayRMetric2Sh != 0F) {
+        output.WriteRawTag(157, 19);
+        output.WriteFloat(MaxGrpDayRMetric2Sh);
+      }
+      if (MaxGrpDayRMetric3Ln != 0F) {
+        output.WriteRawTag(181, 19);
+        output.WriteFloat(MaxGrpDayRMetric3Ln);
+      }
+      if (MaxGrpDayRMetric3Sh != 0F) {
+        output.WriteRawTag(205, 19);
+        output.WriteFloat(MaxGrpDayRMetric3Sh);
+      }
+      if (MaxGrpDayRMetric4Ln != 0F) {
+        output.WriteRawTag(229, 19);
+        output.WriteFloat(MaxGrpDayRMetric4Ln);
+      }
+      if (MaxGrpDayRMetric4Sh != 0F) {
+        output.WriteRawTag(253, 19);
+        output.WriteFloat(MaxGrpDayRMetric4Sh);
+      }
+      if (MaxGrpDayRMetric5Ln != 0F) {
+        output.WriteRawTag(149, 20);
+        output.WriteFloat(MaxGrpDayRMetric5Ln);
+      }
+      if (MaxGrpDayRMetric5Sh != 0F) {
+        output.WriteRawTag(173, 20);
+        output.WriteFloat(MaxGrpDayRMetric5Sh);
+      }
       if (SymEmaCxlDDeltaLn != 0F) {
-        output.WriteRawTag(253, 22);
+        output.WriteRawTag(197, 20);
         output.WriteFloat(SymEmaCxlDDeltaLn);
       }
       if (SymEmaCxlDDeltaSh != 0F) {
-        output.WriteRawTag(149, 23);
+        output.WriteRawTag(221, 20);
         output.WriteFloat(SymEmaCxlDDeltaSh);
       }
       if (SymEmaCxlWtVegaLn != 0F) {
-        output.WriteRawTag(173, 23);
+        output.WriteRawTag(245, 20);
         output.WriteFloat(SymEmaCxlWtVegaLn);
       }
       if (SymEmaCxlWtVegaSh != 0F) {
-        output.WriteRawTag(197, 23);
+        output.WriteRawTag(141, 21);
         output.WriteFloat(SymEmaCxlWtVegaSh);
       }
       if (TheoVol != 0F) {
-        output.WriteRawTag(221, 23);
+        output.WriteRawTag(165, 21);
         output.WriteFloat(TheoVol);
       }
       if (ClArriveMark != 0F) {
-        output.WriteRawTag(245, 23);
+        output.WriteRawTag(189, 21);
         output.WriteFloat(ClArriveMark);
       }
       if (UserData1.Length != 0) {
-        output.WriteRawTag(138, 24);
+        output.WriteRawTag(210, 21);
         output.WriteString(UserData1);
       }
       if (UserData2.Length != 0) {
-        output.WriteRawTag(162, 24);
+        output.WriteRawTag(234, 21);
         output.WriteString(UserData2);
       }
       if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(186, 24);
+        output.WriteRawTag(130, 22);
         output.WriteString(ExecBrkrCode);
       }
       if (ModifiedBy.Length != 0) {
-        output.WriteRawTag(210, 24);
+        output.WriteRawTag(154, 22);
         output.WriteString(ModifiedBy);
       }
       if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
-        output.WriteRawTag(232, 24);
+        output.WriteRawTag(176, 22);
         output.WriteEnum((int) ModifiedIn);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(130, 25);
+        output.WriteRawTag(202, 22);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -2628,41 +2332,41 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(176, 13);
         output.WriteInt32(ProgressExposeTime);
       }
-      if (MaxAccDayWtVegaLn != 0F) {
+      if (ExpDayWtVegaOffset != 0F) {
         output.WriteRawTag(205, 13);
-        output.WriteFloat(MaxAccDayWtVegaLn);
-      }
-      if (MaxAccDayWtVegaSh != 0F) {
-        output.WriteRawTag(229, 13);
-        output.WriteFloat(MaxAccDayWtVegaSh);
-      }
-      if (AccDayWtVegaOffset != 0F) {
-        output.WriteRawTag(253, 13);
-        output.WriteFloat(AccDayWtVegaOffset);
-      }
-      if (MaxAccDayDDeltaLn != 0F) {
-        output.WriteRawTag(149, 14);
-        output.WriteFloat(MaxAccDayDDeltaLn);
-      }
-      if (MaxAccDayDDeltaSh != 0F) {
-        output.WriteRawTag(173, 14);
-        output.WriteFloat(MaxAccDayDDeltaSh);
-      }
-      if (AccDayDDeltaOffset != 0F) {
-        output.WriteRawTag(197, 14);
-        output.WriteFloat(AccDayDDeltaOffset);
+        output.WriteFloat(ExpDayWtVegaOffset);
       }
       if (MaxExpDayWtVegaLn != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(229, 13);
         output.WriteFloat(MaxExpDayWtVegaLn);
       }
       if (MaxExpDayWtVegaSh != 0F) {
-        output.WriteRawTag(245, 14);
+        output.WriteRawTag(253, 13);
         output.WriteFloat(MaxExpDayWtVegaSh);
       }
-      if (ExpDayWtVegaOffset != 0F) {
+      if (MaxExpDayRMetric6Ln != 0F) {
+        output.WriteRawTag(149, 14);
+        output.WriteFloat(MaxExpDayRMetric6Ln);
+      }
+      if (MaxExpDayRMetric6Sh != 0F) {
+        output.WriteRawTag(173, 14);
+        output.WriteFloat(MaxExpDayRMetric6Sh);
+      }
+      if (SymDayDDeltaOffset != 0F) {
+        output.WriteRawTag(197, 14);
+        output.WriteFloat(SymDayDDeltaOffset);
+      }
+      if (MaxSymDayDDeltaLn != 0F) {
+        output.WriteRawTag(221, 14);
+        output.WriteFloat(MaxSymDayDDeltaLn);
+      }
+      if (MaxSymDayDDeltaSh != 0F) {
+        output.WriteRawTag(245, 14);
+        output.WriteFloat(MaxSymDayDDeltaSh);
+      }
+      if (SymDayVegaOffset != 0F) {
         output.WriteRawTag(141, 15);
-        output.WriteFloat(ExpDayWtVegaOffset);
+        output.WriteFloat(SymDayVegaOffset);
       }
       if (MaxSymDayVegaLn != 0F) {
         output.WriteRawTag(165, 15);
@@ -2672,9 +2376,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(189, 15);
         output.WriteFloat(MaxSymDayVegaSh);
       }
-      if (SymDayVegaOffset != 0F) {
+      if (SymDayWtVegaOffset != 0F) {
         output.WriteRawTag(213, 15);
-        output.WriteFloat(SymDayVegaOffset);
+        output.WriteFloat(SymDayWtVegaOffset);
       }
       if (MaxSymDayWtVegaLn != 0F) {
         output.WriteRawTag(237, 15);
@@ -2684,196 +2388,144 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(133, 16);
         output.WriteFloat(MaxSymDayWtVegaSh);
       }
-      if (SymDayWtVegaOffset != 0F) {
-        output.WriteRawTag(157, 16);
-        output.WriteFloat(SymDayWtVegaOffset);
-      }
-      if (MaxSymDayDDeltaLn != 0F) {
-        output.WriteRawTag(181, 16);
-        output.WriteFloat(MaxSymDayDDeltaLn);
-      }
-      if (MaxSymDayDDeltaSh != 0F) {
-        output.WriteRawTag(205, 16);
-        output.WriteFloat(MaxSymDayDDeltaSh);
-      }
-      if (SymDayDDeltaOffset != 0F) {
-        output.WriteRawTag(229, 16);
-        output.WriteFloat(SymDayDDeltaOffset);
-      }
-      if (MaxExpDayRMetric6Ln != 0F) {
-        output.WriteRawTag(253, 16);
-        output.WriteFloat(MaxExpDayRMetric6Ln);
-      }
-      if (MaxExpDayRMetric6Sh != 0F) {
-        output.WriteRawTag(149, 17);
-        output.WriteFloat(MaxExpDayRMetric6Sh);
-      }
-      if (ExpDayRMetric6Offset != 0F) {
-        output.WriteRawTag(173, 17);
-        output.WriteFloat(ExpDayRMetric6Offset);
-      }
       if (MaxSymDayRMetric7Ln != 0F) {
-        output.WriteRawTag(197, 17);
+        output.WriteRawTag(157, 16);
         output.WriteFloat(MaxSymDayRMetric7Ln);
       }
       if (MaxSymDayRMetric7Sh != 0F) {
-        output.WriteRawTag(221, 17);
+        output.WriteRawTag(181, 16);
         output.WriteFloat(MaxSymDayRMetric7Sh);
       }
-      if (SymDayRMetric7Offset != 0F) {
-        output.WriteRawTag(245, 17);
-        output.WriteFloat(SymDayRMetric7Offset);
-      }
       if (MaxGrpDayDDeltaLn != 0F) {
-        output.WriteRawTag(141, 18);
+        output.WriteRawTag(205, 16);
         output.WriteFloat(MaxGrpDayDDeltaLn);
       }
       if (MaxGrpDayDDeltaSh != 0F) {
-        output.WriteRawTag(165, 18);
+        output.WriteRawTag(229, 16);
         output.WriteFloat(MaxGrpDayDDeltaSh);
       }
-      if (GrpDayDDeltaRatio != 0F) {
-        output.WriteRawTag(189, 18);
-        output.WriteFloat(GrpDayDDeltaRatio);
-      }
       if (MaxGrpDayVegaLn != 0F) {
-        output.WriteRawTag(213, 18);
+        output.WriteRawTag(253, 16);
         output.WriteFloat(MaxGrpDayVegaLn);
       }
       if (MaxGrpDayVegaSh != 0F) {
-        output.WriteRawTag(237, 18);
+        output.WriteRawTag(149, 17);
         output.WriteFloat(MaxGrpDayVegaSh);
       }
       if (MaxGrpDayVegaAbs != 0F) {
-        output.WriteRawTag(133, 19);
+        output.WriteRawTag(173, 17);
         output.WriteFloat(MaxGrpDayVegaAbs);
       }
       if (GrpDayVegaRatio != 0F) {
-        output.WriteRawTag(157, 19);
+        output.WriteRawTag(197, 17);
         output.WriteFloat(GrpDayVegaRatio);
       }
-      if (MaxGrpDayPremiumLn != 0F) {
-        output.WriteRawTag(181, 19);
-        output.WriteFloat(MaxGrpDayPremiumLn);
-      }
-      if (MaxGrpDayPremiumSh != 0F) {
-        output.WriteRawTag(205, 19);
-        output.WriteFloat(MaxGrpDayPremiumSh);
-      }
-      if (MaxGrpDayPremiumAbs != 0F) {
-        output.WriteRawTag(229, 19);
-        output.WriteFloat(MaxGrpDayPremiumAbs);
-      }
-      if (GrpDayPremiumRatio != 0F) {
-        output.WriteRawTag(253, 19);
-        output.WriteFloat(GrpDayPremiumRatio);
-      }
-      if (MaxGrpDayRMetric1Ln != 0F) {
-        output.WriteRawTag(149, 20);
-        output.WriteFloat(MaxGrpDayRMetric1Ln);
-      }
-      if (MaxGrpDayRMetric1Sh != 0F) {
-        output.WriteRawTag(173, 20);
-        output.WriteFloat(MaxGrpDayRMetric1Sh);
-      }
-      if (MaxGrpDayRMetric1Abs != 0F) {
-        output.WriteRawTag(197, 20);
-        output.WriteFloat(MaxGrpDayRMetric1Abs);
-      }
-      if (GrpDayRMetric1Ratio != 0F) {
-        output.WriteRawTag(221, 20);
-        output.WriteFloat(GrpDayRMetric1Ratio);
-      }
-      if (MaxGrpDayRMetric2Ln != 0F) {
-        output.WriteRawTag(245, 20);
-        output.WriteFloat(MaxGrpDayRMetric2Ln);
-      }
-      if (MaxGrpDayRMetric2Sh != 0F) {
-        output.WriteRawTag(141, 21);
-        output.WriteFloat(MaxGrpDayRMetric2Sh);
-      }
-      if (MaxGrpDayRMetric3Ln != 0F) {
-        output.WriteRawTag(165, 21);
-        output.WriteFloat(MaxGrpDayRMetric3Ln);
-      }
-      if (MaxGrpDayRMetric3Sh != 0F) {
-        output.WriteRawTag(189, 21);
-        output.WriteFloat(MaxGrpDayRMetric3Sh);
-      }
-      if (MaxGrpDayRMetric4Ln != 0F) {
-        output.WriteRawTag(213, 21);
-        output.WriteFloat(MaxGrpDayRMetric4Ln);
-      }
-      if (MaxGrpDayRMetric4Sh != 0F) {
-        output.WriteRawTag(237, 21);
-        output.WriteFloat(MaxGrpDayRMetric4Sh);
-      }
-      if (MaxGrpDayRMetric5Ln != 0F) {
-        output.WriteRawTag(133, 22);
-        output.WriteFloat(MaxGrpDayRMetric5Ln);
-      }
-      if (MaxGrpDayRMetric5Sh != 0F) {
-        output.WriteRawTag(157, 22);
-        output.WriteFloat(MaxGrpDayRMetric5Sh);
-      }
       if (MaxGrpDayContractsLn != 0) {
-        output.WriteRawTag(176, 22);
+        output.WriteRawTag(216, 17);
         output.WriteInt32(MaxGrpDayContractsLn);
       }
       if (MaxGrpDayContractsSh != 0) {
-        output.WriteRawTag(200, 22);
+        output.WriteRawTag(240, 17);
         output.WriteInt32(MaxGrpDayContractsSh);
       }
       if (MaxGrpDayContractsAbs != 0) {
-        output.WriteRawTag(224, 22);
+        output.WriteRawTag(136, 18);
         output.WriteInt32(MaxGrpDayContractsAbs);
       }
+      if (MaxGrpDayRMetric1Ln != 0F) {
+        output.WriteRawTag(165, 18);
+        output.WriteFloat(MaxGrpDayRMetric1Ln);
+      }
+      if (MaxGrpDayRMetric1Sh != 0F) {
+        output.WriteRawTag(189, 18);
+        output.WriteFloat(MaxGrpDayRMetric1Sh);
+      }
+      if (MaxGrpDayRMetric1Abs != 0F) {
+        output.WriteRawTag(213, 18);
+        output.WriteFloat(MaxGrpDayRMetric1Abs);
+      }
+      if (GrpDayRMetric1Ratio != 0F) {
+        output.WriteRawTag(237, 18);
+        output.WriteFloat(GrpDayRMetric1Ratio);
+      }
+      if (MaxGrpDayRMetric2Ln != 0F) {
+        output.WriteRawTag(133, 19);
+        output.WriteFloat(MaxGrpDayRMetric2Ln);
+      }
+      if (MaxGrpDayRMetric2Sh != 0F) {
+        output.WriteRawTag(157, 19);
+        output.WriteFloat(MaxGrpDayRMetric2Sh);
+      }
+      if (MaxGrpDayRMetric3Ln != 0F) {
+        output.WriteRawTag(181, 19);
+        output.WriteFloat(MaxGrpDayRMetric3Ln);
+      }
+      if (MaxGrpDayRMetric3Sh != 0F) {
+        output.WriteRawTag(205, 19);
+        output.WriteFloat(MaxGrpDayRMetric3Sh);
+      }
+      if (MaxGrpDayRMetric4Ln != 0F) {
+        output.WriteRawTag(229, 19);
+        output.WriteFloat(MaxGrpDayRMetric4Ln);
+      }
+      if (MaxGrpDayRMetric4Sh != 0F) {
+        output.WriteRawTag(253, 19);
+        output.WriteFloat(MaxGrpDayRMetric4Sh);
+      }
+      if (MaxGrpDayRMetric5Ln != 0F) {
+        output.WriteRawTag(149, 20);
+        output.WriteFloat(MaxGrpDayRMetric5Ln);
+      }
+      if (MaxGrpDayRMetric5Sh != 0F) {
+        output.WriteRawTag(173, 20);
+        output.WriteFloat(MaxGrpDayRMetric5Sh);
+      }
       if (SymEmaCxlDDeltaLn != 0F) {
-        output.WriteRawTag(253, 22);
+        output.WriteRawTag(197, 20);
         output.WriteFloat(SymEmaCxlDDeltaLn);
       }
       if (SymEmaCxlDDeltaSh != 0F) {
-        output.WriteRawTag(149, 23);
+        output.WriteRawTag(221, 20);
         output.WriteFloat(SymEmaCxlDDeltaSh);
       }
       if (SymEmaCxlWtVegaLn != 0F) {
-        output.WriteRawTag(173, 23);
+        output.WriteRawTag(245, 20);
         output.WriteFloat(SymEmaCxlWtVegaLn);
       }
       if (SymEmaCxlWtVegaSh != 0F) {
-        output.WriteRawTag(197, 23);
+        output.WriteRawTag(141, 21);
         output.WriteFloat(SymEmaCxlWtVegaSh);
       }
       if (TheoVol != 0F) {
-        output.WriteRawTag(221, 23);
+        output.WriteRawTag(165, 21);
         output.WriteFloat(TheoVol);
       }
       if (ClArriveMark != 0F) {
-        output.WriteRawTag(245, 23);
+        output.WriteRawTag(189, 21);
         output.WriteFloat(ClArriveMark);
       }
       if (UserData1.Length != 0) {
-        output.WriteRawTag(138, 24);
+        output.WriteRawTag(210, 21);
         output.WriteString(UserData1);
       }
       if (UserData2.Length != 0) {
-        output.WriteRawTag(162, 24);
+        output.WriteRawTag(234, 21);
         output.WriteString(UserData2);
       }
       if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(186, 24);
+        output.WriteRawTag(130, 22);
         output.WriteString(ExecBrkrCode);
       }
       if (ModifiedBy.Length != 0) {
-        output.WriteRawTag(210, 24);
+        output.WriteRawTag(154, 22);
         output.WriteString(ModifiedBy);
       }
       if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
-        output.WriteRawTag(232, 24);
+        output.WriteRawTag(176, 22);
         output.WriteEnum((int) ModifiedIn);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(130, 25);
+        output.WriteRawTag(202, 22);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -3009,22 +2661,7 @@ namespace Spiderrock.Protobuf {
       if (ProgressExposeTime != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(ProgressExposeTime);
       }
-      if (MaxAccDayWtVegaLn != 0F) {
-        size += 2 + 4;
-      }
-      if (MaxAccDayWtVegaSh != 0F) {
-        size += 2 + 4;
-      }
-      if (AccDayWtVegaOffset != 0F) {
-        size += 2 + 4;
-      }
-      if (MaxAccDayDDeltaLn != 0F) {
-        size += 2 + 4;
-      }
-      if (MaxAccDayDDeltaSh != 0F) {
-        size += 2 + 4;
-      }
-      if (AccDayDDeltaOffset != 0F) {
+      if (ExpDayWtVegaOffset != 0F) {
         size += 2 + 4;
       }
       if (MaxExpDayWtVegaLn != 0F) {
@@ -3033,25 +2670,13 @@ namespace Spiderrock.Protobuf {
       if (MaxExpDayWtVegaSh != 0F) {
         size += 2 + 4;
       }
-      if (ExpDayWtVegaOffset != 0F) {
+      if (MaxExpDayRMetric6Ln != 0F) {
         size += 2 + 4;
       }
-      if (MaxSymDayVegaLn != 0F) {
+      if (MaxExpDayRMetric6Sh != 0F) {
         size += 2 + 4;
       }
-      if (MaxSymDayVegaSh != 0F) {
-        size += 2 + 4;
-      }
-      if (SymDayVegaOffset != 0F) {
-        size += 2 + 4;
-      }
-      if (MaxSymDayWtVegaLn != 0F) {
-        size += 2 + 4;
-      }
-      if (MaxSymDayWtVegaSh != 0F) {
-        size += 2 + 4;
-      }
-      if (SymDayWtVegaOffset != 0F) {
+      if (SymDayDDeltaOffset != 0F) {
         size += 2 + 4;
       }
       if (MaxSymDayDDeltaLn != 0F) {
@@ -3060,16 +2685,22 @@ namespace Spiderrock.Protobuf {
       if (MaxSymDayDDeltaSh != 0F) {
         size += 2 + 4;
       }
-      if (SymDayDDeltaOffset != 0F) {
+      if (SymDayVegaOffset != 0F) {
         size += 2 + 4;
       }
-      if (MaxExpDayRMetric6Ln != 0F) {
+      if (MaxSymDayVegaLn != 0F) {
         size += 2 + 4;
       }
-      if (MaxExpDayRMetric6Sh != 0F) {
+      if (MaxSymDayVegaSh != 0F) {
         size += 2 + 4;
       }
-      if (ExpDayRMetric6Offset != 0F) {
+      if (SymDayWtVegaOffset != 0F) {
+        size += 2 + 4;
+      }
+      if (MaxSymDayWtVegaLn != 0F) {
+        size += 2 + 4;
+      }
+      if (MaxSymDayWtVegaSh != 0F) {
         size += 2 + 4;
       }
       if (MaxSymDayRMetric7Ln != 0F) {
@@ -3078,16 +2709,10 @@ namespace Spiderrock.Protobuf {
       if (MaxSymDayRMetric7Sh != 0F) {
         size += 2 + 4;
       }
-      if (SymDayRMetric7Offset != 0F) {
-        size += 2 + 4;
-      }
       if (MaxGrpDayDDeltaLn != 0F) {
         size += 2 + 4;
       }
       if (MaxGrpDayDDeltaSh != 0F) {
-        size += 2 + 4;
-      }
-      if (GrpDayDDeltaRatio != 0F) {
         size += 2 + 4;
       }
       if (MaxGrpDayVegaLn != 0F) {
@@ -3102,17 +2727,14 @@ namespace Spiderrock.Protobuf {
       if (GrpDayVegaRatio != 0F) {
         size += 2 + 4;
       }
-      if (MaxGrpDayPremiumLn != 0F) {
-        size += 2 + 4;
+      if (MaxGrpDayContractsLn != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsLn);
       }
-      if (MaxGrpDayPremiumSh != 0F) {
-        size += 2 + 4;
+      if (MaxGrpDayContractsSh != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsSh);
       }
-      if (MaxGrpDayPremiumAbs != 0F) {
-        size += 2 + 4;
-      }
-      if (GrpDayPremiumRatio != 0F) {
-        size += 2 + 4;
+      if (MaxGrpDayContractsAbs != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsAbs);
       }
       if (MaxGrpDayRMetric1Ln != 0F) {
         size += 2 + 4;
@@ -3149,15 +2771,6 @@ namespace Spiderrock.Protobuf {
       }
       if (MaxGrpDayRMetric5Sh != 0F) {
         size += 2 + 4;
-      }
-      if (MaxGrpDayContractsLn != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsLn);
-      }
-      if (MaxGrpDayContractsSh != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsSh);
-      }
-      if (MaxGrpDayContractsAbs != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MaxGrpDayContractsAbs);
       }
       if (SymEmaCxlDDeltaLn != 0F) {
         size += 2 + 4;
@@ -3345,23 +2958,8 @@ namespace Spiderrock.Protobuf {
       if (other.ProgressExposeTime != 0) {
         ProgressExposeTime = other.ProgressExposeTime;
       }
-      if (other.MaxAccDayWtVegaLn != 0F) {
-        MaxAccDayWtVegaLn = other.MaxAccDayWtVegaLn;
-      }
-      if (other.MaxAccDayWtVegaSh != 0F) {
-        MaxAccDayWtVegaSh = other.MaxAccDayWtVegaSh;
-      }
-      if (other.AccDayWtVegaOffset != 0F) {
-        AccDayWtVegaOffset = other.AccDayWtVegaOffset;
-      }
-      if (other.MaxAccDayDDeltaLn != 0F) {
-        MaxAccDayDDeltaLn = other.MaxAccDayDDeltaLn;
-      }
-      if (other.MaxAccDayDDeltaSh != 0F) {
-        MaxAccDayDDeltaSh = other.MaxAccDayDDeltaSh;
-      }
-      if (other.AccDayDDeltaOffset != 0F) {
-        AccDayDDeltaOffset = other.AccDayDDeltaOffset;
+      if (other.ExpDayWtVegaOffset != 0F) {
+        ExpDayWtVegaOffset = other.ExpDayWtVegaOffset;
       }
       if (other.MaxExpDayWtVegaLn != 0F) {
         MaxExpDayWtVegaLn = other.MaxExpDayWtVegaLn;
@@ -3369,26 +2967,14 @@ namespace Spiderrock.Protobuf {
       if (other.MaxExpDayWtVegaSh != 0F) {
         MaxExpDayWtVegaSh = other.MaxExpDayWtVegaSh;
       }
-      if (other.ExpDayWtVegaOffset != 0F) {
-        ExpDayWtVegaOffset = other.ExpDayWtVegaOffset;
+      if (other.MaxExpDayRMetric6Ln != 0F) {
+        MaxExpDayRMetric6Ln = other.MaxExpDayRMetric6Ln;
       }
-      if (other.MaxSymDayVegaLn != 0F) {
-        MaxSymDayVegaLn = other.MaxSymDayVegaLn;
+      if (other.MaxExpDayRMetric6Sh != 0F) {
+        MaxExpDayRMetric6Sh = other.MaxExpDayRMetric6Sh;
       }
-      if (other.MaxSymDayVegaSh != 0F) {
-        MaxSymDayVegaSh = other.MaxSymDayVegaSh;
-      }
-      if (other.SymDayVegaOffset != 0F) {
-        SymDayVegaOffset = other.SymDayVegaOffset;
-      }
-      if (other.MaxSymDayWtVegaLn != 0F) {
-        MaxSymDayWtVegaLn = other.MaxSymDayWtVegaLn;
-      }
-      if (other.MaxSymDayWtVegaSh != 0F) {
-        MaxSymDayWtVegaSh = other.MaxSymDayWtVegaSh;
-      }
-      if (other.SymDayWtVegaOffset != 0F) {
-        SymDayWtVegaOffset = other.SymDayWtVegaOffset;
+      if (other.SymDayDDeltaOffset != 0F) {
+        SymDayDDeltaOffset = other.SymDayDDeltaOffset;
       }
       if (other.MaxSymDayDDeltaLn != 0F) {
         MaxSymDayDDeltaLn = other.MaxSymDayDDeltaLn;
@@ -3396,17 +2982,23 @@ namespace Spiderrock.Protobuf {
       if (other.MaxSymDayDDeltaSh != 0F) {
         MaxSymDayDDeltaSh = other.MaxSymDayDDeltaSh;
       }
-      if (other.SymDayDDeltaOffset != 0F) {
-        SymDayDDeltaOffset = other.SymDayDDeltaOffset;
+      if (other.SymDayVegaOffset != 0F) {
+        SymDayVegaOffset = other.SymDayVegaOffset;
       }
-      if (other.MaxExpDayRMetric6Ln != 0F) {
-        MaxExpDayRMetric6Ln = other.MaxExpDayRMetric6Ln;
+      if (other.MaxSymDayVegaLn != 0F) {
+        MaxSymDayVegaLn = other.MaxSymDayVegaLn;
       }
-      if (other.MaxExpDayRMetric6Sh != 0F) {
-        MaxExpDayRMetric6Sh = other.MaxExpDayRMetric6Sh;
+      if (other.MaxSymDayVegaSh != 0F) {
+        MaxSymDayVegaSh = other.MaxSymDayVegaSh;
       }
-      if (other.ExpDayRMetric6Offset != 0F) {
-        ExpDayRMetric6Offset = other.ExpDayRMetric6Offset;
+      if (other.SymDayWtVegaOffset != 0F) {
+        SymDayWtVegaOffset = other.SymDayWtVegaOffset;
+      }
+      if (other.MaxSymDayWtVegaLn != 0F) {
+        MaxSymDayWtVegaLn = other.MaxSymDayWtVegaLn;
+      }
+      if (other.MaxSymDayWtVegaSh != 0F) {
+        MaxSymDayWtVegaSh = other.MaxSymDayWtVegaSh;
       }
       if (other.MaxSymDayRMetric7Ln != 0F) {
         MaxSymDayRMetric7Ln = other.MaxSymDayRMetric7Ln;
@@ -3414,17 +3006,11 @@ namespace Spiderrock.Protobuf {
       if (other.MaxSymDayRMetric7Sh != 0F) {
         MaxSymDayRMetric7Sh = other.MaxSymDayRMetric7Sh;
       }
-      if (other.SymDayRMetric7Offset != 0F) {
-        SymDayRMetric7Offset = other.SymDayRMetric7Offset;
-      }
       if (other.MaxGrpDayDDeltaLn != 0F) {
         MaxGrpDayDDeltaLn = other.MaxGrpDayDDeltaLn;
       }
       if (other.MaxGrpDayDDeltaSh != 0F) {
         MaxGrpDayDDeltaSh = other.MaxGrpDayDDeltaSh;
-      }
-      if (other.GrpDayDDeltaRatio != 0F) {
-        GrpDayDDeltaRatio = other.GrpDayDDeltaRatio;
       }
       if (other.MaxGrpDayVegaLn != 0F) {
         MaxGrpDayVegaLn = other.MaxGrpDayVegaLn;
@@ -3438,17 +3024,14 @@ namespace Spiderrock.Protobuf {
       if (other.GrpDayVegaRatio != 0F) {
         GrpDayVegaRatio = other.GrpDayVegaRatio;
       }
-      if (other.MaxGrpDayPremiumLn != 0F) {
-        MaxGrpDayPremiumLn = other.MaxGrpDayPremiumLn;
+      if (other.MaxGrpDayContractsLn != 0) {
+        MaxGrpDayContractsLn = other.MaxGrpDayContractsLn;
       }
-      if (other.MaxGrpDayPremiumSh != 0F) {
-        MaxGrpDayPremiumSh = other.MaxGrpDayPremiumSh;
+      if (other.MaxGrpDayContractsSh != 0) {
+        MaxGrpDayContractsSh = other.MaxGrpDayContractsSh;
       }
-      if (other.MaxGrpDayPremiumAbs != 0F) {
-        MaxGrpDayPremiumAbs = other.MaxGrpDayPremiumAbs;
-      }
-      if (other.GrpDayPremiumRatio != 0F) {
-        GrpDayPremiumRatio = other.GrpDayPremiumRatio;
+      if (other.MaxGrpDayContractsAbs != 0) {
+        MaxGrpDayContractsAbs = other.MaxGrpDayContractsAbs;
       }
       if (other.MaxGrpDayRMetric1Ln != 0F) {
         MaxGrpDayRMetric1Ln = other.MaxGrpDayRMetric1Ln;
@@ -3485,15 +3068,6 @@ namespace Spiderrock.Protobuf {
       }
       if (other.MaxGrpDayRMetric5Sh != 0F) {
         MaxGrpDayRMetric5Sh = other.MaxGrpDayRMetric5Sh;
-      }
-      if (other.MaxGrpDayContractsLn != 0) {
-        MaxGrpDayContractsLn = other.MaxGrpDayContractsLn;
-      }
-      if (other.MaxGrpDayContractsSh != 0) {
-        MaxGrpDayContractsSh = other.MaxGrpDayContractsSh;
-      }
-      if (other.MaxGrpDayContractsAbs != 0) {
-        MaxGrpDayContractsAbs = other.MaxGrpDayContractsAbs;
       }
       if (other.SymEmaCxlDDeltaLn != 0F) {
         SymEmaCxlDDeltaLn = other.SymEmaCxlDDeltaLn;
@@ -3729,39 +3303,39 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1741: {
-            MaxAccDayWtVegaLn = input.ReadFloat();
+            ExpDayWtVegaOffset = input.ReadFloat();
             break;
           }
           case 1765: {
-            MaxAccDayWtVegaSh = input.ReadFloat();
-            break;
-          }
-          case 1789: {
-            AccDayWtVegaOffset = input.ReadFloat();
-            break;
-          }
-          case 1813: {
-            MaxAccDayDDeltaLn = input.ReadFloat();
-            break;
-          }
-          case 1837: {
-            MaxAccDayDDeltaSh = input.ReadFloat();
-            break;
-          }
-          case 1861: {
-            AccDayDDeltaOffset = input.ReadFloat();
-            break;
-          }
-          case 1885: {
             MaxExpDayWtVegaLn = input.ReadFloat();
             break;
           }
-          case 1909: {
+          case 1789: {
             MaxExpDayWtVegaSh = input.ReadFloat();
             break;
           }
+          case 1813: {
+            MaxExpDayRMetric6Ln = input.ReadFloat();
+            break;
+          }
+          case 1837: {
+            MaxExpDayRMetric6Sh = input.ReadFloat();
+            break;
+          }
+          case 1861: {
+            SymDayDDeltaOffset = input.ReadFloat();
+            break;
+          }
+          case 1885: {
+            MaxSymDayDDeltaLn = input.ReadFloat();
+            break;
+          }
+          case 1909: {
+            MaxSymDayDDeltaSh = input.ReadFloat();
+            break;
+          }
           case 1933: {
-            ExpDayWtVegaOffset = input.ReadFloat();
+            SymDayVegaOffset = input.ReadFloat();
             break;
           }
           case 1957: {
@@ -3773,7 +3347,7 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 2005: {
-            SymDayVegaOffset = input.ReadFloat();
+            SymDayWtVegaOffset = input.ReadFloat();
             break;
           }
           case 2029: {
@@ -3785,194 +3359,142 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 2077: {
-            SymDayWtVegaOffset = input.ReadFloat();
-            break;
-          }
-          case 2101: {
-            MaxSymDayDDeltaLn = input.ReadFloat();
-            break;
-          }
-          case 2125: {
-            MaxSymDayDDeltaSh = input.ReadFloat();
-            break;
-          }
-          case 2149: {
-            SymDayDDeltaOffset = input.ReadFloat();
-            break;
-          }
-          case 2173: {
-            MaxExpDayRMetric6Ln = input.ReadFloat();
-            break;
-          }
-          case 2197: {
-            MaxExpDayRMetric6Sh = input.ReadFloat();
-            break;
-          }
-          case 2221: {
-            ExpDayRMetric6Offset = input.ReadFloat();
-            break;
-          }
-          case 2245: {
             MaxSymDayRMetric7Ln = input.ReadFloat();
             break;
           }
-          case 2269: {
+          case 2101: {
             MaxSymDayRMetric7Sh = input.ReadFloat();
             break;
           }
-          case 2293: {
-            SymDayRMetric7Offset = input.ReadFloat();
-            break;
-          }
-          case 2317: {
+          case 2125: {
             MaxGrpDayDDeltaLn = input.ReadFloat();
             break;
           }
-          case 2341: {
+          case 2149: {
             MaxGrpDayDDeltaSh = input.ReadFloat();
             break;
           }
-          case 2365: {
-            GrpDayDDeltaRatio = input.ReadFloat();
-            break;
-          }
-          case 2389: {
+          case 2173: {
             MaxGrpDayVegaLn = input.ReadFloat();
             break;
           }
-          case 2413: {
+          case 2197: {
             MaxGrpDayVegaSh = input.ReadFloat();
             break;
           }
-          case 2437: {
+          case 2221: {
             MaxGrpDayVegaAbs = input.ReadFloat();
             break;
           }
-          case 2461: {
+          case 2245: {
             GrpDayVegaRatio = input.ReadFloat();
             break;
           }
-          case 2485: {
-            MaxGrpDayPremiumLn = input.ReadFloat();
-            break;
-          }
-          case 2509: {
-            MaxGrpDayPremiumSh = input.ReadFloat();
-            break;
-          }
-          case 2533: {
-            MaxGrpDayPremiumAbs = input.ReadFloat();
-            break;
-          }
-          case 2557: {
-            GrpDayPremiumRatio = input.ReadFloat();
-            break;
-          }
-          case 2581: {
-            MaxGrpDayRMetric1Ln = input.ReadFloat();
-            break;
-          }
-          case 2605: {
-            MaxGrpDayRMetric1Sh = input.ReadFloat();
-            break;
-          }
-          case 2629: {
-            MaxGrpDayRMetric1Abs = input.ReadFloat();
-            break;
-          }
-          case 2653: {
-            GrpDayRMetric1Ratio = input.ReadFloat();
-            break;
-          }
-          case 2677: {
-            MaxGrpDayRMetric2Ln = input.ReadFloat();
-            break;
-          }
-          case 2701: {
-            MaxGrpDayRMetric2Sh = input.ReadFloat();
-            break;
-          }
-          case 2725: {
-            MaxGrpDayRMetric3Ln = input.ReadFloat();
-            break;
-          }
-          case 2749: {
-            MaxGrpDayRMetric3Sh = input.ReadFloat();
-            break;
-          }
-          case 2773: {
-            MaxGrpDayRMetric4Ln = input.ReadFloat();
-            break;
-          }
-          case 2797: {
-            MaxGrpDayRMetric4Sh = input.ReadFloat();
-            break;
-          }
-          case 2821: {
-            MaxGrpDayRMetric5Ln = input.ReadFloat();
-            break;
-          }
-          case 2845: {
-            MaxGrpDayRMetric5Sh = input.ReadFloat();
-            break;
-          }
-          case 2864: {
+          case 2264: {
             MaxGrpDayContractsLn = input.ReadInt32();
             break;
           }
-          case 2888: {
+          case 2288: {
             MaxGrpDayContractsSh = input.ReadInt32();
             break;
           }
-          case 2912: {
+          case 2312: {
             MaxGrpDayContractsAbs = input.ReadInt32();
             break;
           }
-          case 2941: {
+          case 2341: {
+            MaxGrpDayRMetric1Ln = input.ReadFloat();
+            break;
+          }
+          case 2365: {
+            MaxGrpDayRMetric1Sh = input.ReadFloat();
+            break;
+          }
+          case 2389: {
+            MaxGrpDayRMetric1Abs = input.ReadFloat();
+            break;
+          }
+          case 2413: {
+            GrpDayRMetric1Ratio = input.ReadFloat();
+            break;
+          }
+          case 2437: {
+            MaxGrpDayRMetric2Ln = input.ReadFloat();
+            break;
+          }
+          case 2461: {
+            MaxGrpDayRMetric2Sh = input.ReadFloat();
+            break;
+          }
+          case 2485: {
+            MaxGrpDayRMetric3Ln = input.ReadFloat();
+            break;
+          }
+          case 2509: {
+            MaxGrpDayRMetric3Sh = input.ReadFloat();
+            break;
+          }
+          case 2533: {
+            MaxGrpDayRMetric4Ln = input.ReadFloat();
+            break;
+          }
+          case 2557: {
+            MaxGrpDayRMetric4Sh = input.ReadFloat();
+            break;
+          }
+          case 2581: {
+            MaxGrpDayRMetric5Ln = input.ReadFloat();
+            break;
+          }
+          case 2605: {
+            MaxGrpDayRMetric5Sh = input.ReadFloat();
+            break;
+          }
+          case 2629: {
             SymEmaCxlDDeltaLn = input.ReadFloat();
             break;
           }
-          case 2965: {
+          case 2653: {
             SymEmaCxlDDeltaSh = input.ReadFloat();
             break;
           }
-          case 2989: {
+          case 2677: {
             SymEmaCxlWtVegaLn = input.ReadFloat();
             break;
           }
-          case 3013: {
+          case 2701: {
             SymEmaCxlWtVegaSh = input.ReadFloat();
             break;
           }
-          case 3037: {
+          case 2725: {
             TheoVol = input.ReadFloat();
             break;
           }
-          case 3061: {
+          case 2749: {
             ClArriveMark = input.ReadFloat();
             break;
           }
-          case 3082: {
+          case 2770: {
             UserData1 = input.ReadString();
             break;
           }
-          case 3106: {
+          case 2794: {
             UserData2 = input.ReadString();
             break;
           }
-          case 3130: {
+          case 2818: {
             ExecBrkrCode = input.ReadString();
             break;
           }
-          case 3154: {
+          case 2842: {
             ModifiedBy = input.ReadString();
             break;
           }
-          case 3176: {
+          case 2864: {
             ModifiedIn = (global::Spiderrock.Protobuf.SysEnvironment) input.ReadEnum();
             break;
           }
-          case 3202: {
+          case 2890: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -4174,39 +3696,39 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1741: {
-            MaxAccDayWtVegaLn = input.ReadFloat();
+            ExpDayWtVegaOffset = input.ReadFloat();
             break;
           }
           case 1765: {
-            MaxAccDayWtVegaSh = input.ReadFloat();
-            break;
-          }
-          case 1789: {
-            AccDayWtVegaOffset = input.ReadFloat();
-            break;
-          }
-          case 1813: {
-            MaxAccDayDDeltaLn = input.ReadFloat();
-            break;
-          }
-          case 1837: {
-            MaxAccDayDDeltaSh = input.ReadFloat();
-            break;
-          }
-          case 1861: {
-            AccDayDDeltaOffset = input.ReadFloat();
-            break;
-          }
-          case 1885: {
             MaxExpDayWtVegaLn = input.ReadFloat();
             break;
           }
-          case 1909: {
+          case 1789: {
             MaxExpDayWtVegaSh = input.ReadFloat();
             break;
           }
+          case 1813: {
+            MaxExpDayRMetric6Ln = input.ReadFloat();
+            break;
+          }
+          case 1837: {
+            MaxExpDayRMetric6Sh = input.ReadFloat();
+            break;
+          }
+          case 1861: {
+            SymDayDDeltaOffset = input.ReadFloat();
+            break;
+          }
+          case 1885: {
+            MaxSymDayDDeltaLn = input.ReadFloat();
+            break;
+          }
+          case 1909: {
+            MaxSymDayDDeltaSh = input.ReadFloat();
+            break;
+          }
           case 1933: {
-            ExpDayWtVegaOffset = input.ReadFloat();
+            SymDayVegaOffset = input.ReadFloat();
             break;
           }
           case 1957: {
@@ -4218,7 +3740,7 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 2005: {
-            SymDayVegaOffset = input.ReadFloat();
+            SymDayWtVegaOffset = input.ReadFloat();
             break;
           }
           case 2029: {
@@ -4230,194 +3752,142 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 2077: {
-            SymDayWtVegaOffset = input.ReadFloat();
-            break;
-          }
-          case 2101: {
-            MaxSymDayDDeltaLn = input.ReadFloat();
-            break;
-          }
-          case 2125: {
-            MaxSymDayDDeltaSh = input.ReadFloat();
-            break;
-          }
-          case 2149: {
-            SymDayDDeltaOffset = input.ReadFloat();
-            break;
-          }
-          case 2173: {
-            MaxExpDayRMetric6Ln = input.ReadFloat();
-            break;
-          }
-          case 2197: {
-            MaxExpDayRMetric6Sh = input.ReadFloat();
-            break;
-          }
-          case 2221: {
-            ExpDayRMetric6Offset = input.ReadFloat();
-            break;
-          }
-          case 2245: {
             MaxSymDayRMetric7Ln = input.ReadFloat();
             break;
           }
-          case 2269: {
+          case 2101: {
             MaxSymDayRMetric7Sh = input.ReadFloat();
             break;
           }
-          case 2293: {
-            SymDayRMetric7Offset = input.ReadFloat();
-            break;
-          }
-          case 2317: {
+          case 2125: {
             MaxGrpDayDDeltaLn = input.ReadFloat();
             break;
           }
-          case 2341: {
+          case 2149: {
             MaxGrpDayDDeltaSh = input.ReadFloat();
             break;
           }
-          case 2365: {
-            GrpDayDDeltaRatio = input.ReadFloat();
-            break;
-          }
-          case 2389: {
+          case 2173: {
             MaxGrpDayVegaLn = input.ReadFloat();
             break;
           }
-          case 2413: {
+          case 2197: {
             MaxGrpDayVegaSh = input.ReadFloat();
             break;
           }
-          case 2437: {
+          case 2221: {
             MaxGrpDayVegaAbs = input.ReadFloat();
             break;
           }
-          case 2461: {
+          case 2245: {
             GrpDayVegaRatio = input.ReadFloat();
             break;
           }
-          case 2485: {
-            MaxGrpDayPremiumLn = input.ReadFloat();
-            break;
-          }
-          case 2509: {
-            MaxGrpDayPremiumSh = input.ReadFloat();
-            break;
-          }
-          case 2533: {
-            MaxGrpDayPremiumAbs = input.ReadFloat();
-            break;
-          }
-          case 2557: {
-            GrpDayPremiumRatio = input.ReadFloat();
-            break;
-          }
-          case 2581: {
-            MaxGrpDayRMetric1Ln = input.ReadFloat();
-            break;
-          }
-          case 2605: {
-            MaxGrpDayRMetric1Sh = input.ReadFloat();
-            break;
-          }
-          case 2629: {
-            MaxGrpDayRMetric1Abs = input.ReadFloat();
-            break;
-          }
-          case 2653: {
-            GrpDayRMetric1Ratio = input.ReadFloat();
-            break;
-          }
-          case 2677: {
-            MaxGrpDayRMetric2Ln = input.ReadFloat();
-            break;
-          }
-          case 2701: {
-            MaxGrpDayRMetric2Sh = input.ReadFloat();
-            break;
-          }
-          case 2725: {
-            MaxGrpDayRMetric3Ln = input.ReadFloat();
-            break;
-          }
-          case 2749: {
-            MaxGrpDayRMetric3Sh = input.ReadFloat();
-            break;
-          }
-          case 2773: {
-            MaxGrpDayRMetric4Ln = input.ReadFloat();
-            break;
-          }
-          case 2797: {
-            MaxGrpDayRMetric4Sh = input.ReadFloat();
-            break;
-          }
-          case 2821: {
-            MaxGrpDayRMetric5Ln = input.ReadFloat();
-            break;
-          }
-          case 2845: {
-            MaxGrpDayRMetric5Sh = input.ReadFloat();
-            break;
-          }
-          case 2864: {
+          case 2264: {
             MaxGrpDayContractsLn = input.ReadInt32();
             break;
           }
-          case 2888: {
+          case 2288: {
             MaxGrpDayContractsSh = input.ReadInt32();
             break;
           }
-          case 2912: {
+          case 2312: {
             MaxGrpDayContractsAbs = input.ReadInt32();
             break;
           }
-          case 2941: {
+          case 2341: {
+            MaxGrpDayRMetric1Ln = input.ReadFloat();
+            break;
+          }
+          case 2365: {
+            MaxGrpDayRMetric1Sh = input.ReadFloat();
+            break;
+          }
+          case 2389: {
+            MaxGrpDayRMetric1Abs = input.ReadFloat();
+            break;
+          }
+          case 2413: {
+            GrpDayRMetric1Ratio = input.ReadFloat();
+            break;
+          }
+          case 2437: {
+            MaxGrpDayRMetric2Ln = input.ReadFloat();
+            break;
+          }
+          case 2461: {
+            MaxGrpDayRMetric2Sh = input.ReadFloat();
+            break;
+          }
+          case 2485: {
+            MaxGrpDayRMetric3Ln = input.ReadFloat();
+            break;
+          }
+          case 2509: {
+            MaxGrpDayRMetric3Sh = input.ReadFloat();
+            break;
+          }
+          case 2533: {
+            MaxGrpDayRMetric4Ln = input.ReadFloat();
+            break;
+          }
+          case 2557: {
+            MaxGrpDayRMetric4Sh = input.ReadFloat();
+            break;
+          }
+          case 2581: {
+            MaxGrpDayRMetric5Ln = input.ReadFloat();
+            break;
+          }
+          case 2605: {
+            MaxGrpDayRMetric5Sh = input.ReadFloat();
+            break;
+          }
+          case 2629: {
             SymEmaCxlDDeltaLn = input.ReadFloat();
             break;
           }
-          case 2965: {
+          case 2653: {
             SymEmaCxlDDeltaSh = input.ReadFloat();
             break;
           }
-          case 2989: {
+          case 2677: {
             SymEmaCxlWtVegaLn = input.ReadFloat();
             break;
           }
-          case 3013: {
+          case 2701: {
             SymEmaCxlWtVegaSh = input.ReadFloat();
             break;
           }
-          case 3037: {
+          case 2725: {
             TheoVol = input.ReadFloat();
             break;
           }
-          case 3061: {
+          case 2749: {
             ClArriveMark = input.ReadFloat();
             break;
           }
-          case 3082: {
+          case 2770: {
             UserData1 = input.ReadString();
             break;
           }
-          case 3106: {
+          case 2794: {
             UserData2 = input.ReadString();
             break;
           }
-          case 3130: {
+          case 2818: {
             ExecBrkrCode = input.ReadString();
             break;
           }
-          case 3154: {
+          case 2842: {
             ModifiedBy = input.ReadString();
             break;
           }
-          case 3176: {
+          case 2864: {
             ModifiedIn = (global::Spiderrock.Protobuf.SysEnvironment) input.ReadEnum();
             break;
           }
-          case 3202: {
+          case 2890: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

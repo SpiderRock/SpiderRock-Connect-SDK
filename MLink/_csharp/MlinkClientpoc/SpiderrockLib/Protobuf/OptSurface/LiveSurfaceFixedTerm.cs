@@ -27,79 +27,79 @@ namespace Spiderrock.Protobuf {
             "Ci5Qcm90b2J1Zi9PcHRTdXJmYWNlL0xpdmVTdXJmYWNlRml4ZWRUZXJtLnBy",
             "b3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5w",
             "cm90bxoeZ29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGh9nb29nbGUv",
-            "cHJvdG9idWYvdGltZXN0YW1wLnByb3RvIuEXChRMaXZlU3VyZmFjZUZpeGVk",
+            "cHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvQXChRMaXZlU3VyZmFjZUZpeGVk",
             "VGVybRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVz",
             "c2FnZU1ldGFkYXRhEjwKBHBrZXkYAiABKAsyLi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkxpdmVTdXJmYWNlRml4ZWRUZXJtLlBLZXkSDwoHaF9lTW92ZRhkIAEo",
-            "AhITCgtoX2VNb3ZlX251bRhnIAEoBRITCgtoX2VNb3ZlX2F2ZxhqIAEoAhIT",
-            "CgtoX2VNb3ZlX3N0ZBhtIAEoAhITCgtoX2VNb3ZlX21pbhhwIAEoAhITCgto",
-            "X2VNb3ZlX21heBhzIAEoAhIPCgdpX2VNb3ZlGHYgASgCEjIKC2lfZUZpdF9j",
-            "b2RlGHkgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5FRml0Q29kZRIUCgxp",
-            "X2VGaXRfZXJyb3IYfCABKAISFAoMZXhwaXJ5X2NvdW50GH8gASgFEhQKC2lf",
-            "ZU1vdmVfYXZnGIIBIAEoAhIUCgtpX2VNb3ZlX3N0ZBiFASABKAISFAoLaV9l",
-            "TW92ZV9taW4YiAEgASgCEhQKC2lfZU1vdmVfbWF4GIsBIAEoAhIUCgtpX2VN",
-            "b3ZlX2NudBiOASABKAUSGAoPZV9tb3ZlX2V4cF9hZGoxGJEBIAEoBRIYCg9l",
-            "X21vdmVfeXJzX2FkajEYlAEgASgCEhYKDWVfbW92ZV95ZWFyczEYlwEgASgC",
-            "EjUKDGVfbW92ZV9lS2V5MRiaASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LkV4cGlyeUtleRIYCg9lX21vdmVfZXhwX2FkajIYnQEgASgFEhgKD2VfbW92",
-            "ZV95cnNfYWRqMhigASABKAISFgoNZV9tb3ZlX3llYXJzMhijASABKAISNQoM",
-            "ZV9tb3ZlX2VLZXkyGKYBIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuRXhw",
-            "aXJ5S2V5EhUKDGF0bV9jZW5faV9zdBipASABKAISFQoMYXRtX2Nlbl9pX2x0",
-            "GKwBIAEoAhIYCg9hdG1fY2VuX2lfZGVjYXkYrwEgASgCEhUKDGF0bV9jZW5f",
-            "aV81ZBiyASABKAISFgoNYXRtX2Nlbl9pXzEwZBi1ASABKAISFgoNYXRtX2Nl",
-            "bl9pXzIxZBi4ASABKAISFgoNYXRtX2Nlbl9pXzQyZBi7ASABKAISFgoNYXRt",
-            "X2Nlbl9pXzYzZBi+ASABKAISFgoNYXRtX2Nlbl9pXzg0ZBjBASABKAISFwoO",
-            "YXRtX2Nlbl9pXzEwNWQYxAEgASgCEhcKDmF0bV9jZW5faV8xMjZkGMcBIAEo",
-            "AhIXCg5hdG1fY2VuX2lfMTg5ZBjKASABKAISFwoOYXRtX2Nlbl9pXzI1MmQY",
-            "zQEgASgCEhcKDmF0bV9jZW5faV8zNzhkGNABIAEoAhIXCg5hdG1fY2VuX2lf",
-            "NTA0ZBjTASABKAISFQoMYXRtX2Nlbl9oX3N0GNYBIAEoAhIVCgxhdG1fY2Vu",
-            "X2hfbHQY2QEgASgCEhgKD2F0bV9jZW5faF9kZWNheRjcASABKAISFQoMYXRt",
-            "X2Nlbl9oXzVkGN8BIAEoAhIWCg1hdG1fY2VuX2hfMTBkGOIBIAEoAhIWCg1h",
-            "dG1fY2VuX2hfMjFkGOUBIAEoAhIWCg1hdG1fY2VuX2hfNDJkGOgBIAEoAhIW",
-            "Cg1hdG1fY2VuX2hfNjNkGOsBIAEoAhIWCg1hdG1fY2VuX2hfODRkGO4BIAEo",
-            "AhIXCg5hdG1fY2VuX2hfMTA1ZBjxASABKAISFwoOYXRtX2Nlbl9oXzEyNmQY",
-            "9AEgASgCEhcKDmF0bV9jZW5faF8xODlkGPcBIAEoAhIXCg5hdG1fY2VuX2hf",
-            "MjUyZBj6ASABKAISFwoOYXRtX2Nlbl9oXzM3OGQY/QEgASgCEhcKDmF0bV9j",
-            "ZW5faF81MDRkGIACIAEoAhIRCghzX2Rpdl81ZBiDAiABKAISEgoJc19kaXZf",
-            "MTBkGIYCIAEoAhISCglzX2Rpdl8yMWQYiQIgASgCEhIKCXNfZGl2XzQyZBiM",
-            "AiABKAISEgoJc19kaXZfNjNkGI8CIAEoAhISCglzX2Rpdl84NGQYkgIgASgC",
-            "EhMKCnNfZGl2XzEwNWQYlQIgASgCEhMKCnNfZGl2XzEyNmQYmAIgASgCEhMK",
-            "CnNfZGl2XzE4OWQYmwIgASgCEhMKCnNfZGl2XzI1MmQYngIgASgCEhMKCnNf",
-            "ZGl2XzM3OGQYoQIgASgCEhMKCnNfZGl2XzUwNGQYpAIgASgCEhQKC2Z3ZF91",
-            "UHJjXzVkGKcCIAEoAhIVCgxmd2RfdVByY18xMGQYqgIgASgCEhUKDGZ3ZF91",
-            "UHJjXzIxZBitAiABKAISFQoMZndkX3VQcmNfNDJkGLACIAEoAhIVCgxmd2Rf",
-            "dVByY182M2QYswIgASgCEhUKDGZ3ZF91UHJjXzg0ZBi2AiABKAISFgoNZndk",
-            "X3VQcmNfMTA1ZBi5AiABKAISFgoNZndkX3VQcmNfMTI2ZBi8AiABKAISFgoN",
-            "ZndkX3VQcmNfMTg5ZBi/AiABKAISFgoNZndkX3VQcmNfMjUyZBjCAiABKAIS",
-            "FgoNZndkX3VQcmNfMzc4ZBjFAiABKAISFgoNZndkX3VQcmNfNTA0ZBjIAiAB",
-            "KAISEwoKdl93aWR0aF81ZBjLAiABKAISFAoLdl93aWR0aF8xMGQYzgIgASgC",
-            "EhQKC3Zfd2lkdGhfMjFkGNECIAEoAhIUCgt2X3dpZHRoXzQyZBjUAiABKAIS",
-            "FAoLdl93aWR0aF82M2QY1wIgASgCEhQKC3Zfd2lkdGhfODRkGNoCIAEoAhIV",
-            "Cgx2X3dpZHRoXzEwNWQY3QIgASgCEhUKDHZfd2lkdGhfMTI2ZBjgAiABKAIS",
-            "FQoMdl93aWR0aF8xODlkGOMCIAEoAhIVCgx2X3dpZHRoXzI1MmQY5gIgASgC",
-            "EhUKDHZfd2lkdGhfMzc4ZBjpAiABKAISFQoMdl93aWR0aF81MDRkGOwCIAEo",
-            "AhITCgp2X3Nsb3BlXzVkGO8CIAEoAhIUCgt2X3Nsb3BlXzEwZBjyAiABKAIS",
-            "FAoLdl9zbG9wZV8yMWQY9QIgASgCEhQKC3Zfc2xvcGVfNDJkGPgCIAEoAhIU",
-            "Cgt2X3Nsb3BlXzYzZBj7AiABKAISFAoLdl9zbG9wZV84NGQY/gIgASgCEhUK",
-            "DHZfc2xvcGVfMTA1ZBiBAyABKAISFQoMdl9zbG9wZV8xMjZkGIQDIAEoAhIV",
-            "Cgx2X3Nsb3BlXzE4OWQYhwMgASgCEhUKDHZfc2xvcGVfMjUyZBiKAyABKAIS",
-            "FQoMdl9zbG9wZV8zNzhkGI0DIAEoAhIVCgx2X3Nsb3BlXzUwNGQYkAMgASgC",
-            "EhEKCGVfY250XzVkGJMDIAEoBRISCgllX2NudF8xMGQYlgMgASgFEhIKCWVf",
-            "Y250XzIxZBiZAyABKAUSEgoJZV9jbnRfNDJkGJwDIAEoBRISCgllX2NudF82",
-            "M2QYnwMgASgFEhIKCWVfY250Xzg0ZBiiAyABKAUSEwoKZV9jbnRfMTA1ZBil",
-            "AyABKAUSEwoKZV9jbnRfMTI2ZBioAyABKAUSEwoKZV9jbnRfMTg5ZBirAyAB",
-            "KAUSEwoKZV9jbnRfMjUyZBiuAyABKAUSEwoKZV9jbnRfMzc4ZBixAyABKAUS",
-            "EwoKZV9jbnRfNTA0ZBi0AyABKAUSMQoGc3RhdHVzGLcDIAEoDjIgLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuQ3VydmVTdGF0dXMSKAoEdGltZRi6AyABKAsyGS5n",
-            "b29nbGUucHJvdG9idWYuRHVyYXRpb24SLgoJdGltZXN0YW1wGL0DIAEoCzIa",
-            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAacwoEUEtleRIuCgZ0aWNrZXIY",
-            "CiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRI7CgxzdXJm",
-            "YWNlX3R5cGUYCyABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVmLlN1cmZhY2VD",
-            "dXJ2ZVR5cGViBnByb3RvMw=="));
+            "YnVmLkxpdmVTdXJmYWNlRml4ZWRUZXJtLlBLZXkSEAoIc3luX3Nwb3QYZCAB",
+            "KAESDwoHaF9lTW92ZRhnIAEoAhITCgtoX2VNb3ZlX251bRhqIAEoBRITCgto",
+            "X2VNb3ZlX2F2ZxhtIAEoAhITCgtoX2VNb3ZlX3N0ZBhwIAEoAhITCgtoX2VN",
+            "b3ZlX21pbhhzIAEoAhITCgtoX2VNb3ZlX21heBh2IAEoAhIPCgdpX2VNb3Zl",
+            "GHkgASgCEjIKC2lfZUZpdF9jb2RlGHwgASgOMh0uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5FRml0Q29kZRIUCgxpX2VGaXRfZXJyb3IYfyABKAISFQoMZXhwaXJ5",
+            "X2NvdW50GIIBIAEoBRIUCgtpX2VNb3ZlX2F2ZxiFASABKAISFAoLaV9lTW92",
+            "ZV9zdGQYiAEgASgCEhQKC2lfZU1vdmVfbWluGIsBIAEoAhIUCgtpX2VNb3Zl",
+            "X21heBiOASABKAISFAoLaV9lTW92ZV9jbnQYkQEgASgFEhgKD2VfbW92ZV9l",
+            "eHBfYWRqMRiUASABKAUSGAoPZV9tb3ZlX3lyc19hZGoxGJcBIAEoAhIWCg1l",
+            "X21vdmVfeWVhcnMxGJoBIAEoAhI1CgxlX21vdmVfZUtleTEYnQEgASgLMh4u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5FeHBpcnlLZXkSGAoPZV9tb3ZlX2V4cF9h",
+            "ZGoyGKABIAEoBRIYCg9lX21vdmVfeXJzX2FkajIYowEgASgCEhYKDWVfbW92",
+            "ZV95ZWFyczIYpgEgASgCEjUKDGVfbW92ZV9lS2V5MhipASABKAsyHi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRIVCgxhdG1fY2VuX2lfc3QYrAEg",
+            "ASgCEhUKDGF0bV9jZW5faV9sdBivASABKAISGAoPYXRtX2Nlbl9pX2RlY2F5",
+            "GLIBIAEoAhIVCgxhdG1fY2VuX2lfNWQYtQEgASgCEhYKDWF0bV9jZW5faV8x",
+            "MGQYuAEgASgCEhYKDWF0bV9jZW5faV8yMWQYuwEgASgCEhYKDWF0bV9jZW5f",
+            "aV80MmQYvgEgASgCEhYKDWF0bV9jZW5faV82M2QYwQEgASgCEhYKDWF0bV9j",
+            "ZW5faV84NGQYxAEgASgCEhcKDmF0bV9jZW5faV8xMDVkGMcBIAEoAhIXCg5h",
+            "dG1fY2VuX2lfMTI2ZBjKASABKAISFwoOYXRtX2Nlbl9pXzE4OWQYzQEgASgC",
+            "EhcKDmF0bV9jZW5faV8yNTJkGNABIAEoAhIXCg5hdG1fY2VuX2lfMzc4ZBjT",
+            "ASABKAISFwoOYXRtX2Nlbl9pXzUwNGQY1gEgASgCEhUKDGF0bV9jZW5faF9z",
+            "dBjZASABKAISFQoMYXRtX2Nlbl9oX2x0GNwBIAEoAhIYCg9hdG1fY2VuX2hf",
+            "ZGVjYXkY3wEgASgCEhUKDGF0bV9jZW5faF81ZBjiASABKAISFgoNYXRtX2Nl",
+            "bl9oXzEwZBjlASABKAISFgoNYXRtX2Nlbl9oXzIxZBjoASABKAISFgoNYXRt",
+            "X2Nlbl9oXzQyZBjrASABKAISFgoNYXRtX2Nlbl9oXzYzZBjuASABKAISFgoN",
+            "YXRtX2Nlbl9oXzg0ZBjxASABKAISFwoOYXRtX2Nlbl9oXzEwNWQY9AEgASgC",
+            "EhcKDmF0bV9jZW5faF8xMjZkGPcBIAEoAhIXCg5hdG1fY2VuX2hfMTg5ZBj6",
+            "ASABKAISFwoOYXRtX2Nlbl9oXzI1MmQY/QEgASgCEhcKDmF0bV9jZW5faF8z",
+            "NzhkGIACIAEoAhIXCg5hdG1fY2VuX2hfNTA0ZBiDAiABKAISEQoIc19kaXZf",
+            "NWQYhgIgASgCEhIKCXNfZGl2XzEwZBiJAiABKAISEgoJc19kaXZfMjFkGIwC",
+            "IAEoAhISCglzX2Rpdl80MmQYjwIgASgCEhIKCXNfZGl2XzYzZBiSAiABKAIS",
+            "EgoJc19kaXZfODRkGJUCIAEoAhITCgpzX2Rpdl8xMDVkGJgCIAEoAhITCgpz",
+            "X2Rpdl8xMjZkGJsCIAEoAhITCgpzX2Rpdl8xODlkGJ4CIAEoAhITCgpzX2Rp",
+            "dl8yNTJkGKECIAEoAhITCgpzX2Rpdl8zNzhkGKQCIAEoAhITCgpzX2Rpdl81",
+            "MDRkGKcCIAEoAhIUCgtmd2RfdVByY181ZBiqAiABKAISFQoMZndkX3VQcmNf",
+            "MTBkGK0CIAEoAhIVCgxmd2RfdVByY18yMWQYsAIgASgCEhUKDGZ3ZF91UHJj",
+            "XzQyZBizAiABKAISFQoMZndkX3VQcmNfNjNkGLYCIAEoAhIVCgxmd2RfdVBy",
+            "Y184NGQYuQIgASgCEhYKDWZ3ZF91UHJjXzEwNWQYvAIgASgCEhYKDWZ3ZF91",
+            "UHJjXzEyNmQYvwIgASgCEhYKDWZ3ZF91UHJjXzE4OWQYwgIgASgCEhYKDWZ3",
+            "ZF91UHJjXzI1MmQYxQIgASgCEhYKDWZ3ZF91UHJjXzM3OGQYyAIgASgCEhYK",
+            "DWZ3ZF91UHJjXzUwNGQYywIgASgCEhMKCnZfd2lkdGhfNWQYzgIgASgCEhQK",
+            "C3Zfd2lkdGhfMTBkGNECIAEoAhIUCgt2X3dpZHRoXzIxZBjUAiABKAISFAoL",
+            "dl93aWR0aF80MmQY1wIgASgCEhQKC3Zfd2lkdGhfNjNkGNoCIAEoAhIUCgt2",
+            "X3dpZHRoXzg0ZBjdAiABKAISFQoMdl93aWR0aF8xMDVkGOACIAEoAhIVCgx2",
+            "X3dpZHRoXzEyNmQY4wIgASgCEhUKDHZfd2lkdGhfMTg5ZBjmAiABKAISFQoM",
+            "dl93aWR0aF8yNTJkGOkCIAEoAhIVCgx2X3dpZHRoXzM3OGQY7AIgASgCEhUK",
+            "DHZfd2lkdGhfNTA0ZBjvAiABKAISEwoKdl9zbG9wZV81ZBjyAiABKAISFAoL",
+            "dl9zbG9wZV8xMGQY9QIgASgCEhQKC3Zfc2xvcGVfMjFkGPgCIAEoAhIUCgt2",
+            "X3Nsb3BlXzQyZBj7AiABKAISFAoLdl9zbG9wZV82M2QY/gIgASgCEhQKC3Zf",
+            "c2xvcGVfODRkGIEDIAEoAhIVCgx2X3Nsb3BlXzEwNWQYhAMgASgCEhUKDHZf",
+            "c2xvcGVfMTI2ZBiHAyABKAISFQoMdl9zbG9wZV8xODlkGIoDIAEoAhIVCgx2",
+            "X3Nsb3BlXzI1MmQYjQMgASgCEhUKDHZfc2xvcGVfMzc4ZBiQAyABKAISFQoM",
+            "dl9zbG9wZV81MDRkGJMDIAEoAhIRCghlX2NudF81ZBiWAyABKAUSEgoJZV9j",
+            "bnRfMTBkGJkDIAEoBRISCgllX2NudF8yMWQYnAMgASgFEhIKCWVfY250XzQy",
+            "ZBifAyABKAUSEgoJZV9jbnRfNjNkGKIDIAEoBRISCgllX2NudF84NGQYpQMg",
+            "ASgFEhMKCmVfY250XzEwNWQYqAMgASgFEhMKCmVfY250XzEyNmQYqwMgASgF",
+            "EhMKCmVfY250XzE4OWQYrgMgASgFEhMKCmVfY250XzI1MmQYsQMgASgFEhMK",
+            "CmVfY250XzM3OGQYtAMgASgFEhMKCmVfY250XzUwNGQYtwMgASgFEjEKBnN0",
+            "YXR1cxi6AyABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnZlU3RhdHVz",
+            "EigKBHRpbWUYvQMgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEi4K",
+            "CXRpbWVzdGFtcBjAAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "GnMKBFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5UaWNrZXJLZXkSOwoMc3VyZmFjZV90eXBlGAsgASgOMiUuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5TdXJmYWNlQ3VydmVUeXBlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceFixedTerm), global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Parser, new[]{ "Meta", "Pkey", "HEMove", "HEMoveNum", "HEMoveAvg", "HEMoveStd", "HEMoveMin", "HEMoveMax", "IEMove", "IEFitCode", "IEFitError", "ExpiryCount", "IEMoveAvg", "IEMoveStd", "IEMoveMin", "IEMoveMax", "IEMoveCnt", "EMoveExpAdj1", "EMoveYrsAdj1", "EMoveYears1", "EMoveEKey1", "EMoveExpAdj2", "EMoveYrsAdj2", "EMoveYears2", "EMoveEKey2", "AtmCenISt", "AtmCenILt", "AtmCenIDecay", "AtmCenI5D", "AtmCenI10D", "AtmCenI21D", "AtmCenI42D", "AtmCenI63D", "AtmCenI84D", "AtmCenI105D", "AtmCenI126D", "AtmCenI189D", "AtmCenI252D", "AtmCenI378D", "AtmCenI504D", "AtmCenHSt", "AtmCenHLt", "AtmCenHDecay", "AtmCenH5D", "AtmCenH10D", "AtmCenH21D", "AtmCenH42D", "AtmCenH63D", "AtmCenH84D", "AtmCenH105D", "AtmCenH126D", "AtmCenH189D", "AtmCenH252D", "AtmCenH378D", "AtmCenH504D", "SDiv5D", "SDiv10D", "SDiv21D", "SDiv42D", "SDiv63D", "SDiv84D", "SDiv105D", "SDiv126D", "SDiv189D", "SDiv252D", "SDiv378D", "SDiv504D", "FwdUPrc5D", "FwdUPrc10D", "FwdUPrc21D", "FwdUPrc42D", "FwdUPrc63D", "FwdUPrc84D", "FwdUPrc105D", "FwdUPrc126D", "FwdUPrc189D", "FwdUPrc252D", "FwdUPrc378D", "FwdUPrc504D", "VWidth5D", "VWidth10D", "VWidth21D", "VWidth42D", "VWidth63D", "VWidth84D", "VWidth105D", "VWidth126D", "VWidth189D", "VWidth252D", "VWidth378D", "VWidth504D", "VSlope5D", "VSlope10D", "VSlope21D", "VSlope42D", "VSlope63D", "VSlope84D", "VSlope105D", "VSlope126D", "VSlope189D", "VSlope252D", "VSlope378D", "VSlope504D", "ECnt5D", "ECnt10D", "ECnt21D", "ECnt42D", "ECnt63D", "ECnt84D", "ECnt105D", "ECnt126D", "ECnt189D", "ECnt252D", "ECnt378D", "ECnt504D", "Status", "Time", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Types.PKey), global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Types.PKey.Parser, new[]{ "Ticker", "SurfaceType" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceFixedTerm), global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Parser, new[]{ "Meta", "Pkey", "SynSpot", "HEMove", "HEMoveNum", "HEMoveAvg", "HEMoveStd", "HEMoveMin", "HEMoveMax", "IEMove", "IEFitCode", "IEFitError", "ExpiryCount", "IEMoveAvg", "IEMoveStd", "IEMoveMin", "IEMoveMax", "IEMoveCnt", "EMoveExpAdj1", "EMoveYrsAdj1", "EMoveYears1", "EMoveEKey1", "EMoveExpAdj2", "EMoveYrsAdj2", "EMoveYears2", "EMoveEKey2", "AtmCenISt", "AtmCenILt", "AtmCenIDecay", "AtmCenI5D", "AtmCenI10D", "AtmCenI21D", "AtmCenI42D", "AtmCenI63D", "AtmCenI84D", "AtmCenI105D", "AtmCenI126D", "AtmCenI189D", "AtmCenI252D", "AtmCenI378D", "AtmCenI504D", "AtmCenHSt", "AtmCenHLt", "AtmCenHDecay", "AtmCenH5D", "AtmCenH10D", "AtmCenH21D", "AtmCenH42D", "AtmCenH63D", "AtmCenH84D", "AtmCenH105D", "AtmCenH126D", "AtmCenH189D", "AtmCenH252D", "AtmCenH378D", "AtmCenH504D", "SDiv5D", "SDiv10D", "SDiv21D", "SDiv42D", "SDiv63D", "SDiv84D", "SDiv105D", "SDiv126D", "SDiv189D", "SDiv252D", "SDiv378D", "SDiv504D", "FwdUPrc5D", "FwdUPrc10D", "FwdUPrc21D", "FwdUPrc42D", "FwdUPrc63D", "FwdUPrc84D", "FwdUPrc105D", "FwdUPrc126D", "FwdUPrc189D", "FwdUPrc252D", "FwdUPrc378D", "FwdUPrc504D", "VWidth5D", "VWidth10D", "VWidth21D", "VWidth42D", "VWidth63D", "VWidth84D", "VWidth105D", "VWidth126D", "VWidth189D", "VWidth252D", "VWidth378D", "VWidth504D", "VSlope5D", "VSlope10D", "VSlope21D", "VSlope42D", "VSlope63D", "VSlope84D", "VSlope105D", "VSlope126D", "VSlope189D", "VSlope252D", "VSlope378D", "VSlope504D", "ECnt5D", "ECnt10D", "ECnt21D", "ECnt42D", "ECnt63D", "ECnt84D", "ECnt105D", "ECnt126D", "ECnt189D", "ECnt252D", "ECnt378D", "ECnt504D", "Status", "Time", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Types.PKey), global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Types.PKey.Parser, new[]{ "Ticker", "SurfaceType" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -148,6 +148,7 @@ namespace Spiderrock.Protobuf {
     public LiveSurfaceFixedTerm(LiveSurfaceFixedTerm other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
+      synSpot_ = other.synSpot_;
       hEMove_ = other.hEMove_;
       hEMoveNum_ = other.hEMoveNum_;
       hEMoveAvg_ = other.hEMoveAvg_;
@@ -297,8 +298,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "syn_spot" field.</summary>
+    public const int SynSpotFieldNumber = 100;
+    private double synSpot_;
+    /// <summary>
+    /// Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double SynSpot {
+      get { return synSpot_; }
+      set {
+        synSpot_ = value;
+      }
+    }
+
     /// <summary>Field number for the "h_eMove" field.</summary>
-    public const int HEMoveFieldNumber = 100;
+    public const int HEMoveFieldNumber = 103;
     private float hEMove_;
     /// <summary>
     /// expected forward earnings move (average of the last 8-12 underlier earnings moves; w/max clipping)
@@ -313,7 +329,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "h_eMove_num" field.</summary>
-    public const int HEMoveNumFieldNumber = 103;
+    public const int HEMoveNumFieldNumber = 106;
     private int hEMoveNum_;
     /// <summary>
     /// num historical earnings moves in historical window
@@ -328,7 +344,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "h_eMove_avg" field.</summary>
-    public const int HEMoveAvgFieldNumber = 106;
+    public const int HEMoveAvgFieldNumber = 109;
     private float hEMoveAvg_;
     /// <summary>
     /// avg historical earnings move (last 8-12 underlier earnings moves)
@@ -343,7 +359,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "h_eMove_std" field.</summary>
-    public const int HEMoveStdFieldNumber = 109;
+    public const int HEMoveStdFieldNumber = 112;
     private float hEMoveStd_;
     /// <summary>
     /// std historical earnings move (last 8-12 underlier earnings moves)
@@ -358,7 +374,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "h_eMove_min" field.</summary>
-    public const int HEMoveMinFieldNumber = 112;
+    public const int HEMoveMinFieldNumber = 115;
     private float hEMoveMin_;
     /// <summary>
     /// max historical earnings move (last 8-12 underlier earnings moves)
@@ -373,7 +389,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "h_eMove_max" field.</summary>
-    public const int HEMoveMaxFieldNumber = 115;
+    public const int HEMoveMaxFieldNumber = 118;
     private float hEMoveMax_;
     /// <summary>
     /// min historical earnings move (last 8-12 underlier earnings moves)
@@ -388,7 +404,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eMove" field.</summary>
-    public const int IEMoveFieldNumber = 118;
+    public const int IEMoveFieldNumber = 121;
     private float iEMove_;
     /// <summary>
     /// implied earnings move (implied move; all earnings events)
@@ -403,7 +419,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eFit_code" field.</summary>
-    public const int IEFitCodeFieldNumber = 121;
+    public const int IEFitCodeFieldNumber = 124;
     private global::Spiderrock.Protobuf.EFitCode iEFitCode_ = global::Spiderrock.Protobuf.EFitCode.Unspecified;
     /// <summary>
     /// implied EFit Code
@@ -418,7 +434,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eFit_error" field.</summary>
-    public const int IEFitErrorFieldNumber = 124;
+    public const int IEFitErrorFieldNumber = 127;
     private float iEFitError_;
     /// <summary>
     /// eMove fit error (term surface fit error)
@@ -433,7 +449,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "expiry_count" field.</summary>
-    public const int ExpiryCountFieldNumber = 127;
+    public const int ExpiryCountFieldNumber = 130;
     private int expiryCount_;
     /// <summary>
     /// number of actual expirations involved
@@ -448,7 +464,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eMove_avg" field.</summary>
-    public const int IEMoveAvgFieldNumber = 130;
+    public const int IEMoveAvgFieldNumber = 133;
     private float iEMoveAvg_;
     /// <summary>
     /// average eMove today
@@ -463,7 +479,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eMove_std" field.</summary>
-    public const int IEMoveStdFieldNumber = 133;
+    public const int IEMoveStdFieldNumber = 136;
     private float iEMoveStd_;
     /// <summary>
     /// eMove std dev today
@@ -478,7 +494,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eMove_min" field.</summary>
-    public const int IEMoveMinFieldNumber = 136;
+    public const int IEMoveMinFieldNumber = 139;
     private float iEMoveMin_;
     /// <summary>
     /// eMove min today
@@ -493,7 +509,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eMove_max" field.</summary>
-    public const int IEMoveMaxFieldNumber = 139;
+    public const int IEMoveMaxFieldNumber = 142;
     private float iEMoveMax_;
     /// <summary>
     /// emove max today
@@ -508,7 +524,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_eMove_cnt" field.</summary>
-    public const int IEMoveCntFieldNumber = 142;
+    public const int IEMoveCntFieldNumber = 145;
     private int iEMoveCnt_;
     /// <summary>
     /// number of surface term fits today
@@ -523,7 +539,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_exp_adj1" field.</summary>
-    public const int EMoveExpAdj1FieldNumber = 145;
+    public const int EMoveExpAdj1FieldNumber = 148;
     private int eMoveExpAdj1_;
     /// <summary>
     /// number of expirations (+/-) that the next earn date was moved to best fit market term structure (if any)
@@ -538,7 +554,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_yrs_adj1" field.</summary>
-    public const int EMoveYrsAdj1FieldNumber = 148;
+    public const int EMoveYrsAdj1FieldNumber = 151;
     private float eMoveYrsAdj1_;
     /// <summary>
     /// number of trading years (+/-) that the next earn date was moved to best fit market term structure (if any)
@@ -553,7 +569,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_years1" field.</summary>
-    public const int EMoveYears1FieldNumber = 151;
+    public const int EMoveYears1FieldNumber = 154;
     private float eMoveYears1_;
     /// <summary>
     /// years to expiration from LiveSurfaceCurve.pkey.ekey = eMoveFKey1
@@ -568,7 +584,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_eKey1" field.</summary>
-    public const int EMoveEKey1FieldNumber = 154;
+    public const int EMoveEKey1FieldNumber = 157;
     private global::Spiderrock.Protobuf.ExpiryKey eMoveEKey1_;
     /// <summary>
     /// LiveSurfaceCurve.pkey.ekey immediately after 1st implied earnings move (note: this will not match the base earnings calendar if eMoveDtAdj1 != 0)
@@ -583,7 +599,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_exp_adj2" field.</summary>
-    public const int EMoveExpAdj2FieldNumber = 157;
+    public const int EMoveExpAdj2FieldNumber = 160;
     private int eMoveExpAdj2_;
     /// <summary>
     /// number of expirations (+/-) that the 2nd earn date was moved to best fit market term structure (if any)
@@ -598,7 +614,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_yrs_adj2" field.</summary>
-    public const int EMoveYrsAdj2FieldNumber = 160;
+    public const int EMoveYrsAdj2FieldNumber = 163;
     private float eMoveYrsAdj2_;
     /// <summary>
     /// number of trading years (+/-) that the 2nd earn date was moved to best fit market term structure (if any)
@@ -613,7 +629,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_years2" field.</summary>
-    public const int EMoveYears2FieldNumber = 163;
+    public const int EMoveYears2FieldNumber = 166;
     private float eMoveYears2_;
     /// <summary>
     /// years to expiration from LiveSurfaceCurve.pkey.fkey = eMoveFKey2
@@ -628,7 +644,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_eKey2" field.</summary>
-    public const int EMoveEKey2FieldNumber = 166;
+    public const int EMoveEKey2FieldNumber = 169;
     private global::Spiderrock.Protobuf.ExpiryKey eMoveEKey2_;
     /// <summary>
     /// LiveSurfaceCurve.pkey.ekey immediately after 2nd implied earnings move (note: this will not match the base earnings calendar if eMoveDtAdj2 != 0)
@@ -643,7 +659,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_st" field.</summary>
-    public const int AtmCenIStFieldNumber = 169;
+    public const int AtmCenIStFieldNumber = 172;
     private float atmCenISt_;
     /// <summary>
     /// short term (5 day) model atm volatility (censored using iEMult)
@@ -658,7 +674,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_lt" field.</summary>
-    public const int AtmCenILtFieldNumber = 172;
+    public const int AtmCenILtFieldNumber = 175;
     private float atmCenILt_;
     /// <summary>
     /// long term (504 day) model atm volatility
@@ -673,7 +689,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_decay" field.</summary>
-    public const int AtmCenIDecayFieldNumber = 175;
+    public const int AtmCenIDecayFieldNumber = 178;
     private float atmCenIDecay_;
     /// <summary>
     /// model decay parameter
@@ -688,7 +704,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_5d" field.</summary>
-    public const int AtmCenI5DFieldNumber = 178;
+    public const int AtmCenI5DFieldNumber = 181;
     private float atmCenI5D_;
     /// <summary>
     /// Interpolated 5 day atm vol (censored using iEMult)
@@ -703,7 +719,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_10d" field.</summary>
-    public const int AtmCenI10DFieldNumber = 181;
+    public const int AtmCenI10DFieldNumber = 184;
     private float atmCenI10D_;
     /// <summary>
     /// Interpolated 10 day atm vol
@@ -718,7 +734,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_21d" field.</summary>
-    public const int AtmCenI21DFieldNumber = 184;
+    public const int AtmCenI21DFieldNumber = 187;
     private float atmCenI21D_;
     /// <summary>
     /// Interpolated 21 day atm vol
@@ -733,7 +749,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_42d" field.</summary>
-    public const int AtmCenI42DFieldNumber = 187;
+    public const int AtmCenI42DFieldNumber = 190;
     private float atmCenI42D_;
     /// <summary>
     /// Interpolated 42 day atm vol
@@ -748,7 +764,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_63d" field.</summary>
-    public const int AtmCenI63DFieldNumber = 190;
+    public const int AtmCenI63DFieldNumber = 193;
     private float atmCenI63D_;
     /// <summary>
     /// Interpolated 63 day atm vol
@@ -763,7 +779,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_84d" field.</summary>
-    public const int AtmCenI84DFieldNumber = 193;
+    public const int AtmCenI84DFieldNumber = 196;
     private float atmCenI84D_;
     /// <summary>
     /// Interpolated 84 day atm vol
@@ -778,7 +794,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_105d" field.</summary>
-    public const int AtmCenI105DFieldNumber = 196;
+    public const int AtmCenI105DFieldNumber = 199;
     private float atmCenI105D_;
     /// <summary>
     /// Interpolated 105 day atm vol
@@ -793,7 +809,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_126d" field.</summary>
-    public const int AtmCenI126DFieldNumber = 199;
+    public const int AtmCenI126DFieldNumber = 202;
     private float atmCenI126D_;
     /// <summary>
     /// Interpolated 126 day atm vol
@@ -808,7 +824,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_189d" field.</summary>
-    public const int AtmCenI189DFieldNumber = 202;
+    public const int AtmCenI189DFieldNumber = 205;
     private float atmCenI189D_;
     /// <summary>
     /// Interpolated 189 day atm vol
@@ -823,7 +839,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_252d" field.</summary>
-    public const int AtmCenI252DFieldNumber = 205;
+    public const int AtmCenI252DFieldNumber = 208;
     private float atmCenI252D_;
     /// <summary>
     /// Interpolated 252 day atm vol
@@ -838,7 +854,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_378d" field.</summary>
-    public const int AtmCenI378DFieldNumber = 208;
+    public const int AtmCenI378DFieldNumber = 211;
     private float atmCenI378D_;
     /// <summary>
     /// Interpolated 378 day atm vol
@@ -853,7 +869,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_i_504d" field.</summary>
-    public const int AtmCenI504DFieldNumber = 211;
+    public const int AtmCenI504DFieldNumber = 214;
     private float atmCenI504D_;
     /// <summary>
     /// Interpolated 504 day atm vol
@@ -868,7 +884,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_st" field.</summary>
-    public const int AtmCenHStFieldNumber = 214;
+    public const int AtmCenHStFieldNumber = 217;
     private float atmCenHSt_;
     /// <summary>
     /// short term (5 day) model atm volatility (censored using hEMult)
@@ -883,7 +899,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_lt" field.</summary>
-    public const int AtmCenHLtFieldNumber = 217;
+    public const int AtmCenHLtFieldNumber = 220;
     private float atmCenHLt_;
     /// <summary>
     /// long term (504 day) model atm volatility
@@ -898,7 +914,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_decay" field.</summary>
-    public const int AtmCenHDecayFieldNumber = 220;
+    public const int AtmCenHDecayFieldNumber = 223;
     private float atmCenHDecay_;
     /// <summary>
     /// model decay parameter
@@ -913,7 +929,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_5d" field.</summary>
-    public const int AtmCenH5DFieldNumber = 223;
+    public const int AtmCenH5DFieldNumber = 226;
     private float atmCenH5D_;
     /// <summary>
     /// Interpolated 5 day atm vol (censored using hEMult)
@@ -928,7 +944,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_10d" field.</summary>
-    public const int AtmCenH10DFieldNumber = 226;
+    public const int AtmCenH10DFieldNumber = 229;
     private float atmCenH10D_;
     /// <summary>
     /// Interpolated 10 day atm vol
@@ -943,7 +959,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_21d" field.</summary>
-    public const int AtmCenH21DFieldNumber = 229;
+    public const int AtmCenH21DFieldNumber = 232;
     private float atmCenH21D_;
     /// <summary>
     /// Interpolated 21 day atm vol
@@ -958,7 +974,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_42d" field.</summary>
-    public const int AtmCenH42DFieldNumber = 232;
+    public const int AtmCenH42DFieldNumber = 235;
     private float atmCenH42D_;
     /// <summary>
     /// Interpolated 42 day atm vol
@@ -973,7 +989,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_63d" field.</summary>
-    public const int AtmCenH63DFieldNumber = 235;
+    public const int AtmCenH63DFieldNumber = 238;
     private float atmCenH63D_;
     /// <summary>
     /// Interpolated 63 day atm vol
@@ -988,7 +1004,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_84d" field.</summary>
-    public const int AtmCenH84DFieldNumber = 238;
+    public const int AtmCenH84DFieldNumber = 241;
     private float atmCenH84D_;
     /// <summary>
     /// Interpolated 84 day atm vol
@@ -1003,7 +1019,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_105d" field.</summary>
-    public const int AtmCenH105DFieldNumber = 241;
+    public const int AtmCenH105DFieldNumber = 244;
     private float atmCenH105D_;
     /// <summary>
     /// Interpolated 105 day atm vol
@@ -1018,7 +1034,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_126d" field.</summary>
-    public const int AtmCenH126DFieldNumber = 244;
+    public const int AtmCenH126DFieldNumber = 247;
     private float atmCenH126D_;
     /// <summary>
     /// Interpolated 126 day atm vol
@@ -1033,7 +1049,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_189d" field.</summary>
-    public const int AtmCenH189DFieldNumber = 247;
+    public const int AtmCenH189DFieldNumber = 250;
     private float atmCenH189D_;
     /// <summary>
     /// Interpolated 189 day atm vol
@@ -1048,7 +1064,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_252d" field.</summary>
-    public const int AtmCenH252DFieldNumber = 250;
+    public const int AtmCenH252DFieldNumber = 253;
     private float atmCenH252D_;
     /// <summary>
     /// Interpolated 252 day atm vol
@@ -1063,7 +1079,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_378d" field.</summary>
-    public const int AtmCenH378DFieldNumber = 253;
+    public const int AtmCenH378DFieldNumber = 256;
     private float atmCenH378D_;
     /// <summary>
     /// Interpolated 378 day atm vol
@@ -1078,7 +1094,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_h_504d" field.</summary>
-    public const int AtmCenH504DFieldNumber = 256;
+    public const int AtmCenH504DFieldNumber = 259;
     private float atmCenH504D_;
     /// <summary>
     /// Interpolated 504 day atm vol
@@ -1093,7 +1109,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_5d" field.</summary>
-    public const int SDiv5DFieldNumber = 259;
+    public const int SDiv5DFieldNumber = 262;
     private float sDiv5D_;
     /// <summary>
     /// Interpolated 5 day implied sdiv rate
@@ -1108,7 +1124,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_10d" field.</summary>
-    public const int SDiv10DFieldNumber = 262;
+    public const int SDiv10DFieldNumber = 265;
     private float sDiv10D_;
     /// <summary>
     /// Interpolated 10 day implied sdiv rate
@@ -1123,7 +1139,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_21d" field.</summary>
-    public const int SDiv21DFieldNumber = 265;
+    public const int SDiv21DFieldNumber = 268;
     private float sDiv21D_;
     /// <summary>
     /// Interpolated 21 day implied sdiv rate
@@ -1138,7 +1154,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_42d" field.</summary>
-    public const int SDiv42DFieldNumber = 268;
+    public const int SDiv42DFieldNumber = 271;
     private float sDiv42D_;
     /// <summary>
     /// Interpolated 42 day implied sdiv rate
@@ -1153,7 +1169,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_63d" field.</summary>
-    public const int SDiv63DFieldNumber = 271;
+    public const int SDiv63DFieldNumber = 274;
     private float sDiv63D_;
     /// <summary>
     /// Interpolated 63 day implied sdiv rate
@@ -1168,7 +1184,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_84d" field.</summary>
-    public const int SDiv84DFieldNumber = 274;
+    public const int SDiv84DFieldNumber = 277;
     private float sDiv84D_;
     /// <summary>
     /// Interpolated 84 day implied sdiv rate
@@ -1183,7 +1199,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_105d" field.</summary>
-    public const int SDiv105DFieldNumber = 277;
+    public const int SDiv105DFieldNumber = 280;
     private float sDiv105D_;
     /// <summary>
     /// Interpolated 105 day implied sdiv rate
@@ -1198,7 +1214,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_126d" field.</summary>
-    public const int SDiv126DFieldNumber = 280;
+    public const int SDiv126DFieldNumber = 283;
     private float sDiv126D_;
     /// <summary>
     /// Interpolated 126 day implied sdiv rate
@@ -1213,7 +1229,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_189d" field.</summary>
-    public const int SDiv189DFieldNumber = 283;
+    public const int SDiv189DFieldNumber = 286;
     private float sDiv189D_;
     /// <summary>
     /// Interpolated 189 day implied sdiv rate
@@ -1228,7 +1244,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_252d" field.</summary>
-    public const int SDiv252DFieldNumber = 286;
+    public const int SDiv252DFieldNumber = 289;
     private float sDiv252D_;
     /// <summary>
     /// Interpolated 252 day implied sdiv rate
@@ -1243,7 +1259,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_378d" field.</summary>
-    public const int SDiv378DFieldNumber = 289;
+    public const int SDiv378DFieldNumber = 292;
     private float sDiv378D_;
     /// <summary>
     /// Interpolated 378 day implied sdiv rate
@@ -1258,7 +1274,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_div_504d" field.</summary>
-    public const int SDiv504DFieldNumber = 292;
+    public const int SDiv504DFieldNumber = 295;
     private float sDiv504D_;
     /// <summary>
     /// Interpolated 504 day implied sdiv rate
@@ -1273,7 +1289,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_5d" field.</summary>
-    public const int FwdUPrc5DFieldNumber = 295;
+    public const int FwdUPrc5DFieldNumber = 298;
     private float fwdUPrc5D_;
     /// <summary>
     /// Interpolated 5 day implied forward price
@@ -1288,7 +1304,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_10d" field.</summary>
-    public const int FwdUPrc10DFieldNumber = 298;
+    public const int FwdUPrc10DFieldNumber = 301;
     private float fwdUPrc10D_;
     /// <summary>
     /// Interpolated 10 day implied forward price
@@ -1303,7 +1319,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_21d" field.</summary>
-    public const int FwdUPrc21DFieldNumber = 301;
+    public const int FwdUPrc21DFieldNumber = 304;
     private float fwdUPrc21D_;
     /// <summary>
     /// Interpolated 21 day implied forward price
@@ -1318,7 +1334,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_42d" field.</summary>
-    public const int FwdUPrc42DFieldNumber = 304;
+    public const int FwdUPrc42DFieldNumber = 307;
     private float fwdUPrc42D_;
     /// <summary>
     /// Interpolated 42 day implied forward price
@@ -1333,7 +1349,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_63d" field.</summary>
-    public const int FwdUPrc63DFieldNumber = 307;
+    public const int FwdUPrc63DFieldNumber = 310;
     private float fwdUPrc63D_;
     /// <summary>
     /// Interpolated 63 day implied forward price
@@ -1348,7 +1364,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_84d" field.</summary>
-    public const int FwdUPrc84DFieldNumber = 310;
+    public const int FwdUPrc84DFieldNumber = 313;
     private float fwdUPrc84D_;
     /// <summary>
     /// Interpolated 84 day implied forward price
@@ -1363,7 +1379,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_105d" field.</summary>
-    public const int FwdUPrc105DFieldNumber = 313;
+    public const int FwdUPrc105DFieldNumber = 316;
     private float fwdUPrc105D_;
     /// <summary>
     /// Interpolated 105 day implied forward price
@@ -1378,7 +1394,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_126d" field.</summary>
-    public const int FwdUPrc126DFieldNumber = 316;
+    public const int FwdUPrc126DFieldNumber = 319;
     private float fwdUPrc126D_;
     /// <summary>
     /// Interpolated 126 day implied forward price
@@ -1393,7 +1409,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_189d" field.</summary>
-    public const int FwdUPrc189DFieldNumber = 319;
+    public const int FwdUPrc189DFieldNumber = 322;
     private float fwdUPrc189D_;
     /// <summary>
     /// Interpolated 189 day implied forward price
@@ -1408,7 +1424,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_252d" field.</summary>
-    public const int FwdUPrc252DFieldNumber = 322;
+    public const int FwdUPrc252DFieldNumber = 325;
     private float fwdUPrc252D_;
     /// <summary>
     /// Interpolated 252 day implied forward price
@@ -1423,7 +1439,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_378d" field.</summary>
-    public const int FwdUPrc378DFieldNumber = 325;
+    public const int FwdUPrc378DFieldNumber = 328;
     private float fwdUPrc378D_;
     /// <summary>
     /// Interpolated 378 day implied forward price
@@ -1438,7 +1454,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fwd_uPrc_504d" field.</summary>
-    public const int FwdUPrc504DFieldNumber = 328;
+    public const int FwdUPrc504DFieldNumber = 331;
     private float fwdUPrc504D_;
     /// <summary>
     /// Interpolated 504 day implied forward price
@@ -1453,7 +1469,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_5d" field.</summary>
-    public const int VWidth5DFieldNumber = 331;
+    public const int VWidth5DFieldNumber = 334;
     private float vWidth5D_;
     /// <summary>
     /// Interpolated 5 day market vwidth
@@ -1468,7 +1484,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_10d" field.</summary>
-    public const int VWidth10DFieldNumber = 334;
+    public const int VWidth10DFieldNumber = 337;
     private float vWidth10D_;
     /// <summary>
     /// Interpolated 10 day market vwidth
@@ -1483,7 +1499,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_21d" field.</summary>
-    public const int VWidth21DFieldNumber = 337;
+    public const int VWidth21DFieldNumber = 340;
     private float vWidth21D_;
     /// <summary>
     /// Interpolated 21 day market vwidth
@@ -1498,7 +1514,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_42d" field.</summary>
-    public const int VWidth42DFieldNumber = 340;
+    public const int VWidth42DFieldNumber = 343;
     private float vWidth42D_;
     /// <summary>
     /// Interpolated 42 day market vwidth
@@ -1513,7 +1529,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_63d" field.</summary>
-    public const int VWidth63DFieldNumber = 343;
+    public const int VWidth63DFieldNumber = 346;
     private float vWidth63D_;
     /// <summary>
     /// Interpolated 63 day market vwidth
@@ -1528,7 +1544,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_84d" field.</summary>
-    public const int VWidth84DFieldNumber = 346;
+    public const int VWidth84DFieldNumber = 349;
     private float vWidth84D_;
     /// <summary>
     /// Interpolated 84 day market vwidth
@@ -1543,7 +1559,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_105d" field.</summary>
-    public const int VWidth105DFieldNumber = 349;
+    public const int VWidth105DFieldNumber = 352;
     private float vWidth105D_;
     /// <summary>
     /// Interpolated 105 day market vwidth
@@ -1558,7 +1574,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_126d" field.</summary>
-    public const int VWidth126DFieldNumber = 352;
+    public const int VWidth126DFieldNumber = 355;
     private float vWidth126D_;
     /// <summary>
     /// Interpolated 126 day market vwidth
@@ -1573,7 +1589,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_189d" field.</summary>
-    public const int VWidth189DFieldNumber = 355;
+    public const int VWidth189DFieldNumber = 358;
     private float vWidth189D_;
     /// <summary>
     /// Interpolated 189 day market vwidth
@@ -1588,7 +1604,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_252d" field.</summary>
-    public const int VWidth252DFieldNumber = 358;
+    public const int VWidth252DFieldNumber = 361;
     private float vWidth252D_;
     /// <summary>
     /// Interpolated 252 day market vwidth
@@ -1603,7 +1619,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_378d" field.</summary>
-    public const int VWidth378DFieldNumber = 361;
+    public const int VWidth378DFieldNumber = 364;
     private float vWidth378D_;
     /// <summary>
     /// Interpolated 378 day market vwidth
@@ -1618,7 +1634,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_width_504d" field.</summary>
-    public const int VWidth504DFieldNumber = 364;
+    public const int VWidth504DFieldNumber = 367;
     private float vWidth504D_;
     /// <summary>
     /// Interpolated 504 day market vwidth
@@ -1633,7 +1649,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_5d" field.</summary>
-    public const int VSlope5DFieldNumber = 367;
+    public const int VSlope5DFieldNumber = 370;
     private float vSlope5D_;
     /// <summary>
     /// Interpolated 5 day atm vol slope
@@ -1648,7 +1664,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_10d" field.</summary>
-    public const int VSlope10DFieldNumber = 370;
+    public const int VSlope10DFieldNumber = 373;
     private float vSlope10D_;
     /// <summary>
     /// Interpolated 10 day atm vol slope
@@ -1663,7 +1679,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_21d" field.</summary>
-    public const int VSlope21DFieldNumber = 373;
+    public const int VSlope21DFieldNumber = 376;
     private float vSlope21D_;
     /// <summary>
     /// Interpolated 21 day atm vol slope
@@ -1678,7 +1694,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_42d" field.</summary>
-    public const int VSlope42DFieldNumber = 376;
+    public const int VSlope42DFieldNumber = 379;
     private float vSlope42D_;
     /// <summary>
     /// Interpolated 42 day atm vol slope
@@ -1693,7 +1709,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_63d" field.</summary>
-    public const int VSlope63DFieldNumber = 379;
+    public const int VSlope63DFieldNumber = 382;
     private float vSlope63D_;
     /// <summary>
     /// Interpolated 63 day atm vol slope
@@ -1708,7 +1724,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_84d" field.</summary>
-    public const int VSlope84DFieldNumber = 382;
+    public const int VSlope84DFieldNumber = 385;
     private float vSlope84D_;
     /// <summary>
     /// Interpolated 84 day atm vol slope
@@ -1723,7 +1739,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_105d" field.</summary>
-    public const int VSlope105DFieldNumber = 385;
+    public const int VSlope105DFieldNumber = 388;
     private float vSlope105D_;
     /// <summary>
     /// Interpolated 105 day atm vol slope
@@ -1738,7 +1754,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_126d" field.</summary>
-    public const int VSlope126DFieldNumber = 388;
+    public const int VSlope126DFieldNumber = 391;
     private float vSlope126D_;
     /// <summary>
     /// Interpolated 126 day atm vol slope
@@ -1753,7 +1769,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_189d" field.</summary>
-    public const int VSlope189DFieldNumber = 391;
+    public const int VSlope189DFieldNumber = 394;
     private float vSlope189D_;
     /// <summary>
     /// Interpolated 189 day atm vol slope
@@ -1768,7 +1784,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_252d" field.</summary>
-    public const int VSlope252DFieldNumber = 394;
+    public const int VSlope252DFieldNumber = 397;
     private float vSlope252D_;
     /// <summary>
     /// Interpolated 252 day atm vol slope
@@ -1783,7 +1799,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_378d" field.</summary>
-    public const int VSlope378DFieldNumber = 397;
+    public const int VSlope378DFieldNumber = 400;
     private float vSlope378D_;
     /// <summary>
     /// Interpolated 378 day atm vol slope
@@ -1798,7 +1814,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "v_slope_504d" field.</summary>
-    public const int VSlope504DFieldNumber = 400;
+    public const int VSlope504DFieldNumber = 403;
     private float vSlope504D_;
     /// <summary>
     /// Interpolated 504 day atm vol slope
@@ -1813,7 +1829,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_5d" field.</summary>
-    public const int ECnt5DFieldNumber = 403;
+    public const int ECnt5DFieldNumber = 406;
     private int eCnt5D_;
     /// <summary>
     /// number of expected earnings events
@@ -1828,7 +1844,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_10d" field.</summary>
-    public const int ECnt10DFieldNumber = 406;
+    public const int ECnt10DFieldNumber = 409;
     private int eCnt10D_;
     /// <summary>
     /// number of expected earnings events
@@ -1843,7 +1859,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_21d" field.</summary>
-    public const int ECnt21DFieldNumber = 409;
+    public const int ECnt21DFieldNumber = 412;
     private int eCnt21D_;
     /// <summary>
     /// number of expected earnings events
@@ -1858,7 +1874,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_42d" field.</summary>
-    public const int ECnt42DFieldNumber = 412;
+    public const int ECnt42DFieldNumber = 415;
     private int eCnt42D_;
     /// <summary>
     /// number of expected earnings events
@@ -1873,7 +1889,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_63d" field.</summary>
-    public const int ECnt63DFieldNumber = 415;
+    public const int ECnt63DFieldNumber = 418;
     private int eCnt63D_;
     /// <summary>
     /// number of expected earnings events
@@ -1888,7 +1904,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_84d" field.</summary>
-    public const int ECnt84DFieldNumber = 418;
+    public const int ECnt84DFieldNumber = 421;
     private int eCnt84D_;
     /// <summary>
     /// number of expected earnings events
@@ -1903,7 +1919,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_105d" field.</summary>
-    public const int ECnt105DFieldNumber = 421;
+    public const int ECnt105DFieldNumber = 424;
     private int eCnt105D_;
     /// <summary>
     /// number of expected earnings events
@@ -1918,7 +1934,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_126d" field.</summary>
-    public const int ECnt126DFieldNumber = 424;
+    public const int ECnt126DFieldNumber = 427;
     private int eCnt126D_;
     /// <summary>
     /// number of expected earnings events
@@ -1933,7 +1949,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_189d" field.</summary>
-    public const int ECnt189DFieldNumber = 427;
+    public const int ECnt189DFieldNumber = 430;
     private int eCnt189D_;
     /// <summary>
     /// number of expected earnings events
@@ -1948,7 +1964,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_252d" field.</summary>
-    public const int ECnt252DFieldNumber = 430;
+    public const int ECnt252DFieldNumber = 433;
     private int eCnt252D_;
     /// <summary>
     /// number of expected earnings events
@@ -1963,7 +1979,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_378d" field.</summary>
-    public const int ECnt378DFieldNumber = 433;
+    public const int ECnt378DFieldNumber = 436;
     private int eCnt378D_;
     /// <summary>
     /// number of expected earnings events
@@ -1978,7 +1994,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_cnt_504d" field.</summary>
-    public const int ECnt504DFieldNumber = 436;
+    public const int ECnt504DFieldNumber = 439;
     private int eCnt504D_;
     /// <summary>
     /// number of expected earnings events
@@ -1993,7 +2009,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 439;
+    public const int StatusFieldNumber = 442;
     private global::Spiderrock.Protobuf.CurveStatus status_ = global::Spiderrock.Protobuf.CurveStatus.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2005,7 +2021,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "time" field.</summary>
-    public const int TimeFieldNumber = 442;
+    public const int TimeFieldNumber = 445;
     private global::Google.Protobuf.WellKnownTypes.Duration time_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2017,7 +2033,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 445;
+    public const int TimestampFieldNumber = 448;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     /// <summary>
     /// update timestamp
@@ -2048,6 +2064,7 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(SynSpot, other.SynSpot)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HEMove, other.HEMove)) return false;
       if (HEMoveNum != other.HEMoveNum) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HEMoveAvg, other.HEMoveAvg)) return false;
@@ -2173,6 +2190,7 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
+      if (SynSpot != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(SynSpot);
       if (HEMove != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HEMove);
       if (HEMoveNum != 0) hash ^= HEMoveNum.GetHashCode();
       if (HEMoveAvg != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HEMoveAvg);
@@ -2315,468 +2333,472 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
+      if (SynSpot != 0D) {
+        output.WriteRawTag(161, 6);
+        output.WriteDouble(SynSpot);
+      }
       if (HEMove != 0F) {
-        output.WriteRawTag(165, 6);
+        output.WriteRawTag(189, 6);
         output.WriteFloat(HEMove);
       }
       if (HEMoveNum != 0) {
-        output.WriteRawTag(184, 6);
+        output.WriteRawTag(208, 6);
         output.WriteInt32(HEMoveNum);
       }
       if (HEMoveAvg != 0F) {
-        output.WriteRawTag(213, 6);
+        output.WriteRawTag(237, 6);
         output.WriteFloat(HEMoveAvg);
       }
       if (HEMoveStd != 0F) {
-        output.WriteRawTag(237, 6);
+        output.WriteRawTag(133, 7);
         output.WriteFloat(HEMoveStd);
       }
       if (HEMoveMin != 0F) {
-        output.WriteRawTag(133, 7);
+        output.WriteRawTag(157, 7);
         output.WriteFloat(HEMoveMin);
       }
       if (HEMoveMax != 0F) {
-        output.WriteRawTag(157, 7);
+        output.WriteRawTag(181, 7);
         output.WriteFloat(HEMoveMax);
       }
       if (IEMove != 0F) {
-        output.WriteRawTag(181, 7);
+        output.WriteRawTag(205, 7);
         output.WriteFloat(IEMove);
       }
       if (IEFitCode != global::Spiderrock.Protobuf.EFitCode.Unspecified) {
-        output.WriteRawTag(200, 7);
+        output.WriteRawTag(224, 7);
         output.WriteEnum((int) IEFitCode);
       }
       if (IEFitError != 0F) {
-        output.WriteRawTag(229, 7);
+        output.WriteRawTag(253, 7);
         output.WriteFloat(IEFitError);
       }
       if (ExpiryCount != 0) {
-        output.WriteRawTag(248, 7);
+        output.WriteRawTag(144, 8);
         output.WriteInt32(ExpiryCount);
       }
       if (IEMoveAvg != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(173, 8);
         output.WriteFloat(IEMoveAvg);
       }
       if (IEMoveStd != 0F) {
-        output.WriteRawTag(173, 8);
+        output.WriteRawTag(197, 8);
         output.WriteFloat(IEMoveStd);
       }
       if (IEMoveMin != 0F) {
-        output.WriteRawTag(197, 8);
+        output.WriteRawTag(221, 8);
         output.WriteFloat(IEMoveMin);
       }
       if (IEMoveMax != 0F) {
-        output.WriteRawTag(221, 8);
+        output.WriteRawTag(245, 8);
         output.WriteFloat(IEMoveMax);
       }
       if (IEMoveCnt != 0) {
-        output.WriteRawTag(240, 8);
+        output.WriteRawTag(136, 9);
         output.WriteInt32(IEMoveCnt);
       }
       if (EMoveExpAdj1 != 0) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(160, 9);
         output.WriteInt32(EMoveExpAdj1);
       }
       if (EMoveYrsAdj1 != 0F) {
-        output.WriteRawTag(165, 9);
+        output.WriteRawTag(189, 9);
         output.WriteFloat(EMoveYrsAdj1);
       }
       if (EMoveYears1 != 0F) {
-        output.WriteRawTag(189, 9);
+        output.WriteRawTag(213, 9);
         output.WriteFloat(EMoveYears1);
       }
       if (eMoveEKey1_ != null) {
-        output.WriteRawTag(210, 9);
+        output.WriteRawTag(234, 9);
         output.WriteMessage(EMoveEKey1);
       }
       if (EMoveExpAdj2 != 0) {
-        output.WriteRawTag(232, 9);
+        output.WriteRawTag(128, 10);
         output.WriteInt32(EMoveExpAdj2);
       }
       if (EMoveYrsAdj2 != 0F) {
-        output.WriteRawTag(133, 10);
+        output.WriteRawTag(157, 10);
         output.WriteFloat(EMoveYrsAdj2);
       }
       if (EMoveYears2 != 0F) {
-        output.WriteRawTag(157, 10);
+        output.WriteRawTag(181, 10);
         output.WriteFloat(EMoveYears2);
       }
       if (eMoveEKey2_ != null) {
-        output.WriteRawTag(178, 10);
+        output.WriteRawTag(202, 10);
         output.WriteMessage(EMoveEKey2);
       }
       if (AtmCenISt != 0F) {
-        output.WriteRawTag(205, 10);
+        output.WriteRawTag(229, 10);
         output.WriteFloat(AtmCenISt);
       }
       if (AtmCenILt != 0F) {
-        output.WriteRawTag(229, 10);
+        output.WriteRawTag(253, 10);
         output.WriteFloat(AtmCenILt);
       }
       if (AtmCenIDecay != 0F) {
-        output.WriteRawTag(253, 10);
+        output.WriteRawTag(149, 11);
         output.WriteFloat(AtmCenIDecay);
       }
       if (AtmCenI5D != 0F) {
-        output.WriteRawTag(149, 11);
+        output.WriteRawTag(173, 11);
         output.WriteFloat(AtmCenI5D);
       }
       if (AtmCenI10D != 0F) {
-        output.WriteRawTag(173, 11);
+        output.WriteRawTag(197, 11);
         output.WriteFloat(AtmCenI10D);
       }
       if (AtmCenI21D != 0F) {
-        output.WriteRawTag(197, 11);
+        output.WriteRawTag(221, 11);
         output.WriteFloat(AtmCenI21D);
       }
       if (AtmCenI42D != 0F) {
-        output.WriteRawTag(221, 11);
+        output.WriteRawTag(245, 11);
         output.WriteFloat(AtmCenI42D);
       }
       if (AtmCenI63D != 0F) {
-        output.WriteRawTag(245, 11);
+        output.WriteRawTag(141, 12);
         output.WriteFloat(AtmCenI63D);
       }
       if (AtmCenI84D != 0F) {
-        output.WriteRawTag(141, 12);
+        output.WriteRawTag(165, 12);
         output.WriteFloat(AtmCenI84D);
       }
       if (AtmCenI105D != 0F) {
-        output.WriteRawTag(165, 12);
+        output.WriteRawTag(189, 12);
         output.WriteFloat(AtmCenI105D);
       }
       if (AtmCenI126D != 0F) {
-        output.WriteRawTag(189, 12);
+        output.WriteRawTag(213, 12);
         output.WriteFloat(AtmCenI126D);
       }
       if (AtmCenI189D != 0F) {
-        output.WriteRawTag(213, 12);
+        output.WriteRawTag(237, 12);
         output.WriteFloat(AtmCenI189D);
       }
       if (AtmCenI252D != 0F) {
-        output.WriteRawTag(237, 12);
+        output.WriteRawTag(133, 13);
         output.WriteFloat(AtmCenI252D);
       }
       if (AtmCenI378D != 0F) {
-        output.WriteRawTag(133, 13);
+        output.WriteRawTag(157, 13);
         output.WriteFloat(AtmCenI378D);
       }
       if (AtmCenI504D != 0F) {
-        output.WriteRawTag(157, 13);
+        output.WriteRawTag(181, 13);
         output.WriteFloat(AtmCenI504D);
       }
       if (AtmCenHSt != 0F) {
-        output.WriteRawTag(181, 13);
+        output.WriteRawTag(205, 13);
         output.WriteFloat(AtmCenHSt);
       }
       if (AtmCenHLt != 0F) {
-        output.WriteRawTag(205, 13);
+        output.WriteRawTag(229, 13);
         output.WriteFloat(AtmCenHLt);
       }
       if (AtmCenHDecay != 0F) {
-        output.WriteRawTag(229, 13);
+        output.WriteRawTag(253, 13);
         output.WriteFloat(AtmCenHDecay);
       }
       if (AtmCenH5D != 0F) {
-        output.WriteRawTag(253, 13);
+        output.WriteRawTag(149, 14);
         output.WriteFloat(AtmCenH5D);
       }
       if (AtmCenH10D != 0F) {
-        output.WriteRawTag(149, 14);
+        output.WriteRawTag(173, 14);
         output.WriteFloat(AtmCenH10D);
       }
       if (AtmCenH21D != 0F) {
-        output.WriteRawTag(173, 14);
+        output.WriteRawTag(197, 14);
         output.WriteFloat(AtmCenH21D);
       }
       if (AtmCenH42D != 0F) {
-        output.WriteRawTag(197, 14);
+        output.WriteRawTag(221, 14);
         output.WriteFloat(AtmCenH42D);
       }
       if (AtmCenH63D != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(245, 14);
         output.WriteFloat(AtmCenH63D);
       }
       if (AtmCenH84D != 0F) {
-        output.WriteRawTag(245, 14);
+        output.WriteRawTag(141, 15);
         output.WriteFloat(AtmCenH84D);
       }
       if (AtmCenH105D != 0F) {
-        output.WriteRawTag(141, 15);
+        output.WriteRawTag(165, 15);
         output.WriteFloat(AtmCenH105D);
       }
       if (AtmCenH126D != 0F) {
-        output.WriteRawTag(165, 15);
+        output.WriteRawTag(189, 15);
         output.WriteFloat(AtmCenH126D);
       }
       if (AtmCenH189D != 0F) {
-        output.WriteRawTag(189, 15);
+        output.WriteRawTag(213, 15);
         output.WriteFloat(AtmCenH189D);
       }
       if (AtmCenH252D != 0F) {
-        output.WriteRawTag(213, 15);
+        output.WriteRawTag(237, 15);
         output.WriteFloat(AtmCenH252D);
       }
       if (AtmCenH378D != 0F) {
-        output.WriteRawTag(237, 15);
+        output.WriteRawTag(133, 16);
         output.WriteFloat(AtmCenH378D);
       }
       if (AtmCenH504D != 0F) {
-        output.WriteRawTag(133, 16);
+        output.WriteRawTag(157, 16);
         output.WriteFloat(AtmCenH504D);
       }
       if (SDiv5D != 0F) {
-        output.WriteRawTag(157, 16);
+        output.WriteRawTag(181, 16);
         output.WriteFloat(SDiv5D);
       }
       if (SDiv10D != 0F) {
-        output.WriteRawTag(181, 16);
+        output.WriteRawTag(205, 16);
         output.WriteFloat(SDiv10D);
       }
       if (SDiv21D != 0F) {
-        output.WriteRawTag(205, 16);
+        output.WriteRawTag(229, 16);
         output.WriteFloat(SDiv21D);
       }
       if (SDiv42D != 0F) {
-        output.WriteRawTag(229, 16);
+        output.WriteRawTag(253, 16);
         output.WriteFloat(SDiv42D);
       }
       if (SDiv63D != 0F) {
-        output.WriteRawTag(253, 16);
+        output.WriteRawTag(149, 17);
         output.WriteFloat(SDiv63D);
       }
       if (SDiv84D != 0F) {
-        output.WriteRawTag(149, 17);
+        output.WriteRawTag(173, 17);
         output.WriteFloat(SDiv84D);
       }
       if (SDiv105D != 0F) {
-        output.WriteRawTag(173, 17);
+        output.WriteRawTag(197, 17);
         output.WriteFloat(SDiv105D);
       }
       if (SDiv126D != 0F) {
-        output.WriteRawTag(197, 17);
+        output.WriteRawTag(221, 17);
         output.WriteFloat(SDiv126D);
       }
       if (SDiv189D != 0F) {
-        output.WriteRawTag(221, 17);
+        output.WriteRawTag(245, 17);
         output.WriteFloat(SDiv189D);
       }
       if (SDiv252D != 0F) {
-        output.WriteRawTag(245, 17);
+        output.WriteRawTag(141, 18);
         output.WriteFloat(SDiv252D);
       }
       if (SDiv378D != 0F) {
-        output.WriteRawTag(141, 18);
+        output.WriteRawTag(165, 18);
         output.WriteFloat(SDiv378D);
       }
       if (SDiv504D != 0F) {
-        output.WriteRawTag(165, 18);
+        output.WriteRawTag(189, 18);
         output.WriteFloat(SDiv504D);
       }
       if (FwdUPrc5D != 0F) {
-        output.WriteRawTag(189, 18);
+        output.WriteRawTag(213, 18);
         output.WriteFloat(FwdUPrc5D);
       }
       if (FwdUPrc10D != 0F) {
-        output.WriteRawTag(213, 18);
+        output.WriteRawTag(237, 18);
         output.WriteFloat(FwdUPrc10D);
       }
       if (FwdUPrc21D != 0F) {
-        output.WriteRawTag(237, 18);
+        output.WriteRawTag(133, 19);
         output.WriteFloat(FwdUPrc21D);
       }
       if (FwdUPrc42D != 0F) {
-        output.WriteRawTag(133, 19);
+        output.WriteRawTag(157, 19);
         output.WriteFloat(FwdUPrc42D);
       }
       if (FwdUPrc63D != 0F) {
-        output.WriteRawTag(157, 19);
+        output.WriteRawTag(181, 19);
         output.WriteFloat(FwdUPrc63D);
       }
       if (FwdUPrc84D != 0F) {
-        output.WriteRawTag(181, 19);
+        output.WriteRawTag(205, 19);
         output.WriteFloat(FwdUPrc84D);
       }
       if (FwdUPrc105D != 0F) {
-        output.WriteRawTag(205, 19);
+        output.WriteRawTag(229, 19);
         output.WriteFloat(FwdUPrc105D);
       }
       if (FwdUPrc126D != 0F) {
-        output.WriteRawTag(229, 19);
+        output.WriteRawTag(253, 19);
         output.WriteFloat(FwdUPrc126D);
       }
       if (FwdUPrc189D != 0F) {
-        output.WriteRawTag(253, 19);
+        output.WriteRawTag(149, 20);
         output.WriteFloat(FwdUPrc189D);
       }
       if (FwdUPrc252D != 0F) {
-        output.WriteRawTag(149, 20);
+        output.WriteRawTag(173, 20);
         output.WriteFloat(FwdUPrc252D);
       }
       if (FwdUPrc378D != 0F) {
-        output.WriteRawTag(173, 20);
+        output.WriteRawTag(197, 20);
         output.WriteFloat(FwdUPrc378D);
       }
       if (FwdUPrc504D != 0F) {
-        output.WriteRawTag(197, 20);
+        output.WriteRawTag(221, 20);
         output.WriteFloat(FwdUPrc504D);
       }
       if (VWidth5D != 0F) {
-        output.WriteRawTag(221, 20);
+        output.WriteRawTag(245, 20);
         output.WriteFloat(VWidth5D);
       }
       if (VWidth10D != 0F) {
-        output.WriteRawTag(245, 20);
+        output.WriteRawTag(141, 21);
         output.WriteFloat(VWidth10D);
       }
       if (VWidth21D != 0F) {
-        output.WriteRawTag(141, 21);
+        output.WriteRawTag(165, 21);
         output.WriteFloat(VWidth21D);
       }
       if (VWidth42D != 0F) {
-        output.WriteRawTag(165, 21);
+        output.WriteRawTag(189, 21);
         output.WriteFloat(VWidth42D);
       }
       if (VWidth63D != 0F) {
-        output.WriteRawTag(189, 21);
+        output.WriteRawTag(213, 21);
         output.WriteFloat(VWidth63D);
       }
       if (VWidth84D != 0F) {
-        output.WriteRawTag(213, 21);
+        output.WriteRawTag(237, 21);
         output.WriteFloat(VWidth84D);
       }
       if (VWidth105D != 0F) {
-        output.WriteRawTag(237, 21);
+        output.WriteRawTag(133, 22);
         output.WriteFloat(VWidth105D);
       }
       if (VWidth126D != 0F) {
-        output.WriteRawTag(133, 22);
+        output.WriteRawTag(157, 22);
         output.WriteFloat(VWidth126D);
       }
       if (VWidth189D != 0F) {
-        output.WriteRawTag(157, 22);
+        output.WriteRawTag(181, 22);
         output.WriteFloat(VWidth189D);
       }
       if (VWidth252D != 0F) {
-        output.WriteRawTag(181, 22);
+        output.WriteRawTag(205, 22);
         output.WriteFloat(VWidth252D);
       }
       if (VWidth378D != 0F) {
-        output.WriteRawTag(205, 22);
+        output.WriteRawTag(229, 22);
         output.WriteFloat(VWidth378D);
       }
       if (VWidth504D != 0F) {
-        output.WriteRawTag(229, 22);
+        output.WriteRawTag(253, 22);
         output.WriteFloat(VWidth504D);
       }
       if (VSlope5D != 0F) {
-        output.WriteRawTag(253, 22);
+        output.WriteRawTag(149, 23);
         output.WriteFloat(VSlope5D);
       }
       if (VSlope10D != 0F) {
-        output.WriteRawTag(149, 23);
+        output.WriteRawTag(173, 23);
         output.WriteFloat(VSlope10D);
       }
       if (VSlope21D != 0F) {
-        output.WriteRawTag(173, 23);
+        output.WriteRawTag(197, 23);
         output.WriteFloat(VSlope21D);
       }
       if (VSlope42D != 0F) {
-        output.WriteRawTag(197, 23);
+        output.WriteRawTag(221, 23);
         output.WriteFloat(VSlope42D);
       }
       if (VSlope63D != 0F) {
-        output.WriteRawTag(221, 23);
+        output.WriteRawTag(245, 23);
         output.WriteFloat(VSlope63D);
       }
       if (VSlope84D != 0F) {
-        output.WriteRawTag(245, 23);
+        output.WriteRawTag(141, 24);
         output.WriteFloat(VSlope84D);
       }
       if (VSlope105D != 0F) {
-        output.WriteRawTag(141, 24);
+        output.WriteRawTag(165, 24);
         output.WriteFloat(VSlope105D);
       }
       if (VSlope126D != 0F) {
-        output.WriteRawTag(165, 24);
+        output.WriteRawTag(189, 24);
         output.WriteFloat(VSlope126D);
       }
       if (VSlope189D != 0F) {
-        output.WriteRawTag(189, 24);
+        output.WriteRawTag(213, 24);
         output.WriteFloat(VSlope189D);
       }
       if (VSlope252D != 0F) {
-        output.WriteRawTag(213, 24);
+        output.WriteRawTag(237, 24);
         output.WriteFloat(VSlope252D);
       }
       if (VSlope378D != 0F) {
-        output.WriteRawTag(237, 24);
+        output.WriteRawTag(133, 25);
         output.WriteFloat(VSlope378D);
       }
       if (VSlope504D != 0F) {
-        output.WriteRawTag(133, 25);
+        output.WriteRawTag(157, 25);
         output.WriteFloat(VSlope504D);
       }
       if (ECnt5D != 0) {
-        output.WriteRawTag(152, 25);
+        output.WriteRawTag(176, 25);
         output.WriteInt32(ECnt5D);
       }
       if (ECnt10D != 0) {
-        output.WriteRawTag(176, 25);
+        output.WriteRawTag(200, 25);
         output.WriteInt32(ECnt10D);
       }
       if (ECnt21D != 0) {
-        output.WriteRawTag(200, 25);
+        output.WriteRawTag(224, 25);
         output.WriteInt32(ECnt21D);
       }
       if (ECnt42D != 0) {
-        output.WriteRawTag(224, 25);
+        output.WriteRawTag(248, 25);
         output.WriteInt32(ECnt42D);
       }
       if (ECnt63D != 0) {
-        output.WriteRawTag(248, 25);
+        output.WriteRawTag(144, 26);
         output.WriteInt32(ECnt63D);
       }
       if (ECnt84D != 0) {
-        output.WriteRawTag(144, 26);
+        output.WriteRawTag(168, 26);
         output.WriteInt32(ECnt84D);
       }
       if (ECnt105D != 0) {
-        output.WriteRawTag(168, 26);
+        output.WriteRawTag(192, 26);
         output.WriteInt32(ECnt105D);
       }
       if (ECnt126D != 0) {
-        output.WriteRawTag(192, 26);
+        output.WriteRawTag(216, 26);
         output.WriteInt32(ECnt126D);
       }
       if (ECnt189D != 0) {
-        output.WriteRawTag(216, 26);
+        output.WriteRawTag(240, 26);
         output.WriteInt32(ECnt189D);
       }
       if (ECnt252D != 0) {
-        output.WriteRawTag(240, 26);
+        output.WriteRawTag(136, 27);
         output.WriteInt32(ECnt252D);
       }
       if (ECnt378D != 0) {
-        output.WriteRawTag(136, 27);
+        output.WriteRawTag(160, 27);
         output.WriteInt32(ECnt378D);
       }
       if (ECnt504D != 0) {
-        output.WriteRawTag(160, 27);
+        output.WriteRawTag(184, 27);
         output.WriteInt32(ECnt504D);
       }
       if (Status != global::Spiderrock.Protobuf.CurveStatus.Unspecified) {
-        output.WriteRawTag(184, 27);
+        output.WriteRawTag(208, 27);
         output.WriteEnum((int) Status);
       }
       if (time_ != null) {
-        output.WriteRawTag(210, 27);
+        output.WriteRawTag(234, 27);
         output.WriteMessage(Time);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(234, 27);
+        output.WriteRawTag(130, 28);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -2797,468 +2819,472 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
+      if (SynSpot != 0D) {
+        output.WriteRawTag(161, 6);
+        output.WriteDouble(SynSpot);
+      }
       if (HEMove != 0F) {
-        output.WriteRawTag(165, 6);
+        output.WriteRawTag(189, 6);
         output.WriteFloat(HEMove);
       }
       if (HEMoveNum != 0) {
-        output.WriteRawTag(184, 6);
+        output.WriteRawTag(208, 6);
         output.WriteInt32(HEMoveNum);
       }
       if (HEMoveAvg != 0F) {
-        output.WriteRawTag(213, 6);
+        output.WriteRawTag(237, 6);
         output.WriteFloat(HEMoveAvg);
       }
       if (HEMoveStd != 0F) {
-        output.WriteRawTag(237, 6);
+        output.WriteRawTag(133, 7);
         output.WriteFloat(HEMoveStd);
       }
       if (HEMoveMin != 0F) {
-        output.WriteRawTag(133, 7);
+        output.WriteRawTag(157, 7);
         output.WriteFloat(HEMoveMin);
       }
       if (HEMoveMax != 0F) {
-        output.WriteRawTag(157, 7);
+        output.WriteRawTag(181, 7);
         output.WriteFloat(HEMoveMax);
       }
       if (IEMove != 0F) {
-        output.WriteRawTag(181, 7);
+        output.WriteRawTag(205, 7);
         output.WriteFloat(IEMove);
       }
       if (IEFitCode != global::Spiderrock.Protobuf.EFitCode.Unspecified) {
-        output.WriteRawTag(200, 7);
+        output.WriteRawTag(224, 7);
         output.WriteEnum((int) IEFitCode);
       }
       if (IEFitError != 0F) {
-        output.WriteRawTag(229, 7);
+        output.WriteRawTag(253, 7);
         output.WriteFloat(IEFitError);
       }
       if (ExpiryCount != 0) {
-        output.WriteRawTag(248, 7);
+        output.WriteRawTag(144, 8);
         output.WriteInt32(ExpiryCount);
       }
       if (IEMoveAvg != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(173, 8);
         output.WriteFloat(IEMoveAvg);
       }
       if (IEMoveStd != 0F) {
-        output.WriteRawTag(173, 8);
+        output.WriteRawTag(197, 8);
         output.WriteFloat(IEMoveStd);
       }
       if (IEMoveMin != 0F) {
-        output.WriteRawTag(197, 8);
+        output.WriteRawTag(221, 8);
         output.WriteFloat(IEMoveMin);
       }
       if (IEMoveMax != 0F) {
-        output.WriteRawTag(221, 8);
+        output.WriteRawTag(245, 8);
         output.WriteFloat(IEMoveMax);
       }
       if (IEMoveCnt != 0) {
-        output.WriteRawTag(240, 8);
+        output.WriteRawTag(136, 9);
         output.WriteInt32(IEMoveCnt);
       }
       if (EMoveExpAdj1 != 0) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(160, 9);
         output.WriteInt32(EMoveExpAdj1);
       }
       if (EMoveYrsAdj1 != 0F) {
-        output.WriteRawTag(165, 9);
+        output.WriteRawTag(189, 9);
         output.WriteFloat(EMoveYrsAdj1);
       }
       if (EMoveYears1 != 0F) {
-        output.WriteRawTag(189, 9);
+        output.WriteRawTag(213, 9);
         output.WriteFloat(EMoveYears1);
       }
       if (eMoveEKey1_ != null) {
-        output.WriteRawTag(210, 9);
+        output.WriteRawTag(234, 9);
         output.WriteMessage(EMoveEKey1);
       }
       if (EMoveExpAdj2 != 0) {
-        output.WriteRawTag(232, 9);
+        output.WriteRawTag(128, 10);
         output.WriteInt32(EMoveExpAdj2);
       }
       if (EMoveYrsAdj2 != 0F) {
-        output.WriteRawTag(133, 10);
+        output.WriteRawTag(157, 10);
         output.WriteFloat(EMoveYrsAdj2);
       }
       if (EMoveYears2 != 0F) {
-        output.WriteRawTag(157, 10);
+        output.WriteRawTag(181, 10);
         output.WriteFloat(EMoveYears2);
       }
       if (eMoveEKey2_ != null) {
-        output.WriteRawTag(178, 10);
+        output.WriteRawTag(202, 10);
         output.WriteMessage(EMoveEKey2);
       }
       if (AtmCenISt != 0F) {
-        output.WriteRawTag(205, 10);
+        output.WriteRawTag(229, 10);
         output.WriteFloat(AtmCenISt);
       }
       if (AtmCenILt != 0F) {
-        output.WriteRawTag(229, 10);
+        output.WriteRawTag(253, 10);
         output.WriteFloat(AtmCenILt);
       }
       if (AtmCenIDecay != 0F) {
-        output.WriteRawTag(253, 10);
+        output.WriteRawTag(149, 11);
         output.WriteFloat(AtmCenIDecay);
       }
       if (AtmCenI5D != 0F) {
-        output.WriteRawTag(149, 11);
+        output.WriteRawTag(173, 11);
         output.WriteFloat(AtmCenI5D);
       }
       if (AtmCenI10D != 0F) {
-        output.WriteRawTag(173, 11);
+        output.WriteRawTag(197, 11);
         output.WriteFloat(AtmCenI10D);
       }
       if (AtmCenI21D != 0F) {
-        output.WriteRawTag(197, 11);
+        output.WriteRawTag(221, 11);
         output.WriteFloat(AtmCenI21D);
       }
       if (AtmCenI42D != 0F) {
-        output.WriteRawTag(221, 11);
+        output.WriteRawTag(245, 11);
         output.WriteFloat(AtmCenI42D);
       }
       if (AtmCenI63D != 0F) {
-        output.WriteRawTag(245, 11);
+        output.WriteRawTag(141, 12);
         output.WriteFloat(AtmCenI63D);
       }
       if (AtmCenI84D != 0F) {
-        output.WriteRawTag(141, 12);
+        output.WriteRawTag(165, 12);
         output.WriteFloat(AtmCenI84D);
       }
       if (AtmCenI105D != 0F) {
-        output.WriteRawTag(165, 12);
+        output.WriteRawTag(189, 12);
         output.WriteFloat(AtmCenI105D);
       }
       if (AtmCenI126D != 0F) {
-        output.WriteRawTag(189, 12);
+        output.WriteRawTag(213, 12);
         output.WriteFloat(AtmCenI126D);
       }
       if (AtmCenI189D != 0F) {
-        output.WriteRawTag(213, 12);
+        output.WriteRawTag(237, 12);
         output.WriteFloat(AtmCenI189D);
       }
       if (AtmCenI252D != 0F) {
-        output.WriteRawTag(237, 12);
+        output.WriteRawTag(133, 13);
         output.WriteFloat(AtmCenI252D);
       }
       if (AtmCenI378D != 0F) {
-        output.WriteRawTag(133, 13);
+        output.WriteRawTag(157, 13);
         output.WriteFloat(AtmCenI378D);
       }
       if (AtmCenI504D != 0F) {
-        output.WriteRawTag(157, 13);
+        output.WriteRawTag(181, 13);
         output.WriteFloat(AtmCenI504D);
       }
       if (AtmCenHSt != 0F) {
-        output.WriteRawTag(181, 13);
+        output.WriteRawTag(205, 13);
         output.WriteFloat(AtmCenHSt);
       }
       if (AtmCenHLt != 0F) {
-        output.WriteRawTag(205, 13);
+        output.WriteRawTag(229, 13);
         output.WriteFloat(AtmCenHLt);
       }
       if (AtmCenHDecay != 0F) {
-        output.WriteRawTag(229, 13);
+        output.WriteRawTag(253, 13);
         output.WriteFloat(AtmCenHDecay);
       }
       if (AtmCenH5D != 0F) {
-        output.WriteRawTag(253, 13);
+        output.WriteRawTag(149, 14);
         output.WriteFloat(AtmCenH5D);
       }
       if (AtmCenH10D != 0F) {
-        output.WriteRawTag(149, 14);
+        output.WriteRawTag(173, 14);
         output.WriteFloat(AtmCenH10D);
       }
       if (AtmCenH21D != 0F) {
-        output.WriteRawTag(173, 14);
+        output.WriteRawTag(197, 14);
         output.WriteFloat(AtmCenH21D);
       }
       if (AtmCenH42D != 0F) {
-        output.WriteRawTag(197, 14);
+        output.WriteRawTag(221, 14);
         output.WriteFloat(AtmCenH42D);
       }
       if (AtmCenH63D != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(245, 14);
         output.WriteFloat(AtmCenH63D);
       }
       if (AtmCenH84D != 0F) {
-        output.WriteRawTag(245, 14);
+        output.WriteRawTag(141, 15);
         output.WriteFloat(AtmCenH84D);
       }
       if (AtmCenH105D != 0F) {
-        output.WriteRawTag(141, 15);
+        output.WriteRawTag(165, 15);
         output.WriteFloat(AtmCenH105D);
       }
       if (AtmCenH126D != 0F) {
-        output.WriteRawTag(165, 15);
+        output.WriteRawTag(189, 15);
         output.WriteFloat(AtmCenH126D);
       }
       if (AtmCenH189D != 0F) {
-        output.WriteRawTag(189, 15);
+        output.WriteRawTag(213, 15);
         output.WriteFloat(AtmCenH189D);
       }
       if (AtmCenH252D != 0F) {
-        output.WriteRawTag(213, 15);
+        output.WriteRawTag(237, 15);
         output.WriteFloat(AtmCenH252D);
       }
       if (AtmCenH378D != 0F) {
-        output.WriteRawTag(237, 15);
+        output.WriteRawTag(133, 16);
         output.WriteFloat(AtmCenH378D);
       }
       if (AtmCenH504D != 0F) {
-        output.WriteRawTag(133, 16);
+        output.WriteRawTag(157, 16);
         output.WriteFloat(AtmCenH504D);
       }
       if (SDiv5D != 0F) {
-        output.WriteRawTag(157, 16);
+        output.WriteRawTag(181, 16);
         output.WriteFloat(SDiv5D);
       }
       if (SDiv10D != 0F) {
-        output.WriteRawTag(181, 16);
+        output.WriteRawTag(205, 16);
         output.WriteFloat(SDiv10D);
       }
       if (SDiv21D != 0F) {
-        output.WriteRawTag(205, 16);
+        output.WriteRawTag(229, 16);
         output.WriteFloat(SDiv21D);
       }
       if (SDiv42D != 0F) {
-        output.WriteRawTag(229, 16);
+        output.WriteRawTag(253, 16);
         output.WriteFloat(SDiv42D);
       }
       if (SDiv63D != 0F) {
-        output.WriteRawTag(253, 16);
+        output.WriteRawTag(149, 17);
         output.WriteFloat(SDiv63D);
       }
       if (SDiv84D != 0F) {
-        output.WriteRawTag(149, 17);
+        output.WriteRawTag(173, 17);
         output.WriteFloat(SDiv84D);
       }
       if (SDiv105D != 0F) {
-        output.WriteRawTag(173, 17);
+        output.WriteRawTag(197, 17);
         output.WriteFloat(SDiv105D);
       }
       if (SDiv126D != 0F) {
-        output.WriteRawTag(197, 17);
+        output.WriteRawTag(221, 17);
         output.WriteFloat(SDiv126D);
       }
       if (SDiv189D != 0F) {
-        output.WriteRawTag(221, 17);
+        output.WriteRawTag(245, 17);
         output.WriteFloat(SDiv189D);
       }
       if (SDiv252D != 0F) {
-        output.WriteRawTag(245, 17);
+        output.WriteRawTag(141, 18);
         output.WriteFloat(SDiv252D);
       }
       if (SDiv378D != 0F) {
-        output.WriteRawTag(141, 18);
+        output.WriteRawTag(165, 18);
         output.WriteFloat(SDiv378D);
       }
       if (SDiv504D != 0F) {
-        output.WriteRawTag(165, 18);
+        output.WriteRawTag(189, 18);
         output.WriteFloat(SDiv504D);
       }
       if (FwdUPrc5D != 0F) {
-        output.WriteRawTag(189, 18);
+        output.WriteRawTag(213, 18);
         output.WriteFloat(FwdUPrc5D);
       }
       if (FwdUPrc10D != 0F) {
-        output.WriteRawTag(213, 18);
+        output.WriteRawTag(237, 18);
         output.WriteFloat(FwdUPrc10D);
       }
       if (FwdUPrc21D != 0F) {
-        output.WriteRawTag(237, 18);
+        output.WriteRawTag(133, 19);
         output.WriteFloat(FwdUPrc21D);
       }
       if (FwdUPrc42D != 0F) {
-        output.WriteRawTag(133, 19);
+        output.WriteRawTag(157, 19);
         output.WriteFloat(FwdUPrc42D);
       }
       if (FwdUPrc63D != 0F) {
-        output.WriteRawTag(157, 19);
+        output.WriteRawTag(181, 19);
         output.WriteFloat(FwdUPrc63D);
       }
       if (FwdUPrc84D != 0F) {
-        output.WriteRawTag(181, 19);
+        output.WriteRawTag(205, 19);
         output.WriteFloat(FwdUPrc84D);
       }
       if (FwdUPrc105D != 0F) {
-        output.WriteRawTag(205, 19);
+        output.WriteRawTag(229, 19);
         output.WriteFloat(FwdUPrc105D);
       }
       if (FwdUPrc126D != 0F) {
-        output.WriteRawTag(229, 19);
+        output.WriteRawTag(253, 19);
         output.WriteFloat(FwdUPrc126D);
       }
       if (FwdUPrc189D != 0F) {
-        output.WriteRawTag(253, 19);
+        output.WriteRawTag(149, 20);
         output.WriteFloat(FwdUPrc189D);
       }
       if (FwdUPrc252D != 0F) {
-        output.WriteRawTag(149, 20);
+        output.WriteRawTag(173, 20);
         output.WriteFloat(FwdUPrc252D);
       }
       if (FwdUPrc378D != 0F) {
-        output.WriteRawTag(173, 20);
+        output.WriteRawTag(197, 20);
         output.WriteFloat(FwdUPrc378D);
       }
       if (FwdUPrc504D != 0F) {
-        output.WriteRawTag(197, 20);
+        output.WriteRawTag(221, 20);
         output.WriteFloat(FwdUPrc504D);
       }
       if (VWidth5D != 0F) {
-        output.WriteRawTag(221, 20);
+        output.WriteRawTag(245, 20);
         output.WriteFloat(VWidth5D);
       }
       if (VWidth10D != 0F) {
-        output.WriteRawTag(245, 20);
+        output.WriteRawTag(141, 21);
         output.WriteFloat(VWidth10D);
       }
       if (VWidth21D != 0F) {
-        output.WriteRawTag(141, 21);
+        output.WriteRawTag(165, 21);
         output.WriteFloat(VWidth21D);
       }
       if (VWidth42D != 0F) {
-        output.WriteRawTag(165, 21);
+        output.WriteRawTag(189, 21);
         output.WriteFloat(VWidth42D);
       }
       if (VWidth63D != 0F) {
-        output.WriteRawTag(189, 21);
+        output.WriteRawTag(213, 21);
         output.WriteFloat(VWidth63D);
       }
       if (VWidth84D != 0F) {
-        output.WriteRawTag(213, 21);
+        output.WriteRawTag(237, 21);
         output.WriteFloat(VWidth84D);
       }
       if (VWidth105D != 0F) {
-        output.WriteRawTag(237, 21);
+        output.WriteRawTag(133, 22);
         output.WriteFloat(VWidth105D);
       }
       if (VWidth126D != 0F) {
-        output.WriteRawTag(133, 22);
+        output.WriteRawTag(157, 22);
         output.WriteFloat(VWidth126D);
       }
       if (VWidth189D != 0F) {
-        output.WriteRawTag(157, 22);
+        output.WriteRawTag(181, 22);
         output.WriteFloat(VWidth189D);
       }
       if (VWidth252D != 0F) {
-        output.WriteRawTag(181, 22);
+        output.WriteRawTag(205, 22);
         output.WriteFloat(VWidth252D);
       }
       if (VWidth378D != 0F) {
-        output.WriteRawTag(205, 22);
+        output.WriteRawTag(229, 22);
         output.WriteFloat(VWidth378D);
       }
       if (VWidth504D != 0F) {
-        output.WriteRawTag(229, 22);
+        output.WriteRawTag(253, 22);
         output.WriteFloat(VWidth504D);
       }
       if (VSlope5D != 0F) {
-        output.WriteRawTag(253, 22);
+        output.WriteRawTag(149, 23);
         output.WriteFloat(VSlope5D);
       }
       if (VSlope10D != 0F) {
-        output.WriteRawTag(149, 23);
+        output.WriteRawTag(173, 23);
         output.WriteFloat(VSlope10D);
       }
       if (VSlope21D != 0F) {
-        output.WriteRawTag(173, 23);
+        output.WriteRawTag(197, 23);
         output.WriteFloat(VSlope21D);
       }
       if (VSlope42D != 0F) {
-        output.WriteRawTag(197, 23);
+        output.WriteRawTag(221, 23);
         output.WriteFloat(VSlope42D);
       }
       if (VSlope63D != 0F) {
-        output.WriteRawTag(221, 23);
+        output.WriteRawTag(245, 23);
         output.WriteFloat(VSlope63D);
       }
       if (VSlope84D != 0F) {
-        output.WriteRawTag(245, 23);
+        output.WriteRawTag(141, 24);
         output.WriteFloat(VSlope84D);
       }
       if (VSlope105D != 0F) {
-        output.WriteRawTag(141, 24);
+        output.WriteRawTag(165, 24);
         output.WriteFloat(VSlope105D);
       }
       if (VSlope126D != 0F) {
-        output.WriteRawTag(165, 24);
+        output.WriteRawTag(189, 24);
         output.WriteFloat(VSlope126D);
       }
       if (VSlope189D != 0F) {
-        output.WriteRawTag(189, 24);
+        output.WriteRawTag(213, 24);
         output.WriteFloat(VSlope189D);
       }
       if (VSlope252D != 0F) {
-        output.WriteRawTag(213, 24);
+        output.WriteRawTag(237, 24);
         output.WriteFloat(VSlope252D);
       }
       if (VSlope378D != 0F) {
-        output.WriteRawTag(237, 24);
+        output.WriteRawTag(133, 25);
         output.WriteFloat(VSlope378D);
       }
       if (VSlope504D != 0F) {
-        output.WriteRawTag(133, 25);
+        output.WriteRawTag(157, 25);
         output.WriteFloat(VSlope504D);
       }
       if (ECnt5D != 0) {
-        output.WriteRawTag(152, 25);
+        output.WriteRawTag(176, 25);
         output.WriteInt32(ECnt5D);
       }
       if (ECnt10D != 0) {
-        output.WriteRawTag(176, 25);
+        output.WriteRawTag(200, 25);
         output.WriteInt32(ECnt10D);
       }
       if (ECnt21D != 0) {
-        output.WriteRawTag(200, 25);
+        output.WriteRawTag(224, 25);
         output.WriteInt32(ECnt21D);
       }
       if (ECnt42D != 0) {
-        output.WriteRawTag(224, 25);
+        output.WriteRawTag(248, 25);
         output.WriteInt32(ECnt42D);
       }
       if (ECnt63D != 0) {
-        output.WriteRawTag(248, 25);
+        output.WriteRawTag(144, 26);
         output.WriteInt32(ECnt63D);
       }
       if (ECnt84D != 0) {
-        output.WriteRawTag(144, 26);
+        output.WriteRawTag(168, 26);
         output.WriteInt32(ECnt84D);
       }
       if (ECnt105D != 0) {
-        output.WriteRawTag(168, 26);
+        output.WriteRawTag(192, 26);
         output.WriteInt32(ECnt105D);
       }
       if (ECnt126D != 0) {
-        output.WriteRawTag(192, 26);
+        output.WriteRawTag(216, 26);
         output.WriteInt32(ECnt126D);
       }
       if (ECnt189D != 0) {
-        output.WriteRawTag(216, 26);
+        output.WriteRawTag(240, 26);
         output.WriteInt32(ECnt189D);
       }
       if (ECnt252D != 0) {
-        output.WriteRawTag(240, 26);
+        output.WriteRawTag(136, 27);
         output.WriteInt32(ECnt252D);
       }
       if (ECnt378D != 0) {
-        output.WriteRawTag(136, 27);
+        output.WriteRawTag(160, 27);
         output.WriteInt32(ECnt378D);
       }
       if (ECnt504D != 0) {
-        output.WriteRawTag(160, 27);
+        output.WriteRawTag(184, 27);
         output.WriteInt32(ECnt504D);
       }
       if (Status != global::Spiderrock.Protobuf.CurveStatus.Unspecified) {
-        output.WriteRawTag(184, 27);
+        output.WriteRawTag(208, 27);
         output.WriteEnum((int) Status);
       }
       if (time_ != null) {
-        output.WriteRawTag(210, 27);
+        output.WriteRawTag(234, 27);
         output.WriteMessage(Time);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(234, 27);
+        output.WriteRawTag(130, 28);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -3276,6 +3302,9 @@ namespace Spiderrock.Protobuf {
       }
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
+      }
+      if (SynSpot != 0D) {
+        size += 2 + 8;
       }
       if (HEMove != 0F) {
         size += 2 + 4;
@@ -3648,6 +3677,9 @@ namespace Spiderrock.Protobuf {
           Pkey = new global::Spiderrock.Protobuf.LiveSurfaceFixedTerm.Types.PKey();
         }
         Pkey.MergeFrom(other.Pkey);
+      }
+      if (other.SynSpot != 0D) {
+        SynSpot = other.SynSpot;
       }
       if (other.HEMove != 0F) {
         HEMove = other.HEMove;
@@ -4038,476 +4070,480 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 805: {
+          case 801: {
+            SynSpot = input.ReadDouble();
+            break;
+          }
+          case 829: {
             HEMove = input.ReadFloat();
             break;
           }
-          case 824: {
+          case 848: {
             HEMoveNum = input.ReadInt32();
             break;
           }
-          case 853: {
+          case 877: {
             HEMoveAvg = input.ReadFloat();
             break;
           }
-          case 877: {
+          case 901: {
             HEMoveStd = input.ReadFloat();
             break;
           }
-          case 901: {
+          case 925: {
             HEMoveMin = input.ReadFloat();
             break;
           }
-          case 925: {
+          case 949: {
             HEMoveMax = input.ReadFloat();
             break;
           }
-          case 949: {
+          case 973: {
             IEMove = input.ReadFloat();
             break;
           }
-          case 968: {
+          case 992: {
             IEFitCode = (global::Spiderrock.Protobuf.EFitCode) input.ReadEnum();
             break;
           }
-          case 997: {
+          case 1021: {
             IEFitError = input.ReadFloat();
             break;
           }
-          case 1016: {
+          case 1040: {
             ExpiryCount = input.ReadInt32();
             break;
           }
-          case 1045: {
+          case 1069: {
             IEMoveAvg = input.ReadFloat();
             break;
           }
-          case 1069: {
+          case 1093: {
             IEMoveStd = input.ReadFloat();
             break;
           }
-          case 1093: {
+          case 1117: {
             IEMoveMin = input.ReadFloat();
             break;
           }
-          case 1117: {
+          case 1141: {
             IEMoveMax = input.ReadFloat();
             break;
           }
-          case 1136: {
+          case 1160: {
             IEMoveCnt = input.ReadInt32();
             break;
           }
-          case 1160: {
+          case 1184: {
             EMoveExpAdj1 = input.ReadInt32();
             break;
           }
-          case 1189: {
+          case 1213: {
             EMoveYrsAdj1 = input.ReadFloat();
             break;
           }
-          case 1213: {
+          case 1237: {
             EMoveYears1 = input.ReadFloat();
             break;
           }
-          case 1234: {
+          case 1258: {
             if (eMoveEKey1_ == null) {
               EMoveEKey1 = new global::Spiderrock.Protobuf.ExpiryKey();
             }
             input.ReadMessage(EMoveEKey1);
             break;
           }
-          case 1256: {
+          case 1280: {
             EMoveExpAdj2 = input.ReadInt32();
             break;
           }
-          case 1285: {
+          case 1309: {
             EMoveYrsAdj2 = input.ReadFloat();
             break;
           }
-          case 1309: {
+          case 1333: {
             EMoveYears2 = input.ReadFloat();
             break;
           }
-          case 1330: {
+          case 1354: {
             if (eMoveEKey2_ == null) {
               EMoveEKey2 = new global::Spiderrock.Protobuf.ExpiryKey();
             }
             input.ReadMessage(EMoveEKey2);
             break;
           }
-          case 1357: {
+          case 1381: {
             AtmCenISt = input.ReadFloat();
             break;
           }
-          case 1381: {
+          case 1405: {
             AtmCenILt = input.ReadFloat();
             break;
           }
-          case 1405: {
+          case 1429: {
             AtmCenIDecay = input.ReadFloat();
             break;
           }
-          case 1429: {
+          case 1453: {
             AtmCenI5D = input.ReadFloat();
             break;
           }
-          case 1453: {
+          case 1477: {
             AtmCenI10D = input.ReadFloat();
             break;
           }
-          case 1477: {
+          case 1501: {
             AtmCenI21D = input.ReadFloat();
             break;
           }
-          case 1501: {
+          case 1525: {
             AtmCenI42D = input.ReadFloat();
             break;
           }
-          case 1525: {
+          case 1549: {
             AtmCenI63D = input.ReadFloat();
             break;
           }
-          case 1549: {
+          case 1573: {
             AtmCenI84D = input.ReadFloat();
             break;
           }
-          case 1573: {
+          case 1597: {
             AtmCenI105D = input.ReadFloat();
             break;
           }
-          case 1597: {
+          case 1621: {
             AtmCenI126D = input.ReadFloat();
             break;
           }
-          case 1621: {
+          case 1645: {
             AtmCenI189D = input.ReadFloat();
             break;
           }
-          case 1645: {
+          case 1669: {
             AtmCenI252D = input.ReadFloat();
             break;
           }
-          case 1669: {
+          case 1693: {
             AtmCenI378D = input.ReadFloat();
             break;
           }
-          case 1693: {
+          case 1717: {
             AtmCenI504D = input.ReadFloat();
             break;
           }
-          case 1717: {
+          case 1741: {
             AtmCenHSt = input.ReadFloat();
             break;
           }
-          case 1741: {
+          case 1765: {
             AtmCenHLt = input.ReadFloat();
             break;
           }
-          case 1765: {
+          case 1789: {
             AtmCenHDecay = input.ReadFloat();
             break;
           }
-          case 1789: {
+          case 1813: {
             AtmCenH5D = input.ReadFloat();
             break;
           }
-          case 1813: {
+          case 1837: {
             AtmCenH10D = input.ReadFloat();
             break;
           }
-          case 1837: {
+          case 1861: {
             AtmCenH21D = input.ReadFloat();
             break;
           }
-          case 1861: {
+          case 1885: {
             AtmCenH42D = input.ReadFloat();
             break;
           }
-          case 1885: {
+          case 1909: {
             AtmCenH63D = input.ReadFloat();
             break;
           }
-          case 1909: {
+          case 1933: {
             AtmCenH84D = input.ReadFloat();
             break;
           }
-          case 1933: {
+          case 1957: {
             AtmCenH105D = input.ReadFloat();
             break;
           }
-          case 1957: {
+          case 1981: {
             AtmCenH126D = input.ReadFloat();
             break;
           }
-          case 1981: {
+          case 2005: {
             AtmCenH189D = input.ReadFloat();
             break;
           }
-          case 2005: {
+          case 2029: {
             AtmCenH252D = input.ReadFloat();
             break;
           }
-          case 2029: {
+          case 2053: {
             AtmCenH378D = input.ReadFloat();
             break;
           }
-          case 2053: {
+          case 2077: {
             AtmCenH504D = input.ReadFloat();
             break;
           }
-          case 2077: {
+          case 2101: {
             SDiv5D = input.ReadFloat();
             break;
           }
-          case 2101: {
+          case 2125: {
             SDiv10D = input.ReadFloat();
             break;
           }
-          case 2125: {
+          case 2149: {
             SDiv21D = input.ReadFloat();
             break;
           }
-          case 2149: {
+          case 2173: {
             SDiv42D = input.ReadFloat();
             break;
           }
-          case 2173: {
+          case 2197: {
             SDiv63D = input.ReadFloat();
             break;
           }
-          case 2197: {
+          case 2221: {
             SDiv84D = input.ReadFloat();
             break;
           }
-          case 2221: {
+          case 2245: {
             SDiv105D = input.ReadFloat();
             break;
           }
-          case 2245: {
+          case 2269: {
             SDiv126D = input.ReadFloat();
             break;
           }
-          case 2269: {
+          case 2293: {
             SDiv189D = input.ReadFloat();
             break;
           }
-          case 2293: {
+          case 2317: {
             SDiv252D = input.ReadFloat();
             break;
           }
-          case 2317: {
+          case 2341: {
             SDiv378D = input.ReadFloat();
             break;
           }
-          case 2341: {
+          case 2365: {
             SDiv504D = input.ReadFloat();
             break;
           }
-          case 2365: {
+          case 2389: {
             FwdUPrc5D = input.ReadFloat();
             break;
           }
-          case 2389: {
+          case 2413: {
             FwdUPrc10D = input.ReadFloat();
             break;
           }
-          case 2413: {
+          case 2437: {
             FwdUPrc21D = input.ReadFloat();
             break;
           }
-          case 2437: {
+          case 2461: {
             FwdUPrc42D = input.ReadFloat();
             break;
           }
-          case 2461: {
+          case 2485: {
             FwdUPrc63D = input.ReadFloat();
             break;
           }
-          case 2485: {
+          case 2509: {
             FwdUPrc84D = input.ReadFloat();
             break;
           }
-          case 2509: {
+          case 2533: {
             FwdUPrc105D = input.ReadFloat();
             break;
           }
-          case 2533: {
+          case 2557: {
             FwdUPrc126D = input.ReadFloat();
             break;
           }
-          case 2557: {
+          case 2581: {
             FwdUPrc189D = input.ReadFloat();
             break;
           }
-          case 2581: {
+          case 2605: {
             FwdUPrc252D = input.ReadFloat();
             break;
           }
-          case 2605: {
+          case 2629: {
             FwdUPrc378D = input.ReadFloat();
             break;
           }
-          case 2629: {
+          case 2653: {
             FwdUPrc504D = input.ReadFloat();
             break;
           }
-          case 2653: {
+          case 2677: {
             VWidth5D = input.ReadFloat();
             break;
           }
-          case 2677: {
+          case 2701: {
             VWidth10D = input.ReadFloat();
             break;
           }
-          case 2701: {
+          case 2725: {
             VWidth21D = input.ReadFloat();
             break;
           }
-          case 2725: {
+          case 2749: {
             VWidth42D = input.ReadFloat();
             break;
           }
-          case 2749: {
+          case 2773: {
             VWidth63D = input.ReadFloat();
             break;
           }
-          case 2773: {
+          case 2797: {
             VWidth84D = input.ReadFloat();
             break;
           }
-          case 2797: {
+          case 2821: {
             VWidth105D = input.ReadFloat();
             break;
           }
-          case 2821: {
+          case 2845: {
             VWidth126D = input.ReadFloat();
             break;
           }
-          case 2845: {
+          case 2869: {
             VWidth189D = input.ReadFloat();
             break;
           }
-          case 2869: {
+          case 2893: {
             VWidth252D = input.ReadFloat();
             break;
           }
-          case 2893: {
+          case 2917: {
             VWidth378D = input.ReadFloat();
             break;
           }
-          case 2917: {
+          case 2941: {
             VWidth504D = input.ReadFloat();
             break;
           }
-          case 2941: {
+          case 2965: {
             VSlope5D = input.ReadFloat();
             break;
           }
-          case 2965: {
+          case 2989: {
             VSlope10D = input.ReadFloat();
             break;
           }
-          case 2989: {
+          case 3013: {
             VSlope21D = input.ReadFloat();
             break;
           }
-          case 3013: {
+          case 3037: {
             VSlope42D = input.ReadFloat();
             break;
           }
-          case 3037: {
+          case 3061: {
             VSlope63D = input.ReadFloat();
             break;
           }
-          case 3061: {
+          case 3085: {
             VSlope84D = input.ReadFloat();
             break;
           }
-          case 3085: {
+          case 3109: {
             VSlope105D = input.ReadFloat();
             break;
           }
-          case 3109: {
+          case 3133: {
             VSlope126D = input.ReadFloat();
             break;
           }
-          case 3133: {
+          case 3157: {
             VSlope189D = input.ReadFloat();
             break;
           }
-          case 3157: {
+          case 3181: {
             VSlope252D = input.ReadFloat();
             break;
           }
-          case 3181: {
+          case 3205: {
             VSlope378D = input.ReadFloat();
             break;
           }
-          case 3205: {
+          case 3229: {
             VSlope504D = input.ReadFloat();
             break;
           }
-          case 3224: {
+          case 3248: {
             ECnt5D = input.ReadInt32();
             break;
           }
-          case 3248: {
+          case 3272: {
             ECnt10D = input.ReadInt32();
             break;
           }
-          case 3272: {
+          case 3296: {
             ECnt21D = input.ReadInt32();
             break;
           }
-          case 3296: {
+          case 3320: {
             ECnt42D = input.ReadInt32();
             break;
           }
-          case 3320: {
+          case 3344: {
             ECnt63D = input.ReadInt32();
             break;
           }
-          case 3344: {
+          case 3368: {
             ECnt84D = input.ReadInt32();
             break;
           }
-          case 3368: {
+          case 3392: {
             ECnt105D = input.ReadInt32();
             break;
           }
-          case 3392: {
+          case 3416: {
             ECnt126D = input.ReadInt32();
             break;
           }
-          case 3416: {
+          case 3440: {
             ECnt189D = input.ReadInt32();
             break;
           }
-          case 3440: {
+          case 3464: {
             ECnt252D = input.ReadInt32();
             break;
           }
-          case 3464: {
+          case 3488: {
             ECnt378D = input.ReadInt32();
             break;
           }
-          case 3488: {
+          case 3512: {
             ECnt504D = input.ReadInt32();
             break;
           }
-          case 3512: {
+          case 3536: {
             Status = (global::Spiderrock.Protobuf.CurveStatus) input.ReadEnum();
             break;
           }
-          case 3538: {
+          case 3562: {
             if (time_ == null) {
               Time = new global::Google.Protobuf.WellKnownTypes.Duration();
             }
             input.ReadMessage(Time);
             break;
           }
-          case 3562: {
+          case 3586: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -4543,476 +4579,480 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 805: {
+          case 801: {
+            SynSpot = input.ReadDouble();
+            break;
+          }
+          case 829: {
             HEMove = input.ReadFloat();
             break;
           }
-          case 824: {
+          case 848: {
             HEMoveNum = input.ReadInt32();
             break;
           }
-          case 853: {
+          case 877: {
             HEMoveAvg = input.ReadFloat();
             break;
           }
-          case 877: {
+          case 901: {
             HEMoveStd = input.ReadFloat();
             break;
           }
-          case 901: {
+          case 925: {
             HEMoveMin = input.ReadFloat();
             break;
           }
-          case 925: {
+          case 949: {
             HEMoveMax = input.ReadFloat();
             break;
           }
-          case 949: {
+          case 973: {
             IEMove = input.ReadFloat();
             break;
           }
-          case 968: {
+          case 992: {
             IEFitCode = (global::Spiderrock.Protobuf.EFitCode) input.ReadEnum();
             break;
           }
-          case 997: {
+          case 1021: {
             IEFitError = input.ReadFloat();
             break;
           }
-          case 1016: {
+          case 1040: {
             ExpiryCount = input.ReadInt32();
             break;
           }
-          case 1045: {
+          case 1069: {
             IEMoveAvg = input.ReadFloat();
             break;
           }
-          case 1069: {
+          case 1093: {
             IEMoveStd = input.ReadFloat();
             break;
           }
-          case 1093: {
+          case 1117: {
             IEMoveMin = input.ReadFloat();
             break;
           }
-          case 1117: {
+          case 1141: {
             IEMoveMax = input.ReadFloat();
             break;
           }
-          case 1136: {
+          case 1160: {
             IEMoveCnt = input.ReadInt32();
             break;
           }
-          case 1160: {
+          case 1184: {
             EMoveExpAdj1 = input.ReadInt32();
             break;
           }
-          case 1189: {
+          case 1213: {
             EMoveYrsAdj1 = input.ReadFloat();
             break;
           }
-          case 1213: {
+          case 1237: {
             EMoveYears1 = input.ReadFloat();
             break;
           }
-          case 1234: {
+          case 1258: {
             if (eMoveEKey1_ == null) {
               EMoveEKey1 = new global::Spiderrock.Protobuf.ExpiryKey();
             }
             input.ReadMessage(EMoveEKey1);
             break;
           }
-          case 1256: {
+          case 1280: {
             EMoveExpAdj2 = input.ReadInt32();
             break;
           }
-          case 1285: {
+          case 1309: {
             EMoveYrsAdj2 = input.ReadFloat();
             break;
           }
-          case 1309: {
+          case 1333: {
             EMoveYears2 = input.ReadFloat();
             break;
           }
-          case 1330: {
+          case 1354: {
             if (eMoveEKey2_ == null) {
               EMoveEKey2 = new global::Spiderrock.Protobuf.ExpiryKey();
             }
             input.ReadMessage(EMoveEKey2);
             break;
           }
-          case 1357: {
+          case 1381: {
             AtmCenISt = input.ReadFloat();
             break;
           }
-          case 1381: {
+          case 1405: {
             AtmCenILt = input.ReadFloat();
             break;
           }
-          case 1405: {
+          case 1429: {
             AtmCenIDecay = input.ReadFloat();
             break;
           }
-          case 1429: {
+          case 1453: {
             AtmCenI5D = input.ReadFloat();
             break;
           }
-          case 1453: {
+          case 1477: {
             AtmCenI10D = input.ReadFloat();
             break;
           }
-          case 1477: {
+          case 1501: {
             AtmCenI21D = input.ReadFloat();
             break;
           }
-          case 1501: {
+          case 1525: {
             AtmCenI42D = input.ReadFloat();
             break;
           }
-          case 1525: {
+          case 1549: {
             AtmCenI63D = input.ReadFloat();
             break;
           }
-          case 1549: {
+          case 1573: {
             AtmCenI84D = input.ReadFloat();
             break;
           }
-          case 1573: {
+          case 1597: {
             AtmCenI105D = input.ReadFloat();
             break;
           }
-          case 1597: {
+          case 1621: {
             AtmCenI126D = input.ReadFloat();
             break;
           }
-          case 1621: {
+          case 1645: {
             AtmCenI189D = input.ReadFloat();
             break;
           }
-          case 1645: {
+          case 1669: {
             AtmCenI252D = input.ReadFloat();
             break;
           }
-          case 1669: {
+          case 1693: {
             AtmCenI378D = input.ReadFloat();
             break;
           }
-          case 1693: {
+          case 1717: {
             AtmCenI504D = input.ReadFloat();
             break;
           }
-          case 1717: {
+          case 1741: {
             AtmCenHSt = input.ReadFloat();
             break;
           }
-          case 1741: {
+          case 1765: {
             AtmCenHLt = input.ReadFloat();
             break;
           }
-          case 1765: {
+          case 1789: {
             AtmCenHDecay = input.ReadFloat();
             break;
           }
-          case 1789: {
+          case 1813: {
             AtmCenH5D = input.ReadFloat();
             break;
           }
-          case 1813: {
+          case 1837: {
             AtmCenH10D = input.ReadFloat();
             break;
           }
-          case 1837: {
+          case 1861: {
             AtmCenH21D = input.ReadFloat();
             break;
           }
-          case 1861: {
+          case 1885: {
             AtmCenH42D = input.ReadFloat();
             break;
           }
-          case 1885: {
+          case 1909: {
             AtmCenH63D = input.ReadFloat();
             break;
           }
-          case 1909: {
+          case 1933: {
             AtmCenH84D = input.ReadFloat();
             break;
           }
-          case 1933: {
+          case 1957: {
             AtmCenH105D = input.ReadFloat();
             break;
           }
-          case 1957: {
+          case 1981: {
             AtmCenH126D = input.ReadFloat();
             break;
           }
-          case 1981: {
+          case 2005: {
             AtmCenH189D = input.ReadFloat();
             break;
           }
-          case 2005: {
+          case 2029: {
             AtmCenH252D = input.ReadFloat();
             break;
           }
-          case 2029: {
+          case 2053: {
             AtmCenH378D = input.ReadFloat();
             break;
           }
-          case 2053: {
+          case 2077: {
             AtmCenH504D = input.ReadFloat();
             break;
           }
-          case 2077: {
+          case 2101: {
             SDiv5D = input.ReadFloat();
             break;
           }
-          case 2101: {
+          case 2125: {
             SDiv10D = input.ReadFloat();
             break;
           }
-          case 2125: {
+          case 2149: {
             SDiv21D = input.ReadFloat();
             break;
           }
-          case 2149: {
+          case 2173: {
             SDiv42D = input.ReadFloat();
             break;
           }
-          case 2173: {
+          case 2197: {
             SDiv63D = input.ReadFloat();
             break;
           }
-          case 2197: {
+          case 2221: {
             SDiv84D = input.ReadFloat();
             break;
           }
-          case 2221: {
+          case 2245: {
             SDiv105D = input.ReadFloat();
             break;
           }
-          case 2245: {
+          case 2269: {
             SDiv126D = input.ReadFloat();
             break;
           }
-          case 2269: {
+          case 2293: {
             SDiv189D = input.ReadFloat();
             break;
           }
-          case 2293: {
+          case 2317: {
             SDiv252D = input.ReadFloat();
             break;
           }
-          case 2317: {
+          case 2341: {
             SDiv378D = input.ReadFloat();
             break;
           }
-          case 2341: {
+          case 2365: {
             SDiv504D = input.ReadFloat();
             break;
           }
-          case 2365: {
+          case 2389: {
             FwdUPrc5D = input.ReadFloat();
             break;
           }
-          case 2389: {
+          case 2413: {
             FwdUPrc10D = input.ReadFloat();
             break;
           }
-          case 2413: {
+          case 2437: {
             FwdUPrc21D = input.ReadFloat();
             break;
           }
-          case 2437: {
+          case 2461: {
             FwdUPrc42D = input.ReadFloat();
             break;
           }
-          case 2461: {
+          case 2485: {
             FwdUPrc63D = input.ReadFloat();
             break;
           }
-          case 2485: {
+          case 2509: {
             FwdUPrc84D = input.ReadFloat();
             break;
           }
-          case 2509: {
+          case 2533: {
             FwdUPrc105D = input.ReadFloat();
             break;
           }
-          case 2533: {
+          case 2557: {
             FwdUPrc126D = input.ReadFloat();
             break;
           }
-          case 2557: {
+          case 2581: {
             FwdUPrc189D = input.ReadFloat();
             break;
           }
-          case 2581: {
+          case 2605: {
             FwdUPrc252D = input.ReadFloat();
             break;
           }
-          case 2605: {
+          case 2629: {
             FwdUPrc378D = input.ReadFloat();
             break;
           }
-          case 2629: {
+          case 2653: {
             FwdUPrc504D = input.ReadFloat();
             break;
           }
-          case 2653: {
+          case 2677: {
             VWidth5D = input.ReadFloat();
             break;
           }
-          case 2677: {
+          case 2701: {
             VWidth10D = input.ReadFloat();
             break;
           }
-          case 2701: {
+          case 2725: {
             VWidth21D = input.ReadFloat();
             break;
           }
-          case 2725: {
+          case 2749: {
             VWidth42D = input.ReadFloat();
             break;
           }
-          case 2749: {
+          case 2773: {
             VWidth63D = input.ReadFloat();
             break;
           }
-          case 2773: {
+          case 2797: {
             VWidth84D = input.ReadFloat();
             break;
           }
-          case 2797: {
+          case 2821: {
             VWidth105D = input.ReadFloat();
             break;
           }
-          case 2821: {
+          case 2845: {
             VWidth126D = input.ReadFloat();
             break;
           }
-          case 2845: {
+          case 2869: {
             VWidth189D = input.ReadFloat();
             break;
           }
-          case 2869: {
+          case 2893: {
             VWidth252D = input.ReadFloat();
             break;
           }
-          case 2893: {
+          case 2917: {
             VWidth378D = input.ReadFloat();
             break;
           }
-          case 2917: {
+          case 2941: {
             VWidth504D = input.ReadFloat();
             break;
           }
-          case 2941: {
+          case 2965: {
             VSlope5D = input.ReadFloat();
             break;
           }
-          case 2965: {
+          case 2989: {
             VSlope10D = input.ReadFloat();
             break;
           }
-          case 2989: {
+          case 3013: {
             VSlope21D = input.ReadFloat();
             break;
           }
-          case 3013: {
+          case 3037: {
             VSlope42D = input.ReadFloat();
             break;
           }
-          case 3037: {
+          case 3061: {
             VSlope63D = input.ReadFloat();
             break;
           }
-          case 3061: {
+          case 3085: {
             VSlope84D = input.ReadFloat();
             break;
           }
-          case 3085: {
+          case 3109: {
             VSlope105D = input.ReadFloat();
             break;
           }
-          case 3109: {
+          case 3133: {
             VSlope126D = input.ReadFloat();
             break;
           }
-          case 3133: {
+          case 3157: {
             VSlope189D = input.ReadFloat();
             break;
           }
-          case 3157: {
+          case 3181: {
             VSlope252D = input.ReadFloat();
             break;
           }
-          case 3181: {
+          case 3205: {
             VSlope378D = input.ReadFloat();
             break;
           }
-          case 3205: {
+          case 3229: {
             VSlope504D = input.ReadFloat();
             break;
           }
-          case 3224: {
+          case 3248: {
             ECnt5D = input.ReadInt32();
             break;
           }
-          case 3248: {
+          case 3272: {
             ECnt10D = input.ReadInt32();
             break;
           }
-          case 3272: {
+          case 3296: {
             ECnt21D = input.ReadInt32();
             break;
           }
-          case 3296: {
+          case 3320: {
             ECnt42D = input.ReadInt32();
             break;
           }
-          case 3320: {
+          case 3344: {
             ECnt63D = input.ReadInt32();
             break;
           }
-          case 3344: {
+          case 3368: {
             ECnt84D = input.ReadInt32();
             break;
           }
-          case 3368: {
+          case 3392: {
             ECnt105D = input.ReadInt32();
             break;
           }
-          case 3392: {
+          case 3416: {
             ECnt126D = input.ReadInt32();
             break;
           }
-          case 3416: {
+          case 3440: {
             ECnt189D = input.ReadInt32();
             break;
           }
-          case 3440: {
+          case 3464: {
             ECnt252D = input.ReadInt32();
             break;
           }
-          case 3464: {
+          case 3488: {
             ECnt378D = input.ReadInt32();
             break;
           }
-          case 3488: {
+          case 3512: {
             ECnt504D = input.ReadInt32();
             break;
           }
-          case 3512: {
+          case 3536: {
             Status = (global::Spiderrock.Protobuf.CurveStatus) input.ReadEnum();
             break;
           }
-          case 3538: {
+          case 3562: {
             if (time_ == null) {
               Time = new global::Google.Protobuf.WellKnownTypes.Duration();
             }
             input.ReadMessage(Time);
             break;
           }
-          case 3562: {
+          case 3586: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

@@ -23,8 +23,8 @@ message UserConfig {
 
     message CitrixProductControl {
         
-        CitrixProductCode product_code = 252;
-        google.protobuf.Timestamp expires = 253; // must exist (can be 2100-01-01)
+        CitrixProductCode product_code = 256;
+        google.protobuf.Timestamp expires = 259; // must exist (can be 2100-01-01)
     }
 
     message ClientFirmViewAccess {
@@ -35,38 +35,38 @@ message UserConfig {
 
     message MLinkControl {
         
-        MLinkToken token = 319;
-        google.protobuf.Timestamp expires = 322; // must exist (can be 2100-01-01)
-        StkExch stk_exch = 325; // None = ANY (only applies to message types with OptExch control fields)
-        FutExch fut_exch = 328; // None = ANY
-        OptExch opt_exch = 331; // None = ANY
+        MLinkToken token = 337;
+        google.protobuf.Timestamp expires = 340; // must exist (can be 2100-01-01)
+        StkExch stk_exch = 343; // None = ANY (only applies to message types with OptExch control fields)
+        FutExch fut_exch = 346; // None = ANY
+        OptExch opt_exch = 349; // None = ANY
     }
 
     message MarketDataControl {
         
-        MarketDataToken token = 337; // market data billing authorities (either external or internally controlled for billing purposes)
-        MarketDataScope scope = 340; // controls whether market data access is live or delayed
-        MktDataClass classification = 343;
-        google.protobuf.Timestamp expires = 346; // must exists (can be 2100-01-01)
+        MarketDataToken token = 355; // market data billing authorities (either external or internally controlled for billing purposes)
+        MarketDataScope scope = 358; // controls whether market data access is live or delayed
+        MktDataClass classification = 361;
+        google.protobuf.Timestamp expires = 364; // must exists (can be 2100-01-01)
     }
 
     message SrseHistoricalControl {
         
-        SrseProductCode product_code = 278;
-        google.protobuf.Timestamp expires = 279; // must exist (can be 2100-01-01)
+        SrseProductCode product_code = 292;
+        google.protobuf.Timestamp expires = 295; // must exist (can be 2100-01-01)
     }
 
     message SrseProductControl {
         
-        SrseProductCode product_code = 275;
-        google.protobuf.Timestamp expires = 276; // must exist (can be 2100-01-01)
+        SrseProductCode product_code = 283;
+        google.protobuf.Timestamp expires = 286; // must exist (can be 2100-01-01)
     }
 
     message WebProductControl {
         
-        WebProductToken token = 307;
-        google.protobuf.Timestamp expires = 310; // must exist (can be 2100-01-01)
-        string value = 313; // billing code/coupon (eg. FREE)
+        WebProductToken token = 325;
+        google.protobuf.Timestamp expires = 328; // must exist (can be 2100-01-01)
+        string value = 331; // billing code/coupon (eg. FREE)
     }
 
 
@@ -118,33 +118,33 @@ message UserConfig {
     string cboe_trader_id = 244; // Cboe assigned trader ID (if any)
     YesNo firm_pos_visibility = 247; // Controls whether user sees the firm position in the SV's widget
     YesNo allow_random_strategy = 250; // SV Widget Control
-    ToolServerCode tool_server_code = 256; // needs to match -toolServerCode on the tool server this user is assigned to.
-    string tool_server_host = 259; // note: this will override auto detection of a server via toolServerCode
-    int32 tool_server_port = 262; // eg, 5240 V7SP, 5440 V7SD, 5640 SV7SB, 6240 V7LP, 6440 V7LPB
-    YesNo tools_auto_shutdown = 265; // Controls whether tools should auto-shutdown (this should be controled by SR)
-    google.protobuf.Duration tools_auto_shutdown_time = 268; // Tools will shut down at this time if toolsAutoShutdown = Yes (can be overriden by user)
-    string srse_pwd_hash = 271; // MySQL password hash (used in launch_srse.py)
-    int32 srse_num_cores = 280; // maximum number of simultaneous (active) SRSE queries [0,1,2 ..., 10] [default=1] (note: 0=reject all SRSE queries)
-    int32 srse_max_connects_per_day = 283; // maximum number of user SRSE connections per day [default=500]
-    int32 srse_max_concurrent_connects = 286; // maximum number of concurrent SRSE connections [default=5] (note: SRSE has a global max of 100 simultaneous connections per user)
-    int32 srse_max_row_cache = 289; // maximum number of rows allowed to be used from the row cache
-    int32 srse_max_new_orders = 292; // maximum number of new parent orders (per day) that can be inserted via SRSE (0=NONE) [default = 500,000]
-    int32 srse_max_new_orders_per_sec = 295; // maximum number of new parent orders (per second; 4 second burst) that can be inserted via SRSE (0=NONE) [default = 250]
-    int32 srse_max_new_orders_per_statement = 298; // maximum number of new parent orders (per SQL statement) that can be inserted via SRSE (0=NONE) [default = 1,000]
-    string badges = 301; // exchange memembership and badge ids.  CFEFUT:BADGE1,NYSESTK:BADGE2,...
-    CognitoSync cognito_sync = 349;
-    google.protobuf.Timestamp cognito_reset_dttm = 352; // [custom:CognitoResetDttm] last reset dttm (if this value is greater than the value in custom:cognitoResetDttm then delete/recreate cognito user record)
-    string api_key = 355; // API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
-    google.protobuf.Timestamp api_key_expires = 358; // API access key expiration
-    string password_hash = 361; // user password (client supplied; optional; hashed value; HEX representation; SHA-256)
-    google.protobuf.Timestamp password_expires = 364; // user password expiration
-    string temp_password_hash = 367; // temporary user password hash (SR supplied; can only be used to change password)
-    google.protobuf.Timestamp temp_password_expires = 370; // temporary user password expiration
-    int32 temp_password_counter = 373; // we allow temporary passwords to be change a limited number of times
-    string mfa_secret = 376; // MFA Secret (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
-    string modified_by = 379; // [custom:ModifiedBy] user who last modified this record
-    SysEnvironment modified_in = 382;
-    google.protobuf.Timestamp timestamp = 385; // [custom:LastModified] timestamp of last modification
+    ToolServerCode tool_server_code = 262; // needs to match -toolServerCode on the tool server this user is assigned to.
+    string tool_server_host = 265; // note: this will override auto detection of a server via toolServerCode
+    int32 tool_server_port = 268; // eg, 5240 V7SP, 5440 V7SD, 5640 SV7SB, 6240 V7LP, 6440 V7LPB
+    YesNo tools_auto_shutdown = 271; // Controls whether tools should auto-shutdown (this should be controled by SR)
+    google.protobuf.Duration tools_auto_shutdown_time = 274; // Tools will shut down at this time if toolsAutoShutdown = Yes (can be overriden by user)
+    string srse_pwd_hash = 277; // MySQL password hash (used in launch_srse.py)
+    int32 srse_num_cores = 298; // maximum number of simultaneous (active) SRSE queries [0,1,2 ..., 10] [default=1] (note: 0=reject all SRSE queries)
+    int32 srse_max_connects_per_day = 301; // maximum number of user SRSE connections per day [default=500]
+    int32 srse_max_concurrent_connects = 304; // maximum number of concurrent SRSE connections [default=5] (note: SRSE has a global max of 100 simultaneous connections per user)
+    int32 srse_max_row_cache = 307; // maximum number of rows allowed to be used from the row cache
+    int32 srse_max_new_orders = 310; // maximum number of new parent orders (per day) that can be inserted via SRSE (0=NONE) [default = 500,000]
+    int32 srse_max_new_orders_per_sec = 313; // maximum number of new parent orders (per second; 4 second burst) that can be inserted via SRSE (0=NONE) [default = 250]
+    int32 srse_max_new_orders_per_statement = 316; // maximum number of new parent orders (per SQL statement) that can be inserted via SRSE (0=NONE) [default = 1,000]
+    string badges = 319; // exchange memembership and badge ids.  CFEFUT:BADGE1,NYSESTK:BADGE2,...
+    CognitoSync cognito_sync = 367;
+    google.protobuf.Timestamp cognito_reset_dttm = 370; // [custom:CognitoResetDttm] last reset dttm (if this value is greater than the value in custom:cognitoResetDttm then delete/recreate cognito user record)
+    string api_key = 373; // API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
+    google.protobuf.Timestamp api_key_expires = 376; // API access key expiration
+    string password_hash = 379; // user password (client supplied; optional; hashed value; HEX representation; SHA-256)
+    google.protobuf.Timestamp password_expires = 382; // user password expiration
+    string temp_password_hash = 385; // temporary user password hash (SR supplied; can only be used to change password)
+    google.protobuf.Timestamp temp_password_expires = 388; // temporary user password expiration
+    int32 temp_password_counter = 391; // we allow temporary passwords to be change a limited number of times
+    string mfa_secret = 394; // MFA Secret (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
+    string modified_by = 397; // [custom:ModifiedBy] user who last modified this record
+    SysEnvironment modified_in = 400;
+    google.protobuf.Timestamp timestamp = 403; // [custom:LastModified] timestamp of last modification
     string client_firm_list__v7 = 5000; // only V7
     string billing_firm__v7 = 5001; // only V7
     string first_name__v7 = 5002; // only V7
@@ -165,13 +165,13 @@ message UserConfig {
     string srse_historical_acl__v7 = 5017; // only V7
     string contact_iM__v7 = 5018; // only V7
     repeated AccountAccessControl account_access_control = 151;
-    repeated CitrixProductControl citrix_product_control = 251;
+    repeated CitrixProductControl citrix_product_control = 253;
     repeated ClientFirmViewAccess client_firm_view_access = 142;
-    repeated MLinkControl m_link_control = 316;
-    repeated MarketDataControl market_data_control = 334;
-    repeated SrseHistoricalControl srse_historical_control = 277;
-    repeated SrseProductControl srse_product_control = 274;
-    repeated WebProductControl web_product_control = 304;
+    repeated MLinkControl m_link_control = 334;
+    repeated MarketDataControl market_data_control = 352;
+    repeated SrseHistoricalControl srse_historical_control = 289;
+    repeated SrseProductControl srse_product_control = 280;
+    repeated WebProductControl web_product_control = 322;
 }
 
 
