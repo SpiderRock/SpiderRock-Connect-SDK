@@ -120,20 +120,25 @@ namespace api {
     DECL_STRONG_TYPE(num_opt_legs, int32);
     #endif//_num_opt_legs__GUARD__
 
+    #ifndef _all_legs_valid__GUARD__
+    #define _all_legs_valid__GUARD__
+    DECL_STRONG_TYPE(all_legs_valid, spiderrock::protobuf::api::YesNo);
+    #endif//_all_legs_valid__GUARD__
+
     #ifndef _user_defined__GUARD__
     #define _user_defined__GUARD__
     DECL_STRONG_TYPE(user_defined, spiderrock::protobuf::api::YesNo);
     #endif//_user_defined__GUARD__
 
-    #ifndef _spread_class__GUARD__
-    #define _spread_class__GUARD__
-    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
-    #endif//_spread_class__GUARD__
+    #ifndef _spread_type__GUARD__
+    #define _spread_type__GUARD__
+    DECL_STRONG_TYPE(spread_type, spiderrock::protobuf::api::SRSpreadType);
+    #endif//_spread_type__GUARD__
 
-    #ifndef _contains_hedge__GUARD__
-    #define _contains_hedge__GUARD__
-    DECL_STRONG_TYPE(contains_hedge, spiderrock::protobuf::api::YesNo);
-    #endif//_contains_hedge__GUARD__
+    #ifndef _ratio_type__GUARD__
+    #define _ratio_type__GUARD__
+    DECL_STRONG_TYPE(ratio_type, spiderrock::protobuf::api::SRRatioType);
+    #endif//_ratio_type__GUARD__
 
     #ifndef _leg_bid_prc__GUARD__
     #define _leg_bid_prc__GUARD__
@@ -320,6 +325,16 @@ namespace api {
     DECL_STRONG_TYPE(leg_uprc, double);
     #endif//_leg_uprc__GUARD__
 
+    #ifndef _leg_opt_mult__GUARD__
+    #define _leg_opt_mult__GUARD__
+    DECL_STRONG_TYPE(leg_opt_mult, float);
+    #endif//_leg_opt_mult__GUARD__
+
+    #ifndef _leg_fut_mult__GUARD__
+    #define _leg_fut_mult__GUARD__
+    DECL_STRONG_TYPE(leg_fut_mult, float);
+    #endif//_leg_fut_mult__GUARD__
+
     #ifndef _leg_surf_vol__GUARD__
     #define _leg_surf_vol__GUARD__
     DECL_STRONG_TYPE(leg_surf_vol, float);
@@ -464,6 +479,8 @@ namespace api {
         using leg_ask_size = spiderrock::protobuf::api::leg_ask_size;
         using leg_years = spiderrock::protobuf::api::leg_years;
         using leg_uprc = spiderrock::protobuf::api::leg_uprc;
+        using leg_opt_mult = spiderrock::protobuf::api::leg_opt_mult;
+        using leg_fut_mult = spiderrock::protobuf::api::leg_fut_mult;
         using leg_surf_vol = spiderrock::protobuf::api::leg_surf_vol;
         using leg_surf_price = spiderrock::protobuf::api::leg_surf_price;
         using leg_surf_de = spiderrock::protobuf::api::leg_surf_de;
@@ -484,6 +501,8 @@ namespace api {
         leg_ask_size m_leg_ask_size{};
         leg_years m_leg_years{};
         leg_uprc m_leg_uprc{};
+        leg_opt_mult m_leg_opt_mult{};
+        leg_fut_mult m_leg_fut_mult{};
         leg_surf_vol m_leg_surf_vol{};
         leg_surf_price m_leg_surf_price{};
         leg_surf_de m_leg_surf_de{};
@@ -524,6 +543,12 @@ namespace api {
         }
         leg_uprc get_leg_uprc() const {
             return m_leg_uprc;
+        }
+        leg_opt_mult get_leg_opt_mult() const {
+            return m_leg_opt_mult;
+        }
+        leg_fut_mult get_leg_fut_mult() const {
+            return m_leg_fut_mult;
         }
         leg_surf_vol get_leg_surf_vol() const {
             return m_leg_surf_vol;
@@ -579,6 +604,12 @@ namespace api {
         void set_leg_uprc(const leg_uprc& value)  {
             m_leg_uprc = value;
         }
+        void set_leg_opt_mult(const leg_opt_mult& value)  {
+            m_leg_opt_mult = value;
+        }
+        void set_leg_fut_mult(const leg_fut_mult& value)  {
+            m_leg_fut_mult = value;
+        }
         void set_leg_surf_vol(const leg_surf_vol& value)  {
             m_leg_surf_vol = value;
         }
@@ -617,6 +648,8 @@ namespace api {
         void set(const leg_ask_size & value) { set_leg_ask_size(value); }
         void set(const leg_years & value) { set_leg_years(value); }
         void set(const leg_uprc & value) { set_leg_uprc(value); }
+        void set(const leg_opt_mult & value) { set_leg_opt_mult(value); }
+        void set(const leg_fut_mult & value) { set_leg_fut_mult(value); }
         void set(const leg_surf_vol & value) { set_leg_surf_vol(value); }
         void set(const leg_surf_price & value) { set_leg_surf_price(value); }
         void set(const leg_surf_de & value) { set_leg_surf_de(value); }
@@ -644,48 +677,52 @@ namespace api {
             size_t totalSize = 0;
             SRProtobufCPP::OptionKeyLayout optionKeyLayout;
             m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(235,optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(238,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_leg_price_format)));
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(244,m_leg_security_desc);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(247,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(250,m_leg_ratio);
-            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(253,m_leg_bid_price);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(256,m_leg_bid_size);
-            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(259,m_leg_ask_price);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(262,m_leg_ask_size);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(265,m_leg_years);
-            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(268,m_leg_uprc);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(271,m_leg_surf_vol);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(274,m_leg_surf_price);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_leg_surf_de);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(280,m_leg_surf_ga);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(283,m_leg_surf_ve);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(286,m_leg_surf_err);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(238,optionKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(244,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_leg_price_format)));
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(247,m_leg_security_desc);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
+            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(253,m_leg_ratio);
+            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(256,m_leg_bid_price);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(259,m_leg_bid_size);
+            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(262,m_leg_ask_price);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(265,m_leg_ask_size);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(268,m_leg_years);
+            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(271,m_leg_uprc);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(274,m_leg_opt_mult);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_leg_fut_mult);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(280,m_leg_surf_vol);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(283,m_leg_surf_price);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(286,m_leg_surf_de);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(289,m_leg_surf_ga);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(292,m_leg_surf_ve);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(295,m_leg_surf_err);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             SRProtobufCPP::OptionKeyLayout optionKeyLayout;
             m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 235, optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,238,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_leg_price_format)));
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,244,static_cast<string>(m_leg_security_desc));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,247,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,250,m_leg_ratio);
-            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,253,m_leg_bid_price);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,256,m_leg_bid_size);
-            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,259,m_leg_ask_price);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,262,m_leg_ask_size);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,265,m_leg_years);
-            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,268,m_leg_uprc);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,271,m_leg_surf_vol);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,274,m_leg_surf_price);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_leg_surf_de);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,280,m_leg_surf_ga);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,283,m_leg_surf_ve);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,286,m_leg_surf_err);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 238, optionKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,244,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_leg_price_format)));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,247,static_cast<string>(m_leg_security_desc));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
+            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,253,m_leg_ratio);
+            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,256,m_leg_bid_price);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,259,m_leg_bid_size);
+            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,262,m_leg_ask_price);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,265,m_leg_ask_size);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,268,m_leg_years);
+            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,271,m_leg_uprc);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,274,m_leg_opt_mult);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_leg_fut_mult);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,280,m_leg_surf_vol);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,283,m_leg_surf_price);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,286,m_leg_surf_de);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,289,m_leg_surf_ga);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,292,m_leg_surf_ve);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,295,m_leg_surf_err);
             return dest;
         }
 
@@ -702,60 +739,66 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 235: {
+                    case 238: {
                         auto optionKey = SRProtobufCPP::FieldCodec::DecodeOptionKey(pos,max);
                         m_leg_sec_key.setFromCodec(optionKey);
                         break;
                     }
-                    case 238: {m_leg_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 241: {m_leg_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 241: {m_leg_price_format = static_cast<spiderrock::protobuf::api::PriceFormat>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 244: {m_leg_price_format = static_cast<spiderrock::protobuf::api::PriceFormat>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 244: {m_leg_security_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 247: {m_leg_security_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 247: {m_leg_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 250: {m_leg_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 250: {m_leg_ratio = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
+                    case 253: {m_leg_ratio = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
                         break;
                     }
-                    case 253: {m_leg_bid_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 256: {m_leg_bid_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         break;
                     }
-                    case 256: {m_leg_bid_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 259: {m_leg_bid_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 259: {m_leg_ask_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 262: {m_leg_ask_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         break;
                     }
-                    case 262: {m_leg_ask_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 265: {m_leg_ask_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 265: {m_leg_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 268: {m_leg_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 268: {m_leg_uprc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 271: {m_leg_uprc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         break;
                     }
-                    case 271: {m_leg_surf_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 274: {m_leg_opt_mult = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 274: {m_leg_surf_price = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 277: {m_leg_fut_mult = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 277: {m_leg_surf_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 280: {m_leg_surf_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 280: {m_leg_surf_ga = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 283: {m_leg_surf_price = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 283: {m_leg_surf_ve = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 286: {m_leg_surf_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 286: {m_leg_surf_err = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 289: {m_leg_surf_ga = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        break;
+                    }
+                    case 292: {m_leg_surf_ve = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        break;
+                    }
+                    case 295: {m_leg_surf_err = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
                 }
@@ -789,9 +832,10 @@ namespace api {
         using num_stk_legs = spiderrock::protobuf::api::num_stk_legs;
         using num_fut_legs = spiderrock::protobuf::api::num_fut_legs;
         using num_opt_legs = spiderrock::protobuf::api::num_opt_legs;
+        using all_legs_valid = spiderrock::protobuf::api::all_legs_valid;
         using user_defined = spiderrock::protobuf::api::user_defined;
-        using spread_class = spiderrock::protobuf::api::spread_class;
-        using contains_hedge = spiderrock::protobuf::api::contains_hedge;
+        using spread_type = spiderrock::protobuf::api::spread_type;
+        using ratio_type = spiderrock::protobuf::api::ratio_type;
         using leg_bid_prc = spiderrock::protobuf::api::leg_bid_prc;
         using leg_ask_prc = spiderrock::protobuf::api::leg_ask_prc;
         using leg_bid_sz = spiderrock::protobuf::api::leg_bid_sz;
@@ -838,9 +882,10 @@ namespace api {
         num_stk_legs m_num_stk_legs{};
         num_fut_legs m_num_fut_legs{};
         num_opt_legs m_num_opt_legs{};
+        all_legs_valid m_all_legs_valid{};
         user_defined m_user_defined{};
-        spread_class m_spread_class{};
-        contains_hedge m_contains_hedge{};
+        spread_type m_spread_type{};
+        ratio_type m_ratio_type{};
         leg_bid_prc m_leg_bid_prc{};
         leg_ask_prc m_leg_ask_prc{};
         leg_bid_sz m_leg_bid_sz{};
@@ -929,14 +974,17 @@ namespace api {
         num_opt_legs get_num_opt_legs() const {
             return m_num_opt_legs;
         }		
+        all_legs_valid get_all_legs_valid() const {
+            return m_all_legs_valid;
+        }		
         user_defined get_user_defined() const {
             return m_user_defined;
         }		
-        spread_class get_spread_class() const {
-            return m_spread_class;
+        spread_type get_spread_type() const {
+            return m_spread_type;
         }		
-        contains_hedge get_contains_hedge() const {
-            return m_contains_hedge;
+        ratio_type get_ratio_type() const {
+            return m_ratio_type;
         }		
         leg_bid_prc get_leg_bid_prc() const {
             return m_leg_bid_prc;
@@ -1077,14 +1125,17 @@ namespace api {
         void set_num_opt_legs(const num_opt_legs& value)  {
             m_num_opt_legs = value;
         }
+        void set_all_legs_valid(const all_legs_valid& value)  {
+            m_all_legs_valid = value;
+        }
         void set_user_defined(const user_defined& value)  {
             m_user_defined = value;
         }
-        void set_spread_class(const spread_class& value)  {
-            m_spread_class = value;
+        void set_spread_type(const spread_type& value)  {
+            m_spread_type = value;
         }
-        void set_contains_hedge(const contains_hedge& value)  {
-            m_contains_hedge = value;
+        void set_ratio_type(const ratio_type& value)  {
+            m_ratio_type = value;
         }
         void set_leg_bid_prc(const leg_bid_prc& value)  {
             m_leg_bid_prc = value;
@@ -1235,14 +1286,17 @@ namespace api {
         void set(const num_opt_legs & value) {
             set_num_opt_legs(value);
         }
+        void set(const all_legs_valid & value) {
+            set_all_legs_valid(value);
+        }
         void set(const user_defined & value) {
             set_user_defined(value);
         }
-        void set(const spread_class & value) {
-            set_spread_class(value);
+        void set(const spread_type & value) {
+            set_spread_type(value);
         }
-        void set(const contains_hedge & value) {
-            set_contains_hedge(value);
+        void set(const ratio_type & value) {
+            set_ratio_type(value);
         }
         void set(const leg_bid_prc & value) {
             set_leg_bid_prc(value);
@@ -1338,9 +1392,10 @@ namespace api {
             set(value.m_num_stk_legs);
             set(value.m_num_fut_legs);
             set(value.m_num_opt_legs);
+            set(value.m_all_legs_valid);
             set(value.m_user_defined);
-            set(value.m_spread_class);
-            set(value.m_contains_hedge);
+            set(value.m_spread_type);
+            set(value.m_ratio_type);
             set(value.m_leg_bid_prc);
             set(value.m_leg_ask_prc);
             set(value.m_leg_bid_sz);
@@ -1588,81 +1643,82 @@ namespace api {
             if ( IncludeNumOptLegs()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(151,m_num_opt_legs);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_all_legs_valid)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRSpreadType>(m_spread_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRRatioType>(m_ratio_type)));
             if ( IncludeLegBidPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(163,m_leg_bid_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(166,m_leg_bid_prc);
             }
             if ( IncludeLegAskPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(166,m_leg_ask_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(169,m_leg_ask_prc);
             }
             if ( IncludeLegBidSz()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(169,m_leg_bid_sz);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(172,m_leg_bid_sz);
             }
             if ( IncludeLegAskSz()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(172,m_leg_ask_sz);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(175,m_leg_ask_sz);
             }
             if ( IncludeSurfPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(175,m_surf_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(178,m_surf_prc);
             }
             if ( IncludeSurfDelta()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(178,m_surf_delta);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(181,m_surf_delta);
             }
             if ( IncludeSurfGamma()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(181,m_surf_gamma);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(184,m_surf_gamma);
             }
             if ( IncludeSurfVega()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(184,m_surf_vega);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(187,m_surf_vega);
             }
             if ( IncludeSurfWtVega()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(187,m_surf_wt_vega);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(190,m_surf_wt_vega);
             }
             if ( IncludeSurfError()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(190,m_surf_error);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(193,m_surf_error);
             }
             if ( IncludeMinExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(193, m_min_expiry);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(196, m_min_expiry);
             }
             if ( IncludeMaxExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(196, m_max_expiry);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(199, m_max_expiry);
             }
             if ( IncludeMinYears()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(199,m_min_years);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_min_years);
             }
             if ( IncludeMaxYears()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_max_years);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_max_years);
             }
             if ( IncludeRefUprc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_ref_uprc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_ref_uprc);
             }
             if ( IncludePrintPrice()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_print_price);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(211,m_print_price);
             }
             if ( IncludePrintTime()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(211, m_print_time);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(214, m_print_time);
             }
             if ( IncludePrintSize()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(214,m_print_size);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(217,m_print_size);
             }
             if ( IncludePrintVolume()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(217,m_print_volume);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(220,m_print_volume);
             }
             if ( IncludeGrpNum()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(220,m_grp_num);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(223,m_grp_num);
             }
             if ( IncludeSecurityDesc()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(223,m_security_desc);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(226,m_security_desc);
             }
             if ( IncludeFilterId()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(226,m_filter_id);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(229,m_filter_id);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(229, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(232, m_timestamp);
             }
             if ( IncludeMarkupLegs()) {
                 for (auto& item : m_markup_legs) {
-					totalSize += SRProtobufCPP::TagCodec::Size(232, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(235, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -1725,81 +1781,82 @@ namespace api {
             if ( IncludeNumOptLegs()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,151,m_num_opt_legs);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_all_legs_valid)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRSpreadType>(m_spread_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRRatioType>(m_ratio_type)));
             if ( IncludeLegBidPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,163,m_leg_bid_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,166,m_leg_bid_prc);
             }
             if ( IncludeLegAskPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,166,m_leg_ask_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,169,m_leg_ask_prc);
             }
             if ( IncludeLegBidSz()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,169,m_leg_bid_sz);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,172,m_leg_bid_sz);
             }
             if ( IncludeLegAskSz()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,172,m_leg_ask_sz);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,175,m_leg_ask_sz);
             }
             if ( IncludeSurfPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,175,m_surf_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,178,m_surf_prc);
             }
             if ( IncludeSurfDelta()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,178,m_surf_delta);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,181,m_surf_delta);
             }
             if ( IncludeSurfGamma()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,181,m_surf_gamma);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,184,m_surf_gamma);
             }
             if ( IncludeSurfVega()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,184,m_surf_vega);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,187,m_surf_vega);
             }
             if ( IncludeSurfWtVega()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,187,m_surf_wt_vega);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,190,m_surf_wt_vega);
             }
             if ( IncludeSurfError()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,190,m_surf_error);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,193,m_surf_error);
             }
             if ( IncludeMinExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 193, m_min_expiry);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 196, m_min_expiry);
             }
             if ( IncludeMaxExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 196, m_max_expiry);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 199, m_max_expiry);
             }
             if ( IncludeMinYears()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,199,m_min_years);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_min_years);
             }
             if ( IncludeMaxYears()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_max_years);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_max_years);
             }
             if ( IncludeRefUprc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_ref_uprc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_ref_uprc);
             }
             if ( IncludePrintPrice()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_print_price);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,211,m_print_price);
             }
             if ( IncludePrintTime()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 211, m_print_time);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 214, m_print_time);
             }
             if ( IncludePrintSize()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,214,m_print_size);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,217,m_print_size);
             }
             if ( IncludePrintVolume()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,217,m_print_volume);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,220,m_print_volume);
             }
             if ( IncludeGrpNum()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,220,m_grp_num);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,223,m_grp_num);
             }
             if ( IncludeSecurityDesc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,223,static_cast<string>(m_security_desc));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,226,static_cast<string>(m_security_desc));
             }
             if ( IncludeFilterId()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,226,m_filter_id);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,229,m_filter_id);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 229, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 232, m_timestamp);
             }
             if ( IncludeMarkupLegs()) {
                 for (auto& item : m_markup_legs) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 232, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 235, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -1938,159 +1995,164 @@ namespace api {
                         break;
                     }
                     case 154: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_user_defined = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_all_legs_valid = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 157: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_user_defined = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 160: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_contains_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_spread_type = static_cast<spiderrock::protobuf::api::SRSpreadType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 163: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_leg_bid_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 163: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_ratio_type = static_cast<spiderrock::protobuf::api::SRRatioType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 166: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_leg_ask_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                            m_leg_bid_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
                     case 169: {
-                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
-                            m_leg_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_leg_ask_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
                     case 172: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
-                            m_leg_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                            m_leg_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
                     case 175: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_leg_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 178: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_surf_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 178: {
+                    case 181: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_surf_delta = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 181: {
+                    case 184: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_surf_gamma = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 184: {
+                    case 187: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_surf_vega = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 187: {
+                    case 190: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_surf_wt_vega = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 190: {
+                    case 193: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_surf_error = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 193: {
+                    case 196: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_min_expiry = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 196: {
+                    case 199: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_max_expiry = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 199: {
+                    case 202: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_min_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 202: {
+                    case 205: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_max_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 205: {
+                    case 208: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_ref_uprc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 208: {
+                    case 211: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_print_price = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 211: {
+                    case 214: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_print_time = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 214: {
+                    case 217: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_print_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 217: {
+                    case 220: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_print_volume = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 220: {
+                    case 223: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_grp_num = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 223: {
+                    case 226: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_security_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 226: {
+                    case 229: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_filter_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 229: {
+                    case 232: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 232: {
+                    case 235: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             markup_legs item_markup_legs;
@@ -2128,9 +2190,10 @@ namespace api {
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_stk_legs>() const { return m_num_stk_legs; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_fut_legs>() const { return m_num_fut_legs; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_opt_legs>() const { return m_num_opt_legs; }
+    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::all_legs_valid>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_all_legs_valid)); }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::user_defined>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_user_defined)); }
-    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
-    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::contains_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_hedge)); }
+    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::spread_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRSpreadType>( m_spread_type)); }
+    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::ratio_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRRatioType>( m_ratio_type)); }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_bid_prc>() const { return m_leg_bid_prc; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_ask_prc>() const { return m_leg_ask_prc; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_bid_sz>() const { return m_leg_bid_sz; }
@@ -2171,6 +2234,8 @@ namespace api {
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_ask_size>() const { return m_leg_ask_size; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_years>() const { return m_leg_years; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_uprc>() const { return m_leg_uprc; }
+    template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_opt_mult>() const { return m_leg_opt_mult; }
+    template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_fut_mult>() const { return m_leg_fut_mult; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_surf_vol>() const { return m_leg_surf_vol; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_surf_price>() const { return m_leg_surf_price; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_surf_de>() const { return m_leg_surf_de; }
@@ -2199,6 +2264,8 @@ namespace api {
         o << ",\"leg_ask_size\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_ask_size>();
         o << ",\"leg_years\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_years>();
         o << ",\"leg_uprc\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_uprc>();
+        o << ",\"leg_opt_mult\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_opt_mult>();
+        o << ",\"leg_fut_mult\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_fut_mult>();
         o << ",\"leg_surf_vol\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_surf_vol>();
         o << ",\"leg_surf_price\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_surf_price>();
         o << ",\"leg_surf_de\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_surf_de>();
@@ -2239,9 +2306,10 @@ namespace api {
         o << ",\"num_stk_legs\":" << m.get<SpreadBookMarkup::num_stk_legs>();
         o << ",\"num_fut_legs\":" << m.get<SpreadBookMarkup::num_fut_legs>();
         o << ",\"num_opt_legs\":" << m.get<SpreadBookMarkup::num_opt_legs>();
+        o << ",\"all_legs_valid\":" << (int64_t)m.get<SpreadBookMarkup::all_legs_valid>();
         o << ",\"user_defined\":" << (int64_t)m.get<SpreadBookMarkup::user_defined>();
-        o << ",\"spread_class\":" << (int64_t)m.get<SpreadBookMarkup::spread_class>();
-        o << ",\"contains_hedge\":" << (int64_t)m.get<SpreadBookMarkup::contains_hedge>();
+        o << ",\"spread_type\":" << (int64_t)m.get<SpreadBookMarkup::spread_type>();
+        o << ",\"ratio_type\":" << (int64_t)m.get<SpreadBookMarkup::ratio_type>();
         o << ",\"leg_bid_prc\":" << m.get<SpreadBookMarkup::leg_bid_prc>();
         o << ",\"leg_ask_prc\":" << m.get<SpreadBookMarkup::leg_ask_prc>();
         o << ",\"leg_bid_sz\":" << m.get<SpreadBookMarkup::leg_bid_sz>();

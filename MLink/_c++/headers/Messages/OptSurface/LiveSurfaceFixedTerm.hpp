@@ -2595,355 +2595,355 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeSynSpot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(100,m_syn_spot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(50,m_syn_spot);
             }
             if ( IncludeHEmove()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(103,m_h_emove);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(100,m_h_emove);
             }
             if ( IncludeHEmoveNum()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(106,m_h_emove_num);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(103,m_h_emove_num);
             }
             if ( IncludeHEmoveAvg()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(109,m_h_emove_avg);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(106,m_h_emove_avg);
             }
             if ( IncludeHEmoveStd()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_h_emove_std);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(109,m_h_emove_std);
             }
             if ( IncludeHEmoveMin()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(115,m_h_emove_min);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_h_emove_min);
             }
             if ( IncludeHEmoveMax()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(118,m_h_emove_max);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(115,m_h_emove_max);
             }
             if ( IncludeIEmove()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(121,m_i_emove);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(118,m_i_emove);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::EFitCode>(m_i_efit_code)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::EFitCode>(m_i_efit_code)));
             if ( IncludeIEfitError()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(127,m_i_efit_error);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_i_efit_error);
             }
             if ( IncludeExpiryCount()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(130,m_expiry_count);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(127,m_expiry_count);
             }
             if ( IncludeIEmoveAvg()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(133,m_i_emove_avg);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_i_emove_avg);
             }
             if ( IncludeIEmoveStd()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(136,m_i_emove_std);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(133,m_i_emove_std);
             }
             if ( IncludeIEmoveMin()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(139,m_i_emove_min);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(136,m_i_emove_min);
             }
             if ( IncludeIEmoveMax()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(142,m_i_emove_max);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(139,m_i_emove_max);
             }
             if ( IncludeIEmoveCnt()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(145,m_i_emove_cnt);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(142,m_i_emove_cnt);
             }
             if ( IncludeEMoveExpAdj1()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(148,m_e_move_exp_adj1);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(145,m_e_move_exp_adj1);
             }
             if ( IncludeEMoveYrsAdj1()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_e_move_yrs_adj1);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(148,m_e_move_yrs_adj1);
             }
             if ( IncludeEMoveYears1()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(154,m_e_move_years1);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_e_move_years1);
             }
             if ( IncludeEMoveEkey1()) {
                 SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
                 m_e_move_ekey1.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(157, expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(154, expiryKeyLayout);
             }
             if ( IncludeEMoveExpAdj2()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(160,m_e_move_exp_adj2);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(157,m_e_move_exp_adj2);
             }
             if ( IncludeEMoveYrsAdj2()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(163,m_e_move_yrs_adj2);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(160,m_e_move_yrs_adj2);
             }
             if ( IncludeEMoveYears2()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(166,m_e_move_years2);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(163,m_e_move_years2);
             }
             if ( IncludeEMoveEkey2()) {
                 SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
                 m_e_move_ekey2.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(169, expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(166, expiryKeyLayout);
             }
             if ( IncludeAtmCenISt()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(172,m_atm_cen_i_st);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(169,m_atm_cen_i_st);
             }
             if ( IncludeAtmCenILt()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(175,m_atm_cen_i_lt);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(172,m_atm_cen_i_lt);
             }
             if ( IncludeAtmCenIDecay()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(178,m_atm_cen_i_decay);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(175,m_atm_cen_i_decay);
             }
             if ( IncludeAtmCenI5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(181,m_atm_cen_i_5d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(178,m_atm_cen_i_5d);
             }
             if ( IncludeAtmCenI10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(184,m_atm_cen_i_10d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(181,m_atm_cen_i_10d);
             }
             if ( IncludeAtmCenI21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(187,m_atm_cen_i_21d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(184,m_atm_cen_i_21d);
             }
             if ( IncludeAtmCenI42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(190,m_atm_cen_i_42d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(187,m_atm_cen_i_42d);
             }
             if ( IncludeAtmCenI63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(193,m_atm_cen_i_63d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(190,m_atm_cen_i_63d);
             }
             if ( IncludeAtmCenI84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(196,m_atm_cen_i_84d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(193,m_atm_cen_i_84d);
             }
             if ( IncludeAtmCenI105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(199,m_atm_cen_i_105d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(196,m_atm_cen_i_105d);
             }
             if ( IncludeAtmCenI126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_atm_cen_i_126d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(199,m_atm_cen_i_126d);
             }
             if ( IncludeAtmCenI189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_atm_cen_i_189d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_atm_cen_i_189d);
             }
             if ( IncludeAtmCenI252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_atm_cen_i_252d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_atm_cen_i_252d);
             }
             if ( IncludeAtmCenI378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(211,m_atm_cen_i_378d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_atm_cen_i_378d);
             }
             if ( IncludeAtmCenI504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(214,m_atm_cen_i_504d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(211,m_atm_cen_i_504d);
             }
             if ( IncludeAtmCenHSt()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(217,m_atm_cen_h_st);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(214,m_atm_cen_h_st);
             }
             if ( IncludeAtmCenHLt()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(220,m_atm_cen_h_lt);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(217,m_atm_cen_h_lt);
             }
             if ( IncludeAtmCenHDecay()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(223,m_atm_cen_h_decay);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(220,m_atm_cen_h_decay);
             }
             if ( IncludeAtmCenH5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(226,m_atm_cen_h_5d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(223,m_atm_cen_h_5d);
             }
             if ( IncludeAtmCenH10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(229,m_atm_cen_h_10d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(226,m_atm_cen_h_10d);
             }
             if ( IncludeAtmCenH21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(232,m_atm_cen_h_21d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(229,m_atm_cen_h_21d);
             }
             if ( IncludeAtmCenH42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(235,m_atm_cen_h_42d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(232,m_atm_cen_h_42d);
             }
             if ( IncludeAtmCenH63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(238,m_atm_cen_h_63d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(235,m_atm_cen_h_63d);
             }
             if ( IncludeAtmCenH84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(241,m_atm_cen_h_84d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(238,m_atm_cen_h_84d);
             }
             if ( IncludeAtmCenH105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(244,m_atm_cen_h_105d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(241,m_atm_cen_h_105d);
             }
             if ( IncludeAtmCenH126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(247,m_atm_cen_h_126d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(244,m_atm_cen_h_126d);
             }
             if ( IncludeAtmCenH189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(250,m_atm_cen_h_189d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(247,m_atm_cen_h_189d);
             }
             if ( IncludeAtmCenH252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(253,m_atm_cen_h_252d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(250,m_atm_cen_h_252d);
             }
             if ( IncludeAtmCenH378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(256,m_atm_cen_h_378d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(253,m_atm_cen_h_378d);
             }
             if ( IncludeAtmCenH504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(259,m_atm_cen_h_504d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(256,m_atm_cen_h_504d);
             }
             if ( IncludeSDiv5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(262,m_s_div_5d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(259,m_s_div_5d);
             }
             if ( IncludeSDiv10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(265,m_s_div_10d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(262,m_s_div_10d);
             }
             if ( IncludeSDiv21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(268,m_s_div_21d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(265,m_s_div_21d);
             }
             if ( IncludeSDiv42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(271,m_s_div_42d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(268,m_s_div_42d);
             }
             if ( IncludeSDiv63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(274,m_s_div_63d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(271,m_s_div_63d);
             }
             if ( IncludeSDiv84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_s_div_84d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(274,m_s_div_84d);
             }
             if ( IncludeSDiv105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(280,m_s_div_105d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_s_div_105d);
             }
             if ( IncludeSDiv126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(283,m_s_div_126d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(280,m_s_div_126d);
             }
             if ( IncludeSDiv189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(286,m_s_div_189d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(283,m_s_div_189d);
             }
             if ( IncludeSDiv252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(289,m_s_div_252d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(286,m_s_div_252d);
             }
             if ( IncludeSDiv378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(292,m_s_div_378d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(289,m_s_div_378d);
             }
             if ( IncludeSDiv504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(295,m_s_div_504d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(292,m_s_div_504d);
             }
             if ( IncludeFwdUprc5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(298,m_fwd_uprc_5d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(295,m_fwd_uprc_5d);
             }
             if ( IncludeFwdUprc10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(301,m_fwd_uprc_10d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(298,m_fwd_uprc_10d);
             }
             if ( IncludeFwdUprc21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(304,m_fwd_uprc_21d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(301,m_fwd_uprc_21d);
             }
             if ( IncludeFwdUprc42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(307,m_fwd_uprc_42d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(304,m_fwd_uprc_42d);
             }
             if ( IncludeFwdUprc63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(310,m_fwd_uprc_63d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(307,m_fwd_uprc_63d);
             }
             if ( IncludeFwdUprc84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(313,m_fwd_uprc_84d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(310,m_fwd_uprc_84d);
             }
             if ( IncludeFwdUprc105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(316,m_fwd_uprc_105d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(313,m_fwd_uprc_105d);
             }
             if ( IncludeFwdUprc126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(319,m_fwd_uprc_126d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(316,m_fwd_uprc_126d);
             }
             if ( IncludeFwdUprc189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(322,m_fwd_uprc_189d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(319,m_fwd_uprc_189d);
             }
             if ( IncludeFwdUprc252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(325,m_fwd_uprc_252d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(322,m_fwd_uprc_252d);
             }
             if ( IncludeFwdUprc378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(328,m_fwd_uprc_378d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(325,m_fwd_uprc_378d);
             }
             if ( IncludeFwdUprc504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(331,m_fwd_uprc_504d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(328,m_fwd_uprc_504d);
             }
             if ( IncludeVWidth5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(334,m_v_width_5d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(331,m_v_width_5d);
             }
             if ( IncludeVWidth10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(337,m_v_width_10d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(334,m_v_width_10d);
             }
             if ( IncludeVWidth21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(340,m_v_width_21d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(337,m_v_width_21d);
             }
             if ( IncludeVWidth42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(343,m_v_width_42d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(340,m_v_width_42d);
             }
             if ( IncludeVWidth63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(346,m_v_width_63d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(343,m_v_width_63d);
             }
             if ( IncludeVWidth84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(349,m_v_width_84d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(346,m_v_width_84d);
             }
             if ( IncludeVWidth105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(352,m_v_width_105d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(349,m_v_width_105d);
             }
             if ( IncludeVWidth126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(355,m_v_width_126d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(352,m_v_width_126d);
             }
             if ( IncludeVWidth189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(358,m_v_width_189d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(355,m_v_width_189d);
             }
             if ( IncludeVWidth252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(361,m_v_width_252d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(358,m_v_width_252d);
             }
             if ( IncludeVWidth378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(364,m_v_width_378d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(361,m_v_width_378d);
             }
             if ( IncludeVWidth504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(367,m_v_width_504d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(364,m_v_width_504d);
             }
             if ( IncludeVSlope5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(370,m_v_slope_5d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(367,m_v_slope_5d);
             }
             if ( IncludeVSlope10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(373,m_v_slope_10d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(370,m_v_slope_10d);
             }
             if ( IncludeVSlope21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(376,m_v_slope_21d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(373,m_v_slope_21d);
             }
             if ( IncludeVSlope42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(379,m_v_slope_42d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(376,m_v_slope_42d);
             }
             if ( IncludeVSlope63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(382,m_v_slope_63d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(379,m_v_slope_63d);
             }
             if ( IncludeVSlope84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(385,m_v_slope_84d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(382,m_v_slope_84d);
             }
             if ( IncludeVSlope105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(388,m_v_slope_105d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(385,m_v_slope_105d);
             }
             if ( IncludeVSlope126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(391,m_v_slope_126d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(388,m_v_slope_126d);
             }
             if ( IncludeVSlope189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(394,m_v_slope_189d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(391,m_v_slope_189d);
             }
             if ( IncludeVSlope252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(397,m_v_slope_252d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(394,m_v_slope_252d);
             }
             if ( IncludeVSlope378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(400,m_v_slope_378d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(397,m_v_slope_378d);
             }
             if ( IncludeVSlope504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(403,m_v_slope_504d);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(400,m_v_slope_504d);
             }
             if ( IncludeECnt5d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(406,m_e_cnt_5d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(403,m_e_cnt_5d);
             }
             if ( IncludeECnt10d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(409,m_e_cnt_10d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(406,m_e_cnt_10d);
             }
             if ( IncludeECnt21d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(412,m_e_cnt_21d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(409,m_e_cnt_21d);
             }
             if ( IncludeECnt42d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(415,m_e_cnt_42d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(412,m_e_cnt_42d);
             }
             if ( IncludeECnt63d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(418,m_e_cnt_63d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(415,m_e_cnt_63d);
             }
             if ( IncludeECnt84d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(421,m_e_cnt_84d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(418,m_e_cnt_84d);
             }
             if ( IncludeECnt105d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(424,m_e_cnt_105d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(421,m_e_cnt_105d);
             }
             if ( IncludeECnt126d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(427,m_e_cnt_126d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(424,m_e_cnt_126d);
             }
             if ( IncludeECnt189d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(430,m_e_cnt_189d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(427,m_e_cnt_189d);
             }
             if ( IncludeECnt252d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(433,m_e_cnt_252d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(430,m_e_cnt_252d);
             }
             if ( IncludeECnt378d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(436,m_e_cnt_378d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(433,m_e_cnt_378d);
             }
             if ( IncludeECnt504d()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(439,m_e_cnt_504d);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(436,m_e_cnt_504d);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(442,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CurveStatus>(m_status)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(439,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CurveStatus>(m_status)));
             if ( IncludeTime()) {
-                totalSize += SRProtobufCPP::FieldCodec::TimeSpanFieldSize(445, m_time);
+                totalSize += SRProtobufCPP::FieldCodec::TimeSpanFieldSize(442, m_time);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(448, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(445, m_timestamp);
             }
             return totalSize;
         }
@@ -2960,355 +2960,355 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeSynSpot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,100,m_syn_spot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,50,m_syn_spot);
             }
             if ( IncludeHEmove()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,103,m_h_emove);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,100,m_h_emove);
             }
             if ( IncludeHEmoveNum()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,106,m_h_emove_num);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,103,m_h_emove_num);
             }
             if ( IncludeHEmoveAvg()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,109,m_h_emove_avg);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,106,m_h_emove_avg);
             }
             if ( IncludeHEmoveStd()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_h_emove_std);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,109,m_h_emove_std);
             }
             if ( IncludeHEmoveMin()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,115,m_h_emove_min);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_h_emove_min);
             }
             if ( IncludeHEmoveMax()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,118,m_h_emove_max);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,115,m_h_emove_max);
             }
             if ( IncludeIEmove()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,121,m_i_emove);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,118,m_i_emove);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::EFitCode>(m_i_efit_code)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::EFitCode>(m_i_efit_code)));
             if ( IncludeIEfitError()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,127,m_i_efit_error);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_i_efit_error);
             }
             if ( IncludeExpiryCount()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,130,m_expiry_count);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,127,m_expiry_count);
             }
             if ( IncludeIEmoveAvg()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,133,m_i_emove_avg);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_i_emove_avg);
             }
             if ( IncludeIEmoveStd()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,136,m_i_emove_std);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,133,m_i_emove_std);
             }
             if ( IncludeIEmoveMin()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,139,m_i_emove_min);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,136,m_i_emove_min);
             }
             if ( IncludeIEmoveMax()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,142,m_i_emove_max);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,139,m_i_emove_max);
             }
             if ( IncludeIEmoveCnt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,145,m_i_emove_cnt);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,142,m_i_emove_cnt);
             }
             if ( IncludeEMoveExpAdj1()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,148,m_e_move_exp_adj1);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,145,m_e_move_exp_adj1);
             }
             if ( IncludeEMoveYrsAdj1()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_e_move_yrs_adj1);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,148,m_e_move_yrs_adj1);
             }
             if ( IncludeEMoveYears1()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,154,m_e_move_years1);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_e_move_years1);
             }
             if ( IncludeEMoveEkey1()) {
                 SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
                 m_e_move_ekey1.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 157, expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 154, expiryKeyLayout);
             }
             if ( IncludeEMoveExpAdj2()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,160,m_e_move_exp_adj2);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,157,m_e_move_exp_adj2);
             }
             if ( IncludeEMoveYrsAdj2()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,163,m_e_move_yrs_adj2);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,160,m_e_move_yrs_adj2);
             }
             if ( IncludeEMoveYears2()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,166,m_e_move_years2);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,163,m_e_move_years2);
             }
             if ( IncludeEMoveEkey2()) {
                 SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
                 m_e_move_ekey2.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 169, expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 166, expiryKeyLayout);
             }
             if ( IncludeAtmCenISt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,172,m_atm_cen_i_st);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,169,m_atm_cen_i_st);
             }
             if ( IncludeAtmCenILt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,175,m_atm_cen_i_lt);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,172,m_atm_cen_i_lt);
             }
             if ( IncludeAtmCenIDecay()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,178,m_atm_cen_i_decay);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,175,m_atm_cen_i_decay);
             }
             if ( IncludeAtmCenI5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,181,m_atm_cen_i_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,178,m_atm_cen_i_5d);
             }
             if ( IncludeAtmCenI10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,184,m_atm_cen_i_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,181,m_atm_cen_i_10d);
             }
             if ( IncludeAtmCenI21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,187,m_atm_cen_i_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,184,m_atm_cen_i_21d);
             }
             if ( IncludeAtmCenI42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,190,m_atm_cen_i_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,187,m_atm_cen_i_42d);
             }
             if ( IncludeAtmCenI63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,193,m_atm_cen_i_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,190,m_atm_cen_i_63d);
             }
             if ( IncludeAtmCenI84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,196,m_atm_cen_i_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,193,m_atm_cen_i_84d);
             }
             if ( IncludeAtmCenI105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,199,m_atm_cen_i_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,196,m_atm_cen_i_105d);
             }
             if ( IncludeAtmCenI126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_atm_cen_i_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,199,m_atm_cen_i_126d);
             }
             if ( IncludeAtmCenI189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_atm_cen_i_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_atm_cen_i_189d);
             }
             if ( IncludeAtmCenI252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_atm_cen_i_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_atm_cen_i_252d);
             }
             if ( IncludeAtmCenI378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,211,m_atm_cen_i_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_atm_cen_i_378d);
             }
             if ( IncludeAtmCenI504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,214,m_atm_cen_i_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,211,m_atm_cen_i_504d);
             }
             if ( IncludeAtmCenHSt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,217,m_atm_cen_h_st);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,214,m_atm_cen_h_st);
             }
             if ( IncludeAtmCenHLt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,220,m_atm_cen_h_lt);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,217,m_atm_cen_h_lt);
             }
             if ( IncludeAtmCenHDecay()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,223,m_atm_cen_h_decay);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,220,m_atm_cen_h_decay);
             }
             if ( IncludeAtmCenH5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,226,m_atm_cen_h_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,223,m_atm_cen_h_5d);
             }
             if ( IncludeAtmCenH10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,229,m_atm_cen_h_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,226,m_atm_cen_h_10d);
             }
             if ( IncludeAtmCenH21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,232,m_atm_cen_h_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,229,m_atm_cen_h_21d);
             }
             if ( IncludeAtmCenH42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,235,m_atm_cen_h_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,232,m_atm_cen_h_42d);
             }
             if ( IncludeAtmCenH63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,238,m_atm_cen_h_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,235,m_atm_cen_h_63d);
             }
             if ( IncludeAtmCenH84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,241,m_atm_cen_h_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,238,m_atm_cen_h_84d);
             }
             if ( IncludeAtmCenH105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,244,m_atm_cen_h_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,241,m_atm_cen_h_105d);
             }
             if ( IncludeAtmCenH126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,247,m_atm_cen_h_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,244,m_atm_cen_h_126d);
             }
             if ( IncludeAtmCenH189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,250,m_atm_cen_h_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,247,m_atm_cen_h_189d);
             }
             if ( IncludeAtmCenH252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,253,m_atm_cen_h_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,250,m_atm_cen_h_252d);
             }
             if ( IncludeAtmCenH378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,256,m_atm_cen_h_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,253,m_atm_cen_h_378d);
             }
             if ( IncludeAtmCenH504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,259,m_atm_cen_h_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,256,m_atm_cen_h_504d);
             }
             if ( IncludeSDiv5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,262,m_s_div_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,259,m_s_div_5d);
             }
             if ( IncludeSDiv10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,265,m_s_div_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,262,m_s_div_10d);
             }
             if ( IncludeSDiv21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,268,m_s_div_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,265,m_s_div_21d);
             }
             if ( IncludeSDiv42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,271,m_s_div_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,268,m_s_div_42d);
             }
             if ( IncludeSDiv63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,274,m_s_div_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,271,m_s_div_63d);
             }
             if ( IncludeSDiv84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_s_div_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,274,m_s_div_84d);
             }
             if ( IncludeSDiv105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,280,m_s_div_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_s_div_105d);
             }
             if ( IncludeSDiv126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,283,m_s_div_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,280,m_s_div_126d);
             }
             if ( IncludeSDiv189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,286,m_s_div_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,283,m_s_div_189d);
             }
             if ( IncludeSDiv252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,289,m_s_div_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,286,m_s_div_252d);
             }
             if ( IncludeSDiv378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,292,m_s_div_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,289,m_s_div_378d);
             }
             if ( IncludeSDiv504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,295,m_s_div_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,292,m_s_div_504d);
             }
             if ( IncludeFwdUprc5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,298,m_fwd_uprc_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,295,m_fwd_uprc_5d);
             }
             if ( IncludeFwdUprc10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,301,m_fwd_uprc_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,298,m_fwd_uprc_10d);
             }
             if ( IncludeFwdUprc21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,304,m_fwd_uprc_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,301,m_fwd_uprc_21d);
             }
             if ( IncludeFwdUprc42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,307,m_fwd_uprc_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,304,m_fwd_uprc_42d);
             }
             if ( IncludeFwdUprc63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,310,m_fwd_uprc_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,307,m_fwd_uprc_63d);
             }
             if ( IncludeFwdUprc84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,313,m_fwd_uprc_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,310,m_fwd_uprc_84d);
             }
             if ( IncludeFwdUprc105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,316,m_fwd_uprc_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,313,m_fwd_uprc_105d);
             }
             if ( IncludeFwdUprc126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,319,m_fwd_uprc_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,316,m_fwd_uprc_126d);
             }
             if ( IncludeFwdUprc189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,322,m_fwd_uprc_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,319,m_fwd_uprc_189d);
             }
             if ( IncludeFwdUprc252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,325,m_fwd_uprc_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,322,m_fwd_uprc_252d);
             }
             if ( IncludeFwdUprc378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,328,m_fwd_uprc_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,325,m_fwd_uprc_378d);
             }
             if ( IncludeFwdUprc504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,331,m_fwd_uprc_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,328,m_fwd_uprc_504d);
             }
             if ( IncludeVWidth5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,334,m_v_width_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,331,m_v_width_5d);
             }
             if ( IncludeVWidth10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,337,m_v_width_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,334,m_v_width_10d);
             }
             if ( IncludeVWidth21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,340,m_v_width_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,337,m_v_width_21d);
             }
             if ( IncludeVWidth42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,343,m_v_width_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,340,m_v_width_42d);
             }
             if ( IncludeVWidth63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,346,m_v_width_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,343,m_v_width_63d);
             }
             if ( IncludeVWidth84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,349,m_v_width_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,346,m_v_width_84d);
             }
             if ( IncludeVWidth105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,352,m_v_width_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,349,m_v_width_105d);
             }
             if ( IncludeVWidth126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,355,m_v_width_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,352,m_v_width_126d);
             }
             if ( IncludeVWidth189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,358,m_v_width_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,355,m_v_width_189d);
             }
             if ( IncludeVWidth252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,361,m_v_width_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,358,m_v_width_252d);
             }
             if ( IncludeVWidth378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,364,m_v_width_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,361,m_v_width_378d);
             }
             if ( IncludeVWidth504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,367,m_v_width_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,364,m_v_width_504d);
             }
             if ( IncludeVSlope5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,370,m_v_slope_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,367,m_v_slope_5d);
             }
             if ( IncludeVSlope10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,373,m_v_slope_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,370,m_v_slope_10d);
             }
             if ( IncludeVSlope21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,376,m_v_slope_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,373,m_v_slope_21d);
             }
             if ( IncludeVSlope42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,379,m_v_slope_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,376,m_v_slope_42d);
             }
             if ( IncludeVSlope63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,382,m_v_slope_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,379,m_v_slope_63d);
             }
             if ( IncludeVSlope84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,385,m_v_slope_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,382,m_v_slope_84d);
             }
             if ( IncludeVSlope105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,388,m_v_slope_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,385,m_v_slope_105d);
             }
             if ( IncludeVSlope126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,391,m_v_slope_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,388,m_v_slope_126d);
             }
             if ( IncludeVSlope189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,394,m_v_slope_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,391,m_v_slope_189d);
             }
             if ( IncludeVSlope252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,397,m_v_slope_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,394,m_v_slope_252d);
             }
             if ( IncludeVSlope378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,400,m_v_slope_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,397,m_v_slope_378d);
             }
             if ( IncludeVSlope504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,403,m_v_slope_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,400,m_v_slope_504d);
             }
             if ( IncludeECnt5d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,406,m_e_cnt_5d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,403,m_e_cnt_5d);
             }
             if ( IncludeECnt10d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,409,m_e_cnt_10d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,406,m_e_cnt_10d);
             }
             if ( IncludeECnt21d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,412,m_e_cnt_21d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,409,m_e_cnt_21d);
             }
             if ( IncludeECnt42d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,415,m_e_cnt_42d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,412,m_e_cnt_42d);
             }
             if ( IncludeECnt63d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,418,m_e_cnt_63d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,415,m_e_cnt_63d);
             }
             if ( IncludeECnt84d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,421,m_e_cnt_84d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,418,m_e_cnt_84d);
             }
             if ( IncludeECnt105d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,424,m_e_cnt_105d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,421,m_e_cnt_105d);
             }
             if ( IncludeECnt126d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,427,m_e_cnt_126d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,424,m_e_cnt_126d);
             }
             if ( IncludeECnt189d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,430,m_e_cnt_189d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,427,m_e_cnt_189d);
             }
             if ( IncludeECnt252d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,433,m_e_cnt_252d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,430,m_e_cnt_252d);
             }
             if ( IncludeECnt378d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,436,m_e_cnt_378d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,433,m_e_cnt_378d);
             }
             if ( IncludeECnt504d()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,439,m_e_cnt_504d);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,436,m_e_cnt_504d);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,442,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CurveStatus>(m_status)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,439,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CurveStatus>(m_status)));
             if ( IncludeTime()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeTimeSpan(dest, 445, m_time);
+                dest = SRProtobufCPP::FieldCodec::EncodeTimeSpan(dest, 442, m_time);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 448, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 445, m_timestamp);
             }
         }
 
@@ -3340,703 +3340,703 @@ namespace api {
                         }
                         break;
                     }
-                    case 100: {
+                    case 50: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_syn_spot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 103: {
+                    case 100: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_h_emove = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 106: {
+                    case 103: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_h_emove_num = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 109: {
+                    case 106: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_h_emove_avg = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 112: {
+                    case 109: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_h_emove_std = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 115: {
+                    case 112: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_h_emove_min = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 118: {
+                    case 115: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_h_emove_max = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 121: {
+                    case 118: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_i_emove = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 124: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 121: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_i_efit_code = static_cast<spiderrock::protobuf::api::EFitCode>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 127: {
+                    case 124: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_i_efit_error = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 130: {
+                    case 127: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_expiry_count = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 133: {
+                    case 130: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_i_emove_avg = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 136: {
+                    case 133: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_i_emove_std = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 139: {
+                    case 136: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_i_emove_min = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 139: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_i_emove_max = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 145: {
+                    case 142: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_i_emove_cnt = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 148: {
+                    case 145: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_move_exp_adj1 = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 151: {
+                    case 148: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_e_move_yrs_adj1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 154: {
+                    case 151: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_e_move_years1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 157: {
+                    case 154: {
                         if (tagType == SRProtobufCPP::ExpiryKeyCodec::TagType) {
                             auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
                             m_e_move_ekey1.setFromCodec(expiryKey);
                         }
                         break;
                     }
-                    case 160: {
+                    case 157: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_move_exp_adj2 = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 163: {
+                    case 160: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_e_move_yrs_adj2 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 166: {
+                    case 163: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_e_move_years2 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 169: {
+                    case 166: {
                         if (tagType == SRProtobufCPP::ExpiryKeyCodec::TagType) {
                             auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
                             m_e_move_ekey2.setFromCodec(expiryKey);
                         }
                         break;
                     }
-                    case 172: {
+                    case 169: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_st = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 175: {
+                    case 172: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_lt = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 178: {
+                    case 175: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_decay = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 181: {
+                    case 178: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_5d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 184: {
+                    case 181: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_10d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 187: {
+                    case 184: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_21d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 190: {
+                    case 187: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_42d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 193: {
+                    case 190: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_63d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 196: {
+                    case 193: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_84d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 199: {
+                    case 196: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_105d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 202: {
+                    case 199: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_126d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 205: {
+                    case 202: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_189d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 208: {
+                    case 205: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_252d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 211: {
+                    case 208: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_378d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 214: {
+                    case 211: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_i_504d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 217: {
+                    case 214: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_st = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 220: {
+                    case 217: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_lt = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 223: {
+                    case 220: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_decay = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 226: {
+                    case 223: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_5d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 229: {
+                    case 226: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_10d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 232: {
+                    case 229: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_21d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 235: {
+                    case 232: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_42d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 238: {
+                    case 235: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_63d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 241: {
+                    case 238: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_84d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 244: {
+                    case 241: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_105d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 247: {
+                    case 244: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_126d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 250: {
+                    case 247: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_189d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 253: {
+                    case 250: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_252d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 256: {
+                    case 253: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_378d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 259: {
+                    case 256: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_cen_h_504d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 262: {
+                    case 259: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_5d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 265: {
+                    case 262: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_10d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 268: {
+                    case 265: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_21d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 271: {
+                    case 268: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_42d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 274: {
+                    case 271: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_63d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 277: {
+                    case 274: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_84d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 280: {
+                    case 277: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_105d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 283: {
+                    case 280: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_126d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 286: {
+                    case 283: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_189d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 289: {
+                    case 286: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_252d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 292: {
+                    case 289: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_378d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 295: {
+                    case 292: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_s_div_504d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 298: {
+                    case 295: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_5d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 301: {
+                    case 298: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_10d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 304: {
+                    case 301: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_21d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 307: {
+                    case 304: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_42d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 310: {
+                    case 307: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_63d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 313: {
+                    case 310: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_84d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 316: {
+                    case 313: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_105d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 319: {
+                    case 316: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_126d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 322: {
+                    case 319: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_189d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 325: {
+                    case 322: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_252d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 328: {
+                    case 325: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_378d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 331: {
+                    case 328: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fwd_uprc_504d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 334: {
+                    case 331: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_5d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 337: {
+                    case 334: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_10d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 340: {
+                    case 337: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_21d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 343: {
+                    case 340: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_42d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 346: {
+                    case 343: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_63d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 349: {
+                    case 346: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_84d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 352: {
+                    case 349: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_105d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 355: {
+                    case 352: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_126d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 358: {
+                    case 355: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_189d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 361: {
+                    case 358: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_252d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 364: {
+                    case 361: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_378d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 367: {
+                    case 364: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_width_504d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 370: {
+                    case 367: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_5d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 373: {
+                    case 370: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_10d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 376: {
+                    case 373: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_21d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 379: {
+                    case 376: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_42d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 382: {
+                    case 379: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_63d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 385: {
+                    case 382: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_84d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 388: {
+                    case 385: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_105d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 391: {
+                    case 388: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_126d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 394: {
+                    case 391: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_189d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 397: {
+                    case 394: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_252d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 400: {
+                    case 397: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_378d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 403: {
+                    case 400: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_v_slope_504d = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 406: {
+                    case 403: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_5d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 409: {
+                    case 406: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_10d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 412: {
+                    case 409: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_21d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 415: {
+                    case 412: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_42d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 418: {
+                    case 415: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_63d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 421: {
+                    case 418: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_84d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 424: {
+                    case 421: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_105d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 427: {
+                    case 424: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_126d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 430: {
+                    case 427: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_189d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 433: {
+                    case 430: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_252d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 436: {
+                    case 433: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_378d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 439: {
+                    case 436: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_e_cnt_504d = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 442: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 439: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_status = static_cast<spiderrock::protobuf::api::CurveStatus>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 445: {
+                    case 442: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_time = SRProtobufCPP::FieldCodec::DecodeTimeSpan(pos,max);
                         }
                         break;
                     }
-                    case 448: {
+                    case 445: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
