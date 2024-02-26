@@ -439,22 +439,22 @@ MLinkStream allows users to stripe their connections based on pre-defined sets o
 
 | Stripe | startTicker | endTicker |
 |--------|-------------|-----------|
-|A1      |A            |ANEW      |
-|A2      |ANEW         |BKR       |
-|B1      |BKR          |COKE      |
-|B2      |COKE         |DLTR      |
-|C1      |DLTR         |FE        |
-|C2      |FE           |GSL       |
-|D1      |GSL          |JDST      |
-|D2      |JDST         |MACK      |
-|E1      |MACK         |MSVB      |
-|E2      |MSVB         |ONB       |
-|F1      |ONB          |RH        |
-|F2      |RH           |SOFO      |
-|G1      |SOFO         |TLT       |
-|G2      |TLT          |UAMY      |
-|H1      |UAMY         |WMT       |
-|H2      |WMT          |ZZZZZZ    |
+|A1      |A            |AMZN      |
+|A2      |AMZN         |COIN       |
+|B1      |COIN          |ENQZZ      |
+|B2      |ENQZZ         |GOOGL     |
+|C1      |GOOGLE         |IWM        |
+|C2      |IWM           |LRCX       |
+|D1      |LRCX          |METAA      |
+|D2      |METAA         |NFLX      |
+|E1      |NFLX         |NVDA      |
+|E2      |NVDA         |NVDAA       |
+|F1      |NVDAA          |QQQ        |
+|F2      |QQQ           |QQQA      |
+|G1      |QQQA         |SPY       |
+|G2      |SPY          |SPYA      |
+|H1      |SPYA         |TSLAA       |
+|H2      |TSLAA          |ZZZZZZ    |
 
 #### Compound OPRA / NMS Stripes (EQT)
 
@@ -473,7 +473,7 @@ MLinkStream allows users to stripe their connections based on pre-defined sets o
 
 |Stripe  |Ticker Source|
 |--------|-------------|
-|I1      |CDIJ         |
+|I1      |CDIX         |
 |I2      |DJI          |
 |I3      |RUT          |
 |I4      |MIAX         |
@@ -504,8 +504,8 @@ MLinkStream allows users to stripe their connections based on pre-defined sets o
 
 |Stripe  |Tickers                           |
 |--------|----------------------------------|
-|M       |NDX,NDXP,RUT,RUTW,MRUT            |
-|M2      |SPY                              |
+|M1       |NDX,NDXP,RUT,RUTW,MRUT            |
+|M2      |SPY, VXX                              |
 |M3      |QQQ                              |
 |M4      |IWM                              |
 
@@ -539,7 +539,7 @@ MLinkStream allows users to stripe their connections based on pre-defined sets o
 
 
 
-Note that stripes are exclusive, if a ticker is found within a specfic stripe, it will not be available in another.
+Note that stripes are exclusive, if a ticker is found within a specfic stripe, it will not be available in another. Ending ticker is not included in a stripe.
 
 
 ### Websocket Active Latency
