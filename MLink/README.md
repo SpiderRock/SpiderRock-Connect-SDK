@@ -258,7 +258,7 @@ Query parameters are a set of key/value pairs (not case-sensitive):
 - :ew: is ends with
 - :cv: is contains values
 - :nv: is does not contain value
-- :cb: is contained between (two dates for instance) separated by # 
+- :cb: is contained between (two dates for instance) separated by '$' 
 
 "getAggregate" takes in both group and measure with a msgType:
 - Group types can be the following; examples:
@@ -333,7 +333,7 @@ GetAggregate by bidPrice Range:
 
 GetAggregate complex:
 
-`https://mlink-live.nms.saturn.spiderrockconnect.com/rest/json?apikey="your_api_key_token"&cmd=getaggregate&msgtype=OptionPrint&group=timestamp:TRANGE:3&measure=prtsize&where=timestamp:cb:value1#value2`
+`https://mlink-live.nms.saturn.spiderrockconnect.com/rest/json?apikey="your_api_key_token"&cmd=getaggregate&msgtype=OptionPrint&group=timestamp:TRANGE:3&measure=prtsize&where=timestamp:cb:value1$value2`
 
 
 ## 2. Websocket API
