@@ -1,7 +1,6 @@
-
 # SRConnect via MLink
 
-This document provides an overview of the SRConnect system developed for trading Auctions via SpiderRock's MLink API. Our system leverages specific message types to enable auction initiators and responders to interact with the auction process.
+This document provides an overview of the SRConnect system developed for tresponding to Auctions via SpiderRock's MLink API. Our system leverages specific message types to enable auction responders to interact with the auction process.
 
 ## System Overview
 
@@ -9,15 +8,19 @@ The SRConnect Auction System integrates with SpiderRock's MLink API to facilitat
 
 ### Key Features
 
+- **Auction Filtering**: Participants can filter auctions of interest with `UserAuctionFilter` messages, enhancing the relevance of AuctionNotice messages.
 - **Auction Notice Publication**: Notices are consolidated into a feed called `AuctionNotice`, which streams auctions in real-time.
 - **Auction Responses**: Participants can respond to auctions directly using `NoticeResponse` messages.
-- **Auction Filtering**: Participants can filter auctions of interest with `UserAuctionFilter` messages, enhancing the relevance of AuctionNotice messages.
+- **Auction Notice Execution Report**: Participants can monitor their `NoticeResponse`.
+- **Auction Cancel**: Participants can cancel their NoticeResponse directly using `NoticeCancel` messages.
 
 ### Message Types
 
-1. **AuctionNotice**: A real-time feed of ongoing auctions available for clients to stream.
-2. **NoticeResponse**: Used by responders to participate in an auction.
-3. **UserAuctionFilter**: Allows clients to specify filters for the auctions they wish to receive notifications from `AuctionNotice`.
+1. **UserAuctionFilter**: Allows responders to specify filters for the auctions they wish to receive notifications from `AuctionNotice`.
+2. **AuctionNotice**: A real-time feed of ongoing auctions available for clients to stream.
+3. **NoticeResponse**: Used by responders to participate in an auction.
+4. **NoticeExecReport**: Allows responders to get a execution report following their `NoticeResponse`.
+5. **NoticeCancel**: Allows responders to cancel their `NoticeResponse`.
 
 ## Integration with MLink API
 
@@ -34,6 +37,75 @@ Depending on your application's needs, you can choose between REST API and WebSo
 ## Auction Message Structures
 
 Below are placeholders for the message structures used in our Auction System. Detailed specifications will be provided based on the specific requirements of each message type.
+
+### UserAuctionFilter
+
+#### UserAuctionFilter Message Schema
+
+The `UserAuctionFilter` message is vital for participants to set their preferences and filters for the auctions they are interested in from `AuctionNotice`. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+
+- **Message Type**: `UserAuctionFilter`
+- **Message Number**: 1915
+- **MLink Token**: SRConnect
+
+## Field Descriptions
+
+| Field Name          | Data Type | Enum Set                                                  | Description                                                                                                       | In Repeater      |
+|---------------------|-----------|-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------|
+| userName            | String    |                                                           | The user name associated with this filter.                                                                        |                  |
+| filterName          | String    |                                                           | The name of the filter.                                                                                           |                  |
+| clientFirm          | String    |                                                           | Identifies the SR Client Firm.                                                                                    |                  |
+| enabled             | Enum      | None, Yes, No                                              | Indicates if the filter is enabled.                                                                               |                  |
+| includeCovered      | Enum      | None, Yes, No                                              | Whether to include covered auctions in the filter.                                                                |                  |
+| includeETFs         | Enum      | None, Yes, No                                              | Whether to include ETFs in the filter.                                                                            |                  |
+| includeADRs         | Enum      | None, Yes, No                                              | Whether to include ADRs in the filter.                                                                            |                  |
+| includeIndexes      | Enum      | None, Yes, No                                              | Whether to include indexes in the filter.                                                                         |                  |
+| minUPrc             | Float     |                                                           | Minimum underlier price for auctions to be included.                                                              |                  |
+| hasUAvgDailyVlmFilter| Enum     | None, Yes, No                                              | Whether the filter includes a minimum average daily volume for the underlier.                                     |                  |
+| minUAvgDailyVlm     | Float     |                                                           | Minimum underlier average daily volume (in $1mm increments) for inclusion.                                        |                  |
+| maxUAvgDailyVlm     | Float     |                                                           | Maximum underlier average daily volume (in $1mm increments) for inclusion.                                        |                  |
+| minSize             | Float     |                                                           | Minimum size for auctions to be included.                                                                         |                  |
+| minAbsVega             | Float     |                                                           | Minimum vega for auctions to be included.                                                                         |                  |
+| hasAbsDeltaFilter   | Enum      | None, Yes, No                                              | Whether the filter includes a minimum absolute delta.                                                            |                  |
+| minAbsDelta         | Float     |                                                           | Minimum absolute delta for auctions to be included.                                                               |                  |
+| maxAbsDelta         | Float     |                                                           | Maximum absolute delta for auctions to be included.                                                               |                  |
+| hasXDeltaFilter     | Enum      | None, Yes, No                                              | Whether the filter includes a minimum x delta.                                                                    |                  |
+| minXDelta           | Float     |                                                           | Minimum x delta for auctions to be included.                                                                      |                  |
+| maxXDelta           | Float     |                                                           | Maximum x delta for auctions to be included.                                                                      |                  |
+| hasAtmSVolFilter    | Enum      | None, Yes, No                                              | Whether the filter includes a minimum ATM surface volatility.                                                     |                  |
+| minAtmSVol          | Float     |                                                           | Minimum ATM surface volatility for auctions to be included.                                                       |                  |
+| maxAtmSVol          | Float     |                                                           | Maximum ATM surface volatility for auctions to be included.                                                       |                  |
+| hasAtmSDivFilter    | Enum      | None, Yes, No                                              | Whether the filter includes a minimum ATM surface dividend yield.                                                 |                  |
+| minAtmSDiv          | Float     |                                                           | Minimum ATM surface dividend yield for auctions to be included.                                                   |                  |
+| maxAtmSDiv          | Float     |                                                           | Maximum ATM surface dividend yield for auctions to be included.                                                   |                  |
+| hasExpiryDays       | Enum      | None, Yes, No                                              | Whether the filter includes a minimum number of expiry days.                                                      |                  |
+| minExpiryDays       | Int       |                                                           | Minimum number of expiry days for auctions to be included.                                                        |                  |
+| maxExpiryDays       | Int       |                                                           | Maximum number of expiry days for auctions to be included.                                                        |                  |
+| includeZDte         | Enum      | None, Yes, No                                              | Whether to include auctions with zero days to expiry, if applicable.                                              |                  |
+| includeDaily        | Enum      | None, Yes, No                                              | Whether to include auctions with daily expiries.                                                                  |                  |
+| includeWeekly       | Enum      | None, Yes, No                                              | Whether to include auctions with weekly expiries.                                                                 |                  |
+| includeRegular      | Enum      | None, Yes, No                                              | Whether to include auctions with regular expiries.                                                                |                  |
+| includeQuarterly    | Enum      | None, Yes, No                                              | Whether to include auctions with quarterly expiries.                                                              |                  |
+| includeFlex         | Enum      | None, Yes, No                                              | Whether to include auctions with flex expiries.                                                                   |                  |
+| includeCommPaying   | Enum      | None, Yes, No                                              | Whether to include auctions where commission is being paid.                                                       |                  |
+| direction           | Enum      | None, Buy, Sell                                            | Direction of interest in the auction (Buy = Buy Regular or Sell Flipped).                                         |                  |
+| vegaDirection       | Enum      | None, Buy, Sell                                            | Vega direction of interest in the auction.                                                                        |                  |
+| modifiedBy          | String    |                                                           | User who last modified the filter.                                                                                |                   |
+| modifiedIn          | Enum      | None, Neptune, Pluto, etc.                                 | Indicates where the filter was last modified.                                                                     |                   |
+| timestamp           | DateTime  |                                                           | Timestamp of the last modification.                                                                               |                   |
+| AuctionSources      | Repeater  |                                                           | Repeater field for specifying auction sources.                                                                     |                   |
+| auctionSource       | Enum      | SRC, AMEX, BOX, etc.                                       | Specifies the auction source within `AuctionSources` repeater.                                                    | AuctionSources    |
+| AuctionTypes        | Repeater  |                                                           | Repeater field for specifying auction types.                                                                       |                   |
+| auctionType         | Enum      | Exposure, Improvement, etc.                                | Specifies the auction type within `AuctionTypes` repeater.                                                        | AuctionTypes      |
+| ExcludeTicker       | Repeater  |                                                           | Repeater field for specifying tickers to exclude.                                                                  |                   |
+| ticker              | TickerKey |                                                           | Specifies a ticker to exclude within `ExcludeTicker` repeater.                                                    | ExcludeTicker    |
+| IncludeTicker       | Repeater  |                                                           | Repeater field for specifying tickers to include.                                                                 |                   |
+| ticker            | TickerKey |                                                           | Specifies a ticker to include within `IncludeTicker` repeater.                                                    | IncludeTicker     |
+| Industry            | Repeater  |                                                           | Repeater field for specifying industries.                                                                         |                   |
+| industry          | String    |                                                           | Industry string prefix (must match left edge) for inclusion in the filter.                                         | Industry          |
+| SpreadClass         | Repeater  |                                                           | Repeater field for specifying spread classes.                                                                     |                   |
+| spreadClass       | Enum      | None, Stk, Fut, Call, Put, Synth, RevCon, Box, JRoll, Roll, Straddle, Strangle, CSpread, PSpread, VStrip, VSpread, HStrip, HSpread, BFly, RiskRev, Mixed | Specifies the spread class within `SpreadClass` repeater. | SpreadClass       |
+
 
 ### AuctionNotice
 
@@ -150,71 +222,64 @@ The `NoticeResponse` message is crucial for participants responding to auction n
 | positionType  | Enum      | None, Auto, Open, Close, Long, Short, SellShort, Exempt, Cover | (In `OrderLegs`) Specifies the position type of the order leg                                                        | OrderLegs   |
 
 
-### UserAuctionFilter
+### NoticeExecReport
 
-#### UserAuctionFilter Message Schema
+#### NoticeExecReport Message Schema
 
-The `UserAuctionFilter` message is vital for participants to set their preferences and filters for the auctions they are interested in. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+The `NoticeExecReport` message type is integral for reporting the execution results of `NoticeResponse` within the SpiderRock trading system. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
 
-- **Message Type**: `UserAuctionFilter`
-- **Message Number**: 1915
-- **MLink Token**: SRConnect
+- **Message Type**: `NoticeExecReport`
+- **Message Number**: 2475
+- **MLink Token**: `SRConnect`
 
-## Field Descriptions
 
-| Field Name          | Data Type | Enum Set                                                  | Description                                                                                                       | In Repeater      |
-|---------------------|-----------|-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------|
-| userName            | String    |                                                           | The user name associated with this filter.                                                                        |                  |
-| filterName          | String    |                                                           | The name of the filter.                                                                                           |                  |
-| clientFirm          | String    |                                                           | Identifies the SR Client Firm.                                                                                    |                  |
-| enabled             | Enum      | None, Yes, No                                              | Indicates if the filter is enabled.                                                                               |                  |
-| includeCovered      | Enum      | None, Yes, No                                              | Whether to include covered auctions in the filter.                                                                |                  |
-| includeETFs         | Enum      | None, Yes, No                                              | Whether to include ETFs in the filter.                                                                            |                  |
-| includeADRs         | Enum      | None, Yes, No                                              | Whether to include ADRs in the filter.                                                                            |                  |
-| includeIndexes      | Enum      | None, Yes, No                                              | Whether to include indexes in the filter.                                                                         |                  |
-| minUPrc             | Float     |                                                           | Minimum underlier price for auctions to be included.                                                              |                  |
-| hasUAvgDailyVlmFilter| Enum     | None, Yes, No                                              | Whether the filter includes a minimum average daily volume for the underlier.                                     |                  |
-| minUAvgDailyVlm     | Float     |                                                           | Minimum underlier average daily volume (in $1mm increments) for inclusion.                                        |                  |
-| maxUAvgDailyVlm     | Float     |                                                           | Maximum underlier average daily volume (in $1mm increments) for inclusion.                                        |                  |
-| minSize             | Float     |                                                           | Minimum size for auctions to be included.                                                                         |                  |
-| minAbsVega             | Float     |                                                           | Minimum vega for auctions to be included.                                                                         |                  |
-| hasAbsDeltaFilter   | Enum      | None, Yes, No                                              | Whether the filter includes a minimum absolute delta.                                                            |                  |
-| minAbsDelta         | Float     |                                                           | Minimum absolute delta for auctions to be included.                                                               |                  |
-| maxAbsDelta         | Float     |                                                           | Maximum absolute delta for auctions to be included.                                                               |                  |
-| hasXDeltaFilter     | Enum      | None, Yes, No                                              | Whether the filter includes a minimum x delta.                                                                    |                  |
-| minXDelta           | Float     |                                                           | Minimum x delta for auctions to be included.                                                                      |                  |
-| maxXDelta           | Float     |                                                           | Maximum x delta for auctions to be included.                                                                      |                  |
-| hasAtmSVolFilter    | Enum      | None, Yes, No                                              | Whether the filter includes a minimum ATM surface volatility.                                                     |                  |
-| minAtmSVol          | Float     |                                                           | Minimum ATM surface volatility for auctions to be included.                                                       |                  |
-| maxAtmSVol          | Float     |                                                           | Maximum ATM surface volatility for auctions to be included.                                                       |                  |
-| hasAtmSDivFilter    | Enum      | None, Yes, No                                              | Whether the filter includes a minimum ATM surface dividend yield.                                                 |                  |
-| minAtmSDiv          | Float     |                                                           | Minimum ATM surface dividend yield for auctions to be included.                                                   |                  |
-| maxAtmSDiv          | Float     |                                                           | Maximum ATM surface dividend yield for auctions to be included.                                                   |                  |
-| hasExpiryDays       | Enum      | None, Yes, No                                              | Whether the filter includes a minimum number of expiry days.                                                      |                  |
-| minExpiryDays       | Int       |                                                           | Minimum number of expiry days for auctions to be included.                                                        |                  |
-| maxExpiryDays       | Int       |                                                           | Maximum number of expiry days for auctions to be included.                                                        |                  |
-| includeZDte         | Enum      | None, Yes, No                                              | Whether to include auctions with zero days to expiry, if applicable.                                              |                  |
-| includeDaily        | Enum      | None, Yes, No                                              | Whether to include auctions with daily expiries.                                                                  |                  |
-| includeWeekly       | Enum      | None, Yes, No                                              | Whether to include auctions with weekly expiries.                                                                 |                  |
-| includeRegular      | Enum      | None, Yes, No                                              | Whether to include auctions with regular expiries.                                                                |                  |
-| includeQuarterly    | Enum      | None, Yes, No                                              | Whether to include auctions with quarterly expiries.                                                              |                  |
-| includeFlex         | Enum      | None, Yes, No                                              | Whether to include auctions with flex expiries.                                                                   |                  |
-| includeCommPaying   | Enum      | None, Yes, No                                              | Whether to include auctions where commission is being paid.                                                       |                  |
-| direction           | Enum      | None, Buy, Sell                                            | Direction of interest in the auction (Buy = Buy Regular or Sell Flipped).                                         |                  |
-| vegaDirection       | Enum      | None, Buy, Sell                                            | Vega direction of interest in the auction.                                                                        |                  |
-| modifiedBy          | String    |                                                           | User who last modified the filter.                                                                                |                   |
-| modifiedIn          | Enum      | None, Neptune, Pluto, etc.                                 | Indicates where the filter was last modified.                                                                     |                   |
-| timestamp           | DateTime  |                                                           | Timestamp of the last modification.                                                                               |                   |
-| AuctionSources      | Repeater  |                                                           | Repeater field for specifying auction sources.                                                                     |                   |
-| auctionSource       | Enum      | SRC, AMEX, BOX, etc.                                       | Specifies the auction source within `AuctionSources` repeater.                                                    | AuctionSources    |
-| AuctionTypes        | Repeater  |                                                           | Repeater field for specifying auction types.                                                                       |                   |
-| auctionType         | Enum      | Exposure, Improvement, etc.                                | Specifies the auction type within `AuctionTypes` repeater.                                                        | AuctionTypes      |
-| ExcludeTicker       | Repeater  |                                                           | Repeater field for specifying tickers to exclude.                                                                  |                   |
-| ticker              | TickerKey |                                                           | Specifies a ticker to exclude within `ExcludeTicker` repeater.                                                    | ExcludeTicker    |
-| IncludeTicker       | Repeater  |                                                           | Repeater field for specifying tickers to include.                                                                 |                   |
-| ticker            | TickerKey |                                                           | Specifies a ticker to include within `IncludeTicker` repeater.                                                    | IncludeTicker     |
-| Industry            | Repeater  |                                                           | Repeater field for specifying industries.                                                                         |                   |
-| industry          | String    |                                                           | Industry string prefix (must match left edge) for inclusion in the filter.                                         | Industry          |
-| SpreadClass         | Repeater  |                                                           | Repeater field for specifying spread classes.                                                                     |                   |
-| spreadClass       | Enum      | None, Stk, Fut, Call, Put, Synth, RevCon, Box, JRoll, Roll, Straddle, Strangle, CSpread, PSpread, VStrip, VSpread, HStrip, HSpread, BFly, RiskRev, Mixed | Specifies the spread class within `SpreadClass` repeater. | SpreadClass       |
+| Field Name        | Data Type | Enum Set                                                           | Description                                                                                                                                | In Repeater   |
+|-------------------|-----------|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| noticeNumber      | Long      |                                                                    | AuctionNotice.noticeNumber                                                                                                                 |               |
+| accnt             | String    |                                                                    | SR Accnt                                                                                                                                   |               |
+| clientFirm        | String    |                                                                    | SR ClientFirm                                                                                                                              |               |
+| responseId        | String    |                                                                    | from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)                           |               |
+| stageType         | Enum      | None, ModifyAny, ModifyAlgo                                        |                                                                                                                                            |               |
+| respSide          | Enum      | None, Buy, Sell                                                    |                                                                                                                                            |               |
+| respSize          | Int       |                                                                    |                                                                                                                                            |               |
+| respActiveSize    | Int       |                                                                    | active response order size (zero for ActiveHold)                                                                                          |               |
+| respPrice         | Double    |                                                                    |                                                                                                                                            |               |
+| refUPrc           | Double    |                                                                    |                                                                                                                                            |               |
+| refDe             | Float     |                                                                    |                                                                                                                                            |               |
+| refGa             | Float     |                                                                    |                                                                                                                                            |               |
+| riskGroupId       | Long      |                                                                    | any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)                                                        |               |
+| strategy          | String    |                                                                    | user strategy field (visible on SR tools)                                                                                                  |               |
+| userData1         | Text1     |                                                                    | user data field (free text) (from NoticeResponse)                                                                                          |               |
+| respStatus        | Enum      | PendNew, New, PendClose, Closed, Rejected, SendReject               |                                                                                                                                            |               |
+| respDetail        | Text1     |                                                                    |                                                                                                                                            |               |
+| pkgCumFillQty     | Int       |                                                                    |                                                                                                                                            |               |
+| pkgAvgFillPrice   | Double    |                                                                    |                                                                                                                                            |               |
+| timestamp         | DateTime  |                                                                    |                                                                                                                                            |               |
+| OrderLegs         | Repeater  |                                                                    | Details about the individual legs of the order.                                                                                            |               |
+| secKey            | OptionKey |                                                                    | Security key for each leg.                                                                                                                 | OrderLegs      |
+| secType           | Enum      | None, Stock, Future, Option, MLeg                                  | Type of security for each leg.                                                                                                             | OrderLegs      |
+| side              | Enum      | None, Buy, Sell                                                    | Side of each leg.                                                                                                                          | OrderLegs      |
+| ratio             | Int       |                                                                    | Ratio of each leg in the order.                                                                                                            | OrderLegs      |
+| positionType      | Enum      | None, Auto, Open, Close, Long, Short, SellShort, Exempt, Cover     | Position type for each leg.                                                                                                                | OrderLegs      |
+| legCumFillQty     | Int       |                                                                    | Cumulative fill quantity for each leg.                                                                                                     | OrderLegs      |
+| legAvgFillPrice   | Double    |                                                                    | Average fill price for each leg.                                                                                                           | OrderLegs      |
 
+
+
+### NoticeCancel
+
+#### NoticeCancel Message Schema
+
+The `NoticeCancel` message type is utilized for canceling previously issued `NoticeResponse` messages auction notices within the SpiderRock system. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+
+- **Message Type**: `NoticeCancel`
+- **Message Number**: 2480
+- **MLink Token**: `SRConnect`
+
+
+| Field Name    | Data Type | Description                                                    |
+|---------------|-----------|----------------------------------------------------------------|
+| noticeNumber  | Long      | (Required) Corresponds to the `AuctionNotice.noticeNumber`.    |
+| accnt         | String    | (Required) Identifies the SpiderRock account.                  |
+| clientFirm    | String    | (Optional) Specifies the client firm.                         |
+| timestamp     | DateTime  | Timestamp marking when the cancellation request was initiated. |
