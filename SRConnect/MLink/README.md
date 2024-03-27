@@ -9,17 +9,15 @@ The SRConnect Auction System integrates with SpiderRock's MLink API to facilitat
 
 ### Key Features
 
-- **Auction Initiation**: Auction initiators can send `AuctionNotice` messages to signal the start of an auction.
-- **Auction Notice Publication**: Notices are consolidated into a feed called `SpdrAuctionState`, which streams all auctions in real-time.
+- **Auction Notice Publication**: Notices are consolidated into a feed called `AuctionNotice`, which streams auctions in real-time.
 - **Auction Responses**: Participants can respond to auctions directly using `NoticeResponse` messages.
-- **Auction Filtering**: Participants can filter auctions of interest with `UserAuctionFilter` messages, enhancing the relevance of auction notifications.
+- **Auction Filtering**: Participants can filter auctions of interest with `UserAuctionFilter` messages, enhancing the relevance of AuctionNotice messages.
 
 ### Message Types
 
-1. **AuctionNotice**: Sent by auction initiators to announce a new auction.
+1. **AuctionNotice**: A real-time feed of ongoing auctions available for clients to stream.
 2. **NoticeResponse**: Used by responders to participate in an auction.
-3. **UserAuctionFilter**: Allows clients to specify filters for the auctions they wish to receive notifications for.
-4. **SpdrAuctionState**: A real-time feed of ongoing auctions available for clients to stream.
+3. **UserAuctionFilter**: Allows clients to specify filters for the auctions they wish to receive notifications from `AuctionNotice`.
 
 ## Integration with MLink API
 
@@ -41,7 +39,7 @@ Below are placeholders for the message structures used in our Auction System. De
 
 #### AuctionNotice Message Schema
 
-The `AuctionNotice` message is integral to initiating and managing auctions. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+The `AuctionNotice` message is a stream of Auction Notices available. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
 
 - **Message Type**: `AuctionNotice`
 - **Message Number**: 2465
@@ -220,60 +218,3 @@ The `UserAuctionFilter` message is vital for participants to set their preferenc
 | SpreadClass         | Repeater  |                                                           | Repeater field for specifying spread classes.                                                                     |                   |
 | spreadClass       | Enum      | None, Stk, Fut, Call, Put, Synth, RevCon, Box, JRoll, Roll, Straddle, Strangle, CSpread, PSpread, VStrip, VSpread, HStrip, HSpread, BFly, RiskRev, Mixed | Specifies the spread class within `SpreadClass` repeater. | SpreadClass       |
 
-
-### SpdrAuctionState
-
-#### SpdrAuctionState Message Schema
-
-The `SpdrAuctionState` message type is crucial for participants in the SpiderRock trading system, providing real-time updates on auction states. Below is the schema detailing each field associated with this message type, including data types, enum sets (where applicable), and descriptions.
-
-- **Message Type**: `SpdrAuctionState`
-- **Message Number**: 2525
-- **MLink Token**: OptExchAuction
-
-## Field Descriptions
-
-| Field Name             | Data Type   | Enum Set                                                                                                                | Description                                                                                                                   | In Repeater |
-|------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------|
-| secKey                 | OptionKey   |                                                                                                                         | Security key associated with the auction.                                                                                     |             |
-| secType                | Enum        | None, Stock, Future, Option, MLeg                                                                                       | Type of security involved in the auction.                                                                                     |             |
-| auctionExch            | Enum        | None, AMEX, BOX, etc.                                                                                                   | The exchange handling the auction.                                                                                            |             |
-| auctionExDest          | String      |                                                                                                                         | External destination of auction, usually indicating off-exchange.                                                             |             |
-| srAuctionID            | Long        |                                                                                                                         | Unique SpiderRock AUCTION ID, required when responding to an auction notice.                                                  |             |
-| exchAuctionId          | String      |                                                                                                                         | Exchange-specific auction ID.                                                                                                 |             |
-| exchAuctionType        | String      |                                                                                                                         | Type of the auction as defined by the exchange.                                                                               |             |
-| isTestAuction          | Enum        | None, Yes, No                                                                                                           | Indicates if the auction is a test auction.                                                                                   |             |
-| auctionEvent           | Enum        | None, Start, Update, End                                                                                                | The current event stage of the auction.                                                                                       |             |
-| auctionShape           | Enum        | None, Single, MLeg                                                                                                      | Shape or structure of the auction.                                                                                            |             |
-| auctionType            | Enum        | None, Exposure, etc.                                                                                                    | Type of auction being conducted.                                                                                              |             |
-| auctionSide            | Enum        | None, Buy, Sell                                                                                                         | Market side of the auction, if known. Responder should be on the opposite side.                                               |             |
-| auctionSize            | Int         |                                                                                                                         | Size available to trade in the auction.                                                                                       |             |
-| auctionPrice           | Double      |                                                                                                                         | Price at which the auction is set to execute.                                                                                 |             |
-| isAuctionPriceValid    | Enum        | None, Yes, No                                                                                                           | Indicates if the auction price is considered valid.                                                                           |             |
-| auctionDuration        | Int         |                                                                                                                         | Expected duration of the auction/imbalance action in milliseconds.                                                            |             |
-| auctionStartSize       | Int         |                                                                                                                         | Initial size at the start of the auction.                                                                                     |             |
-| auctionStartPrice      | Double      |                                                                                                                         | Initial price at the start of the auction.                                                                                    |             |
-| auctionStartTimestamp  | Long        |                                                                                                                         | Timestamp marking the start of the auction.                                                                                   |             |
-| minResponseSize        | Int         |                                                                                                                         | Minimum size of response order required.                                                                                      |             |
-| limitType              | Enum        | None, Market, Limit                                                                                                     | Limit type of the client side of the auction, if available.                                                                   |             |
-| firmType               | Enum        | None, Customer, Firm, etc.                                                                                              | Firm type of the client side of the auction, if available.                                                                    |             |
-| memberMPID             | String      |                                                                                                                         | Exchange member initiating the auction, if available.                                                                         |             |
-| clientAccnt            | String      |                                                                                                                         | Client account designation, if known.                                                                                         |             |
-| otherDetail            | String      |                                                                                                                         | Additional details about the auction, exchange-specific.                                                                      |             |
-| matchedSize            | Int         |                                                                                                                         | Size already matched in the auction, potentially available for trading at a better price.                                     |             |
-| numUpdates             | Byte        |                                                                                                                         | Number of auction updates received, not counting the termination message.                                                     |             |
-| numResponses           | Byte        |                                                                                                                         | Number of responses reported by the exchange, if available.                                                                   |             |
-| bestResponseSize       | Int         |                                                                                                                         |                                                                                                                               |             |
-| bestResponsePrice      | Double      |                                                                                                                         |                                                                                                                               |             |
-| cumFillQuantity        | Int         |                                                                                                                         | Cumulative fill quantity reported by the exchange, if available.                                                              |             |
-| avgFillPrice           | Double      |                                                                                                                         | Average fill price, as reported by the exchange, if available.                                                                |             |
-| marketStatus           | Enum        | None, PreOpen, PreCross, etc.                                                                                           | Market status at the time of the auction update.                                                                              |             |
-| srcTimestamp           | Long        |                                                                                                                         | Source timestamp in nanoseconds, if available.                                                                                |             |
-| netTimestamp           | Long        |                                                                                                                         | Network timestamp of message arrival at direct exchange gateway.                                                              |             |
-| dgwTimestamp           | Long        |                                                                                                                         | Network timestamp of message send at direct exchange gateway.                                                                 |             |
-| timestamp              | DateTime    |                                                                                                                         | General timestamp for the auction update.                                                                                     |             |
-| Legs                   | Repeater    |                                                                                                                         | Details about the individual legs of the auction if it's a multi-leg auction.                                                |             |
-| - legSecKey            | OptionKey   |                                                                                                                         | Security key for each leg.                                                                                                    | Legs        |
-| - legSecType           | Enum        | None, Stock, Future, etc.                                                                                               | Type of security for each leg.                                                                                                | Legs        |
-| - legSide              | Enum        | None, Buy, Sell                                                                                                         | Side of each leg.                                                                                                             | Legs        |
-| - legRatio             | UShort      |                                                                                                                         | Ratio for each leg.                                                                                                           | Legs        |
