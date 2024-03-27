@@ -5,7 +5,7 @@ This document provides an overview of the SRConnect system developed for trading
 
 ## System Overview
 
-The SRConnect Auction System integrates with SpiderRock's MLink API to facilitate real-time options trading through auctions. It utilizes a set of predefined message types to manage auction notices, responses, and state updates. This system is designed to work with the FIX financial protocol and SpiderRock's Trade Tool alongside the MLink API.
+The SRConnect Auction System integrates with SpiderRock's MLink API to facilitate Auction reponses. It utilizes a set of predefined message types to manage auction notices and responses. This system is designed to work with the FIX financial protocol and SpiderRock's Trade Tool alongside the MLink API.
 
 ### Key Features
 
@@ -177,7 +177,7 @@ The `UserAuctionFilter` message is vital for participants to set their preferenc
 | minUAvgDailyVlm     | Float     |                                                           | Minimum underlier average daily volume (in $1mm increments) for inclusion.                                        |                  |
 | maxUAvgDailyVlm     | Float     |                                                           | Maximum underlier average daily volume (in $1mm increments) for inclusion.                                        |                  |
 | minSize             | Float     |                                                           | Minimum size for auctions to be included.                                                                         |                  |
-| minVega             | Float     |                                                           | Minimum vega for auctions to be included.                                                                         |                  |
+| minAbsVega             | Float     |                                                           | Minimum vega for auctions to be included.                                                                         |                  |
 | hasAbsDeltaFilter   | Enum      | None, Yes, No                                              | Whether the filter includes a minimum absolute delta.                                                            |                  |
 | minAbsDelta         | Float     |                                                           | Minimum absolute delta for auctions to be included.                                                               |                  |
 | maxAbsDelta         | Float     |                                                           | Maximum absolute delta for auctions to be included.                                                               |                  |
