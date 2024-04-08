@@ -331,7 +331,7 @@ namespace spiderrock {
             };
 
 
-            bool connect(const std::string & url, const std::string & apikey, details::Context &context, std::unique_ptr<ISocket> &socket)
+            static bool connect(const std::string & url, const std::string & apikey, details::Context &context, std::unique_ptr<ISocket> &socket)
             {
                 using namespace boost::urls;
 
@@ -344,7 +344,7 @@ namespace spiderrock {
                 } else if (uv.scheme() == "wss") {
                     socket = std::make_unique<WebSocket<true>>();
                     auto ws = static_cast<WebSocket<true>*>(socket.get());
-                    return ws->connect(uv.host(), "443", uv.path(), uv.query(), apikey);
+                    return ws->connect(uv.host(), uv.port(), uv.path(), uv.query(), apikey);
                 } else if (uv.scheme() == "http") {
                     socket = std::make_unique<HttpSocket<false>>();
                     auto ws = static_cast<HttpSocket<false>*>(socket.get());

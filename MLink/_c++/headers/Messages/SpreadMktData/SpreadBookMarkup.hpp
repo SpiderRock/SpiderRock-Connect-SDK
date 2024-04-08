@@ -120,25 +120,20 @@ namespace api {
     DECL_STRONG_TYPE(num_opt_legs, int32);
     #endif//_num_opt_legs__GUARD__
 
-    #ifndef _all_legs_valid__GUARD__
-    #define _all_legs_valid__GUARD__
-    DECL_STRONG_TYPE(all_legs_valid, spiderrock::protobuf::api::YesNo);
-    #endif//_all_legs_valid__GUARD__
-
     #ifndef _user_defined__GUARD__
     #define _user_defined__GUARD__
     DECL_STRONG_TYPE(user_defined, spiderrock::protobuf::api::YesNo);
     #endif//_user_defined__GUARD__
 
-    #ifndef _spread_type__GUARD__
-    #define _spread_type__GUARD__
-    DECL_STRONG_TYPE(spread_type, spiderrock::protobuf::api::SRSpreadType);
-    #endif//_spread_type__GUARD__
+    #ifndef _spread_class__GUARD__
+    #define _spread_class__GUARD__
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
+    #endif//_spread_class__GUARD__
 
-    #ifndef _ratio_type__GUARD__
-    #define _ratio_type__GUARD__
-    DECL_STRONG_TYPE(ratio_type, spiderrock::protobuf::api::SRRatioType);
-    #endif//_ratio_type__GUARD__
+    #ifndef _contains_hedge__GUARD__
+    #define _contains_hedge__GUARD__
+    DECL_STRONG_TYPE(contains_hedge, spiderrock::protobuf::api::YesNo);
+    #endif//_contains_hedge__GUARD__
 
     #ifndef _leg_bid_prc__GUARD__
     #define _leg_bid_prc__GUARD__
@@ -210,10 +205,10 @@ namespace api {
     DECL_STRONG_TYPE(max_years, float);
     #endif//_max_years__GUARD__
 
-    #ifndef _ref_uprc__GUARD__
-    #define _ref_uprc__GUARD__
-    DECL_STRONG_TYPE(ref_uprc, float);
-    #endif//_ref_uprc__GUARD__
+    #ifndef _ref_uprc__float__GUARD__
+    #define _ref_uprc__float__GUARD__
+    DECL_STRONG_TYPE(ref_uprc__float, float);
+    #endif//_ref_uprc__float__GUARD__
 
     #ifndef _print_price__GUARD__
     #define _print_price__GUARD__
@@ -324,16 +319,6 @@ namespace api {
     #define _leg_uprc__GUARD__
     DECL_STRONG_TYPE(leg_uprc, double);
     #endif//_leg_uprc__GUARD__
-
-    #ifndef _leg_opt_mult__GUARD__
-    #define _leg_opt_mult__GUARD__
-    DECL_STRONG_TYPE(leg_opt_mult, float);
-    #endif//_leg_opt_mult__GUARD__
-
-    #ifndef _leg_fut_mult__GUARD__
-    #define _leg_fut_mult__GUARD__
-    DECL_STRONG_TYPE(leg_fut_mult, float);
-    #endif//_leg_fut_mult__GUARD__
 
     #ifndef _leg_surf_vol__GUARD__
     #define _leg_surf_vol__GUARD__
@@ -479,8 +464,6 @@ namespace api {
         using leg_ask_size = spiderrock::protobuf::api::leg_ask_size;
         using leg_years = spiderrock::protobuf::api::leg_years;
         using leg_uprc = spiderrock::protobuf::api::leg_uprc;
-        using leg_opt_mult = spiderrock::protobuf::api::leg_opt_mult;
-        using leg_fut_mult = spiderrock::protobuf::api::leg_fut_mult;
         using leg_surf_vol = spiderrock::protobuf::api::leg_surf_vol;
         using leg_surf_price = spiderrock::protobuf::api::leg_surf_price;
         using leg_surf_de = spiderrock::protobuf::api::leg_surf_de;
@@ -501,8 +484,6 @@ namespace api {
         leg_ask_size m_leg_ask_size{};
         leg_years m_leg_years{};
         leg_uprc m_leg_uprc{};
-        leg_opt_mult m_leg_opt_mult{};
-        leg_fut_mult m_leg_fut_mult{};
         leg_surf_vol m_leg_surf_vol{};
         leg_surf_price m_leg_surf_price{};
         leg_surf_de m_leg_surf_de{};
@@ -543,12 +524,6 @@ namespace api {
         }
         leg_uprc get_leg_uprc() const {
             return m_leg_uprc;
-        }
-        leg_opt_mult get_leg_opt_mult() const {
-            return m_leg_opt_mult;
-        }
-        leg_fut_mult get_leg_fut_mult() const {
-            return m_leg_fut_mult;
         }
         leg_surf_vol get_leg_surf_vol() const {
             return m_leg_surf_vol;
@@ -604,12 +579,6 @@ namespace api {
         void set_leg_uprc(const leg_uprc& value)  {
             m_leg_uprc = value;
         }
-        void set_leg_opt_mult(const leg_opt_mult& value)  {
-            m_leg_opt_mult = value;
-        }
-        void set_leg_fut_mult(const leg_fut_mult& value)  {
-            m_leg_fut_mult = value;
-        }
         void set_leg_surf_vol(const leg_surf_vol& value)  {
             m_leg_surf_vol = value;
         }
@@ -648,8 +617,6 @@ namespace api {
         void set(const leg_ask_size & value) { set_leg_ask_size(value); }
         void set(const leg_years & value) { set_leg_years(value); }
         void set(const leg_uprc & value) { set_leg_uprc(value); }
-        void set(const leg_opt_mult & value) { set_leg_opt_mult(value); }
-        void set(const leg_fut_mult & value) { set_leg_fut_mult(value); }
         void set(const leg_surf_vol & value) { set_leg_surf_vol(value); }
         void set(const leg_surf_price & value) { set_leg_surf_price(value); }
         void set(const leg_surf_de & value) { set_leg_surf_de(value); }
@@ -689,8 +656,6 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(265,m_leg_ask_size);
             totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(268,m_leg_years);
             totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(271,m_leg_uprc);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(274,m_leg_opt_mult);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_leg_fut_mult);
             totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(280,m_leg_surf_vol);
             totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(283,m_leg_surf_price);
             totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(286,m_leg_surf_de);
@@ -715,8 +680,6 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,265,m_leg_ask_size);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,268,m_leg_years);
             dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,271,m_leg_uprc);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,274,m_leg_opt_mult);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_leg_fut_mult);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,280,m_leg_surf_vol);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,283,m_leg_surf_price);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,286,m_leg_surf_de);
@@ -777,12 +740,6 @@ namespace api {
                     case 271: {m_leg_uprc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         break;
                     }
-                    case 274: {m_leg_opt_mult = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
-                        break;
-                    }
-                    case 277: {m_leg_fut_mult = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
-                        break;
-                    }
                     case 280: {m_leg_surf_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
@@ -832,10 +789,9 @@ namespace api {
         using num_stk_legs = spiderrock::protobuf::api::num_stk_legs;
         using num_fut_legs = spiderrock::protobuf::api::num_fut_legs;
         using num_opt_legs = spiderrock::protobuf::api::num_opt_legs;
-        using all_legs_valid = spiderrock::protobuf::api::all_legs_valid;
         using user_defined = spiderrock::protobuf::api::user_defined;
-        using spread_type = spiderrock::protobuf::api::spread_type;
-        using ratio_type = spiderrock::protobuf::api::ratio_type;
+        using spread_class = spiderrock::protobuf::api::spread_class;
+        using contains_hedge = spiderrock::protobuf::api::contains_hedge;
         using leg_bid_prc = spiderrock::protobuf::api::leg_bid_prc;
         using leg_ask_prc = spiderrock::protobuf::api::leg_ask_prc;
         using leg_bid_sz = spiderrock::protobuf::api::leg_bid_sz;
@@ -850,7 +806,7 @@ namespace api {
         using max_expiry = spiderrock::protobuf::api::max_expiry;
         using min_years = spiderrock::protobuf::api::min_years;
         using max_years = spiderrock::protobuf::api::max_years;
-        using ref_uprc = spiderrock::protobuf::api::ref_uprc;
+        using ref_uprc = spiderrock::protobuf::api::ref_uprc__float;
         using print_price = spiderrock::protobuf::api::print_price;
         using print_time = spiderrock::protobuf::api::print_time;
         using print_size = spiderrock::protobuf::api::print_size;
@@ -882,10 +838,9 @@ namespace api {
         num_stk_legs m_num_stk_legs{};
         num_fut_legs m_num_fut_legs{};
         num_opt_legs m_num_opt_legs{};
-        all_legs_valid m_all_legs_valid{};
         user_defined m_user_defined{};
-        spread_type m_spread_type{};
-        ratio_type m_ratio_type{};
+        spread_class m_spread_class{};
+        contains_hedge m_contains_hedge{};
         leg_bid_prc m_leg_bid_prc{};
         leg_ask_prc m_leg_ask_prc{};
         leg_bid_sz m_leg_bid_sz{};
@@ -974,17 +929,14 @@ namespace api {
         num_opt_legs get_num_opt_legs() const {
             return m_num_opt_legs;
         }		
-        all_legs_valid get_all_legs_valid() const {
-            return m_all_legs_valid;
-        }		
         user_defined get_user_defined() const {
             return m_user_defined;
         }		
-        spread_type get_spread_type() const {
-            return m_spread_type;
+        spread_class get_spread_class() const {
+            return m_spread_class;
         }		
-        ratio_type get_ratio_type() const {
-            return m_ratio_type;
+        contains_hedge get_contains_hedge() const {
+            return m_contains_hedge;
         }		
         leg_bid_prc get_leg_bid_prc() const {
             return m_leg_bid_prc;
@@ -1125,17 +1077,14 @@ namespace api {
         void set_num_opt_legs(const num_opt_legs& value)  {
             m_num_opt_legs = value;
         }
-        void set_all_legs_valid(const all_legs_valid& value)  {
-            m_all_legs_valid = value;
-        }
         void set_user_defined(const user_defined& value)  {
             m_user_defined = value;
         }
-        void set_spread_type(const spread_type& value)  {
-            m_spread_type = value;
+        void set_spread_class(const spread_class& value)  {
+            m_spread_class = value;
         }
-        void set_ratio_type(const ratio_type& value)  {
-            m_ratio_type = value;
+        void set_contains_hedge(const contains_hedge& value)  {
+            m_contains_hedge = value;
         }
         void set_leg_bid_prc(const leg_bid_prc& value)  {
             m_leg_bid_prc = value;
@@ -1286,17 +1235,14 @@ namespace api {
         void set(const num_opt_legs & value) {
             set_num_opt_legs(value);
         }
-        void set(const all_legs_valid & value) {
-            set_all_legs_valid(value);
-        }
         void set(const user_defined & value) {
             set_user_defined(value);
         }
-        void set(const spread_type & value) {
-            set_spread_type(value);
+        void set(const spread_class & value) {
+            set_spread_class(value);
         }
-        void set(const ratio_type & value) {
-            set_ratio_type(value);
+        void set(const contains_hedge & value) {
+            set_contains_hedge(value);
         }
         void set(const leg_bid_prc & value) {
             set_leg_bid_prc(value);
@@ -1392,10 +1338,9 @@ namespace api {
             set(value.m_num_stk_legs);
             set(value.m_num_fut_legs);
             set(value.m_num_opt_legs);
-            set(value.m_all_legs_valid);
             set(value.m_user_defined);
-            set(value.m_spread_type);
-            set(value.m_ratio_type);
+            set(value.m_spread_class);
+            set(value.m_contains_hedge);
             set(value.m_leg_bid_prc);
             set(value.m_leg_ask_prc);
             set(value.m_leg_bid_sz);
@@ -1643,10 +1588,9 @@ namespace api {
             if ( IncludeNumOptLegs()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(151,m_num_opt_legs);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_all_legs_valid)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRSpreadType>(m_spread_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRRatioType>(m_ratio_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(296,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(297,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
             if ( IncludeLegBidPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(166,m_leg_bid_prc);
             }
@@ -1781,10 +1725,9 @@ namespace api {
             if ( IncludeNumOptLegs()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,151,m_num_opt_legs);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_all_legs_valid)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRSpreadType>(m_spread_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRRatioType>(m_ratio_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,296,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,297,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
             if ( IncludeLegBidPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,166,m_leg_bid_prc);
             }
@@ -1994,23 +1937,18 @@ namespace api {
                         }
                         break;
                     }
-                    case 154: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_all_legs_valid = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        }
-                        break;
-                    }
                     case 157: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_user_defined = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 160: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_type = static_cast<spiderrock::protobuf::api::SRSpreadType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 296: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 163: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_ratio_type = static_cast<spiderrock::protobuf::api::SRRatioType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 297: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_contains_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2190,10 +2128,9 @@ namespace api {
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_stk_legs>() const { return m_num_stk_legs; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_fut_legs>() const { return m_num_fut_legs; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_opt_legs>() const { return m_num_opt_legs; }
-    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::all_legs_valid>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_all_legs_valid)); }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::user_defined>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_user_defined)); }
-    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::spread_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRSpreadType>( m_spread_type)); }
-    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::ratio_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SRRatioType>( m_ratio_type)); }
+    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
+    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::contains_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_hedge)); }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_bid_prc>() const { return m_leg_bid_prc; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_ask_prc>() const { return m_leg_ask_prc; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_bid_sz>() const { return m_leg_bid_sz; }
@@ -2234,8 +2171,6 @@ namespace api {
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_ask_size>() const { return m_leg_ask_size; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_years>() const { return m_leg_years; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_uprc>() const { return m_leg_uprc; }
-    template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_opt_mult>() const { return m_leg_opt_mult; }
-    template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_fut_mult>() const { return m_leg_fut_mult; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_surf_vol>() const { return m_leg_surf_vol; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_surf_price>() const { return m_leg_surf_price; }
     template<> inline const auto SpreadBookMarkup_MarkupLegs::get<SpreadBookMarkup_MarkupLegs::leg_surf_de>() const { return m_leg_surf_de; }
@@ -2264,8 +2199,6 @@ namespace api {
         o << ",\"leg_ask_size\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_ask_size>();
         o << ",\"leg_years\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_years>();
         o << ",\"leg_uprc\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_uprc>();
-        o << ",\"leg_opt_mult\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_opt_mult>();
-        o << ",\"leg_fut_mult\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_fut_mult>();
         o << ",\"leg_surf_vol\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_surf_vol>();
         o << ",\"leg_surf_price\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_surf_price>();
         o << ",\"leg_surf_de\":" << m.get<SpreadBookMarkup_MarkupLegs::leg_surf_de>();
@@ -2306,10 +2239,9 @@ namespace api {
         o << ",\"num_stk_legs\":" << m.get<SpreadBookMarkup::num_stk_legs>();
         o << ",\"num_fut_legs\":" << m.get<SpreadBookMarkup::num_fut_legs>();
         o << ",\"num_opt_legs\":" << m.get<SpreadBookMarkup::num_opt_legs>();
-        o << ",\"all_legs_valid\":" << (int64_t)m.get<SpreadBookMarkup::all_legs_valid>();
         o << ",\"user_defined\":" << (int64_t)m.get<SpreadBookMarkup::user_defined>();
-        o << ",\"spread_type\":" << (int64_t)m.get<SpreadBookMarkup::spread_type>();
-        o << ",\"ratio_type\":" << (int64_t)m.get<SpreadBookMarkup::ratio_type>();
+        o << ",\"spread_class\":" << (int64_t)m.get<SpreadBookMarkup::spread_class>();
+        o << ",\"contains_hedge\":" << (int64_t)m.get<SpreadBookMarkup::contains_hedge>();
         o << ",\"leg_bid_prc\":" << m.get<SpreadBookMarkup::leg_bid_prc>();
         o << ",\"leg_ask_prc\":" << m.get<SpreadBookMarkup::leg_ask_prc>();
         o << ",\"leg_bid_sz\":" << m.get<SpreadBookMarkup::leg_bid_sz>();

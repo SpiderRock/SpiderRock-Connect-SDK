@@ -75,6 +75,11 @@ namespace api {
     DECL_STRONG_TYPE(market_segment_id, int32);
     #endif//_market_segment_id__GUARD__
 
+    #ifndef _ric_code__GUARD__
+    #define _ric_code__GUARD__
+    DECL_STRONG_TYPE(ric_code, string);
+    #endif//_ric_code__GUARD__
+
     #ifndef _security_desc__GUARD__
     #define _security_desc__GUARD__
     DECL_STRONG_TYPE(security_desc, string);
@@ -270,10 +275,10 @@ namespace api {
     DECL_STRONG_TYPE(side, spiderrock::protobuf::api::BuySell);
     #endif//_side__GUARD__
 
-    #ifndef _ratio__GUARD__
-    #define _ratio__GUARD__
-    DECL_STRONG_TYPE(ratio, uint32);
-    #endif//_ratio__GUARD__
+    #ifndef _ratio__uint32__GUARD__
+    #define _ratio__uint32__GUARD__
+    DECL_STRONG_TYPE(ratio__uint32, uint32);
+    #endif//_ratio__uint32__GUARD__
 
     #ifndef _ref_delta__GUARD__
     #define _ref_delta__GUARD__
@@ -391,7 +396,7 @@ namespace api {
         using sec_key = spiderrock::protobuf::api::sec_key;
         using sec_type = spiderrock::protobuf::api::sec_type;
         using side = spiderrock::protobuf::api::side;
-        using ratio = spiderrock::protobuf::api::ratio;
+        using ratio = spiderrock::protobuf::api::ratio__uint32;
         using ref_delta = spiderrock::protobuf::api::ref_delta;
         using ref_prc = spiderrock::protobuf::api::ref_prc;
 
@@ -561,6 +566,7 @@ namespace api {
         using product_group = spiderrock::protobuf::api::product_group;
         using security_group = spiderrock::protobuf::api::security_group;
         using market_segment_id = spiderrock::protobuf::api::market_segment_id;
+        using ric_code = spiderrock::protobuf::api::ric_code;
         using security_desc = spiderrock::protobuf::api::security_desc;
         using exchange = spiderrock::protobuf::api::exchange__string;
         using product_type = spiderrock::protobuf::api::product_type;
@@ -608,6 +614,7 @@ namespace api {
         product_group m_product_group{};
         security_group m_security_group{};
         market_segment_id m_market_segment_id{};
+        ric_code m_ric_code{};
         security_desc m_security_desc{};
         exchange m_exchange{};
         product_type m_product_type{};
@@ -678,6 +685,9 @@ namespace api {
         }		
         market_segment_id get_market_segment_id() const {
             return m_market_segment_id;
+        }		
+        ric_code get_ric_code() const {
+            return m_ric_code;
         }		
         security_desc get_security_desc() const {
             return m_security_desc;
@@ -820,6 +830,9 @@ namespace api {
         }
         void set_market_segment_id(const market_segment_id& value)  {
             m_market_segment_id = value;
+        }
+        void set_ric_code(const ric_code& value)  {
+            m_ric_code = value;
         }
         void set_security_desc(const security_desc& value)  {
             m_security_desc = value;
@@ -973,6 +986,9 @@ namespace api {
         void set(const market_segment_id & value) {
             set_market_segment_id(value);
         }
+        void set(const ric_code & value) {
+            set_ric_code(value);
+        }
         void set(const security_desc & value) {
             set_security_desc(value);
         }
@@ -1088,6 +1104,7 @@ namespace api {
             set(value.m_product_group);
             set(value.m_security_group);
             set(value.m_market_segment_id);
+            set(value.m_ric_code);
             set(value.m_security_desc);
             set(value.m_exchange);
             set(value.m_product_type);
@@ -1200,6 +1217,9 @@ namespace api {
         bool IncludeMarketSegmentId() const {
             return !(m_market_segment_id == 0);
         }
+        bool IncludeRicCode() const {
+            return !(m_ric_code.empty());
+        }
         bool IncludeSecurityDesc() const {
             return !(m_security_desc.empty());
         }
@@ -1287,7 +1307,7 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeSecurityId()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(100,m_security_id);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(248,m_security_id);
             }
             if ( IncludeTicker()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
@@ -1313,8 +1333,11 @@ namespace api {
             if ( IncludeMarketSegmentId()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(124,m_market_segment_id);
             }
+            if ( IncludeRicCode()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(249,m_ric_code);
+            }
             if ( IncludeSecurityDesc()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(127,m_security_desc);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(250,m_security_desc);
             }
             if ( IncludeExchange()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(130,m_exchange);
@@ -1414,7 +1437,7 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeSecurityId()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,100,static_cast<string>(m_security_id));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,248,static_cast<string>(m_security_id));
             }
             if ( IncludeTicker()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
@@ -1440,8 +1463,11 @@ namespace api {
             if ( IncludeMarketSegmentId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,124,m_market_segment_id);
             }
+            if ( IncludeRicCode()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,249,static_cast<string>(m_ric_code));
+            }
             if ( IncludeSecurityDesc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,127,static_cast<string>(m_security_desc));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,250,static_cast<string>(m_security_desc));
             }
             if ( IncludeExchange()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,130,static_cast<string>(m_exchange));
@@ -1556,7 +1582,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 100: {
+                    case 248: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_security_id = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
@@ -1610,7 +1636,13 @@ namespace api {
                         }
                         break;
                     }
-                    case 127: {
+                    case 249: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_ric_code = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 250: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_security_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
@@ -1830,6 +1862,7 @@ namespace api {
     template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::product_group>() const { return m_product_group; }
     template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::security_group>() const { return m_security_group; }
     template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::market_segment_id>() const { return m_market_segment_id; }
+    template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::ric_code>() const { return m_ric_code; }
     template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::security_desc>() const { return m_security_desc; }
     template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::exchange>() const { return m_exchange; }
     template<> inline const auto ProductDefinitionV2::get<ProductDefinitionV2::product_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ProductType>( m_product_type)); }
@@ -1907,6 +1940,7 @@ namespace api {
         o << ",\"product_group\":\"" << m.get<ProductDefinitionV2::product_group>() << "\"";
         o << ",\"security_group\":\"" << m.get<ProductDefinitionV2::security_group>() << "\"";
         o << ",\"market_segment_id\":" << m.get<ProductDefinitionV2::market_segment_id>();
+        o << ",\"ric_code\":\"" << m.get<ProductDefinitionV2::ric_code>() << "\"";
         o << ",\"security_desc\":\"" << m.get<ProductDefinitionV2::security_desc>() << "\"";
         o << ",\"exchange\":\"" << m.get<ProductDefinitionV2::exchange>() << "\"";
         o << ",\"product_type\":" << (int64_t)m.get<ProductDefinitionV2::product_type>();

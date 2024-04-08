@@ -220,15 +220,25 @@ namespace api {
     DECL_STRONG_TYPE(o_ask_sz2, int32);
     #endif//_o_ask_sz2__GUARD__
 
-    #ifndef _u_bid__GUARD__
-    #define _u_bid__GUARD__
-    DECL_STRONG_TYPE(u_bid, double);
-    #endif//_u_bid__GUARD__
+    #ifndef _o_bid_iv__double__GUARD__
+    #define _o_bid_iv__double__GUARD__
+    DECL_STRONG_TYPE(o_bid_iv__double, double);
+    #endif//_o_bid_iv__double__GUARD__
 
-    #ifndef _u_ask__GUARD__
-    #define _u_ask__GUARD__
-    DECL_STRONG_TYPE(u_ask, double);
-    #endif//_u_ask__GUARD__
+    #ifndef _o_ask_iv__double__GUARD__
+    #define _o_ask_iv__double__GUARD__
+    DECL_STRONG_TYPE(o_ask_iv__double, double);
+    #endif//_o_ask_iv__double__GUARD__
+
+    #ifndef _u_bid__double__GUARD__
+    #define _u_bid__double__GUARD__
+    DECL_STRONG_TYPE(u_bid__double, double);
+    #endif//_u_bid__double__GUARD__
+
+    #ifndef _u_ask__double__GUARD__
+    #define _u_ask__double__GUARD__
+    DECL_STRONG_TYPE(u_ask__double, double);
+    #endif//_u_ask__double__GUARD__
 
     #ifndef _u_prc__double__GUARD__
     #define _u_prc__double__GUARD__
@@ -455,6 +465,71 @@ namespace api {
     DECL_STRONG_TYPE(pnl_m10_err, spiderrock::protobuf::api::YesNo);
     #endif//_pnl_m10_err__GUARD__
 
+    #ifndef _o_bid_s1__GUARD__
+    #define _o_bid_s1__GUARD__
+    DECL_STRONG_TYPE(o_bid_s1, float);
+    #endif//_o_bid_s1__GUARD__
+
+    #ifndef _o_ask_s1__GUARD__
+    #define _o_ask_s1__GUARD__
+    DECL_STRONG_TYPE(o_ask_s1, float);
+    #endif//_o_ask_s1__GUARD__
+
+    #ifndef _u_bid_s1__GUARD__
+    #define _u_bid_s1__GUARD__
+    DECL_STRONG_TYPE(u_bid_s1, double);
+    #endif//_u_bid_s1__GUARD__
+
+    #ifndef _u_ask_s1__GUARD__
+    #define _u_ask_s1__GUARD__
+    DECL_STRONG_TYPE(u_ask_s1, double);
+    #endif//_u_ask_s1__GUARD__
+
+    #ifndef _u_prc_s1__GUARD__
+    #define _u_prc_s1__GUARD__
+    DECL_STRONG_TYPE(u_prc_s1, double);
+    #endif//_u_prc_s1__GUARD__
+
+    #ifndef _s_vol_s1__GUARD__
+    #define _s_vol_s1__GUARD__
+    DECL_STRONG_TYPE(s_vol_s1, float);
+    #endif//_s_vol_s1__GUARD__
+
+    #ifndef _s_opx_s1__GUARD__
+    #define _s_opx_s1__GUARD__
+    DECL_STRONG_TYPE(s_opx_s1, float);
+    #endif//_s_opx_s1__GUARD__
+
+    #ifndef _s_div_s1__GUARD__
+    #define _s_div_s1__GUARD__
+    DECL_STRONG_TYPE(s_div_s1, float);
+    #endif//_s_div_s1__GUARD__
+
+    #ifndef _s_err_s1__GUARD__
+    #define _s_err_s1__GUARD__
+    DECL_STRONG_TYPE(s_err_s1, string);
+    #endif//_s_err_s1__GUARD__
+
+    #ifndef _pnl_s1__GUARD__
+    #define _pnl_s1__GUARD__
+    DECL_STRONG_TYPE(pnl_s1, float);
+    #endif//_pnl_s1__GUARD__
+
+    #ifndef _pnl_s1_err__GUARD__
+    #define _pnl_s1_err__GUARD__
+    DECL_STRONG_TYPE(pnl_s1_err, spiderrock::protobuf::api::YesNo);
+    #endif//_pnl_s1_err__GUARD__
+
+    #ifndef _o_bid_next__GUARD__
+    #define _o_bid_next__GUARD__
+    DECL_STRONG_TYPE(o_bid_next, float);
+    #endif//_o_bid_next__GUARD__
+
+    #ifndef _o_ask_next__GUARD__
+    #define _o_ask_next__GUARD__
+    DECL_STRONG_TYPE(o_ask_next, float);
+    #endif//_o_ask_next__GUARD__
+
     #ifndef _okey__GUARD__
     #define _okey__GUARD__
     DECL_STRONG_TYPE(okey, OptionKey);
@@ -616,8 +691,10 @@ namespace api {
         using o_ask2 = spiderrock::protobuf::api::o_ask2;
         using o_bid_sz2 = spiderrock::protobuf::api::o_bid_sz2;
         using o_ask_sz2 = spiderrock::protobuf::api::o_ask_sz2;
-        using u_bid = spiderrock::protobuf::api::u_bid;
-        using u_ask = spiderrock::protobuf::api::u_ask;
+        using o_bid_iv = spiderrock::protobuf::api::o_bid_iv__double;
+        using o_ask_iv = spiderrock::protobuf::api::o_ask_iv__double;
+        using u_bid = spiderrock::protobuf::api::u_bid__double;
+        using u_ask = spiderrock::protobuf::api::u_ask__double;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
         using yrs = spiderrock::protobuf::api::yrs;
         using rate = spiderrock::protobuf::api::rate__float;
@@ -663,6 +740,19 @@ namespace api {
         using s_err_m10 = spiderrock::protobuf::api::s_err_m10;
         using pnl_m10 = spiderrock::protobuf::api::pnl_m10;
         using pnl_m10_err = spiderrock::protobuf::api::pnl_m10_err;
+        using o_bid_s1 = spiderrock::protobuf::api::o_bid_s1;
+        using o_ask_s1 = spiderrock::protobuf::api::o_ask_s1;
+        using u_bid_s1 = spiderrock::protobuf::api::u_bid_s1;
+        using u_ask_s1 = spiderrock::protobuf::api::u_ask_s1;
+        using u_prc_s1 = spiderrock::protobuf::api::u_prc_s1;
+        using s_vol_s1 = spiderrock::protobuf::api::s_vol_s1;
+        using s_opx_s1 = spiderrock::protobuf::api::s_opx_s1;
+        using s_div_s1 = spiderrock::protobuf::api::s_div_s1;
+        using s_err_s1 = spiderrock::protobuf::api::s_err_s1;
+        using pnl_s1 = spiderrock::protobuf::api::pnl_s1;
+        using pnl_s1_err = spiderrock::protobuf::api::pnl_s1_err;
+        using o_bid_next = spiderrock::protobuf::api::o_bid_next;
+        using o_ask_next = spiderrock::protobuf::api::o_ask_next;
 
         private:
         _meta m__meta{};
@@ -705,6 +795,8 @@ namespace api {
         o_ask2 m_o_ask2{};
         o_bid_sz2 m_o_bid_sz2{};
         o_ask_sz2 m_o_ask_sz2{};
+        o_bid_iv m_o_bid_iv{};
+        o_ask_iv m_o_ask_iv{};
         u_bid m_u_bid{};
         u_ask m_u_ask{};
         u_prc m_u_prc{};
@@ -752,6 +844,19 @@ namespace api {
         s_err_m10 m_s_err_m10{};
         pnl_m10 m_pnl_m10{};
         pnl_m10_err m_pnl_m10_err{};
+        o_bid_s1 m_o_bid_s1{};
+        o_ask_s1 m_o_ask_s1{};
+        u_bid_s1 m_u_bid_s1{};
+        u_ask_s1 m_u_ask_s1{};
+        u_prc_s1 m_u_prc_s1{};
+        s_vol_s1 m_s_vol_s1{};
+        s_opx_s1 m_s_opx_s1{};
+        s_div_s1 m_s_div_s1{};
+        s_err_s1 m_s_err_s1{};
+        pnl_s1 m_pnl_s1{};
+        pnl_s1_err m_pnl_s1_err{};
+        o_bid_next m_o_bid_next{};
+        o_ask_next m_o_ask_next{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -875,6 +980,12 @@ namespace api {
         }		
         o_ask_sz2 get_o_ask_sz2() const {
             return m_o_ask_sz2;
+        }		
+        o_bid_iv get_o_bid_iv() const {
+            return m_o_bid_iv;
+        }		
+        o_ask_iv get_o_ask_iv() const {
+            return m_o_ask_iv;
         }		
         u_bid get_u_bid() const {
             return m_u_bid;
@@ -1016,6 +1127,45 @@ namespace api {
         }		
         pnl_m10_err get_pnl_m10_err() const {
             return m_pnl_m10_err;
+        }		
+        o_bid_s1 get_o_bid_s1() const {
+            return m_o_bid_s1;
+        }		
+        o_ask_s1 get_o_ask_s1() const {
+            return m_o_ask_s1;
+        }		
+        u_bid_s1 get_u_bid_s1() const {
+            return m_u_bid_s1;
+        }		
+        u_ask_s1 get_u_ask_s1() const {
+            return m_u_ask_s1;
+        }		
+        u_prc_s1 get_u_prc_s1() const {
+            return m_u_prc_s1;
+        }		
+        s_vol_s1 get_s_vol_s1() const {
+            return m_s_vol_s1;
+        }		
+        s_opx_s1 get_s_opx_s1() const {
+            return m_s_opx_s1;
+        }		
+        s_div_s1 get_s_div_s1() const {
+            return m_s_div_s1;
+        }		
+        s_err_s1 get_s_err_s1() const {
+            return m_s_err_s1;
+        }		
+        pnl_s1 get_pnl_s1() const {
+            return m_pnl_s1;
+        }		
+        pnl_s1_err get_pnl_s1_err() const {
+            return m_pnl_s1_err;
+        }		
+        o_bid_next get_o_bid_next() const {
+            return m_o_bid_next;
+        }		
+        o_ask_next get_o_ask_next() const {
+            return m_o_ask_next;
         }
         size_t getMLinkHeaderLength() const
         {
@@ -1140,6 +1290,12 @@ namespace api {
         }
         void set_o_ask_sz2(const o_ask_sz2& value)  {
             m_o_ask_sz2 = value;
+        }
+        void set_o_bid_iv(const o_bid_iv& value)  {
+            m_o_bid_iv = value;
+        }
+        void set_o_ask_iv(const o_ask_iv& value)  {
+            m_o_ask_iv = value;
         }
         void set_u_bid(const u_bid& value)  {
             m_u_bid = value;
@@ -1282,6 +1438,45 @@ namespace api {
         void set_pnl_m10_err(const pnl_m10_err& value)  {
             m_pnl_m10_err = value;
         }
+        void set_o_bid_s1(const o_bid_s1& value)  {
+            m_o_bid_s1 = value;
+        }
+        void set_o_ask_s1(const o_ask_s1& value)  {
+            m_o_ask_s1 = value;
+        }
+        void set_u_bid_s1(const u_bid_s1& value)  {
+            m_u_bid_s1 = value;
+        }
+        void set_u_ask_s1(const u_ask_s1& value)  {
+            m_u_ask_s1 = value;
+        }
+        void set_u_prc_s1(const u_prc_s1& value)  {
+            m_u_prc_s1 = value;
+        }
+        void set_s_vol_s1(const s_vol_s1& value)  {
+            m_s_vol_s1 = value;
+        }
+        void set_s_opx_s1(const s_opx_s1& value)  {
+            m_s_opx_s1 = value;
+        }
+        void set_s_div_s1(const s_div_s1& value)  {
+            m_s_div_s1 = value;
+        }
+        void set_s_err_s1(const s_err_s1& value)  {
+            m_s_err_s1 = value;
+        }
+        void set_pnl_s1(const pnl_s1& value)  {
+            m_pnl_s1 = value;
+        }
+        void set_pnl_s1_err(const pnl_s1_err& value)  {
+            m_pnl_s1_err = value;
+        }
+        void set_o_bid_next(const o_bid_next& value)  {
+            m_o_bid_next = value;
+        }
+        void set_o_ask_next(const o_ask_next& value)  {
+            m_o_ask_next = value;
+        }
 
         //templatized getters and setters
 
@@ -1409,6 +1604,12 @@ namespace api {
         }
         void set(const o_ask_sz2 & value) {
             set_o_ask_sz2(value);
+        }
+        void set(const o_bid_iv & value) {
+            set_o_bid_iv(value);
+        }
+        void set(const o_ask_iv & value) {
+            set_o_ask_iv(value);
         }
         void set(const u_bid & value) {
             set_u_bid(value);
@@ -1551,6 +1752,45 @@ namespace api {
         void set(const pnl_m10_err & value) {
             set_pnl_m10_err(value);
         }
+        void set(const o_bid_s1 & value) {
+            set_o_bid_s1(value);
+        }
+        void set(const o_ask_s1 & value) {
+            set_o_ask_s1(value);
+        }
+        void set(const u_bid_s1 & value) {
+            set_u_bid_s1(value);
+        }
+        void set(const u_ask_s1 & value) {
+            set_u_ask_s1(value);
+        }
+        void set(const u_prc_s1 & value) {
+            set_u_prc_s1(value);
+        }
+        void set(const s_vol_s1 & value) {
+            set_s_vol_s1(value);
+        }
+        void set(const s_opx_s1 & value) {
+            set_s_opx_s1(value);
+        }
+        void set(const s_div_s1 & value) {
+            set_s_div_s1(value);
+        }
+        void set(const s_err_s1 & value) {
+            set_s_err_s1(value);
+        }
+        void set(const pnl_s1 & value) {
+            set_pnl_s1(value);
+        }
+        void set(const pnl_s1_err & value) {
+            set_pnl_s1_err(value);
+        }
+        void set(const o_bid_next & value) {
+            set_o_bid_next(value);
+        }
+        void set(const o_ask_next & value) {
+            set_o_ask_next(value);
+        }
 
         void set(const OptionPrintSet & value) {
             set(value.m__meta);
@@ -1593,6 +1833,8 @@ namespace api {
             set(value.m_o_ask2);
             set(value.m_o_bid_sz2);
             set(value.m_o_ask_sz2);
+            set(value.m_o_bid_iv);
+            set(value.m_o_ask_iv);
             set(value.m_u_bid);
             set(value.m_u_ask);
             set(value.m_u_prc);
@@ -1640,6 +1882,19 @@ namespace api {
             set(value.m_s_err_m10);
             set(value.m_pnl_m10);
             set(value.m_pnl_m10_err);
+            set(value.m_o_bid_s1);
+            set(value.m_o_ask_s1);
+            set(value.m_u_bid_s1);
+            set(value.m_u_ask_s1);
+            set(value.m_u_prc_s1);
+            set(value.m_s_vol_s1);
+            set(value.m_s_opx_s1);
+            set(value.m_s_div_s1);
+            set(value.m_s_err_s1);
+            set(value.m_pnl_s1);
+            set(value.m_pnl_s1_err);
+            set(value.m_o_bid_next);
+            set(value.m_o_ask_next);
         }
 
         OptionPrintSet() {
@@ -1797,6 +2052,12 @@ namespace api {
         bool IncludeOAskSz2() const {
             return !(m_o_ask_sz2 == 0);
         }
+        bool IncludeOBidIv() const {
+            return !(m_o_bid_iv == 0.0);
+        }
+        bool IncludeOAskIv() const {
+            return !(m_o_ask_iv == 0.0);
+        }
         bool IncludeUBid() const {
             return !(m_u_bid == 0.0);
         }
@@ -1926,6 +2187,42 @@ namespace api {
         bool IncludePnlM10() const {
             return !(m_pnl_m10 == 0.0);
         }
+        bool IncludeOBidS1() const {
+            return !(m_o_bid_s1 == 0.0);
+        }
+        bool IncludeOAskS1() const {
+            return !(m_o_ask_s1 == 0.0);
+        }
+        bool IncludeUBidS1() const {
+            return !(m_u_bid_s1 == 0.0);
+        }
+        bool IncludeUAskS1() const {
+            return !(m_u_ask_s1 == 0.0);
+        }
+        bool IncludeUPrcS1() const {
+            return !(m_u_prc_s1 == 0.0);
+        }
+        bool IncludeSVolS1() const {
+            return !(m_s_vol_s1 == 0.0);
+        }
+        bool IncludeSOpxS1() const {
+            return !(m_s_opx_s1 == 0.0);
+        }
+        bool IncludeSDivS1() const {
+            return !(m_s_div_s1 == 0.0);
+        }
+        bool IncludeSErrS1() const {
+            return !(m_s_err_s1.empty());
+        }
+        bool IncludePnlS1() const {
+            return !(m_pnl_s1 == 0.0);
+        }
+        bool IncludeOBidNext() const {
+            return !(m_o_bid_next == 0.0);
+        }
+        bool IncludeOAskNext() const {
+            return !(m_o_ask_next == 0.0);
+        }
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
@@ -2047,6 +2344,12 @@ namespace api {
             }
             if ( IncludeOAskSz2()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(211,m_o_ask_sz2);
+            }
+            if ( IncludeOBidIv()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(353,m_o_bid_iv);
+            }
+            if ( IncludeOAskIv()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(354,m_o_ask_iv);
             }
             if ( IncludeUBid()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(214,m_u_bid);
@@ -2181,6 +2484,43 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(349,m_pnl_m10);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(352,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_pnl_m10_err)));
+            if ( IncludeOBidS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(355,m_o_bid_s1);
+            }
+            if ( IncludeOAskS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(356,m_o_ask_s1);
+            }
+            if ( IncludeUBidS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(357,m_u_bid_s1);
+            }
+            if ( IncludeUAskS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(358,m_u_ask_s1);
+            }
+            if ( IncludeUPrcS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(359,m_u_prc_s1);
+            }
+            if ( IncludeSVolS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(360,m_s_vol_s1);
+            }
+            if ( IncludeSOpxS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(361,m_s_opx_s1);
+            }
+            if ( IncludeSDivS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(362,m_s_div_s1);
+            }
+            if ( IncludeSErrS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(363,m_s_err_s1);
+            }
+            if ( IncludePnlS1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(364,m_pnl_s1);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(365,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_pnl_s1_err)));
+            if ( IncludeOBidNext()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(366,m_o_bid_next);
+            }
+            if ( IncludeOAskNext()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(367,m_o_ask_next);
+            }
             return totalSize;
         }
 
@@ -2302,6 +2642,12 @@ namespace api {
             }
             if ( IncludeOAskSz2()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,211,m_o_ask_sz2);
+            }
+            if ( IncludeOBidIv()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,353,m_o_bid_iv);
+            }
+            if ( IncludeOAskIv()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,354,m_o_ask_iv);
             }
             if ( IncludeUBid()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,214,m_u_bid);
@@ -2436,6 +2782,43 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,349,m_pnl_m10);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,352,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_pnl_m10_err)));
+            if ( IncludeOBidS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,355,m_o_bid_s1);
+            }
+            if ( IncludeOAskS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,356,m_o_ask_s1);
+            }
+            if ( IncludeUBidS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,357,m_u_bid_s1);
+            }
+            if ( IncludeUAskS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,358,m_u_ask_s1);
+            }
+            if ( IncludeUPrcS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,359,m_u_prc_s1);
+            }
+            if ( IncludeSVolS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,360,m_s_vol_s1);
+            }
+            if ( IncludeSOpxS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,361,m_s_opx_s1);
+            }
+            if ( IncludeSDivS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,362,m_s_div_s1);
+            }
+            if ( IncludeSErrS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,363,static_cast<string>(m_s_err_s1));
+            }
+            if ( IncludePnlS1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,364,m_pnl_s1);
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,365,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_pnl_s1_err)));
+            if ( IncludeOBidNext()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,366,m_o_bid_next);
+            }
+            if ( IncludeOAskNext()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,367,m_o_ask_next);
+            }
         }
 
         const void Decode(const uint8_t*& pos, const uint8_t* max) {
@@ -2688,6 +3071,18 @@ namespace api {
                     case 211: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_o_ask_sz2 = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 353: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_o_bid_iv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 354: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_o_ask_iv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
@@ -2969,6 +3364,83 @@ namespace api {
                         }
                         break;
                     }
+                    case 355: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_o_bid_s1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 356: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_o_ask_s1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 357: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_u_bid_s1 = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 358: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_u_ask_s1 = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 359: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_u_prc_s1 = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 360: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_s_vol_s1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 361: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_s_opx_s1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 362: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_s_div_s1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 363: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_s_err_s1 = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 364: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pnl_s1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 365: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_pnl_s1_err = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 366: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_o_bid_next = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 367: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_o_ask_next = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -3018,6 +3490,8 @@ namespace api {
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_ask2>() const { return m_o_ask2; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_bid_sz2>() const { return m_o_bid_sz2; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_ask_sz2>() const { return m_o_ask_sz2; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_bid_iv>() const { return m_o_bid_iv; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_ask_iv>() const { return m_o_ask_iv; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::u_bid>() const { return m_u_bid; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::u_ask>() const { return m_u_ask; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::u_prc>() const { return m_u_prc; }
@@ -3065,6 +3539,19 @@ namespace api {
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::s_err_m10>() const { return m_s_err_m10; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::pnl_m10>() const { return m_pnl_m10; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::pnl_m10_err>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_pnl_m10_err)); }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_bid_s1>() const { return m_o_bid_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_ask_s1>() const { return m_o_ask_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::u_bid_s1>() const { return m_u_bid_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::u_ask_s1>() const { return m_u_ask_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::u_prc_s1>() const { return m_u_prc_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::s_vol_s1>() const { return m_s_vol_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::s_opx_s1>() const { return m_s_opx_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::s_div_s1>() const { return m_s_div_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::s_err_s1>() const { return m_s_err_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::pnl_s1>() const { return m_pnl_s1; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::pnl_s1_err>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_pnl_s1_err)); }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_bid_next>() const { return m_o_bid_next; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::o_ask_next>() const { return m_o_ask_next; }
     template<> inline const auto OptionPrintSet_PKey::get<OptionPrintSet_PKey::okey>() const { return OptionPrintSet_PKey::okey{m_okey}; }
     template<> inline const auto OptionPrintSet_PKey::get<OptionPrintSet_PKey::prt_number>() const { return m_prt_number; }
     
@@ -3122,6 +3609,8 @@ namespace api {
         o << ",\"o_ask2\":" << m.get<OptionPrintSet::o_ask2>();
         o << ",\"o_bid_sz2\":" << m.get<OptionPrintSet::o_bid_sz2>();
         o << ",\"o_ask_sz2\":" << m.get<OptionPrintSet::o_ask_sz2>();
+        o << ",\"o_bid_iv\":" << m.get<OptionPrintSet::o_bid_iv>();
+        o << ",\"o_ask_iv\":" << m.get<OptionPrintSet::o_ask_iv>();
         o << ",\"u_bid\":" << m.get<OptionPrintSet::u_bid>();
         o << ",\"u_ask\":" << m.get<OptionPrintSet::u_ask>();
         o << ",\"u_prc\":" << m.get<OptionPrintSet::u_prc>();
@@ -3169,6 +3658,19 @@ namespace api {
         o << ",\"s_err_m10\":\"" << m.get<OptionPrintSet::s_err_m10>() << "\"";
         o << ",\"pnl_m10\":" << m.get<OptionPrintSet::pnl_m10>();
         o << ",\"pnl_m10_err\":" << (int64_t)m.get<OptionPrintSet::pnl_m10_err>();
+        o << ",\"o_bid_s1\":" << m.get<OptionPrintSet::o_bid_s1>();
+        o << ",\"o_ask_s1\":" << m.get<OptionPrintSet::o_ask_s1>();
+        o << ",\"u_bid_s1\":" << m.get<OptionPrintSet::u_bid_s1>();
+        o << ",\"u_ask_s1\":" << m.get<OptionPrintSet::u_ask_s1>();
+        o << ",\"u_prc_s1\":" << m.get<OptionPrintSet::u_prc_s1>();
+        o << ",\"s_vol_s1\":" << m.get<OptionPrintSet::s_vol_s1>();
+        o << ",\"s_opx_s1\":" << m.get<OptionPrintSet::s_opx_s1>();
+        o << ",\"s_div_s1\":" << m.get<OptionPrintSet::s_div_s1>();
+        o << ",\"s_err_s1\":\"" << m.get<OptionPrintSet::s_err_s1>() << "\"";
+        o << ",\"pnl_s1\":" << m.get<OptionPrintSet::pnl_s1>();
+        o << ",\"pnl_s1_err\":" << (int64_t)m.get<OptionPrintSet::pnl_s1_err>();
+        o << ",\"o_bid_next\":" << m.get<OptionPrintSet::o_bid_next>();
+        o << ",\"o_ask_next\":" << m.get<OptionPrintSet::o_ask_next>();
         return o;
     }
 

@@ -210,10 +210,20 @@ namespace api {
     DECL_STRONG_TYPE(default_surface_root, TickerKey);
     #endif//_default_surface_root__GUARD__
 
+    #ifndef _ric_root__GUARD__
+    #define _ric_root__GUARD__
+    DECL_STRONG_TYPE(ric_root, string);
+    #endif//_ric_root__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
+
+    #ifndef _pricing_source__v7__GUARD__
+    #define _pricing_source__v7__GUARD__
+    DECL_STRONG_TYPE(pricing_source__v7, spiderrock::protobuf::api::PricingSource_V7);
+    #endif//_pricing_source__v7__GUARD__
 
     #ifndef _root__GUARD__
     #define _root__GUARD__
@@ -449,7 +459,9 @@ namespace api {
         using settle_curr = spiderrock::protobuf::api::settle_curr;
         using strike_curr = spiderrock::protobuf::api::strike_curr;
         using default_surface_root = spiderrock::protobuf::api::default_surface_root;
+        using ric_root = spiderrock::protobuf::api::ric_root;
         using timestamp = spiderrock::protobuf::api::timestamp;
+        using pricing_source__v7 = spiderrock::protobuf::api::pricing_source__v7;
         using underlying = spiderrock::protobuf::api::RootDefinition_Underlying;
 
         private:
@@ -491,7 +503,9 @@ namespace api {
         settle_curr m_settle_curr{};
         strike_curr m_strike_curr{};
         default_surface_root m_default_surface_root{};
+        ric_root m_ric_root{};
         timestamp m_timestamp{};
+        pricing_source__v7 m_pricing_source__v7{};
         std::vector<underlying> m_underlying{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -611,8 +625,14 @@ namespace api {
         default_surface_root get_default_surface_root() const {
             return m_default_surface_root;
         }		
+        ric_root get_ric_root() const {
+            return m_ric_root;
+        }		
         timestamp get_timestamp() const {
             return m_timestamp;
+        }		
+        pricing_source__v7 get_pricing_source__v7() const {
+            return m_pricing_source__v7;
         }
         const std::vector<underlying>& get_underlying_list() const {
             return m_underlying;
@@ -738,8 +758,14 @@ namespace api {
         void set_default_surface_root(const default_surface_root& value)  {
             m_default_surface_root = value;
         }
+        void set_ric_root(const ric_root& value)  {
+            m_ric_root = value;
+        }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
+        }
+        void set_pricing_source__v7(const pricing_source__v7& value)  {
+            m_pricing_source__v7 = value;
         }
         void set_underlying_list(const std::vector<underlying>& list)  {
             m_underlying = list;
@@ -875,8 +901,14 @@ namespace api {
         void set(const default_surface_root & value) {
             set_default_surface_root(value);
         }
+        void set(const ric_root & value) {
+            set_ric_root(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
+        }
+        void set(const pricing_source__v7 & value) {
+            set_pricing_source__v7(value);
         }
         void set(const underlying & value) {
             add_underlying(value);
@@ -921,7 +953,9 @@ namespace api {
             set(value.m_settle_curr);
             set(value.m_strike_curr);
             set(value.m_default_surface_root);
-            set(value.m_timestamp);set_underlying_list(value.m_underlying);
+            set(value.m_ric_root);
+            set(value.m_timestamp);
+            set(value.m_pricing_source__v7);set_underlying_list(value.m_underlying);
         }
 
         RootDefinition() {
@@ -1025,6 +1059,9 @@ namespace api {
         bool IncludeDefaultSurfaceRoot() const {
             return (m_default_surface_root.ByteSizeLong() > 0);
         }
+        bool IncludeRicRoot() const {
+            return !(m_ric_root.empty());
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -1121,9 +1158,13 @@ namespace api {
                 m_default_surface_root.setCodecTickerKey(tickerKeyLayout);
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(205, tickerKeyLayout);
             }
+            if ( IncludeRicRoot()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(218,m_ric_root);
+            }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
             if ( IncludeUnderlying()) {
                 for (auto& item : m_underlying) {
 					totalSize += SRProtobufCPP::TagCodec::Size(211, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
@@ -1221,9 +1262,13 @@ namespace api {
                 m_default_surface_root.setCodecTickerKey(tickerKeyLayout);
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 205, tickerKeyLayout);
             }
+            if ( IncludeRicRoot()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,218,static_cast<string>(m_ric_root));
+            }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
             if ( IncludeUnderlying()) {
                 for (auto& item : m_underlying) {
                     dest = SRProtobufCPP::TagCodec::Encode(dest, 211, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
@@ -1461,9 +1506,20 @@ namespace api {
                         }
                         break;
                     }
+                    case 218: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_ric_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
                     case 208: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        }
+                        break;
+                    }
+                    case 5000: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_pricing_source__v7 = static_cast<spiderrock::protobuf::api::PricingSource_V7>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1523,7 +1579,9 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::settle_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_settle_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::strike_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_strike_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::default_surface_root>() const { return RootDefinition::default_surface_root{ m_default_surface_root}; }
+    template<> inline const auto RootDefinition::get<RootDefinition::ric_root>() const { return m_ric_root; }
     template<> inline const auto RootDefinition::get<RootDefinition::timestamp>() const { return m_timestamp; }
+    template<> inline const auto RootDefinition::get<RootDefinition::pricing_source__v7>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>( m_pricing_source__v7)); }
     template<> inline const auto RootDefinition::get<RootDefinition::underlying>(int i) const { return RootDefinition::underlying{ get_underlying(i)}; }
     template<> inline int RootDefinition::count<RootDefinition::underlying>() const { return static_cast<int>( m_underlying.size()); }
     template<> inline const auto RootDefinition_PKey::get<RootDefinition_PKey::root>() const { return RootDefinition_PKey::root{m_root}; }
@@ -1583,12 +1641,14 @@ namespace api {
         o << ",\"settle_curr\":" << (int64_t)m.get<RootDefinition::settle_curr>();
         o << ",\"strike_curr\":" << (int64_t)m.get<RootDefinition::strike_curr>();
         o << ",\"default_surface_root\":{" << m.get<RootDefinition::default_surface_root>() << "}";
+        o << ",\"ric_root\":\"" << m.get<RootDefinition::ric_root>() << "\"";
         {
             std::time_t tt = m.get<RootDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"pricing_source__v7\":" << (int64_t)m.get<RootDefinition::pricing_source__v7>();
         o << ",\"underlying\":[";
         {
             const char *delim = "{";

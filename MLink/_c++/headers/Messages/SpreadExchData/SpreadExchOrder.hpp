@@ -120,6 +120,11 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
+    #ifndef _exch_spr_id__GUARD__
+    #define _exch_spr_id__GUARD__
+    DECL_STRONG_TYPE(exch_spr_id, string);
+    #endif//_exch_spr_id__GUARD__
+
     #ifndef _skey__GUARD__
     #define _skey__GUARD__
     DECL_STRONG_TYPE(skey, TickerKey);
@@ -139,31 +144,6 @@ namespace api {
     #define _is_test__GUARD__
     DECL_STRONG_TYPE(is_test, spiderrock::protobuf::api::YesNo);
     #endif//_is_test__GUARD__
-
-    #ifndef _leg_sec_key__GUARD__
-    #define _leg_sec_key__GUARD__
-    DECL_STRONG_TYPE(leg_sec_key, OptionKey);
-    #endif//_leg_sec_key__GUARD__
-
-    #ifndef _leg_sec_type__GUARD__
-    #define _leg_sec_type__GUARD__
-    DECL_STRONG_TYPE(leg_sec_type, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_leg_sec_type__GUARD__
-
-    #ifndef _leg_side__GUARD__
-    #define _leg_side__GUARD__
-    DECL_STRONG_TYPE(leg_side, spiderrock::protobuf::api::BuySell);
-    #endif//_leg_side__GUARD__
-
-    #ifndef _leg_ratio__GUARD__
-    #define _leg_ratio__GUARD__
-    DECL_STRONG_TYPE(leg_ratio, uint32);
-    #endif//_leg_ratio__GUARD__
-
-    #ifndef _position_type__GUARD__
-    #define _position_type__GUARD__
-    DECL_STRONG_TYPE(position_type, spiderrock::protobuf::api::PositionType);
-    #endif//_position_type__GUARD__
 
     
     class SpreadExchOrder_PKey {
@@ -292,139 +272,6 @@ namespace api {
 
     };
     
-    class SpreadExchOrder_Legs {
-        public:
-        //using statements for all types used in this class
-        using leg_sec_key = spiderrock::protobuf::api::leg_sec_key;
-        using leg_sec_type = spiderrock::protobuf::api::leg_sec_type;
-        using leg_side = spiderrock::protobuf::api::leg_side;
-        using leg_ratio = spiderrock::protobuf::api::leg_ratio;
-        using position_type = spiderrock::protobuf::api::position_type;
-
-        private:
-        leg_sec_key m_leg_sec_key{};
-        leg_sec_type m_leg_sec_type{};
-        leg_side m_leg_side{};
-        leg_ratio m_leg_ratio{};
-        position_type m_position_type{};
-
-        public:
-        leg_sec_type get_leg_sec_type() const {
-            return m_leg_sec_type;
-        }
-        leg_side get_leg_side() const {
-            return m_leg_side;
-        }
-        leg_ratio get_leg_ratio() const {
-            return m_leg_ratio;
-        }
-        position_type get_position_type() const {
-            return m_position_type;
-        }
-        void set_leg_sec_key(const leg_sec_key& value)  {
-            m_leg_sec_key = value;
-        }
-        void set_leg_sec_type(const leg_sec_type& value)  {
-            m_leg_sec_type = value;
-        }
-        void set_leg_side(const leg_side& value)  {
-            m_leg_side = value;
-        }
-        void set_leg_ratio(const leg_ratio& value)  {
-            m_leg_ratio = value;
-        }
-        void set_position_type(const position_type& value)  {
-            m_position_type = value;
-        }
-        //templatized getters and setters
-        template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpreadExchOrder_Legs::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
-        template <typename T, size_t S = sizeof(T)>
-        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to SpreadExchOrder_Legs::set()"); }  // specializations for valid types are listed below
-
-        //specializations for set functions for the valid types
-        
-        void set(const leg_sec_key & value) { set_leg_sec_key(value); }
-        void set(const leg_sec_type & value) { set_leg_sec_type(value); }
-        void set(const leg_side & value) { set_leg_side(value); }
-        void set(const leg_ratio & value) { set_leg_ratio(value); }
-        void set(const position_type & value) { set_position_type(value); }
-
-
-        SpreadExchOrder_Legs() {}
-
-        virtual ~SpreadExchOrder_Legs() {
-        }
-        //templatized set functions that can take multiple arguments simultaneously
-        template <typename Arg>
-        void set_params(Arg && arg) {
-            set(arg);
-        }
-        template <typename Arg, typename... Args>
-        void set_params(Arg && arg, Args &&... args) {
-            set(arg);
-            set_params(args...);
-        }
-
-        size_t ByteSizeLong() const {
-            size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(157,optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(166,m_leg_ratio);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(169,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
-            return totalSize;
-        }
-
-        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 157, optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,166,m_leg_ratio);
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,169,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
-            return dest;
-        }
-
-        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
-            uint32_t tag = 0;
-            int fieldNumber;
-            SRProtobufCPP::TagCodecEnums::TagType tagType;
-            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
-                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
-                tagType = tagDecomposed.second;
-                fieldNumber = tagDecomposed.first;
-                switch (fieldNumber) {
-                    default:
-                        // Add unknown tag field number logging
-                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
-                        break;
-                    case 157: {
-                        auto optionKey = SRProtobufCPP::FieldCodec::DecodeOptionKey(pos,max);
-                        m_leg_sec_key.setFromCodec(optionKey);
-                        break;
-                    }
-                    case 160: {m_leg_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        break;
-                    }
-                    case 163: {m_leg_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        break;
-                    }
-                    case 166: {m_leg_ratio = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
-                        break;
-                    }
-                    case 169: {m_position_type = static_cast<spiderrock::protobuf::api::PositionType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        break;
-                    }
-                }
-            }
-        }
-
-    };
-    
 
     class SpreadExchOrder {
         public:
@@ -450,7 +297,7 @@ namespace api {
         using net_timestamp = spiderrock::protobuf::api::net_timestamp;
         using dgw_timestamp = spiderrock::protobuf::api::dgw_timestamp;
         using timestamp = spiderrock::protobuf::api::timestamp;
-        using legs = spiderrock::protobuf::api::SpreadExchOrder_Legs;
+        using exch_spr_id = spiderrock::protobuf::api::exch_spr_id;
 
         private:
         _meta m__meta{};
@@ -473,7 +320,7 @@ namespace api {
         net_timestamp m_net_timestamp{};
         dgw_timestamp m_dgw_timestamp{};
         timestamp m_timestamp{};
-        std::vector<legs> m_legs{};
+        exch_spr_id m_exch_spr_id{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -537,12 +384,9 @@ namespace api {
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
-        }
-        const std::vector<legs>& get_legs_list() const {
-            return m_legs;
-        }
-        const legs& get_legs(const int i) const {
-            return m_legs.at(i);
+        }		
+        exch_spr_id get_exch_spr_id() const {
+            return m_exch_spr_id;
         }
         size_t getMLinkHeaderLength() const
         {
@@ -608,23 +452,14 @@ namespace api {
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
         }
-        void set_legs_list(const std::vector<legs>& list)  {
-            m_legs = list;
-        }
-        void add_legs(const legs& item) {
-            m_legs.emplace_back(item);
+        void set_exch_spr_id(const exch_spr_id& value)  {
+            m_exch_spr_id = value;
         }
 
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
         const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpreadExchOrder::get()"); return T{}; }  // specializations for valid types are listed below the class definition
-
-        template <typename T, size_t S = sizeof(T)>
-        const auto get(int i) const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpreadExchOrder::get(int)"); return T{};}  // specializations for valid types are listed below the class definition
-
-        template <typename T, size_t S = sizeof(T)>
-        int count() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpreadExchOrder::count()"); return 0;}  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -688,8 +523,8 @@ namespace api {
         void set(const timestamp & value) {
             set_timestamp(value);
         }
-        void set(const legs & value) {
-            add_legs(value);
+        void set(const exch_spr_id & value) {
+            set_exch_spr_id(value);
         }
 
         void set(const SpreadExchOrder & value) {
@@ -712,7 +547,8 @@ namespace api {
             set(value.m_src_timestamp);
             set(value.m_net_timestamp);
             set(value.m_dgw_timestamp);
-            set(value.m_timestamp);set_legs_list(value.m_legs);
+            set(value.m_timestamp);
+            set(value.m_exch_spr_id);
         }
 
         SpreadExchOrder() {
@@ -804,8 +640,8 @@ namespace api {
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
-        bool IncludeLegs() const {
-            return (!m_legs.empty());
+        bool IncludeExchSprId() const {
+            return !(m_exch_spr_id.empty());
         }
 
         size_t ByteSizeLong() const {
@@ -863,12 +699,8 @@ namespace api {
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(151, m_timestamp);
             }
-            if ( IncludeLegs()) {
-                for (auto& item : m_legs) {
-					totalSize += SRProtobufCPP::TagCodec::Size(154, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
-                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
-                    totalSize += item.ByteSizeLong();
-                }
+            if ( IncludeExchSprId()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(170,m_exch_spr_id);
             }
             return totalSize;
         }
@@ -926,12 +758,8 @@ namespace api {
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 151, m_timestamp);
             }
-            if ( IncludeLegs()) {
-                for (auto& item : m_legs) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 154, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
-                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
-                    item.Encode(dest, max);
-                }
+            if ( IncludeExchSprId()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,170,static_cast<string>(m_exch_spr_id));
             }
         }
 
@@ -1065,12 +893,9 @@ namespace api {
                         }
                         break;
                     }
-                    case 154: {
-                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
-                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
-                            legs item_legs;
-                            item_legs.Decode(pos, pos+length);  
-                            m_legs.emplace_back(item_legs);
+                    case 170: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_exch_spr_id = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -1103,18 +928,11 @@ namespace api {
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::net_timestamp>() const { return m_net_timestamp; }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::dgw_timestamp>() const { return m_dgw_timestamp; }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::timestamp>() const { return m_timestamp; }
-    template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::legs>(int i) const { return SpreadExchOrder::legs{ get_legs(i)}; }
-    template<> inline int SpreadExchOrder::count<SpreadExchOrder::legs>() const { return static_cast<int>( m_legs.size()); }
+    template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::exch_spr_id>() const { return m_exch_spr_id; }
     template<> inline const auto SpreadExchOrder_PKey::get<SpreadExchOrder_PKey::skey>() const { return SpreadExchOrder_PKey::skey{m_skey}; }
     template<> inline const auto SpreadExchOrder_PKey::get<SpreadExchOrder_PKey::exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_exch));}
     template<> inline const auto SpreadExchOrder_PKey::get<SpreadExchOrder_PKey::side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side));}
     template<> inline const auto SpreadExchOrder_PKey::get<SpreadExchOrder_PKey::is_test>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test));}
-    
-    template<> inline const auto SpreadExchOrder_Legs::get<SpreadExchOrder_Legs::leg_sec_key>() const { return SpreadExchOrder_Legs::leg_sec_key{m_leg_sec_key}; }
-    template<> inline const auto SpreadExchOrder_Legs::get<SpreadExchOrder_Legs::leg_sec_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type));}
-    template<> inline const auto SpreadExchOrder_Legs::get<SpreadExchOrder_Legs::leg_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side));}
-    template<> inline const auto SpreadExchOrder_Legs::get<SpreadExchOrder_Legs::leg_ratio>() const { return m_leg_ratio; }
-    template<> inline const auto SpreadExchOrder_Legs::get<SpreadExchOrder_Legs::position_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type));}
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
@@ -1123,15 +941,6 @@ namespace api {
         o << ",\"exch\":" << (int64_t)m.get<SpreadExchOrder_PKey::exch>();
         o << ",\"side\":" << (int64_t)m.get<SpreadExchOrder_PKey::side>();
         o << ",\"is_test\":" << (int64_t)m.get<SpreadExchOrder_PKey::is_test>();
-        return o;
-    }
-
-    inline std::ostream& operator<<(std::ostream &o, const SpreadExchOrder_Legs& m) {
-        o << "\"leg_sec_key\":{" << m.get<SpreadExchOrder_Legs::leg_sec_key>() << "}";
-        o << ",\"leg_sec_type\":" << (int64_t)m.get<SpreadExchOrder_Legs::leg_sec_type>();
-        o << ",\"leg_side\":" << (int64_t)m.get<SpreadExchOrder_Legs::leg_side>();
-        o << ",\"leg_ratio\":" << m.get<SpreadExchOrder_Legs::leg_ratio>();
-        o << ",\"position_type\":" << (int64_t)m.get<SpreadExchOrder_Legs::position_type>();
         return o;
     }
 
@@ -1161,15 +970,7 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
-        o << ",\"legs\":[";
-        {
-            const char *delim = "{";
-            for (int i=0; i<m.count<SpreadExchOrder::legs>(); ++i) {
-                o << delim << m.get<SpreadExchOrder::legs>(i) << '}';
-                delim = ",{";
-            }
-        }
-        o << "]";
+        o << ",\"exch_spr_id\":\"" << m.get<SpreadExchOrder::exch_spr_id>() << "\"";
         return o;
     }
 

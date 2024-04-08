@@ -80,15 +80,15 @@ namespace api {
     DECL_STRONG_TYPE(o_ask, float);
     #endif//_o_ask__GUARD__
 
-    #ifndef _o_bid_iv__GUARD__
-    #define _o_bid_iv__GUARD__
-    DECL_STRONG_TYPE(o_bid_iv, float);
-    #endif//_o_bid_iv__GUARD__
+    #ifndef _o_bid_iv__float__GUARD__
+    #define _o_bid_iv__float__GUARD__
+    DECL_STRONG_TYPE(o_bid_iv__float, float);
+    #endif//_o_bid_iv__float__GUARD__
 
-    #ifndef _o_ask_iv__GUARD__
-    #define _o_ask_iv__GUARD__
-    DECL_STRONG_TYPE(o_ask_iv, float);
-    #endif//_o_ask_iv__GUARD__
+    #ifndef _o_ask_iv__float__GUARD__
+    #define _o_ask_iv__float__GUARD__
+    DECL_STRONG_TYPE(o_ask_iv__float, float);
+    #endif//_o_ask_iv__float__GUARD__
 
     #ifndef _atm_vol__GUARD__
     #define _atm_vol__GUARD__
@@ -332,8 +332,8 @@ namespace api {
         using ddiv = spiderrock::protobuf::api::ddiv;
         using o_bid = spiderrock::protobuf::api::o_bid;
         using o_ask = spiderrock::protobuf::api::o_ask;
-        using o_bid_iv = spiderrock::protobuf::api::o_bid_iv;
-        using o_ask_iv = spiderrock::protobuf::api::o_ask_iv;
+        using o_bid_iv = spiderrock::protobuf::api::o_bid_iv__float;
+        using o_ask_iv = spiderrock::protobuf::api::o_ask_iv__float;
         using atm_vol = spiderrock::protobuf::api::atm_vol;
         using s_vol = spiderrock::protobuf::api::s_vol;
         using s_prc = spiderrock::protobuf::api::s_prc;

@@ -50,10 +50,10 @@ namespace api {
     DECL_STRONG_TYPE(is_test_auction, spiderrock::protobuf::api::YesNo);
     #endif//_is_test_auction__GUARD__
 
-    #ifndef _auction_state__GUARD__
-    #define _auction_state__GUARD__
-    DECL_STRONG_TYPE(auction_state, spiderrock::protobuf::api::AuctionState);
-    #endif//_auction_state__GUARD__
+    #ifndef _auction_event__GUARD__
+    #define _auction_event__GUARD__
+    DECL_STRONG_TYPE(auction_event, spiderrock::protobuf::api::AuctionEvent);
+    #endif//_auction_event__GUARD__
 
     #ifndef _auction_shape__GUARD__
     #define _auction_shape__GUARD__
@@ -499,7 +499,7 @@ namespace api {
         using exch_auction_id = spiderrock::protobuf::api::exch_auction_id;
         using exch_auction_type = spiderrock::protobuf::api::exch_auction_type;
         using is_test_auction = spiderrock::protobuf::api::is_test_auction;
-        using auction_state = spiderrock::protobuf::api::auction_state;
+        using auction_event = spiderrock::protobuf::api::auction_event;
         using auction_shape = spiderrock::protobuf::api::auction_shape;
         using auction_type = spiderrock::protobuf::api::auction_type__AuctionType;
         using auction_side = spiderrock::protobuf::api::auction_side;
@@ -537,7 +537,7 @@ namespace api {
         exch_auction_id m_exch_auction_id{};
         exch_auction_type m_exch_auction_type{};
         is_test_auction m_is_test_auction{};
-        auction_state m_auction_state{};
+        auction_event m_auction_event{};
         auction_shape m_auction_shape{};
         auction_type m_auction_type{};
         auction_side m_auction_side{};
@@ -589,8 +589,8 @@ namespace api {
         is_test_auction get_is_test_auction() const {
             return m_is_test_auction;
         }		
-        auction_state get_auction_state() const {
-            return m_auction_state;
+        auction_event get_auction_event() const {
+            return m_auction_event;
         }		
         auction_shape get_auction_shape() const {
             return m_auction_shape;
@@ -704,8 +704,8 @@ namespace api {
         void set_is_test_auction(const is_test_auction& value)  {
             m_is_test_auction = value;
         }
-        void set_auction_state(const auction_state& value)  {
-            m_auction_state = value;
+        void set_auction_event(const auction_event& value)  {
+            m_auction_event = value;
         }
         void set_auction_shape(const auction_shape& value)  {
             m_auction_shape = value;
@@ -829,8 +829,8 @@ namespace api {
         void set(const is_test_auction & value) {
             set_is_test_auction(value);
         }
-        void set(const auction_state & value) {
-            set_auction_state(value);
+        void set(const auction_event & value) {
+            set_auction_event(value);
         }
         void set(const auction_shape & value) {
             set_auction_shape(value);
@@ -927,7 +927,7 @@ namespace api {
             set(value.m_exch_auction_id);
             set(value.m_exch_auction_type);
             set(value.m_is_test_auction);
-            set(value.m_auction_state);
+            set(value.m_auction_event);
             set(value.m_auction_shape);
             set(value.m_auction_type);
             set(value.m_auction_side);
@@ -1113,7 +1113,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_exch_auction_type);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionState>(m_auction_state)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(212,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>(m_auction_event)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeShape>(m_auction_shape)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_auction_side)));
@@ -1215,7 +1215,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_exch_auction_type));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionState>(m_auction_state)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,212,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>(m_auction_event)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeShape>(m_auction_shape)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_auction_side)));
@@ -1346,8 +1346,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_auction_state = static_cast<spiderrock::protobuf::api::AuctionState>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 212: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_auction_event = static_cast<spiderrock::protobuf::api::AuctionEvent>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1536,7 +1536,7 @@ namespace api {
     template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::exch_auction_id>() const { return m_exch_auction_id; }
     template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::exch_auction_type>() const { return m_exch_auction_type; }
     template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::is_test_auction>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_test_auction)); }
-    template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::auction_state>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionState>( m_auction_state)); }
+    template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::auction_event>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>( m_auction_event)); }
     template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::auction_shape>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeShape>( m_auction_shape)); }
     template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::auction_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>( m_auction_type)); }
     template<> inline const auto SpdrAuctionState::get<SpdrAuctionState::auction_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>( m_auction_side)); }
@@ -1602,7 +1602,7 @@ namespace api {
         o << ",\"exch_auction_id\":\"" << m.get<SpdrAuctionState::exch_auction_id>() << "\"";
         o << ",\"exch_auction_type\":\"" << m.get<SpdrAuctionState::exch_auction_type>() << "\"";
         o << ",\"is_test_auction\":" << (int64_t)m.get<SpdrAuctionState::is_test_auction>();
-        o << ",\"auction_state\":" << (int64_t)m.get<SpdrAuctionState::auction_state>();
+        o << ",\"auction_event\":" << (int64_t)m.get<SpdrAuctionState::auction_event>();
         o << ",\"auction_shape\":" << (int64_t)m.get<SpdrAuctionState::auction_shape>();
         o << ",\"auction_type\":" << (int64_t)m.get<SpdrAuctionState::auction_type>();
         o << ",\"auction_side\":" << (int64_t)m.get<SpdrAuctionState::auction_side>();

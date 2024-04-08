@@ -85,10 +85,10 @@ namespace api {
     DECL_STRONG_TYPE(clearing_code, string);
     #endif//_clearing_code__GUARD__
 
-    #ifndef _ric_code__GUARD__
-    #define _ric_code__GUARD__
-    DECL_STRONG_TYPE(ric_code, string);
-    #endif//_ric_code__GUARD__
+    #ifndef _ric_root__GUARD__
+    #define _ric_root__GUARD__
+    DECL_STRONG_TYPE(ric_root, string);
+    #endif//_ric_root__GUARD__
 
     #ifndef _bbg_root__GUARD__
     #define _bbg_root__GUARD__
@@ -139,6 +139,11 @@ namespace api {
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
+
+    #ifndef _ric_code__v7__GUARD__
+    #define _ric_code__v7__GUARD__
+    DECL_STRONG_TYPE(ric_code__v7, string);
+    #endif//_ric_code__v7__GUARD__
 
     #ifndef _ccode__GUARD__
     #define _ccode__GUARD__
@@ -248,7 +253,7 @@ namespace api {
         using underliers_per_cn = spiderrock::protobuf::api::underliers_per_cn;
         using underlier_type = spiderrock::protobuf::api::underlier_type;
         using clearing_code = spiderrock::protobuf::api::clearing_code;
-        using ric_code = spiderrock::protobuf::api::ric_code;
+        using ric_root = spiderrock::protobuf::api::ric_root;
         using bbg_root = spiderrock::protobuf::api::bbg_root;
         using bbg_group = spiderrock::protobuf::api::bbg_group;
         using gmi_exchange = spiderrock::protobuf::api::gmi_exchange;
@@ -259,6 +264,7 @@ namespace api {
         using description = spiderrock::protobuf::api::description;
         using market_center = spiderrock::protobuf::api::market_center;
         using timestamp = spiderrock::protobuf::api::timestamp;
+        using ric_code__v7 = spiderrock::protobuf::api::ric_code__v7;
 
         private:
         _meta m__meta{};
@@ -274,7 +280,7 @@ namespace api {
         underliers_per_cn m_underliers_per_cn{};
         underlier_type m_underlier_type{};
         clearing_code m_clearing_code{};
-        ric_code m_ric_code{};
+        ric_root m_ric_root{};
         bbg_root m_bbg_root{};
         bbg_group m_bbg_group{};
         gmi_exchange m_gmi_exchange{};
@@ -285,6 +291,7 @@ namespace api {
         description m_description{};
         market_center m_market_center{};
         timestamp m_timestamp{};
+        ric_code__v7 m_ric_code__v7{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -328,8 +335,8 @@ namespace api {
         clearing_code get_clearing_code() const {
             return m_clearing_code;
         }		
-        ric_code get_ric_code() const {
-            return m_ric_code;
+        ric_root get_ric_root() const {
+            return m_ric_root;
         }		
         bbg_root get_bbg_root() const {
             return m_bbg_root;
@@ -360,6 +367,9 @@ namespace api {
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
+        }		
+        ric_code__v7 get_ric_code__v7() const {
+            return m_ric_code__v7;
         }
         size_t getMLinkHeaderLength() const
         {
@@ -404,8 +414,8 @@ namespace api {
         void set_clearing_code(const clearing_code& value)  {
             m_clearing_code = value;
         }
-        void set_ric_code(const ric_code& value)  {
-            m_ric_code = value;
+        void set_ric_root(const ric_root& value)  {
+            m_ric_root = value;
         }
         void set_bbg_root(const bbg_root& value)  {
             m_bbg_root = value;
@@ -436,6 +446,9 @@ namespace api {
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
+        }
+        void set_ric_code__v7(const ric_code__v7& value)  {
+            m_ric_code__v7 = value;
         }
 
         //templatized getters and setters
@@ -484,8 +497,8 @@ namespace api {
         void set(const clearing_code & value) {
             set_clearing_code(value);
         }
-        void set(const ric_code & value) {
-            set_ric_code(value);
+        void set(const ric_root & value) {
+            set_ric_root(value);
         }
         void set(const bbg_root & value) {
             set_bbg_root(value);
@@ -517,6 +530,9 @@ namespace api {
         void set(const timestamp & value) {
             set_timestamp(value);
         }
+        void set(const ric_code__v7 & value) {
+            set_ric_code__v7(value);
+        }
 
         void set(const CCodeDefinition & value) {
             set(value.m__meta);
@@ -532,7 +548,7 @@ namespace api {
             set(value.m_underliers_per_cn);
             set(value.m_underlier_type);
             set(value.m_clearing_code);
-            set(value.m_ric_code);
+            set(value.m_ric_root);
             set(value.m_bbg_root);
             set(value.m_bbg_group);
             set(value.m_gmi_exchange);
@@ -543,6 +559,7 @@ namespace api {
             set(value.m_description);
             set(value.m_market_center);
             set(value.m_timestamp);
+            set(value.m_ric_code__v7);
         }
 
         CCodeDefinition() {
@@ -622,8 +639,8 @@ namespace api {
         bool IncludeClearingCode() const {
             return !(m_clearing_code.empty());
         }
-        bool IncludeRicCode() const {
-            return !(m_ric_code.empty());
+        bool IncludeRicRoot() const {
+            return !(m_ric_root.empty());
         }
         bool IncludeBbgRoot() const {
             return !(m_bbg_root.empty());
@@ -651,6 +668,9 @@ namespace api {
         }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
+        }
+        bool IncludeRicCodeV7() const {
+            return !(m_ric_code__v7.empty());
         }
 
         size_t ByteSizeLong() const {
@@ -693,8 +713,8 @@ namespace api {
             if ( IncludeClearingCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(130,m_clearing_code);
             }
-            if ( IncludeRicCode()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(133,m_ric_code);
+            if ( IncludeRicRoot()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(164,m_ric_root);
             }
             if ( IncludeBbgRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(136,m_bbg_root);
@@ -723,6 +743,9 @@ namespace api {
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(163, m_timestamp);
+            }
+            if ( IncludeRicCodeV7()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(5000,m_ric_code__v7);
             }
             return totalSize;
         }
@@ -765,8 +788,8 @@ namespace api {
             if ( IncludeClearingCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,130,static_cast<string>(m_clearing_code));
             }
-            if ( IncludeRicCode()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,133,static_cast<string>(m_ric_code));
+            if ( IncludeRicRoot()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,164,static_cast<string>(m_ric_root));
             }
             if ( IncludeBbgRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,136,static_cast<string>(m_bbg_root));
@@ -795,6 +818,9 @@ namespace api {
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 163, m_timestamp);
+            }
+            if ( IncludeRicCodeV7()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,5000,static_cast<string>(m_ric_code__v7));
             }
         }
 
@@ -889,9 +915,9 @@ namespace api {
                         }
                         break;
                     }
-                    case 133: {
+                    case 164: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
-                            m_ric_code = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                            m_ric_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -954,6 +980,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 5000: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_ric_code__v7 = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -976,7 +1008,7 @@ namespace api {
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::underliers_per_cn>() const { return m_underliers_per_cn; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::underlier_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>( m_underlier_type)); }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::clearing_code>() const { return m_clearing_code; }
-    template<> inline const auto CCodeDefinition::get<CCodeDefinition::ric_code>() const { return m_ric_code; }
+    template<> inline const auto CCodeDefinition::get<CCodeDefinition::ric_root>() const { return m_ric_root; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::bbg_root>() const { return m_bbg_root; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::bbg_group>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YellowKey>( m_bbg_group)); }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::gmi_exchange>() const { return m_gmi_exchange; }
@@ -987,6 +1019,7 @@ namespace api {
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::description>() const { return m_description; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::market_center>() const { return m_market_center; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::timestamp>() const { return m_timestamp; }
+    template<> inline const auto CCodeDefinition::get<CCodeDefinition::ric_code__v7>() const { return m_ric_code__v7; }
     template<> inline const auto CCodeDefinition_PKey::get<CCodeDefinition_PKey::ccode>() const { return CCodeDefinition_PKey::ccode{m_ccode}; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
@@ -1010,7 +1043,7 @@ namespace api {
         o << ",\"underliers_per_cn\":" << m.get<CCodeDefinition::underliers_per_cn>();
         o << ",\"underlier_type\":" << (int64_t)m.get<CCodeDefinition::underlier_type>();
         o << ",\"clearing_code\":\"" << m.get<CCodeDefinition::clearing_code>() << "\"";
-        o << ",\"ric_code\":\"" << m.get<CCodeDefinition::ric_code>() << "\"";
+        o << ",\"ric_root\":\"" << m.get<CCodeDefinition::ric_root>() << "\"";
         o << ",\"bbg_root\":\"" << m.get<CCodeDefinition::bbg_root>() << "\"";
         o << ",\"bbg_group\":" << (int64_t)m.get<CCodeDefinition::bbg_group>();
         o << ",\"gmi_exchange\":\"" << m.get<CCodeDefinition::gmi_exchange>() << "\"";
@@ -1026,6 +1059,7 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"ric_code__v7\":\"" << m.get<CCodeDefinition::ric_code__v7>() << "\"";
         return o;
     }
 
