@@ -15,6 +15,7 @@ message SpdrRiskGroupCancel {
         
         int64 risk_group_id = 10; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
         string accnt = 11; // SR trading account
+        string client_firm = 12; // SR client firm
     }
 
 

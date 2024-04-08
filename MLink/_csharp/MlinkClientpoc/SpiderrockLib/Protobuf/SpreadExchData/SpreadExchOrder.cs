@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci1Qcm90b2J1Zi9TcHJlYWRFeGNoRGF0YS9TcHJlYWRFeGNoT3JkZXIucHJv",
             "dG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnBy",
-            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIp8KCg9TcHJl",
+            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIoMICg9TcHJl",
             "YWRFeGNoT3JkZXISMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI3CgRwa2V5GAIgASgLMikuc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5TcHJlYWRFeGNoT3JkZXIuUEtleRIuCgZ0aWNrZXIYZCAB",
@@ -45,23 +45,15 @@ namespace Spiderrock.Protobuf {
             "aW5nX2FjY250GIsBIAEoCRIWCg1zcmNfdGltZXN0YW1wGI4BIAEoAxIWCg1u",
             "ZXRfdGltZXN0YW1wGJEBIAEoAxIWCg1kZ3dfdGltZXN0YW1wGJQBIAEoAxIu",
             "Cgl0aW1lc3RhbXAYlwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
-            "cBI4CgRsZWdzGJoBIAMoCzIpLnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFk",
-            "RXhjaE9yZGVyLkxlZ3MauQEKBFBLZXkSLAoEc2tleRgKIAEoCzIeLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuVGlja2VyS2V5EioKBGV4Y2gYCyABKA4yHC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSKgoEc2lkZRgMIAEoDjIcLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuQnV5U2VsbBIrCgdpc190ZXN0GA0gASgOMhouc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5ZZXNObxr1AQoETGVncxI0CgtsZWdfc2VjX2tl",
-            "eRidASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRI3Cgxs",
-            "ZWdfc2VjX3R5cGUYoAEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRy",
-            "S2V5VHlwZRIvCghsZWdfc2lkZRijASABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkJ1eVNlbGwSEgoJbGVnX3JhdGlvGKYBIAEoDRI5Cg1wb3NpdGlvbl90",
-            "eXBlGKkBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuUG9zaXRpb25UeXBl",
-            "YgZwcm90bzM="));
+            "cBIUCgtleGNoX3Nwcl9pRBiqASABKAkauQEKBFBLZXkSLAoEc2tleRgKIAEo",
+            "CzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EioKBGV4Y2gYCyAB",
+            "KA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSKgoEc2lkZRgMIAEo",
+            "DjIcLnNwaWRlcnJvY2sucHJvdG9idWYuQnV5U2VsbBIrCgdpc190ZXN0GA0g",
+            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNOb2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchOrder), global::Spiderrock.Protobuf.SpreadExchOrder.Parser, new[]{ "Meta", "Pkey", "Ticker", "OrderID", "Size", "Price", "IsPriceValid", "OrigOrderSize", "OrderType", "OrderStatus", "MarketQualifier", "ExecQualifier", "TimeInForce", "FirmType", "ClearingFirm", "ClearingAccnt", "SrcTimestamp", "NetTimestamp", "DgwTimestamp", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchOrder.Types.PKey), global::Spiderrock.Protobuf.SpreadExchOrder.Types.PKey.Parser, new[]{ "Skey", "Exch", "Side", "IsTest" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs), global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs.Parser, new[]{ "LegSecKey", "LegSecType", "LegSide", "LegRatio", "PositionType" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchOrder), global::Spiderrock.Protobuf.SpreadExchOrder.Parser, new[]{ "Meta", "Pkey", "Ticker", "OrderID", "Size", "Price", "IsPriceValid", "OrigOrderSize", "OrderType", "OrderStatus", "MarketQualifier", "ExecQualifier", "TimeInForce", "FirmType", "ClearingFirm", "ClearingAccnt", "SrcTimestamp", "NetTimestamp", "DgwTimestamp", "Timestamp", "ExchSprID" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchOrder.Types.PKey), global::Spiderrock.Protobuf.SpreadExchOrder.Types.PKey.Parser, new[]{ "Skey", "Exch", "Side", "IsTest" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -126,7 +118,7 @@ namespace Spiderrock.Protobuf {
       netTimestamp_ = other.netTimestamp_;
       dgwTimestamp_ = other.dgwTimestamp_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
-      legs_ = other.legs_.Clone();
+      exchSprID_ = other.exchSprID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -397,15 +389,19 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "legs" field.</summary>
-    public const int LegsFieldNumber = 154;
-    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs> _repeated_legs_codec
-        = pb::FieldCodec.ForMessage(1234, global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs.Parser);
-    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs> legs_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs>();
+    /// <summary>Field number for the "exch_spr_iD" field.</summary>
+    public const int ExchSprIDFieldNumber = 170;
+    private string exchSprID_ = "";
+    /// <summary>
+    /// unique exchange spread id
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Spiderrock.Protobuf.SpreadExchOrder.Types.Legs> Legs {
-      get { return legs_; }
+    public string ExchSprID {
+      get { return exchSprID_; }
+      set {
+        exchSprID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -443,7 +439,7 @@ namespace Spiderrock.Protobuf {
       if (NetTimestamp != other.NetTimestamp) return false;
       if (DgwTimestamp != other.DgwTimestamp) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
-      if(!legs_.Equals(other.legs_)) return false;
+      if (ExchSprID != other.ExchSprID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -471,7 +467,7 @@ namespace Spiderrock.Protobuf {
       if (NetTimestamp != 0L) hash ^= NetTimestamp.GetHashCode();
       if (DgwTimestamp != 0L) hash ^= DgwTimestamp.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
-      hash ^= legs_.GetHashCode();
+      if (ExchSprID.Length != 0) hash ^= ExchSprID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -570,7 +566,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 9);
         output.WriteMessage(Timestamp);
       }
-      legs_.WriteTo(output, _repeated_legs_codec);
+      if (ExchSprID.Length != 0) {
+        output.WriteRawTag(210, 10);
+        output.WriteString(ExchSprID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -661,7 +660,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 9);
         output.WriteMessage(Timestamp);
       }
-      legs_.WriteTo(ref output, _repeated_legs_codec);
+      if (ExchSprID.Length != 0) {
+        output.WriteRawTag(210, 10);
+        output.WriteString(ExchSprID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -732,7 +734,9 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
       }
-      size += legs_.CalculateSize(_repeated_legs_codec);
+      if (ExchSprID.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ExchSprID);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -817,7 +821,9 @@ namespace Spiderrock.Protobuf {
         }
         Timestamp.MergeFrom(other.Timestamp);
       }
-      legs_.Add(other.legs_);
+      if (other.ExchSprID.Length != 0) {
+        ExchSprID = other.ExchSprID;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -925,8 +931,8 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 1234: {
-            legs_.AddEntriesFrom(input, _repeated_legs_codec);
+          case 1362: {
+            ExchSprID = input.ReadString();
             break;
           }
         }
@@ -1036,8 +1042,8 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 1234: {
-            legs_.AddEntriesFrom(ref input, _repeated_legs_codec);
+          case 1362: {
+            ExchSprID = input.ReadString();
             break;
           }
         }
@@ -1353,355 +1359,6 @@ namespace Spiderrock.Protobuf {
               }
               case 104: {
                 IsTest = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
-      public sealed partial class Legs : pb::IMessage<Legs>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<Legs> _parser = new pb::MessageParser<Legs>(() => new Legs());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<Legs> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.SpreadExchOrder.Descriptor.NestedTypes[1]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public Legs() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public Legs(Legs other) : this() {
-          legSecKey_ = other.legSecKey_ != null ? other.legSecKey_.Clone() : null;
-          legSecType_ = other.legSecType_;
-          legSide_ = other.legSide_;
-          legRatio_ = other.legRatio_;
-          positionType_ = other.positionType_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public Legs Clone() {
-          return new Legs(this);
-        }
-
-        /// <summary>Field number for the "leg_sec_key" field.</summary>
-        public const int LegSecKeyFieldNumber = 157;
-        private global::Spiderrock.Protobuf.OptionKey legSecKey_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.OptionKey LegSecKey {
-          get { return legSecKey_; }
-          set {
-            legSecKey_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "leg_sec_type" field.</summary>
-        public const int LegSecTypeFieldNumber = 160;
-        private global::Spiderrock.Protobuf.SpdrKeyType legSecType_ = global::Spiderrock.Protobuf.SpdrKeyType.Unspecified;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.SpdrKeyType LegSecType {
-          get { return legSecType_; }
-          set {
-            legSecType_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "leg_side" field.</summary>
-        public const int LegSideFieldNumber = 163;
-        private global::Spiderrock.Protobuf.BuySell legSide_ = global::Spiderrock.Protobuf.BuySell.Unspecified;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.BuySell LegSide {
-          get { return legSide_; }
-          set {
-            legSide_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "leg_ratio" field.</summary>
-        public const int LegRatioFieldNumber = 166;
-        private uint legRatio_;
-        /// <summary>
-        /// leg ratio (1, 2, etc)
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public uint LegRatio {
-          get { return legRatio_; }
-          set {
-            legRatio_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "position_type" field.</summary>
-        public const int PositionTypeFieldNumber = 169;
-        private global::Spiderrock.Protobuf.PositionType positionType_ = global::Spiderrock.Protobuf.PositionType.Unspecified;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.PositionType PositionType {
-          get { return positionType_; }
-          set {
-            positionType_ = value;
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override bool Equals(object other) {
-          return Equals(other as Legs);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(Legs other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (!object.Equals(LegSecKey, other.LegSecKey)) return false;
-          if (LegSecType != other.LegSecType) return false;
-          if (LegSide != other.LegSide) return false;
-          if (LegRatio != other.LegRatio) return false;
-          if (PositionType != other.PositionType) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (legSecKey_ != null) hash ^= LegSecKey.GetHashCode();
-          if (LegSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) hash ^= LegSecType.GetHashCode();
-          if (LegSide != global::Spiderrock.Protobuf.BuySell.Unspecified) hash ^= LegSide.GetHashCode();
-          if (LegRatio != 0) hash ^= LegRatio.GetHashCode();
-          if (PositionType != global::Spiderrock.Protobuf.PositionType.Unspecified) hash ^= PositionType.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (legSecKey_ != null) {
-            output.WriteRawTag(234, 9);
-            output.WriteMessage(LegSecKey);
-          }
-          if (LegSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) {
-            output.WriteRawTag(128, 10);
-            output.WriteEnum((int) LegSecType);
-          }
-          if (LegSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-            output.WriteRawTag(152, 10);
-            output.WriteEnum((int) LegSide);
-          }
-          if (LegRatio != 0) {
-            output.WriteRawTag(176, 10);
-            output.WriteUInt32(LegRatio);
-          }
-          if (PositionType != global::Spiderrock.Protobuf.PositionType.Unspecified) {
-            output.WriteRawTag(200, 10);
-            output.WriteEnum((int) PositionType);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (legSecKey_ != null) {
-            output.WriteRawTag(234, 9);
-            output.WriteMessage(LegSecKey);
-          }
-          if (LegSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) {
-            output.WriteRawTag(128, 10);
-            output.WriteEnum((int) LegSecType);
-          }
-          if (LegSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-            output.WriteRawTag(152, 10);
-            output.WriteEnum((int) LegSide);
-          }
-          if (LegRatio != 0) {
-            output.WriteRawTag(176, 10);
-            output.WriteUInt32(LegRatio);
-          }
-          if (PositionType != global::Spiderrock.Protobuf.PositionType.Unspecified) {
-            output.WriteRawTag(200, 10);
-            output.WriteEnum((int) PositionType);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int CalculateSize() {
-          int size = 0;
-          if (legSecKey_ != null) {
-            size += 2 + pb::CodedOutputStream.ComputeMessageSize(LegSecKey);
-          }
-          if (LegSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) {
-            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) LegSecType);
-          }
-          if (LegSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) LegSide);
-          }
-          if (LegRatio != 0) {
-            size += 2 + pb::CodedOutputStream.ComputeUInt32Size(LegRatio);
-          }
-          if (PositionType != global::Spiderrock.Protobuf.PositionType.Unspecified) {
-            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PositionType);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(Legs other) {
-          if (other == null) {
-            return;
-          }
-          if (other.legSecKey_ != null) {
-            if (legSecKey_ == null) {
-              LegSecKey = new global::Spiderrock.Protobuf.OptionKey();
-            }
-            LegSecKey.MergeFrom(other.LegSecKey);
-          }
-          if (other.LegSecType != global::Spiderrock.Protobuf.SpdrKeyType.Unspecified) {
-            LegSecType = other.LegSecType;
-          }
-          if (other.LegSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-            LegSide = other.LegSide;
-          }
-          if (other.LegRatio != 0) {
-            LegRatio = other.LegRatio;
-          }
-          if (other.PositionType != global::Spiderrock.Protobuf.PositionType.Unspecified) {
-            PositionType = other.PositionType;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 1258: {
-                if (legSecKey_ == null) {
-                  LegSecKey = new global::Spiderrock.Protobuf.OptionKey();
-                }
-                input.ReadMessage(LegSecKey);
-                break;
-              }
-              case 1280: {
-                LegSecType = (global::Spiderrock.Protobuf.SpdrKeyType) input.ReadEnum();
-                break;
-              }
-              case 1304: {
-                LegSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
-                break;
-              }
-              case 1328: {
-                LegRatio = input.ReadUInt32();
-                break;
-              }
-              case 1352: {
-                PositionType = (global::Spiderrock.Protobuf.PositionType) input.ReadEnum();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 1258: {
-                if (legSecKey_ == null) {
-                  LegSecKey = new global::Spiderrock.Protobuf.OptionKey();
-                }
-                input.ReadMessage(LegSecKey);
-                break;
-              }
-              case 1280: {
-                LegSecType = (global::Spiderrock.Protobuf.SpdrKeyType) input.ReadEnum();
-                break;
-              }
-              case 1304: {
-                LegSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
-                break;
-              }
-              case 1328: {
-                LegRatio = input.ReadUInt32();
-                break;
-              }
-              case 1352: {
-                PositionType = (global::Spiderrock.Protobuf.PositionType) input.ReadEnum();
                 break;
               }
             }

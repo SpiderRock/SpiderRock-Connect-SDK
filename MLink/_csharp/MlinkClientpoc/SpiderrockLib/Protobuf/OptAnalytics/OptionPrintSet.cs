@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CipQcm90b2J1Zi9PcHRBbmFseXRpY3MvT3B0aW9uUHJpbnRTZXQucHJvdG8S",
             "E3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3Rv",
-            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIoERCg5PcHRpb25Q",
+            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIr4TCg5PcHRpb25Q",
             "cmludFNldBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "TWVzc2FnZU1ldGFkYXRhEjYKBHBrZXkYAiABKAsyKC5zcGlkZXJyb2NrLnBy",
             "b3RvYnVmLk9wdGlvblByaW50U2V0LlBLZXkSLAoEZmtleRhkIAEoCzIeLnNw",
@@ -51,35 +51,42 @@ namespace Spiderrock.Protobuf {
             "KAUSFAoLb19hc2tfZXhfc3oYwQEgASgFEhIKCW9fYmlkX2NudBjEASABKAUS",
             "EgoJb19hc2tfY250GMcBIAEoBRIPCgZvX2JpZDIYygEgASgCEg8KBm9fYXNr",
             "MhjNASABKAISEgoJb19iaWRfc3oyGNABIAEoBRISCglvX2Fza19zejIY0wEg",
-            "ASgFEg4KBXVfYmlkGNYBIAEoARIOCgV1X2FzaxjZASABKAESDgoFdV9wcmMY",
-            "3AEgASgBEgwKA3lycxjfASABKAISDQoEcmF0ZRjiASABKAISDQoEc2Rpdhjl",
-            "ASABKAISDQoEZGRpdhjoASABKAISDQoEeF9kZRjrASABKAISDwoGeF9heGlz",
-            "GO4BIAEoAhI0CgptdWx0aWhlZGdlGPEBIAEoDjIfLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuTXVsdGloZWRnZRIxCglmbGV4X3R5cGUY9AEgASgOMh0uc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5GbGV4VHlwZRISCglmbGV4X3Jvb3QY9wEgASgJEg8K",
-            "BnBydF9pdhj6ASABKAISDwoGcHJ0X2RlGP0BIAEoAhIPCgZwcnRfZ2EYgAIg",
-            "ASgCEg8KBnBydF90aBiDAiABKAISDwoGcHJ0X3ZlGIYCIAEoAhIPCgZwcnRf",
-            "cm8YiQIgASgCEhEKCGNhbGNfZXJyGIwCIAEoCRIRCghzdXJmX3ZvbBiPAiAB",
-            "KAISEQoIc3VyZl9vcHgYkgIgASgCEhEKCHN1cmZfYXRtGJUCIAEoAhIYCg9w",
-            "cnRfcHJvYmFiaWxpdHkYmAIgASgCEhsKEnBydF9wcm9iYWJpbGl0eV9tMhib",
-            "AiABKAISGwoScHJ0X3Byb2JhYmlsaXR5X20zGJ4CIAEoAhIRCghvX2JpZF9t",
-            "MRihAiABKAISEQoIb19hc2tfbTEYpAIgASgCEhEKCHVfYmlkX20xGKcCIAEo",
-            "ARIRCgh1X2Fza19tMRiqAiABKAESEQoIdV9wcmNfbTEYrQIgASgBEhEKCHNf",
-            "dm9sX20xGLACIAEoAhIRCghzX29weF9tMRizAiABKAISEQoIc19kaXZfbTEY",
-            "tgIgASgCEhEKCHNfZXJyX20xGLkCIAEoCRIPCgZwbmxfbTEYvAIgASgCEi8K",
-            "CnBubF9tMV9lcnIYvwIgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNO",
-            "bxISCglvX2JpZF9tMTAYwgIgASgCEhIKCW9fYXNrX20xMBjFAiABKAISEgoJ",
-            "dV9iaWRfbTEwGMgCIAEoARISCgl1X2Fza19tMTAYywIgASgBEhIKCXVfcHJj",
-            "X20xMBjOAiABKAESEgoJc192b2xfbTEwGNECIAEoAhISCglzX29weF9tMTAY",
-            "1AIgASgCEhIKCXNfZGl2X20xMBjXAiABKAISEgoJc19lcnJfbTEwGNoCIAEo",
-            "CRIQCgdwbmxfbTEwGN0CIAEoAhIwCgtwbmxfbTEwX2VychjgAiABKA4yGi5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vGkgKBFBLZXkSLAoEb2tleRgKIAEo",
-            "CzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EhIKCnBydF9udW1i",
-            "ZXIYCyABKANiBnByb3RvMw=="));
+            "ASgFEhEKCG9fYmlkX2l2GOECIAEoARIRCghvX2Fza19pdhjiAiABKAESDgoF",
+            "dV9iaWQY1gEgASgBEg4KBXVfYXNrGNkBIAEoARIOCgV1X3ByYxjcASABKAES",
+            "DAoDeXJzGN8BIAEoAhINCgRyYXRlGOIBIAEoAhINCgRzZGl2GOUBIAEoAhIN",
+            "CgRkZGl2GOgBIAEoAhINCgR4X2RlGOsBIAEoAhIPCgZ4X2F4aXMY7gEgASgC",
+            "EjQKCm11bHRpaGVkZ2UY8QEgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5N",
+            "dWx0aWhlZGdlEjEKCWZsZXhfdHlwZRj0ASABKA4yHS5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLkZsZXhUeXBlEhIKCWZsZXhfcm9vdBj3ASABKAkSDwoGcHJ0X2l2",
+            "GPoBIAEoAhIPCgZwcnRfZGUY/QEgASgCEg8KBnBydF9nYRiAAiABKAISDwoG",
+            "cHJ0X3RoGIMCIAEoAhIPCgZwcnRfdmUYhgIgASgCEg8KBnBydF9ybxiJAiAB",
+            "KAISEQoIY2FsY19lcnIYjAIgASgJEhEKCHN1cmZfdm9sGI8CIAEoAhIRCghz",
+            "dXJmX29weBiSAiABKAISEQoIc3VyZl9hdG0YlQIgASgCEhgKD3BydF9wcm9i",
+            "YWJpbGl0eRiYAiABKAISGwoScHJ0X3Byb2JhYmlsaXR5X20yGJsCIAEoAhIb",
+            "ChJwcnRfcHJvYmFiaWxpdHlfbTMYngIgASgCEhEKCG9fYmlkX20xGKECIAEo",
+            "AhIRCghvX2Fza19tMRikAiABKAISEQoIdV9iaWRfbTEYpwIgASgBEhEKCHVf",
+            "YXNrX20xGKoCIAEoARIRCgh1X3ByY19tMRitAiABKAESEQoIc192b2xfbTEY",
+            "sAIgASgCEhEKCHNfb3B4X20xGLMCIAEoAhIRCghzX2Rpdl9tMRi2AiABKAIS",
+            "EQoIc19lcnJfbTEYuQIgASgJEg8KBnBubF9tMRi8AiABKAISLwoKcG5sX20x",
+            "X2Vychi/AiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhIKCW9f",
+            "YmlkX20xMBjCAiABKAISEgoJb19hc2tfbTEwGMUCIAEoAhISCgl1X2JpZF9t",
+            "MTAYyAIgASgBEhIKCXVfYXNrX20xMBjLAiABKAESEgoJdV9wcmNfbTEwGM4C",
+            "IAEoARISCglzX3ZvbF9tMTAY0QIgASgCEhIKCXNfb3B4X20xMBjUAiABKAIS",
+            "EgoJc19kaXZfbTEwGNcCIAEoAhISCglzX2Vycl9tMTAY2gIgASgJEhAKB3Bu",
+            "bF9tMTAY3QIgASgCEjAKC3BubF9tMTBfZXJyGOACIAEoDjIaLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuWWVzTm8SEQoIb19iaWRfczEY4wIgASgCEhEKCG9fYXNr",
+            "X3MxGOQCIAEoAhIRCgh1X2JpZF9zMRjlAiABKAESEQoIdV9hc2tfczEY5gIg",
+            "ASgBEhEKCHVfcHJjX3MxGOcCIAEoARIRCghzX3ZvbF9zMRjoAiABKAISEQoI",
+            "c19vcHhfczEY6QIgASgCEhEKCHNfZGl2X3MxGOoCIAEoAhIRCghzX2Vycl9z",
+            "MRjrAiABKAkSDwoGcG5sX3MxGOwCIAEoAhIvCgpwbmxfczFfZXJyGO0CIAEo",
+            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEwoKb19iaWRfbmV4dBju",
+            "AiABKAISEwoKb19hc2tfbmV4dBjvAiABKAIaSAoEUEtleRIsCgRva2V5GAog",
+            "ASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkSEgoKcHJ0X251",
+            "bWJlchgLIAEoA2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrintSet), global::Spiderrock.Protobuf.OptionPrintSet.Parser, new[]{ "Meta", "Pkey", "Fkey", "Ticker", "PrtExch", "PrtSize", "PrtPrice", "PrtType", "PrtOrders", "PrtClusterNum", "PrtClusterSize", "PrtVolume", "CxlVolume", "BidCount", "AskCount", "BidVolume", "AskVolume", "Ebid", "Eask", "Ebsz", "Easz", "Eage", "PrtSide", "PrtTimestamp", "NetTimestamp", "Timestamp", "OBid", "OAsk", "OBidSz", "OAskSz", "OBidEx", "OAskEx", "OBidExSz", "OAskExSz", "OBidCnt", "OAskCnt", "OBid2", "OAsk2", "OBidSz2", "OAskSz2", "UBid", "UAsk", "UPrc", "Yrs", "Rate", "Sdiv", "Ddiv", "XDe", "XAxis", "Multihedge", "FlexType", "FlexRoot", "PrtIv", "PrtDe", "PrtGa", "PrtTh", "PrtVe", "PrtRo", "CalcErr", "SurfVol", "SurfOpx", "SurfAtm", "PrtProbability", "PrtProbabilityM2", "PrtProbabilityM3", "OBidM1", "OAskM1", "UBidM1", "UAskM1", "UPrcM1", "SVolM1", "SOpxM1", "SDivM1", "SErrM1", "PnlM1", "PnlM1Err", "OBidM10", "OAskM10", "UBidM10", "UAskM10", "UPrcM10", "SVolM10", "SOpxM10", "SDivM10", "SErrM10", "PnlM10", "PnlM10Err" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrintSet.Types.PKey), global::Spiderrock.Protobuf.OptionPrintSet.Types.PKey.Parser, new[]{ "Okey", "PrtNumber" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrintSet), global::Spiderrock.Protobuf.OptionPrintSet.Parser, new[]{ "Meta", "Pkey", "Fkey", "Ticker", "PrtExch", "PrtSize", "PrtPrice", "PrtType", "PrtOrders", "PrtClusterNum", "PrtClusterSize", "PrtVolume", "CxlVolume", "BidCount", "AskCount", "BidVolume", "AskVolume", "Ebid", "Eask", "Ebsz", "Easz", "Eage", "PrtSide", "PrtTimestamp", "NetTimestamp", "Timestamp", "OBid", "OAsk", "OBidSz", "OAskSz", "OBidEx", "OAskEx", "OBidExSz", "OAskExSz", "OBidCnt", "OAskCnt", "OBid2", "OAsk2", "OBidSz2", "OAskSz2", "OBidIv", "OAskIv", "UBid", "UAsk", "UPrc", "Yrs", "Rate", "Sdiv", "Ddiv", "XDe", "XAxis", "Multihedge", "FlexType", "FlexRoot", "PrtIv", "PrtDe", "PrtGa", "PrtTh", "PrtVe", "PrtRo", "CalcErr", "SurfVol", "SurfOpx", "SurfAtm", "PrtProbability", "PrtProbabilityM2", "PrtProbabilityM3", "OBidM1", "OAskM1", "UBidM1", "UAskM1", "UPrcM1", "SVolM1", "SOpxM1", "SDivM1", "SErrM1", "PnlM1", "PnlM1Err", "OBidM10", "OAskM10", "UBidM10", "UAskM10", "UPrcM10", "SVolM10", "SOpxM10", "SDivM10", "SErrM10", "PnlM10", "PnlM10Err", "OBidS1", "OAskS1", "UBidS1", "UAskS1", "UPrcS1", "SVolS1", "SOpxS1", "SDivS1", "SErrS1", "PnlS1", "PnlS1Err", "OBidNext", "OAskNext" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrintSet.Types.PKey), global::Spiderrock.Protobuf.OptionPrintSet.Types.PKey.Parser, new[]{ "Okey", "PrtNumber" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -164,6 +171,8 @@ namespace Spiderrock.Protobuf {
       oAsk2_ = other.oAsk2_;
       oBidSz2_ = other.oBidSz2_;
       oAskSz2_ = other.oAskSz2_;
+      oBidIv_ = other.oBidIv_;
+      oAskIv_ = other.oAskIv_;
       uBid_ = other.uBid_;
       uAsk_ = other.uAsk_;
       uPrc_ = other.uPrc_;
@@ -211,6 +220,19 @@ namespace Spiderrock.Protobuf {
       sErrM10_ = other.sErrM10_;
       pnlM10_ = other.pnlM10_;
       pnlM10Err_ = other.pnlM10Err_;
+      oBidS1_ = other.oBidS1_;
+      oAskS1_ = other.oAskS1_;
+      uBidS1_ = other.uBidS1_;
+      uAskS1_ = other.uAskS1_;
+      uPrcS1_ = other.uPrcS1_;
+      sVolS1_ = other.sVolS1_;
+      sOpxS1_ = other.sOpxS1_;
+      sDivS1_ = other.sDivS1_;
+      sErrS1_ = other.sErrS1_;
+      pnlS1_ = other.pnlS1_;
+      pnlS1Err_ = other.pnlS1Err_;
+      oBidNext_ = other.oBidNext_;
+      oAskNext_ = other.oAskNext_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -805,6 +827,36 @@ namespace Spiderrock.Protobuf {
       get { return oAskSz2_; }
       set {
         oAskSz2_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "o_bid_iv" field.</summary>
+    public const int OBidIvFieldNumber = 353;
+    private double oBidIv_;
+    /// <summary>
+    /// option bid IV
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double OBidIv {
+      get { return oBidIv_; }
+      set {
+        oBidIv_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "o_ask_iv" field.</summary>
+    public const int OAskIvFieldNumber = 354;
+    private double oAskIv_;
+    /// <summary>
+    /// option ask IV
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double OAskIv {
+      get { return oAskIv_; }
+      set {
+        oAskIv_ = value;
       }
     }
 
@@ -1507,6 +1559,201 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "o_bid_s1" field.</summary>
+    public const int OBidS1FieldNumber = 355;
+    private float oBidS1_;
+    /// <summary>
+    /// NBBO option bid 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OBidS1 {
+      get { return oBidS1_; }
+      set {
+        oBidS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "o_ask_s1" field.</summary>
+    public const int OAskS1FieldNumber = 356;
+    private float oAskS1_;
+    /// <summary>
+    /// NBBO option ask 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OAskS1 {
+      get { return oAskS1_; }
+      set {
+        oAskS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "u_bid_s1" field.</summary>
+    public const int UBidS1FieldNumber = 357;
+    private double uBidS1_;
+    /// <summary>
+    /// NBBO underlying bid 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double UBidS1 {
+      get { return uBidS1_; }
+      set {
+        uBidS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "u_ask_s1" field.</summary>
+    public const int UAskS1FieldNumber = 358;
+    private double uAskS1_;
+    /// <summary>
+    /// NBBO underlying ask 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double UAskS1 {
+      get { return uAskS1_; }
+      set {
+        uAskS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "u_prc_s1" field.</summary>
+    public const int UPrcS1FieldNumber = 359;
+    private double uPrcS1_;
+    /// <summary>
+    /// Underlying price 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double UPrcS1 {
+      get { return uPrcS1_; }
+      set {
+        uPrcS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "s_vol_s1" field.</summary>
+    public const int SVolS1FieldNumber = 360;
+    private float sVolS1_;
+    /// <summary>
+    /// Suface volatility 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SVolS1 {
+      get { return sVolS1_; }
+      set {
+        sVolS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "s_opx_s1" field.</summary>
+    public const int SOpxS1FieldNumber = 361;
+    private float sOpxS1_;
+    /// <summary>
+    /// Surface option price 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SOpxS1 {
+      get { return sOpxS1_; }
+      set {
+        sOpxS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "s_div_s1" field.</summary>
+    public const int SDivS1FieldNumber = 362;
+    private float sDivS1_;
+    /// <summary>
+    /// sDiv 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SDivS1 {
+      get { return sDivS1_; }
+      set {
+        sDivS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "s_err_s1" field.</summary>
+    public const int SErrS1FieldNumber = 363;
+    private string sErrS1_ = "";
+    /// <summary>
+    /// Surface error condition (if any) 1 second after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SErrS1 {
+      get { return sErrS1_; }
+      set {
+        sErrS1_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "pnl_s1" field.</summary>
+    public const int PnlS1FieldNumber = 364;
+    private float pnlS1_;
+    /// <summary>
+    /// pnl after 1 second
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PnlS1 {
+      get { return pnlS1_; }
+      set {
+        pnlS1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pnl_s1_err" field.</summary>
+    public const int PnlS1ErrFieldNumber = 365;
+    private global::Spiderrock.Protobuf.YesNo pnlS1Err_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// Error condition for PnL calculated over the first 1 second after the print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo PnlS1Err {
+      get { return pnlS1Err_; }
+      set {
+        pnlS1Err_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "o_bid_next" field.</summary>
+    public const int OBidNextFieldNumber = 366;
+    private float oBidNext_;
+    /// <summary>
+    /// next NBBO option bid after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OBidNext {
+      get { return oBidNext_; }
+      set {
+        oBidNext_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "o_ask_next" field.</summary>
+    public const int OAskNextFieldNumber = 367;
+    private float oAskNext_;
+    /// <summary>
+    /// next NBBO option ask after print was received
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OAskNext {
+      get { return oAskNext_; }
+      set {
+        oAskNext_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1562,6 +1809,8 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OAsk2, other.OAsk2)) return false;
       if (OBidSz2 != other.OBidSz2) return false;
       if (OAskSz2 != other.OAskSz2) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OBidIv, other.OBidIv)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OAskIv, other.OAskIv)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UBid, other.UBid)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UAsk, other.UAsk)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UPrc, other.UPrc)) return false;
@@ -1609,6 +1858,19 @@ namespace Spiderrock.Protobuf {
       if (SErrM10 != other.SErrM10) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PnlM10, other.PnlM10)) return false;
       if (PnlM10Err != other.PnlM10Err) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OBidS1, other.OBidS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OAskS1, other.OAskS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UBidS1, other.UBidS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UAskS1, other.UAskS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UPrcS1, other.UPrcS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SVolS1, other.SVolS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SOpxS1, other.SOpxS1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SDivS1, other.SDivS1)) return false;
+      if (SErrS1 != other.SErrS1) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PnlS1, other.PnlS1)) return false;
+      if (PnlS1Err != other.PnlS1Err) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OBidNext, other.OBidNext)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OAskNext, other.OAskNext)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1656,6 +1918,8 @@ namespace Spiderrock.Protobuf {
       if (OAsk2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OAsk2);
       if (OBidSz2 != 0) hash ^= OBidSz2.GetHashCode();
       if (OAskSz2 != 0) hash ^= OAskSz2.GetHashCode();
+      if (OBidIv != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OBidIv);
+      if (OAskIv != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OAskIv);
       if (UBid != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UBid);
       if (UAsk != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UAsk);
       if (UPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UPrc);
@@ -1703,6 +1967,19 @@ namespace Spiderrock.Protobuf {
       if (SErrM10.Length != 0) hash ^= SErrM10.GetHashCode();
       if (PnlM10 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PnlM10);
       if (PnlM10Err != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= PnlM10Err.GetHashCode();
+      if (OBidS1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OBidS1);
+      if (OAskS1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OAskS1);
+      if (UBidS1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UBidS1);
+      if (UAskS1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UAskS1);
+      if (UPrcS1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UPrcS1);
+      if (SVolS1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SVolS1);
+      if (SOpxS1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SOpxS1);
+      if (SDivS1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SDivS1);
+      if (SErrS1.Length != 0) hash ^= SErrS1.GetHashCode();
+      if (PnlS1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PnlS1);
+      if (PnlS1Err != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= PnlS1Err.GetHashCode();
+      if (OBidNext != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OBidNext);
+      if (OAskNext != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OAskNext);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2069,6 +2346,66 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(128, 22);
         output.WriteEnum((int) PnlM10Err);
       }
+      if (OBidIv != 0D) {
+        output.WriteRawTag(137, 22);
+        output.WriteDouble(OBidIv);
+      }
+      if (OAskIv != 0D) {
+        output.WriteRawTag(145, 22);
+        output.WriteDouble(OAskIv);
+      }
+      if (OBidS1 != 0F) {
+        output.WriteRawTag(157, 22);
+        output.WriteFloat(OBidS1);
+      }
+      if (OAskS1 != 0F) {
+        output.WriteRawTag(165, 22);
+        output.WriteFloat(OAskS1);
+      }
+      if (UBidS1 != 0D) {
+        output.WriteRawTag(169, 22);
+        output.WriteDouble(UBidS1);
+      }
+      if (UAskS1 != 0D) {
+        output.WriteRawTag(177, 22);
+        output.WriteDouble(UAskS1);
+      }
+      if (UPrcS1 != 0D) {
+        output.WriteRawTag(185, 22);
+        output.WriteDouble(UPrcS1);
+      }
+      if (SVolS1 != 0F) {
+        output.WriteRawTag(197, 22);
+        output.WriteFloat(SVolS1);
+      }
+      if (SOpxS1 != 0F) {
+        output.WriteRawTag(205, 22);
+        output.WriteFloat(SOpxS1);
+      }
+      if (SDivS1 != 0F) {
+        output.WriteRawTag(213, 22);
+        output.WriteFloat(SDivS1);
+      }
+      if (SErrS1.Length != 0) {
+        output.WriteRawTag(218, 22);
+        output.WriteString(SErrS1);
+      }
+      if (PnlS1 != 0F) {
+        output.WriteRawTag(229, 22);
+        output.WriteFloat(PnlS1);
+      }
+      if (PnlS1Err != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(232, 22);
+        output.WriteEnum((int) PnlS1Err);
+      }
+      if (OBidNext != 0F) {
+        output.WriteRawTag(245, 22);
+        output.WriteFloat(OBidNext);
+      }
+      if (OAskNext != 0F) {
+        output.WriteRawTag(253, 22);
+        output.WriteFloat(OAskNext);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2427,6 +2764,66 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(128, 22);
         output.WriteEnum((int) PnlM10Err);
       }
+      if (OBidIv != 0D) {
+        output.WriteRawTag(137, 22);
+        output.WriteDouble(OBidIv);
+      }
+      if (OAskIv != 0D) {
+        output.WriteRawTag(145, 22);
+        output.WriteDouble(OAskIv);
+      }
+      if (OBidS1 != 0F) {
+        output.WriteRawTag(157, 22);
+        output.WriteFloat(OBidS1);
+      }
+      if (OAskS1 != 0F) {
+        output.WriteRawTag(165, 22);
+        output.WriteFloat(OAskS1);
+      }
+      if (UBidS1 != 0D) {
+        output.WriteRawTag(169, 22);
+        output.WriteDouble(UBidS1);
+      }
+      if (UAskS1 != 0D) {
+        output.WriteRawTag(177, 22);
+        output.WriteDouble(UAskS1);
+      }
+      if (UPrcS1 != 0D) {
+        output.WriteRawTag(185, 22);
+        output.WriteDouble(UPrcS1);
+      }
+      if (SVolS1 != 0F) {
+        output.WriteRawTag(197, 22);
+        output.WriteFloat(SVolS1);
+      }
+      if (SOpxS1 != 0F) {
+        output.WriteRawTag(205, 22);
+        output.WriteFloat(SOpxS1);
+      }
+      if (SDivS1 != 0F) {
+        output.WriteRawTag(213, 22);
+        output.WriteFloat(SDivS1);
+      }
+      if (SErrS1.Length != 0) {
+        output.WriteRawTag(218, 22);
+        output.WriteString(SErrS1);
+      }
+      if (PnlS1 != 0F) {
+        output.WriteRawTag(229, 22);
+        output.WriteFloat(PnlS1);
+      }
+      if (PnlS1Err != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(232, 22);
+        output.WriteEnum((int) PnlS1Err);
+      }
+      if (OBidNext != 0F) {
+        output.WriteRawTag(245, 22);
+        output.WriteFloat(OBidNext);
+      }
+      if (OAskNext != 0F) {
+        output.WriteRawTag(253, 22);
+        output.WriteFloat(OAskNext);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2556,6 +2953,12 @@ namespace Spiderrock.Protobuf {
       }
       if (OAskSz2 != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(OAskSz2);
+      }
+      if (OBidIv != 0D) {
+        size += 2 + 8;
+      }
+      if (OAskIv != 0D) {
+        size += 2 + 8;
       }
       if (UBid != 0D) {
         size += 2 + 8;
@@ -2697,6 +3100,45 @@ namespace Spiderrock.Protobuf {
       }
       if (PnlM10Err != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PnlM10Err);
+      }
+      if (OBidS1 != 0F) {
+        size += 2 + 4;
+      }
+      if (OAskS1 != 0F) {
+        size += 2 + 4;
+      }
+      if (UBidS1 != 0D) {
+        size += 2 + 8;
+      }
+      if (UAskS1 != 0D) {
+        size += 2 + 8;
+      }
+      if (UPrcS1 != 0D) {
+        size += 2 + 8;
+      }
+      if (SVolS1 != 0F) {
+        size += 2 + 4;
+      }
+      if (SOpxS1 != 0F) {
+        size += 2 + 4;
+      }
+      if (SDivS1 != 0F) {
+        size += 2 + 4;
+      }
+      if (SErrS1.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SErrS1);
+      }
+      if (PnlS1 != 0F) {
+        size += 2 + 4;
+      }
+      if (PnlS1Err != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PnlS1Err);
+      }
+      if (OBidNext != 0F) {
+        size += 2 + 4;
+      }
+      if (OAskNext != 0F) {
+        size += 2 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2845,6 +3287,12 @@ namespace Spiderrock.Protobuf {
       if (other.OAskSz2 != 0) {
         OAskSz2 = other.OAskSz2;
       }
+      if (other.OBidIv != 0D) {
+        OBidIv = other.OBidIv;
+      }
+      if (other.OAskIv != 0D) {
+        OAskIv = other.OAskIv;
+      }
       if (other.UBid != 0D) {
         UBid = other.UBid;
       }
@@ -2985,6 +3433,45 @@ namespace Spiderrock.Protobuf {
       }
       if (other.PnlM10Err != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         PnlM10Err = other.PnlM10Err;
+      }
+      if (other.OBidS1 != 0F) {
+        OBidS1 = other.OBidS1;
+      }
+      if (other.OAskS1 != 0F) {
+        OAskS1 = other.OAskS1;
+      }
+      if (other.UBidS1 != 0D) {
+        UBidS1 = other.UBidS1;
+      }
+      if (other.UAskS1 != 0D) {
+        UAskS1 = other.UAskS1;
+      }
+      if (other.UPrcS1 != 0D) {
+        UPrcS1 = other.UPrcS1;
+      }
+      if (other.SVolS1 != 0F) {
+        SVolS1 = other.SVolS1;
+      }
+      if (other.SOpxS1 != 0F) {
+        SOpxS1 = other.SOpxS1;
+      }
+      if (other.SDivS1 != 0F) {
+        SDivS1 = other.SDivS1;
+      }
+      if (other.SErrS1.Length != 0) {
+        SErrS1 = other.SErrS1;
+      }
+      if (other.PnlS1 != 0F) {
+        PnlS1 = other.PnlS1;
+      }
+      if (other.PnlS1Err != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        PnlS1Err = other.PnlS1Err;
+      }
+      if (other.OBidNext != 0F) {
+        OBidNext = other.OBidNext;
+      }
+      if (other.OAskNext != 0F) {
+        OAskNext = other.OAskNext;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3364,6 +3851,66 @@ namespace Spiderrock.Protobuf {
             PnlM10Err = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
+          case 2825: {
+            OBidIv = input.ReadDouble();
+            break;
+          }
+          case 2833: {
+            OAskIv = input.ReadDouble();
+            break;
+          }
+          case 2845: {
+            OBidS1 = input.ReadFloat();
+            break;
+          }
+          case 2853: {
+            OAskS1 = input.ReadFloat();
+            break;
+          }
+          case 2857: {
+            UBidS1 = input.ReadDouble();
+            break;
+          }
+          case 2865: {
+            UAskS1 = input.ReadDouble();
+            break;
+          }
+          case 2873: {
+            UPrcS1 = input.ReadDouble();
+            break;
+          }
+          case 2885: {
+            SVolS1 = input.ReadFloat();
+            break;
+          }
+          case 2893: {
+            SOpxS1 = input.ReadFloat();
+            break;
+          }
+          case 2901: {
+            SDivS1 = input.ReadFloat();
+            break;
+          }
+          case 2906: {
+            SErrS1 = input.ReadString();
+            break;
+          }
+          case 2917: {
+            PnlS1 = input.ReadFloat();
+            break;
+          }
+          case 2920: {
+            PnlS1Err = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 2933: {
+            OBidNext = input.ReadFloat();
+            break;
+          }
+          case 2941: {
+            OAskNext = input.ReadFloat();
+            break;
+          }
         }
       }
     #endif
@@ -3740,6 +4287,66 @@ namespace Spiderrock.Protobuf {
           }
           case 2816: {
             PnlM10Err = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 2825: {
+            OBidIv = input.ReadDouble();
+            break;
+          }
+          case 2833: {
+            OAskIv = input.ReadDouble();
+            break;
+          }
+          case 2845: {
+            OBidS1 = input.ReadFloat();
+            break;
+          }
+          case 2853: {
+            OAskS1 = input.ReadFloat();
+            break;
+          }
+          case 2857: {
+            UBidS1 = input.ReadDouble();
+            break;
+          }
+          case 2865: {
+            UAskS1 = input.ReadDouble();
+            break;
+          }
+          case 2873: {
+            UPrcS1 = input.ReadDouble();
+            break;
+          }
+          case 2885: {
+            SVolS1 = input.ReadFloat();
+            break;
+          }
+          case 2893: {
+            SOpxS1 = input.ReadFloat();
+            break;
+          }
+          case 2901: {
+            SDivS1 = input.ReadFloat();
+            break;
+          }
+          case 2906: {
+            SErrS1 = input.ReadString();
+            break;
+          }
+          case 2917: {
+            PnlS1 = input.ReadFloat();
+            break;
+          }
+          case 2920: {
+            PnlS1Err = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 2933: {
+            OBidNext = input.ReadFloat();
+            break;
+          }
+          case 2941: {
+            OAskNext = input.ReadFloat();
             break;
           }
         }

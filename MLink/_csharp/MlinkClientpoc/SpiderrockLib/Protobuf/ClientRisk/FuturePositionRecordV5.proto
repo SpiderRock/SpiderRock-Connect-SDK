@@ -20,13 +20,13 @@ message FuturePositionRecordV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR assigned client firm
     string risk_server_code = 103;
     string agg_group = 106; // SR assigned aggregation group
     TickerKey ticker = 109; // underlying ticker
@@ -74,11 +74,11 @@ message FuturePositionRecordV5 {
     float ve = 235; // vega; (dPrc / dVol) - only for VIX futures
     float rate_pr = 238; // start of period global rate
     float years_pr = 241; // start of period years to expiration
-    float margin_uDn = 244; // Aggregate RiskSlide: uPrc dn
-    float margin_uUp = 247; // Aggregate RiskSlide: uPrc up
-    int32 num_executions = 250; // number of included SpdrParentExecution records
-    google.protobuf.Timestamp max_exec_dttm = 253; // maximum activity dttm of execution records included in this future risk record
-    google.protobuf.Timestamp timestamp = 256;
+    float margin_uDn = 251; // Aggregate RiskSlide: uPrc dn
+    float margin_uUp = 252; // Aggregate RiskSlide: uPrc up
+    int32 num_executions = 244; // number of included SpdrParentExecution records
+    google.protobuf.Timestamp max_exec_dttm = 247; // maximum activity dttm of execution records included in this future risk record
+    google.protobuf.Timestamp timestamp = 250;
 }
 
 

@@ -19,6 +19,7 @@ message SpdrBrokerCancel {
         int64 grouping_code = 13;
         SpdrSource spdr_source = 14;
         BuySell order_side = 15;
+        string client_firm = 16; // SR client firm
     }
 
 
@@ -29,7 +30,7 @@ message SpdrBrokerCancel {
     RunStatus run_status = 103; // original (source) run status [Prod,Beta]
     string cxl_reason = 106;
     string alt_cancel_id = 109;
-    string engine_name = 112; // set by the engine handling event (should be blank on arrival)
+    string engine_name = 122; // set by the engine handling event (should be blank on arrival)
     string modified_by = 115; // user who last modified this record
     SysEnvironment modified_in = 118;
     google.protobuf.Timestamp timestamp = 121; // timestamp of last modification

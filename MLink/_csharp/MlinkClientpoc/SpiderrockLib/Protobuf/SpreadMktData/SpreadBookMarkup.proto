@@ -19,24 +19,24 @@ message SpreadBookMarkup {
 
     message MarkupLegs {
         
-        OptionKey leg_sec_key = 235;
-        SpdrKeyType leg_sec_type = 238;
-        PriceFormat leg_price_format = 241;
-        string leg_security_desc = 244; // Security description
-        BuySell leg_side = 247;
-        uint32 leg_ratio = 250; // leg ratio (1, 2, etc)
-        double leg_bid_price = 253; // leg market bid
-        int32 leg_bid_size = 256;
-        double leg_ask_price = 259; // leg market ask
-        int32 leg_ask_size = 262;
-        float leg_years = 265;
-        double leg_uPrc = 268;
-        float leg_surf_vol = 271; // leg surface volatility
-        float leg_surf_price = 274; // surface price as of message arrival
-        float leg_surf_de = 277;
-        float leg_surf_ga = 280;
-        float leg_surf_ve = 283;
-        int32 leg_surf_err = 286;
+        OptionKey leg_sec_key = 238;
+        SpdrKeyType leg_sec_type = 241;
+        PriceFormat leg_price_format = 244;
+        string leg_security_desc = 247; // Security description
+        BuySell leg_side = 250;
+        uint32 leg_ratio = 253; // leg ratio (1, 2, etc)
+        double leg_bid_price = 256; // leg market bid
+        int32 leg_bid_size = 259;
+        double leg_ask_price = 262; // leg market ask
+        int32 leg_ask_size = 265;
+        float leg_years = 268;
+        double leg_uPrc = 271;
+        float leg_surf_vol = 280; // leg surface volatility
+        float leg_surf_price = 283; // surface price as of message arrival
+        float leg_surf_de = 286;
+        float leg_surf_ga = 289;
+        float leg_surf_ve = 292;
+        int32 leg_surf_err = 295;
     }
 
 
@@ -61,33 +61,33 @@ message SpreadBookMarkup {
     int32 num_stk_legs = 145;
     int32 num_fut_legs = 148;
     int32 num_opt_legs = 151;
-    YesNo user_defined = 154;
-    ToolSpreadClass spread_class = 157;
-    YesNo contains_hedge = 160;
-    double leg_bid_prc = 163;
-    double leg_ask_prc = 166;
-    int32 leg_bid_sz = 169;
-    int32 leg_ask_sz = 172;
-    double surf_prc = 175;
-    float surf_delta = 178;
-    float surf_gamma = 181;
-    float surf_vega = 184;
-    float surf_wt_vega = 187;
-    int32 surf_error = 190; // error code from surface price calc (if any)
-    google.protobuf.Timestamp min_expiry = 193; // expiry of earliest option leg(s)
-    google.protobuf.Timestamp max_expiry = 196; // expiry of latest option leg(s)
-    float min_years = 199;
-    float max_years = 202;
-    float ref_uPrc = 205; // reference underlier price
-    float print_price = 208; // last spread print price (if any)
-    google.protobuf.Timestamp print_time = 211;
-    int32 print_size = 214; // last spread print size (if any)
-    int32 print_volume = 217;
-    int32 grp_num = 220;
-    string security_desc = 223;
-    int64 filter_id = 226; // tool server filter request ID
-    google.protobuf.Timestamp timestamp = 229;
-    repeated MarkupLegs markup_legs = 232;
+    YesNo user_defined = 157;
+    ToolSpreadClass spread_class = 296;
+    YesNo contains_hedge = 297;
+    double leg_bid_prc = 166;
+    double leg_ask_prc = 169;
+    int32 leg_bid_sz = 172;
+    int32 leg_ask_sz = 175;
+    double surf_prc = 178;
+    float surf_delta = 181;
+    float surf_gamma = 184;
+    float surf_vega = 187;
+    float surf_wt_vega = 190;
+    int32 surf_error = 193; // error code from surface price calc (if any)
+    google.protobuf.Timestamp min_expiry = 196; // expiry of earliest option leg(s)
+    google.protobuf.Timestamp max_expiry = 199; // expiry of latest option leg(s)
+    float min_years = 202;
+    float max_years = 205;
+    float ref_uPrc = 208; // reference underlier price
+    float print_price = 211; // last spread print price (if any)
+    google.protobuf.Timestamp print_time = 214;
+    int32 print_size = 217; // last spread print size (if any)
+    int32 print_volume = 220;
+    int32 grp_num = 223;
+    string security_desc = 226;
+    int64 filter_id = 229; // tool server filter request ID
+    google.protobuf.Timestamp timestamp = 232;
+    repeated MarkupLegs markup_legs = 235;
 }
 
 

@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserAuctionFilter {
+    message PKey {
+        
+        string user_name = 10;
+        string filter_name = 11;
+    }
+
+    message AuctionSources {
+        
+        AuctionSource auction_source = 113;
+    }
+
+    message AuctionTypes {
+        
+        AuctionType auction_type = 111;
+    }
+
+    message ExcludeTicker {
+        
+        TickerKey ticker = 107;
+    }
+
+    message IncludeTicker {
+        
+        TickerKey ticker = 105;
+    }
+
+    message Industry {
+        
+        string industry = 103; // industry string prefix (must match left edge)
+    }
+
+    message SpreadClass {
+        
+        ToolSpreadClass spread_class = 109;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100;
+    YesNo enabled = 101;
+    YesNo include_covered = 114;
+    YesNo include_eTFs = 115;
+    YesNo include_aDRs = 116;
+    YesNo include_indexes = 117;
+    float min_uPrc = 118;
+    YesNo has_uAvg_daily_vlm_filter = 119;
+    float min_uAvg_daily_vlm = 120; // min underlier avg daily volume (in $1mm increments)
+    float max_uAvg_daily_vlm = 121; // min underlier avg daily volume (in $1mm increments)
+    float min_size = 122;
+    float min_vega = 123;
+    YesNo has_abs_delta_filter = 124;
+    float min_abs_delta = 125;
+    float max_abs_delta = 126;
+    YesNo has_xDelta_filter = 127;
+    float min_xDelta = 128;
+    float max_xDelta = 129;
+    YesNo has_atm_sVol_filter = 130;
+    float min_atm_sVol = 131;
+    float max_atm_sVol = 132;
+    YesNo has_atm_sDiv_filter = 133;
+    float min_atm_sDiv = 134;
+    float max_atm_sDiv = 135;
+    YesNo has_expiry_days = 136;
+    int32 min_expiry_days = 137;
+    int32 max_expiry_days = 138;
+    YesNo include_zDte = 139; // must match if not None
+    YesNo include_daily = 140;
+    YesNo include_weekly = 141;
+    YesNo include_regular = 142;
+    YesNo include_quarterly = 143;
+    YesNo include_flex = 144; // must match if not None
+    YesNo include_comm_paying = 145; // must match if not None
+    BuySell direction = 146; // must match if not None (Buy = Buy Regular or Sell Flipped)
+    BuySell vega_direction = 147; // must match if not None
+    string modified_by = 148;
+    SysEnvironment modified_in = 149;
+    google.protobuf.Timestamp timestamp = 150;
+    repeated AuctionSources auction_sources = 112;
+    repeated AuctionTypes auction_types = 110;
+    repeated ExcludeTicker exclude_ticker = 106;
+    repeated IncludeTicker include_ticker = 104;
+    repeated Industry industry = 102;
+    repeated SpreadClass spread_class = 108;
+}
+
+

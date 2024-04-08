@@ -32,13 +32,13 @@ namespace Spiderrock.Protobuf {
             "cnJvY2sucHJvdG9idWYuVXNlckF1dGhlbnRpY2F0aW9uLlBLZXkSMAoJYXV0",
             "aF90eXBlGGQgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5BdXRoVHlwZRIT",
             "CgtzZXJ2ZXJfbmFtZRhnIAEoCRItCgl0aW1lc3RhbXAYaiABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wGlMKBFBLZXkSEQoJdXNyZV9uYW1lGAog",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wGlMKBFBLZXkSEQoJdXNlcl9uYW1lGAwg",
             "ASgJEjgKDWF1dGhfbG9jYXRpb24YCyABKA4yIS5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLkF1dGhMb2NhdGlvbmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuthentication), global::Spiderrock.Protobuf.UserAuthentication.Parser, new[]{ "Meta", "Pkey", "AuthType", "ServerName", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuthentication.Types.PKey), global::Spiderrock.Protobuf.UserAuthentication.Types.PKey.Parser, new[]{ "UsreName", "AuthLocation" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuthentication), global::Spiderrock.Protobuf.UserAuthentication.Parser, new[]{ "Meta", "Pkey", "AuthType", "ServerName", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuthentication.Types.PKey), global::Spiderrock.Protobuf.UserAuthentication.Types.PKey.Parser, new[]{ "UserName", "AuthLocation" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -452,7 +452,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public PKey(PKey other) : this() {
-          usreName_ = other.usreName_;
+          userName_ = other.userName_;
           authLocation_ = other.authLocation_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -463,18 +463,18 @@ namespace Spiderrock.Protobuf {
           return new PKey(this);
         }
 
-        /// <summary>Field number for the "usre_name" field.</summary>
-        public const int UsreNameFieldNumber = 10;
-        private string usreName_ = "";
+        /// <summary>Field number for the "user_name" field.</summary>
+        public const int UserNameFieldNumber = 12;
+        private string userName_ = "";
         /// <summary>
         /// UserConfig.userName
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public string UsreName {
-          get { return usreName_; }
+        public string UserName {
+          get { return userName_; }
           set {
-            usreName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
@@ -505,7 +505,7 @@ namespace Spiderrock.Protobuf {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if (UsreName != other.UsreName) return false;
+          if (UserName != other.UserName) return false;
           if (AuthLocation != other.AuthLocation) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -514,7 +514,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
-          if (UsreName.Length != 0) hash ^= UsreName.GetHashCode();
+          if (UserName.Length != 0) hash ^= UserName.GetHashCode();
           if (AuthLocation != global::Spiderrock.Protobuf.AuthLocation.Unspecified) hash ^= AuthLocation.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -534,13 +534,13 @@ namespace Spiderrock.Protobuf {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (UsreName.Length != 0) {
-            output.WriteRawTag(82);
-            output.WriteString(UsreName);
-          }
           if (AuthLocation != global::Spiderrock.Protobuf.AuthLocation.Unspecified) {
             output.WriteRawTag(88);
             output.WriteEnum((int) AuthLocation);
+          }
+          if (UserName.Length != 0) {
+            output.WriteRawTag(98);
+            output.WriteString(UserName);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -552,13 +552,13 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (UsreName.Length != 0) {
-            output.WriteRawTag(82);
-            output.WriteString(UsreName);
-          }
           if (AuthLocation != global::Spiderrock.Protobuf.AuthLocation.Unspecified) {
             output.WriteRawTag(88);
             output.WriteEnum((int) AuthLocation);
+          }
+          if (UserName.Length != 0) {
+            output.WriteRawTag(98);
+            output.WriteString(UserName);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -570,8 +570,8 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
-          if (UsreName.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(UsreName);
+          if (UserName.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
           }
           if (AuthLocation != global::Spiderrock.Protobuf.AuthLocation.Unspecified) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AuthLocation);
@@ -588,8 +588,8 @@ namespace Spiderrock.Protobuf {
           if (other == null) {
             return;
           }
-          if (other.UsreName.Length != 0) {
-            UsreName = other.UsreName;
+          if (other.UserName.Length != 0) {
+            UserName = other.UserName;
           }
           if (other.AuthLocation != global::Spiderrock.Protobuf.AuthLocation.Unspecified) {
             AuthLocation = other.AuthLocation;
@@ -609,12 +609,12 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 82: {
-                UsreName = input.ReadString();
-                break;
-              }
               case 88: {
                 AuthLocation = (global::Spiderrock.Protobuf.AuthLocation) input.ReadEnum();
+                break;
+              }
+              case 98: {
+                UserName = input.ReadString();
                 break;
               }
             }
@@ -632,12 +632,12 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 82: {
-                UsreName = input.ReadString();
-                break;
-              }
               case 88: {
                 AuthLocation = (global::Spiderrock.Protobuf.AuthLocation) input.ReadEnum();
+                break;
+              }
+              case 98: {
+                UserName = input.ReadString();
                 break;
               }
             }

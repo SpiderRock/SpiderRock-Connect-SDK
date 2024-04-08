@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpreadExchDefinition {
+    message PKey {
+        
+        OptExch exch = 10;
+        string exch_spr_iD = 11; // unique exchange spread id
+    }
+
+    message Legs {
+        
+        OptionKey leg_sec_key = 101;
+        SpdrKeyType leg_sec_type = 102;
+        BuySell leg_side = 103;
+        uint32 leg_ratio = 104; // leg ratio (1, 2, etc)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 105;
+    repeated Legs legs = 100;
+}
+
+

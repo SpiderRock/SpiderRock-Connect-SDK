@@ -20,13 +20,13 @@ message StockPositionRecordV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR assigned client firm
     string risk_server_code = 103;
     string pri_agg_group = 106; // primary aggregation group
     string sec_agg_group = 109; // secondary aggregation group
@@ -67,11 +67,11 @@ message StockPositionRecordV5 {
     float borrow_rate = 214; // overnight rate required to borrow stock (if known)
     float beta = 217; // beta (usually beta to SPX; see AccountConfig.betaSource)
     BetaSource beta_source = 220;
-    float margin_uDn = 223; // Aggregate RiskSlide: uPrc dn
-    float margin_uUp = 226; // Aggregate RiskSlide: uPrc up
-    int32 num_executions = 229; // number of included SpdrParentExecution records
-    google.protobuf.Timestamp max_exec_dttm = 232; // max (timestamp) of included SpdrParentExecution records
-    google.protobuf.Timestamp timestamp = 235;
+    float margin_uDn = 230; // Aggregate RiskSlide: uPrc dn
+    float margin_uUp = 231; // Aggregate RiskSlide: uPrc up
+    int32 num_executions = 223; // number of included SpdrParentExecution records
+    google.protobuf.Timestamp max_exec_dttm = 226; // max (timestamp) of included SpdrParentExecution records
+    google.protobuf.Timestamp timestamp = 229;
 }
 
 

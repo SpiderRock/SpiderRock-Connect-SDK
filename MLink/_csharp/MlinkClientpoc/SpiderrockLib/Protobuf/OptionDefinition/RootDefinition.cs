@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci5Qcm90b2J1Zi9PcHRpb25EZWZpbml0aW9uL1Jvb3REZWZpbml0aW9uLnBy",
             "b3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5w",
-            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKnEAoOUm9v",
+            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byL+EAoOUm9v",
             "dERlZmluaXRpb24SMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI2CgRwa2V5GAIgASgLMiguc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5Sb290RGVmaW5pdGlvbi5QS2V5Ei4KBnRpY2tlchhkIAEo",
@@ -67,17 +67,19 @@ namespace Spiderrock.Protobuf {
             "EjMKC3NldHRsZV9jdXJyGMcBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "Q3VycmVuY3kSMwoLc3RyaWtlX2N1cnIYygEgASgOMh0uc3BpZGVycm9jay5w",
             "cm90b2J1Zi5DdXJyZW5jeRI9ChRkZWZhdWx0X3N1cmZhY2Vfcm9vdBjNASAB",
-            "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIuCgl0aW1lc3Rh",
-            "bXAY0AEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJDCgp1bmRl",
-            "cmx5aW5nGNMBIAMoCzIuLnNwaWRlcnJvY2sucHJvdG9idWYuUm9vdERlZmlu",
-            "aXRpb24uVW5kZXJseWluZxo0CgRQS2V5EiwKBHJvb3QYCiABKAsyHi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRpLCgpVbmRlcmx5aW5nEi8KBnRp",
-            "Y2tlchjWASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIM",
-            "CgNzcGMY2QEgASgCYgZwcm90bzM="));
+            "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIRCghyaWNfcm9v",
+            "dBjaASABKAkSLgoJdGltZXN0YW1wGNABIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXASQgoScHJpY2luZ19zb3VyY2VfX3Y3GIgnIAEoDjIlLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuUHJpY2luZ1NvdXJjZV9WNxJDCgp1bmRlcmx5",
+            "aW5nGNMBIAMoCzIuLnNwaWRlcnJvY2sucHJvdG9idWYuUm9vdERlZmluaXRp",
+            "b24uVW5kZXJseWluZxo0CgRQS2V5EiwKBHJvb3QYCiABKAsyHi5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlRpY2tlcktleRpLCgpVbmRlcmx5aW5nEi8KBnRpY2tl",
+            "chjWASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIMCgNz",
+            "cGMY2QEgASgCYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "Timestamp", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "Timestamp", "PricingSourceV7", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Underlying), global::Spiderrock.Protobuf.RootDefinition.Types.Underlying.Parser, new[]{ "Ticker", "Spc" }, null, null, null, null)})
           }));
     }
@@ -161,7 +163,9 @@ namespace Spiderrock.Protobuf {
       settleCurr_ = other.settleCurr_;
       strikeCurr_ = other.strikeCurr_;
       defaultSurfaceRoot_ = other.defaultSurfaceRoot_ != null ? other.defaultSurfaceRoot_.Clone() : null;
+      ricRoot_ = other.ricRoot_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
+      pricingSourceV7_ = other.pricingSourceV7_;
       underlying_ = other.underlying_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -706,6 +710,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "ric_root" field.</summary>
+    public const int RicRootFieldNumber = 218;
+    private string ricRoot_ = "";
+    /// <summary>
+    /// RIC Root
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RicRoot {
+      get { return ricRoot_; }
+      set {
+        ricRoot_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 208;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -715,6 +734,21 @@ namespace Spiderrock.Protobuf {
       get { return timestamp_; }
       set {
         timestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pricing_source__v7" field.</summary>
+    public const int PricingSourceV7FieldNumber = 5000;
+    private global::Spiderrock.Protobuf.PricingSource_V7 pricingSourceV7_ = global::Spiderrock.Protobuf.PricingSource_V7.Unspecified;
+    /// <summary>
+    /// only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.PricingSource_V7 PricingSourceV7 {
+      get { return pricingSourceV7_; }
+      set {
+        pricingSourceV7_ = value;
       }
     }
 
@@ -782,7 +816,9 @@ namespace Spiderrock.Protobuf {
       if (SettleCurr != other.SettleCurr) return false;
       if (StrikeCurr != other.StrikeCurr) return false;
       if (!object.Equals(DefaultSurfaceRoot, other.DefaultSurfaceRoot)) return false;
+      if (RicRoot != other.RicRoot) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
+      if (PricingSourceV7 != other.PricingSourceV7) return false;
       if(!underlying_.Equals(other.underlying_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -829,7 +865,9 @@ namespace Spiderrock.Protobuf {
       if (SettleCurr != global::Spiderrock.Protobuf.Currency.Unspecified) hash ^= SettleCurr.GetHashCode();
       if (StrikeCurr != global::Spiderrock.Protobuf.Currency.Unspecified) hash ^= StrikeCurr.GetHashCode();
       if (defaultSurfaceRoot_ != null) hash ^= DefaultSurfaceRoot.GetHashCode();
+      if (RicRoot.Length != 0) hash ^= RicRoot.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
+      if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) hash ^= PricingSourceV7.GetHashCode();
       hash ^= underlying_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1006,6 +1044,14 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Timestamp);
       }
       underlying_.WriteTo(output, _repeated_underlying_codec);
+      if (RicRoot.Length != 0) {
+        output.WriteRawTag(210, 13);
+        output.WriteString(RicRoot);
+      }
+      if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
+        output.WriteRawTag(192, 184, 2);
+        output.WriteEnum((int) PricingSourceV7);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1173,6 +1219,14 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Timestamp);
       }
       underlying_.WriteTo(ref output, _repeated_underlying_codec);
+      if (RicRoot.Length != 0) {
+        output.WriteRawTag(210, 13);
+        output.WriteString(RicRoot);
+      }
+      if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
+        output.WriteRawTag(192, 184, 2);
+        output.WriteEnum((int) PricingSourceV7);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1297,8 +1351,14 @@ namespace Spiderrock.Protobuf {
       if (defaultSurfaceRoot_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(DefaultSurfaceRoot);
       }
+      if (RicRoot.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(RicRoot);
+      }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
+      }
+      if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
+        size += 3 + pb::CodedOutputStream.ComputeEnumSize((int) PricingSourceV7);
       }
       size += underlying_.CalculateSize(_repeated_underlying_codec);
       if (_unknownFields != null) {
@@ -1448,11 +1508,17 @@ namespace Spiderrock.Protobuf {
         }
         DefaultSurfaceRoot.MergeFrom(other.DefaultSurfaceRoot);
       }
+      if (other.RicRoot.Length != 0) {
+        RicRoot = other.RicRoot;
+      }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
           Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
         }
         Timestamp.MergeFrom(other.Timestamp);
+      }
+      if (other.PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
+        PricingSourceV7 = other.PricingSourceV7;
       }
       underlying_.Add(other.underlying_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1654,6 +1720,14 @@ namespace Spiderrock.Protobuf {
             underlying_.AddEntriesFrom(input, _repeated_underlying_codec);
             break;
           }
+          case 1746: {
+            RicRoot = input.ReadString();
+            break;
+          }
+          case 40000: {
+            PricingSourceV7 = (global::Spiderrock.Protobuf.PricingSource_V7) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -1851,6 +1925,14 @@ namespace Spiderrock.Protobuf {
           }
           case 1690: {
             underlying_.AddEntriesFrom(ref input, _repeated_underlying_codec);
+            break;
+          }
+          case 1746: {
+            RicRoot = input.ReadString();
+            break;
+          }
+          case 40000: {
+            PricingSourceV7 = (global::Spiderrock.Protobuf.PricingSource_V7) input.ReadEnum();
             break;
           }
         }

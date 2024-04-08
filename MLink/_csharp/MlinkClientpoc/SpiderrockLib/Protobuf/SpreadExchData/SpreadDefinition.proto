@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpreadDefinition {
+    message PKey {
+        
+        int32 sRspread_iD = 10; // SR legs list hash
+    }
+
+    message ExchSprIDs {
+        
+        string exch_spr_iD = 108; // unique exchange spread id
+    }
+
+    message Legs {
+        
+        OptionKey leg_sec_key = 103;
+        SpdrKeyType leg_sec_type = 104;
+        BuySell leg_side = 105;
+        uint32 leg_ratio = 106; // leg ratio (1, 2, etc)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier (or product group) tickerKey
+    ToolSpreadClass spread_class = 101; // option spread type
+    google.protobuf.Timestamp timestamp = 109;
+    repeated ExchSprIDs exch_spr_i_ds = 107;
+    repeated Legs legs = 102;
+}
+
+

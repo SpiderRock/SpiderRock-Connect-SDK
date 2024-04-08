@@ -26,57 +26,58 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjNQcm90b2J1Zi9GdXR1cmVEZWZpbml0aW9uL1Byb2R1Y3REZWZpbml0aW9u",
             "VjIucHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29t",
-            "bW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIocQ",
+            "bW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpwQ",
             "ChNQcm9kdWN0RGVmaW5pdGlvblYyEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOwoEcGtleRgCIAEoCzIt",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuUHJvZHVjdERlZmluaXRpb25WMi5QS2V5",
-            "EhMKC3NlY3VyaXR5X2lEGGQgASgJEi4KBnRpY2tlchhnIAEoCzIeLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuVGlja2VyS2V5EjgKDXByb2R1Y3RfY2xhc3MYaiAB",
-            "KA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RDbGFzcxIUCgx1bmRl",
-            "cmxpZXJfaUQYbSABKAMSLwoHdW5kX2tleRhwIAEoCzIeLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuRXhwaXJ5S2V5EjIKCHVuZF90eXBlGHMgASgOMiAuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5TcGRyS2V5VHlwZRIVCg1wcm9kdWN0X2dyb3VwGHYg",
-            "ASgJEhYKDnNlY3VyaXR5X2dyb3VwGHkgASgJEhkKEW1hcmtldF9zZWdtZW50",
-            "X2lEGHwgASgFEhUKDXNlY3VyaXR5X2Rlc2MYfyABKAkSEQoIZXhjaGFuZ2UY",
-            "ggEgASgJEjcKDHByb2R1Y3RfdHlwZRiFASABKA4yIC5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlByb2R1Y3RUeXBlEjcKDHByb2R1Y3RfdGVybRiIASABKA4yIC5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RUZXJtEkIKEnByb2R1Y3RfaW5k",
-            "ZXhfdHlwZRiLASABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RJ",
-            "bmRleFR5cGUSFQoMcHJvZHVjdF9yYXRlGI4BIAEoAhIWCg1jb250cmFjdF9z",
-            "aXplGJEBIAEoAhI5Cg1jb250cmFjdF91bml0GJQBIAEoDjIhLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuQ29udHJhY3RVbml0EjcKDHByaWNlX2Zvcm1hdBiXASAB",
-            "KA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlByaWNlRm9ybWF0EhYKDW1pbl90",
-            "aWNrX3NpemUYmgEgASgBEhcKDmRpc3BsYXlfZmFjdG9yGJ0BIAEoARIVCgxz",
-            "dHJpa2Vfc2NhbGUYoAEgASgBEhUKDG1pbl9sb3Rfc2l6ZRijASABKAUSEwoK",
-            "Ym9va19kZXB0aBimASABKAUSGwoSaW1wbGllZF9ib29rX2RlcHRoGKkBIAEo",
-            "BRIXCg5pbXBfbWFya2V0X2luZBisASABKAUSIwoabWluX3ByaWNlX2luY3Jl",
-            "bWVudF9hbW91bnQYrwEgASgCEhIKCXBhcl92YWx1ZRiyASABKAISGAoPY29u",
-            "dF9tdWx0aXBsaWVyGLUBIAEoAhISCgljYWJfcHJpY2UYuAEgASgBEjIKCnRy",
-            "YWRlX2N1cnIYuwEgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5DdXJyZW5j",
-            "eRIzCgtzZXR0bGVfY3Vychi+ASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LkN1cnJlbmN5EjMKC3N0cmlrZV9jdXJyGMEBIAEoDjIdLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuQ3VycmVuY3kSLwoKZXhwaXJhdGlvbhjEASABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wEi8KCG1hdHVyaXR5GMcBIAEoCzIcLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRI5Cg1leGVyY2lzZV90eXBlGMoB",
-            "IAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuRXhlcmNpc2VUeXBlEjEKDHVz",
-            "ZXJfZGVmaW5lZBjNASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05v",
-            "EhkKEGRlY2F5X3N0YXJ0X3llYXIY0AEgASgFEhoKEWRlY2F5X3N0YXJ0X21v",
-            "bnRoGNMBIAEoBRIYCg9kZWNheV9zdGFydF9kYXkY1gEgASgFEhIKCWRlY2F5",
-            "X3F0eRjZASABKAUSFAoLcHJpY2VfcmF0aW8Y3AEgASgBEi4KCXRpbWVzdGFt",
-            "cBj3ASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjwKBGxlZ3MY",
-            "3wEgAygLMi0uc3BpZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0RGVmaW5pdGlv",
-            "blYyLkxlZ3MaawoEUEtleRIvCgdzZWNfa2V5GAogASgLMh4uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5PcHRpb25LZXkSMgoIc2VjX3R5cGUYCyABKA4yIC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlGuEBCgRMZWdzEg8KBmxlZ19p",
-            "RBjiASABKAkSMAoHc2VjX2tleRjlASABKAsyHi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLk9wdGlvbktleRIzCghzZWNfdHlwZRjoASABKA4yIC5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlNwZHJLZXlUeXBlEisKBHNpZGUY6wEgASgOMhwuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5CdXlTZWxsEg4KBXJhdGlvGO4BIAEoDRISCglyZWZf",
-            "ZGVsdGEY8QEgASgCEhAKB3JlZl9wcmMY9AEgASgBYgZwcm90bzM="));
+            "EhQKC3NlY3VyaXR5X2lEGPgBIAEoCRIuCgZ0aWNrZXIYZyABKAsyHi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRI4Cg1wcm9kdWN0X2NsYXNzGGog",
+            "ASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0Q2xhc3MSFAoMdW5k",
+            "ZXJsaWVyX2lEGG0gASgDEi8KB3VuZF9rZXkYcCABKAsyHi5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkV4cGlyeUtleRIyCgh1bmRfdHlwZRhzIAEoDjIgLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSFQoNcHJvZHVjdF9ncm91cBh2",
+            "IAEoCRIWCg5zZWN1cml0eV9ncm91cBh5IAEoCRIZChFtYXJrZXRfc2VnbWVu",
+            "dF9pRBh8IAEoBRIRCghyaWNfY29kZRj5ASABKAkSFgoNc2VjdXJpdHlfZGVz",
+            "Yxj6ASABKAkSEQoIZXhjaGFuZ2UYggEgASgJEjcKDHByb2R1Y3RfdHlwZRiF",
+            "ASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RUeXBlEjcKDHBy",
+            "b2R1Y3RfdGVybRiIASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1",
+            "Y3RUZXJtEkIKEnByb2R1Y3RfaW5kZXhfdHlwZRiLASABKA4yJS5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlByb2R1Y3RJbmRleFR5cGUSFQoMcHJvZHVjdF9yYXRl",
+            "GI4BIAEoAhIWCg1jb250cmFjdF9zaXplGJEBIAEoAhI5Cg1jb250cmFjdF91",
+            "bml0GJQBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuQ29udHJhY3RVbml0",
+            "EjcKDHByaWNlX2Zvcm1hdBiXASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlByaWNlRm9ybWF0EhYKDW1pbl90aWNrX3NpemUYmgEgASgBEhcKDmRpc3Bs",
+            "YXlfZmFjdG9yGJ0BIAEoARIVCgxzdHJpa2Vfc2NhbGUYoAEgASgBEhUKDG1p",
+            "bl9sb3Rfc2l6ZRijASABKAUSEwoKYm9va19kZXB0aBimASABKAUSGwoSaW1w",
+            "bGllZF9ib29rX2RlcHRoGKkBIAEoBRIXCg5pbXBfbWFya2V0X2luZBisASAB",
+            "KAUSIwoabWluX3ByaWNlX2luY3JlbWVudF9hbW91bnQYrwEgASgCEhIKCXBh",
+            "cl92YWx1ZRiyASABKAISGAoPY29udF9tdWx0aXBsaWVyGLUBIAEoAhISCglj",
+            "YWJfcHJpY2UYuAEgASgBEjIKCnRyYWRlX2N1cnIYuwEgASgOMh0uc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5DdXJyZW5jeRIzCgtzZXR0bGVfY3Vychi+ASABKA4y",
+            "HS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EjMKC3N0cmlrZV9jdXJy",
+            "GMEBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kSLwoKZXhw",
+            "aXJhdGlvbhjEASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8K",
+            "CG1hdHVyaXR5GMcBIAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtl",
+            "eRI5Cg1leGVyY2lzZV90eXBlGMoBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuRXhlcmNpc2VUeXBlEjEKDHVzZXJfZGVmaW5lZBjNASABKA4yGi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlllc05vEhkKEGRlY2F5X3N0YXJ0X3llYXIY0AEg",
+            "ASgFEhoKEWRlY2F5X3N0YXJ0X21vbnRoGNMBIAEoBRIYCg9kZWNheV9zdGFy",
+            "dF9kYXkY1gEgASgFEhIKCWRlY2F5X3F0eRjZASABKAUSFAoLcHJpY2VfcmF0",
+            "aW8Y3AEgASgBEi4KCXRpbWVzdGFtcBj3ASABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wEjwKBGxlZ3MY3wEgAygLMi0uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5Qcm9kdWN0RGVmaW5pdGlvblYyLkxlZ3MaawoEUEtleRIvCgdzZWNf",
+            "a2V5GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkSMgoI",
+            "c2VjX3R5cGUYCyABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlU",
+            "eXBlGuEBCgRMZWdzEg8KBmxlZ19pRBjiASABKAkSMAoHc2VjX2tleRjlASAB",
+            "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRIzCghzZWNfdHlw",
+            "ZRjoASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEisK",
+            "BHNpZGUY6wEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEg4K",
+            "BXJhdGlvGO4BIAEoDRISCglyZWZfZGVsdGEY8QEgASgCEhAKB3JlZl9wcmMY",
+            "9AEgASgBYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2), global::Spiderrock.Protobuf.ProductDefinitionV2.Parser, new[]{ "Meta", "Pkey", "SecurityID", "Ticker", "ProductClass", "UnderlierID", "UndKey", "UndType", "ProductGroup", "SecurityGroup", "MarketSegmentID", "SecurityDesc", "Exchange", "ProductType", "ProductTerm", "ProductIndexType", "ProductRate", "ContractSize", "ContractUnit", "PriceFormat", "MinTickSize", "DisplayFactor", "StrikeScale", "MinLotSize", "BookDepth", "ImpliedBookDepth", "ImpMarketInd", "MinPriceIncrementAmount", "ParValue", "ContMultiplier", "CabPrice", "TradeCurr", "SettleCurr", "StrikeCurr", "Expiration", "Maturity", "ExerciseType", "UserDefined", "DecayStartYear", "DecayStartMonth", "DecayStartDay", "DecayQty", "PriceRatio", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey), global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey.Parser, new[]{ "SecKey", "SecType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2), global::Spiderrock.Protobuf.ProductDefinitionV2.Parser, new[]{ "Meta", "Pkey", "SecurityID", "Ticker", "ProductClass", "UnderlierID", "UndKey", "UndType", "ProductGroup", "SecurityGroup", "MarketSegmentID", "RicCode", "SecurityDesc", "Exchange", "ProductType", "ProductTerm", "ProductIndexType", "ProductRate", "ContractSize", "ContractUnit", "PriceFormat", "MinTickSize", "DisplayFactor", "StrikeScale", "MinLotSize", "BookDepth", "ImpliedBookDepth", "ImpMarketInd", "MinPriceIncrementAmount", "ParValue", "ContMultiplier", "CabPrice", "TradeCurr", "SettleCurr", "StrikeCurr", "Expiration", "Maturity", "ExerciseType", "UserDefined", "DecayStartYear", "DecayStartMonth", "DecayStartDay", "DecayQty", "PriceRatio", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey), global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey.Parser, new[]{ "SecKey", "SecType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2.Types.Legs), global::Spiderrock.Protobuf.ProductDefinitionV2.Types.Legs.Parser, new[]{ "LegID", "SecKey", "SecType", "Side", "Ratio", "RefDelta", "RefPrc" }, null, null, null, null)})
           }));
     }
@@ -133,6 +134,7 @@ namespace Spiderrock.Protobuf {
       productGroup_ = other.productGroup_;
       securityGroup_ = other.securityGroup_;
       marketSegmentID_ = other.marketSegmentID_;
+      ricCode_ = other.ricCode_;
       securityDesc_ = other.securityDesc_;
       exchange_ = other.exchange_;
       productType_ = other.productType_;
@@ -201,7 +203,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "security_iD" field.</summary>
-    public const int SecurityIDFieldNumber = 100;
+    public const int SecurityIDFieldNumber = 248;
     private string securityID_ = "";
     /// <summary>
     /// unique exchange id (exch assigned)
@@ -332,8 +334,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "ric_code" field.</summary>
+    public const int RicCodeFieldNumber = 249;
+    private string ricCode_ = "";
+    /// <summary>
+    /// Full RIC Code - only provided for non-user defined instruments
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RicCode {
+      get { return ricCode_; }
+      set {
+        ricCode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "security_desc" field.</summary>
-    public const int SecurityDescFieldNumber = 127;
+    public const int SecurityDescFieldNumber = 250;
     private string securityDesc_ = "";
     /// <summary>
     /// full exchange symbol
@@ -813,6 +830,7 @@ namespace Spiderrock.Protobuf {
       if (ProductGroup != other.ProductGroup) return false;
       if (SecurityGroup != other.SecurityGroup) return false;
       if (MarketSegmentID != other.MarketSegmentID) return false;
+      if (RicCode != other.RicCode) return false;
       if (SecurityDesc != other.SecurityDesc) return false;
       if (Exchange != other.Exchange) return false;
       if (ProductType != other.ProductType) return false;
@@ -865,6 +883,7 @@ namespace Spiderrock.Protobuf {
       if (ProductGroup.Length != 0) hash ^= ProductGroup.GetHashCode();
       if (SecurityGroup.Length != 0) hash ^= SecurityGroup.GetHashCode();
       if (MarketSegmentID != 0) hash ^= MarketSegmentID.GetHashCode();
+      if (RicCode.Length != 0) hash ^= RicCode.GetHashCode();
       if (SecurityDesc.Length != 0) hash ^= SecurityDesc.GetHashCode();
       if (Exchange.Length != 0) hash ^= Exchange.GetHashCode();
       if (ProductType != global::Spiderrock.Protobuf.ProductType.Unspecified) hash ^= ProductType.GetHashCode();
@@ -925,10 +944,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (SecurityID.Length != 0) {
-        output.WriteRawTag(162, 6);
-        output.WriteString(SecurityID);
-      }
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
@@ -960,10 +975,6 @@ namespace Spiderrock.Protobuf {
       if (MarketSegmentID != 0) {
         output.WriteRawTag(224, 7);
         output.WriteInt32(MarketSegmentID);
-      }
-      if (SecurityDesc.Length != 0) {
-        output.WriteRawTag(250, 7);
-        output.WriteString(SecurityDesc);
       }
       if (Exchange.Length != 0) {
         output.WriteRawTag(146, 8);
@@ -1094,6 +1105,18 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 15);
         output.WriteMessage(Timestamp);
       }
+      if (SecurityID.Length != 0) {
+        output.WriteRawTag(194, 15);
+        output.WriteString(SecurityID);
+      }
+      if (RicCode.Length != 0) {
+        output.WriteRawTag(202, 15);
+        output.WriteString(RicCode);
+      }
+      if (SecurityDesc.Length != 0) {
+        output.WriteRawTag(210, 15);
+        output.WriteString(SecurityDesc);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1111,10 +1134,6 @@ namespace Spiderrock.Protobuf {
       if (pkey_ != null) {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
-      }
-      if (SecurityID.Length != 0) {
-        output.WriteRawTag(162, 6);
-        output.WriteString(SecurityID);
       }
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
@@ -1147,10 +1166,6 @@ namespace Spiderrock.Protobuf {
       if (MarketSegmentID != 0) {
         output.WriteRawTag(224, 7);
         output.WriteInt32(MarketSegmentID);
-      }
-      if (SecurityDesc.Length != 0) {
-        output.WriteRawTag(250, 7);
-        output.WriteString(SecurityDesc);
       }
       if (Exchange.Length != 0) {
         output.WriteRawTag(146, 8);
@@ -1281,6 +1296,18 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 15);
         output.WriteMessage(Timestamp);
       }
+      if (SecurityID.Length != 0) {
+        output.WriteRawTag(194, 15);
+        output.WriteString(SecurityID);
+      }
+      if (RicCode.Length != 0) {
+        output.WriteRawTag(202, 15);
+        output.WriteString(RicCode);
+      }
+      if (SecurityDesc.Length != 0) {
+        output.WriteRawTag(210, 15);
+        output.WriteString(SecurityDesc);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1323,6 +1350,9 @@ namespace Spiderrock.Protobuf {
       }
       if (MarketSegmentID != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(MarketSegmentID);
+      }
+      if (RicCode.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(RicCode);
       }
       if (SecurityDesc.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(SecurityDesc);
@@ -1481,6 +1511,9 @@ namespace Spiderrock.Protobuf {
       if (other.MarketSegmentID != 0) {
         MarketSegmentID = other.MarketSegmentID;
       }
+      if (other.RicCode.Length != 0) {
+        RicCode = other.RicCode;
+      }
       if (other.SecurityDesc.Length != 0) {
         SecurityDesc = other.SecurityDesc;
       }
@@ -1619,10 +1652,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 802: {
-            SecurityID = input.ReadString();
-            break;
-          }
           case 826: {
             if (ticker_ == null) {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
@@ -1659,10 +1688,6 @@ namespace Spiderrock.Protobuf {
           }
           case 992: {
             MarketSegmentID = input.ReadInt32();
-            break;
-          }
-          case 1018: {
-            SecurityDesc = input.ReadString();
             break;
           }
           case 1042: {
@@ -1806,6 +1831,18 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 1986: {
+            SecurityID = input.ReadString();
+            break;
+          }
+          case 1994: {
+            RicCode = input.ReadString();
+            break;
+          }
+          case 2002: {
+            SecurityDesc = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1833,10 +1870,6 @@ namespace Spiderrock.Protobuf {
               Pkey = new global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey();
             }
             input.ReadMessage(Pkey);
-            break;
-          }
-          case 802: {
-            SecurityID = input.ReadString();
             break;
           }
           case 826: {
@@ -1875,10 +1908,6 @@ namespace Spiderrock.Protobuf {
           }
           case 992: {
             MarketSegmentID = input.ReadInt32();
-            break;
-          }
-          case 1018: {
-            SecurityDesc = input.ReadString();
             break;
           }
           case 1042: {
@@ -2020,6 +2049,18 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1986: {
+            SecurityID = input.ReadString();
+            break;
+          }
+          case 1994: {
+            RicCode = input.ReadString();
+            break;
+          }
+          case 2002: {
+            SecurityDesc = input.ReadString();
             break;
           }
         }

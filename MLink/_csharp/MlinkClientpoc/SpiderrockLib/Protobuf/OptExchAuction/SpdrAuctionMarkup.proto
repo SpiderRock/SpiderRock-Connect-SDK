@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrAuctionMarkup {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11;
+        OptExch auction_exch = 12; // exchange handling the auction
+        string auction_ex_dest = 13; // external exDest of auction (usually means auction is off-exchange)
+        RunStatus run_status = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 sr_auction_iD = 100; // unique SR AUCTION ID (required when responding to an auction notice)
+    TickerKey ticker = 103; // must match
+    string option_roots = 106; // (comma separated) if not empty all leg roots must be in list
+    string exch_auction_id = 109;
+    string exch_auction_type = 112;
+    AuctionType auction_type = 115;
+    BuySell auction_side = 118; // Market side (client/imbalance side of auction; if known) [responder should be opposite side]
+    int32 auction_size = 121; // auction size (number of spreads)
+    int32 num_legs = 124;
+    int32 num_opt_legs = 127;
+    YesNo incl_stock = 130;
+    YesNo incl_multihedge = 133;
+    float min_years = 136; // both markup.minYears and markup.maxYears
+    float max_years = 139;
+    google.protobuf.Timestamp min_expiry = 142; // both markup.minExpiry and markup.maxExpiry
+    google.protobuf.Timestamp max_expiry = 145;
+    float max_years_range = 148; // markup.maxExpiry - markup.minExpiry
+    float min_abs_de = 151;
+    float max_abs_de = 154;
+    float min_xAxis = 157;
+    float max_xAxis = 160;
+    float min_strike = 163;
+    float max_strike = 166;
+    float max_strike_range = 169; // markup.maxStrike - markup.minStrike
+    float delta_range = 172; // maxDelta - minDelta (option legs only)
+    double auction_price = 175; // auction price (if any)
+    YesNo is_auction_price_valid = 178;
+    float surf_price = 181; // surface price
+    float prob_price = 184; // 0.50 probability price
+    float bid_price = 187; // nbbo bid price (leg market bid)
+    float ask_price = 190; // nbbo ask price (leg market ask)
+    SpreadShape spread_shape = 193;
+    int32 num_valid_legs = 196;
+    float u_prc = 199;
+    int32 pkg_abs_cn = 202;
+    int32 pkg_net_cn = 205;
+    float pkg_abs_dDe = 208;
+    float pkg_net_dDe = 211;
+    float pkg_abs_pr = 214;
+    float pkg_net_pr = 217;
+    float pkg_abs_ve = 220;
+    float pkg_net_ve = 223;
+    float pkg_abs_tVe = 226;
+    float pkg_net_tVe = 229;
+    float pkg_abs_wVe = 232;
+    float pkg_net_wVe = 235;
+    float pkg_abs_wTVe = 238;
+    float pkg_net_wTVe = 241;
+    float pkg_abs_th = 244;
+    float pkg_net_th = 247;
+    float pkg_abs_dTh = 250;
+    float pkg_abs_ga = 253;
+    float pkg_net_ga = 256;
+    float pkg_abs_dGa = 259;
+    float pkg_net_dGa = 262;
+    float pkg_net_uUp_vUp = 284;
+    float pkg_net_uUp_vDn = 285;
+    float pkg_net_uDn_vUp = 286;
+    float pkg_net_uDn_vDn = 287;
+    float pkg_net_up15_pn_l = 265;
+    float pkg_net_dn15_pn_l = 268;
+    float pkg_net_up50_pn_l = 271;
+    float pkg_net_dn50_pn_l = 274;
+    MarkupResult markup_result = 277;
+    string markup_detail = 280;
+    google.protobuf.Timestamp timestamp = 283;
+}
+
+

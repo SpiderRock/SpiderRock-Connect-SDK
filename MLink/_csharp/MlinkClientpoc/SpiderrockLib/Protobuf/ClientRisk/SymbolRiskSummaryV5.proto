@@ -18,13 +18,13 @@ message SymbolRiskSummaryV5 {
         string accnt = 11; // SRAccnt (SR assigned;up to 16 chars)
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR client firm
     string risk_server_code = 103; // SR risk server code that published this record
     string sector = 106; // SymbolControl.sector: user defined sector code
     int32 industry = 109; // industry code [00000000]
@@ -202,32 +202,32 @@ message SymbolRiskSummaryV5 {
     float va_rsd2e = 625; // Aggregate RiskSlide: uPrc dn 2x implied earn move, vol ramp out
     float va_rearn = 628; // Aggregate RiskSlide: vol earn ramp out (no uPrc move)
     float va_rcash = 631; // Aggregate RiskSlide: uPrc up 30%, vol = 0.01, 6mn deal close (delta neutral)
-    float margin_uDn_vDn = 634; // Aggregate RiskSlide: uPrc dn, vol dn
-    float margin_uDn_vUp = 637; // Aggregate RiskSlide: uPrc dn, vol up
-    float margin_uUp_vDn = 640; // Aggregate RiskSlide: uPrc up, vol dn
-    float margin_uUp_vUp = 643; // Aggregate RiskSlide: uPrc up, vol up
-    float stk_liq_risk = 646; // Aggregate Equity Liquidation Risk
-    float opt_liq_risk = 649; // Aggregate Option Liquidation Risk
-    int32 sh_bot_c0 = 652; // hypothetical shares bot (~1 minute intervals)
-    int32 sh_sld_c0 = 655; // hypothetical shares sld
-    float sh_mny_c0 = 658; // hypothetical money
-    int32 sh_bot_c1 = 661; // hypothetical shares bot (~10 minute intervals)
-    int32 sh_sld_c1 = 664; // hypothetical shares sld
-    float sh_mny_c1 = 667; // hypothetical money
-    float op_hc_min25 = 670; // sum(option haircut minimum) [$25.00/cn]
-    float op_hc_min37 = 673; // sum(option haircut minimum) [$37.50/cn]
-    float haircut25 = 676; // Aggregate Risk Margin (JBO): [$25 minimum;-15/+15 uPrc slides]
-    float haircut37 = 679; // Aggregate Risk Margin (PM): [$37.50 minimum;-8/+6 uPrc slides (broad based);-15/+15 uPrc slides (non-broad based)]
-    int32 num_stk_errors = 682; // number of stock positions with a computation error (should be zero)
-    int32 num_opt_errors = 685; // number of options positions with a computation error (should be zero)
-    R5Source update_source = 688;
-    MktErrFlag stk_mark_flag = 691; // Stock position error flag
-    MktErrFlag opt_mark_flag = 694; // Option position error flag
-    AlertCode risk_alert1 = 697; // Risk Alert Code: Early Exercise, etc.
-    AlertCode risk_alert2 = 700; // Risk Alert Code: Early Exercise, etc.
-    AlertCode risk_alert3 = 703; // Risk Alert Code: Early Exercise, etc.
-    AlertCode risk_alert4 = 706; // Risk Alert Code: Early Exercise, etc.
-    google.protobuf.Timestamp timestamp = 709;
+    float margin_uDn_vDn = 698; // Aggregate RiskSlide: uPrc dn, vol dn
+    float margin_uDn_vUp = 699; // Aggregate RiskSlide: uPrc dn, vol up
+    float margin_uUp_vDn = 700; // Aggregate RiskSlide: uPrc up, vol dn
+    float margin_uUp_vUp = 701; // Aggregate RiskSlide: uPrc up, vol up
+    float stk_liq_risk = 634; // Aggregate Equity Liquidation Risk
+    float opt_liq_risk = 637; // Aggregate Option Liquidation Risk
+    int32 sh_bot_c0 = 640; // hypothetical shares bot (~1 minute intervals)
+    int32 sh_sld_c0 = 643; // hypothetical shares sld
+    float sh_mny_c0 = 646; // hypothetical money
+    int32 sh_bot_c1 = 649; // hypothetical shares bot (~10 minute intervals)
+    int32 sh_sld_c1 = 652; // hypothetical shares sld
+    float sh_mny_c1 = 655; // hypothetical money
+    float op_hc_min25 = 658; // sum(option haircut minimum) [$25.00/cn]
+    float op_hc_min37 = 661; // sum(option haircut minimum) [$37.50/cn]
+    float haircut25 = 664; // Aggregate Risk Margin (JBO): [$25 minimum;-15/+15 uPrc slides]
+    float haircut37 = 667; // Aggregate Risk Margin (PM): [$37.50 minimum;-8/+6 uPrc slides (broad based);-15/+15 uPrc slides (non-broad based)]
+    int32 num_stk_errors = 670; // number of stock positions with a computation error (should be zero)
+    int32 num_opt_errors = 673; // number of options positions with a computation error (should be zero)
+    R5Source update_source = 676;
+    MktErrFlag stk_mark_flag = 679; // Stock position error flag
+    MktErrFlag opt_mark_flag = 682; // Option position error flag
+    AlertCode risk_alert1 = 685; // Risk Alert Code: Early Exercise, etc.
+    AlertCode risk_alert2 = 688; // Risk Alert Code: Early Exercise, etc.
+    AlertCode risk_alert3 = 691; // Risk Alert Code: Early Exercise, etc.
+    AlertCode risk_alert4 = 694; // Risk Alert Code: Early Exercise, etc.
+    google.protobuf.Timestamp timestamp = 697;
 }
 
 

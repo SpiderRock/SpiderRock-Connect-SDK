@@ -45,72 +45,72 @@ namespace Spiderrock.Protobuf {
             "cHJvdG9idWYuQ2FsY01vZGVsVHlwZRI3CgpwcmljZV90eXBlGJcBIAEoDjIi",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuQ2FsY1ByaWNlVHlwZRIRCghlYXJuX2Nu",
             "dBiaASABKAISFQoMZWFybl9jbnRfYWRqGJ0BIAEoAhIUCgtheGlzX3ZvbF9y",
-            "VBigASABKAISEwoKYXhpc19mVVByYxijASABKAISEQoIc3luX3Nwb3QYpgEg",
-            "ASgBEhIKCXN5bl9jYXJyeRipASABKAESEwoKYXRtX3N0cmlrZRisASABKAIS",
-            "OwoObW9uZXluZXNzX3R5cGUYrwEgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5Nb25leW5lc3NUeXBlEjsKDnVuZGVybGllcl9tb2RlGLIBIAEoDjIiLnNw",
+            "VBigASABKAISEwoKYXhpc19mVVByYxijASABKAISEQoIc3luX3Nwb3QYpAEg",
+            "ASgBEhIKCXN5bl9jYXJyeRilASABKAESEwoKYXRtX3N0cmlrZRimASABKAIS",
+            "OwoObW9uZXluZXNzX3R5cGUYqQEgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5Nb25leW5lc3NUeXBlEjsKDnVuZGVybGllcl9tb2RlGKwBIAEoDjIiLnNw",
             "aWRlcnJvY2sucHJvdG9idWYuVW5kZXJsaWVyTW9kZRI0CgtjcF9hZGpfdHlw",
-            "ZRi1ASABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkNQQWRqVHlwZRI+ChBw",
-            "cmljZV9xdW90ZV90eXBlGLgBIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "UHJpY2VRdW90ZVR5cGUSEAoHYXRtX3ZvbBi7ASABKAISEAoHYXRtX2Nlbhi+",
-            "ASABKAISFQoMYXRtX3ZvbF9oaXN0GMEBIAEoAhIVCgxhdG1fY2VuX2hpc3QY",
-            "xAEgASgCEg8KBmVfbW92ZRjHASABKAISFAoLZV9tb3ZlX2hpc3QYygEgASgC",
-            "EhQKC3VfcHJjX3JhdGlvGM0BIAEoARIUCgttaW5fYXRtX3ZvbBjQASABKAIS",
-            "FAoLbWF4X2F0bV92b2wY0wEgASgCEhYKDW1pbl9jUEFkal92YWwY1gEgASgB",
-            "EhYKDW1heF9jUEFkal92YWwY2QEgASgBEhcKDmF0bV9maXhlZF9tb3ZlGNwB",
-            "IAEoAhIQCgdhdG1fcGhpGN8BIAEoAhIQCgdhdG1fcmhvGOIBIAEoAhIRCghh",
-            "dG1fdmVnYRjlASABKAISDgoFc2xvcGUY6AEgASgCEhQKC3Zhcl9zd2FwX2ZW",
-            "GOsBIAEoAhIxCglncmlkX3R5cGUY7gEgASgOMh0uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5HcmlkVHlwZRITCgprbm90X3NoaWZ0GPEBIAEoAhIUCgtmaXRfcG93",
-            "ZXJfYxj0ASABKAISFAoLZml0X3Bvd2VyX3AY9wEgASgCEhIKCW1pbl94QXhp",
-            "cxj6ASABKAISEgoJbWF4X3hBeGlzGP0BIAEoAhIZChBhc3ltcHRvdGljX3Zv",
-            "bF9jGIACIAEoAhIZChBhc3ltcHRvdGljX3ZvbF9wGIMCIAEoAhIXCg5taW5f",
-            "Y3Vydl92YWx1ZRiGAiABKAISFwoObWluX2N1cnZfeEF4aXMYiQIgASgCEhcK",
-            "Dm1heF9jdXJ2X3ZhbHVlGIwCIAEoAhIXCg5tYXhfY3Vydl94QXhpcxiPAiAB",
-            "KAISEwoKc2tld19taW5feBiSAiABKAISEwoKc2tld19taW5feRiVAiABKAIS",
-            "NQoLc3VyZmFjZV9maXQYmAIgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5T",
-            "dXJmYWNlRml0EhEKCHNrZXdfYzAwGJsCIAEoAhIRCghza2V3X2MwMRieAiAB",
-            "KAISEQoIc2tld19jMDIYoQIgASgCEhEKCHNrZXdfYzAzGKQCIAEoAhIRCghz",
-            "a2V3X2MwNBinAiABKAISEQoIc2tld19jMDUYqgIgASgCEhEKCHNrZXdfYzA2",
-            "GK0CIAEoAhIRCghza2V3X2MwNxiwAiABKAISEQoIc2tld19jMDgYswIgASgC",
-            "EhEKCHNrZXdfYzA5GLYCIAEoAhIRCghza2V3X2MxMBi5AiABKAISEQoIc2tl",
-            "d19jMTEYvAIgASgCEhEKCHNrZXdfYzEyGL8CIAEoAhIRCghza2V3X2MxMxjC",
-            "AiABKAISEQoIc2tld19jMTQYxQIgASgCEhEKCHNrZXdfYzE1GMgCIAEoAhIR",
-            "Cghza2V3X2MxNhjLAiABKAISEQoIc2tld19jMTcYzgIgASgCEhEKCHNrZXdf",
-            "YzE4GNECIAEoAhIRCghza2V3X2MxORjUAiABKAISEQoIc2tld19jMjAY1wIg",
-            "ASgCEhEKCHNrZXdfYzIxGNoCIAEoAhIRCghza2V3X2MyMhjdAiABKAISEQoI",
-            "c2tld19jMjMY4AIgASgCEhEKCHNrZXdfYzI0GOMCIAEoAhIRCghza2V3X2My",
-            "NRjmAiABKAISEQoIc2tld19jMjYY6QIgASgCEhEKCHNrZXdfYzI3GOwCIAEo",
-            "AhIRCghza2V3X2MyOBjvAiABKAISEwoKaXZfYWRqX2QwNxjyAiABKAISEwoK",
-            "aXZfYWRqX2QwNhj1AiABKAISEwoKaXZfYWRqX2QwNRj4AiABKAISEwoKaXZf",
-            "YWRqX2QwNBj7AiABKAISEwoKaXZfYWRqX2QwMxj+AiABKAISEwoKaXZfYWRq",
-            "X2QwMhiBAyABKAISEwoKaXZfYWRqX2QwMRiEAyABKAISEwoKaXZfYWRqX3Uw",
-            "MRiHAyABKAISEwoKaXZfYWRqX3UwMhiKAyABKAISEwoKaXZfYWRqX3UwMxiN",
-            "AyABKAISEwoKaXZfYWRqX3UwNBiQAyABKAISEwoKaXZfYWRqX3UwNRiTAyAB",
-            "KAISEwoKaXZfYWRqX3UwNhiWAyABKAISEwoKaXZfYWRqX3UwNxiZAyABKAIS",
-            "EwoKY3BfYWRqX2QwNBicAyABKAISEwoKY3BfYWRqX2QwMxifAyABKAISEwoK",
-            "Y3BfYWRqX2QwMhiiAyABKAISEwoKY3BfYWRqX2QwMRilAyABKAISEwoKY3Bf",
-            "YWRqX3UwMRioAyABKAISEwoKY3BfYWRqX3UwMhirAyABKAISEwoKY3BfYWRq",
-            "X3UwMxiuAyABKAISEwoKY3BfYWRqX3UwNBixAyABKAISDwoGcHdpZHRoGLQD",
-            "IAEoAhIPCgZ2d2lkdGgYtwMgASgCEg4KBWNfY250GLoDIAEoBRIOCgVwX2Nu",
-            "dBi9AyABKAUSEwoKY19iaWRfbWlzcxjAAyABKAUSEwoKY19hc2tfbWlzcxjD",
-            "AyABKAUSEwoKcF9iaWRfbWlzcxjGAyABKAUSEwoKcF9hc2tfbWlzcxjJAyAB",
-            "KAUSFAoLZml0X2F2Z19lcnIYzAMgASgCEhgKD2ZpdF9hdmdfYWJzX2VychjP",
-            "AyABKAISGAoPZml0X21heF9wcmNfZXJyGNIDIAEoAhITCgpmaXRfZXJyX3hY",
-            "GNUDIAEoAhIxCgpmaXRfZXJyX2NQGNgDIAEoDjIcLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuQ2FsbFB1dBITCgpmaXRfZXJyX2RlGNsDIAEoAhIUCgtmaXRfZXJy",
-            "X2JpZBjeAyABKAISFAoLZml0X2Vycl9hc2sY4QMgASgCEhQKC2ZpdF9lcnJf",
-            "cHJjGOQDIAEoAhIUCgtmaXRfZXJyX3ZvbBjnAyABKAISFwoObnVtX3NhZGRs",
-            "ZV9wdHMY6gMgASgFEhgKD21pbl9zYWRkbGVfc3BhbhjtAyABKAISHQoUbWF4",
-            "X3NhZGRsZV9jdXJ2YXR1cmUY8AMgASgCEhUKDHNrZXdfY291bnRlchjzAyAB",
-            "KAUSFQoMc2Rpdl9jb3VudGVyGPYDIAEoBRI7Cg5tYXJrZXRfc2Vzc2lvbhj5",
+            "ZRivASABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkNQQWRqVHlwZRI+ChBw",
+            "cmljZV9xdW90ZV90eXBlGLIBIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "UHJpY2VRdW90ZVR5cGUSEAoHYXRtX3ZvbBi1ASABKAISEAoHYXRtX2Nlbhi4",
+            "ASABKAISFQoMYXRtX3ZvbF9oaXN0GLsBIAEoAhIVCgxhdG1fY2VuX2hpc3QY",
+            "vgEgASgCEg8KBmVfbW92ZRjBASABKAISFAoLZV9tb3ZlX2hpc3QYxAEgASgC",
+            "EhQKC3VfcHJjX3JhdGlvGMcBIAEoARIUCgttaW5fYXRtX3ZvbBjKASABKAIS",
+            "FAoLbWF4X2F0bV92b2wYzQEgASgCEhYKDW1pbl9jUEFkal92YWwY0AEgASgB",
+            "EhYKDW1heF9jUEFkal92YWwY0wEgASgBEhcKDmF0bV9maXhlZF9tb3ZlGNYB",
+            "IAEoAhIQCgdhdG1fcGhpGNkBIAEoAhIQCgdhdG1fcmhvGNwBIAEoAhIRCghh",
+            "dG1fdmVnYRjfASABKAISDgoFc2xvcGUY4gEgASgCEhQKC3Zhcl9zd2FwX2ZW",
+            "GOUBIAEoAhIxCglncmlkX3R5cGUY6AEgASgOMh0uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5HcmlkVHlwZRITCgprbm90X3NoaWZ0GOsBIAEoAhIUCgtmaXRfcG93",
+            "ZXJfYxjuASABKAISFAoLZml0X3Bvd2VyX3AY8QEgASgCEhIKCW1pbl94QXhp",
+            "cxj0ASABKAISEgoJbWF4X3hBeGlzGPcBIAEoAhIZChBhc3ltcHRvdGljX3Zv",
+            "bF9jGPoBIAEoAhIZChBhc3ltcHRvdGljX3ZvbF9wGP0BIAEoAhIXCg5taW5f",
+            "Y3Vydl92YWx1ZRiAAiABKAISFwoObWluX2N1cnZfeEF4aXMYgwIgASgCEhcK",
+            "Dm1heF9jdXJ2X3ZhbHVlGIYCIAEoAhIXCg5tYXhfY3Vydl94QXhpcxiJAiAB",
+            "KAISEwoKc2tld19taW5feBiMAiABKAISEwoKc2tld19taW5feRiPAiABKAIS",
+            "NQoLc3VyZmFjZV9maXQYkgIgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5T",
+            "dXJmYWNlRml0EhEKCHNrZXdfYzAwGJUCIAEoAhIRCghza2V3X2MwMRiYAiAB",
+            "KAISEQoIc2tld19jMDIYmwIgASgCEhEKCHNrZXdfYzAzGJ4CIAEoAhIRCghz",
+            "a2V3X2MwNBihAiABKAISEQoIc2tld19jMDUYpAIgASgCEhEKCHNrZXdfYzA2",
+            "GKcCIAEoAhIRCghza2V3X2MwNxiqAiABKAISEQoIc2tld19jMDgYrQIgASgC",
+            "EhEKCHNrZXdfYzA5GLACIAEoAhIRCghza2V3X2MxMBizAiABKAISEQoIc2tl",
+            "d19jMTEYtgIgASgCEhEKCHNrZXdfYzEyGLkCIAEoAhIRCghza2V3X2MxMxi8",
+            "AiABKAISEQoIc2tld19jMTQYvwIgASgCEhEKCHNrZXdfYzE1GMICIAEoAhIR",
+            "Cghza2V3X2MxNhjFAiABKAISEQoIc2tld19jMTcYyAIgASgCEhEKCHNrZXdf",
+            "YzE4GMsCIAEoAhIRCghza2V3X2MxORjOAiABKAISEQoIc2tld19jMjAY0QIg",
+            "ASgCEhEKCHNrZXdfYzIxGNQCIAEoAhIRCghza2V3X2MyMhjXAiABKAISEQoI",
+            "c2tld19jMjMY2gIgASgCEhEKCHNrZXdfYzI0GN0CIAEoAhIRCghza2V3X2My",
+            "NRjgAiABKAISEQoIc2tld19jMjYY4wIgASgCEhEKCHNrZXdfYzI3GOYCIAEo",
+            "AhIRCghza2V3X2MyOBjpAiABKAISEwoKaXZfYWRqX2QwNxjsAiABKAISEwoK",
+            "aXZfYWRqX2QwNhjvAiABKAISEwoKaXZfYWRqX2QwNRjyAiABKAISEwoKaXZf",
+            "YWRqX2QwNBj1AiABKAISEwoKaXZfYWRqX2QwMxj4AiABKAISEwoKaXZfYWRq",
+            "X2QwMhj7AiABKAISEwoKaXZfYWRqX2QwMRj+AiABKAISEwoKaXZfYWRqX3Uw",
+            "MRiBAyABKAISEwoKaXZfYWRqX3UwMhiEAyABKAISEwoKaXZfYWRqX3UwMxiH",
+            "AyABKAISEwoKaXZfYWRqX3UwNBiKAyABKAISEwoKaXZfYWRqX3UwNRiNAyAB",
+            "KAISEwoKaXZfYWRqX3UwNhiQAyABKAISEwoKaXZfYWRqX3UwNxiTAyABKAIS",
+            "EwoKY3BfYWRqX2QwNBiWAyABKAISEwoKY3BfYWRqX2QwMxiZAyABKAISEwoK",
+            "Y3BfYWRqX2QwMhicAyABKAISEwoKY3BfYWRqX2QwMRifAyABKAISEwoKY3Bf",
+            "YWRqX3UwMRiiAyABKAISEwoKY3BfYWRqX3UwMhilAyABKAISEwoKY3BfYWRq",
+            "X3UwMxioAyABKAISEwoKY3BfYWRqX3UwNBirAyABKAISDwoGcHdpZHRoGK4D",
+            "IAEoAhIPCgZ2d2lkdGgYsQMgASgCEg4KBWNfY250GLQDIAEoBRIOCgVwX2Nu",
+            "dBi3AyABKAUSEwoKY19iaWRfbWlzcxi6AyABKAUSEwoKY19hc2tfbWlzcxi9",
+            "AyABKAUSEwoKcF9iaWRfbWlzcxjAAyABKAUSEwoKcF9hc2tfbWlzcxjDAyAB",
+            "KAUSFAoLZml0X2F2Z19lcnIYxgMgASgCEhgKD2ZpdF9hdmdfYWJzX2VychjJ",
+            "AyABKAISGAoPZml0X21heF9wcmNfZXJyGMwDIAEoAhITCgpmaXRfZXJyX3hY",
+            "GM8DIAEoAhIxCgpmaXRfZXJyX2NQGNIDIAEoDjIcLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuQ2FsbFB1dBITCgpmaXRfZXJyX2RlGNUDIAEoAhIUCgtmaXRfZXJy",
+            "X2JpZBjYAyABKAISFAoLZml0X2Vycl9hc2sY2wMgASgCEhQKC2ZpdF9lcnJf",
+            "cHJjGN4DIAEoAhIUCgtmaXRfZXJyX3ZvbBjhAyABKAISFwoObnVtX3NhZGRs",
+            "ZV9wdHMY5AMgASgFEhgKD21pbl9zYWRkbGVfc3BhbhjnAyABKAISHQoUbWF4",
+            "X3NhZGRsZV9jdXJ2YXR1cmUY6gMgASgCEhUKDHNrZXdfY291bnRlchjtAyAB",
+            "KAUSFQoMc2Rpdl9jb3VudGVyGPADIAEoBRI7Cg5tYXJrZXRfc2Vzc2lvbhjz",
             "AyABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtldFNlc3Npb24SPwoQ",
-            "dHJhZGVhYmxlX3N0YXR1cxj8AyABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlRyYWRlYWJsZVN0YXR1cxI7Cg5zdXJmYWNlX3Jlc3VsdBj/AyABKA4yIi5z",
+            "dHJhZGVhYmxlX3N0YXR1cxj2AyABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlRyYWRlYWJsZVN0YXR1cxI7Cg5zdXJmYWNlX3Jlc3VsdBj5AyABKA4yIi5z",
             "cGlkZXJyb2NrLnByb3RvYnVmLlN1cmZhY2VSZXN1bHQSMAoLc190aW1lc3Rh",
-            "bXAYggQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIoCgR0aW1l",
-            "GIUEIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbhIuCgl0aW1lc3Rh",
-            "bXAYiAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpxCgRQS2V5",
+            "bXAY/AMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIoCgR0aW1l",
+            "GP8DIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbhIuCgl0aW1lc3Rh",
+            "bXAYggQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpxCgRQS2V5",
             "EiwKBGVrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtl",
             "eRI7CgxzdXJmYWNlX3R5cGUYCyABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVm",
             "LlN1cmZhY2VDdXJ2ZVR5cGViBnByb3RvMw=="));
@@ -670,7 +670,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "syn_spot" field.</summary>
-    public const int SynSpotFieldNumber = 166;
+    public const int SynSpotFieldNumber = 164;
     private double synSpot_;
     /// <summary>
     /// Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
@@ -685,7 +685,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "syn_carry" field.</summary>
-    public const int SynCarryFieldNumber = 169;
+    public const int SynCarryFieldNumber = 165;
     private double synCarry_;
     /// <summary>
     /// Synthetic carry rate; corresponds to the relationship between uPrc and synSpot (set when the underlying is not a traded instrument)
@@ -700,7 +700,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_strike" field.</summary>
-    public const int AtmStrikeFieldNumber = 172;
+    public const int AtmStrikeFieldNumber = 166;
     private float atmStrike_;
     /// <summary>
     /// synthetic strike with cPrice = pPrice
@@ -715,7 +715,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "moneyness_type" field.</summary>
-    public const int MoneynessTypeFieldNumber = 175;
+    public const int MoneynessTypeFieldNumber = 169;
     private global::Spiderrock.Protobuf.MoneynessType moneynessType_ = global::Spiderrock.Protobuf.MoneynessType.Unspecified;
     /// <summary>
     /// moneyness (xAxis) convention
@@ -730,7 +730,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "underlier_mode" field.</summary>
-    public const int UnderlierModeFieldNumber = 178;
+    public const int UnderlierModeFieldNumber = 172;
     private global::Spiderrock.Protobuf.UnderlierMode underlierMode_ = global::Spiderrock.Protobuf.UnderlierMode.Unspecified;
     /// <summary>
     /// underlier pricing mode (None=use spot/stock market; FrontMonth=use front month future market * uPrcRatio; Actual = use actual underlier future market)
@@ -745,7 +745,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_type" field.</summary>
-    public const int CpAdjTypeFieldNumber = 181;
+    public const int CpAdjTypeFieldNumber = 175;
     private global::Spiderrock.Protobuf.CPAdjType cpAdjType_ = global::Spiderrock.Protobuf.CPAdjType.Unspecified;
     /// <summary>
     /// adjustment used to align calls/puts (if any)
@@ -760,7 +760,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "price_quote_type" field.</summary>
-    public const int PriceQuoteTypeFieldNumber = 184;
+    public const int PriceQuoteTypeFieldNumber = 178;
     private global::Spiderrock.Protobuf.PriceQuoteType priceQuoteType_ = global::Spiderrock.Protobuf.PriceQuoteType.Unspecified;
     /// <summary>
     /// Price or Vol
@@ -775,7 +775,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_vol" field.</summary>
-    public const int AtmVolFieldNumber = 187;
+    public const int AtmVolFieldNumber = 181;
     private float atmVol_;
     /// <summary>
     /// atm vol (xAxis = 0)
@@ -790,7 +790,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen" field.</summary>
-    public const int AtmCenFieldNumber = 190;
+    public const int AtmCenFieldNumber = 184;
     private float atmCen_;
     /// <summary>
     /// atm vol (xAxis = 0) (eMove/earnCntAdj censored)
@@ -805,7 +805,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_vol_hist" field.</summary>
-    public const int AtmVolHistFieldNumber = 193;
+    public const int AtmVolHistFieldNumber = 187;
     private float atmVolHist_;
     /// <summary>
     /// historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
@@ -820,7 +820,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_cen_hist" field.</summary>
-    public const int AtmCenHistFieldNumber = 196;
+    public const int AtmCenHistFieldNumber = 190;
     private float atmCenHist_;
     /// <summary>
     /// censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
@@ -835,7 +835,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move" field.</summary>
-    public const int EMoveFieldNumber = 199;
+    public const int EMoveFieldNumber = 193;
     private float eMove_;
     /// <summary>
     /// implied earnings move (from LiveSurfaceTerm)
@@ -850,7 +850,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "e_move_hist" field.</summary>
-    public const int EMoveHistFieldNumber = 202;
+    public const int EMoveHistFieldNumber = 196;
     private float eMoveHist_;
     /// <summary>
     /// historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
@@ -865,7 +865,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_prc_ratio" field.</summary>
-    public const int UPrcRatioFieldNumber = 205;
+    public const int UPrcRatioFieldNumber = 199;
     private double uPrcRatio_;
     /// <summary>
     /// uPrcAdj = uPrc * uPrcRatioFit
@@ -880,7 +880,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_atm_vol" field.</summary>
-    public const int MinAtmVolFieldNumber = 208;
+    public const int MinAtmVolFieldNumber = 202;
     private float minAtmVol_;
     /// <summary>
     /// minimum estimated atm vol
@@ -895,7 +895,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_atm_vol" field.</summary>
-    public const int MaxAtmVolFieldNumber = 211;
+    public const int MaxAtmVolFieldNumber = 205;
     private float maxAtmVol_;
     /// <summary>
     /// maximum estimated atm vol
@@ -910,7 +910,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_cPAdj_val" field.</summary>
-    public const int MinCPAdjValFieldNumber = 214;
+    public const int MinCPAdjValFieldNumber = 208;
     private double minCPAdjVal_;
     /// <summary>
     /// minimum cpAdjVal (sdiv or uPrcRatio)
@@ -925,7 +925,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_cPAdj_val" field.</summary>
-    public const int MaxCPAdjValFieldNumber = 217;
+    public const int MaxCPAdjValFieldNumber = 211;
     private double maxCPAdjVal_;
     /// <summary>
     /// minimum cpAdjVal (sdiv or uPrcRatio)
@@ -940,7 +940,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_fixed_move" field.</summary>
-    public const int AtmFixedMoveFieldNumber = 220;
+    public const int AtmFixedMoveFieldNumber = 214;
     private float atmFixedMove_;
     /// <summary>
     /// fixed strike atm move from prior period
@@ -955,7 +955,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_phi" field.</summary>
-    public const int AtmPhiFieldNumber = 223;
+    public const int AtmPhiFieldNumber = 217;
     private float atmPhi_;
     /// <summary>
     /// surface phi @ xAxis = 0
@@ -970,7 +970,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_rho" field.</summary>
-    public const int AtmRhoFieldNumber = 226;
+    public const int AtmRhoFieldNumber = 220;
     private float atmRho_;
     /// <summary>
     /// surface rho @ xAxis = 0
@@ -985,7 +985,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "atm_vega" field.</summary>
-    public const int AtmVegaFieldNumber = 229;
+    public const int AtmVegaFieldNumber = 223;
     private float atmVega_;
     /// <summary>
     /// surface vega @ xAxis = 0
@@ -1000,7 +1000,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "slope" field.</summary>
-    public const int SlopeFieldNumber = 232;
+    public const int SlopeFieldNumber = 226;
     private float slope_;
     /// <summary>
     /// volatility surface slope (dVol / dXAxis) @ ATM (xAxis=0)
@@ -1015,7 +1015,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "var_swap_fV" field.</summary>
-    public const int VarSwapFVFieldNumber = 235;
+    public const int VarSwapFVFieldNumber = 229;
     private float varSwapFV_;
     /// <summary>
     /// variance swap fair value (estimated by numerical integration over OTM price surface)
@@ -1030,7 +1030,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "grid_type" field.</summary>
-    public const int GridTypeFieldNumber = 238;
+    public const int GridTypeFieldNumber = 232;
     private global::Spiderrock.Protobuf.GridType gridType_ = global::Spiderrock.Protobuf.GridType.Unspecified;
     /// <summary>
     /// gridType defines skew curve coeff points + spline type
@@ -1045,7 +1045,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "knot_shift" field.</summary>
-    public const int KnotShiftFieldNumber = 241;
+    public const int KnotShiftFieldNumber = 235;
     private float knotShift_;
     /// <summary>
     /// constant that should be added to each base knot location [-3.0 - +3.0]
@@ -1060,7 +1060,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_power_c" field.</summary>
-    public const int FitPowerCFieldNumber = 244;
+    public const int FitPowerCFieldNumber = 238;
     private float fitPowerC_;
     /// <summary>
     /// fit power of the vol fit (call wing)
@@ -1075,7 +1075,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_power_p" field.</summary>
-    public const int FitPowerPFieldNumber = 247;
+    public const int FitPowerPFieldNumber = 241;
     private float fitPowerP_;
     /// <summary>
     /// fit power of the vol fit (put wing)
@@ -1090,7 +1090,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_xAxis" field.</summary>
-    public const int MinXAxisFieldNumber = 250;
+    public const int MinXAxisFieldNumber = 244;
     private float minXAxis_;
     /// <summary>
     /// minimum xAxis value; xAxis values to the left extrapolate horizontally
@@ -1105,7 +1105,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_xAxis" field.</summary>
-    public const int MaxXAxisFieldNumber = 253;
+    public const int MaxXAxisFieldNumber = 247;
     private float maxXAxis_;
     /// <summary>
     /// maximum xAxis value; xAxis values to the right extrapolate horizontally
@@ -1120,7 +1120,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "asymptotic_vol_c" field.</summary>
-    public const int AsymptoticVolCFieldNumber = 256;
+    public const int AsymptoticVolCFieldNumber = 250;
     private float asymptoticVolC_;
     /// <summary>
     /// asymptotic volatility (call wing)
@@ -1135,7 +1135,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "asymptotic_vol_p" field.</summary>
-    public const int AsymptoticVolPFieldNumber = 259;
+    public const int AsymptoticVolPFieldNumber = 253;
     private float asymptoticVolP_;
     /// <summary>
     /// asymptotic volatility (put wing)
@@ -1150,7 +1150,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_curv_value" field.</summary>
-    public const int MinCurvValueFieldNumber = 262;
+    public const int MinCurvValueFieldNumber = 256;
     private float minCurvValue_;
     /// <summary>
     /// minimum curvature (2nd derivative) of skew curve (can be negative if curve is not strictly convex)
@@ -1165,7 +1165,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_curv_xAxis" field.</summary>
-    public const int MinCurvXAxisFieldNumber = 265;
+    public const int MinCurvXAxisFieldNumber = 259;
     private float minCurvXAxis_;
     /// <summary>
     /// xAxis of minimum curvature point
@@ -1180,7 +1180,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_curv_value" field.</summary>
-    public const int MaxCurvValueFieldNumber = 268;
+    public const int MaxCurvValueFieldNumber = 262;
     private float maxCurvValue_;
     /// <summary>
     /// maximum curvature (2nd derivative) of skew curve
@@ -1195,7 +1195,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_curv_xAxis" field.</summary>
-    public const int MaxCurvXAxisFieldNumber = 271;
+    public const int MaxCurvXAxisFieldNumber = 265;
     private float maxCurvXAxis_;
     /// <summary>
     /// xAxis of maximum curvature point
@@ -1210,7 +1210,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_min_x" field.</summary>
-    public const int SkewMinXFieldNumber = 274;
+    public const int SkewMinXFieldNumber = 268;
     private float skewMinX_;
     /// <summary>
     /// xAxis = (effStrike / effAxisFUPrc - 1.0) / axisVolRT; effStrike = strike * strikeRatio; effAxisFUPrc = axisFUPrc * symbolRatio
@@ -1225,7 +1225,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_min_y" field.</summary>
-    public const int SkewMinYFieldNumber = 277;
+    public const int SkewMinYFieldNumber = 271;
     private float skewMinY_;
     /// <summary>
     /// skewMinX / skewMinY are the skew curve minimum point (usually a positive x value and a negative y value)
@@ -1240,7 +1240,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_fit" field.</summary>
-    public const int SurfaceFitFieldNumber = 280;
+    public const int SurfaceFitFieldNumber = 274;
     private global::Spiderrock.Protobuf.SurfaceFit surfaceFit_ = global::Spiderrock.Protobuf.SurfaceFit.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1252,7 +1252,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c00" field.</summary>
-    public const int SkewC00FieldNumber = 283;
+    public const int SkewC00FieldNumber = 277;
     private float skewC00_;
     /// <summary>
     /// curve coeff[0]
@@ -1267,7 +1267,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c01" field.</summary>
-    public const int SkewC01FieldNumber = 286;
+    public const int SkewC01FieldNumber = 280;
     private float skewC01_;
     /// <summary>
     /// curve coeff[1]
@@ -1282,7 +1282,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c02" field.</summary>
-    public const int SkewC02FieldNumber = 289;
+    public const int SkewC02FieldNumber = 283;
     private float skewC02_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1294,7 +1294,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c03" field.</summary>
-    public const int SkewC03FieldNumber = 292;
+    public const int SkewC03FieldNumber = 286;
     private float skewC03_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1306,7 +1306,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c04" field.</summary>
-    public const int SkewC04FieldNumber = 295;
+    public const int SkewC04FieldNumber = 289;
     private float skewC04_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1318,7 +1318,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c05" field.</summary>
-    public const int SkewC05FieldNumber = 298;
+    public const int SkewC05FieldNumber = 292;
     private float skewC05_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1330,7 +1330,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c06" field.</summary>
-    public const int SkewC06FieldNumber = 301;
+    public const int SkewC06FieldNumber = 295;
     private float skewC06_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1342,7 +1342,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c07" field.</summary>
-    public const int SkewC07FieldNumber = 304;
+    public const int SkewC07FieldNumber = 298;
     private float skewC07_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1354,7 +1354,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c08" field.</summary>
-    public const int SkewC08FieldNumber = 307;
+    public const int SkewC08FieldNumber = 301;
     private float skewC08_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1366,7 +1366,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c09" field.</summary>
-    public const int SkewC09FieldNumber = 310;
+    public const int SkewC09FieldNumber = 304;
     private float skewC09_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1378,7 +1378,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c10" field.</summary>
-    public const int SkewC10FieldNumber = 313;
+    public const int SkewC10FieldNumber = 307;
     private float skewC10_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1390,7 +1390,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c11" field.</summary>
-    public const int SkewC11FieldNumber = 316;
+    public const int SkewC11FieldNumber = 310;
     private float skewC11_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1402,7 +1402,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c12" field.</summary>
-    public const int SkewC12FieldNumber = 319;
+    public const int SkewC12FieldNumber = 313;
     private float skewC12_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1414,7 +1414,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c13" field.</summary>
-    public const int SkewC13FieldNumber = 322;
+    public const int SkewC13FieldNumber = 316;
     private float skewC13_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1426,7 +1426,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c14" field.</summary>
-    public const int SkewC14FieldNumber = 325;
+    public const int SkewC14FieldNumber = 319;
     private float skewC14_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1438,7 +1438,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c15" field.</summary>
-    public const int SkewC15FieldNumber = 328;
+    public const int SkewC15FieldNumber = 322;
     private float skewC15_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1450,7 +1450,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c16" field.</summary>
-    public const int SkewC16FieldNumber = 331;
+    public const int SkewC16FieldNumber = 325;
     private float skewC16_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1462,7 +1462,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c17" field.</summary>
-    public const int SkewC17FieldNumber = 334;
+    public const int SkewC17FieldNumber = 328;
     private float skewC17_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1474,7 +1474,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c18" field.</summary>
-    public const int SkewC18FieldNumber = 337;
+    public const int SkewC18FieldNumber = 331;
     private float skewC18_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1486,7 +1486,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c19" field.</summary>
-    public const int SkewC19FieldNumber = 340;
+    public const int SkewC19FieldNumber = 334;
     private float skewC19_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1498,7 +1498,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c20" field.</summary>
-    public const int SkewC20FieldNumber = 343;
+    public const int SkewC20FieldNumber = 337;
     private float skewC20_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1510,7 +1510,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c21" field.</summary>
-    public const int SkewC21FieldNumber = 346;
+    public const int SkewC21FieldNumber = 340;
     private float skewC21_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1522,7 +1522,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c22" field.</summary>
-    public const int SkewC22FieldNumber = 349;
+    public const int SkewC22FieldNumber = 343;
     private float skewC22_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1534,7 +1534,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c23" field.</summary>
-    public const int SkewC23FieldNumber = 352;
+    public const int SkewC23FieldNumber = 346;
     private float skewC23_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1546,7 +1546,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c24" field.</summary>
-    public const int SkewC24FieldNumber = 355;
+    public const int SkewC24FieldNumber = 349;
     private float skewC24_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1558,7 +1558,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c25" field.</summary>
-    public const int SkewC25FieldNumber = 358;
+    public const int SkewC25FieldNumber = 352;
     private float skewC25_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1570,7 +1570,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c26" field.</summary>
-    public const int SkewC26FieldNumber = 361;
+    public const int SkewC26FieldNumber = 355;
     private float skewC26_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1582,7 +1582,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c27" field.</summary>
-    public const int SkewC27FieldNumber = 364;
+    public const int SkewC27FieldNumber = 358;
     private float skewC27_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1594,7 +1594,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_c28" field.</summary>
-    public const int SkewC28FieldNumber = 367;
+    public const int SkewC28FieldNumber = 361;
     private float skewC28_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1606,7 +1606,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d07" field.</summary>
-    public const int IvAdjD07FieldNumber = 370;
+    public const int IvAdjD07FieldNumber = 364;
     private float ivAdjD07_;
     /// <summary>
     /// xAxis = -5.0
@@ -1621,7 +1621,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d06" field.</summary>
-    public const int IvAdjD06FieldNumber = 373;
+    public const int IvAdjD06FieldNumber = 367;
     private float ivAdjD06_;
     /// <summary>
     /// xAxis = -4.0
@@ -1636,7 +1636,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d05" field.</summary>
-    public const int IvAdjD05FieldNumber = 376;
+    public const int IvAdjD05FieldNumber = 370;
     private float ivAdjD05_;
     /// <summary>
     /// xAxis = -3.0
@@ -1651,7 +1651,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d04" field.</summary>
-    public const int IvAdjD04FieldNumber = 379;
+    public const int IvAdjD04FieldNumber = 373;
     private float ivAdjD04_;
     /// <summary>
     /// xAxis = -2.0
@@ -1666,7 +1666,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d03" field.</summary>
-    public const int IvAdjD03FieldNumber = 382;
+    public const int IvAdjD03FieldNumber = 376;
     private float ivAdjD03_;
     /// <summary>
     /// xAxis = -1.5
@@ -1681,7 +1681,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d02" field.</summary>
-    public const int IvAdjD02FieldNumber = 385;
+    public const int IvAdjD02FieldNumber = 379;
     private float ivAdjD02_;
     /// <summary>
     /// xAxis = -1.0
@@ -1696,7 +1696,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_d01" field.</summary>
-    public const int IvAdjD01FieldNumber = 388;
+    public const int IvAdjD01FieldNumber = 382;
     private float ivAdjD01_;
     /// <summary>
     /// xAxis = -0.5
@@ -1711,7 +1711,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u01" field.</summary>
-    public const int IvAdjU01FieldNumber = 391;
+    public const int IvAdjU01FieldNumber = 385;
     private float ivAdjU01_;
     /// <summary>
     /// xAxis = +0.5
@@ -1726,7 +1726,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u02" field.</summary>
-    public const int IvAdjU02FieldNumber = 394;
+    public const int IvAdjU02FieldNumber = 388;
     private float ivAdjU02_;
     /// <summary>
     /// xAxis = +1.0
@@ -1741,7 +1741,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u03" field.</summary>
-    public const int IvAdjU03FieldNumber = 397;
+    public const int IvAdjU03FieldNumber = 391;
     private float ivAdjU03_;
     /// <summary>
     /// xAxis = +1.5
@@ -1756,7 +1756,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u04" field.</summary>
-    public const int IvAdjU04FieldNumber = 400;
+    public const int IvAdjU04FieldNumber = 394;
     private float ivAdjU04_;
     /// <summary>
     /// xAxis = +2.0
@@ -1771,7 +1771,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u05" field.</summary>
-    public const int IvAdjU05FieldNumber = 403;
+    public const int IvAdjU05FieldNumber = 397;
     private float ivAdjU05_;
     /// <summary>
     /// xAxis = +3.0
@@ -1786,7 +1786,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u06" field.</summary>
-    public const int IvAdjU06FieldNumber = 406;
+    public const int IvAdjU06FieldNumber = 400;
     private float ivAdjU06_;
     /// <summary>
     /// xAxis = +4.0
@@ -1801,7 +1801,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "iv_adj_u07" field.</summary>
-    public const int IvAdjU07FieldNumber = 409;
+    public const int IvAdjU07FieldNumber = 403;
     private float ivAdjU07_;
     /// <summary>
     /// xAxis = +5.0
@@ -1816,7 +1816,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_d04" field.</summary>
-    public const int CpAdjD04FieldNumber = 412;
+    public const int CpAdjD04FieldNumber = 406;
     private float cpAdjD04_;
     /// <summary>
     /// xAxis = -4.0
@@ -1831,7 +1831,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_d03" field.</summary>
-    public const int CpAdjD03FieldNumber = 415;
+    public const int CpAdjD03FieldNumber = 409;
     private float cpAdjD03_;
     /// <summary>
     /// xAxis = -3.0
@@ -1846,7 +1846,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_d02" field.</summary>
-    public const int CpAdjD02FieldNumber = 418;
+    public const int CpAdjD02FieldNumber = 412;
     private float cpAdjD02_;
     /// <summary>
     /// xAxis = -2.0
@@ -1861,7 +1861,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_d01" field.</summary>
-    public const int CpAdjD01FieldNumber = 421;
+    public const int CpAdjD01FieldNumber = 415;
     private float cpAdjD01_;
     /// <summary>
     /// xAxis = -1.0
@@ -1876,7 +1876,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_u01" field.</summary>
-    public const int CpAdjU01FieldNumber = 424;
+    public const int CpAdjU01FieldNumber = 418;
     private float cpAdjU01_;
     /// <summary>
     /// xAxis = +1.0
@@ -1891,7 +1891,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_u02" field.</summary>
-    public const int CpAdjU02FieldNumber = 427;
+    public const int CpAdjU02FieldNumber = 421;
     private float cpAdjU02_;
     /// <summary>
     /// xAxis = +2.0
@@ -1906,7 +1906,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_u03" field.</summary>
-    public const int CpAdjU03FieldNumber = 430;
+    public const int CpAdjU03FieldNumber = 424;
     private float cpAdjU03_;
     /// <summary>
     /// xAxis = +3.0
@@ -1921,7 +1921,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cp_adj_u04" field.</summary>
-    public const int CpAdjU04FieldNumber = 433;
+    public const int CpAdjU04FieldNumber = 427;
     private float cpAdjU04_;
     /// <summary>
     /// xAxis = +4.0
@@ -1936,7 +1936,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "pwidth" field.</summary>
-    public const int PwidthFieldNumber = 436;
+    public const int PwidthFieldNumber = 430;
     private float pwidth_;
     /// <summary>
     /// minimum mkt premium width
@@ -1951,7 +1951,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "vwidth" field.</summary>
-    public const int VwidthFieldNumber = 439;
+    public const int VwidthFieldNumber = 433;
     private float vwidth_;
     /// <summary>
     /// minimum mkt volatility width
@@ -1966,7 +1966,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "c_cnt" field.</summary>
-    public const int CCntFieldNumber = 442;
+    public const int CCntFieldNumber = 436;
     private int cCnt_;
     /// <summary>
     /// num call strikes in base fit
@@ -1981,7 +1981,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "p_cnt" field.</summary>
-    public const int PCntFieldNumber = 445;
+    public const int PCntFieldNumber = 439;
     private int pCnt_;
     /// <summary>
     /// num put strikes in base fit
@@ -1996,7 +1996,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "c_bid_miss" field.</summary>
-    public const int CBidMissFieldNumber = 448;
+    public const int CBidMissFieldNumber = 442;
     private int cBidMiss_;
     /// <summary>
     /// number of call bid violations (surface outside the market)
@@ -2011,7 +2011,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "c_ask_miss" field.</summary>
-    public const int CAskMissFieldNumber = 451;
+    public const int CAskMissFieldNumber = 445;
     private int cAskMiss_;
     /// <summary>
     /// number of call ask violations (surface outside the market)
@@ -2026,7 +2026,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "p_bid_miss" field.</summary>
-    public const int PBidMissFieldNumber = 454;
+    public const int PBidMissFieldNumber = 448;
     private int pBidMiss_;
     /// <summary>
     /// number of put bid violations
@@ -2041,7 +2041,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "p_ask_miss" field.</summary>
-    public const int PAskMissFieldNumber = 457;
+    public const int PAskMissFieldNumber = 451;
     private int pAskMiss_;
     /// <summary>
     /// number of put ask violations
@@ -2056,7 +2056,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_avg_err" field.</summary>
-    public const int FitAvgErrFieldNumber = 460;
+    public const int FitAvgErrFieldNumber = 454;
     private float fitAvgErr_;
     /// <summary>
     /// average error (sPrc - midPrc)
@@ -2071,7 +2071,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_avg_abs_err" field.</summary>
-    public const int FitAvgAbsErrFieldNumber = 463;
+    public const int FitAvgAbsErrFieldNumber = 457;
     private float fitAvgAbsErr_;
     /// <summary>
     /// average absolute error (sPrc - midPrc)
@@ -2086,7 +2086,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_max_prc_err" field.</summary>
-    public const int FitMaxPrcErrFieldNumber = 466;
+    public const int FitMaxPrcErrFieldNumber = 460;
     private float fitMaxPrcErr_;
     /// <summary>
     /// worst case surface premium violation
@@ -2101,7 +2101,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_xX" field.</summary>
-    public const int FitErrXXFieldNumber = 469;
+    public const int FitErrXXFieldNumber = 463;
     private float fitErrXX_;
     /// <summary>
     /// okey_xx of the option with the largest fit error in this expiration
@@ -2116,7 +2116,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_cP" field.</summary>
-    public const int FitErrCPFieldNumber = 472;
+    public const int FitErrCPFieldNumber = 466;
     private global::Spiderrock.Protobuf.CallPut fitErrCP_ = global::Spiderrock.Protobuf.CallPut.Unspecified;
     /// <summary>
     /// okey_cp of the option with the largest fit error in this expiration
@@ -2131,7 +2131,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_de" field.</summary>
-    public const int FitErrDeFieldNumber = 475;
+    public const int FitErrDeFieldNumber = 469;
     private float fitErrDe_;
     /// <summary>
     /// delta of fixErrXX
@@ -2146,7 +2146,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_bid" field.</summary>
-    public const int FitErrBidFieldNumber = 478;
+    public const int FitErrBidFieldNumber = 472;
     private float fitErrBid_;
     /// <summary>
     /// bid of the option with the largest fit error
@@ -2161,7 +2161,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_ask" field.</summary>
-    public const int FitErrAskFieldNumber = 481;
+    public const int FitErrAskFieldNumber = 475;
     private float fitErrAsk_;
     /// <summary>
     /// ask of the option with the largest fit error
@@ -2176,7 +2176,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_prc" field.</summary>
-    public const int FitErrPrcFieldNumber = 484;
+    public const int FitErrPrcFieldNumber = 478;
     private float fitErrPrc_;
     /// <summary>
     /// surface prc of the option with the largest fit error
@@ -2191,7 +2191,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "fit_err_vol" field.</summary>
-    public const int FitErrVolFieldNumber = 487;
+    public const int FitErrVolFieldNumber = 481;
     private float fitErrVol_;
     /// <summary>
     /// surface vol of the option with the largest fit error
@@ -2206,7 +2206,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_saddle_pts" field.</summary>
-    public const int NumSaddlePtsFieldNumber = 490;
+    public const int NumSaddlePtsFieldNumber = 484;
     private int numSaddlePts_;
     /// <summary>
     /// number of saddle points
@@ -2221,7 +2221,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "min_saddle_span" field.</summary>
-    public const int MinSaddleSpanFieldNumber = 493;
+    public const int MinSaddleSpanFieldNumber = 487;
     private float minSaddleSpan_;
     /// <summary>
     /// smallest distance between saddle points
@@ -2236,7 +2236,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_saddle_curvature" field.</summary>
-    public const int MaxSaddleCurvatureFieldNumber = 496;
+    public const int MaxSaddleCurvatureFieldNumber = 490;
     private float maxSaddleCurvature_;
     /// <summary>
     /// maximum saddle point curvature
@@ -2251,7 +2251,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "skew_counter" field.</summary>
-    public const int SkewCounterFieldNumber = 499;
+    public const int SkewCounterFieldNumber = 493;
     private int skewCounter_;
     /// <summary>
     /// skew surface fit counter
@@ -2266,7 +2266,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sdiv_counter" field.</summary>
-    public const int SdivCounterFieldNumber = 502;
+    public const int SdivCounterFieldNumber = 496;
     private int sdivCounter_;
     /// <summary>
     /// sdiv surface fit counter
@@ -2281,7 +2281,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "market_session" field.</summary>
-    public const int MarketSessionFieldNumber = 505;
+    public const int MarketSessionFieldNumber = 499;
     private global::Spiderrock.Protobuf.MarketSession marketSession_ = global::Spiderrock.Protobuf.MarketSession.Unspecified;
     /// <summary>
     /// market session this surface is from
@@ -2296,7 +2296,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "tradeable_status" field.</summary>
-    public const int TradeableStatusFieldNumber = 508;
+    public const int TradeableStatusFieldNumber = 502;
     private global::Spiderrock.Protobuf.TradeableStatus tradeableStatus_ = global::Spiderrock.Protobuf.TradeableStatus.Unspecified;
     /// <summary>
     /// indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
@@ -2311,7 +2311,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_result" field.</summary>
-    public const int SurfaceResultFieldNumber = 511;
+    public const int SurfaceResultFieldNumber = 505;
     private global::Spiderrock.Protobuf.SurfaceResult surfaceResult_ = global::Spiderrock.Protobuf.SurfaceResult.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2323,7 +2323,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "s_timestamp" field.</summary>
-    public const int STimestampFieldNumber = 514;
+    public const int STimestampFieldNumber = 508;
     private global::Google.Protobuf.WellKnownTypes.Timestamp sTimestamp_;
     /// <summary>
     /// last surface curve fit timestamp
@@ -2338,7 +2338,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "time" field.</summary>
-    public const int TimeFieldNumber = 517;
+    public const int TimeFieldNumber = 511;
     private global::Google.Protobuf.WellKnownTypes.Duration time_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2350,7 +2350,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 520;
+    public const int TimestampFieldNumber = 514;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2784,479 +2784,479 @@ namespace Spiderrock.Protobuf {
         output.WriteFloat(AxisFUPrc);
       }
       if (SynSpot != 0D) {
-        output.WriteRawTag(177, 10);
+        output.WriteRawTag(161, 10);
         output.WriteDouble(SynSpot);
       }
       if (SynCarry != 0D) {
-        output.WriteRawTag(201, 10);
+        output.WriteRawTag(169, 10);
         output.WriteDouble(SynCarry);
       }
       if (AtmStrike != 0F) {
-        output.WriteRawTag(229, 10);
+        output.WriteRawTag(181, 10);
         output.WriteFloat(AtmStrike);
       }
       if (MoneynessType != global::Spiderrock.Protobuf.MoneynessType.Unspecified) {
-        output.WriteRawTag(248, 10);
+        output.WriteRawTag(200, 10);
         output.WriteEnum((int) MoneynessType);
       }
       if (UnderlierMode != global::Spiderrock.Protobuf.UnderlierMode.Unspecified) {
-        output.WriteRawTag(144, 11);
+        output.WriteRawTag(224, 10);
         output.WriteEnum((int) UnderlierMode);
       }
       if (CpAdjType != global::Spiderrock.Protobuf.CPAdjType.Unspecified) {
-        output.WriteRawTag(168, 11);
+        output.WriteRawTag(248, 10);
         output.WriteEnum((int) CpAdjType);
       }
       if (PriceQuoteType != global::Spiderrock.Protobuf.PriceQuoteType.Unspecified) {
-        output.WriteRawTag(192, 11);
+        output.WriteRawTag(144, 11);
         output.WriteEnum((int) PriceQuoteType);
       }
       if (AtmVol != 0F) {
-        output.WriteRawTag(221, 11);
+        output.WriteRawTag(173, 11);
         output.WriteFloat(AtmVol);
       }
       if (AtmCen != 0F) {
-        output.WriteRawTag(245, 11);
+        output.WriteRawTag(197, 11);
         output.WriteFloat(AtmCen);
       }
       if (AtmVolHist != 0F) {
-        output.WriteRawTag(141, 12);
+        output.WriteRawTag(221, 11);
         output.WriteFloat(AtmVolHist);
       }
       if (AtmCenHist != 0F) {
-        output.WriteRawTag(165, 12);
+        output.WriteRawTag(245, 11);
         output.WriteFloat(AtmCenHist);
       }
       if (EMove != 0F) {
-        output.WriteRawTag(189, 12);
+        output.WriteRawTag(141, 12);
         output.WriteFloat(EMove);
       }
       if (EMoveHist != 0F) {
-        output.WriteRawTag(213, 12);
+        output.WriteRawTag(165, 12);
         output.WriteFloat(EMoveHist);
       }
       if (UPrcRatio != 0D) {
-        output.WriteRawTag(233, 12);
+        output.WriteRawTag(185, 12);
         output.WriteDouble(UPrcRatio);
       }
       if (MinAtmVol != 0F) {
-        output.WriteRawTag(133, 13);
+        output.WriteRawTag(213, 12);
         output.WriteFloat(MinAtmVol);
       }
       if (MaxAtmVol != 0F) {
-        output.WriteRawTag(157, 13);
+        output.WriteRawTag(237, 12);
         output.WriteFloat(MaxAtmVol);
       }
       if (MinCPAdjVal != 0D) {
-        output.WriteRawTag(177, 13);
+        output.WriteRawTag(129, 13);
         output.WriteDouble(MinCPAdjVal);
       }
       if (MaxCPAdjVal != 0D) {
-        output.WriteRawTag(201, 13);
+        output.WriteRawTag(153, 13);
         output.WriteDouble(MaxCPAdjVal);
       }
       if (AtmFixedMove != 0F) {
-        output.WriteRawTag(229, 13);
+        output.WriteRawTag(181, 13);
         output.WriteFloat(AtmFixedMove);
       }
       if (AtmPhi != 0F) {
-        output.WriteRawTag(253, 13);
+        output.WriteRawTag(205, 13);
         output.WriteFloat(AtmPhi);
       }
       if (AtmRho != 0F) {
-        output.WriteRawTag(149, 14);
+        output.WriteRawTag(229, 13);
         output.WriteFloat(AtmRho);
       }
       if (AtmVega != 0F) {
-        output.WriteRawTag(173, 14);
+        output.WriteRawTag(253, 13);
         output.WriteFloat(AtmVega);
       }
       if (Slope != 0F) {
-        output.WriteRawTag(197, 14);
+        output.WriteRawTag(149, 14);
         output.WriteFloat(Slope);
       }
       if (VarSwapFV != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(173, 14);
         output.WriteFloat(VarSwapFV);
       }
       if (GridType != global::Spiderrock.Protobuf.GridType.Unspecified) {
-        output.WriteRawTag(240, 14);
+        output.WriteRawTag(192, 14);
         output.WriteEnum((int) GridType);
       }
       if (KnotShift != 0F) {
-        output.WriteRawTag(141, 15);
+        output.WriteRawTag(221, 14);
         output.WriteFloat(KnotShift);
       }
       if (FitPowerC != 0F) {
-        output.WriteRawTag(165, 15);
+        output.WriteRawTag(245, 14);
         output.WriteFloat(FitPowerC);
       }
       if (FitPowerP != 0F) {
-        output.WriteRawTag(189, 15);
+        output.WriteRawTag(141, 15);
         output.WriteFloat(FitPowerP);
       }
       if (MinXAxis != 0F) {
-        output.WriteRawTag(213, 15);
+        output.WriteRawTag(165, 15);
         output.WriteFloat(MinXAxis);
       }
       if (MaxXAxis != 0F) {
-        output.WriteRawTag(237, 15);
+        output.WriteRawTag(189, 15);
         output.WriteFloat(MaxXAxis);
       }
       if (AsymptoticVolC != 0F) {
-        output.WriteRawTag(133, 16);
+        output.WriteRawTag(213, 15);
         output.WriteFloat(AsymptoticVolC);
       }
       if (AsymptoticVolP != 0F) {
-        output.WriteRawTag(157, 16);
+        output.WriteRawTag(237, 15);
         output.WriteFloat(AsymptoticVolP);
       }
       if (MinCurvValue != 0F) {
-        output.WriteRawTag(181, 16);
+        output.WriteRawTag(133, 16);
         output.WriteFloat(MinCurvValue);
       }
       if (MinCurvXAxis != 0F) {
-        output.WriteRawTag(205, 16);
+        output.WriteRawTag(157, 16);
         output.WriteFloat(MinCurvXAxis);
       }
       if (MaxCurvValue != 0F) {
-        output.WriteRawTag(229, 16);
+        output.WriteRawTag(181, 16);
         output.WriteFloat(MaxCurvValue);
       }
       if (MaxCurvXAxis != 0F) {
-        output.WriteRawTag(253, 16);
+        output.WriteRawTag(205, 16);
         output.WriteFloat(MaxCurvXAxis);
       }
       if (SkewMinX != 0F) {
-        output.WriteRawTag(149, 17);
+        output.WriteRawTag(229, 16);
         output.WriteFloat(SkewMinX);
       }
       if (SkewMinY != 0F) {
-        output.WriteRawTag(173, 17);
+        output.WriteRawTag(253, 16);
         output.WriteFloat(SkewMinY);
       }
       if (SurfaceFit != global::Spiderrock.Protobuf.SurfaceFit.Unspecified) {
-        output.WriteRawTag(192, 17);
+        output.WriteRawTag(144, 17);
         output.WriteEnum((int) SurfaceFit);
       }
       if (SkewC00 != 0F) {
-        output.WriteRawTag(221, 17);
+        output.WriteRawTag(173, 17);
         output.WriteFloat(SkewC00);
       }
       if (SkewC01 != 0F) {
-        output.WriteRawTag(245, 17);
+        output.WriteRawTag(197, 17);
         output.WriteFloat(SkewC01);
       }
       if (SkewC02 != 0F) {
-        output.WriteRawTag(141, 18);
+        output.WriteRawTag(221, 17);
         output.WriteFloat(SkewC02);
       }
       if (SkewC03 != 0F) {
-        output.WriteRawTag(165, 18);
+        output.WriteRawTag(245, 17);
         output.WriteFloat(SkewC03);
       }
       if (SkewC04 != 0F) {
-        output.WriteRawTag(189, 18);
+        output.WriteRawTag(141, 18);
         output.WriteFloat(SkewC04);
       }
       if (SkewC05 != 0F) {
-        output.WriteRawTag(213, 18);
+        output.WriteRawTag(165, 18);
         output.WriteFloat(SkewC05);
       }
       if (SkewC06 != 0F) {
-        output.WriteRawTag(237, 18);
+        output.WriteRawTag(189, 18);
         output.WriteFloat(SkewC06);
       }
       if (SkewC07 != 0F) {
-        output.WriteRawTag(133, 19);
+        output.WriteRawTag(213, 18);
         output.WriteFloat(SkewC07);
       }
       if (SkewC08 != 0F) {
-        output.WriteRawTag(157, 19);
+        output.WriteRawTag(237, 18);
         output.WriteFloat(SkewC08);
       }
       if (SkewC09 != 0F) {
-        output.WriteRawTag(181, 19);
+        output.WriteRawTag(133, 19);
         output.WriteFloat(SkewC09);
       }
       if (SkewC10 != 0F) {
-        output.WriteRawTag(205, 19);
+        output.WriteRawTag(157, 19);
         output.WriteFloat(SkewC10);
       }
       if (SkewC11 != 0F) {
-        output.WriteRawTag(229, 19);
+        output.WriteRawTag(181, 19);
         output.WriteFloat(SkewC11);
       }
       if (SkewC12 != 0F) {
-        output.WriteRawTag(253, 19);
+        output.WriteRawTag(205, 19);
         output.WriteFloat(SkewC12);
       }
       if (SkewC13 != 0F) {
-        output.WriteRawTag(149, 20);
+        output.WriteRawTag(229, 19);
         output.WriteFloat(SkewC13);
       }
       if (SkewC14 != 0F) {
-        output.WriteRawTag(173, 20);
+        output.WriteRawTag(253, 19);
         output.WriteFloat(SkewC14);
       }
       if (SkewC15 != 0F) {
-        output.WriteRawTag(197, 20);
+        output.WriteRawTag(149, 20);
         output.WriteFloat(SkewC15);
       }
       if (SkewC16 != 0F) {
-        output.WriteRawTag(221, 20);
+        output.WriteRawTag(173, 20);
         output.WriteFloat(SkewC16);
       }
       if (SkewC17 != 0F) {
-        output.WriteRawTag(245, 20);
+        output.WriteRawTag(197, 20);
         output.WriteFloat(SkewC17);
       }
       if (SkewC18 != 0F) {
-        output.WriteRawTag(141, 21);
+        output.WriteRawTag(221, 20);
         output.WriteFloat(SkewC18);
       }
       if (SkewC19 != 0F) {
-        output.WriteRawTag(165, 21);
+        output.WriteRawTag(245, 20);
         output.WriteFloat(SkewC19);
       }
       if (SkewC20 != 0F) {
-        output.WriteRawTag(189, 21);
+        output.WriteRawTag(141, 21);
         output.WriteFloat(SkewC20);
       }
       if (SkewC21 != 0F) {
-        output.WriteRawTag(213, 21);
+        output.WriteRawTag(165, 21);
         output.WriteFloat(SkewC21);
       }
       if (SkewC22 != 0F) {
-        output.WriteRawTag(237, 21);
+        output.WriteRawTag(189, 21);
         output.WriteFloat(SkewC22);
       }
       if (SkewC23 != 0F) {
-        output.WriteRawTag(133, 22);
+        output.WriteRawTag(213, 21);
         output.WriteFloat(SkewC23);
       }
       if (SkewC24 != 0F) {
-        output.WriteRawTag(157, 22);
+        output.WriteRawTag(237, 21);
         output.WriteFloat(SkewC24);
       }
       if (SkewC25 != 0F) {
-        output.WriteRawTag(181, 22);
+        output.WriteRawTag(133, 22);
         output.WriteFloat(SkewC25);
       }
       if (SkewC26 != 0F) {
-        output.WriteRawTag(205, 22);
+        output.WriteRawTag(157, 22);
         output.WriteFloat(SkewC26);
       }
       if (SkewC27 != 0F) {
-        output.WriteRawTag(229, 22);
+        output.WriteRawTag(181, 22);
         output.WriteFloat(SkewC27);
       }
       if (SkewC28 != 0F) {
-        output.WriteRawTag(253, 22);
+        output.WriteRawTag(205, 22);
         output.WriteFloat(SkewC28);
       }
       if (IvAdjD07 != 0F) {
-        output.WriteRawTag(149, 23);
+        output.WriteRawTag(229, 22);
         output.WriteFloat(IvAdjD07);
       }
       if (IvAdjD06 != 0F) {
-        output.WriteRawTag(173, 23);
+        output.WriteRawTag(253, 22);
         output.WriteFloat(IvAdjD06);
       }
       if (IvAdjD05 != 0F) {
-        output.WriteRawTag(197, 23);
+        output.WriteRawTag(149, 23);
         output.WriteFloat(IvAdjD05);
       }
       if (IvAdjD04 != 0F) {
-        output.WriteRawTag(221, 23);
+        output.WriteRawTag(173, 23);
         output.WriteFloat(IvAdjD04);
       }
       if (IvAdjD03 != 0F) {
-        output.WriteRawTag(245, 23);
+        output.WriteRawTag(197, 23);
         output.WriteFloat(IvAdjD03);
       }
       if (IvAdjD02 != 0F) {
-        output.WriteRawTag(141, 24);
+        output.WriteRawTag(221, 23);
         output.WriteFloat(IvAdjD02);
       }
       if (IvAdjD01 != 0F) {
-        output.WriteRawTag(165, 24);
+        output.WriteRawTag(245, 23);
         output.WriteFloat(IvAdjD01);
       }
       if (IvAdjU01 != 0F) {
-        output.WriteRawTag(189, 24);
+        output.WriteRawTag(141, 24);
         output.WriteFloat(IvAdjU01);
       }
       if (IvAdjU02 != 0F) {
-        output.WriteRawTag(213, 24);
+        output.WriteRawTag(165, 24);
         output.WriteFloat(IvAdjU02);
       }
       if (IvAdjU03 != 0F) {
-        output.WriteRawTag(237, 24);
+        output.WriteRawTag(189, 24);
         output.WriteFloat(IvAdjU03);
       }
       if (IvAdjU04 != 0F) {
-        output.WriteRawTag(133, 25);
+        output.WriteRawTag(213, 24);
         output.WriteFloat(IvAdjU04);
       }
       if (IvAdjU05 != 0F) {
-        output.WriteRawTag(157, 25);
+        output.WriteRawTag(237, 24);
         output.WriteFloat(IvAdjU05);
       }
       if (IvAdjU06 != 0F) {
-        output.WriteRawTag(181, 25);
+        output.WriteRawTag(133, 25);
         output.WriteFloat(IvAdjU06);
       }
       if (IvAdjU07 != 0F) {
-        output.WriteRawTag(205, 25);
+        output.WriteRawTag(157, 25);
         output.WriteFloat(IvAdjU07);
       }
       if (CpAdjD04 != 0F) {
-        output.WriteRawTag(229, 25);
+        output.WriteRawTag(181, 25);
         output.WriteFloat(CpAdjD04);
       }
       if (CpAdjD03 != 0F) {
-        output.WriteRawTag(253, 25);
+        output.WriteRawTag(205, 25);
         output.WriteFloat(CpAdjD03);
       }
       if (CpAdjD02 != 0F) {
-        output.WriteRawTag(149, 26);
+        output.WriteRawTag(229, 25);
         output.WriteFloat(CpAdjD02);
       }
       if (CpAdjD01 != 0F) {
-        output.WriteRawTag(173, 26);
+        output.WriteRawTag(253, 25);
         output.WriteFloat(CpAdjD01);
       }
       if (CpAdjU01 != 0F) {
-        output.WriteRawTag(197, 26);
+        output.WriteRawTag(149, 26);
         output.WriteFloat(CpAdjU01);
       }
       if (CpAdjU02 != 0F) {
-        output.WriteRawTag(221, 26);
+        output.WriteRawTag(173, 26);
         output.WriteFloat(CpAdjU02);
       }
       if (CpAdjU03 != 0F) {
-        output.WriteRawTag(245, 26);
+        output.WriteRawTag(197, 26);
         output.WriteFloat(CpAdjU03);
       }
       if (CpAdjU04 != 0F) {
-        output.WriteRawTag(141, 27);
+        output.WriteRawTag(221, 26);
         output.WriteFloat(CpAdjU04);
       }
       if (Pwidth != 0F) {
-        output.WriteRawTag(165, 27);
+        output.WriteRawTag(245, 26);
         output.WriteFloat(Pwidth);
       }
       if (Vwidth != 0F) {
-        output.WriteRawTag(189, 27);
+        output.WriteRawTag(141, 27);
         output.WriteFloat(Vwidth);
       }
       if (CCnt != 0) {
-        output.WriteRawTag(208, 27);
+        output.WriteRawTag(160, 27);
         output.WriteInt32(CCnt);
       }
       if (PCnt != 0) {
-        output.WriteRawTag(232, 27);
+        output.WriteRawTag(184, 27);
         output.WriteInt32(PCnt);
       }
       if (CBidMiss != 0) {
-        output.WriteRawTag(128, 28);
+        output.WriteRawTag(208, 27);
         output.WriteInt32(CBidMiss);
       }
       if (CAskMiss != 0) {
-        output.WriteRawTag(152, 28);
+        output.WriteRawTag(232, 27);
         output.WriteInt32(CAskMiss);
       }
       if (PBidMiss != 0) {
-        output.WriteRawTag(176, 28);
+        output.WriteRawTag(128, 28);
         output.WriteInt32(PBidMiss);
       }
       if (PAskMiss != 0) {
-        output.WriteRawTag(200, 28);
+        output.WriteRawTag(152, 28);
         output.WriteInt32(PAskMiss);
       }
       if (FitAvgErr != 0F) {
-        output.WriteRawTag(229, 28);
+        output.WriteRawTag(181, 28);
         output.WriteFloat(FitAvgErr);
       }
       if (FitAvgAbsErr != 0F) {
-        output.WriteRawTag(253, 28);
+        output.WriteRawTag(205, 28);
         output.WriteFloat(FitAvgAbsErr);
       }
       if (FitMaxPrcErr != 0F) {
-        output.WriteRawTag(149, 29);
+        output.WriteRawTag(229, 28);
         output.WriteFloat(FitMaxPrcErr);
       }
       if (FitErrXX != 0F) {
-        output.WriteRawTag(173, 29);
+        output.WriteRawTag(253, 28);
         output.WriteFloat(FitErrXX);
       }
       if (FitErrCP != global::Spiderrock.Protobuf.CallPut.Unspecified) {
-        output.WriteRawTag(192, 29);
+        output.WriteRawTag(144, 29);
         output.WriteEnum((int) FitErrCP);
       }
       if (FitErrDe != 0F) {
-        output.WriteRawTag(221, 29);
+        output.WriteRawTag(173, 29);
         output.WriteFloat(FitErrDe);
       }
       if (FitErrBid != 0F) {
-        output.WriteRawTag(245, 29);
+        output.WriteRawTag(197, 29);
         output.WriteFloat(FitErrBid);
       }
       if (FitErrAsk != 0F) {
-        output.WriteRawTag(141, 30);
+        output.WriteRawTag(221, 29);
         output.WriteFloat(FitErrAsk);
       }
       if (FitErrPrc != 0F) {
-        output.WriteRawTag(165, 30);
+        output.WriteRawTag(245, 29);
         output.WriteFloat(FitErrPrc);
       }
       if (FitErrVol != 0F) {
-        output.WriteRawTag(189, 30);
+        output.WriteRawTag(141, 30);
         output.WriteFloat(FitErrVol);
       }
       if (NumSaddlePts != 0) {
-        output.WriteRawTag(208, 30);
+        output.WriteRawTag(160, 30);
         output.WriteInt32(NumSaddlePts);
       }
       if (MinSaddleSpan != 0F) {
-        output.WriteRawTag(237, 30);
+        output.WriteRawTag(189, 30);
         output.WriteFloat(MinSaddleSpan);
       }
       if (MaxSaddleCurvature != 0F) {
-        output.WriteRawTag(133, 31);
+        output.WriteRawTag(213, 30);
         output.WriteFloat(MaxSaddleCurvature);
       }
       if (SkewCounter != 0) {
-        output.WriteRawTag(152, 31);
+        output.WriteRawTag(232, 30);
         output.WriteInt32(SkewCounter);
       }
       if (SdivCounter != 0) {
-        output.WriteRawTag(176, 31);
+        output.WriteRawTag(128, 31);
         output.WriteInt32(SdivCounter);
       }
       if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
-        output.WriteRawTag(200, 31);
+        output.WriteRawTag(152, 31);
         output.WriteEnum((int) MarketSession);
       }
       if (TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) {
-        output.WriteRawTag(224, 31);
+        output.WriteRawTag(176, 31);
         output.WriteEnum((int) TradeableStatus);
       }
       if (SurfaceResult != global::Spiderrock.Protobuf.SurfaceResult.Unspecified) {
-        output.WriteRawTag(248, 31);
+        output.WriteRawTag(200, 31);
         output.WriteEnum((int) SurfaceResult);
       }
       if (sTimestamp_ != null) {
-        output.WriteRawTag(146, 32);
+        output.WriteRawTag(226, 31);
         output.WriteMessage(STimestamp);
       }
       if (time_ != null) {
-        output.WriteRawTag(170, 32);
+        output.WriteRawTag(250, 31);
         output.WriteMessage(Time);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(194, 32);
+        output.WriteRawTag(146, 32);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -3366,479 +3366,479 @@ namespace Spiderrock.Protobuf {
         output.WriteFloat(AxisFUPrc);
       }
       if (SynSpot != 0D) {
-        output.WriteRawTag(177, 10);
+        output.WriteRawTag(161, 10);
         output.WriteDouble(SynSpot);
       }
       if (SynCarry != 0D) {
-        output.WriteRawTag(201, 10);
+        output.WriteRawTag(169, 10);
         output.WriteDouble(SynCarry);
       }
       if (AtmStrike != 0F) {
-        output.WriteRawTag(229, 10);
+        output.WriteRawTag(181, 10);
         output.WriteFloat(AtmStrike);
       }
       if (MoneynessType != global::Spiderrock.Protobuf.MoneynessType.Unspecified) {
-        output.WriteRawTag(248, 10);
+        output.WriteRawTag(200, 10);
         output.WriteEnum((int) MoneynessType);
       }
       if (UnderlierMode != global::Spiderrock.Protobuf.UnderlierMode.Unspecified) {
-        output.WriteRawTag(144, 11);
+        output.WriteRawTag(224, 10);
         output.WriteEnum((int) UnderlierMode);
       }
       if (CpAdjType != global::Spiderrock.Protobuf.CPAdjType.Unspecified) {
-        output.WriteRawTag(168, 11);
+        output.WriteRawTag(248, 10);
         output.WriteEnum((int) CpAdjType);
       }
       if (PriceQuoteType != global::Spiderrock.Protobuf.PriceQuoteType.Unspecified) {
-        output.WriteRawTag(192, 11);
+        output.WriteRawTag(144, 11);
         output.WriteEnum((int) PriceQuoteType);
       }
       if (AtmVol != 0F) {
-        output.WriteRawTag(221, 11);
+        output.WriteRawTag(173, 11);
         output.WriteFloat(AtmVol);
       }
       if (AtmCen != 0F) {
-        output.WriteRawTag(245, 11);
+        output.WriteRawTag(197, 11);
         output.WriteFloat(AtmCen);
       }
       if (AtmVolHist != 0F) {
-        output.WriteRawTag(141, 12);
+        output.WriteRawTag(221, 11);
         output.WriteFloat(AtmVolHist);
       }
       if (AtmCenHist != 0F) {
-        output.WriteRawTag(165, 12);
+        output.WriteRawTag(245, 11);
         output.WriteFloat(AtmCenHist);
       }
       if (EMove != 0F) {
-        output.WriteRawTag(189, 12);
+        output.WriteRawTag(141, 12);
         output.WriteFloat(EMove);
       }
       if (EMoveHist != 0F) {
-        output.WriteRawTag(213, 12);
+        output.WriteRawTag(165, 12);
         output.WriteFloat(EMoveHist);
       }
       if (UPrcRatio != 0D) {
-        output.WriteRawTag(233, 12);
+        output.WriteRawTag(185, 12);
         output.WriteDouble(UPrcRatio);
       }
       if (MinAtmVol != 0F) {
-        output.WriteRawTag(133, 13);
+        output.WriteRawTag(213, 12);
         output.WriteFloat(MinAtmVol);
       }
       if (MaxAtmVol != 0F) {
-        output.WriteRawTag(157, 13);
+        output.WriteRawTag(237, 12);
         output.WriteFloat(MaxAtmVol);
       }
       if (MinCPAdjVal != 0D) {
-        output.WriteRawTag(177, 13);
+        output.WriteRawTag(129, 13);
         output.WriteDouble(MinCPAdjVal);
       }
       if (MaxCPAdjVal != 0D) {
-        output.WriteRawTag(201, 13);
+        output.WriteRawTag(153, 13);
         output.WriteDouble(MaxCPAdjVal);
       }
       if (AtmFixedMove != 0F) {
-        output.WriteRawTag(229, 13);
+        output.WriteRawTag(181, 13);
         output.WriteFloat(AtmFixedMove);
       }
       if (AtmPhi != 0F) {
-        output.WriteRawTag(253, 13);
+        output.WriteRawTag(205, 13);
         output.WriteFloat(AtmPhi);
       }
       if (AtmRho != 0F) {
-        output.WriteRawTag(149, 14);
+        output.WriteRawTag(229, 13);
         output.WriteFloat(AtmRho);
       }
       if (AtmVega != 0F) {
-        output.WriteRawTag(173, 14);
+        output.WriteRawTag(253, 13);
         output.WriteFloat(AtmVega);
       }
       if (Slope != 0F) {
-        output.WriteRawTag(197, 14);
+        output.WriteRawTag(149, 14);
         output.WriteFloat(Slope);
       }
       if (VarSwapFV != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(173, 14);
         output.WriteFloat(VarSwapFV);
       }
       if (GridType != global::Spiderrock.Protobuf.GridType.Unspecified) {
-        output.WriteRawTag(240, 14);
+        output.WriteRawTag(192, 14);
         output.WriteEnum((int) GridType);
       }
       if (KnotShift != 0F) {
-        output.WriteRawTag(141, 15);
+        output.WriteRawTag(221, 14);
         output.WriteFloat(KnotShift);
       }
       if (FitPowerC != 0F) {
-        output.WriteRawTag(165, 15);
+        output.WriteRawTag(245, 14);
         output.WriteFloat(FitPowerC);
       }
       if (FitPowerP != 0F) {
-        output.WriteRawTag(189, 15);
+        output.WriteRawTag(141, 15);
         output.WriteFloat(FitPowerP);
       }
       if (MinXAxis != 0F) {
-        output.WriteRawTag(213, 15);
+        output.WriteRawTag(165, 15);
         output.WriteFloat(MinXAxis);
       }
       if (MaxXAxis != 0F) {
-        output.WriteRawTag(237, 15);
+        output.WriteRawTag(189, 15);
         output.WriteFloat(MaxXAxis);
       }
       if (AsymptoticVolC != 0F) {
-        output.WriteRawTag(133, 16);
+        output.WriteRawTag(213, 15);
         output.WriteFloat(AsymptoticVolC);
       }
       if (AsymptoticVolP != 0F) {
-        output.WriteRawTag(157, 16);
+        output.WriteRawTag(237, 15);
         output.WriteFloat(AsymptoticVolP);
       }
       if (MinCurvValue != 0F) {
-        output.WriteRawTag(181, 16);
+        output.WriteRawTag(133, 16);
         output.WriteFloat(MinCurvValue);
       }
       if (MinCurvXAxis != 0F) {
-        output.WriteRawTag(205, 16);
+        output.WriteRawTag(157, 16);
         output.WriteFloat(MinCurvXAxis);
       }
       if (MaxCurvValue != 0F) {
-        output.WriteRawTag(229, 16);
+        output.WriteRawTag(181, 16);
         output.WriteFloat(MaxCurvValue);
       }
       if (MaxCurvXAxis != 0F) {
-        output.WriteRawTag(253, 16);
+        output.WriteRawTag(205, 16);
         output.WriteFloat(MaxCurvXAxis);
       }
       if (SkewMinX != 0F) {
-        output.WriteRawTag(149, 17);
+        output.WriteRawTag(229, 16);
         output.WriteFloat(SkewMinX);
       }
       if (SkewMinY != 0F) {
-        output.WriteRawTag(173, 17);
+        output.WriteRawTag(253, 16);
         output.WriteFloat(SkewMinY);
       }
       if (SurfaceFit != global::Spiderrock.Protobuf.SurfaceFit.Unspecified) {
-        output.WriteRawTag(192, 17);
+        output.WriteRawTag(144, 17);
         output.WriteEnum((int) SurfaceFit);
       }
       if (SkewC00 != 0F) {
-        output.WriteRawTag(221, 17);
+        output.WriteRawTag(173, 17);
         output.WriteFloat(SkewC00);
       }
       if (SkewC01 != 0F) {
-        output.WriteRawTag(245, 17);
+        output.WriteRawTag(197, 17);
         output.WriteFloat(SkewC01);
       }
       if (SkewC02 != 0F) {
-        output.WriteRawTag(141, 18);
+        output.WriteRawTag(221, 17);
         output.WriteFloat(SkewC02);
       }
       if (SkewC03 != 0F) {
-        output.WriteRawTag(165, 18);
+        output.WriteRawTag(245, 17);
         output.WriteFloat(SkewC03);
       }
       if (SkewC04 != 0F) {
-        output.WriteRawTag(189, 18);
+        output.WriteRawTag(141, 18);
         output.WriteFloat(SkewC04);
       }
       if (SkewC05 != 0F) {
-        output.WriteRawTag(213, 18);
+        output.WriteRawTag(165, 18);
         output.WriteFloat(SkewC05);
       }
       if (SkewC06 != 0F) {
-        output.WriteRawTag(237, 18);
+        output.WriteRawTag(189, 18);
         output.WriteFloat(SkewC06);
       }
       if (SkewC07 != 0F) {
-        output.WriteRawTag(133, 19);
+        output.WriteRawTag(213, 18);
         output.WriteFloat(SkewC07);
       }
       if (SkewC08 != 0F) {
-        output.WriteRawTag(157, 19);
+        output.WriteRawTag(237, 18);
         output.WriteFloat(SkewC08);
       }
       if (SkewC09 != 0F) {
-        output.WriteRawTag(181, 19);
+        output.WriteRawTag(133, 19);
         output.WriteFloat(SkewC09);
       }
       if (SkewC10 != 0F) {
-        output.WriteRawTag(205, 19);
+        output.WriteRawTag(157, 19);
         output.WriteFloat(SkewC10);
       }
       if (SkewC11 != 0F) {
-        output.WriteRawTag(229, 19);
+        output.WriteRawTag(181, 19);
         output.WriteFloat(SkewC11);
       }
       if (SkewC12 != 0F) {
-        output.WriteRawTag(253, 19);
+        output.WriteRawTag(205, 19);
         output.WriteFloat(SkewC12);
       }
       if (SkewC13 != 0F) {
-        output.WriteRawTag(149, 20);
+        output.WriteRawTag(229, 19);
         output.WriteFloat(SkewC13);
       }
       if (SkewC14 != 0F) {
-        output.WriteRawTag(173, 20);
+        output.WriteRawTag(253, 19);
         output.WriteFloat(SkewC14);
       }
       if (SkewC15 != 0F) {
-        output.WriteRawTag(197, 20);
+        output.WriteRawTag(149, 20);
         output.WriteFloat(SkewC15);
       }
       if (SkewC16 != 0F) {
-        output.WriteRawTag(221, 20);
+        output.WriteRawTag(173, 20);
         output.WriteFloat(SkewC16);
       }
       if (SkewC17 != 0F) {
-        output.WriteRawTag(245, 20);
+        output.WriteRawTag(197, 20);
         output.WriteFloat(SkewC17);
       }
       if (SkewC18 != 0F) {
-        output.WriteRawTag(141, 21);
+        output.WriteRawTag(221, 20);
         output.WriteFloat(SkewC18);
       }
       if (SkewC19 != 0F) {
-        output.WriteRawTag(165, 21);
+        output.WriteRawTag(245, 20);
         output.WriteFloat(SkewC19);
       }
       if (SkewC20 != 0F) {
-        output.WriteRawTag(189, 21);
+        output.WriteRawTag(141, 21);
         output.WriteFloat(SkewC20);
       }
       if (SkewC21 != 0F) {
-        output.WriteRawTag(213, 21);
+        output.WriteRawTag(165, 21);
         output.WriteFloat(SkewC21);
       }
       if (SkewC22 != 0F) {
-        output.WriteRawTag(237, 21);
+        output.WriteRawTag(189, 21);
         output.WriteFloat(SkewC22);
       }
       if (SkewC23 != 0F) {
-        output.WriteRawTag(133, 22);
+        output.WriteRawTag(213, 21);
         output.WriteFloat(SkewC23);
       }
       if (SkewC24 != 0F) {
-        output.WriteRawTag(157, 22);
+        output.WriteRawTag(237, 21);
         output.WriteFloat(SkewC24);
       }
       if (SkewC25 != 0F) {
-        output.WriteRawTag(181, 22);
+        output.WriteRawTag(133, 22);
         output.WriteFloat(SkewC25);
       }
       if (SkewC26 != 0F) {
-        output.WriteRawTag(205, 22);
+        output.WriteRawTag(157, 22);
         output.WriteFloat(SkewC26);
       }
       if (SkewC27 != 0F) {
-        output.WriteRawTag(229, 22);
+        output.WriteRawTag(181, 22);
         output.WriteFloat(SkewC27);
       }
       if (SkewC28 != 0F) {
-        output.WriteRawTag(253, 22);
+        output.WriteRawTag(205, 22);
         output.WriteFloat(SkewC28);
       }
       if (IvAdjD07 != 0F) {
-        output.WriteRawTag(149, 23);
+        output.WriteRawTag(229, 22);
         output.WriteFloat(IvAdjD07);
       }
       if (IvAdjD06 != 0F) {
-        output.WriteRawTag(173, 23);
+        output.WriteRawTag(253, 22);
         output.WriteFloat(IvAdjD06);
       }
       if (IvAdjD05 != 0F) {
-        output.WriteRawTag(197, 23);
+        output.WriteRawTag(149, 23);
         output.WriteFloat(IvAdjD05);
       }
       if (IvAdjD04 != 0F) {
-        output.WriteRawTag(221, 23);
+        output.WriteRawTag(173, 23);
         output.WriteFloat(IvAdjD04);
       }
       if (IvAdjD03 != 0F) {
-        output.WriteRawTag(245, 23);
+        output.WriteRawTag(197, 23);
         output.WriteFloat(IvAdjD03);
       }
       if (IvAdjD02 != 0F) {
-        output.WriteRawTag(141, 24);
+        output.WriteRawTag(221, 23);
         output.WriteFloat(IvAdjD02);
       }
       if (IvAdjD01 != 0F) {
-        output.WriteRawTag(165, 24);
+        output.WriteRawTag(245, 23);
         output.WriteFloat(IvAdjD01);
       }
       if (IvAdjU01 != 0F) {
-        output.WriteRawTag(189, 24);
+        output.WriteRawTag(141, 24);
         output.WriteFloat(IvAdjU01);
       }
       if (IvAdjU02 != 0F) {
-        output.WriteRawTag(213, 24);
+        output.WriteRawTag(165, 24);
         output.WriteFloat(IvAdjU02);
       }
       if (IvAdjU03 != 0F) {
-        output.WriteRawTag(237, 24);
+        output.WriteRawTag(189, 24);
         output.WriteFloat(IvAdjU03);
       }
       if (IvAdjU04 != 0F) {
-        output.WriteRawTag(133, 25);
+        output.WriteRawTag(213, 24);
         output.WriteFloat(IvAdjU04);
       }
       if (IvAdjU05 != 0F) {
-        output.WriteRawTag(157, 25);
+        output.WriteRawTag(237, 24);
         output.WriteFloat(IvAdjU05);
       }
       if (IvAdjU06 != 0F) {
-        output.WriteRawTag(181, 25);
+        output.WriteRawTag(133, 25);
         output.WriteFloat(IvAdjU06);
       }
       if (IvAdjU07 != 0F) {
-        output.WriteRawTag(205, 25);
+        output.WriteRawTag(157, 25);
         output.WriteFloat(IvAdjU07);
       }
       if (CpAdjD04 != 0F) {
-        output.WriteRawTag(229, 25);
+        output.WriteRawTag(181, 25);
         output.WriteFloat(CpAdjD04);
       }
       if (CpAdjD03 != 0F) {
-        output.WriteRawTag(253, 25);
+        output.WriteRawTag(205, 25);
         output.WriteFloat(CpAdjD03);
       }
       if (CpAdjD02 != 0F) {
-        output.WriteRawTag(149, 26);
+        output.WriteRawTag(229, 25);
         output.WriteFloat(CpAdjD02);
       }
       if (CpAdjD01 != 0F) {
-        output.WriteRawTag(173, 26);
+        output.WriteRawTag(253, 25);
         output.WriteFloat(CpAdjD01);
       }
       if (CpAdjU01 != 0F) {
-        output.WriteRawTag(197, 26);
+        output.WriteRawTag(149, 26);
         output.WriteFloat(CpAdjU01);
       }
       if (CpAdjU02 != 0F) {
-        output.WriteRawTag(221, 26);
+        output.WriteRawTag(173, 26);
         output.WriteFloat(CpAdjU02);
       }
       if (CpAdjU03 != 0F) {
-        output.WriteRawTag(245, 26);
+        output.WriteRawTag(197, 26);
         output.WriteFloat(CpAdjU03);
       }
       if (CpAdjU04 != 0F) {
-        output.WriteRawTag(141, 27);
+        output.WriteRawTag(221, 26);
         output.WriteFloat(CpAdjU04);
       }
       if (Pwidth != 0F) {
-        output.WriteRawTag(165, 27);
+        output.WriteRawTag(245, 26);
         output.WriteFloat(Pwidth);
       }
       if (Vwidth != 0F) {
-        output.WriteRawTag(189, 27);
+        output.WriteRawTag(141, 27);
         output.WriteFloat(Vwidth);
       }
       if (CCnt != 0) {
-        output.WriteRawTag(208, 27);
+        output.WriteRawTag(160, 27);
         output.WriteInt32(CCnt);
       }
       if (PCnt != 0) {
-        output.WriteRawTag(232, 27);
+        output.WriteRawTag(184, 27);
         output.WriteInt32(PCnt);
       }
       if (CBidMiss != 0) {
-        output.WriteRawTag(128, 28);
+        output.WriteRawTag(208, 27);
         output.WriteInt32(CBidMiss);
       }
       if (CAskMiss != 0) {
-        output.WriteRawTag(152, 28);
+        output.WriteRawTag(232, 27);
         output.WriteInt32(CAskMiss);
       }
       if (PBidMiss != 0) {
-        output.WriteRawTag(176, 28);
+        output.WriteRawTag(128, 28);
         output.WriteInt32(PBidMiss);
       }
       if (PAskMiss != 0) {
-        output.WriteRawTag(200, 28);
+        output.WriteRawTag(152, 28);
         output.WriteInt32(PAskMiss);
       }
       if (FitAvgErr != 0F) {
-        output.WriteRawTag(229, 28);
+        output.WriteRawTag(181, 28);
         output.WriteFloat(FitAvgErr);
       }
       if (FitAvgAbsErr != 0F) {
-        output.WriteRawTag(253, 28);
+        output.WriteRawTag(205, 28);
         output.WriteFloat(FitAvgAbsErr);
       }
       if (FitMaxPrcErr != 0F) {
-        output.WriteRawTag(149, 29);
+        output.WriteRawTag(229, 28);
         output.WriteFloat(FitMaxPrcErr);
       }
       if (FitErrXX != 0F) {
-        output.WriteRawTag(173, 29);
+        output.WriteRawTag(253, 28);
         output.WriteFloat(FitErrXX);
       }
       if (FitErrCP != global::Spiderrock.Protobuf.CallPut.Unspecified) {
-        output.WriteRawTag(192, 29);
+        output.WriteRawTag(144, 29);
         output.WriteEnum((int) FitErrCP);
       }
       if (FitErrDe != 0F) {
-        output.WriteRawTag(221, 29);
+        output.WriteRawTag(173, 29);
         output.WriteFloat(FitErrDe);
       }
       if (FitErrBid != 0F) {
-        output.WriteRawTag(245, 29);
+        output.WriteRawTag(197, 29);
         output.WriteFloat(FitErrBid);
       }
       if (FitErrAsk != 0F) {
-        output.WriteRawTag(141, 30);
+        output.WriteRawTag(221, 29);
         output.WriteFloat(FitErrAsk);
       }
       if (FitErrPrc != 0F) {
-        output.WriteRawTag(165, 30);
+        output.WriteRawTag(245, 29);
         output.WriteFloat(FitErrPrc);
       }
       if (FitErrVol != 0F) {
-        output.WriteRawTag(189, 30);
+        output.WriteRawTag(141, 30);
         output.WriteFloat(FitErrVol);
       }
       if (NumSaddlePts != 0) {
-        output.WriteRawTag(208, 30);
+        output.WriteRawTag(160, 30);
         output.WriteInt32(NumSaddlePts);
       }
       if (MinSaddleSpan != 0F) {
-        output.WriteRawTag(237, 30);
+        output.WriteRawTag(189, 30);
         output.WriteFloat(MinSaddleSpan);
       }
       if (MaxSaddleCurvature != 0F) {
-        output.WriteRawTag(133, 31);
+        output.WriteRawTag(213, 30);
         output.WriteFloat(MaxSaddleCurvature);
       }
       if (SkewCounter != 0) {
-        output.WriteRawTag(152, 31);
+        output.WriteRawTag(232, 30);
         output.WriteInt32(SkewCounter);
       }
       if (SdivCounter != 0) {
-        output.WriteRawTag(176, 31);
+        output.WriteRawTag(128, 31);
         output.WriteInt32(SdivCounter);
       }
       if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
-        output.WriteRawTag(200, 31);
+        output.WriteRawTag(152, 31);
         output.WriteEnum((int) MarketSession);
       }
       if (TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) {
-        output.WriteRawTag(224, 31);
+        output.WriteRawTag(176, 31);
         output.WriteEnum((int) TradeableStatus);
       }
       if (SurfaceResult != global::Spiderrock.Protobuf.SurfaceResult.Unspecified) {
-        output.WriteRawTag(248, 31);
+        output.WriteRawTag(200, 31);
         output.WriteEnum((int) SurfaceResult);
       }
       if (sTimestamp_ != null) {
-        output.WriteRawTag(146, 32);
+        output.WriteRawTag(226, 31);
         output.WriteMessage(STimestamp);
       }
       if (time_ != null) {
-        output.WriteRawTag(170, 32);
+        output.WriteRawTag(250, 31);
         output.WriteMessage(Time);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(194, 32);
+        output.WriteRawTag(146, 32);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -4871,485 +4871,485 @@ namespace Spiderrock.Protobuf {
             AxisFUPrc = input.ReadFloat();
             break;
           }
-          case 1329: {
+          case 1313: {
             SynSpot = input.ReadDouble();
             break;
           }
-          case 1353: {
+          case 1321: {
             SynCarry = input.ReadDouble();
             break;
           }
-          case 1381: {
+          case 1333: {
             AtmStrike = input.ReadFloat();
             break;
           }
-          case 1400: {
+          case 1352: {
             MoneynessType = (global::Spiderrock.Protobuf.MoneynessType) input.ReadEnum();
             break;
           }
-          case 1424: {
+          case 1376: {
             UnderlierMode = (global::Spiderrock.Protobuf.UnderlierMode) input.ReadEnum();
             break;
           }
-          case 1448: {
+          case 1400: {
             CpAdjType = (global::Spiderrock.Protobuf.CPAdjType) input.ReadEnum();
             break;
           }
-          case 1472: {
+          case 1424: {
             PriceQuoteType = (global::Spiderrock.Protobuf.PriceQuoteType) input.ReadEnum();
             break;
           }
-          case 1501: {
+          case 1453: {
             AtmVol = input.ReadFloat();
             break;
           }
-          case 1525: {
+          case 1477: {
             AtmCen = input.ReadFloat();
             break;
           }
-          case 1549: {
+          case 1501: {
             AtmVolHist = input.ReadFloat();
             break;
           }
-          case 1573: {
+          case 1525: {
             AtmCenHist = input.ReadFloat();
             break;
           }
-          case 1597: {
+          case 1549: {
             EMove = input.ReadFloat();
             break;
           }
-          case 1621: {
+          case 1573: {
             EMoveHist = input.ReadFloat();
             break;
           }
-          case 1641: {
+          case 1593: {
             UPrcRatio = input.ReadDouble();
             break;
           }
-          case 1669: {
+          case 1621: {
             MinAtmVol = input.ReadFloat();
             break;
           }
-          case 1693: {
+          case 1645: {
             MaxAtmVol = input.ReadFloat();
             break;
           }
-          case 1713: {
+          case 1665: {
             MinCPAdjVal = input.ReadDouble();
             break;
           }
-          case 1737: {
+          case 1689: {
             MaxCPAdjVal = input.ReadDouble();
             break;
           }
-          case 1765: {
+          case 1717: {
             AtmFixedMove = input.ReadFloat();
             break;
           }
-          case 1789: {
+          case 1741: {
             AtmPhi = input.ReadFloat();
             break;
           }
-          case 1813: {
+          case 1765: {
             AtmRho = input.ReadFloat();
             break;
           }
-          case 1837: {
+          case 1789: {
             AtmVega = input.ReadFloat();
             break;
           }
-          case 1861: {
+          case 1813: {
             Slope = input.ReadFloat();
             break;
           }
-          case 1885: {
+          case 1837: {
             VarSwapFV = input.ReadFloat();
             break;
           }
-          case 1904: {
+          case 1856: {
             GridType = (global::Spiderrock.Protobuf.GridType) input.ReadEnum();
             break;
           }
-          case 1933: {
+          case 1885: {
             KnotShift = input.ReadFloat();
             break;
           }
-          case 1957: {
+          case 1909: {
             FitPowerC = input.ReadFloat();
             break;
           }
-          case 1981: {
+          case 1933: {
             FitPowerP = input.ReadFloat();
             break;
           }
-          case 2005: {
+          case 1957: {
             MinXAxis = input.ReadFloat();
             break;
           }
-          case 2029: {
+          case 1981: {
             MaxXAxis = input.ReadFloat();
             break;
           }
-          case 2053: {
+          case 2005: {
             AsymptoticVolC = input.ReadFloat();
             break;
           }
-          case 2077: {
+          case 2029: {
             AsymptoticVolP = input.ReadFloat();
             break;
           }
-          case 2101: {
+          case 2053: {
             MinCurvValue = input.ReadFloat();
             break;
           }
-          case 2125: {
+          case 2077: {
             MinCurvXAxis = input.ReadFloat();
             break;
           }
-          case 2149: {
+          case 2101: {
             MaxCurvValue = input.ReadFloat();
             break;
           }
-          case 2173: {
+          case 2125: {
             MaxCurvXAxis = input.ReadFloat();
             break;
           }
-          case 2197: {
+          case 2149: {
             SkewMinX = input.ReadFloat();
             break;
           }
-          case 2221: {
+          case 2173: {
             SkewMinY = input.ReadFloat();
             break;
           }
-          case 2240: {
+          case 2192: {
             SurfaceFit = (global::Spiderrock.Protobuf.SurfaceFit) input.ReadEnum();
             break;
           }
-          case 2269: {
+          case 2221: {
             SkewC00 = input.ReadFloat();
             break;
           }
-          case 2293: {
+          case 2245: {
             SkewC01 = input.ReadFloat();
             break;
           }
-          case 2317: {
+          case 2269: {
             SkewC02 = input.ReadFloat();
             break;
           }
-          case 2341: {
+          case 2293: {
             SkewC03 = input.ReadFloat();
             break;
           }
-          case 2365: {
+          case 2317: {
             SkewC04 = input.ReadFloat();
             break;
           }
-          case 2389: {
+          case 2341: {
             SkewC05 = input.ReadFloat();
             break;
           }
-          case 2413: {
+          case 2365: {
             SkewC06 = input.ReadFloat();
             break;
           }
-          case 2437: {
+          case 2389: {
             SkewC07 = input.ReadFloat();
             break;
           }
-          case 2461: {
+          case 2413: {
             SkewC08 = input.ReadFloat();
             break;
           }
-          case 2485: {
+          case 2437: {
             SkewC09 = input.ReadFloat();
             break;
           }
-          case 2509: {
+          case 2461: {
             SkewC10 = input.ReadFloat();
             break;
           }
-          case 2533: {
+          case 2485: {
             SkewC11 = input.ReadFloat();
             break;
           }
-          case 2557: {
+          case 2509: {
             SkewC12 = input.ReadFloat();
             break;
           }
-          case 2581: {
+          case 2533: {
             SkewC13 = input.ReadFloat();
             break;
           }
-          case 2605: {
+          case 2557: {
             SkewC14 = input.ReadFloat();
             break;
           }
-          case 2629: {
+          case 2581: {
             SkewC15 = input.ReadFloat();
             break;
           }
-          case 2653: {
+          case 2605: {
             SkewC16 = input.ReadFloat();
             break;
           }
-          case 2677: {
+          case 2629: {
             SkewC17 = input.ReadFloat();
             break;
           }
-          case 2701: {
+          case 2653: {
             SkewC18 = input.ReadFloat();
             break;
           }
-          case 2725: {
+          case 2677: {
             SkewC19 = input.ReadFloat();
             break;
           }
-          case 2749: {
+          case 2701: {
             SkewC20 = input.ReadFloat();
             break;
           }
-          case 2773: {
+          case 2725: {
             SkewC21 = input.ReadFloat();
             break;
           }
-          case 2797: {
+          case 2749: {
             SkewC22 = input.ReadFloat();
             break;
           }
-          case 2821: {
+          case 2773: {
             SkewC23 = input.ReadFloat();
             break;
           }
-          case 2845: {
+          case 2797: {
             SkewC24 = input.ReadFloat();
             break;
           }
-          case 2869: {
+          case 2821: {
             SkewC25 = input.ReadFloat();
             break;
           }
-          case 2893: {
+          case 2845: {
             SkewC26 = input.ReadFloat();
             break;
           }
-          case 2917: {
+          case 2869: {
             SkewC27 = input.ReadFloat();
             break;
           }
-          case 2941: {
+          case 2893: {
             SkewC28 = input.ReadFloat();
             break;
           }
-          case 2965: {
+          case 2917: {
             IvAdjD07 = input.ReadFloat();
             break;
           }
-          case 2989: {
+          case 2941: {
             IvAdjD06 = input.ReadFloat();
             break;
           }
-          case 3013: {
+          case 2965: {
             IvAdjD05 = input.ReadFloat();
             break;
           }
-          case 3037: {
+          case 2989: {
             IvAdjD04 = input.ReadFloat();
             break;
           }
-          case 3061: {
+          case 3013: {
             IvAdjD03 = input.ReadFloat();
             break;
           }
-          case 3085: {
+          case 3037: {
             IvAdjD02 = input.ReadFloat();
             break;
           }
-          case 3109: {
+          case 3061: {
             IvAdjD01 = input.ReadFloat();
             break;
           }
-          case 3133: {
+          case 3085: {
             IvAdjU01 = input.ReadFloat();
             break;
           }
-          case 3157: {
+          case 3109: {
             IvAdjU02 = input.ReadFloat();
             break;
           }
-          case 3181: {
+          case 3133: {
             IvAdjU03 = input.ReadFloat();
             break;
           }
-          case 3205: {
+          case 3157: {
             IvAdjU04 = input.ReadFloat();
             break;
           }
-          case 3229: {
+          case 3181: {
             IvAdjU05 = input.ReadFloat();
             break;
           }
-          case 3253: {
+          case 3205: {
             IvAdjU06 = input.ReadFloat();
             break;
           }
-          case 3277: {
+          case 3229: {
             IvAdjU07 = input.ReadFloat();
             break;
           }
-          case 3301: {
+          case 3253: {
             CpAdjD04 = input.ReadFloat();
             break;
           }
-          case 3325: {
+          case 3277: {
             CpAdjD03 = input.ReadFloat();
             break;
           }
-          case 3349: {
+          case 3301: {
             CpAdjD02 = input.ReadFloat();
             break;
           }
-          case 3373: {
+          case 3325: {
             CpAdjD01 = input.ReadFloat();
             break;
           }
-          case 3397: {
+          case 3349: {
             CpAdjU01 = input.ReadFloat();
             break;
           }
-          case 3421: {
+          case 3373: {
             CpAdjU02 = input.ReadFloat();
             break;
           }
-          case 3445: {
+          case 3397: {
             CpAdjU03 = input.ReadFloat();
             break;
           }
-          case 3469: {
+          case 3421: {
             CpAdjU04 = input.ReadFloat();
             break;
           }
-          case 3493: {
+          case 3445: {
             Pwidth = input.ReadFloat();
             break;
           }
-          case 3517: {
+          case 3469: {
             Vwidth = input.ReadFloat();
             break;
           }
-          case 3536: {
+          case 3488: {
             CCnt = input.ReadInt32();
             break;
           }
-          case 3560: {
+          case 3512: {
             PCnt = input.ReadInt32();
             break;
           }
-          case 3584: {
+          case 3536: {
             CBidMiss = input.ReadInt32();
             break;
           }
-          case 3608: {
+          case 3560: {
             CAskMiss = input.ReadInt32();
             break;
           }
-          case 3632: {
+          case 3584: {
             PBidMiss = input.ReadInt32();
             break;
           }
-          case 3656: {
+          case 3608: {
             PAskMiss = input.ReadInt32();
             break;
           }
-          case 3685: {
+          case 3637: {
             FitAvgErr = input.ReadFloat();
             break;
           }
-          case 3709: {
+          case 3661: {
             FitAvgAbsErr = input.ReadFloat();
             break;
           }
-          case 3733: {
+          case 3685: {
             FitMaxPrcErr = input.ReadFloat();
             break;
           }
-          case 3757: {
+          case 3709: {
             FitErrXX = input.ReadFloat();
             break;
           }
-          case 3776: {
+          case 3728: {
             FitErrCP = (global::Spiderrock.Protobuf.CallPut) input.ReadEnum();
             break;
           }
-          case 3805: {
+          case 3757: {
             FitErrDe = input.ReadFloat();
             break;
           }
-          case 3829: {
+          case 3781: {
             FitErrBid = input.ReadFloat();
             break;
           }
-          case 3853: {
+          case 3805: {
             FitErrAsk = input.ReadFloat();
             break;
           }
-          case 3877: {
+          case 3829: {
             FitErrPrc = input.ReadFloat();
             break;
           }
-          case 3901: {
+          case 3853: {
             FitErrVol = input.ReadFloat();
             break;
           }
-          case 3920: {
+          case 3872: {
             NumSaddlePts = input.ReadInt32();
             break;
           }
-          case 3949: {
+          case 3901: {
             MinSaddleSpan = input.ReadFloat();
             break;
           }
-          case 3973: {
+          case 3925: {
             MaxSaddleCurvature = input.ReadFloat();
             break;
           }
-          case 3992: {
+          case 3944: {
             SkewCounter = input.ReadInt32();
             break;
           }
-          case 4016: {
+          case 3968: {
             SdivCounter = input.ReadInt32();
             break;
           }
-          case 4040: {
+          case 3992: {
             MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
             break;
           }
-          case 4064: {
+          case 4016: {
             TradeableStatus = (global::Spiderrock.Protobuf.TradeableStatus) input.ReadEnum();
             break;
           }
-          case 4088: {
+          case 4040: {
             SurfaceResult = (global::Spiderrock.Protobuf.SurfaceResult) input.ReadEnum();
             break;
           }
-          case 4114: {
+          case 4066: {
             if (sTimestamp_ == null) {
               STimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(STimestamp);
             break;
           }
-          case 4138: {
+          case 4090: {
             if (time_ == null) {
               Time = new global::Google.Protobuf.WellKnownTypes.Duration();
             }
             input.ReadMessage(Time);
             break;
           }
-          case 4162: {
+          case 4114: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -5482,485 +5482,485 @@ namespace Spiderrock.Protobuf {
             AxisFUPrc = input.ReadFloat();
             break;
           }
-          case 1329: {
+          case 1313: {
             SynSpot = input.ReadDouble();
             break;
           }
-          case 1353: {
+          case 1321: {
             SynCarry = input.ReadDouble();
             break;
           }
-          case 1381: {
+          case 1333: {
             AtmStrike = input.ReadFloat();
             break;
           }
-          case 1400: {
+          case 1352: {
             MoneynessType = (global::Spiderrock.Protobuf.MoneynessType) input.ReadEnum();
             break;
           }
-          case 1424: {
+          case 1376: {
             UnderlierMode = (global::Spiderrock.Protobuf.UnderlierMode) input.ReadEnum();
             break;
           }
-          case 1448: {
+          case 1400: {
             CpAdjType = (global::Spiderrock.Protobuf.CPAdjType) input.ReadEnum();
             break;
           }
-          case 1472: {
+          case 1424: {
             PriceQuoteType = (global::Spiderrock.Protobuf.PriceQuoteType) input.ReadEnum();
             break;
           }
-          case 1501: {
+          case 1453: {
             AtmVol = input.ReadFloat();
             break;
           }
-          case 1525: {
+          case 1477: {
             AtmCen = input.ReadFloat();
             break;
           }
-          case 1549: {
+          case 1501: {
             AtmVolHist = input.ReadFloat();
             break;
           }
-          case 1573: {
+          case 1525: {
             AtmCenHist = input.ReadFloat();
             break;
           }
-          case 1597: {
+          case 1549: {
             EMove = input.ReadFloat();
             break;
           }
-          case 1621: {
+          case 1573: {
             EMoveHist = input.ReadFloat();
             break;
           }
-          case 1641: {
+          case 1593: {
             UPrcRatio = input.ReadDouble();
             break;
           }
-          case 1669: {
+          case 1621: {
             MinAtmVol = input.ReadFloat();
             break;
           }
-          case 1693: {
+          case 1645: {
             MaxAtmVol = input.ReadFloat();
             break;
           }
-          case 1713: {
+          case 1665: {
             MinCPAdjVal = input.ReadDouble();
             break;
           }
-          case 1737: {
+          case 1689: {
             MaxCPAdjVal = input.ReadDouble();
             break;
           }
-          case 1765: {
+          case 1717: {
             AtmFixedMove = input.ReadFloat();
             break;
           }
-          case 1789: {
+          case 1741: {
             AtmPhi = input.ReadFloat();
             break;
           }
-          case 1813: {
+          case 1765: {
             AtmRho = input.ReadFloat();
             break;
           }
-          case 1837: {
+          case 1789: {
             AtmVega = input.ReadFloat();
             break;
           }
-          case 1861: {
+          case 1813: {
             Slope = input.ReadFloat();
             break;
           }
-          case 1885: {
+          case 1837: {
             VarSwapFV = input.ReadFloat();
             break;
           }
-          case 1904: {
+          case 1856: {
             GridType = (global::Spiderrock.Protobuf.GridType) input.ReadEnum();
             break;
           }
-          case 1933: {
+          case 1885: {
             KnotShift = input.ReadFloat();
             break;
           }
-          case 1957: {
+          case 1909: {
             FitPowerC = input.ReadFloat();
             break;
           }
-          case 1981: {
+          case 1933: {
             FitPowerP = input.ReadFloat();
             break;
           }
-          case 2005: {
+          case 1957: {
             MinXAxis = input.ReadFloat();
             break;
           }
-          case 2029: {
+          case 1981: {
             MaxXAxis = input.ReadFloat();
             break;
           }
-          case 2053: {
+          case 2005: {
             AsymptoticVolC = input.ReadFloat();
             break;
           }
-          case 2077: {
+          case 2029: {
             AsymptoticVolP = input.ReadFloat();
             break;
           }
-          case 2101: {
+          case 2053: {
             MinCurvValue = input.ReadFloat();
             break;
           }
-          case 2125: {
+          case 2077: {
             MinCurvXAxis = input.ReadFloat();
             break;
           }
-          case 2149: {
+          case 2101: {
             MaxCurvValue = input.ReadFloat();
             break;
           }
-          case 2173: {
+          case 2125: {
             MaxCurvXAxis = input.ReadFloat();
             break;
           }
-          case 2197: {
+          case 2149: {
             SkewMinX = input.ReadFloat();
             break;
           }
-          case 2221: {
+          case 2173: {
             SkewMinY = input.ReadFloat();
             break;
           }
-          case 2240: {
+          case 2192: {
             SurfaceFit = (global::Spiderrock.Protobuf.SurfaceFit) input.ReadEnum();
             break;
           }
-          case 2269: {
+          case 2221: {
             SkewC00 = input.ReadFloat();
             break;
           }
-          case 2293: {
+          case 2245: {
             SkewC01 = input.ReadFloat();
             break;
           }
-          case 2317: {
+          case 2269: {
             SkewC02 = input.ReadFloat();
             break;
           }
-          case 2341: {
+          case 2293: {
             SkewC03 = input.ReadFloat();
             break;
           }
-          case 2365: {
+          case 2317: {
             SkewC04 = input.ReadFloat();
             break;
           }
-          case 2389: {
+          case 2341: {
             SkewC05 = input.ReadFloat();
             break;
           }
-          case 2413: {
+          case 2365: {
             SkewC06 = input.ReadFloat();
             break;
           }
-          case 2437: {
+          case 2389: {
             SkewC07 = input.ReadFloat();
             break;
           }
-          case 2461: {
+          case 2413: {
             SkewC08 = input.ReadFloat();
             break;
           }
-          case 2485: {
+          case 2437: {
             SkewC09 = input.ReadFloat();
             break;
           }
-          case 2509: {
+          case 2461: {
             SkewC10 = input.ReadFloat();
             break;
           }
-          case 2533: {
+          case 2485: {
             SkewC11 = input.ReadFloat();
             break;
           }
-          case 2557: {
+          case 2509: {
             SkewC12 = input.ReadFloat();
             break;
           }
-          case 2581: {
+          case 2533: {
             SkewC13 = input.ReadFloat();
             break;
           }
-          case 2605: {
+          case 2557: {
             SkewC14 = input.ReadFloat();
             break;
           }
-          case 2629: {
+          case 2581: {
             SkewC15 = input.ReadFloat();
             break;
           }
-          case 2653: {
+          case 2605: {
             SkewC16 = input.ReadFloat();
             break;
           }
-          case 2677: {
+          case 2629: {
             SkewC17 = input.ReadFloat();
             break;
           }
-          case 2701: {
+          case 2653: {
             SkewC18 = input.ReadFloat();
             break;
           }
-          case 2725: {
+          case 2677: {
             SkewC19 = input.ReadFloat();
             break;
           }
-          case 2749: {
+          case 2701: {
             SkewC20 = input.ReadFloat();
             break;
           }
-          case 2773: {
+          case 2725: {
             SkewC21 = input.ReadFloat();
             break;
           }
-          case 2797: {
+          case 2749: {
             SkewC22 = input.ReadFloat();
             break;
           }
-          case 2821: {
+          case 2773: {
             SkewC23 = input.ReadFloat();
             break;
           }
-          case 2845: {
+          case 2797: {
             SkewC24 = input.ReadFloat();
             break;
           }
-          case 2869: {
+          case 2821: {
             SkewC25 = input.ReadFloat();
             break;
           }
-          case 2893: {
+          case 2845: {
             SkewC26 = input.ReadFloat();
             break;
           }
-          case 2917: {
+          case 2869: {
             SkewC27 = input.ReadFloat();
             break;
           }
-          case 2941: {
+          case 2893: {
             SkewC28 = input.ReadFloat();
             break;
           }
-          case 2965: {
+          case 2917: {
             IvAdjD07 = input.ReadFloat();
             break;
           }
-          case 2989: {
+          case 2941: {
             IvAdjD06 = input.ReadFloat();
             break;
           }
-          case 3013: {
+          case 2965: {
             IvAdjD05 = input.ReadFloat();
             break;
           }
-          case 3037: {
+          case 2989: {
             IvAdjD04 = input.ReadFloat();
             break;
           }
-          case 3061: {
+          case 3013: {
             IvAdjD03 = input.ReadFloat();
             break;
           }
-          case 3085: {
+          case 3037: {
             IvAdjD02 = input.ReadFloat();
             break;
           }
-          case 3109: {
+          case 3061: {
             IvAdjD01 = input.ReadFloat();
             break;
           }
-          case 3133: {
+          case 3085: {
             IvAdjU01 = input.ReadFloat();
             break;
           }
-          case 3157: {
+          case 3109: {
             IvAdjU02 = input.ReadFloat();
             break;
           }
-          case 3181: {
+          case 3133: {
             IvAdjU03 = input.ReadFloat();
             break;
           }
-          case 3205: {
+          case 3157: {
             IvAdjU04 = input.ReadFloat();
             break;
           }
-          case 3229: {
+          case 3181: {
             IvAdjU05 = input.ReadFloat();
             break;
           }
-          case 3253: {
+          case 3205: {
             IvAdjU06 = input.ReadFloat();
             break;
           }
-          case 3277: {
+          case 3229: {
             IvAdjU07 = input.ReadFloat();
             break;
           }
-          case 3301: {
+          case 3253: {
             CpAdjD04 = input.ReadFloat();
             break;
           }
-          case 3325: {
+          case 3277: {
             CpAdjD03 = input.ReadFloat();
             break;
           }
-          case 3349: {
+          case 3301: {
             CpAdjD02 = input.ReadFloat();
             break;
           }
-          case 3373: {
+          case 3325: {
             CpAdjD01 = input.ReadFloat();
             break;
           }
-          case 3397: {
+          case 3349: {
             CpAdjU01 = input.ReadFloat();
             break;
           }
-          case 3421: {
+          case 3373: {
             CpAdjU02 = input.ReadFloat();
             break;
           }
-          case 3445: {
+          case 3397: {
             CpAdjU03 = input.ReadFloat();
             break;
           }
-          case 3469: {
+          case 3421: {
             CpAdjU04 = input.ReadFloat();
             break;
           }
-          case 3493: {
+          case 3445: {
             Pwidth = input.ReadFloat();
             break;
           }
-          case 3517: {
+          case 3469: {
             Vwidth = input.ReadFloat();
             break;
           }
-          case 3536: {
+          case 3488: {
             CCnt = input.ReadInt32();
             break;
           }
-          case 3560: {
+          case 3512: {
             PCnt = input.ReadInt32();
             break;
           }
-          case 3584: {
+          case 3536: {
             CBidMiss = input.ReadInt32();
             break;
           }
-          case 3608: {
+          case 3560: {
             CAskMiss = input.ReadInt32();
             break;
           }
-          case 3632: {
+          case 3584: {
             PBidMiss = input.ReadInt32();
             break;
           }
-          case 3656: {
+          case 3608: {
             PAskMiss = input.ReadInt32();
             break;
           }
-          case 3685: {
+          case 3637: {
             FitAvgErr = input.ReadFloat();
             break;
           }
-          case 3709: {
+          case 3661: {
             FitAvgAbsErr = input.ReadFloat();
             break;
           }
-          case 3733: {
+          case 3685: {
             FitMaxPrcErr = input.ReadFloat();
             break;
           }
-          case 3757: {
+          case 3709: {
             FitErrXX = input.ReadFloat();
             break;
           }
-          case 3776: {
+          case 3728: {
             FitErrCP = (global::Spiderrock.Protobuf.CallPut) input.ReadEnum();
             break;
           }
-          case 3805: {
+          case 3757: {
             FitErrDe = input.ReadFloat();
             break;
           }
-          case 3829: {
+          case 3781: {
             FitErrBid = input.ReadFloat();
             break;
           }
-          case 3853: {
+          case 3805: {
             FitErrAsk = input.ReadFloat();
             break;
           }
-          case 3877: {
+          case 3829: {
             FitErrPrc = input.ReadFloat();
             break;
           }
-          case 3901: {
+          case 3853: {
             FitErrVol = input.ReadFloat();
             break;
           }
-          case 3920: {
+          case 3872: {
             NumSaddlePts = input.ReadInt32();
             break;
           }
-          case 3949: {
+          case 3901: {
             MinSaddleSpan = input.ReadFloat();
             break;
           }
-          case 3973: {
+          case 3925: {
             MaxSaddleCurvature = input.ReadFloat();
             break;
           }
-          case 3992: {
+          case 3944: {
             SkewCounter = input.ReadInt32();
             break;
           }
-          case 4016: {
+          case 3968: {
             SdivCounter = input.ReadInt32();
             break;
           }
-          case 4040: {
+          case 3992: {
             MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
             break;
           }
-          case 4064: {
+          case 4016: {
             TradeableStatus = (global::Spiderrock.Protobuf.TradeableStatus) input.ReadEnum();
             break;
           }
-          case 4088: {
+          case 4040: {
             SurfaceResult = (global::Spiderrock.Protobuf.SurfaceResult) input.ReadEnum();
             break;
           }
-          case 4114: {
+          case 4066: {
             if (sTimestamp_ == null) {
               STimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(STimestamp);
             break;
           }
-          case 4138: {
+          case 4090: {
             if (time_ == null) {
               Time = new global::Google.Protobuf.WellKnownTypes.Duration();
             }
             input.ReadMessage(Time);
             break;
           }
-          case 4162: {
+          case 4114: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

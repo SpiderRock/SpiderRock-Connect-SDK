@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci9Qcm90b2J1Zi9GdXR1cmVEZWZpbml0aW9uL0NDb2RlRGVmaW5pdGlvbi5w",
             "cm90bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24u",
-            "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i/gYKD0ND",
+            "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ilQcKD0ND",
             "b2RlRGVmaW5pdGlvbhIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJy",
             "b2NrLnByb3RvYnVmLkNDb2RlRGVmaW5pdGlvbi5QS2V5Ei0KB2Z1dGV4Y2gY",
@@ -38,19 +38,20 @@ namespace Spiderrock.Protobuf {
             "DjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kSFQoNcHJpY2Vfc2Nh",
             "bGluZxh5IAEoAhIZChF1bmRlcmxpZXJzX3Blcl9jbhh8IAEoBRI6Cg51bmRl",
             "cmxpZXJfdHlwZRh/IAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuVW5kZXJs",
-            "aWVyVHlwZRIWCg1jbGVhcmluZ19jb2RlGIIBIAEoCRIRCghyaWNfY29kZRiF",
+            "aWVyVHlwZRIWCg1jbGVhcmluZ19jb2RlGIIBIAEoCRIRCghyaWNfcm9vdBik",
             "ASABKAkSEQoIYmJnX3Jvb3QYiAEgASgJEjIKCWJiZ19ncm91cBiLASABKA4y",
             "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLlllbGxvd0tleRIVCgxnbWlfZXhjaGFu",
             "Z2UYjgEgASgJEhQKC2dtaV9wcm9kdWN0GJEBIAEoCRIVCgxnbWlfc3ViX3R5",
             "cGUYlAEgASgJEh4KFWRpc3BsYXlfcHJpY2Vfc2NhbGluZxiXASABKAISFwoO",
             "c3RyaWtlX3NjYWxpbmcYmgEgASgCEhQKC2Rlc2NyaXB0aW9uGJ0BIAEoCRIW",
             "Cg1tYXJrZXRfY2VudGVyGKABIAEoCRIuCgl0aW1lc3RhbXAYowEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo1CgRQS2V5Ei0KBWNjb2RlGAog",
-            "ASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXliBnByb3RvMw=="));
+            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIVCgxyaWNfY29kZV9fdjcYiCcg",
+            "ASgJGjUKBFBLZXkSLQoFY2NvZGUYCiABKAsyHi5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlRpY2tlcktleWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition), global::Spiderrock.Protobuf.CCodeDefinition.Parser, new[]{ "Meta", "Pkey", "Futexch", "Ticker", "SettleTime", "PositionLimit", "TickValue", "PointValue", "PointCurrency", "PriceScaling", "UnderliersPerCn", "UnderlierType", "ClearingCode", "RicCode", "BbgRoot", "BbgGroup", "GmiExchange", "GmiProduct", "GmiSubType", "DisplayPriceScaling", "StrikeScaling", "Description", "MarketCenter", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey), global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey.Parser, new[]{ "Ccode" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition), global::Spiderrock.Protobuf.CCodeDefinition.Parser, new[]{ "Meta", "Pkey", "Futexch", "Ticker", "SettleTime", "PositionLimit", "TickValue", "PointValue", "PointCurrency", "PriceScaling", "UnderliersPerCn", "UnderlierType", "ClearingCode", "RicRoot", "BbgRoot", "BbgGroup", "GmiExchange", "GmiProduct", "GmiSubType", "DisplayPriceScaling", "StrikeScaling", "Description", "MarketCenter", "Timestamp", "RicCodeV7" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey), global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey.Parser, new[]{ "Ccode" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -110,7 +111,7 @@ namespace Spiderrock.Protobuf {
       underliersPerCn_ = other.underliersPerCn_;
       underlierType_ = other.underlierType_;
       clearingCode_ = other.clearingCode_;
-      ricCode_ = other.ricCode_;
+      ricRoot_ = other.ricRoot_;
       bbgRoot_ = other.bbgRoot_;
       bbgGroup_ = other.bbgGroup_;
       gmiExchange_ = other.gmiExchange_;
@@ -121,6 +122,7 @@ namespace Spiderrock.Protobuf {
       description_ = other.description_;
       marketCenter_ = other.marketCenter_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
+      ricCodeV7_ = other.ricCodeV7_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -316,18 +318,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "ric_code" field.</summary>
-    public const int RicCodeFieldNumber = 133;
-    private string ricCode_ = "";
+    /// <summary>Field number for the "ric_root" field.</summary>
+    public const int RicRootFieldNumber = 164;
+    private string ricRoot_ = "";
     /// <summary>
-    /// RIC Code
+    /// RIC Root
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string RicCode {
-      get { return ricCode_; }
+    public string RicRoot {
+      get { return ricRoot_; }
       set {
-        ricCode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        ricRoot_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -478,6 +480,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "ric_code__v7" field.</summary>
+    public const int RicCodeV7FieldNumber = 5000;
+    private string ricCodeV7_ = "";
+    /// <summary>
+    /// only V7
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RicCodeV7 {
+      get { return ricCodeV7_; }
+      set {
+        ricCodeV7_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -506,7 +523,7 @@ namespace Spiderrock.Protobuf {
       if (UnderliersPerCn != other.UnderliersPerCn) return false;
       if (UnderlierType != other.UnderlierType) return false;
       if (ClearingCode != other.ClearingCode) return false;
-      if (RicCode != other.RicCode) return false;
+      if (RicRoot != other.RicRoot) return false;
       if (BbgRoot != other.BbgRoot) return false;
       if (BbgGroup != other.BbgGroup) return false;
       if (GmiExchange != other.GmiExchange) return false;
@@ -517,6 +534,7 @@ namespace Spiderrock.Protobuf {
       if (Description != other.Description) return false;
       if (MarketCenter != other.MarketCenter) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
+      if (RicCodeV7 != other.RicCodeV7) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -537,7 +555,7 @@ namespace Spiderrock.Protobuf {
       if (UnderliersPerCn != 0) hash ^= UnderliersPerCn.GetHashCode();
       if (UnderlierType != global::Spiderrock.Protobuf.UnderlierType.Unspecified) hash ^= UnderlierType.GetHashCode();
       if (ClearingCode.Length != 0) hash ^= ClearingCode.GetHashCode();
-      if (RicCode.Length != 0) hash ^= RicCode.GetHashCode();
+      if (RicRoot.Length != 0) hash ^= RicRoot.GetHashCode();
       if (BbgRoot.Length != 0) hash ^= BbgRoot.GetHashCode();
       if (BbgGroup != global::Spiderrock.Protobuf.YellowKey.Unspecified) hash ^= BbgGroup.GetHashCode();
       if (GmiExchange.Length != 0) hash ^= GmiExchange.GetHashCode();
@@ -548,6 +566,7 @@ namespace Spiderrock.Protobuf {
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (MarketCenter.Length != 0) hash ^= MarketCenter.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
+      if (RicCodeV7.Length != 0) hash ^= RicCodeV7.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -618,10 +637,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(146, 8);
         output.WriteString(ClearingCode);
       }
-      if (RicCode.Length != 0) {
-        output.WriteRawTag(170, 8);
-        output.WriteString(RicCode);
-      }
       if (BbgRoot.Length != 0) {
         output.WriteRawTag(194, 8);
         output.WriteString(BbgRoot);
@@ -661,6 +676,14 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(154, 10);
         output.WriteMessage(Timestamp);
+      }
+      if (RicRoot.Length != 0) {
+        output.WriteRawTag(162, 10);
+        output.WriteString(RicRoot);
+      }
+      if (RicCodeV7.Length != 0) {
+        output.WriteRawTag(194, 184, 2);
+        output.WriteString(RicCodeV7);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -724,10 +747,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(146, 8);
         output.WriteString(ClearingCode);
       }
-      if (RicCode.Length != 0) {
-        output.WriteRawTag(170, 8);
-        output.WriteString(RicCode);
-      }
       if (BbgRoot.Length != 0) {
         output.WriteRawTag(194, 8);
         output.WriteString(BbgRoot);
@@ -767,6 +786,14 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(154, 10);
         output.WriteMessage(Timestamp);
+      }
+      if (RicRoot.Length != 0) {
+        output.WriteRawTag(162, 10);
+        output.WriteString(RicRoot);
+      }
+      if (RicCodeV7.Length != 0) {
+        output.WriteRawTag(194, 184, 2);
+        output.WriteString(RicCodeV7);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -817,8 +844,8 @@ namespace Spiderrock.Protobuf {
       if (ClearingCode.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ClearingCode);
       }
-      if (RicCode.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(RicCode);
+      if (RicRoot.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(RicRoot);
       }
       if (BbgRoot.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(BbgRoot);
@@ -849,6 +876,9 @@ namespace Spiderrock.Protobuf {
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
+      }
+      if (RicCodeV7.Length != 0) {
+        size += 3 + pb::CodedOutputStream.ComputeStringSize(RicCodeV7);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -910,8 +940,8 @@ namespace Spiderrock.Protobuf {
       if (other.ClearingCode.Length != 0) {
         ClearingCode = other.ClearingCode;
       }
-      if (other.RicCode.Length != 0) {
-        RicCode = other.RicCode;
+      if (other.RicRoot.Length != 0) {
+        RicRoot = other.RicRoot;
       }
       if (other.BbgRoot.Length != 0) {
         BbgRoot = other.BbgRoot;
@@ -945,6 +975,9 @@ namespace Spiderrock.Protobuf {
           Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
         }
         Timestamp.MergeFrom(other.Timestamp);
+      }
+      if (other.RicCodeV7.Length != 0) {
+        RicCodeV7 = other.RicCodeV7;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1022,10 +1055,6 @@ namespace Spiderrock.Protobuf {
             ClearingCode = input.ReadString();
             break;
           }
-          case 1066: {
-            RicCode = input.ReadString();
-            break;
-          }
           case 1090: {
             BbgRoot = input.ReadString();
             break;
@@ -1067,6 +1096,14 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1314: {
+            RicRoot = input.ReadString();
+            break;
+          }
+          case 40002: {
+            RicCodeV7 = input.ReadString();
             break;
           }
         }
@@ -1145,10 +1182,6 @@ namespace Spiderrock.Protobuf {
             ClearingCode = input.ReadString();
             break;
           }
-          case 1066: {
-            RicCode = input.ReadString();
-            break;
-          }
           case 1090: {
             BbgRoot = input.ReadString();
             break;
@@ -1190,6 +1223,14 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1314: {
+            RicRoot = input.ReadString();
+            break;
+          }
+          case 40002: {
+            RicCodeV7 = input.ReadString();
             break;
           }
         }

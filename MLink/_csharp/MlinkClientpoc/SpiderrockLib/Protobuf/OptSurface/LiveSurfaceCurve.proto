@@ -45,125 +45,125 @@ message LiveSurfaceCurve {
     float earn_cnt_adj = 157; // number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
     float axis_vol_rT = 160; // axis volatility x sqrt(years) (used to compute xAxis) [usually 4m atm vol]
     float axis_fUPrc = 163; // axis FwdUPrc (fwd underlying price used to compute xAxis)
-    double syn_spot = 166; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
-    double syn_carry = 169; // Synthetic carry rate; corresponds to the relationship between uPrc and synSpot (set when the underlying is not a traded instrument)
-    float atm_strike = 172; // synthetic strike with cPrice = pPrice
-    MoneynessType moneyness_type = 175; // moneyness (xAxis) convention
-    UnderlierMode underlier_mode = 178; // underlier pricing mode (None=use spot/stock market; FrontMonth=use front month future market * uPrcRatio; Actual = use actual underlier future market)
-    CPAdjType cp_adj_type = 181; // adjustment used to align calls/puts (if any)
-    PriceQuoteType price_quote_type = 184; // Price or Vol
-    float atm_vol = 187; // atm vol (xAxis = 0)
-    float atm_cen = 190; // atm vol (xAxis = 0) (eMove/earnCntAdj censored)
-    float atm_vol_hist = 193; // historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
-    float atm_cen_hist = 196; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
-    float e_move = 199; // implied earnings move (from LiveSurfaceTerm)
-    float e_move_hist = 202; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
-    double u_prc_ratio = 205; // uPrcAdj = uPrc * uPrcRatioFit
-    float min_atm_vol = 208; // minimum estimated atm vol
-    float max_atm_vol = 211; // maximum estimated atm vol
-    double min_cPAdj_val = 214; // minimum cpAdjVal (sdiv or uPrcRatio)
-    double max_cPAdj_val = 217; // minimum cpAdjVal (sdiv or uPrcRatio)
-    float atm_fixed_move = 220; // fixed strike atm move from prior period
-    float atm_phi = 223; // surface phi @ xAxis = 0
-    float atm_rho = 226; // surface rho @ xAxis = 0
-    float atm_vega = 229; // surface vega @ xAxis = 0
-    float slope = 232; // volatility surface slope (dVol / dXAxis) @ ATM (xAxis=0)
-    float var_swap_fV = 235; // variance swap fair value (estimated by numerical integration over OTM price surface)
-    GridType grid_type = 238; // gridType defines skew curve coeff points + spline type
-    float knot_shift = 241; // constant that should be added to each base knot location [-3.0 - +3.0]
-    float fit_power_c = 244; // fit power of the vol fit (call wing)
-    float fit_power_p = 247; // fit power of the vol fit (put wing)
-    float min_xAxis = 250; // minimum xAxis value; xAxis values to the left extrapolate horizontally
-    float max_xAxis = 253; // maximum xAxis value; xAxis values to the right extrapolate horizontally
-    float asymptotic_vol_c = 256; // asymptotic volatility (call wing)
-    float asymptotic_vol_p = 259; // asymptotic volatility (put wing)
-    float min_curv_value = 262; // minimum curvature (2nd derivative) of skew curve (can be negative if curve is not strictly convex)
-    float min_curv_xAxis = 265; // xAxis of minimum curvature point
-    float max_curv_value = 268; // maximum curvature (2nd derivative) of skew curve
-    float max_curv_xAxis = 271; // xAxis of maximum curvature point
-    float skew_min_x = 274; // xAxis = (effStrike / effAxisFUPrc - 1.0) / axisVolRT; effStrike = strike * strikeRatio; effAxisFUPrc = axisFUPrc * symbolRatio
-    float skew_min_y = 277; // skewMinX / skewMinY are the skew curve minimum point (usually a positive x value and a negative y value)
-    SurfaceFit surface_fit = 280;
-    float skew_c00 = 283; // curve coeff[0]
-    float skew_c01 = 286; // curve coeff[1]
-    float skew_c02 = 289;
-    float skew_c03 = 292;
-    float skew_c04 = 295;
-    float skew_c05 = 298;
-    float skew_c06 = 301;
-    float skew_c07 = 304;
-    float skew_c08 = 307;
-    float skew_c09 = 310;
-    float skew_c10 = 313;
-    float skew_c11 = 316;
-    float skew_c12 = 319;
-    float skew_c13 = 322;
-    float skew_c14 = 325;
-    float skew_c15 = 328;
-    float skew_c16 = 331;
-    float skew_c17 = 334;
-    float skew_c18 = 337;
-    float skew_c19 = 340;
-    float skew_c20 = 343;
-    float skew_c21 = 346;
-    float skew_c22 = 349;
-    float skew_c23 = 352;
-    float skew_c24 = 355;
-    float skew_c25 = 358;
-    float skew_c26 = 361;
-    float skew_c27 = 364;
-    float skew_c28 = 367;
-    float iv_adj_d07 = 370; // xAxis = -5.0
-    float iv_adj_d06 = 373; // xAxis = -4.0
-    float iv_adj_d05 = 376; // xAxis = -3.0
-    float iv_adj_d04 = 379; // xAxis = -2.0
-    float iv_adj_d03 = 382; // xAxis = -1.5
-    float iv_adj_d02 = 385; // xAxis = -1.0
-    float iv_adj_d01 = 388; // xAxis = -0.5
-    float iv_adj_u01 = 391; // xAxis = +0.5
-    float iv_adj_u02 = 394; // xAxis = +1.0
-    float iv_adj_u03 = 397; // xAxis = +1.5
-    float iv_adj_u04 = 400; // xAxis = +2.0
-    float iv_adj_u05 = 403; // xAxis = +3.0
-    float iv_adj_u06 = 406; // xAxis = +4.0
-    float iv_adj_u07 = 409; // xAxis = +5.0
-    float cp_adj_d04 = 412; // xAxis = -4.0
-    float cp_adj_d03 = 415; // xAxis = -3.0
-    float cp_adj_d02 = 418; // xAxis = -2.0
-    float cp_adj_d01 = 421; // xAxis = -1.0
-    float cp_adj_u01 = 424; // xAxis = +1.0
-    float cp_adj_u02 = 427; // xAxis = +2.0
-    float cp_adj_u03 = 430; // xAxis = +3.0
-    float cp_adj_u04 = 433; // xAxis = +4.0
-    float pwidth = 436; // minimum mkt premium width
-    float vwidth = 439; // minimum mkt volatility width
-    int32 c_cnt = 442; // num call strikes in base fit
-    int32 p_cnt = 445; // num put strikes in base fit
-    int32 c_bid_miss = 448; // number of call bid violations (surface outside the market)
-    int32 c_ask_miss = 451; // number of call ask violations (surface outside the market)
-    int32 p_bid_miss = 454; // number of put bid violations
-    int32 p_ask_miss = 457; // number of put ask violations
-    float fit_avg_err = 460; // average error (sPrc - midPrc)
-    float fit_avg_abs_err = 463; // average absolute error (sPrc - midPrc)
-    float fit_max_prc_err = 466; // worst case surface premium violation
-    float fit_err_xX = 469; // okey_xx of the option with the largest fit error in this expiration
-    CallPut fit_err_cP = 472; // okey_cp of the option with the largest fit error in this expiration
-    float fit_err_de = 475; // delta of fixErrXX
-    float fit_err_bid = 478; // bid of the option with the largest fit error
-    float fit_err_ask = 481; // ask of the option with the largest fit error
-    float fit_err_prc = 484; // surface prc of the option with the largest fit error
-    float fit_err_vol = 487; // surface vol of the option with the largest fit error
-    int32 num_saddle_pts = 490; // number of saddle points
-    float min_saddle_span = 493; // smallest distance between saddle points
-    float max_saddle_curvature = 496; // maximum saddle point curvature
-    int32 skew_counter = 499; // skew surface fit counter
-    int32 sdiv_counter = 502; // sdiv surface fit counter
-    MarketSession market_session = 505; // market session this surface is from
-    TradeableStatus tradeable_status = 508; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
-    SurfaceResult surface_result = 511;
-    google.protobuf.Timestamp s_timestamp = 514; // last surface curve fit timestamp
-    google.protobuf.Duration time = 517;
-    google.protobuf.Timestamp timestamp = 520;
+    double syn_spot = 164; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    double syn_carry = 165; // Synthetic carry rate; corresponds to the relationship between uPrc and synSpot (set when the underlying is not a traded instrument)
+    float atm_strike = 166; // synthetic strike with cPrice = pPrice
+    MoneynessType moneyness_type = 169; // moneyness (xAxis) convention
+    UnderlierMode underlier_mode = 172; // underlier pricing mode (None=use spot/stock market; FrontMonth=use front month future market * uPrcRatio; Actual = use actual underlier future market)
+    CPAdjType cp_adj_type = 175; // adjustment used to align calls/puts (if any)
+    PriceQuoteType price_quote_type = 178; // Price or Vol
+    float atm_vol = 181; // atm vol (xAxis = 0)
+    float atm_cen = 184; // atm vol (xAxis = 0) (eMove/earnCntAdj censored)
+    float atm_vol_hist = 187; // historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
+    float atm_cen_hist = 190; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
+    float e_move = 193; // implied earnings move (from LiveSurfaceTerm)
+    float e_move_hist = 196; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
+    double u_prc_ratio = 199; // uPrcAdj = uPrc * uPrcRatioFit
+    float min_atm_vol = 202; // minimum estimated atm vol
+    float max_atm_vol = 205; // maximum estimated atm vol
+    double min_cPAdj_val = 208; // minimum cpAdjVal (sdiv or uPrcRatio)
+    double max_cPAdj_val = 211; // minimum cpAdjVal (sdiv or uPrcRatio)
+    float atm_fixed_move = 214; // fixed strike atm move from prior period
+    float atm_phi = 217; // surface phi @ xAxis = 0
+    float atm_rho = 220; // surface rho @ xAxis = 0
+    float atm_vega = 223; // surface vega @ xAxis = 0
+    float slope = 226; // volatility surface slope (dVol / dXAxis) @ ATM (xAxis=0)
+    float var_swap_fV = 229; // variance swap fair value (estimated by numerical integration over OTM price surface)
+    GridType grid_type = 232; // gridType defines skew curve coeff points + spline type
+    float knot_shift = 235; // constant that should be added to each base knot location [-3.0 - +3.0]
+    float fit_power_c = 238; // fit power of the vol fit (call wing)
+    float fit_power_p = 241; // fit power of the vol fit (put wing)
+    float min_xAxis = 244; // minimum xAxis value; xAxis values to the left extrapolate horizontally
+    float max_xAxis = 247; // maximum xAxis value; xAxis values to the right extrapolate horizontally
+    float asymptotic_vol_c = 250; // asymptotic volatility (call wing)
+    float asymptotic_vol_p = 253; // asymptotic volatility (put wing)
+    float min_curv_value = 256; // minimum curvature (2nd derivative) of skew curve (can be negative if curve is not strictly convex)
+    float min_curv_xAxis = 259; // xAxis of minimum curvature point
+    float max_curv_value = 262; // maximum curvature (2nd derivative) of skew curve
+    float max_curv_xAxis = 265; // xAxis of maximum curvature point
+    float skew_min_x = 268; // xAxis = (effStrike / effAxisFUPrc - 1.0) / axisVolRT; effStrike = strike * strikeRatio; effAxisFUPrc = axisFUPrc * symbolRatio
+    float skew_min_y = 271; // skewMinX / skewMinY are the skew curve minimum point (usually a positive x value and a negative y value)
+    SurfaceFit surface_fit = 274;
+    float skew_c00 = 277; // curve coeff[0]
+    float skew_c01 = 280; // curve coeff[1]
+    float skew_c02 = 283;
+    float skew_c03 = 286;
+    float skew_c04 = 289;
+    float skew_c05 = 292;
+    float skew_c06 = 295;
+    float skew_c07 = 298;
+    float skew_c08 = 301;
+    float skew_c09 = 304;
+    float skew_c10 = 307;
+    float skew_c11 = 310;
+    float skew_c12 = 313;
+    float skew_c13 = 316;
+    float skew_c14 = 319;
+    float skew_c15 = 322;
+    float skew_c16 = 325;
+    float skew_c17 = 328;
+    float skew_c18 = 331;
+    float skew_c19 = 334;
+    float skew_c20 = 337;
+    float skew_c21 = 340;
+    float skew_c22 = 343;
+    float skew_c23 = 346;
+    float skew_c24 = 349;
+    float skew_c25 = 352;
+    float skew_c26 = 355;
+    float skew_c27 = 358;
+    float skew_c28 = 361;
+    float iv_adj_d07 = 364; // xAxis = -5.0
+    float iv_adj_d06 = 367; // xAxis = -4.0
+    float iv_adj_d05 = 370; // xAxis = -3.0
+    float iv_adj_d04 = 373; // xAxis = -2.0
+    float iv_adj_d03 = 376; // xAxis = -1.5
+    float iv_adj_d02 = 379; // xAxis = -1.0
+    float iv_adj_d01 = 382; // xAxis = -0.5
+    float iv_adj_u01 = 385; // xAxis = +0.5
+    float iv_adj_u02 = 388; // xAxis = +1.0
+    float iv_adj_u03 = 391; // xAxis = +1.5
+    float iv_adj_u04 = 394; // xAxis = +2.0
+    float iv_adj_u05 = 397; // xAxis = +3.0
+    float iv_adj_u06 = 400; // xAxis = +4.0
+    float iv_adj_u07 = 403; // xAxis = +5.0
+    float cp_adj_d04 = 406; // xAxis = -4.0
+    float cp_adj_d03 = 409; // xAxis = -3.0
+    float cp_adj_d02 = 412; // xAxis = -2.0
+    float cp_adj_d01 = 415; // xAxis = -1.0
+    float cp_adj_u01 = 418; // xAxis = +1.0
+    float cp_adj_u02 = 421; // xAxis = +2.0
+    float cp_adj_u03 = 424; // xAxis = +3.0
+    float cp_adj_u04 = 427; // xAxis = +4.0
+    float pwidth = 430; // minimum mkt premium width
+    float vwidth = 433; // minimum mkt volatility width
+    int32 c_cnt = 436; // num call strikes in base fit
+    int32 p_cnt = 439; // num put strikes in base fit
+    int32 c_bid_miss = 442; // number of call bid violations (surface outside the market)
+    int32 c_ask_miss = 445; // number of call ask violations (surface outside the market)
+    int32 p_bid_miss = 448; // number of put bid violations
+    int32 p_ask_miss = 451; // number of put ask violations
+    float fit_avg_err = 454; // average error (sPrc - midPrc)
+    float fit_avg_abs_err = 457; // average absolute error (sPrc - midPrc)
+    float fit_max_prc_err = 460; // worst case surface premium violation
+    float fit_err_xX = 463; // okey_xx of the option with the largest fit error in this expiration
+    CallPut fit_err_cP = 466; // okey_cp of the option with the largest fit error in this expiration
+    float fit_err_de = 469; // delta of fixErrXX
+    float fit_err_bid = 472; // bid of the option with the largest fit error
+    float fit_err_ask = 475; // ask of the option with the largest fit error
+    float fit_err_prc = 478; // surface prc of the option with the largest fit error
+    float fit_err_vol = 481; // surface vol of the option with the largest fit error
+    int32 num_saddle_pts = 484; // number of saddle points
+    float min_saddle_span = 487; // smallest distance between saddle points
+    float max_saddle_curvature = 490; // maximum saddle point curvature
+    int32 skew_counter = 493; // skew surface fit counter
+    int32 sdiv_counter = 496; // sdiv surface fit counter
+    MarketSession market_session = 499; // market session this surface is from
+    TradeableStatus tradeable_status = 502; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    SurfaceResult surface_result = 505;
+    google.protobuf.Timestamp s_timestamp = 508; // last surface curve fit timestamp
+    google.protobuf.Duration time = 511;
+    google.protobuf.Timestamp timestamp = 514;
 }
 
 

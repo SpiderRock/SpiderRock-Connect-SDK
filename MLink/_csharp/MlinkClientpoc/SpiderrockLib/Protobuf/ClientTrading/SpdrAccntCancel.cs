@@ -26,22 +26,22 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJBY2NudENhbmNlbC5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ixgMKD1NwZHJB",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i2wMKD1NwZHJB",
             "Y2NudENhbmNlbBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJyb2Nr",
             "LnByb3RvYnVmLlNwZHJBY2NudENhbmNlbC5QS2V5EjwKD3N5c19lbnZpcm9u",
             "bWVudBhkIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYuU3lzRW52aXJvbm1l",
             "bnQSMgoKcnVuX3N0YXR1cxhnIAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "UnVuU3RhdHVzEhIKCmN4bF9yZWFzb24YaiABKAkSFQoNYWx0X2NhbmNlbF9p",
-            "ZBhtIAEoCRITCgtlbmdpbmVfbmFtZRhwIAEoCRITCgttb2RpZmllZF9ieRhz",
+            "ZBhtIAEoCRITCgtlbmdpbmVfbmFtZRh6IAEoCRITCgttb2RpZmllZF9ieRhz",
             "IAEoCRI4Cgttb2RpZmllZF9pbhh2IAEoDjIjLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuU3lzRW52aXJvbm1lbnQSLQoJdGltZXN0YW1wGHkgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBoVCgRQS2V5Eg0KBWFjY250GAogASgJYgZw",
-            "cm90bzM="));
+            "LnByb3RvYnVmLlRpbWVzdGFtcBoqCgRQS2V5Eg0KBWFjY250GAogASgJEhMK",
+            "C2NsaWVudF9maXJtGAsgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAccntCancel), global::Spiderrock.Protobuf.SpdrAccntCancel.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "CxlReason", "AltCancelId", "EngineName", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAccntCancel.Types.PKey), global::Spiderrock.Protobuf.SpdrAccntCancel.Types.PKey.Parser, new[]{ "Accnt" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAccntCancel), global::Spiderrock.Protobuf.SpdrAccntCancel.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "CxlReason", "AltCancelId", "EngineName", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAccntCancel.Types.PKey), global::Spiderrock.Protobuf.SpdrAccntCancel.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -184,7 +184,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "engine_name" field.</summary>
-    public const int EngineNameFieldNumber = 112;
+    public const int EngineNameFieldNumber = 122;
     private string engineName_ = "";
     /// <summary>
     /// set by the engine handling event (should be blank on arrival)
@@ -324,10 +324,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 6);
         output.WriteString(AltCancelId);
       }
-      if (EngineName.Length != 0) {
-        output.WriteRawTag(130, 7);
-        output.WriteString(EngineName);
-      }
       if (ModifiedBy.Length != 0) {
         output.WriteRawTag(154, 7);
         output.WriteString(ModifiedBy);
@@ -339,6 +335,10 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(202, 7);
         output.WriteMessage(Timestamp);
+      }
+      if (EngineName.Length != 0) {
+        output.WriteRawTag(210, 7);
+        output.WriteString(EngineName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -374,10 +374,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 6);
         output.WriteString(AltCancelId);
       }
-      if (EngineName.Length != 0) {
-        output.WriteRawTag(130, 7);
-        output.WriteString(EngineName);
-      }
       if (ModifiedBy.Length != 0) {
         output.WriteRawTag(154, 7);
         output.WriteString(ModifiedBy);
@@ -389,6 +385,10 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(202, 7);
         output.WriteMessage(Timestamp);
+      }
+      if (EngineName.Length != 0) {
+        output.WriteRawTag(210, 7);
+        output.WriteString(EngineName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -526,10 +526,6 @@ namespace Spiderrock.Protobuf {
             AltCancelId = input.ReadString();
             break;
           }
-          case 898: {
-            EngineName = input.ReadString();
-            break;
-          }
           case 922: {
             ModifiedBy = input.ReadString();
             break;
@@ -543,6 +539,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 978: {
+            EngineName = input.ReadString();
             break;
           }
         }
@@ -590,10 +590,6 @@ namespace Spiderrock.Protobuf {
             AltCancelId = input.ReadString();
             break;
           }
-          case 898: {
-            EngineName = input.ReadString();
-            break;
-          }
           case 922: {
             ModifiedBy = input.ReadString();
             break;
@@ -607,6 +603,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 978: {
+            EngineName = input.ReadString();
             break;
           }
         }
@@ -654,6 +654,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public PKey(PKey other) : this() {
           accnt_ = other.accnt_;
+          clientFirm_ = other.clientFirm_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -678,6 +679,21 @@ namespace Spiderrock.Protobuf {
           }
         }
 
+        /// <summary>Field number for the "client_firm" field.</summary>
+        public const int ClientFirmFieldNumber = 11;
+        private string clientFirm_ = "";
+        /// <summary>
+        /// SR client firm
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string ClientFirm {
+          get { return clientFirm_; }
+          set {
+            clientFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
@@ -694,6 +710,7 @@ namespace Spiderrock.Protobuf {
             return true;
           }
           if (Accnt != other.Accnt) return false;
+          if (ClientFirm != other.ClientFirm) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -702,6 +719,7 @@ namespace Spiderrock.Protobuf {
         public override int GetHashCode() {
           int hash = 1;
           if (Accnt.Length != 0) hash ^= Accnt.GetHashCode();
+          if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -724,6 +742,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(82);
             output.WriteString(Accnt);
           }
+          if (ClientFirm.Length != 0) {
+            output.WriteRawTag(90);
+            output.WriteString(ClientFirm);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -738,6 +760,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(82);
             output.WriteString(Accnt);
           }
+          if (ClientFirm.Length != 0) {
+            output.WriteRawTag(90);
+            output.WriteString(ClientFirm);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -750,6 +776,9 @@ namespace Spiderrock.Protobuf {
           int size = 0;
           if (Accnt.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Accnt);
+          }
+          if (ClientFirm.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -765,6 +794,9 @@ namespace Spiderrock.Protobuf {
           }
           if (other.Accnt.Length != 0) {
             Accnt = other.Accnt;
+          }
+          if (other.ClientFirm.Length != 0) {
+            ClientFirm = other.ClientFirm;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -785,6 +817,10 @@ namespace Spiderrock.Protobuf {
                 Accnt = input.ReadString();
                 break;
               }
+              case 90: {
+                ClientFirm = input.ReadString();
+                break;
+              }
             }
           }
         #endif
@@ -802,6 +838,10 @@ namespace Spiderrock.Protobuf {
                 break;
               case 82: {
                 Accnt = input.ReadString();
+                break;
+              }
+              case 90: {
+                ClientFirm = input.ReadString();
                 break;
               }
             }

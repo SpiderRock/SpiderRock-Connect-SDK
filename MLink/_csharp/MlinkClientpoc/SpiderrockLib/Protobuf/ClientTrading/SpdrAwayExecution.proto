@@ -15,6 +15,7 @@ message SpdrAwayExecution {
         
         string accnt = 10; // SR accnt
         int64 client_fill_id = 11; // client fill ID (should be unique for each accnt)
+        string client_firm = 12; // SR client firm
     }
 
 
@@ -22,8 +23,7 @@ message SpdrAwayExecution {
     
     PKey pkey = 2;
     int64 fill_number = 100; // SpiderRock execution number (globally unique over trailing 10 days) [copied in SpdrParentExecution.pkey.fillNumber]
-    string engine_name = 103;
-    string client_firm = 106; // SR client firm
+    string engine_name = 200;
     SpdrSource spdr_source = 109; // SR source code
     ExecStatus exec_status = 112; // SR execution status (Fill,Bust,Correct,Reject)
     string client_order_id = 115; // client order ID (should be unique for each clientFirm) (if any) [copied into SpdrParentExecution.altOrderId]

@@ -18,13 +18,13 @@ message FutureRiskSummaryV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR client firm
     string risk_server_code = 103;
     TickerKey ticker = 106; // Ticker that this future is associated with
     double u_prc = 109; // current live underlier price (can be from risk server, tool server, or srse server)

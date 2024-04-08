@@ -33,7 +33,7 @@ message CCodeDefinition {
     int32 underliers_per_cn = 124; // shares, bond, or index units underlying the future (contract size)
     UnderlierType underlier_type = 127; // Underlying type; None; Equity; Other; FX
     string clearing_code = 130; // GMI/Clearing code
-    string ric_code = 133; // RIC Code
+    string ric_root = 164; // RIC Root
     string bbg_root = 136; // Bloomberg root
     YellowKey bbg_group = 139; // Bloomberg Yellow Key
     string gmi_exchange = 142; // GMI (Sungard) exchange code
@@ -44,6 +44,7 @@ message CCodeDefinition {
     string description = 157; // product description
     string market_center = 160; // market center, eg "ICE Market Type", "CME MarketGroup"
     google.protobuf.Timestamp timestamp = 163;
+    string ric_code__v7 = 5000; // only V7
 }
 
 

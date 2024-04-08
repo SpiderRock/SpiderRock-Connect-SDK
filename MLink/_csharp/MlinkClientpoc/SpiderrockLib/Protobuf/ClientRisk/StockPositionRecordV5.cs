@@ -30,44 +30,44 @@ namespace Spiderrock.Protobuf {
             "b2NrUG9zaXRpb25SZWNvcmRWNRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEj0KBHBrZXkYAiABKAsyLy5z",
             "cGlkZXJyb2NrLnByb3RvYnVmLlN0b2NrUG9zaXRpb25SZWNvcmRWNS5QS2V5",
-            "EhMKC2NsaWVudF9maXJtGGQgASgJEhgKEHJpc2tfc2VydmVyX2NvZGUYZyAB",
-            "KAkSFQoNcHJpX2FnZ19ncm91cBhqIAEoCRIVCg1zZWNfYWdnX2dyb3VwGG0g",
-            "ASgJEjQKC3N5bWJvbF90eXBlGHAgASgOMh8uc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5TeW1ib2xUeXBlEhIKCnRpY2tfdmFsdWUYcyABKAISEwoLcG9pbnRfdmFs",
-            "dWUYdiABKAISNQoOcG9pbnRfY3VycmVuY3kYeSABKA4yHS5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkN1cnJlbmN5EjYKDHByaWNlX2Zvcm1hdBh8IAEoDjIgLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuUHJpY2VGb3JtYXQSDwoHc3RrX3ByYxh/IAEo",
-            "AhIQCgdzdGtfYmlkGIIBIAEoAhIQCgdzdGtfYXNrGIUBIAEoAhIRCghzdGtf",
-            "bWFyaxiIASABKAESPwoSc3RrX21hcmtfZXJyX2NvZGVzGIsBIAEoDjIiLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuTWFya0Vycm9yQ29kZRI6Cg9zdGtfbWFya19z",
-            "b3VyY2UYjgEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5VTWFya1NvdXJj",
-            "ZRIZChBzdGtfb3BuX21pZF9tYXJrGJEBIAEoARIZChBzdGtfb3BuX2Nscl9t",
-            "YXJrGJQBIAEoARIYCg9zdGtfb3BuX3Bvc19wcnYYlwEgASgFEhgKD3N0a19v",
-            "cG5fcG9zX2NschiaASABKAUSFAoLc3RrX29wbl9wb3MYnQEgASgFEj0KD3N0",
-            "a19vcG5fcG9zX3NyYxigASABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlBv",
-            "c2l0aW9uU291cmNlEg8KBnNoX2JvdBijASABKAUSDwoGc2hfc2xkGKYBIAEo",
-            "BRIUCgtzaF9zbGRfc2hydBipASABKAUSEwoKc2hfYm90X2hkZxisASABKAUS",
-            "EwoKc2hfc2xkX2hkZxivASABKAUSEwoKc2hfYm90X3RyaBiyASABKAUSEwoK",
-            "c2hfc2xkX3RyaBi1ASABKAUSEwoKc2hfYm90X29wbhi4ASABKAUSEwoKc2hf",
-            "c2xkX29wbhi7ASABKAUSEwoKc2hfYm90X3RyZBi+ASABKAUSEwoKc2hfc2xk",
-            "X3RyZBjBASABKAUSFAoLc3RrX21ueV9ib3QYxAEgASgBEhQKC3N0a19tbnlf",
-            "c2xkGMcBIAEoARIQCgdkYXlfcG5sGMoBIAEoAhIZChBvcG5fcG5sX21pZF9t",
-            "YXJrGM0BIAEoAhIZChBvcG5fcG5sX2Nscl9tYXJrGNABIAEoAhITCgpleF9k",
-            "aXZfYW10GNMBIAEoAhIUCgtib3Jyb3dfcmF0ZRjWASABKAISDQoEYmV0YRjZ",
-            "ASABKAISNQoLYmV0YV9zb3VyY2UY3AEgASgOMh8uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5CZXRhU291cmNlEhMKCm1hcmdpbl91RG4Y3wEgASgCEhMKCm1hcmdp",
-            "bl91VXAY4gEgASgCEhcKDm51bV9leGVjdXRpb25zGOUBIAEoBRIyCg1tYXhf",
-            "ZXhlY19kdHRtGOgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
-            "LgoJdGltZXN0YW1wGOsBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXAarwEKBFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5UaWNrZXJLZXkSDQoFYWNjbnQYCyABKAkSMAoKdHJhZGVfZGF0ZRgM",
-            "IAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRI2CgxyaXNrX3Nl",
-            "c3Npb24YDSABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlJpc2tTZXNzaW9u",
+            "EhgKEHJpc2tfc2VydmVyX2NvZGUYZyABKAkSFQoNcHJpX2FnZ19ncm91cBhq",
+            "IAEoCRIVCg1zZWNfYWdnX2dyb3VwGG0gASgJEjQKC3N5bWJvbF90eXBlGHAg",
+            "ASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5TeW1ib2xUeXBlEhIKCnRpY2tf",
+            "dmFsdWUYcyABKAISEwoLcG9pbnRfdmFsdWUYdiABKAISNQoOcG9pbnRfY3Vy",
+            "cmVuY3kYeSABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EjYK",
+            "DHByaWNlX2Zvcm1hdBh8IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuUHJp",
+            "Y2VGb3JtYXQSDwoHc3RrX3ByYxh/IAEoAhIQCgdzdGtfYmlkGIIBIAEoAhIQ",
+            "CgdzdGtfYXNrGIUBIAEoAhIRCghzdGtfbWFyaxiIASABKAESPwoSc3RrX21h",
+            "cmtfZXJyX2NvZGVzGIsBIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuTWFy",
+            "a0Vycm9yQ29kZRI6Cg9zdGtfbWFya19zb3VyY2UYjgEgASgOMiAuc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5VTWFya1NvdXJjZRIZChBzdGtfb3BuX21pZF9tYXJr",
+            "GJEBIAEoARIZChBzdGtfb3BuX2Nscl9tYXJrGJQBIAEoARIYCg9zdGtfb3Bu",
+            "X3Bvc19wcnYYlwEgASgFEhgKD3N0a19vcG5fcG9zX2NschiaASABKAUSFAoL",
+            "c3RrX29wbl9wb3MYnQEgASgFEj0KD3N0a19vcG5fcG9zX3NyYxigASABKA4y",
+            "Iy5zcGlkZXJyb2NrLnByb3RvYnVmLlBvc2l0aW9uU291cmNlEg8KBnNoX2Jv",
+            "dBijASABKAUSDwoGc2hfc2xkGKYBIAEoBRIUCgtzaF9zbGRfc2hydBipASAB",
+            "KAUSEwoKc2hfYm90X2hkZxisASABKAUSEwoKc2hfc2xkX2hkZxivASABKAUS",
+            "EwoKc2hfYm90X3RyaBiyASABKAUSEwoKc2hfc2xkX3RyaBi1ASABKAUSEwoK",
+            "c2hfYm90X29wbhi4ASABKAUSEwoKc2hfc2xkX29wbhi7ASABKAUSEwoKc2hf",
+            "Ym90X3RyZBi+ASABKAUSEwoKc2hfc2xkX3RyZBjBASABKAUSFAoLc3RrX21u",
+            "eV9ib3QYxAEgASgBEhQKC3N0a19tbnlfc2xkGMcBIAEoARIQCgdkYXlfcG5s",
+            "GMoBIAEoAhIZChBvcG5fcG5sX21pZF9tYXJrGM0BIAEoAhIZChBvcG5fcG5s",
+            "X2Nscl9tYXJrGNABIAEoAhITCgpleF9kaXZfYW10GNMBIAEoAhIUCgtib3Jy",
+            "b3dfcmF0ZRjWASABKAISDQoEYmV0YRjZASABKAISNQoLYmV0YV9zb3VyY2UY",
+            "3AEgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5CZXRhU291cmNlEhMKCm1h",
+            "cmdpbl91RG4Y5gEgASgCEhMKCm1hcmdpbl91VXAY5wEgASgCEhcKDm51bV9l",
+            "eGVjdXRpb25zGN8BIAEoBRIyCg1tYXhfZXhlY19kdHRtGOIBIAEoCzIaLmdv",
+            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoJdGltZXN0YW1wGOUBIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaxAEKBFBLZXkSLgoGdGlja2Vy",
+            "GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSDQoFYWNj",
+            "bnQYCyABKAkSMAoKdHJhZGVfZGF0ZRgMIAEoCzIcLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuRGF0ZUtleRI2CgxyaXNrX3Nlc3Npb24YDSABKA4yIC5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlJpc2tTZXNzaW9uEhMKC2NsaWVudF9maXJtGA4gASgJ",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5), global::Spiderrock.Protobuf.StockPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "RiskServerCode", "PriAggGroup", "SecAggGroup", "SymbolType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "StkPrc", "StkBid", "StkAsk", "StkMark", "StkMarkErrCodes", "StkMarkSource", "StkOpnMidMark", "StkOpnClrMark", "StkOpnPosPrv", "StkOpnPosClr", "StkOpnPos", "StkOpnPosSrc", "ShBot", "ShSld", "ShSldShrt", "ShBotHdg", "ShSldHdg", "ShBotTrh", "ShSldTrh", "ShBotOpn", "ShSldOpn", "ShBotTrd", "ShSldTrd", "StkMnyBot", "StkMnySld", "DayPnl", "OpnPnlMidMark", "OpnPnlClrMark", "ExDivAmt", "BorrowRate", "Beta", "BetaSource", "MarginUDn", "MarginUUp", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey.Parser, new[]{ "Ticker", "Accnt", "TradeDate", "RiskSession" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5), global::Spiderrock.Protobuf.StockPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "RiskServerCode", "PriAggGroup", "SecAggGroup", "SymbolType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "StkPrc", "StkBid", "StkAsk", "StkMark", "StkMarkErrCodes", "StkMarkSource", "StkOpnMidMark", "StkOpnClrMark", "StkOpnPosPrv", "StkOpnPosClr", "StkOpnPos", "StkOpnPosSrc", "ShBot", "ShSld", "ShSldShrt", "ShBotHdg", "ShSldHdg", "ShBotTrh", "ShSldTrh", "ShBotOpn", "ShSldOpn", "ShBotTrd", "ShSldTrd", "StkMnyBot", "StkMnySld", "DayPnl", "OpnPnlMidMark", "OpnPnlClrMark", "ExDivAmt", "BorrowRate", "Beta", "BetaSource", "MarginUDn", "MarginUUp", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey.Parser, new[]{ "Ticker", "Accnt", "TradeDate", "RiskSession", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -117,7 +117,6 @@ namespace Spiderrock.Protobuf {
     public StockPositionRecordV5(StockPositionRecordV5 other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
-      clientFirm_ = other.clientFirm_;
       riskServerCode_ = other.riskServerCode_;
       priAggGroup_ = other.priAggGroup_;
       secAggGroup_ = other.secAggGroup_;
@@ -193,21 +192,6 @@ namespace Spiderrock.Protobuf {
       get { return pkey_; }
       set {
         pkey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "client_firm" field.</summary>
-    public const int ClientFirmFieldNumber = 100;
-    private string clientFirm_ = "";
-    /// <summary>
-    /// SR assigned client firm
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClientFirm {
-      get { return clientFirm_; }
-      set {
-        clientFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -785,7 +769,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "margin_uDn" field.</summary>
-    public const int MarginUDnFieldNumber = 223;
+    public const int MarginUDnFieldNumber = 230;
     private float marginUDn_;
     /// <summary>
     /// Aggregate RiskSlide: uPrc dn
@@ -800,7 +784,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "margin_uUp" field.</summary>
-    public const int MarginUUpFieldNumber = 226;
+    public const int MarginUUpFieldNumber = 231;
     private float marginUUp_;
     /// <summary>
     /// Aggregate RiskSlide: uPrc up
@@ -815,7 +799,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "num_executions" field.</summary>
-    public const int NumExecutionsFieldNumber = 229;
+    public const int NumExecutionsFieldNumber = 223;
     private int numExecutions_;
     /// <summary>
     /// number of included SpdrParentExecution records
@@ -830,7 +814,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "max_exec_dttm" field.</summary>
-    public const int MaxExecDttmFieldNumber = 232;
+    public const int MaxExecDttmFieldNumber = 226;
     private global::Google.Protobuf.WellKnownTypes.Timestamp maxExecDttm_;
     /// <summary>
     /// max (timestamp) of included SpdrParentExecution records
@@ -845,7 +829,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 235;
+    public const int TimestampFieldNumber = 229;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -873,7 +857,6 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
-      if (ClientFirm != other.ClientFirm) return false;
       if (RiskServerCode != other.RiskServerCode) return false;
       if (PriAggGroup != other.PriAggGroup) return false;
       if (SecAggGroup != other.SecAggGroup) return false;
@@ -928,7 +911,6 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
-      if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
       if (RiskServerCode.Length != 0) hash ^= RiskServerCode.GetHashCode();
       if (PriAggGroup.Length != 0) hash ^= PriAggGroup.GetHashCode();
       if (SecAggGroup.Length != 0) hash ^= SecAggGroup.GetHashCode();
@@ -1000,10 +982,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (ClientFirm.Length != 0) {
-        output.WriteRawTag(162, 6);
-        output.WriteString(ClientFirm);
-      }
       if (RiskServerCode.Length != 0) {
         output.WriteRawTag(186, 6);
         output.WriteString(RiskServerCode);
@@ -1164,25 +1142,25 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 13);
         output.WriteEnum((int) BetaSource);
       }
-      if (MarginUDn != 0F) {
-        output.WriteRawTag(253, 13);
-        output.WriteFloat(MarginUDn);
-      }
-      if (MarginUUp != 0F) {
-        output.WriteRawTag(149, 14);
-        output.WriteFloat(MarginUUp);
-      }
       if (NumExecutions != 0) {
-        output.WriteRawTag(168, 14);
+        output.WriteRawTag(248, 13);
         output.WriteInt32(NumExecutions);
       }
       if (maxExecDttm_ != null) {
-        output.WriteRawTag(194, 14);
+        output.WriteRawTag(146, 14);
         output.WriteMessage(MaxExecDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(218, 14);
+        output.WriteRawTag(170, 14);
         output.WriteMessage(Timestamp);
+      }
+      if (MarginUDn != 0F) {
+        output.WriteRawTag(181, 14);
+        output.WriteFloat(MarginUDn);
+      }
+      if (MarginUUp != 0F) {
+        output.WriteRawTag(189, 14);
+        output.WriteFloat(MarginUUp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1202,10 +1180,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (ClientFirm.Length != 0) {
-        output.WriteRawTag(162, 6);
-        output.WriteString(ClientFirm);
-      }
       if (RiskServerCode.Length != 0) {
         output.WriteRawTag(186, 6);
         output.WriteString(RiskServerCode);
@@ -1366,25 +1340,25 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 13);
         output.WriteEnum((int) BetaSource);
       }
-      if (MarginUDn != 0F) {
-        output.WriteRawTag(253, 13);
-        output.WriteFloat(MarginUDn);
-      }
-      if (MarginUUp != 0F) {
-        output.WriteRawTag(149, 14);
-        output.WriteFloat(MarginUUp);
-      }
       if (NumExecutions != 0) {
-        output.WriteRawTag(168, 14);
+        output.WriteRawTag(248, 13);
         output.WriteInt32(NumExecutions);
       }
       if (maxExecDttm_ != null) {
-        output.WriteRawTag(194, 14);
+        output.WriteRawTag(146, 14);
         output.WriteMessage(MaxExecDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(218, 14);
+        output.WriteRawTag(170, 14);
         output.WriteMessage(Timestamp);
+      }
+      if (MarginUDn != 0F) {
+        output.WriteRawTag(181, 14);
+        output.WriteFloat(MarginUDn);
+      }
+      if (MarginUUp != 0F) {
+        output.WriteRawTag(189, 14);
+        output.WriteFloat(MarginUUp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1401,9 +1375,6 @@ namespace Spiderrock.Protobuf {
       }
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
-      }
-      if (ClientFirm.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
       }
       if (RiskServerCode.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(RiskServerCode);
@@ -1563,9 +1534,6 @@ namespace Spiderrock.Protobuf {
           Pkey = new global::Spiderrock.Protobuf.StockPositionRecordV5.Types.PKey();
         }
         Pkey.MergeFrom(other.Pkey);
-      }
-      if (other.ClientFirm.Length != 0) {
-        ClientFirm = other.ClientFirm;
       }
       if (other.RiskServerCode.Length != 0) {
         RiskServerCode = other.RiskServerCode;
@@ -1737,10 +1705,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 802: {
-            ClientFirm = input.ReadString();
-            break;
-          }
           case 826: {
             RiskServerCode = input.ReadString();
             break;
@@ -1901,30 +1865,30 @@ namespace Spiderrock.Protobuf {
             BetaSource = (global::Spiderrock.Protobuf.BetaSource) input.ReadEnum();
             break;
           }
-          case 1789: {
-            MarginUDn = input.ReadFloat();
-            break;
-          }
-          case 1813: {
-            MarginUUp = input.ReadFloat();
-            break;
-          }
-          case 1832: {
+          case 1784: {
             NumExecutions = input.ReadInt32();
             break;
           }
-          case 1858: {
+          case 1810: {
             if (maxExecDttm_ == null) {
               MaxExecDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxExecDttm);
             break;
           }
-          case 1882: {
+          case 1834: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1845: {
+            MarginUDn = input.ReadFloat();
+            break;
+          }
+          case 1853: {
+            MarginUUp = input.ReadFloat();
             break;
           }
         }
@@ -1956,10 +1920,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 802: {
-            ClientFirm = input.ReadString();
-            break;
-          }
           case 826: {
             RiskServerCode = input.ReadString();
             break;
@@ -2120,30 +2080,30 @@ namespace Spiderrock.Protobuf {
             BetaSource = (global::Spiderrock.Protobuf.BetaSource) input.ReadEnum();
             break;
           }
-          case 1789: {
-            MarginUDn = input.ReadFloat();
-            break;
-          }
-          case 1813: {
-            MarginUUp = input.ReadFloat();
-            break;
-          }
-          case 1832: {
+          case 1784: {
             NumExecutions = input.ReadInt32();
             break;
           }
-          case 1858: {
+          case 1810: {
             if (maxExecDttm_ == null) {
               MaxExecDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(MaxExecDttm);
             break;
           }
-          case 1882: {
+          case 1834: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1845: {
+            MarginUDn = input.ReadFloat();
+            break;
+          }
+          case 1853: {
+            MarginUUp = input.ReadFloat();
             break;
           }
         }
@@ -2194,6 +2154,7 @@ namespace Spiderrock.Protobuf {
           accnt_ = other.accnt_;
           tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
           riskSession_ = other.riskSession_;
+          clientFirm_ = other.clientFirm_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2251,6 +2212,21 @@ namespace Spiderrock.Protobuf {
           }
         }
 
+        /// <summary>Field number for the "client_firm" field.</summary>
+        public const int ClientFirmFieldNumber = 14;
+        private string clientFirm_ = "";
+        /// <summary>
+        /// SR assigned client firm
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string ClientFirm {
+          get { return clientFirm_; }
+          set {
+            clientFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
@@ -2270,6 +2246,7 @@ namespace Spiderrock.Protobuf {
           if (Accnt != other.Accnt) return false;
           if (!object.Equals(TradeDate, other.TradeDate)) return false;
           if (RiskSession != other.RiskSession) return false;
+          if (ClientFirm != other.ClientFirm) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -2281,6 +2258,7 @@ namespace Spiderrock.Protobuf {
           if (Accnt.Length != 0) hash ^= Accnt.GetHashCode();
           if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
           if (RiskSession != global::Spiderrock.Protobuf.RiskSession.Unspecified) hash ^= RiskSession.GetHashCode();
+          if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2315,6 +2293,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(104);
             output.WriteEnum((int) RiskSession);
           }
+          if (ClientFirm.Length != 0) {
+            output.WriteRawTag(114);
+            output.WriteString(ClientFirm);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -2341,6 +2323,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(104);
             output.WriteEnum((int) RiskSession);
           }
+          if (ClientFirm.Length != 0) {
+            output.WriteRawTag(114);
+            output.WriteString(ClientFirm);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -2362,6 +2348,9 @@ namespace Spiderrock.Protobuf {
           }
           if (RiskSession != global::Spiderrock.Protobuf.RiskSession.Unspecified) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RiskSession);
+          }
+          if (ClientFirm.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -2392,6 +2381,9 @@ namespace Spiderrock.Protobuf {
           }
           if (other.RiskSession != global::Spiderrock.Protobuf.RiskSession.Unspecified) {
             RiskSession = other.RiskSession;
+          }
+          if (other.ClientFirm.Length != 0) {
+            ClientFirm = other.ClientFirm;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2430,6 +2422,10 @@ namespace Spiderrock.Protobuf {
                 RiskSession = (global::Spiderrock.Protobuf.RiskSession) input.ReadEnum();
                 break;
               }
+              case 114: {
+                ClientFirm = input.ReadString();
+                break;
+              }
             }
           }
         #endif
@@ -2465,6 +2461,10 @@ namespace Spiderrock.Protobuf {
               }
               case 104: {
                 RiskSession = (global::Spiderrock.Protobuf.RiskSession) input.ReadEnum();
+                break;
+              }
+              case 114: {
+                ClientFirm = input.ReadString();
                 break;
               }
             }

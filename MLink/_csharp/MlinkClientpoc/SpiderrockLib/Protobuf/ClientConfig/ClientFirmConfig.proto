@@ -73,6 +73,10 @@ message ClientFirmConfig {
     YesNo can_have_trading_accnt = 184; // disables all accnt activity
     string legal_entity_id = 187; // (LEI) reg oversight committee assigned entity ID assigned to a firm.  20 character string, contains numbers and dashes.
     string sec_large_trader_id = 190; // SEC-assigned trading ID assigned to a firm.  13 character string, contains numbers and dashes.
+    google.protobuf.Timestamp ltid_effective_date = 281; // LargeTraderID Effective Date
+    CatCaisTidType cat_cais_tid_type = 282; // CAT CAIS TID (Transformed Identifiers) Type
+    string cat_cais_tid_value = 283; // CAT CAIS TID Value
+    CatCaisCustType cat_cais_cust_type = 284; // CAT CAIS CustomerType
     string sync_agg_groups = 193; // [tgt:src,tgt:src,...] target agg group [usually priAggGroup]; will accumulate SR executions; will sync w/srcAggGroup; tgt will follow (be made equal to) src
     float sync_threshold = 196; // number of idle seconds before syncing aggGroups (default: 5 seconds)
     YesNo view_gICS = 199; // client firm can see GICS codes in SRSE
@@ -119,7 +123,7 @@ message ClientFirmConfig {
     string locate_req_firm__v7 = 5025; // only V7
     SRDataCenter_V7 locate_data_center__v7 = 5026; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
     string route_table__v7 = 5027; // only V7
-    TickerSrc_V7 user_ticker_src__v7 = 5028; // only v7: enum values do not match with v8: V7[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,TD=7,NYMEX=8,COMEX=9,RUT=10,CBOE=11,ISE=12,ARCA=13,NYSE=14,OTC=15,TST1=16,TST2=17,TST3=18,TST=19,USR1=20,USR2=21,USR3=22,NSDQ=23,MFQS=24,PHLX=25,MIAX=26,TSE=27,DJI=28,CBX=29], V8[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,NYMEX=7,COMEX=8,RUT=9,CIDX=10,ARCA=11,NYSE=12,OTC=13,NSDQ=14,MFQS=15,MIAX=16,DJI=17,CUSIP=18,ISIN=19,EUREX=20]
+    TickerSrc_V7 user_ticker_src__v7 = 5028; // only v7: enum values do not match with v8: V7[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,TD=7,NYMEX=8,COMEX=9,RUT=10,CBOE=11,ISE=12,ARCA=13,NYSE=14,OTC=15,TST1=16,TST2=17,TST3=18,TST=19,USR1=20,USR2=21,USR3=22,NSDQ=23,MFQS=24,PHLX=25,MIAX=26,TSE=27,DJI=28,CBX=29,EUREX=30,CDEX=31,BXE=32,CXE=33,DXE=34,XETRA=35], V8[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,NYMEX=7,COMEX=8,RUT=9,CIDX=10,ARCA=11,NYSE=12,OTC=13,NSDQ=14,MFQS=15,MIAX=16,DJI=17,CUSIP=18,ISIN=19,EUREX=20,CDEX=21,BXE=22,CXE=23,DXE=24,XETRA=25]
     string user_name__v7 = 5029; // only V7: using metaType
     repeated DirectedCounterParty directed_counter_party = 244;
     repeated LocatePool locate_pool = 220;

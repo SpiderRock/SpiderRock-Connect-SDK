@@ -29,7 +29,7 @@ message SpdrParentExecution {
     int32 parent_version = 124; // SPDR order instance number (1 = original order; 2 = 1st cancel/replace, etc)
     int64 base_parent_number = 127; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
     int64 cl_ord_id = 130; // SR child order clOrdID resulting in fill
-    string review_cl_ord_id = 133; // review session clOrdId (usually from inbound review FIX session)
+    string review_cl_ord_id = 133; // review session clOrdId (usually from inbound review FIX session)S
     int64 alt_fill_id = 136; // alternate fill ID (usually from AwayTktGateway.pkey.clientFillID)
     string alt_order_id = 139; // alternate order ID (usually clOrdId from client)
     string alt_cross_id = 142;
@@ -42,8 +42,6 @@ message SpdrParentExecution {
     int64 trigger_timestamp = 163; // WaitTrigger trigger timestamp (nanoseconds since epoch)
     string street_cl_ord_id = 166; // street side clOrdId (clOrdId or equivalent of the street side order) [SR/street gateway generated]
     string street_order_id = 169; // street side orderId (orderId or equivalent of the street side order) [from street side execReport]
-    FaceSide face_side = 172; // facilitation side (if any)
-    FaceShape face_shape = 175; // CrossCust = split broker / cust side, CrossFace = split broker / face side, CrossBoth = single broker cross
     SpdrOrderShape parent_shape = 178; // shape of originating parent order
     OptionKey sec_key = 181; // execution security key
     SpdrKeyType sec_type = 184; // execution security type [Stock, Future, Option]
@@ -52,8 +50,10 @@ message SpdrParentExecution {
     string client_firm = 193; // SR client firm
     SpdrSource spdr_source = 196; // SpiderRock parent order source code [broker pkey]
     int64 grouping_code = 199; // SpiderRock parent broker number [broker pkey]
+    string core_client_firm = 809;
+    string sponsor_client_firm = 810;
     string routing_code = 202; // SpiderRock market routing code
-    string engine_name = 205; // SpiderRock execution engine that handled the parent order
+    string engine_name = 811; // SpiderRock execution engine that handled the parent order
     string gateway_name = 208; // StreetGateway server than handled the child order (if any)
     ExecRole exec_role = 211; // SpiderRock relationship to this execution record
     string exec_brkr_code = 214; // SR Assigned executing broker code
@@ -166,113 +166,115 @@ message SpdrParentExecution {
     float fill_ga = 535; // fill gamma
     float fill_de = 538; // fill delta
     float fill_th = 541; // fill theta
-    float fill_ve_ratio = 544; // fill ve / fill atm ve
-    float fill_beta = 547; // SpiderRock estimate of beta to SPX
-    float risk_vega = 550; // risk vega
-    float risk_wt_vega = 553; // risk gamma
-    float risk_nValue = 556; // risk delta
-    float risk_delta = 559; // risk delta
-    float risk_dDelta = 562; // risk ddelta
-    float risk_rm1 = 565; // user defined (from parent order) [used to manage order groups
-    float risk_rm2 = 568; // user defined (from parent order) [used to manage order groups]
-    float risk_rm3 = 571; // user defined (from parent order) [used to manage order groups]
-    float risk_rm4 = 574; // user defined (from parent order) [used to manage order groups]
-    float risk_rm5 = 577; // user defined (from parent order) [used to manage order groups]
-    float risk_rm6 = 580; // user defined (from parent order) [used to manage order groups]
-    float risk_rm7 = 583; // user defined (from parent order) [used to manage order groups]
-    float margin_uDn_vDn = 586; // underlier down, vol down
-    float margin_uDn_vUp = 589; // underlier down, vol up
-    float margin_uUp_vDn = 592; // underlier up, vol down
-    float margin_uUp_vUp = 595; // underlier up, vol up
-    float risk_u15_dn = 598; // underlier dn 15% shock slide
-    float risk_u15_up = 601; // underlier up 15% shock slide
-    float risk_u50_dn = 604; // underlier dn 50% shock slide
-    float risk_u50_up = 607; // underlier up 50% shock slide
-    float fill_brkr_rate = 610; // billing brokerage rate (tier 1)
-    float fill_routing_rate = 613; // billing routing rate (tier 1)
-    RiskCode risk_code = 616; // SpiderRock Risk Code (if any)
-    BillingSecType billing_sec_type = 619; // SpiderRock billing security type
-    BillingCategory billing_category = 622; // SpiderRock billing category
-    string spdr_liquidity_tag = 625; // SpiderRock normalized liquidity tag
-    string exch_liquidity_tag = 628; // liquidity tag as reported by downstream venue (if any)
-    string fill_exch_detail = 631; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
-    OrderCapacity last_capacity = 634; // child order capacity
-    string exch_firm_type = 637; // used to reflect field from a downstread execution back up to upstream fill report
-    string ext_exec_broker = 640; // used to reflect field from a downstream destination back up to and upstream fill report
-    RelationshipType relationship_type = 643; // type of SR <-> client relationship
-    float cl_arrive_mark = 646; // client specified arrival mark (passed through from parent order)
-    google.protobuf.Timestamp parent_dttm = 649; // parent order creation date/time
-    int32 parent_order_size = 652; // parent order size
-    double parent_uBid = 655; // underlier market bid @ parent order arrival
-    double parent_uAsk = 658; // underlier market ask @ parent order arrival
-    double parent_uMark = 661; // underlier mid mark @ parent order arrival
-    double parent_bid = 664; // market bid @ parent order arrival
-    double parent_ask = 667; // market ask @ parent order arrival
-    double parent_mark = 670; // mid-market (or SR surface price) @ parent order arrival
-    double parent_fair_width = 673; // model fair width @ parent order arrival
-    double parent_surf_vol = 676; // SR surf vol @ parent order arrival
-    float parent_limit_vol = 679; // parent order limit volatilty (if any)
-    double parent_limit_prc = 682; // parent order limit price @ parent order arrival
-    double parent_limit_ref_uPrc = 685; // limit reference underlier price @ parent order arrival
-    float parent_theo_vol = 688; // client supplied theoretical volatility (used for markup only) [copied from parent order]
-    float parent_theo_prc = 691; // option price corresponding parentTheoVol
-    PositionType parent_pos_type = 694; // parent order position type
-    ShortSaleFlag parent_sSale_flag = 697; // short sale flag on parent order
-    int64 cross_notice_id = 700; // RFR / Auction crossNoticeId (if any)
-    int32 num_make_exchanges = 703; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
-    PublicSizeHandling public_size = 706; // public order size handling: None=use default size handling (usually limits public size to 'typical' market size); Randomize=randomize public size; FullSize=expose entire order size where possible
-    YesNo can_overlap_cxl_repl = 709; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
-    ProgressRule progress_rule = 712; // Immediate = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
-    YesNo exch_mask_enabled = 715; // exchMask != 0
-    TimeInForce time_in_force = 718; // Parent order time in force
-    ParentOrderHandling parent_order_handling = 721; // Primary/Take Algo Handler
-    ParentBalanceHandling parent_balance_handling = 724; // Make Algo Handler
-    SpdrLimitType order_limit_type = 727; // Primary Limit Type (Prc, Vol, Rel, Market, Smrt, etc)
-    SpdrLimitClass order_limit_class = 730; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
-    ReachRule take_reach_rule = 733; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
-    OverrideCode override_code = 736; // SDiv/DDiv override rule (applies if LimitType = Vol)
-    AlphaType alpha_type = 739; // Affects limit probabilities (applies if LimitClass = Probability)
-    string parent_strategy = 742; // client strategy [usually client supplied]
-    string user_name = 745; // user name associated with the parent order
-    AutoHedge auto_hedge = 748; // auto-hedge algorithm (if any)
-    ExpiryKey hedge_sec_key = 751; // auto-hedge sec key (if any)
-    SpdrKeyType hedge_sec_type = 754; // auto-hedge sec type (if any)
-    float hedge_beta_ratio = 757; // portion of executed $delta to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0])
-    HedgeScope hedge_scope = 760; // hedge group scope
-    string user_data1 = 763; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
-    string user_data2 = 766; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
-    float years = 769; // years to expiration
-    int32 underliers_per_cn = 772; // option delivery underliers per contract
-    UnderlierType underlier_type = 775; // type of underlier (affects $greek calculations)
-    float tick_value = 778; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
-    float point_value = 781; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
-    Currency point_currency = 784;
-    float u_prc_ratio = 787; // UPrcRatio (SymbolRatio) from product definition
-    float min_tick_size = 790; // minimum market price variation (dnTickSize if on a boundary)
-    PriceFormat price_format = 793; // SpiderRock price display format code
-    PriceFormat u_price_format = 796; // SpiderRock underlier price display format code
-    double live_uPrc = 799; // SpiderRock internal use only
-    double live_mark = 802; // SpiderRock internal use only
-    int64 src_timestamp = 805;
-    int64 sgw_timestamp = 808;
-    int64 eng_timestamp = 811;
-    google.protobuf.Timestamp timestamp = 814; // timestamp of this record [not necessarily the timstamp of the fill itself]
+    float fill_ve_ratio = 547; // fill ve / fill atm ve
+    float fill_beta = 550; // SpiderRock estimate of beta to SPX
+    float risk_vega = 812; // risk vega
+    float risk_wt_vega = 813; // risk gamma
+    float risk_nValue = 814; // risk delta
+    float risk_delta = 815; // risk delta
+    float risk_dDelta = 816; // risk ddelta
+    float risk_rm1 = 817; // user defined (from parent order) [used to manage order groups]
+    float risk_rm2 = 818; // user defined (from parent order) [used to manage order groups]
+    float risk_rm3 = 819; // user defined (from parent order) [used to manage order groups]
+    float risk_rm4 = 820; // user defined (from parent order) [used to manage order groups]
+    float risk_rm5 = 821; // user defined (from parent order) [used to manage order groups]
+    float risk_rm6 = 822; // user defined (from parent order) [used to manage order groups]
+    float risk_rm7 = 823; // user defined (from parent order) [used to manage order groups]
+    float margin_uDn_vDn = 824; // underlier down, vol down
+    float margin_uDn_vUp = 825; // underlier down, vol up
+    float margin_uUp_vDn = 826; // underlier up, vol down
+    float margin_uUp_vUp = 827; // underlier up, vol up
+    float risk_u15_dn = 828; // underlier dn 15% shock slide
+    float risk_u15_up = 829; // underlier up 15% shock slide
+    float risk_u50_dn = 830; // underlier dn 50% shock slide
+    float risk_u50_up = 831; // underlier up 50% shock slide
+    float fill_brkr_rate = 604; // billing brokerage rate (tier 1)
+    float fill_routing_rate = 607; // billing routing rate (tier 1)
+    RiskCode risk_code = 610; // SpiderRock Risk Code (if any)
+    BillingSecType billing_sec_type = 613; // SpiderRock billing security type
+    BillingCategory billing_category = 616; // SpiderRock billing category
+    string spdr_liquidity_tag = 619; // SpiderRock normalized liquidity tag
+    string exch_liquidity_tag = 622; // liquidity tag as reported by downstream venue (if any)
+    string fill_exch_detail = 625; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    OrderCapacity last_capacity = 628; // child order capacity
+    string exch_firm_type = 631; // used to reflect field from a downstread execution back up to upstream fill report
+    string ext_exec_broker = 634; // used to reflect field from a downstream destination back up to and upstream fill report
+    RelationshipType relationship_type = 637; // type of SR <-> client relationship
+    float cl_arrive_mark = 640; // client specified arrival mark (passed through from parent order)
+    google.protobuf.Timestamp parent_dttm = 643; // parent order creation date/time
+    int32 parent_order_size = 646; // parent order size
+    double parent_uBid = 649; // underlier market bid @ parent order arrival
+    double parent_uAsk = 652; // underlier market ask @ parent order arrival
+    double parent_uMark = 655; // underlier mid mark @ parent order arrival
+    double parent_bid = 658; // market bid @ parent order arrival
+    double parent_ask = 661; // market ask @ parent order arrival
+    double parent_mark = 664; // mid-market (or SR surface price) @ parent order arrival
+    double parent_fair_width = 667; // model fair width @ parent order arrival
+    double parent_surf_vol = 670; // SR surf vol @ parent order arrival
+    float parent_limit_vol = 673; // parent order limit volatilty (if any)
+    double parent_limit_prc = 676; // parent order limit price @ parent order arrival
+    double parent_limit_ref_uPrc = 679; // limit reference underlier price @ parent order arrival
+    float parent_theo_vol = 682; // client supplied theoretical volatility (used for markup only) [copied from parent order]
+    float parent_theo_prc = 685; // option price corresponding parentTheoVol
+    PositionType parent_pos_type = 688; // parent order position type
+    ShortSaleFlag parent_sSale_flag = 691; // short sale flag on parent order
+    int64 cross_notice_id = 694; // RFR / Auction crossNoticeId (if any)
+    int32 num_make_exchanges = 697; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
+    PublicSizeHandling public_size = 700; // public order size handling: None=use default size handling (usually limits public size to 'typical' market size); Randomize=randomize public size; FullSize=expose entire order size where possible
+    YesNo can_overlap_cxl_repl = 703; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
+    ProgressRule progress_rule = 706; // Immediate = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
+    YesNo exch_mask_enabled = 709; // exchMask != 0
+    TimeInForce time_in_force = 712; // Parent order market session
+    ParentOrderHandling parent_order_handling = 715; // Primary/Take Algo Handler
+    ParentBalanceHandling parent_balance_handling = 718; // Make Algo Handler
+    SpdrLimitType order_limit_type = 721; // Primary Limit Type (Prc, Vol, Rel, Market, Smrt, etc)
+    SpdrLimitClass order_limit_class = 724; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    ReachRule take_reach_rule = 727; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    OverrideCode override_code = 730; // SDiv/DDiv override rule (applies if LimitType = Vol)
+    AlphaType alpha_type = 733; // Affects limit probabilities (applies if LimitClass = Probability)
+    string parent_strategy = 736; // client strategy [usually client supplied]
+    string user_name = 739; // user name associated with the parent order
+    AutoHedge auto_hedge = 742; // auto-hedge algorithm (if any)
+    ExpiryKey hedge_sec_key = 745; // auto-hedge sec key (if any)
+    SpdrKeyType hedge_sec_type = 748; // auto-hedge sec type (if any)
+    float hedge_beta_ratio = 751; // portion of executed $delta to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0])
+    HedgeScope hedge_scope = 754; // hedge group scope
+    string user_data1 = 757; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 760; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    float years = 763; // years to expiration
+    int32 underliers_per_cn = 766; // option delivery underliers per contract
+    UnderlierType underlier_type = 769; // type of underlier (affects $greek calculations)
+    float tick_value = 772; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 775; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 778;
+    float u_prc_ratio = 781; // UPrcRatio (SymbolRatio) from product definition
+    float min_tick_size = 784; // minimum market price variation (dnTickSize if on a boundary)
+    PriceFormat price_format = 787; // SpiderRock price display format code
+    PriceFormat u_price_format = 790; // SpiderRock underlier price display format code
+    double live_uPrc = 793; // SpiderRock internal use only
+    double live_mark = 796; // SpiderRock internal use only
+    int64 src_timestamp = 799;
+    int64 sgw_timestamp = 802;
+    int64 eng_timestamp = 805;
+    google.protobuf.Timestamp timestamp = 808; // timestamp of this record [not necessarily the timstamp of the fill itself]
     SRDataCenter_V7 data_center__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
-    string child_locate_source__v7 = 5001; // only V7
-    float fill_pr__v7 = 5002; // only V7
-    float fill_risk_metric1__v7 = 5003; // only V7
-    float fill_risk_metric2__v7 = 5004; // only V7
-    float fill_risk_metric3__v7 = 5005; // only V7
-    float fill_risk_metric4__v7 = 5006; // only V7
-    float fill_risk_metric5__v7 = 5007; // only V7
-    float fill_risk_metric6__v7 = 5008; // only V7
-    float fill_risk_metric7__v7 = 5009; // only V7
-    float fill_s08_dn__v7 = 5010; // only V7
-    float fill_s06_up__v7 = 5011; // only V7
-    float fill_s15_dn__v7 = 5012; // only V7
-    float fill_s15_up__v7 = 5013; // only V7
-    float fill_s50_dn__v7 = 5014; // only V7
-    float fill_s50_up__v7 = 5015; // only V7
+    FaceSide face_side__v7 = 5001; // only v7 - enum values match with v8
+    FaceShape face_shape__v7 = 5002; // only v7 - enum values match with v8
+    string child_locate_source__v7 = 5003; // only V7
+    float fill_pr__v7 = 5004; // only V7
+    float fill_risk_metric1__v7 = 5005; // only V7
+    float fill_risk_metric2__v7 = 5006; // only V7
+    float fill_risk_metric3__v7 = 5007; // only V7
+    float fill_risk_metric4__v7 = 5008; // only V7
+    float fill_risk_metric5__v7 = 5009; // only V7
+    float fill_risk_metric6__v7 = 5010; // only V7
+    float fill_risk_metric7__v7 = 5011; // only V7
+    float fill_s08_dn__v7 = 5012; // only V7
+    float fill_s06_up__v7 = 5013; // only V7
+    float fill_s15_dn__v7 = 5014; // only V7
+    float fill_s15_up__v7 = 5015; // only V7
+    float fill_s50_dn__v7 = 5016; // only V7
+    float fill_s50_up__v7 = 5017; // only V7
 }
 
 

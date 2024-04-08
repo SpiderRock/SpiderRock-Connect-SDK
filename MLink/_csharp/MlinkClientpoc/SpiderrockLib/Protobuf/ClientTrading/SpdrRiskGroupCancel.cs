@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJSaXNrR3JvdXBDYW5jZWwu",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIsoDChNT",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIt8DChNT",
             "cGRyUmlza0dyb3VwQ2FuY2VsEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOwoEcGtleRgCIAEoCzItLnNw",
             "aWRlcnJvY2sucHJvdG9idWYuU3BkclJpc2tHcm91cENhbmNlbC5QS2V5EjwK",
@@ -36,12 +36,12 @@ namespace Spiderrock.Protobuf {
             "c3BpZGVycm9jay5wcm90b2J1Zi5TcGRyU291cmNlEhIKCmN4bF9yZWFzb24Y",
             "bSABKAkSFQoNYWx0X2NhbmNlbF9pZBhwIAEoCRIRCgl1c2VyX25hbWUYcyAB",
             "KAkSLQoJdGltZXN0YW1wGHYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBosCgRQS2V5EhUKDXJpc2tfZ3JvdXBfaWQYCiABKAMSDQoFYWNjbnQY",
-            "CyABKAliBnByb3RvMw=="));
+            "dGFtcBpBCgRQS2V5EhUKDXJpc2tfZ3JvdXBfaWQYCiABKAMSDQoFYWNjbnQY",
+            "CyABKAkSEwoLY2xpZW50X2Zpcm0YDCABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrRiskGroupCancel), global::Spiderrock.Protobuf.SpdrRiskGroupCancel.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "SpdrSource", "CxlReason", "AltCancelId", "UserName", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrRiskGroupCancel.Types.PKey), global::Spiderrock.Protobuf.SpdrRiskGroupCancel.Types.PKey.Parser, new[]{ "RiskGroupId", "Accnt" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrRiskGroupCancel), global::Spiderrock.Protobuf.SpdrRiskGroupCancel.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "SpdrSource", "CxlReason", "AltCancelId", "UserName", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrRiskGroupCancel.Types.PKey), global::Spiderrock.Protobuf.SpdrRiskGroupCancel.Types.PKey.Parser, new[]{ "RiskGroupId", "Accnt", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -609,6 +609,7 @@ namespace Spiderrock.Protobuf {
         public PKey(PKey other) : this() {
           riskGroupId_ = other.riskGroupId_;
           accnt_ = other.accnt_;
+          clientFirm_ = other.clientFirm_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -648,6 +649,21 @@ namespace Spiderrock.Protobuf {
           }
         }
 
+        /// <summary>Field number for the "client_firm" field.</summary>
+        public const int ClientFirmFieldNumber = 12;
+        private string clientFirm_ = "";
+        /// <summary>
+        /// SR client firm
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string ClientFirm {
+          get { return clientFirm_; }
+          set {
+            clientFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
@@ -665,6 +681,7 @@ namespace Spiderrock.Protobuf {
           }
           if (RiskGroupId != other.RiskGroupId) return false;
           if (Accnt != other.Accnt) return false;
+          if (ClientFirm != other.ClientFirm) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -674,6 +691,7 @@ namespace Spiderrock.Protobuf {
           int hash = 1;
           if (RiskGroupId != 0L) hash ^= RiskGroupId.GetHashCode();
           if (Accnt.Length != 0) hash ^= Accnt.GetHashCode();
+          if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -700,6 +718,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(Accnt);
           }
+          if (ClientFirm.Length != 0) {
+            output.WriteRawTag(98);
+            output.WriteString(ClientFirm);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -718,6 +740,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(Accnt);
           }
+          if (ClientFirm.Length != 0) {
+            output.WriteRawTag(98);
+            output.WriteString(ClientFirm);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -733,6 +759,9 @@ namespace Spiderrock.Protobuf {
           }
           if (Accnt.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Accnt);
+          }
+          if (ClientFirm.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -751,6 +780,9 @@ namespace Spiderrock.Protobuf {
           }
           if (other.Accnt.Length != 0) {
             Accnt = other.Accnt;
+          }
+          if (other.ClientFirm.Length != 0) {
+            ClientFirm = other.ClientFirm;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -775,6 +807,10 @@ namespace Spiderrock.Protobuf {
                 Accnt = input.ReadString();
                 break;
               }
+              case 98: {
+                ClientFirm = input.ReadString();
+                break;
+              }
             }
           }
         #endif
@@ -796,6 +832,10 @@ namespace Spiderrock.Protobuf {
               }
               case 90: {
                 Accnt = input.ReadString();
+                break;
+              }
+              case 98: {
+                ClientFirm = input.ReadString();
                 break;
               }
             }
