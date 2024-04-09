@@ -6,6 +6,42 @@ This document provides an overview of the SRConnect system developed for trespon
 
 The SRConnect Auction System integrates with SpiderRock's MLink API to facilitate Auction reponses. It utilizes a set of predefined message types to manage auction notices and responses. This system is designed to work with the FIX financial protocol and SpiderRock's Trade Tool alongside the MLink API.
 
+# Understanding MLink's Role in the SRCconnect Workflow
+
+MLink is a central component of the SRCconnect trading system. It facilitates the efficient handling of auction notices, responses, and cancellations, using a sophisticated filtering system to ensure that clients receive pertinent auction opportunities in real-time.
+
+## Key Components
+
+### Filtering
+- **Purpose**: Allows clients to specify filters for the auctions of interest.
+- **Functionality**: Utilizes `UserAuctionFilter` messages to streamline the delivery of `AuctionNotice` messages, enhancing relevance and efficiency.
+
+### MLink Server
+- Processes and routes all auction-related messages within the system.
+- **Messages Processed**:
+  - `AuctionNotice`: Alerts clients of relevant auctions based on established filters.
+  - `NoticeResponse`: Message used to participate/respond to Auction Notices.
+  - `NoticeExecReport`: Sends confirmation/reporting of the action taken on `NoticeResponse`.
+  - `NoticeCancel`: Processes clients' requests to cancel their responses to auctions.
+
+### Client Auction Responder
+- **Automated Decision-Making**: Analyzes incoming `AuctionNotice` messages and determines the appropriate action based on positions, theoretical models, and risk rules to respond to auctions.
+- **Documentation**: Clients are advised to consult the SR MLink Auction Responder Documentation for in-depth understanding and setup instructions.
+
+## Workflow Overview
+
+The MLink API's integration into the SRCconnect workflow can be summarized in the following steps:
+
+1. **Auction Notice Generation**: The MLink Server publishes an `AuctionNotice` when a new auction is available that matches the client's predefined filters.
+2. **Client Decision Process**: The Client Auction Responder receives the `AuctionNotice` and uses the client's strategy and risk profile to decide whether to participate in an auction.
+3. **Response Handling**: The client's `NoticeResponse` is sent to the MLink Server, which then processes it and returns a `NoticeExecReport`.
+4. **Cancellation Option**: Clients retain the ability to send a `NoticeCancel` message if they choose to withdraw from an auction.
+
+The process ensures that clients engage with auctions that are most relevant to them, maintaining a high level of market responsiveness and strategic participation.
+
+Through MLink, SRCconnect provides a robust platform for auction-based trading, enabling clients to filter, respond to, and manage auction participation with precision and agility. MLink's API and server act as the cornerstone of this process, ensuring real-time data streaming and interactive trading capabilities.
+
+
 ### Key Features
 
 - **Auction Filtering**: Participants can filter auctions of interest with `UserAuctionFilter` messages, enhancing the relevance of AuctionNotice messages.
