@@ -234,6 +234,115 @@ The `AuctionNotice` message is a stream of Auction Notices available. Below is t
 | oAskSz               | Int        |                                                                                                                              | (In `OrderLegs`) Cumulative NBBO ask size.                                                     |
 | oAskMask             | UInt       |                                                                                                                              | (In `OrderLegs`) Bit-mask of participating NBBO exchanges.                                     |
 
+The `AuctionNotice` JSON Body received from an MLink Server will be strcutured in the following way (Sample):
+
+```json
+{
+        "header": {
+            "mTyp": "AuctionNotice"
+        },
+        "message": {
+            "pkey": {
+                "noticeNumber": "1F41-3364-7800-D7C1"
+            },
+            "ticker": {
+                "at": "EQT",
+                "ts": "NMS",
+                "tk": "IWM"
+            },
+            "tradeDate": "2024-04-10",
+            "auctionType": "Exposure",
+            "auctionEvent": "Start",
+            "auctionSource": "NYSE",
+            "isTestAuction": "No",
+            "industry": "Financials",
+            "custSide": "Buy",
+            "custQty": 1,
+            "custPrc": 0.0073,
+            "hasCustPrc": "Yes",
+            "containsHedge": "No",
+            "uBid": 200.5,
+            "uAsk": 200.5099945068,
+            "timestamp": "2024-04-10 13:30:37.462731",
+            "netVega": 2.2605,
+            "netDelta": 7.9345,
+            "netGamma": 0.2836,
+            "netSurfPrc": -1.4956,
+            "OrderLegs": [
+                {
+                    "secKey": {
+                        "at": "EQT",
+                        "ts": "NMS",
+                        "tk": "IWM",
+                        "dt": "2024-05-17",
+                        "xx": 206,
+                        "cp": "Put"
+                    },
+                    "secType": "Option",
+                    "side": "Buy",
+                    "ratio": 1,
+                    "undPerCn": 100,
+                    "pointValue": 100,
+                    "expType": "Regular",
+                    "years": 0.1078,
+                    "rate": 0.0563,
+                    "atmVol": 0,
+                    "ddivPv": 0,
+                    "tVol": 0,
+                    "sVol": 0.15,
+                    "sDiv": 0,
+                    "sPrc": 6.7045,
+                    "de": -0.6948,
+                    "ga": 0.0423,
+                    "th": -0.0433,
+                    "ve": 0.2423,
+                    "sVolOk": "No",
+                    "oBid": 7.72,
+                    "oBidSz": 268,
+                    "oBidMask": 21893119,
+                    "oAsk": 7.98,
+                    "oAskSz": 25,
+                    "oAskMask": 17304279
+                },
+                {
+                    "secKey": {
+                        "at": "EQT",
+                        "ts": "NMS",
+                        "tk": "IWM",
+                        "dt": "2024-05-17",
+                        "xx": 208,
+                        "cp": "Put"
+                    },
+                    "secType": "Option",
+                    "side": "Sell",
+                    "ratio": 1,
+                    "undPerCn": 100,
+                    "pointValue": 100,
+                    "expType": "Regular",
+                    "years": 0.1078,
+                    "rate": 0.0563,
+                    "atmVol": 0,
+                    "ddivPv": 0,
+                    "tVol": 0,
+                    "sVol": 0.15,
+                    "sDiv": 0,
+                    "sPrc": 8.2,
+                    "de": -0.7741,
+                    "ga": 0.0394,
+                    "th": -0.0343,
+                    "ve": 0.2197,
+                    "sVolOk": "No",
+                    "oBid": 9.05,
+                    "oBidSz": 99,
+                    "oBidMask": 21892823,
+                    "oAsk": 9.34,
+                    "oAskSz": 48,
+                    "oAskMask": 17302231
+                }
+            ]
+        }
+    }
+```
 
 ### NoticeResponse
 
@@ -271,7 +380,108 @@ The `NoticeResponse` message is crucial for participants responding to auction n
 | side          | Enum      | None, Buy, Sell                                           | (In `OrderLegs`) Side of the leg                                                                                     | OrderLegs   |
 | positionType  | Enum      | None, Auto, Open, Close, Long, Short, SellShort, Exempt, Cover | (In `OrderLegs`) Specifies the position type of the order leg                                                        | OrderLegs   |
 
+The `NoticeResponse` JSON Body sent back to an MLink Server should repsect the following structure (Sample):
 
+```json
+{
+    "header": {
+        "mTyp": "NoticeResponse"
+    },
+    "message": {
+        "noticeNumber": "AuctionNotice.NoticeNumber",
+        "accnt": "SR Accnt",
+        "clientFirm": "SR ClientFirm",
+        "responseId": "Response123456789",
+        "stageType": "None, ModifyAny, ModifyAlgo ",
+        "respSide": "Sell",
+        "respSize": 3,
+        "respPrice": -0.0047,
+        "refUPrc": 170,
+        "refDe": 20.9031,
+        "refGa": 0.6098,
+        "minUBid": 169.2,
+        "maxUAsk": 169.7,
+        "riskGroupId": 9876543210,
+        "timestamp": "2024-04-09 14:42:30.374222",
+        "OrderLegs": [
+            {
+                "secKey": {
+                    "at": "EQT",
+                    "ts": "NMS",
+                    "tk": "AAPL",
+                    "dt": "2024-04-12",
+                    "xx": 160,
+                    "cp": "Put"
+                },
+                "secType": "Option",
+                "side": "Buy",
+                "ratio": 1,
+                "undPerCn": 100,
+                "pointValue": 100,
+                "expType": "Weekly",
+                "years": 0.0132,
+                "rate": 0.0552,
+                "atmVol": 0.1885,
+                "ddivPv": 0,
+                "tVol": 0,
+                "sVol": 0.2672,
+                "sDiv": -0.0074,
+                "sPrc": 0.0551,
+                "de": -0.0274,
+                "ga": 0.0121,
+                "th": -0.0381,
+                "ve": 0.0123,
+                "sVolOk": "Yes",
+                "oBid": 0.05,
+                "oBidSz": 3407,
+                "oBidMask": 21893087,
+                "oAsk": 0.06,
+                "oAskSz": 894,
+                "oAskMask": 21629911
+            },
+            {
+                "secKey": {
+                    "at": "EQT",
+                    "ts": "NMS",
+                    "tk": "AAPL",
+                    "dt": "2024-04-12",
+                    "xx": 175,
+                    "cp": "Put"
+                },
+                "secType": "Option",
+                "side": "Sell",
+                "positionType": "Auto"
+            },
+            {
+                "secKey": {
+                    "at": "EQT",
+                    "ts": "NMS",
+                    "tk": "AAPL",
+                    "dt": "2024-04-26",
+                    "xx": 155,
+                    "cp": "Put"
+                },
+                "secType": "Option",
+                "side": "Sell",
+                "positionType": "Auto"
+            },
+            {
+                "secKey": {
+                    "at": "EQT",
+                    "ts": "NMS",
+                    "tk": "AAPL",
+                    "dt": "2024-04-26",
+                    "xx": 175,
+                    "cp": "Put"
+                },
+                "secType": "Option",
+                "side": "Buy",
+                "positionType": "Auto"
+            }
+        ]
+    }
+}
+```
 ### NoticeExecReport
 
 #### NoticeExecReport Message Schema
