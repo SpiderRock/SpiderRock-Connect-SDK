@@ -2,6 +2,20 @@
 
 This document provides an overview of the SRConnect system developed for responding to Auctions via SpiderRock's MLink API. Our system leverages specific message types to enable auction responders to interact with the auction process.
 
+# Table of Contents
+- [System Overview](#system-overview)
+- [Understanding MLink's Role](#understanding-mlink's-role-in-the-srcconnect-workflow)
+  - [Key Components](#key-components)
+    - [Filtering](#filtering)
+    - [MLink Server](#mlink-server)
+    - [Client Auction Responder](#client-auction-responder)
+  - [Workflow Overview](#workflow-overview)
+  - [Key Features](#key-features)
+  - [Message Types](#message-types)
+- [Integration with MLink API](#integration-with-mlink-api)
+  - [Authentication](#authentication)
+  - [Connection Types](#connection-types)
+
 ## System Overview
 
 The SRConnect Auction System integrates with SpiderRock's MLink API to facilitate Auction reponses. It utilizes a set of predefined message types to manage auction notices and responses. This system is designed to work with the FIX financial protocol and SpiderRock's Trade Tool alongside the MLink API.
