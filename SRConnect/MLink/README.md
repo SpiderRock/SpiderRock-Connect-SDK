@@ -1,6 +1,6 @@
 # SRConnect via MLink
 
-This document provides an overview of the SRConnect system developed for tresponding to Auctions via SpiderRock's MLink API. Our system leverages specific message types to enable auction responders to interact with the auction process.
+This document provides an overview of the SRConnect system developed for responding to Auctions via SpiderRock's MLink API. Our system leverages specific message types to enable auction responders to interact with the auction process.
 
 ## System Overview
 
