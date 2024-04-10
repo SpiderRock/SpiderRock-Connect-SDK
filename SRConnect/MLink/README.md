@@ -156,6 +156,94 @@ The `UserAuctionFilter` message is vital for participants to set their preferenc
 | SpreadClass         | Repeater  |                                                           | Repeater field for specifying spread classes.                                                                     |                   |
 | spreadClass       | Enum      | None, Stk, Fut, Call, Put, Synth, RevCon, Box, JRoll, Roll, Straddle, Strangle, CSpread, PSpread, VStrip, VSpread, HStrip, HSpread, BFly, RiskRev, Mixed | Specifies the spread class within `SpreadClass` repeater. | SpreadClass       |
 
+The `UserAuctionFilter` JSON Body sent back to an MLink Server should repsect the following structure (Sample):
+
+```json
+{
+    "header": {
+        "mTyp": "UserAuctionFilter"
+    },
+    "message": {
+        "userName": "example_user",
+        "filterName": "MyFilter",
+        "clientFirm": "ExampleFirm",
+        "enabled": "Yes",
+        "includeCovered": "No",
+        "includeETFs": "Yes",
+        "includeADRs": "No",
+        "includeIndexes": "Yes",
+        "minUPrc": 10.0,
+        "hasUAvgDailyVlmFilter": "Yes",
+        "minUAvgDailyVlm": 1.0,
+        "maxUAvgDailyVlm": 5.0,
+        "minSize": 100,
+        "minAbsVega": 0.1,
+        "hasAbsDeltaFilter": "Yes",
+        "minAbsDelta": 0.1,
+        "maxAbsDelta": 1.0,
+        "hasXDeltaFilter": "No",
+        "minXDelta": 0.0,
+        "maxXDelta": 0.0,
+        "hasAtmSVolFilter": "Yes",
+        "minAtmSVol": 20.0,
+        "maxAtmSVol": 30.0,
+        "hasAtmSDivFilter": "No",
+        "minAtmSDiv": 0.0,
+        "maxAtmSDiv": 0.0,
+        "hasExpiryDays": "Yes",
+        "minExpiryDays": 1,
+        "maxExpiryDays": 365,
+        "includeZDte": "Yes",
+        "includeDaily": "Yes",
+        "includeWeekly": "Yes",
+        "includeRegular": "Yes",
+        "includeQuarterly": "Yes",
+        "includeFlex": "Yes",
+        "includeCommPaying": "No",
+        "direction": "Buy",
+        "vegaDirection": "Sell",
+        "modifiedBy": "user123",
+        "modifiedIn": "Saturn",
+        "timestamp": "2024-04-10T10:00:00Z",
+        "AuctionSources": [
+            {
+                "auctionSource": "SRC"
+            },
+            {
+                "auctionSource": "AMEX"
+            }
+        ],
+        "AuctionTypes": [
+            {
+                "auctionType": "Improvement"
+            },
+            {
+                "auctionType": "Exposure"
+            }
+        ],
+        "ExcludeTicker": [
+            {
+                "ticker": "EXCLD_TICKER1"
+            }
+        ],
+        "IncludeTicker": [
+            {
+                "ticker": "INCLD_TICKER1"
+            }
+        ],
+        "Industry": [
+            {
+                "industry": "Technology"
+            }
+        ],
+        "SpreadClass": [
+            {
+                "spreadClass": "Straddle"
+            }
+        ]
+    }
+}
+```
 
 ### AuctionNotice
 
@@ -234,7 +322,7 @@ The `AuctionNotice` message is a stream of Auction Notices available. Below is t
 | oAskSz               | Int        |                                                                                                                              | (In `OrderLegs`) Cumulative NBBO ask size.                                                     |
 | oAskMask             | UInt       |                                                                                                                              | (In `OrderLegs`) Bit-mask of participating NBBO exchanges.                                     |
 
-The `AuctionNotice` JSON Body received from an MLink Server will be strcutured in the following way (Sample):
+The `AuctionNotice` JSON Body received from an MLink Server will be structured in the following way (Sample):
 
 ```json
 {
@@ -524,7 +612,71 @@ The `NoticeExecReport` message type is integral for reporting the execution resu
 | legCumFillQty     | Int       |                                                                    | Cumulative fill quantity for each leg.                                                                                                     | OrderLegs      |
 | legAvgFillPrice   | Double    |                                                                    | Average fill price for each leg.                                                                                                           | OrderLegs      |
 
+The `NoticeExecReport` JSON Body received from an MLink Server will be structured in the following way (Sample):
 
+```json
+{
+    "header": {
+        "mTyp": "NoticeExecReport"
+    },
+    "message": {    
+        "noticeNumber": "AuctionNotice.NoticeNumber",
+        "accnt": "SampleAccount",
+        "clientFirm": "SampleFirm",
+        "responseId": "Response987654321",
+        "stageType": "ModifyAny",
+        "respSide": "Buy",
+        "respSize": 100,
+        "respActiveSize": 90,
+        "respPrice": 10.50,
+        "refUPrc": 150.00,
+        "refDe": 0.50,
+        "refGa": 0.10,
+        "riskGroupId": 123123123,
+        "strategy": "SampleStrategy",
+        "userData1": "Additional info",
+        "respStatus": "New",
+        "respDetail": "Detailing text",
+        "pkgCumFillQty": 50,
+        "pkgAvgFillPrice": 10.75,
+        "timestamp": "2024-04-10T10:00:00Z",
+        "OrderLegs": [
+            {
+                "secKey": {
+                    "at": "EQT",
+                    "ts": "NMS",
+                    "tk": "AAPL",
+                    "dt": "2024-04-17",
+                    "xx": 150,
+                    "cp": "Call"
+                },
+                "secType": "Option",
+                "side": "Buy",
+                "ratio": 1,
+                "positionType": "Open",
+                "legCumFillQty": 25,
+                "legAvgFillPrice": 10.50
+            },
+            {
+                "secKey": {
+                    "at": "EQT",
+                    "ts": "NMS",
+                    "tk": "AAPL",
+                    "dt": "2024-04-24",
+                    "xx": 155,
+                    "cp": "Call"
+                },
+                "secType": "Option",
+                "side": "Sell",
+                "ratio": 1,
+                "positionType": "Close",
+                "legCumFillQty": 25,
+                "legAvgFillPrice": 10.75
+            }
+        ]
+    }
+}
+```
 
 ### NoticeCancel
 
@@ -543,3 +695,19 @@ The `NoticeCancel` message type is utilized for canceling previously issued `Not
 | accnt         | String    | (Required) Identifies the SpiderRock account.                  |
 | clientFirm    | String    | (Optional) Specifies the client firm.                         |
 | timestamp     | DateTime  | Timestamp marking when the cancellation request was initiated. |
+
+The `NoticeCancel` JSON Body sent back to an MLink Server should repsect the following structure (Sample):
+
+```json
+{
+    "header": {
+        "mTyp": "NoticeCancel"
+    },
+    "message": {
+        "noticeNumber": "AuctionNotice.NoticeNumber",
+        "accnt": "SampleAccount",
+        "clientFirm": "SampleFirm",
+        "timestamp": "2024-04-10T10:00:00Z"
+    }
+}
+```
