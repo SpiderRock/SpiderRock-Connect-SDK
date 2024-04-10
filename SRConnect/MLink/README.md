@@ -105,7 +105,7 @@ The `UserAuctionFilter` message is vital for participants to set their preferenc
 | userName            | String    |                                                           | The user name associated with this filter.                                                                        |                  |
 | filterName          | String    |                                                           | The name of the filter.                                                                                           |                  |
 | clientFirm          | String    |                                                           | Identifies the SR Client Firm.                                                                                    |                  |
-| enabled             | Enum      | None, Yes, No                                              | Indicates if the filter is enabled.                                                                               |                  |
+| disabled             | Enum      | None, Yes, No                                              | Indicates if the filter is enabled.                                                                               |                  |
 | includeCovered      | Enum      | None, Yes, No                                              | Whether to include covered auctions in the filter.                                                                |                  |
 | includeETFs         | Enum      | None, Yes, No                                              | Whether to include ETFs in the filter.                                                                            |                  |
 | includeADRs         | Enum      | None, Yes, No                                              | Whether to include ADRs in the filter.                                                                            |                  |
@@ -136,10 +136,11 @@ The `UserAuctionFilter` message is vital for participants to set their preferenc
 | includeWeekly       | Enum      | None, Yes, No                                              | Whether to include auctions with weekly expiries.                                                                 |                  |
 | includeRegular      | Enum      | None, Yes, No                                              | Whether to include auctions with regular expiries.                                                                |                  |
 | includeQuarterly    | Enum      | None, Yes, No                                              | Whether to include auctions with quarterly expiries.                                                              |                  |
+| includeOtherExp    | Enum      | None, Yes, No                                              | Whether to include auctions with other expiries.                                                              |                  |
 | includeFlex         | Enum      | None, Yes, No                                              | Whether to include auctions with flex expiries.                                                                   |                  |
 | includeCommPaying   | Enum      | None, Yes, No                                              | Whether to include auctions where commission is being paid.                                                       |                  |
 | direction           | Enum      | None, Buy, Sell                                            | Direction of interest in the auction (Buy = Buy Regular or Sell Flipped).                                         |                  |
-| vegaDirection       | Enum      | None, Buy, Sell                                            | Vega direction of interest in the auction.                                                                        |                  |
+| netVegaDirection       | Enum      | None, Buy, Sell                                            | Vega direction of interest in the auction.                                                                        |                  |
 | modifiedBy          | String    |                                                           | User who last modified the filter.                                                                                |                   |
 | modifiedIn          | Enum      | None, Neptune, Pluto, etc.                                 | Indicates where the filter was last modified.                                                                     |                   |
 | timestamp           | DateTime  |                                                           | Timestamp of the last modification.                                                                               |                   |
@@ -164,33 +165,35 @@ The `UserAuctionFilter` JSON Body sent back to an MLink Server should repsect th
         "mTyp": "UserAuctionFilter"
     },
     "message": {
-        "userName": "example_user",
-        "filterName": "MyFilter",
-        "clientFirm": "ExampleFirm",
-        "enabled": "Yes",
+        "pkey": {
+            "userName": "your username",
+            "filterName": "Testing"
+        },
+        "clientFirm": "SR",
+        "disabled": "Yes",
         "includeCovered": "No",
-        "includeETFs": "Yes",
+        "includeETFs": "No",
         "includeADRs": "No",
-        "includeIndexes": "Yes",
+        "includeIndexes": "No",
         "minUPrc": 10.0,
-        "hasUAvgDailyVlmFilter": "Yes",
-        "minUAvgDailyVlm": 1.0,
-        "maxUAvgDailyVlm": 5.0,
+        "hasUAvgDailyVlmFilter": "No",
+        "minUAvgDailyVlm": 0,
+        "maxUAvgDailyVlm": 1000000000,
         "minSize": 100,
-        "minAbsVega": 0.1,
-        "hasAbsDeltaFilter": "Yes",
-        "minAbsDelta": 0.1,
-        "maxAbsDelta": 1.0,
+        "minAbsVega": 0,
+        "hasAbsDeltaFilter": "No",
+        "minAbsDelta": 0,
+        "maxAbsDelta": 2,
         "hasXDeltaFilter": "No",
         "minXDelta": 0.0,
         "maxXDelta": 0.0,
-        "hasAtmSVolFilter": "Yes",
-        "minAtmSVol": 20.0,
+        "hasAtmSVolFilter": "No",
+        "minAtmSVol": 0,
         "maxAtmSVol": 30.0,
         "hasAtmSDivFilter": "No",
         "minAtmSDiv": 0.0,
         "maxAtmSDiv": 0.0,
-        "hasExpiryDays": "Yes",
+        "hasExpiryDays": "No",
         "minExpiryDays": 1,
         "maxExpiryDays": 365,
         "includeZDte": "Yes",
@@ -198,16 +201,17 @@ The `UserAuctionFilter` JSON Body sent back to an MLink Server should repsect th
         "includeWeekly": "Yes",
         "includeRegular": "Yes",
         "includeQuarterly": "Yes",
+        "includeOtherExp": "Yes",
         "includeFlex": "Yes",
         "includeCommPaying": "No",
         "direction": "Buy",
-        "vegaDirection": "Sell",
-        "modifiedBy": "user123",
+        "netVegaDirection": "Sell",
+        "modifiedBy": "user",
         "modifiedIn": "Saturn",
         "timestamp": "2024-04-10T10:00:00Z",
         "AuctionSources": [
             {
-                "auctionSource": "SRC"
+                "auctionSource": "NMS"
             },
             {
                 "auctionSource": "AMEX"
@@ -223,12 +227,12 @@ The `UserAuctionFilter` JSON Body sent back to an MLink Server should repsect th
         ],
         "ExcludeTicker": [
             {
-                "ticker": "EXCLD_TICKER1"
+                "ticker": "MRNA-NMS-EQT"
             }
         ],
         "IncludeTicker": [
             {
-                "ticker": "INCLD_TICKER1"
+                "ticker": "AAPL-NMS-EQT"
             }
         ],
         "Industry": [
@@ -259,14 +263,13 @@ The `AuctionNotice` message is a stream of Auction Notices available. Below is t
 | Field Name           | Data Type  | Enum Set                                                                                                                    | Description                                                                                          |
 |----------------------|------------|------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | noticeNumber         | Long       |                                                                                                                              | Unique identifier for the notice.                                                                    |
+| ticker          | tickerKey       |                                  | underlier ticker key                                                                     |
+| tradeDate         | DateKey       |                                                                                                      | Date of AUction                                                                  |
 | auctionType          | Enum       | None, Exposure, Improvement, Facilitation, Solicitation, Opening, Closing, RFQ, Block, Flash                                 | Type of auction being initiated.                                                                     |
 | auctionEvent         | Enum       | None, Start, Update, End                                                                                                     | Current event state of the auction.                                                                  |
-| auctionCode          | String     |                                                                                                                              | Short auction code (only for block auctions).                                                        |
 | auctionSource        | Enum       | None, SRC, AMEX, BOX, CBOE, ISE, NYSE, PHLX, NSDQ, BATS, C2, NQBX, MIAX, GMNI, EDGO, MCRY, MPRL, EMLD, MEMX, CME, CBOT, etc. | Source of the auction notice (e.g., SRC, MIAX, etc.).                                                |
 | isTestAuction        | Enum       | None, Yes, No                                                                                                                | Indicates if the auction is a test (not live).                                                       |
 | shortCode            | String     |                                                                                                                              | 8-letter auction short code, unique per day (block auctions only). Can be used to find auctions.    |
-| tradeDate            | DateKey    |                                                                                                                              | The date of the auction.                                                                             |
-| ticker               | TickerKey  |                                                                                                                              | The underlier ticker for the auction.                                                                |
 | industry             | Text1      |                                                                                                                              | Industry string.                                                                                     |
 | symbolType           | Enum       | None, Equity, ADR, ETF, etc.                                                                                                 | Type of the symbol involved in the auction.                                                          |
 | uAvgDailyVlm         | Float      |                                                                                                                              | Underlier's average daily trading volume.                                                            |
@@ -274,6 +277,8 @@ The `AuctionNotice` message is a stream of Auction Notices available. Below is t
 | custQty              | Int        |                                                                                                                              |                                                                                                      |
 | custPrc              | Double     |                                                                                                                              | Public customer price.                                                                               |
 | hasCustPrc           | Enum       | None, Yes, No                                                                                                                |                                                                                                      |
+| custFirmType           | Enum       |                                                                                                                 |     Cust Firm Type if Disclosed                                                                                                 |
+| custAgentMPID           | string 6       |                                                                                                                 |     cust agent exchange member initiating the auction (if disclosed)                                       |
 | custClientFirm       | String     |                                                                                                                              | Customer client firm (if disclosed).                                                                 |
 | commEnhancement      | Float      |                                                                                                                              | Additional commission (if any) paid by the responder.                                                |
 | custCommPaying       | Enum       | None, Yes, No                                                                                                                | Indicates if the client is commission-paying (to the responder).                                     |
@@ -285,11 +290,11 @@ The `AuctionNotice` message is a stream of Auction Notices available. Below is t
 | containsHedge        | Enum       | None, Yes, No                                                                                                                |                                                                                                      |
 | uBid                 | Double     |                                                                                                                              |                                                                                                      |
 | uAsk                 | Double     |                                                                                                                              |                                                                                                      |
-| netTimestamp         | Long       |                                                                                                                              |                                                                                                      |
+| timestamp         | Long       |                                                                                                                              |   from ats / exchange net timestamp if possible                                                                                                   |
 | netVega              | Float      |                                                                                                                              |                                                                                                      |
 | netDelta             | Float      |                                                                                                                              |                                                                                                      |
 | netGamma             | Float      |                                                                                                                              |                                                                                                      |
-| pkgSurfPrc           | Float      |                                                                                                                              | SR Surface Price (entire package).                                                                   |
+| netSurfPrc           | Float      |                                                                                                                              | SR Surface Price (entire package).                                                                   |
 | includeSRNetwork     | Enum       | None, Include, Exclude, Disclose                                                                                             |                                                                                                      |
 | DirectedCounterParty | Repeater   |                                                                                                                              | Indicates the start of `DirectedCounterParty` repeater fields.                                      |
 | clientFirm           | String     |                                                                                                                              | (In `DirectedCounterParty`) Name of the client firm.                                                 |
@@ -315,6 +320,7 @@ The `AuctionNotice` message is a stream of Auction Notices available. Below is t
 | ga                   | Float      |                                                                                                                              | (In `OrderLegs`) Gamma exposure of the option leg.                                             |
 | th                   | Float      |                                                                                                                              | (In `OrderLegs`) Theta decay of the option leg.                                                |
 | ve                   | Float      |                                                                                                                              | (In `OrderLegs`) Vega exposure of the option leg.                                              |
+| sVolOk                   | enum      |         YesNo                                                                                                                     | Yes if live market and sVol are tracking as expected.                                              |
 | oBid                 | Float      |                                                                                                                              | (In `OrderLegs`) NBBO bid price.                                                               |
 | oBidSz               | Int        |                                                                                                                              | (In `OrderLegs`) Cumulative NBBO bid size.                                                     |
 | oBidMask             | UInt       |                                                                                                                              | (In `OrderLegs`) Bit-mask of participating NBBO exchanges.                                     |
@@ -448,6 +454,8 @@ The `NoticeResponse` message is crucial for participants responding to auction n
 | noticeNumber  | Long      |                                                           | Primary Key - (required) AuctionNotice.noticeNumber                                                                                |             |
 | accnt         | String    |                                                           | Primary Key - (required) SR Accnt                                                                                                  |             |
 | clientFirm    | String    |                                                           | Primary Key - (optional) SR ClientFirm                                                                                             |             |
+| ticker        | tickerKey    |                                                                    | underlier ticker                                                                                                                              |               |
+| tradeDate        | DateKey    |                                                                    | Date of Trade                                                                                                                             |               |
 | responseId    | String    |                                                           | (required) client ResponseId of this response; reflected back on NoticeExecReport messages                           |             |
 | stageType     | Enum      | None, ModifyAny, ModifyAlgo                                | (optional) (default is None/Live) can only be supplied on the initial notice response in a cancel/replace chain     |             |
 | respSide      | Enum      | None, Buy, Sell                                           |                                                                                                                      |             |
@@ -476,9 +484,13 @@ The `NoticeResponse` JSON Body sent back to an MLink Server should repsect the f
         "mTyp": "NoticeResponse"
     },
     "message": {
-        "noticeNumber": "AuctionNotice.NoticeNumber",
-        "accnt": "SR Accnt",
-        "clientFirm": "SR ClientFirm",
+        "pkey": {
+            "noticeNumber": "AuctionNotice.NoticeNumber",
+            "accnt": "SR Accnt",
+            "clientFirm": "SR ClientFirm"
+        },
+        "ticker": "AAPL-NMS-EQT",
+        "tradeDate": "2024-04-09",
         "responseId": "Response123456789",
         "stageType": "None, ModifyAny, ModifyAlgo ",
         "respSide": "Sell",
@@ -503,29 +515,7 @@ The `NoticeResponse` JSON Body sent back to an MLink Server should repsect the f
                 },
                 "secType": "Option",
                 "side": "Buy",
-                "ratio": 1,
-                "undPerCn": 100,
-                "pointValue": 100,
-                "expType": "Weekly",
-                "years": 0.0132,
-                "rate": 0.0552,
-                "atmVol": 0.1885,
-                "ddivPv": 0,
-                "tVol": 0,
-                "sVol": 0.2672,
-                "sDiv": -0.0074,
-                "sPrc": 0.0551,
-                "de": -0.0274,
-                "ga": 0.0121,
-                "th": -0.0381,
-                "ve": 0.0123,
-                "sVolOk": "Yes",
-                "oBid": 0.05,
-                "oBidSz": 3407,
-                "oBidMask": 21893087,
-                "oAsk": 0.06,
-                "oAskSz": 894,
-                "oAskMask": 21629911
+                "positionType" : "Auto"
             },
             {
                 "secKey": {
@@ -583,11 +573,14 @@ The `NoticeExecReport` message type is integral for reporting the execution resu
 
 | Field Name        | Data Type | Enum Set                                                           | Description                                                                                                                                | In Repeater   |
 |-------------------|-----------|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| noticeNumber      | Long      |                                                                    | AuctionNotice.noticeNumber                                                                                                                 |               |
-| accnt             | String    |                                                                    | SR Accnt                                                                                                                                   |               |
-| clientFirm        | String    |                                                                    | SR ClientFirm                                                                                                                              |               |
+| noticeNumber      | Long      |                                                                    | pkey AuctionNotice.noticeNumber                                                                                                                 |               |
+| accnt             | String    |                                                                    | pkey SR Accnt                                                                                                                                   |               |
+| clientFirm        | String    |                                                                    | pkey SR ClientFirm                                                                                                                              |               |
+| ticker        | tickerKey    |                                                                    | underlier ticker                                                                                                                              |               |
+| tradeDate        | DateKey    |                                                                    | Date of Trade                                                                                                                             |               |
 | responseId        | String    |                                                                    | from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)                           |               |
 | stageType         | Enum      | None, ModifyAny, ModifyAlgo                                        |                                                                                                                                            |               |
+| respDttm         | DateTime      | response arrival dttm                                        |                                                                                                                                            |               |
 | respSide          | Enum      | None, Buy, Sell                                                    |                                                                                                                                            |               |
 | respSize          | Int       |                                                                    |                                                                                                                                            |               |
 | respActiveSize    | Int       |                                                                    | active response order size (zero for ActiveHold)                                                                                          |               |
@@ -596,12 +589,14 @@ The `NoticeExecReport` message type is integral for reporting the execution resu
 | refDe             | Float     |                                                                    |                                                                                                                                            |               |
 | refGa             | Float     |                                                                    |                                                                                                                                            |               |
 | riskGroupId       | Long      |                                                                    | any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)                                                        |               |
+| roundRule       | enum      |      Exact (100%) or Fuzzy (90%) [default is Exact] (block auctions only)                                                              |                                                         |               |
+| stepUpIncr       | double      |                                                                    | additional price increment (best price) (typically only used if auction is competitive)                                                        |               |
 | strategy          | String    |                                                                    | user strategy field (visible on SR tools)                                                                                                  |               |
 | userData1         | Text1     |                                                                    | user data field (free text) (from NoticeResponse)                                                                                          |               |
 | respStatus        | Enum      | PendNew, New, PendClose, Closed, Rejected, SendReject               |                                                                                                                                            |               |
 | respDetail        | Text1     |                                                                    |                                                                                                                                            |               |
-| pkgCumFillQty     | Int       |                                                                    |                                                                                                                                            |               |
-| pkgAvgFillPrice   | Double    |                                                                    |                                                                                                                                            |               |
+| cumFillQty     | Int       |                                                                    |   pkg cumFillQty if MLeg                                                                                                                                         |               |
+| avgFillPrice   | Double    |                                                                    |   pkg avgFillPrice if MLeg                                                                                                                                         |               |
 | timestamp         | DateTime  |                                                                    |                                                                                                                                            |               |
 | OrderLegs         | Repeater  |                                                                    | Details about the individual legs of the order.                                                                                            |               |
 | secKey            | OptionKey |                                                                    | Security key for each leg.                                                                                                                 | OrderLegs      |
@@ -611,6 +606,13 @@ The `NoticeExecReport` message type is integral for reporting the execution resu
 | positionType      | Enum      | None, Auto, Open, Close, Long, Short, SellShort, Exempt, Cover     | Position type for each leg.                                                                                                                | OrderLegs      |
 | legCumFillQty     | Int       |                                                                    | Cumulative fill quantity for each leg.                                                                                                     | OrderLegs      |
 | legAvgFillPrice   | Double    |                                                                    | Average fill price for each leg.                                                                                                           | OrderLegs      |
+| responseResult          | enum       |  NoticeResult:None=0,FullSize=1,AllocSize=2,PriceMiss=3,TooLate=4,OtherMiss=5,DidNotTrade=6,Pending=7                                                                  |                                                                                                                                            |               |
+| responseTime    | short       |                                                                    | notice response arrival time (milliseconds since auction start)                                                                                          |               |
+| prtPrice         | Double    |                                                                    | reported OPRA print price (pkgPrice if MLeg)                                                                                                                                           |               |
+| prtSize           | Int    |                                                                    | reported OPRA print size (pgkSize if MLeg)                                                                                                                                           |               |
+| prtTime             | DateTime     |                                                                    | reported OPRA print time (1st print if MLeg)                                                                                                                                           |               |
+| prtUBid             | Float     |                                                                    | best estimate of uBid @ auction print time                                                                                                                                           |               |
+| prtUAsk       | FLoat      |                                                                    | best estimate of uAsk @ auction print time                                                        |               |
 
 The `NoticeExecReport` JSON Body received from an MLink Server will be structured in the following way (Sample):
 
@@ -620,11 +622,16 @@ The `NoticeExecReport` JSON Body received from an MLink Server will be structure
         "mTyp": "NoticeExecReport"
     },
     "message": {    
+    "pkey":{    
         "noticeNumber": "AuctionNotice.NoticeNumber",
         "accnt": "SampleAccount",
-        "clientFirm": "SampleFirm",
+        "clientFirm": "SampleFirm"
+        },
+        "ticker": "tickerKey",
+        "tradeDate": "DateKey",
         "responseId": "Response987654321",
         "stageType": "ModifyAny",
+        "respDttm": "DateTime",
         "respSide": "Buy",
         "respSize": 100,
         "respActiveSize": 90,
@@ -632,13 +639,15 @@ The `NoticeExecReport` JSON Body received from an MLink Server will be structure
         "refUPrc": 150.00,
         "refDe": 0.50,
         "refGa": 0.10,
+        "roundRule": "Exact",
+        "stepUpIncr": 12,
         "riskGroupId": 123123123,
         "strategy": "SampleStrategy",
         "userData1": "Additional info",
         "respStatus": "New",
         "respDetail": "Detailing text",
-        "pkgCumFillQty": 50,
-        "pkgAvgFillPrice": 10.75,
+        "cumFillQty": 50,
+        "avgFillPrice": 10.75,
         "timestamp": "2024-04-10T10:00:00Z",
         "OrderLegs": [
             {
@@ -673,7 +682,14 @@ The `NoticeExecReport` JSON Body received from an MLink Server will be structure
                 "legCumFillQty": 25,
                 "legAvgFillPrice": 10.75
             }
-        ]
+        ],
+        "responseResult": "FullSize",
+        "responseTime": 60,
+        "prtPrice": 100,
+        "prtSize": 150,
+        "prtTime": "2024-04-10T10:00:00Z",
+        "prtUBid": 175.67,
+        "prtUAsk": 176.81
     }
 }
 ```
@@ -691,9 +707,11 @@ The `NoticeCancel` message type is utilized for canceling previously issued `Not
 
 | Field Name    | Data Type | Description                                                    |
 |---------------|-----------|----------------------------------------------------------------|
-| noticeNumber  | Long      | (Required) Corresponds to the `AuctionNotice.noticeNumber`.    |
-| accnt         | String    | (Required) Identifies the SpiderRock account.                  |
-| clientFirm    | String    | (Optional) Specifies the client firm.                         |
+| noticeNumber  | Long      | pkey (Required) Corresponds to the `AuctionNotice.noticeNumber`.    |
+| accnt         | String    | pkey (Required) Identifies the SpiderRock account.                  |
+| clientFirm    | String    | pkey (Optional) Specifies the client firm.                         |
+| ticker     | tickerKey  | (filled in on server) underlier ticker |
+| tradeDate     | DateKey  | (filled in on server) |
 | timestamp     | DateTime  | Timestamp marking when the cancellation request was initiated. |
 
 The `NoticeCancel` JSON Body sent back to an MLink Server should repsect the following structure (Sample):
@@ -704,9 +722,13 @@ The `NoticeCancel` JSON Body sent back to an MLink Server should repsect the fol
         "mTyp": "NoticeCancel"
     },
     "message": {
+    "pkey":{
         "noticeNumber": "AuctionNotice.NoticeNumber",
         "accnt": "SampleAccount",
-        "clientFirm": "SampleFirm",
+        "clientFirm": "SampleFirm"
+    },
+        "ticker": "tickerKey",
+        "tradeDate": "DateKey",
         "timestamp": "2024-04-10T10:00:00Z"
     }
 }
