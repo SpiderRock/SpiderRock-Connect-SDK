@@ -33,6 +33,7 @@ MLink is a central component of the SRCconnect trading system. It facilitates th
 ### MLink Server
 - Processes and routes all auction-related messages within the system.
 - **Messages Processed**:
+  - `UserAuctionFilter`: Message used to filter Notices received by client (to be sent by client to MLink Server).
   - `AuctionNotice`: Alerts clients of relevant auctions based on established filters.
   - `NoticeResponse`: Message used to participate/respond to Auction Notices.
   - `NoticeExecReport`: Sends confirmation/reporting of the action taken on `NoticeResponse`.
