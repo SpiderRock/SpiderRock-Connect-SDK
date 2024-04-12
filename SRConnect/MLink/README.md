@@ -170,82 +170,20 @@ The `UserAuctionFilter` JSON Body sent back to an MLink Server should repsect th
             "userName": "your username",
             "filterName": "Testing"
         },
-        "clientFirm": "SR",
-        "disabled": "Yes",
-        "includeCovered": "No",
-        "includeETFs": "No",
-        "includeADRs": "No",
-        "includeIndexes": "No",
+        "clientFirm": "YourClientFirm",
+        "disabled": "No",
         "minUPrc": 10.0,
-        "hasUAvgDailyVlmFilter": "No",
-        "minUAvgDailyVlm": 0,
-        "maxUAvgDailyVlm": 1000000000,
-        "minSize": 100,
-        "minAbsVega": 0,
-        "hasAbsDeltaFilter": "No",
+        "minSize": 10,
+        "minAbsVega": 1.0,
+        "hasAbsDeltaFilter": "Yes",
         "minAbsDelta": 0,
-        "maxAbsDelta": 2,
-        "hasXDeltaFilter": "No",
-        "minXDelta": 0.0,
-        "maxXDelta": 0.0,
-        "hasAtmSVolFilter": "No",
-        "minAtmSVol": 0,
-        "maxAtmSVol": 30.0,
-        "hasAtmSDivFilter": "No",
-        "minAtmSDiv": 0.0,
-        "maxAtmSDiv": 0.0,
-        "hasExpiryDays": "No",
+        "maxAbsDelta": 1,
+        "hasXDeltaFilter": "Yes",
+        "minXDelta": -0.5,
+        "maxXDelta": 0.5,
+        "hasExpiryDays": "Yes",
         "minExpiryDays": 1,
-        "maxExpiryDays": 365,
-        "includeZDte": "Yes",
-        "includeDaily": "Yes",
-        "includeWeekly": "Yes",
-        "includeRegular": "Yes",
-        "includeQuarterly": "Yes",
-        "includeOtherExp": "Yes",
-        "includeFlex": "Yes",
-        "includeCommPaying": "No",
-        "direction": "Buy",
-        "netVegaDirection": "Sell",
-        "modifiedBy": "user",
-        "modifiedIn": "Saturn",
-        "timestamp": "2024-04-10T10:00:00Z",
-        "AuctionSources": [
-            {
-                "auctionSource": "NMS"
-            },
-            {
-                "auctionSource": "AMEX"
-            }
-        ],
-        "AuctionTypes": [
-            {
-                "auctionType": "Improvement"
-            },
-            {
-                "auctionType": "Exposure"
-            }
-        ],
-        "ExcludeTicker": [
-            {
-                "ticker": "MRNA-NMS-EQT"
-            }
-        ],
-        "IncludeTicker": [
-            {
-                "ticker": "AAPL-NMS-EQT"
-            }
-        ],
-        "Industry": [
-            {
-                "industry": "Technology"
-            }
-        ],
-        "SpreadClass": [
-            {
-                "spreadClass": "Straddle"
-            }
-        ]
+        "maxExpiryDays": 365
     }
 }
 ```
