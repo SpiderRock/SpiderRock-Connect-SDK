@@ -148,8 +148,8 @@ You can connect to the MLink API through 2 different connection types: REST or W
 
 The MLink REST API is implemented as a standard HTTP/RESTful service accessible at:
 
-- Real-time data - https://mlink-live.nms.saturn.spiderrockconnect.com 
-- Delayed data - https://mlink-delay.nms.saturn.spiderrockconnect.com
+- Real-time data - https://mlink-live.nms.saturn.spiderrockconnect.com/rest/<protobuf> 
+- Delayed data - https://mlink-delay.nms.saturn.spiderrockconnect.com/rest/<protobuf> 
 
 Query parameters are URL-encoded and passed in the querystring. If successful, responses are sent back via the HTTP request body section. The URL also determines the protocol.
 
@@ -340,8 +340,8 @@ GetAggregate complex:
 
 The MLink Websocket API is implemented as a standard HTTP WebSocket service accessible at:
 
-- Real-time data - wss://mlink-live.nms.saturn.spiderrockconnect.com
-- Delayed data - wss://mlink-delay.nms.saturn.spiderrockconnect.com
+- Real-time data - wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/<protocol>
+- Delayed data - wss://mlink-delay.nms.saturn.spiderrockconnect.com/mlink/<protocol>
 
 Query parameters are URL-encoded and passed in the querystring. If successful, responses are sent back via the HTTP request body section. The URL also determines the protocol.
 
