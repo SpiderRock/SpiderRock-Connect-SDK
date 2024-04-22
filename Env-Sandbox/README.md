@@ -7,6 +7,9 @@ The Sandbox is a mock environment to test your integration with the SpiderRock s
 
 ## MLink API
 
+* The Sandbox can be accessed through MLink here:
+    - WebSocket API: wss://mlink-test.nms.saturn.spiderrockconnect.com/mlink/<protocol>
+    - REST API: https://mlink-test.nms.saturn.spiderrockconnect.com/rest/<protocol>
 * View the **[documentation here](./../MLink/README.md)**.
 * Please contact the client support desk for connectivity.
 
