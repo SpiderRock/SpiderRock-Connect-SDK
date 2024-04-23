@@ -1,11 +1,15 @@
-import React from 'react';
-import { buttonStyle, inputPanelStyle, verticalSeparator } from './InputPanel.style';
-import { ParamFilter } from './ParamFilter/ParamFilter';
-import { useState } from 'react';
-import { isEmpty } from '../../utils/InputPanelValidator';
-import { ConnectionPanel } from './ConnectionPanel/ConnectionPanel';
-import { DisplayPanel } from './DisplayPanel/DisplayPanel';
-import { msgTypeObject } from '../../types';
+import React from "react";
+import {
+  buttonStyle,
+  inputPanelStyle,
+  verticalSeparator,
+} from "./InputPanel.style";
+import { ParamFilter } from "./ParamFilter/ParamFilter";
+import { useState } from "react";
+import { isEmpty } from "../../utils/InputPanelValidator";
+import { ConnectionPanel } from "./ConnectionPanel/ConnectionPanel";
+import { DisplayPanel } from "./DisplayPanel/DisplayPanel";
+import { msgTypeObject } from "../../types";
 
 export interface InputPanelProps {
   msgTypes: msgTypeObject;
@@ -18,8 +22,6 @@ export interface InputPanelProps {
   setUrlValue: (newUrl: string) => void;
   keyValue: string;
   setKeyValue: (newKey: string) => void;
-  passValue: string;
-  setPassValue: (newPass: string) => void;
   connectStatus: string;
   limitResults: number | undefined;
   setLimitResults: (newLimit: number) => void;
@@ -28,12 +30,24 @@ export interface InputPanelProps {
 }
 
 export const InputPanel: React.FunctionComponent<InputPanelProps> = ({
-  msgTypes, msgTokens, handleClickRequest, setErrorMessageVisbility, setErrorMessage, setViewFilter,
-  urlValue, setUrlValue, keyValue, setKeyValue, passValue, setPassValue, connectStatus,
-  limitResults, setLimitResults, displayResults, setDisplayResults
+  msgTypes,
+  msgTokens,
+  handleClickRequest,
+  setErrorMessageVisbility,
+  setErrorMessage,
+  setViewFilter,
+  urlValue,
+  setUrlValue,
+  keyValue,
+  setKeyValue,
+  connectStatus,
+  limitResults,
+  setLimitResults,
+  displayResults,
+  setDisplayResults,
 }) => {
-  const [whereFilter, setWhereFilter] = useState<string>('');
-  const [selectedMsgType, setSelectedMsgType] = useState<string>('default');
+  const [whereFilter, setWhereFilter] = useState<string>("");
+  const [selectedMsgType, setSelectedMsgType] = useState<string>("default");
 
   const handleClick = () => {
     setErrorMessageVisbility(false);
@@ -41,7 +55,7 @@ export const InputPanel: React.FunctionComponent<InputPanelProps> = ({
 
     if (isEmpty(selectedMsgType)) {
       setErrorMessageVisbility(true);
-      setErrorMessage('No message type selected. Cannot query MLink');
+      setErrorMessage("No message type selected. Cannot query MLink");
     } else {
       handleClickRequest(selectedMsgType, whereFilter);
     }
@@ -54,8 +68,6 @@ export const InputPanel: React.FunctionComponent<InputPanelProps> = ({
         setUrlValue={setUrlValue}
         keyValue={keyValue}
         setKeyValue={setKeyValue}
-        passValue={passValue}
-        setPassValue={setPassValue}
         connectStatus={connectStatus}
       />
       <div style={verticalSeparator} />
