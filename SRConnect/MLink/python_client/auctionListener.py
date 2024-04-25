@@ -1,67 +1,54 @@
-import asyncio
 import json
-import websockets
-import time
 
-# Configuration
-API_KEY = 'YOUR Key'  # Update with your actual API key
-MLINK_URL = 'wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/json'
+def save_response_to_file(response, file_name):
+    try:
+        with open(file_name, 'r') as file:
+            data = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = []
+    data.append(response)
+    with open(file_name, 'w') as file:
+        json.dump(data, file, indent=4)
 
-#Define the UserAuctionFilter message
-user_auction_filter = {
-    "header": {
-        "mTyp": "UserAuctionFilter"
-    },
-    "message": {
-        "pkey": {
-            "userName": "YourUserName",
-            "filterName": "SampleFilterName"
-        },
-        "clientFirm": None,
-        "disabled": "No",
-        "minUPrc": 10.0,
-        "minSize": 10,
-        "minAbsVega": 1.0,
-        "hasAbsDeltaFilter": "Yes",
-        "minAbsDelta": 0,
-        "maxAbsDelta": 1,
-        "hasXDeltaFilter": "Yes",
-        "minXDelta": -0.1,
-        "maxXDelta": 0.1,
-        "hasExpiryDays": "Yes",
-        "minExpiryDays": 1,
-        "maxExpiryDays": 10
+async def send_mlink_stream(websocket):
+    stream_message = {
+        "header": {"mTyp": "MLinkStream"},
+        "message": {
+            "queryLabel": "AuctionNotice",
+            "activeLatency": 1,
+            "highwaterTs": -1,
+            "msgName": "AuctionNotice",
+            "where": "isTestAuction:eq:Yes"
+        }
     }
-}
 
-#Define the MLinkStream message to listen for AuctionNotice
-mlink_stream = {
-    "header": {
-        "mTyp": "MLinkStream"
-    },
-    "message": {
-        "queryLabel": "AuctionNotice",
-        "activeLatency": 1,
-        "msgName": "AuctionNotice"
+    stream_exec_report = {
+        "header": {"mTyp": "MLinkStream"},
+        "message": {
+            "queryLabel": "NoticeExecReport",
+            "activeLatency": 1,
+            "highwaterTs": -1,
+            "msgName": "NoticeExecReport"
+        }
     }
-}
 
-async def handle_auction_stream():
-    async with websockets.connect(MLINK_URL, extra_headers={"Authorization": f"Bearer {API_KEY}"}) as websocket:
-        
-        await websocket.send(json.dumps(user_auction_filter))
-        print("UserAuctionFilter message sent")
+    await websocket.send(json.dumps(stream_message))
+    await websocket.send(json.dumps(stream_exec_report))
 
-        time.sleep(10)
+
+async def listen_for_auctions(websocket, file_path):
+    while True:
+        buffer = await websocket.recv()
+        result = json.loads(buffer)
+        #print(result)
+        if result.get('header', {}).get('mTyp') == 'AuctionNotice':
+            if result.get('message', {}).get('isTestAuction') == 'Yes':    
+                print("Received AuctionNotice:", json.dumps(result, indent=4))
+                save_response_to_file(result, file_path)
+            yield result
+        elif result.get('header', {}).get('mTyp') == 'NoticeExecReport':
+            print("Received NoticeExecReport:", json.dumps(result, indent=4))
+            save_response_to_file(result, file_path)
+            yield result
 
         
-        await websocket.send(json.dumps(mlink_stream))
-        print("MLinkStream message sent for AuctionNotice")
-
-        #Listen for AuctionNotice
-        while True:
-            response = await websocket.recv()
-            notice = json.loads(response)
-            print("Received:", notice)
-
-asyncio.run(handle_auction_stream())
