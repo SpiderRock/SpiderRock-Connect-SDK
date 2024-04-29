@@ -759,6 +759,72 @@ The `AuctionPrint` message details auction transaction prints. It encompasses a 
 | timestamp              | Timestamp   |                                                                 |                                                                                                                     |             |
 
 
+The `AuctionPrint` JSON Body received from an MLink Server will be structured in the following way (Sample):
+
+```json 
+{
+        "header": {
+            "mTyp": "AuctionPrint"
+        },
+        "message": {
+            "pkey": {
+                "noticeNumber": "16A9-3BAA-E04B-4D81"
+            },
+            "ticker": {
+                "at": "EQT",
+                "ts": "NMS",
+                "tk": "SPX"
+            },
+            "tradeDate": "2024-04-23",
+            "noticeTime": "2024-04-23 18:54:43.068557",
+            "auctionType": "Improvement",
+            "auctionSource": "CBOE",
+            "spreadClass": "Put",
+            "custSide": "Sell",
+            "custQty": 7,
+            "custPrc": 5,
+            "custFirmType": "Customer",
+            "custAgentMPID": "    ",
+            "custClientFirm": "    ",
+            "prtPrice": -5.300000191,
+            "prtPrice2": -5.300000191,
+            "prtSize": 1,
+            "prtSize2": 1,
+            "prtTime": "2024-04-23 18:54:44.398464",
+            "prtType": "AUTO",
+            "prtUBid": 5069.178664761,
+            "prtUAsk": 5069.279069001,
+            "prtUPrc": 5069.228866881,
+            "prtSurfVol": 0.1067,
+            "prtSurfPrc": -5.14319,
+            "bidPrc": -5.2,
+            "bidSz": 103,
+            "bidMask": 4,
+            "askPrc": -5,
+            "askSz": 73,
+            "askMask": 4,
+            "exchBidPrc": -5.2,
+            "exchBidSz": 103,
+            "exchAskPrc": -5,
+            "exchAskSz": 73,
+            "netDe": 0.52536,
+            "netGa": -0.03346,
+            "netTh": 4.37206,
+            "netVe": -0.44402,
+            "uPrc1m": 5070.72461,
+            "bidPrc1m": -4.3,
+            "askPrc1m": -4.2,
+            "surfVol1m": 0.10481,
+            "surfPrc1m": -4.27639,
+            "uPrc10m": 5067.79053,
+            "bidPrc10m": -5.6,
+            "askPrc10m": -5.4,
+            "surfVol10m": 0.10406,
+            "surfPrc10m": -5.47063,
+            "timestamp": "2024-04-23 19:04:44.522124"
+        }
+    }
+```
 
 ### AuctionNotice RevCon
 
@@ -816,6 +882,7 @@ The `AuctionNoticeRevCon` message is a stream of Auction Notices (RevCon) availa
 | inclExcl             | Enum         | Include, Exclude, Disclose                | (In `DirectedCounterParty`) Include or exclude specific counter parties                               | DirectedCounterParty |
 | isCommPaying         | Enum         | Yes, No                                   | (In `DirectedCounterParty`) If the client is paying commission                                        | DirectedCounterParty |
 
+The `AuctionNoticeRevCon` JSON Body received from an MLink Server will be structured in the following way (Sample):
 
 ### AuctionNotice BoxSprd
 
@@ -862,6 +929,7 @@ The `AuctionNoticeBoxSprd` message is a stream of Auction Notices (BoxSprd) avai
 | inclExcl             | Enum         | Include, Exclude, Disclose              | (In `DirectedCounterParty`) Include or exclude specific counter parties                       | DirectedCounterParty |
 | isCommPaying         | Enum         | Yes, No                                 | (In `DirectedCounterParty`) If the client is paying commission                                | DirectedCounterParty |
 
+The `AuctionNoticeBoxSprd` JSON Body received from an MLink Server will be structured in the following way (Sample):
 
 ### AuctionNotice Synthetic
 
@@ -917,3 +985,5 @@ The `AuctionNoticeSynthetic` message is a stream of Auction Notices (Synthetic) 
 | clientFirm           | SRClientFirm |                                         | (In `DirectedCounterParty`) Name of the client firm                                                   | DirectedCounterParty |
 | inclExcl             | Enum         | Include, Exclude, Disclose              | (In `DirectedCounterParty`) Include or exclude specific counter parties                               | DirectedCounterParty |
 | isCommPaying         | Enum         | Yes, No                                 | (In `DirectedCounterParty`) If the client is paying commission                                        | DirectedCounterParty |
+
+The `AuctionNoticeSynthetic` JSON Body received from an MLink Server will be structured in the following way (Sample):
