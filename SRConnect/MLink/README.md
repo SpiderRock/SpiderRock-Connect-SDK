@@ -15,6 +15,16 @@ This document provides an overview of the SRConnect system developed for respond
 - [Integration with MLink API](#integration-with-mlink-api)
   - [Authentication](#authentication)
   - [Connection Types](#connection-types)
+- [Auction Message Structures](#auction-message-structures)
+  - [Message Types](#message-types)
+    - [UserAuctionFilter](#userauctionfilter)
+    - [AuctionNotice](#auctionnotice)
+    - [NoticeResponse](#noticeresponse)
+    - [NoticeExecReport](#noticeexecreport)
+    - [NoticeCancel](#noticecancel)
+    - [Auction Print](#auction-print)
+    - [AuctionNotice RevCon](#auctionnotice-revcon)
+    - [AuctionNotice BoxSprd](#auctionnotice-boxsprd)
 
 ## System Overview
 
@@ -35,9 +45,12 @@ MLink is a central component of the SRCconnect trading system. It facilitates th
 - **Messages Processed**:
   - `UserAuctionFilter`: Message used to filter Notices received by client (to be sent by client to MLink Server).
   - `AuctionNotice`: Alerts clients of relevant auctions based on established filters.
+  - `AuctionNoticeBoxSprd`: Alerts clients of relevant Box Sprd auctions based on established filters.
+  - `AuctionNoticeSynthetic`: Alerts clients of relevant Synthetic auctions based on established filters.
   - `NoticeResponse`: Message used to participate/respond to Auction Notices.
   - `NoticeExecReport`: Sends confirmation/reporting of the action taken on `NoticeResponse`.
   - `NoticeCancel`: Processes clients' requests to cancel their responses to auctions.
+  - `AuctionPrint`: Message details auction transaction prints (trades).
 
 ### Client Auction Responder
 - **Automated Decision-Making**: Analyzes incoming `AuctionNotice` messages and determines the appropriate action based on positions, theoretical models, and risk rules to respond to auctions.
@@ -672,3 +685,235 @@ The `NoticeCancel` JSON Body sent back to an MLink Server should repsect the fol
     }
 }
 ```
+
+### Auction Print
+
+#### AuctionPrint Message Schema
+
+The `AuctionPrint` message details auction transaction prints. It encompasses a wide range of fields related to auction specifics, trading volumes, and pricing information. Below is a structured schema of the `AuctionPrint` message fields, including data types, enum sets where applicable, and detailed descriptions.
+
+- **Message Type**: `AuctionPrint`
+- **Message Number**: 2485
+- **MLink Token**: `SRConnect`
+
+
+| Field Name             | Data Type   | Enum Set                                                        | Description                                                                                                         | In Repeater |
+|------------------------|-------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|-------------|
+| noticeNumber           | NoticeNumber|                                                                 | primary key AuctionNotice.noticeNumber                                                                                          |             |
+| ticker                 | TickerKey   |                                                                 | Underlier ticker                                                                                                    |             |
+| tradeDate              | DateKey     |                                                                 | Date of Trade                                                                                                       |             |
+| noticeTime             | DateTime    |                                                                 | Notice create timestamp (high precision)                                                                            |             |
+| auctionType            | Enum        | Block, Flash, Improvement, Facilitation, etc.                    | Type of auction being initiated                                                                                     |             |
+| auctionSource          | Enum        | SRC, MIAX, etc.                                                 | Source of the auction notice                                                                                        |             |
+| numOptLegs             | Byte        |                                                                 | Number of option legs (MLEG Only)                                                                                   |             |
+| spreadClass            | Enum        | ToolSpreadClass                                                 |                                                                                                                     |             |
+| spreadFlavor           | Enum        | SpreadFlavor                                                    | Type of spread (MLEG Only)                                                                                          |             |
+| containsHedge          | Enum        | Yes, No                                                         | Whether the auction contains hedges (MLEG Only)                                                                     |             |
+| containsFlex           | Enum        | Yes, No                                                         | Contains FLEX options                                                                                               |             |
+| containsMultiHedge     | Enum        | Yes, No                                                         | Contains MultiHedge options                                                                                         |             |
+| industry               | Text1       |                                                                 | Industry description                                                                                                |             |
+| symbolType             | Enum        | SymbolType                                                      | Type of symbol                                                                                                      |             |
+| uAvgDailyVlm           | Float       |                                                                 | Underlier average daily trading volume                                                                              |             |
+| custSide               | Enum        | Buy, Sell                                                       | Customer side from AuctionNotice                                                                                    |             |
+| custQty                | Int         |                                                                 | Customer quantity from AuctionNotice                                                                                |             |
+| custPrc                | Double      |                                                                 | Customer price from AuctionNotice                                                                                   |             |
+| hasCustPrc             | Enum        | Yes, No                                                         | Indicates if customer price is available from AuctionNotice                                                         |             |
+| custFirmType           | Enum        | FirmType                                                        | Customer firm type if disclosed                                                                                     |             |
+| custAgentMPID          | String      |                                                                 | Customer agent exchange member initiating the auction (if disclosed)                                                |             |
+| custClientFirm         | SRClientFirmRef |                                                               | Customer client firm (if disclosed)                                                                                 |             |
+| prtPrice               | Double      |                                                                 | Reported OPRA print price (package price if MLeg)                                                                   |             |
+| prtPrice2              | Double      |                                                                 | Price of second reported OPRA print (if applicable)                                                                 |             |
+| prtSize                | Int         |                                                                 | Reported OPRA print size (package size if MLeg)                                                                     |             |
+| prtSize2               | Int         |                                                                 | Size of second reported OPRA print (if applicable)                                                                  |             |
+| prtTime                | DateTime    |                                                                 | Reported OPRA print time (first print if MLeg)                                                                      |             |
+| prtType                | Enum        | PrtType                                                         | Reported OPRA print type                                                                                            |             |
+| prtUBid                | Double      |                                                                 | Best estimate of underlier bid at auction print time                                                                |             |
+| prtUAsk                | Double      |                                                                 | Best estimate of underlier ask at auction print time                                                                |             |
+| prtUPrc                | Double      |                                                                 | Best estimate of underlier price at auction print time                                                              |             |
+| prtSurfVol             | Float       |                                                                 | Surface volatility at auction print time (single option only)                                                       |             |
+| prtSurfPrc             | Float       |                                                                 | Surface price at auction print time (at underlier midpoint, package surface price if MLeg)                          |             |
+| bidPrc                 | Float       |                                                                 | Option NBBO bid at auction print time                                                                               |             |
+| bidSz                  | Int         |                                                                 | NBBO bid cumulative size                                                                                            |             |
+| bidMask                | UInt        |                                                                 | NBBO bid exchange mask                                                                                              |             |
+| askPrc                 | Float       |                                                                 | Option NBBO ask at auction print time                                                                               |             |
+| askSz                  | Int         |                                                                 | NBBO ask cumulative size                                                                                            |             |
+| askMask                | UInt        |                                                                 | NBBO ask exchange mask                                                                                              |             |
+| exchBidPrc             | Float       |                                                                 | Exchange bid at auction print time                                                                                  |             |
+| exchBidSz              | Int         |                                                                 | Exchange bid size                                                                                                   |             |
+| exchAskPrc             | Float       |                                                                 | Exchange ask at auction print time                                                                                  |             |
+| exchAskSz              | Int         |                                                                 | Exchange ask size                                                                                                   |             |
+| netDe                  | Float       |                                                                 | Net delta                                                                                                           |             |
+| netGa                  | Float       |                                                                 | Net gamma                                                                                                           |             |
+| netTh                  | Float       |                                                                 | Net theta                                                                                                           |             |
+| netVe                  | Float       |                                                                 | Net vega                                                                                                            |             |
+| uPrc1m                 | Float       |                                                                 | Underlier price (mid market) at auction print time + 1 minute                                                       |             |
+| bidPrc1m               | Float       |                                                                 | NBBO bid at auction print time + 1 minute                                                                           |             |
+| askPrc1m               | Float       |                                                                 | NBBO ask at auction print time + 1 minute                                                                           |             |
+| surfVol1m              | Float       |                                                                 | Surface volatility at auction print time + 1 minute (single option only)                                            |             |
+| surfPrc1m              | Float       |                                                                 | Surface price at auction print time + 1 minute (at underlier midpoint)                                               |             |
+| uPrc10m                | Float       |                                                                 | Underlier price (mid market) at auction print time + 10 minutes                                                     |             |
+| bidPrc10m              | Float       |                                                                 | NBBO bid at auction print time + 10 minutes                                                                         |             |
+| askPrc10m              | Float       |                                                                 | NBBO ask at auction print time + 10 minutes                                                                         |             |
+| surfVol10m             | Float       |                                                                 | Surface volatility at auction print time + 10 minutes (single option only)                                          |             |
+| surfPrc10m             | Float       |                                                                 | Surface price at auction print time + 10 minutes (at underlier midpoint)                                            |             |
+| timestamp              | Timestamp   |                                                                 |                                                                                                                     |             |
+
+
+
+### AuctionNotice RevCon
+
+#### AuctionNotice RevCon Message Schema
+
+The `AuctionNoticeRevCon` message is a stream of Auction Notices (RevCon) available. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+
+- **Message Type**: `AuctionNoticeRevCon`
+- **Message Number**: 2466
+- **MLink Token**: `SRConnect`
+
+
+| Field Name           | Data Type    | Enum Set                                  | Description                                                                                          | In Repeater          |
+|----------------------|--------------|-------------------------------------------|------------------------------------------------------------------------------------------------------|----------------------|
+| noticeNumber         | NoticeNumber |                                           | Primary key                                                                                          |                      |
+| ticker               | TickerKey    |                                           | Underlier ticker                                                                                     |                      |
+| tradeDate            | DateKey      |                                           |                                                                                                      |                      |
+| expiry               | DateKey      |                                           |                                                                                                      |                      |
+| isFlex               | Enum         | Yes, No                                   | Flex = European                                                                                      |                      |
+| strike               | Double       |                                           | Rev/con strike                                                                                       |                      |
+| auctionType          | Enum         | AuctionType                               |                                                                                                      |                      |
+| auctionEvent         | Enum         | AuctionEvent                              |                                                                                                      |                      |
+| auctionSource        | Enum         | SRC, MIAX, etc.                           | Source of the auction notice                                                                         |                      |
+| isTestAuction        | Enum         | Yes, No                                   | If yes, auction is a test auction (not a prod/live auction)                                          |                      |
+| shortCode            | String       |                                           | 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions)   |                      |
+| industry             | Text1        |                                           | Industry string                                                                                      |                      |
+| symbolType           | Enum         | SymbolType                                |                                                                                                      |                      |
+| uAvgDailyVlm         | Float        |                                           | Underlier average daily trading volume                                                               |                      |
+| custSide             | Enum         | Buy, Sell                                 | If available                                                                                         |                      |
+| custQty              | Int          |                                           |                                                                                                      |                      |
+| custPrc              | Double       |                                           | Public cust price                                                                                    |                      |
+| hasCustPrc           | Enum         | Yes, No                                   |                                                                                                      |                      |
+| custFirmType         | Enum         | FirmType                                  | Cust firm type (if disclosed)                                                                        |                      |
+| custAgentMPID        | String       |                                           | Cust agent exchange member initiating the auction (if disclosed)                                     |                      |
+| custClientFirm       | SRClientFirmRef |                                         | Cust client firm (if disclosed)                                                                      |                      |
+| commEnhancement      | Float        |                                           | Additional commission (if any) paid by responder                                                     |                      |
+| custCommPaying       | Enum         | Yes, No                                   | Client is commission paying (to the responder)                                                       |                      |
+| custQtyCond          | Enum         | UpToQty, AllOrNone, QtyOrMore             |                                                                                                      |                      |
+| auctionDuration      | Int          |                                           | [Expected] auction duration (in milliseconds)                                                        |                      |
+| uBid                 | Double       |                                           | Live stock price                                                                                     |                      |
+| uAsk                 | Double       |                                           |                                                                                                      |                      |
+| iDays                | Double       |                                           | iDays = effective interest days [SR supplied]                                                        |                      |
+| iYears               | Double       |                                           | iYears = iDays / 360.0                                                                               |                      |
+| moneyRate            | Double       |                                           | Effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate]          |                      |
+| ddivPv               | Double       |                                           | Present value of any expected dividends to expiry [SR Supplied Estimate]                             |                      |
+| hasEstDDivs          | Enum         | Yes, No                                   | Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]                    |                      |
+| sVol                 | Double       |                                           | Surface volatility for rev/con strike [SR Supplied Estimate]                                         |                      |
+| rcEExPrem            | Double       |                                           | rcEExPrem = [American price - European price] [same model parameters; SR supplied]                   |                      |
+| strikePv             | Double       |                                           | strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]                             |                      |
+| effStockLendPv       | Double       |                                           | effStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]                |                      |
+| effStockRate         | Double       |                                           | effStockRate = effStockLendPv / (uMid * iYears) [if cust price is visible]                            |                      |
+| includeSRNetwork     | Enum         | Include, Exclude, Disclose                |                                                                                                      |                      |
+| DirectedCounterParty | Repeater     |                                           | Indicates the start of `DirectedCounterParty` repeater fields                                        |                      |
+| clientFirm           | SRClientFirm |                                           | (In `DirectedCounterParty`) Name of the client firm                                                  | DirectedCounterParty |
+| inclExcl             | Enum         | Include, Exclude, Disclose                | (In `DirectedCounterParty`) Include or exclude specific counter parties                               | DirectedCounterParty |
+| isCommPaying         | Enum         | Yes, No                                   | (In `DirectedCounterParty`) If the client is paying commission                                        | DirectedCounterParty |
+
+
+### AuctionNotice BoxSprd
+
+#### AuctionNotice BoxSprd Message Schema
+
+The `AuctionNoticeBoxSprd` message is a stream of Auction Notices (BoxSprd) available. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+
+- **Message Type**: `AuctionNoticeBoxSprd`
+- **Message Number**: 2468
+- **MLink Token**: `SRConnect`
+
+
+| Field Name           | Data Type    | Enum Set                                | Description                                                                                   | In Repeater          |
+|----------------------|--------------|-----------------------------------------|-----------------------------------------------------------------------------------------------|----------------------|
+| noticeNumber         | NoticeNumber |                                         | Primary key                                                                                   |                      |
+| ticker               | TickerKey    |                                         | Underlier ticker                                                                              |                      |
+| tradeDate            | DateKey      |                                         |                                                                                               |                      |
+| expiry               | DateKey      |                                         |                                                                                               |                      |
+| loStrike             | Double       |                                         | Low strike                                                                                    |                      |
+| hiStrike             | Double       |                                         | High strike                                                                                   |                      |
+| auctionType          | Enum         | AuctionType                             |                                                                                               |                      |
+| auctionEvent         | Enum         | AuctionEvent                            |                                                                                               |                      |
+| auctionSource        | Enum         | SRC, MIAX, etc.                         | Source of the auction notice                                                                  |                      |
+| isTestAuction        | Enum         | Yes, No                                 | If yes, auction is a test auction (not a prod/live auction)                                   |                      |
+| shortCode            | String       |                                         | 8 letter auction short code (unique per day) (block auctions only)                            |                      |
+| custSide             | Enum         | Buy, Sell                               | If available                                                                                  |                      |
+| custQty              | Int          |                                         |                                                                                               |                      |
+| custPrc              | Double       |                                         | Public cust price                                                                             |                      |
+| hasCustPrc           | Enum         | Yes, No                                 |                                                                                               |                      |
+| custFirmType         | Enum         | FirmType                                | Cust firm type (if disclosed)                                                                 |                      |
+| custAgentMPID        | String       |                                         | Cust agent exchange member initiating the auction (if disclosed)                              |                      |
+| custClientFirm       | SRClientFirmRef |                                       | Cust client firm (if disclosed)                                                               |                      |
+| commEnhancement      | Float        |                                         | Additional commission (if any) paid by responder                                              |                      |
+| custCommPaying       | Enum         | Yes, No                                 | Client is commission paying (to the responder)                                                |                      |
+| custQtyCond          | Enum         | UpToQty, AllOrNone, QtyOrMore           |                                                                                               |                      |
+| auctionDuration      | Int          |                                         | [Expected] auction duration (in milliseconds)                                                 |                      |
+| iDays                | Double       |                                         | iDays = effective interest days [SR supplied]                                                 |                      |
+| iYears               | Double       |                                         | iYears = iDays / 360.0                                                                        |                      |
+| strikePv             | Double       |                                         | strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]                     |                      |
+| effMoneyRate         | Double       |                                         | effMoneyRate = (1.0 - (custPrc / (hiStrike - loStrike)) / iYears                              |                      |
+| includeSRNetwork     | Enum         | Include, Exclude, Disclose              |                                                                                               |                      |
+| DirectedCounterParty | Repeater     |                                         | Indicates the start of `DirectedCounterParty` repeater fields                                 |                      |
+| clientFirm           | SRClientFirm |                                         | (In `DirectedCounterParty`) Name of the client firm                                           | DirectedCounterParty |
+| inclExcl             | Enum         | Include, Exclude, Disclose              | (In `DirectedCounterParty`) Include or exclude specific counter parties                       | DirectedCounterParty |
+| isCommPaying         | Enum         | Yes, No                                 | (In `DirectedCounterParty`) If the client is paying commission                                | DirectedCounterParty |
+
+
+### AuctionNotice Synthetic
+
+#### AuctionNotice Synthetic Message Schema
+
+The `AuctionNoticeSynthetic` message is a stream of Auction Notices (Synthetic) available. Below is the detailed schema outlining all fields associated with this message type, including data types, enum sets (where applicable), and descriptions for each field.
+
+- **Message Type**: `AuctionNoticeSynthetic`
+- **Message Number**: 2467
+- **MLink Token**: `SRConnect`
+
+
+| Field Name           | Data Type    | Enum Set                                | Description                                                                                           | In Repeater          |
+|----------------------|--------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------|----------------------|
+| noticeNumber         | NoticeNumber |                                         | Primary key                                                                                           |                      |
+| ticker               | TickerKey    |                                         | Underlier ticker                                                                                      |                      |
+| tradeDate            | DateKey      |                                         |                                                                                                       |                      |
+| expiry               | DateKey      |                                         |                                                                                                       |                      |
+| isFlex               | Enum         | Yes, No                                 | Flex = European                                                                                       |                      |
+| strike               | Double       |                                         | Strike                                                                                                |                      |
+| auctionType          | Enum         | AuctionType                             |                                                                                                       |                      |
+| auctionEvent         | Enum         | AuctionEvent                            |                                                                                                       |                      |
+| auctionSource        | Enum         | SRC, MIAX, etc.                         | Source of the auction notice                                                                          |                      |
+| isTestAuction        | Enum         | Yes, No                                 | If yes, auction is a test auction (not a prod/live auction)                                           |                      |
+| shortCode            | String       |                                         | 8 letter auction short code (unique per day) (block auctions only)                                    |                      |
+| industry             | Text1        |                                         | Industry string                                                                                       |                      |
+| symbolType           | Enum         | SymbolType                              |                                                                                                       |                      |
+| uAvgDailyVlm         | Float        |                                         | Underlier average daily trading volume                                                                |                      |
+| custSide             | Enum         | Buy, Sell                               | If available                                                                                          |                      |
+| custQty              | Int          |                                         |                                                                                                       |                      |
+| custPrc              | Double       |                                         | Public cust price                                                                                     |                      |
+| hasCustPrc           | Enum         | Yes, No                                 |                                                                                                       |                      |
+| custFirmType         | Enum         | FirmType                                | Cust firm type (if disclosed)                                                                         |                      |
+| custAgentMPID        | String       |                                         | Cust agent exchange member initiating the auction (if disclosed)                                      |                      |
+| custClientFirm       | SRClientFirmRef |                                       | Cust client firm (if disclosed)                                                                       |                      |
+| commEnhancement      | Float        |                                         | Additional commission (if any) paid by responder                                                      |                      |
+| custCommPaying       | Enum         | Yes, No                                 | Client is commission paying (to the responder)                                                        |                      |
+| custQtyCond          | Enum         | UpToQty, AllOrNone, QtyOrMore           |                                                                                                       |                      |
+| auctionDuration      | Int          |                                         | [Expected] auction duration (in milliseconds)                                                         |                      |
+| uBid                 | Double       |                                         | Live stock price                                                                                      |                      |
+| uAsk                 | Double       |                                         |                                                                                                       |                      |
+| iDays                | Double       |                                         | iDays = effective interest days [SR supplied]                                                         |                      |
+| iYears               | Double       |                                         | iYears = iDays / 360.0                                                                                |                      |
+| moneyRate            | Double       |                                         | Effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] |                      |
+| ddivPv               | Double       |                                         | Present value of any expected dividends to expiry [SR Supplied Estimate]                              |                      |
+| sVol                 | Double       |                                         | Surface volatility for rev/con strike [SR Supplied Estimate]                                          |                      |
+| rcEExPrem            | Double       |                                         | rcEExPrem = [American price - European price] [same model parameters; SR supplied]                    |                      |
+| strikePv             | Double       |                                         | StrikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]                             |                      |
+| effStockLendPv       | Double       |                                         | EffStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]                |                      |
+| effStockRate         | Double       |                                         | EffStockRate = effStockLendPv / (uPrc * iYears) [if cust price is visible]                            |                      |
+| includeSRNetwork     | Enum         | Include, Exclude, Disclose              |                                                                                                       |                      |
+| DirectedCounterParty | Repeater     |                                         | Indicates the start of `DirectedCounterParty` repeater fields                                         |                      |
+| clientFirm           | SRClientFirm |                                         | (In `DirectedCounterParty`) Name of the client firm                                                   | DirectedCounterParty |
+| inclExcl             | Enum         | Include, Exclude, Disclose              | (In `DirectedCounterParty`) Include or exclude specific counter parties                               | DirectedCounterParty |
+| isCommPaying         | Enum         | Yes, No                                 | (In `DirectedCounterParty`) If the client is paying commission                                        | DirectedCounterParty |
