@@ -75,25 +75,25 @@ namespace api {
     DECL_STRONG_TYPE(ddiv, float);
     #endif//_ddiv__GUARD__
 
-    #ifndef _ddiv_pv__GUARD__
-    #define _ddiv_pv__GUARD__
-    DECL_STRONG_TYPE(ddiv_pv, float);
-    #endif//_ddiv_pv__GUARD__
+    #ifndef _ddiv_pv__float__GUARD__
+    #define _ddiv_pv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv_pv__float, float);
+    #endif//_ddiv_pv__float__GUARD__
 
     #ifndef _ddiv_source__GUARD__
     #define _ddiv_source__GUARD__
     DECL_STRONG_TYPE(ddiv_source, spiderrock::protobuf::api::DDivSource);
     #endif//_ddiv_source__GUARD__
 
-    #ifndef _i_days__GUARD__
-    #define _i_days__GUARD__
-    DECL_STRONG_TYPE(i_days, int32);
-    #endif//_i_days__GUARD__
+    #ifndef _i_days__int32__GUARD__
+    #define _i_days__int32__GUARD__
+    DECL_STRONG_TYPE(i_days__int32, int32);
+    #endif//_i_days__int32__GUARD__
 
-    #ifndef _strike_pv__GUARD__
-    #define _strike_pv__GUARD__
-    DECL_STRONG_TYPE(strike_pv, float);
-    #endif//_strike_pv__GUARD__
+    #ifndef _strike_pv__float__GUARD__
+    #define _strike_pv__float__GUARD__
+    DECL_STRONG_TYPE(strike_pv__float, float);
+    #endif//_strike_pv__float__GUARD__
 
     #ifndef _fair_svol__GUARD__
     #define _fair_svol__GUARD__
@@ -130,10 +130,10 @@ namespace api {
     DECL_STRONG_TYPE(rc_fair_prc, float);
     #endif//_rc_fair_prc__GUARD__
 
-    #ifndef _rc_eex_prem__GUARD__
-    #define _rc_eex_prem__GUARD__
-    DECL_STRONG_TYPE(rc_eex_prem, float);
-    #endif//_rc_eex_prem__GUARD__
+    #ifndef _rc_eex_prem__float__GUARD__
+    #define _rc_eex_prem__float__GUARD__
+    DECL_STRONG_TYPE(rc_eex_prem__float, float);
+    #endif//_rc_eex_prem__float__GUARD__
 
     #ifndef _fair_loan_pv__GUARD__
     #define _fair_loan_pv__GUARD__
@@ -308,10 +308,10 @@ namespace api {
         using years = spiderrock::protobuf::api::years__float;
         using global_rate = spiderrock::protobuf::api::global_rate;
         using ddiv = spiderrock::protobuf::api::ddiv;
-        using ddiv_pv = spiderrock::protobuf::api::ddiv_pv;
+        using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using ddiv_source = spiderrock::protobuf::api::ddiv_source;
-        using i_days = spiderrock::protobuf::api::i_days;
-        using strike_pv = spiderrock::protobuf::api::strike_pv;
+        using i_days = spiderrock::protobuf::api::i_days__int32;
+        using strike_pv = spiderrock::protobuf::api::strike_pv__float;
         using fair_svol = spiderrock::protobuf::api::fair_svol;
         using fair_sdiv = spiderrock::protobuf::api::fair_sdiv;
         using fair_call_prc = spiderrock::protobuf::api::fair_call_prc;
@@ -319,7 +319,7 @@ namespace api {
         using fair_put_prc = spiderrock::protobuf::api::fair_put_prc;
         using fair_put_prc_e = spiderrock::protobuf::api::fair_put_prc_e;
         using rc_fair_prc = spiderrock::protobuf::api::rc_fair_prc;
-        using rc_eex_prem = spiderrock::protobuf::api::rc_eex_prem;
+        using rc_eex_prem = spiderrock::protobuf::api::rc_eex_prem__float;
         using fair_loan_pv = spiderrock::protobuf::api::fair_loan_pv;
         using fair_loan_rate = spiderrock::protobuf::api::fair_loan_rate;
         using rc_bid_loan_pv = spiderrock::protobuf::api::rc_bid_loan_pv;
@@ -851,86 +851,86 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeXAxis()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(101,m_x_axis);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(103,m_x_axis);
             }
             if ( IncludeCDe()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(102,m_c_de);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(106,m_c_de);
             }
             if ( IncludePDe()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(103,m_p_de);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(109,m_p_de);
             }
             if ( IncludeUPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(104,m_u_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(112,m_u_prc);
             }
             if ( IncludeAtmVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(105,m_atm_vol);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(115,m_atm_vol);
             }
             if ( IncludeYears()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(106,m_years);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(118,m_years);
             }
             if ( IncludeGlobalRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(107,m_global_rate);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(121,m_global_rate);
             }
             if ( IncludeDdiv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(108,m_ddiv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_ddiv);
             }
             if ( IncludeDdivPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(109,m_ddiv_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(127,m_ddiv_pv);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>(m_ddiv_source)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>(m_ddiv_source)));
             if ( IncludeIDays()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(111,m_i_days);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(133,m_i_days);
             }
             if ( IncludeStrikePv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_strike_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(136,m_strike_pv);
             }
             if ( IncludeFairSvol()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(113,m_fair_svol);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(139,m_fair_svol);
             }
             if ( IncludeFairSdiv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(114,m_fair_sdiv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(142,m_fair_sdiv);
             }
             if ( IncludeFairCallPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(115,m_fair_call_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(145,m_fair_call_prc);
             }
             if ( IncludeFairCallPrcE()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(116,m_fair_call_prc_e);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(148,m_fair_call_prc_e);
             }
             if ( IncludeFairPutPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(117,m_fair_put_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_fair_put_prc);
             }
             if ( IncludeFairPutPrcE()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(118,m_fair_put_prc_e);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(154,m_fair_put_prc_e);
             }
             if ( IncludeRcFairPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(119,m_rc_fair_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(157,m_rc_fair_prc);
             }
             if ( IncludeRcEexPrem()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(120,m_rc_eex_prem);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(160,m_rc_eex_prem);
             }
             if ( IncludeFairLoanPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(121,m_fair_loan_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(163,m_fair_loan_pv);
             }
             if ( IncludeFairLoanRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(122,m_fair_loan_rate);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(166,m_fair_loan_rate);
             }
             if ( IncludeRcBidLoanPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(123,m_rc_bid_loan_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(169,m_rc_bid_loan_pv);
             }
             if ( IncludeRcAskLoanPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_rc_ask_loan_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(172,m_rc_ask_loan_pv);
             }
             if ( IncludeCalcError()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(125,m_calc_error);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(175,m_calc_error);
             }
             if ( IncludeCpOi()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(126,m_cp_oi);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(178,m_cp_oi);
             }
             if ( IncludeCpVlm()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(127,m_cp_vlm);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(181,m_cp_vlm);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(128, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(184, m_timestamp);
             }
             return totalSize;
         }
@@ -952,86 +952,86 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeXAxis()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,101,m_x_axis);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,103,m_x_axis);
             }
             if ( IncludeCDe()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,102,m_c_de);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,106,m_c_de);
             }
             if ( IncludePDe()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,103,m_p_de);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,109,m_p_de);
             }
             if ( IncludeUPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,104,m_u_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,112,m_u_prc);
             }
             if ( IncludeAtmVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,105,m_atm_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,115,m_atm_vol);
             }
             if ( IncludeYears()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,106,m_years);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,118,m_years);
             }
             if ( IncludeGlobalRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,107,m_global_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,121,m_global_rate);
             }
             if ( IncludeDdiv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,108,m_ddiv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_ddiv);
             }
             if ( IncludeDdivPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,109,m_ddiv_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,127,m_ddiv_pv);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>(m_ddiv_source)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>(m_ddiv_source)));
             if ( IncludeIDays()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,111,m_i_days);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,133,m_i_days);
             }
             if ( IncludeStrikePv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_strike_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,136,m_strike_pv);
             }
             if ( IncludeFairSvol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,113,m_fair_svol);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,139,m_fair_svol);
             }
             if ( IncludeFairSdiv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,114,m_fair_sdiv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,142,m_fair_sdiv);
             }
             if ( IncludeFairCallPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,115,m_fair_call_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,145,m_fair_call_prc);
             }
             if ( IncludeFairCallPrcE()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,116,m_fair_call_prc_e);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,148,m_fair_call_prc_e);
             }
             if ( IncludeFairPutPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,117,m_fair_put_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_fair_put_prc);
             }
             if ( IncludeFairPutPrcE()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,118,m_fair_put_prc_e);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,154,m_fair_put_prc_e);
             }
             if ( IncludeRcFairPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,119,m_rc_fair_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,157,m_rc_fair_prc);
             }
             if ( IncludeRcEexPrem()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,120,m_rc_eex_prem);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,160,m_rc_eex_prem);
             }
             if ( IncludeFairLoanPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,121,m_fair_loan_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,163,m_fair_loan_pv);
             }
             if ( IncludeFairLoanRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,122,m_fair_loan_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,166,m_fair_loan_rate);
             }
             if ( IncludeRcBidLoanPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,123,m_rc_bid_loan_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,169,m_rc_bid_loan_pv);
             }
             if ( IncludeRcAskLoanPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_rc_ask_loan_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,172,m_rc_ask_loan_pv);
             }
             if ( IncludeCalcError()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,125,static_cast<string>(m_calc_error));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,175,static_cast<string>(m_calc_error));
             }
             if ( IncludeCpOi()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,126,m_cp_oi);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,178,m_cp_oi);
             }
             if ( IncludeCpVlm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,127,m_cp_vlm);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,181,m_cp_vlm);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 128, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 184, m_timestamp);
             }
         }
 
@@ -1070,168 +1070,168 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {
+                    case 103: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_x_axis = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 102: {
+                    case 106: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_c_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 103: {
+                    case 109: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_p_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 104: {
+                    case 112: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_u_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 105: {
+                    case 115: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_atm_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 106: {
+                    case 118: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 107: {
+                    case 121: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_global_rate = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 108: {
+                    case 124: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_ddiv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 109: {
+                    case 127: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_ddiv_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 110: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 130: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_ddiv_source = static_cast<spiderrock::protobuf::api::DDivSource>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 111: {
+                    case 133: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_i_days = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 112: {
+                    case 136: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_strike_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 113: {
+                    case 139: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_svol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 114: {
+                    case 142: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_sdiv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 115: {
+                    case 145: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_call_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 116: {
+                    case 148: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_call_prc_e = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 117: {
+                    case 151: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_put_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 118: {
+                    case 154: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_put_prc_e = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 119: {
+                    case 157: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_rc_fair_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 120: {
+                    case 160: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_rc_eex_prem = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 121: {
+                    case 163: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_loan_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 122: {
+                    case 166: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_fair_loan_rate = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 123: {
+                    case 169: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_rc_bid_loan_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 172: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_rc_ask_loan_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 125: {
+                    case 175: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_calc_error = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 126: {
+                    case 178: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_cp_oi = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 127: {
+                    case 181: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_cp_vlm = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 128: {
+                    case 184: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }

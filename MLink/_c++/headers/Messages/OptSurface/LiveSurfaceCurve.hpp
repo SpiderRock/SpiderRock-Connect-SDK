@@ -60,15 +60,15 @@ namespace api {
     DECL_STRONG_TYPE(u_prc__double, double);
     #endif//_u_prc__double__GUARD__
 
-    #ifndef _u_bid__double__GUARD__
-    #define _u_bid__double__GUARD__
-    DECL_STRONG_TYPE(u_bid__double, double);
-    #endif//_u_bid__double__GUARD__
+    #ifndef _u_bid__GUARD__
+    #define _u_bid__GUARD__
+    DECL_STRONG_TYPE(u_bid, double);
+    #endif//_u_bid__GUARD__
 
-    #ifndef _u_ask__double__GUARD__
-    #define _u_ask__double__GUARD__
-    DECL_STRONG_TYPE(u_ask__double, double);
-    #endif//_u_ask__double__GUARD__
+    #ifndef _u_ask__GUARD__
+    #define _u_ask__GUARD__
+    DECL_STRONG_TYPE(u_ask, double);
+    #endif//_u_ask__GUARD__
 
     #ifndef _years__float__GUARD__
     #define _years__float__GUARD__
@@ -90,10 +90,10 @@ namespace api {
     DECL_STRONG_TYPE(ddiv, float);
     #endif//_ddiv__GUARD__
 
-    #ifndef _ddiv_pv__GUARD__
-    #define _ddiv_pv__GUARD__
-    DECL_STRONG_TYPE(ddiv_pv, float);
-    #endif//_ddiv_pv__GUARD__
+    #ifndef _ddiv_pv__float__GUARD__
+    #define _ddiv_pv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv_pv__float, float);
+    #endif//_ddiv_pv__float__GUARD__
 
     #ifndef _ddiv_source__GUARD__
     #define _ddiv_source__GUARD__
@@ -856,13 +856,13 @@ namespace api {
         using u_prc_driver_type = spiderrock::protobuf::api::u_prc_driver_type;
         using u_prc_driver = spiderrock::protobuf::api::u_prc_driver;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
-        using u_bid = spiderrock::protobuf::api::u_bid__double;
-        using u_ask = spiderrock::protobuf::api::u_ask__double;
+        using u_bid = spiderrock::protobuf::api::u_bid;
+        using u_ask = spiderrock::protobuf::api::u_ask;
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
         using ddiv = spiderrock::protobuf::api::ddiv;
-        using ddiv_pv = spiderrock::protobuf::api::ddiv_pv;
+        using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using ddiv_source = spiderrock::protobuf::api::ddiv_source;
         using symbol_ratio = spiderrock::protobuf::api::symbol_ratio;
         using ex_type = spiderrock::protobuf::api::ex_type;

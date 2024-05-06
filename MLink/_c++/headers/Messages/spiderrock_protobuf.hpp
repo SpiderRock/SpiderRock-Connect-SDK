@@ -13,9 +13,11 @@
 #include "EqtMktData/StockPrint.hpp"
 #include "EqtSummaryData/StockMarketSummary.hpp"
 #include "EqtSummaryData/StockMinuteBar.hpp"
+#include "EquityDefinition/ExchSecurityDefinition.hpp"
 #include "EquityDefinition/TickerDefinition.hpp"
 #include "FutMarkData/FutureCloseMark.hpp"
 #include "FutMarkData/FutureOpenMark.hpp"
+#include "FutMarkData/FutureSettlementMark.hpp"
 #include "FutMktData/FutureBookQuote.hpp"
 #include "FutMktData/FuturePrint.hpp"
 #include "FutProbModel/FuturePrintProbability.hpp"
@@ -50,14 +52,13 @@
 #include "MLinkWs/MLinkSubscribe.hpp"
 #include "MLinkWs/MLinkSubscribeAck.hpp"
 #include "MLinkWs/MLinkSubscribeCheckPt.hpp"
+#include "NationsIndex/NationsIndexPrice.hpp"
 #include "OptAnalytics/LiveImpliedQuote.hpp"
 #include "OptAnalytics/LiveImpliedQuoteAdj.hpp"
 #include "OptAnalytics/LiveRevConQuote.hpp"
 #include "OptAnalytics/OptionPrintSet.hpp"
 #include "OptAnalytics/OptionRiskFactor.hpp"
 #include "OptAnalytics/StockBeta.hpp"
-#include "OptExchAuction/SpdrAuctionMarkup.hpp"
-#include "OptExchAuction/SpdrAuctionResult.hpp"
 #include "OptExchAuction/SpdrAuctionState.hpp"
 #include "OptionDefinition/OpraPrintType.hpp"
 #include "OptionDefinition/OptExpiryDefinition.hpp"
@@ -79,12 +80,19 @@
 #include "OptSurface/OptionAtmMinuteBarData.hpp"
 #include "RiskCalc/GetOptionPrice.hpp"
 #include "RiskCalc/GetOptionVolatility.hpp"
-#include "SpreadExchData/SpreadDefinition.hpp"
-#include "SpreadExchData/SpreadExchDefinition.hpp"
+#include "SpreadDefinition/SpreadDefinition.hpp"
+#include "SpreadDefinition/SpreadExchDefinition.hpp"
 #include "SpreadExchData/SpreadExchOrder.hpp"
 #include "SpreadMktData/SpreadBookMarkup.hpp"
 #include "SpreadMktData/SpreadBookQuote.hpp"
 #include "SRConnect/AuctionNotice.hpp"
+#include "SRConnect/AuctionNoticeBX.hpp"
+#include "SRConnect/AuctionNoticeRC.hpp"
+#include "SRConnect/AuctionNoticeSN.hpp"
+#include "SRConnect/AuctionPrint.hpp"
+#include "SRConnect/AuctionPrintBX.hpp"
+#include "SRConnect/AuctionPrintRC.hpp"
+#include "SRConnect/AuctionPrintSN.hpp"
 #include "SRConnect/NoticeCancel.hpp"
 #include "SRConnect/NoticeExecReport.hpp"
 #include "SRConnect/NoticeResponse.hpp"
@@ -106,9 +114,11 @@ class Observer {
     StockPrint msgStockPrint{};
     StockMarketSummary msgStockMarketSummary{};
     StockMinuteBar msgStockMinuteBar{};
+    ExchSecurityDefinition msgExchSecurityDefinition{};
     TickerDefinition msgTickerDefinition{};
     FutureCloseMark msgFutureCloseMark{};
     FutureOpenMark msgFutureOpenMark{};
+    FutureSettlementMark msgFutureSettlementMark{};
     FutureBookQuote msgFutureBookQuote{};
     FuturePrint msgFuturePrint{};
     FuturePrintProbability msgFuturePrintProbability{};
@@ -143,14 +153,13 @@ class Observer {
     MLinkSubscribe msgMLinkSubscribe{};
     MLinkSubscribeAck msgMLinkSubscribeAck{};
     MLinkSubscribeCheckPt msgMLinkSubscribeCheckPt{};
+    NationsIndexPrice msgNationsIndexPrice{};
     LiveImpliedQuote msgLiveImpliedQuote{};
     LiveImpliedQuoteAdj msgLiveImpliedQuoteAdj{};
     LiveRevConQuote msgLiveRevConQuote{};
     OptionPrintSet msgOptionPrintSet{};
     OptionRiskFactor msgOptionRiskFactor{};
     StockBeta msgStockBeta{};
-    SpdrAuctionMarkup msgSpdrAuctionMarkup{};
-    SpdrAuctionResult msgSpdrAuctionResult{};
     SpdrAuctionState msgSpdrAuctionState{};
     OpraPrintType msgOpraPrintType{};
     OptExpiryDefinition msgOptExpiryDefinition{};
@@ -178,6 +187,13 @@ class Observer {
     SpreadBookMarkup msgSpreadBookMarkup{};
     SpreadBookQuote msgSpreadBookQuote{};
     AuctionNotice msgAuctionNotice{};
+    AuctionNoticeBX msgAuctionNoticeBX{};
+    AuctionNoticeRC msgAuctionNoticeRC{};
+    AuctionNoticeSN msgAuctionNoticeSN{};
+    AuctionPrint msgAuctionPrint{};
+    AuctionPrintBX msgAuctionPrintBX{};
+    AuctionPrintRC msgAuctionPrintRC{};
+    AuctionPrintSN msgAuctionPrintSN{};
     NoticeCancel msgNoticeCancel{};
     NoticeExecReport msgNoticeExecReport{};
     NoticeResponse msgNoticeResponse{};
@@ -278,6 +294,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const StockMinuteBar &)msgStockMinuteBar);
                 break;
             }
+            case 4400: {  // ExchSecurityDefinition
+			    msgExchSecurityDefinition.Clear();
+                msgExchSecurityDefinition.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ExchSecurityDefinition &)msgExchSecurityDefinition);
+                break;
+            }
             case 4375: {  // TickerDefinition
 			    msgTickerDefinition.Clear();
                 msgTickerDefinition.ParseFromArray(buf, len);
@@ -294,6 +316,12 @@ class Observer {
 			    msgFutureOpenMark.Clear();
                 msgFutureOpenMark.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const FutureOpenMark &)msgFutureOpenMark);
+                break;
+            }
+            case 3130: {  // FutureSettlementMark
+			    msgFutureSettlementMark.Clear();
+                msgFutureSettlementMark.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const FutureSettlementMark &)msgFutureSettlementMark);
                 break;
             }
             case 2580: {  // FutureBookQuote
@@ -500,6 +528,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const MLinkSubscribeCheckPt &)msgMLinkSubscribeCheckPt);
                 break;
             }
+            case 7800: {  // NationsIndexPrice
+			    msgNationsIndexPrice.Clear();
+                msgNationsIndexPrice.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const NationsIndexPrice &)msgNationsIndexPrice);
+                break;
+            }
             case 1015: {  // LiveImpliedQuote
 			    msgLiveImpliedQuote.Clear();
                 msgLiveImpliedQuote.ParseFromArray(buf, len);
@@ -534,18 +568,6 @@ class Observer {
 			    msgStockBeta.Clear();
                 msgStockBeta.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const StockBeta &)msgStockBeta);
-                break;
-            }
-            case 2515: {  // SpdrAuctionMarkup
-			    msgSpdrAuctionMarkup.Clear();
-                msgSpdrAuctionMarkup.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const SpdrAuctionMarkup &)msgSpdrAuctionMarkup);
-                break;
-            }
-            case 2520: {  // SpdrAuctionResult
-			    msgSpdrAuctionResult.Clear();
-                msgSpdrAuctionResult.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const SpdrAuctionResult &)msgSpdrAuctionResult);
                 break;
             }
             case 2525: {  // SpdrAuctionState
@@ -708,6 +730,48 @@ class Observer {
 			    msgAuctionNotice.Clear();
                 msgAuctionNotice.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const AuctionNotice &)msgAuctionNotice);
+                break;
+            }
+            case 2468: {  // AuctionNoticeBX
+			    msgAuctionNoticeBX.Clear();
+                msgAuctionNoticeBX.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionNoticeBX &)msgAuctionNoticeBX);
+                break;
+            }
+            case 2466: {  // AuctionNoticeRC
+			    msgAuctionNoticeRC.Clear();
+                msgAuctionNoticeRC.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionNoticeRC &)msgAuctionNoticeRC);
+                break;
+            }
+            case 2467: {  // AuctionNoticeSN
+			    msgAuctionNoticeSN.Clear();
+                msgAuctionNoticeSN.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionNoticeSN &)msgAuctionNoticeSN);
+                break;
+            }
+            case 2485: {  // AuctionPrint
+			    msgAuctionPrint.Clear();
+                msgAuctionPrint.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionPrint &)msgAuctionPrint);
+                break;
+            }
+            case 2488: {  // AuctionPrintBX
+			    msgAuctionPrintBX.Clear();
+                msgAuctionPrintBX.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionPrintBX &)msgAuctionPrintBX);
+                break;
+            }
+            case 2486: {  // AuctionPrintRC
+			    msgAuctionPrintRC.Clear();
+                msgAuctionPrintRC.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionPrintRC &)msgAuctionPrintRC);
+                break;
+            }
+            case 2487: {  // AuctionPrintSN
+			    msgAuctionPrintSN.Clear();
+                msgAuctionPrintSN.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionPrintSN &)msgAuctionPrintSN);
                 break;
             }
             case 2480: {  // NoticeCancel

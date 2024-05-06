@@ -50,6 +50,11 @@ namespace api {
     DECL_STRONG_TYPE(country, string);
     #endif//_country__GUARD__
 
+    #ifndef _primary_currency__GUARD__
+    #define _primary_currency__GUARD__
+    DECL_STRONG_TYPE(primary_currency, spiderrock::protobuf::api::Currency);
+    #endif//_primary_currency__GUARD__
+
     #ifndef _par_value__GUARD__
     #define _par_value__GUARD__
     DECL_STRONG_TYPE(par_value, float);
@@ -391,6 +396,7 @@ namespace api {
         using symbol_type = spiderrock::protobuf::api::symbol_type;
         using name = spiderrock::protobuf::api::name;
         using country = spiderrock::protobuf::api::country;
+        using primary_currency = spiderrock::protobuf::api::primary_currency;
         using par_value = spiderrock::protobuf::api::par_value;
         using par_value_currency = spiderrock::protobuf::api::par_value_currency;
         using point_value = spiderrock::protobuf::api::point_value;
@@ -447,6 +453,7 @@ namespace api {
         symbol_type m_symbol_type{};
         name m_name{};
         country m_country{};
+        primary_currency m_primary_currency{};
         par_value m_par_value{};
         par_value_currency m_par_value_currency{};
         point_value m_point_value{};
@@ -516,6 +523,9 @@ namespace api {
         }		
         country get_country() const {
             return m_country;
+        }		
+        primary_currency get_primary_currency() const {
+            return m_primary_currency;
         }		
         par_value get_par_value() const {
             return m_par_value;
@@ -682,6 +692,9 @@ namespace api {
         }
         void set_country(const country& value)  {
             m_country = value;
+        }
+        void set_primary_currency(const primary_currency& value)  {
+            m_primary_currency = value;
         }
         void set_par_value(const par_value& value)  {
             m_par_value = value;
@@ -853,6 +866,9 @@ namespace api {
         void set(const country & value) {
             set_country(value);
         }
+        void set(const primary_currency & value) {
+            set_primary_currency(value);
+        }
         void set(const par_value & value) {
             set_par_value(value);
         }
@@ -1005,6 +1021,7 @@ namespace api {
             set(value.m_symbol_type);
             set(value.m_name);
             set(value.m_country);
+            set(value.m_primary_currency);
             set(value.m_par_value);
             set(value.m_par_value_currency);
             set(value.m_point_value);
@@ -1258,6 +1275,7 @@ namespace api {
             if ( IncludeCountry()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_country);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
             if ( IncludeParValue()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_par_value);
             }
@@ -1406,6 +1424,7 @@ namespace api {
             if ( IncludeCountry()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_country));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
             if ( IncludeParValue()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_par_value);
             }
@@ -1580,6 +1599,11 @@ namespace api {
                     case 109: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_country = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 110: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_primary_currency = static_cast<spiderrock::protobuf::api::Currency>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1876,6 +1900,7 @@ namespace api {
     template<> inline const auto TickerDefinition::get<TickerDefinition::symbol_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SymbolType>( m_symbol_type)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::name>() const { return m_name; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::country>() const { return m_country; }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::primary_currency>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_primary_currency)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::par_value>() const { return m_par_value; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::par_value_currency>() const { return m_par_value_currency; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::point_value>() const { return m_point_value; }
@@ -1940,6 +1965,7 @@ namespace api {
         o << ",\"symbol_type\":" << (int64_t)m.get<TickerDefinition::symbol_type>();
         o << ",\"name\":\"" << m.get<TickerDefinition::name>() << "\"";
         o << ",\"country\":\"" << m.get<TickerDefinition::country>() << "\"";
+        o << ",\"primary_currency\":" << (int64_t)m.get<TickerDefinition::primary_currency>();
         o << ",\"par_value\":" << m.get<TickerDefinition::par_value>();
         o << ",\"par_value_currency\":\"" << m.get<TickerDefinition::par_value_currency>() << "\"";
         o << ",\"point_value\":" << m.get<TickerDefinition::point_value>();

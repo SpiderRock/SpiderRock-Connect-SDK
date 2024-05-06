@@ -35,79 +35,53 @@ namespace api {
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
     #endif//_ticker__TickerKey__GUARD__
 
-    #ifndef _trade_date__GUARD__
-    #define _trade_date__GUARD__
-    DECL_STRONG_TYPE(trade_date, DateKey);
-    #endif//_trade_date__GUARD__
+    #ifndef _days__GUARD__
+    #define _days__GUARD__
+    DECL_STRONG_TYPE(days, int32);
+    #endif//_days__GUARD__
 
-    #ifndef _timestamp__GUARD__
-    #define _timestamp__GUARD__
-    DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_timestamp__GUARD__
+    #ifndef _mrk_price__float__GUARD__
+    #define _mrk_price__float__GUARD__
+    DECL_STRONG_TYPE(mrk_price__float, float);
+    #endif//_mrk_price__float__GUARD__
 
-    #ifndef _notice_number__GUARD__
-    #define _notice_number__GUARD__
-    DECL_STRONG_TYPE(notice_number, int64);
-    #endif//_notice_number__GUARD__
+    #ifndef _src_timestamp__GUARD__
+    #define _src_timestamp__GUARD__
+    DECL_STRONG_TYPE(src_timestamp, int64);
+    #endif//_src_timestamp__GUARD__
 
-    #ifndef _accnt__GUARD__
-    #define _accnt__GUARD__
-    DECL_STRONG_TYPE(accnt, string);
-    #endif//_accnt__GUARD__
-
-    #ifndef _client_firm__GUARD__
-    #define _client_firm__GUARD__
-    DECL_STRONG_TYPE(client_firm, string);
-    #endif//_client_firm__GUARD__
+    #ifndef _ekey__GUARD__
+    #define _ekey__GUARD__
+    DECL_STRONG_TYPE(ekey, ExpiryKey);
+    #endif//_ekey__GUARD__
 
     
-    class NoticeCancel_PKey {
+    class NationsIndexPrice_PKey {
         public:
         //using statements for all types used in this class
-        using notice_number = spiderrock::protobuf::api::notice_number;
-        using accnt = spiderrock::protobuf::api::accnt;
-        using client_firm = spiderrock::protobuf::api::client_firm;
+        using ekey = spiderrock::protobuf::api::ekey;
 
         private:
-        notice_number m_notice_number{};
-        accnt m_accnt{};
-        client_firm m_client_firm{};
+        ekey m_ekey{};
 
         public:
-        notice_number get_notice_number() const {
-            return m_notice_number;
-        }
-        accnt get_accnt() const {
-            return m_accnt;
-        }
-        client_firm get_client_firm() const {
-            return m_client_firm;
-        }
-        void set_notice_number(const notice_number& value)  {
-            m_notice_number = value;
-        }
-        void set_accnt(const accnt& value)  {
-            m_accnt = value;
-        }
-        void set_client_firm(const client_firm& value)  {
-            m_client_firm = value;
+        void set_ekey(const ekey& value)  {
+            m_ekey = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to NoticeCancel_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to NationsIndexPrice_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
         template <typename T, size_t S = sizeof(T)>
-        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to NoticeCancel_PKey::set()"); }  // specializations for valid types are listed below
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to NationsIndexPrice_PKey::set()"); }  // specializations for valid types are listed below
 
         //specializations for set functions for the valid types
         
-        void set(const notice_number & value) { set_notice_number(value); }
-        void set(const accnt & value) { set_accnt(value); }
-        void set(const client_firm & value) { set_client_firm(value); }
+        void set(const ekey & value) { set_ekey(value); }
 
 
-        NoticeCancel_PKey() {}
+        NationsIndexPrice_PKey() {}
 
-        virtual ~NoticeCancel_PKey() {
+        virtual ~NationsIndexPrice_PKey() {
         }
         //templatized set functions that can take multiple arguments simultaneously
         template <typename Arg>
@@ -119,40 +93,26 @@ namespace api {
             set(arg);
             set_params(args...);
         }
-        bool IncludeNoticeNumber() const {
-            return !(m_notice_number == 0);
-        }
-        bool IncludeAccnt() const {
-            return !(m_accnt.empty());
-        }
-        bool IncludeClientFirm() const {
-            return !(m_client_firm.empty());
+        bool IncludeEkey() const {
+            return (m_ekey.ByteSizeLong() > 0);
         }
 
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            if ( IncludeNoticeNumber()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(10,m_notice_number);
-            }
-            if ( IncludeAccnt()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_accnt);
-            }
-            if ( IncludeClientFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(12,m_client_firm);
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
-            if ( IncludeNoticeNumber()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,10,m_notice_number);
-            }
-            if ( IncludeAccnt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_accnt));
-            }
-            if ( IncludeClientFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,12,static_cast<string>(m_client_firm));
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
             }
         }
 
@@ -169,13 +129,8 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 10: {m_notice_number = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        break;
-                    }
-                    case 11: {m_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        break;
-                    }
-                    case 12: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 10: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
+                        m_ekey.setFromCodec(expiryKey);
                         break;
                     }
                 }
@@ -185,22 +140,24 @@ namespace api {
     };
     
 
-    class NoticeCancel {
+    class NationsIndexPrice {
         public:
         //using statements for all types used in this class
     
         using _meta = spiderrock::protobuf::api::_meta;
-        using pkey = spiderrock::protobuf::api::NoticeCancel_PKey;
+        using pkey = spiderrock::protobuf::api::NationsIndexPrice_PKey;
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
-        using trade_date = spiderrock::protobuf::api::trade_date;
-        using timestamp = spiderrock::protobuf::api::timestamp;
+        using days = spiderrock::protobuf::api::days;
+        using mrk_price = spiderrock::protobuf::api::mrk_price__float;
+        using src_timestamp = spiderrock::protobuf::api::src_timestamp;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
         ticker m_ticker{};
-        trade_date m_trade_date{};
-        timestamp m_timestamp{};
+        days m_days{};
+        mrk_price m_mrk_price{};
+        src_timestamp m_src_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -214,11 +171,14 @@ namespace api {
         ticker get_ticker() const {
             return m_ticker;
         }		
-        trade_date get_trade_date() const {
-            return m_trade_date;
+        days get_days() const {
+            return m_days;
         }		
-        timestamp get_timestamp() const {
-            return m_timestamp;
+        mrk_price get_mrk_price() const {
+            return m_mrk_price;
+        }		
+        src_timestamp get_src_timestamp() const {
+            return m_src_timestamp;
         }
         size_t getMLinkHeaderLength() const
         {
@@ -233,17 +193,20 @@ namespace api {
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }
-        void set_trade_date(const trade_date& value)  {
-            m_trade_date = value;
+        void set_days(const days& value)  {
+            m_days = value;
         }
-        void set_timestamp(const timestamp& value)  {
-            m_timestamp = value;
+        void set_mrk_price(const mrk_price& value)  {
+            m_mrk_price = value;
+        }
+        void set_src_timestamp(const src_timestamp& value)  {
+            m_src_timestamp = value;
         }
 
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to NoticeCancel::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to NationsIndexPrice::get()"); return T{}; }  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -256,23 +219,27 @@ namespace api {
         void set(const ticker & value) {
             set_ticker(value);
         }
-        void set(const trade_date & value) {
-            set_trade_date(value);
+        void set(const days & value) {
+            set_days(value);
         }
-        void set(const timestamp & value) {
-            set_timestamp(value);
+        void set(const mrk_price & value) {
+            set_mrk_price(value);
+        }
+        void set(const src_timestamp & value) {
+            set_src_timestamp(value);
         }
 
-        void set(const NoticeCancel & value) {
+        void set(const NationsIndexPrice & value) {
             set(value.m__meta);
             set(value.m_pkey);
             set(value.m_ticker);
-            set(value.m_trade_date);
-            set(value.m_timestamp);
+            set(value.m_days);
+            set(value.m_mrk_price);
+            set(value.m_src_timestamp);
         }
 
-        NoticeCancel() {
-            m__meta.set_message_type("NoticeCancel");
+        NationsIndexPrice() {
+            m__meta.set_message_type("NationsIndexPrice");
         }
 
 
@@ -290,7 +257,7 @@ namespace api {
         bool SerializeToArray(void* data, size_t size) const  {
             size_t length = ByteSizeLong();
             if (size <  _mlinkHeaderLength + length) return false;
-            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 2480, length);
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 7800, length);
             //Encode the message
             uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
             auto max = encodePos + length;
@@ -302,7 +269,7 @@ namespace api {
         bool SerializeToString(std::string *s) const {
             size_t length = ByteSizeLong();
             s->resize( _mlinkHeaderLength + length);
-            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 2480, length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 7800, length);
             return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 
@@ -319,7 +286,7 @@ namespace api {
         }
 
         void Clear() {
-             *this = NoticeCancel{};
+             *this = NationsIndexPrice{};
         }
         bool IncludeMeta() const {
             return (m__meta.ByteSizeLong() > 0);
@@ -330,11 +297,14 @@ namespace api {
         bool IncludeTicker() const {
             return (m_ticker.ByteSizeLong() > 0);
         }
-        bool IncludeTradeDate() const {
-            return (m_trade_date.ByteSizeLong() > 0);
+        bool IncludeDays() const {
+            return !(m_days == 0);
         }
-        bool IncludeTimestamp() const {
-            return (m_timestamp.time_since_epoch().count() != 0);
+        bool IncludeMrkPrice() const {
+            return !(m_mrk_price == 0.0);
+        }
+        bool IncludeSrcTimestamp() const {
+            return !(m_src_timestamp == 0);
         }
 
         size_t ByteSizeLong() const {
@@ -355,11 +325,14 @@ namespace api {
                 m_ticker.setCodecTickerKey(tickerKeyLayout);
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
-            if ( IncludeTradeDate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(103, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+            if ( IncludeDays()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(103,m_days);
             }
-            if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(106, m_timestamp);
+            if ( IncludeMrkPrice()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(106,m_mrk_price);
+            }
+            if ( IncludeSrcTimestamp()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(109,m_src_timestamp);
             }
             return totalSize;
         }
@@ -380,11 +353,14 @@ namespace api {
                 m_ticker.setCodecTickerKey(tickerKeyLayout);
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
-            if ( IncludeTradeDate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,103, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+            if ( IncludeDays()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,103,m_days);
             }
-            if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 106, m_timestamp);
+            if ( IncludeMrkPrice()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,106,m_mrk_price);
+            }
+            if ( IncludeSrcTimestamp()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,109,m_src_timestamp);
             }
         }
 
@@ -424,17 +400,20 @@ namespace api {
                         break;
                     }
                     case 103: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                            m_trade_date.set_year(dateKey.year());
-                            m_trade_date.set_month(dateKey.month());
-                            m_trade_date.set_day(dateKey.day());
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_days = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
                     case 106: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_mrk_price = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 109: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_src_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
@@ -447,35 +426,28 @@ namespace api {
 
     // getter definitions for all classes above, both inner and outer classes
 
-    template<> inline const auto NoticeCancel::get<NoticeCancel::_meta>() const { return NoticeCancel::_meta{ m__meta}; }
-    template<> inline const auto NoticeCancel::get<NoticeCancel::pkey>() const { return NoticeCancel::pkey{ m_pkey}; }
-    template<> inline const auto NoticeCancel::get<NoticeCancel::ticker>() const { return NoticeCancel::ticker{ m_ticker}; }
-    template<> inline const auto NoticeCancel::get<NoticeCancel::trade_date>() const { return NoticeCancel::trade_date{ m_trade_date}; }
-    template<> inline const auto NoticeCancel::get<NoticeCancel::timestamp>() const { return m_timestamp; }
-    template<> inline const auto NoticeCancel_PKey::get<NoticeCancel_PKey::notice_number>() const { return m_notice_number; }
-    template<> inline const auto NoticeCancel_PKey::get<NoticeCancel_PKey::accnt>() const { return m_accnt; }
-    template<> inline const auto NoticeCancel_PKey::get<NoticeCancel_PKey::client_firm>() const { return m_client_firm; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::_meta>() const { return NationsIndexPrice::_meta{ m__meta}; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::pkey>() const { return NationsIndexPrice::pkey{ m_pkey}; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::ticker>() const { return NationsIndexPrice::ticker{ m_ticker}; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::days>() const { return m_days; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::mrk_price>() const { return m_mrk_price; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::src_timestamp>() const { return m_src_timestamp; }
+    template<> inline const auto NationsIndexPrice_PKey::get<NationsIndexPrice_PKey::ekey>() const { return NationsIndexPrice_PKey::ekey{m_ekey}; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
-    inline std::ostream& operator<<(std::ostream &o, const NoticeCancel_PKey& m) {
-        o << "\"notice_number\":" << m.get<NoticeCancel_PKey::notice_number>();
-        o << ",\"accnt\":\"" << m.get<NoticeCancel_PKey::accnt>() << "\"";
-        o << ",\"client_firm\":\"" << m.get<NoticeCancel_PKey::client_firm>() << "\"";
+    inline std::ostream& operator<<(std::ostream &o, const NationsIndexPrice_PKey& m) {
+        o << "\"ekey\":{" << m.get<NationsIndexPrice_PKey::ekey>() << "}";
         return o;
     }
 
-    inline std::ostream& operator<<(std::ostream &o, const NoticeCancel& m) {
-        o << "\"_meta\":{" << m.get<NoticeCancel::_meta>() << "}";
-        o << ",\"pkey\":{" << m.get<NoticeCancel::pkey>() << "}";
-        o << ",\"ticker\":{" << m.get<NoticeCancel::ticker>() << "}";
-        o << ",\"trade_date\":{" << m.get<NoticeCancel::trade_date>() << "}";
-        {
-            std::time_t tt = m.get<NoticeCancel::timestamp>().time_since_epoch().count() / 1'000'000'000;
-			struct tm tm1{};
-			localtime_s(&tm1, &tt);
-            o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
-        }
+    inline std::ostream& operator<<(std::ostream &o, const NationsIndexPrice& m) {
+        o << "\"_meta\":{" << m.get<NationsIndexPrice::_meta>() << "}";
+        o << ",\"pkey\":{" << m.get<NationsIndexPrice::pkey>() << "}";
+        o << ",\"ticker\":{" << m.get<NationsIndexPrice::ticker>() << "}";
+        o << ",\"days\":" << m.get<NationsIndexPrice::days>();
+        o << ",\"mrk_price\":" << m.get<NationsIndexPrice::mrk_price>();
+        o << ",\"src_timestamp\":" << m.get<NationsIndexPrice::src_timestamp>();
         return o;
     }
 

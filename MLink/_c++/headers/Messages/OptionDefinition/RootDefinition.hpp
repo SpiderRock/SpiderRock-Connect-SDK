@@ -230,6 +230,16 @@ namespace api {
     DECL_STRONG_TYPE(root, TickerKey);
     #endif//_root__GUARD__
 
+    #ifndef _opt_exch__GUARD__
+    #define _opt_exch__GUARD__
+    DECL_STRONG_TYPE(opt_exch, spiderrock::protobuf::api::OptExch);
+    #endif//_opt_exch__GUARD__
+
+    #ifndef _native_root__GUARD__
+    #define _native_root__GUARD__
+    DECL_STRONG_TYPE(native_root, string);
+    #endif//_native_root__GUARD__
+
     #ifndef _ticker__TickerKey__GUARD__
     #define _ticker__TickerKey__GUARD__
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
@@ -317,6 +327,94 @@ namespace api {
                     case 10: {
                         auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
                         m_root.setFromCodec(tickerKey);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
+    
+    class RootDefinition_Exchange {
+        public:
+        //using statements for all types used in this class
+        using opt_exch = spiderrock::protobuf::api::opt_exch;
+        using native_root = spiderrock::protobuf::api::native_root;
+
+        private:
+        opt_exch m_opt_exch{};
+        native_root m_native_root{};
+
+        public:
+        opt_exch get_opt_exch() const {
+            return m_opt_exch;
+        }
+        native_root get_native_root() const {
+            return m_native_root;
+        }
+        void set_opt_exch(const opt_exch& value)  {
+            m_opt_exch = value;
+        }
+        void set_native_root(const native_root& value)  {
+            m_native_root = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to RootDefinition_Exchange::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to RootDefinition_Exchange::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const opt_exch & value) { set_opt_exch(value); }
+        void set(const native_root & value) { set_native_root(value); }
+
+
+        RootDefinition_Exchange() {}
+
+        virtual ~RootDefinition_Exchange() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(226,m_native_root);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,226,static_cast<string>(m_native_root));
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 223: {m_opt_exch = static_cast<spiderrock::protobuf::api::OptExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        break;
+                    }
+                    case 226: {m_native_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -462,6 +560,7 @@ namespace api {
         using ric_root = spiderrock::protobuf::api::ric_root;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using pricing_source__v7 = spiderrock::protobuf::api::pricing_source__v7;
+        using exchange = spiderrock::protobuf::api::RootDefinition_Exchange;
         using underlying = spiderrock::protobuf::api::RootDefinition_Underlying;
 
         private:
@@ -506,6 +605,7 @@ namespace api {
         ric_root m_ric_root{};
         timestamp m_timestamp{};
         pricing_source__v7 m_pricing_source__v7{};
+        std::vector<exchange> m_exchange{};
         std::vector<underlying> m_underlying{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -633,6 +733,12 @@ namespace api {
         }		
         pricing_source__v7 get_pricing_source__v7() const {
             return m_pricing_source__v7;
+        }
+        const std::vector<exchange>& get_exchange_list() const {
+            return m_exchange;
+        }
+        const exchange& get_exchange(const int i) const {
+            return m_exchange.at(i);
         }
         const std::vector<underlying>& get_underlying_list() const {
             return m_underlying;
@@ -766,6 +872,12 @@ namespace api {
         }
         void set_pricing_source__v7(const pricing_source__v7& value)  {
             m_pricing_source__v7 = value;
+        }
+        void set_exchange_list(const std::vector<exchange>& list)  {
+            m_exchange = list;
+        }
+        void add_exchange(const exchange& item) {
+            m_exchange.emplace_back(item);
         }
         void set_underlying_list(const std::vector<underlying>& list)  {
             m_underlying = list;
@@ -910,6 +1022,9 @@ namespace api {
         void set(const pricing_source__v7 & value) {
             set_pricing_source__v7(value);
         }
+        void set(const exchange & value) {
+            add_exchange(value);
+        }
         void set(const underlying & value) {
             add_underlying(value);
         }
@@ -955,7 +1070,7 @@ namespace api {
             set(value.m_default_surface_root);
             set(value.m_ric_root);
             set(value.m_timestamp);
-            set(value.m_pricing_source__v7);set_underlying_list(value.m_underlying);
+            set(value.m_pricing_source__v7);set_exchange_list(value.m_exchange);set_underlying_list(value.m_underlying);
         }
 
         RootDefinition() {
@@ -1065,6 +1180,9 @@ namespace api {
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
+        bool IncludeExchange() const {
+            return (!m_exchange.empty());
+        }
         bool IncludeUnderlying() const {
             return (!m_underlying.empty());
         }
@@ -1165,6 +1283,13 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
+            if ( IncludeExchange()) {
+                for (auto& item : m_exchange) {
+					totalSize += SRProtobufCPP::TagCodec::Size(220, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
+            }
             if ( IncludeUnderlying()) {
                 for (auto& item : m_underlying) {
 					totalSize += SRProtobufCPP::TagCodec::Size(211, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
@@ -1269,6 +1394,13 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
+            if ( IncludeExchange()) {
+                for (auto& item : m_exchange) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 220, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
+            }
             if ( IncludeUnderlying()) {
                 for (auto& item : m_underlying) {
                     dest = SRProtobufCPP::TagCodec::Encode(dest, 211, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
@@ -1523,6 +1655,15 @@ namespace api {
                         }
                         break;
                     }
+                    case 220: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            exchange item_exchange;
+                            item_exchange.Decode(pos, pos+length);  
+                            m_exchange.emplace_back(item_exchange);
+                        }
+                        break;
+                    }
                     case 211: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
@@ -1582,9 +1723,14 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::ric_root>() const { return m_ric_root; }
     template<> inline const auto RootDefinition::get<RootDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto RootDefinition::get<RootDefinition::pricing_source__v7>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>( m_pricing_source__v7)); }
+    template<> inline const auto RootDefinition::get<RootDefinition::exchange>(int i) const { return RootDefinition::exchange{ get_exchange(i)}; }
+    template<> inline int RootDefinition::count<RootDefinition::exchange>() const { return static_cast<int>( m_exchange.size()); }
     template<> inline const auto RootDefinition::get<RootDefinition::underlying>(int i) const { return RootDefinition::underlying{ get_underlying(i)}; }
     template<> inline int RootDefinition::count<RootDefinition::underlying>() const { return static_cast<int>( m_underlying.size()); }
     template<> inline const auto RootDefinition_PKey::get<RootDefinition_PKey::root>() const { return RootDefinition_PKey::root{m_root}; }
+    
+    template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::opt_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch));}
+    template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::native_root>() const { return m_native_root; }
     
     template<> inline const auto RootDefinition_Underlying::get<RootDefinition_Underlying::ticker>() const { return RootDefinition_Underlying::ticker{m_ticker}; }
     template<> inline const auto RootDefinition_Underlying::get<RootDefinition_Underlying::spc>() const { return m_spc; }
@@ -1593,6 +1739,12 @@ namespace api {
 
     inline std::ostream& operator<<(std::ostream &o, const RootDefinition_PKey& m) {
         o << "\"root\":{" << m.get<RootDefinition_PKey::root>() << "}";
+        return o;
+    }
+
+    inline std::ostream& operator<<(std::ostream &o, const RootDefinition_Exchange& m) {
+        o << "\"opt_exch\":" << (int64_t)m.get<RootDefinition_Exchange::opt_exch>();
+        o << ",\"native_root\":\"" << m.get<RootDefinition_Exchange::native_root>() << "\"";
         return o;
     }
 
@@ -1649,6 +1801,15 @@ namespace api {
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
         o << ",\"pricing_source__v7\":" << (int64_t)m.get<RootDefinition::pricing_source__v7>();
+        o << ",\"exchange\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<RootDefinition::exchange>(); ++i) {
+                o << delim << m.get<RootDefinition::exchange>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
         o << ",\"underlying\":[";
         {
             const char *delim = "{";
