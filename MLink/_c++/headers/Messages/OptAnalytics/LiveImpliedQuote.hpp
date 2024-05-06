@@ -95,10 +95,10 @@ namespace api {
     DECL_STRONG_TYPE(atm_vol, float);
     #endif//_atm_vol__GUARD__
 
-    #ifndef _s_vol__GUARD__
-    #define _s_vol__GUARD__
-    DECL_STRONG_TYPE(s_vol, float);
-    #endif//_s_vol__GUARD__
+    #ifndef _s_vol__float__GUARD__
+    #define _s_vol__float__GUARD__
+    DECL_STRONG_TYPE(s_vol__float, float);
+    #endif//_s_vol__float__GUARD__
 
     #ifndef _s_prc__GUARD__
     #define _s_prc__GUARD__
@@ -335,7 +335,7 @@ namespace api {
         using o_bid_iv = spiderrock::protobuf::api::o_bid_iv__float;
         using o_ask_iv = spiderrock::protobuf::api::o_ask_iv__float;
         using atm_vol = spiderrock::protobuf::api::atm_vol;
-        using s_vol = spiderrock::protobuf::api::s_vol;
+        using s_vol = spiderrock::protobuf::api::s_vol__float;
         using s_prc = spiderrock::protobuf::api::s_prc;
         using s_mark = spiderrock::protobuf::api::s_mark;
         using ve_slope = spiderrock::protobuf::api::ve_slope;

@@ -230,15 +230,15 @@ namespace api {
     DECL_STRONG_TYPE(o_ask_iv__double, double);
     #endif//_o_ask_iv__double__GUARD__
 
-    #ifndef _u_bid__double__GUARD__
-    #define _u_bid__double__GUARD__
-    DECL_STRONG_TYPE(u_bid__double, double);
-    #endif//_u_bid__double__GUARD__
+    #ifndef _u_bid__GUARD__
+    #define _u_bid__GUARD__
+    DECL_STRONG_TYPE(u_bid, double);
+    #endif//_u_bid__GUARD__
 
-    #ifndef _u_ask__double__GUARD__
-    #define _u_ask__double__GUARD__
-    DECL_STRONG_TYPE(u_ask__double, double);
-    #endif//_u_ask__double__GUARD__
+    #ifndef _u_ask__GUARD__
+    #define _u_ask__GUARD__
+    DECL_STRONG_TYPE(u_ask, double);
+    #endif//_u_ask__GUARD__
 
     #ifndef _u_prc__double__GUARD__
     #define _u_prc__double__GUARD__
@@ -693,8 +693,8 @@ namespace api {
         using o_ask_sz2 = spiderrock::protobuf::api::o_ask_sz2;
         using o_bid_iv = spiderrock::protobuf::api::o_bid_iv__double;
         using o_ask_iv = spiderrock::protobuf::api::o_ask_iv__double;
-        using u_bid = spiderrock::protobuf::api::u_bid__double;
-        using u_ask = spiderrock::protobuf::api::u_ask__double;
+        using u_bid = spiderrock::protobuf::api::u_bid;
+        using u_ask = spiderrock::protobuf::api::u_ask;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
         using yrs = spiderrock::protobuf::api::yrs;
         using rate = spiderrock::protobuf::api::rate__float;

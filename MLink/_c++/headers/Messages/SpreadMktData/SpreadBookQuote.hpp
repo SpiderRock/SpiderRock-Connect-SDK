@@ -35,6 +35,11 @@ namespace api {
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
     #endif//_ticker__TickerKey__GUARD__
 
+    #ifndef _srspread_id__GUARD__
+    #define _srspread_id__GUARD__
+    DECL_STRONG_TYPE(srspread_id, int64);
+    #endif//_srspread_id__GUARD__
+
     #ifndef _bid_price1__double__GUARD__
     #define _bid_price1__double__GUARD__
     DECL_STRONG_TYPE(bid_price1__double, double);
@@ -262,6 +267,7 @@ namespace api {
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::SpreadBookQuote_PKey;
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
+        using srspread_id = spiderrock::protobuf::api::srspread_id;
         using bid_price1 = spiderrock::protobuf::api::bid_price1__double;
         using is_bid_price1_valid = spiderrock::protobuf::api::is_bid_price1_valid;
         using ask_price1 = spiderrock::protobuf::api::ask_price1__double;
@@ -289,6 +295,7 @@ namespace api {
         _meta m__meta{};
         pkey m_pkey{};
         ticker m_ticker{};
+        srspread_id m_srspread_id{};
         bid_price1 m_bid_price1{};
         is_bid_price1_valid m_is_bid_price1_valid{};
         ask_price1 m_ask_price1{};
@@ -323,6 +330,9 @@ namespace api {
         }		
         ticker get_ticker() const {
             return m_ticker;
+        }		
+        srspread_id get_srspread_id() const {
+            return m_srspread_id;
         }		
         bid_price1 get_bid_price1() const {
             return m_bid_price1;
@@ -402,6 +412,9 @@ namespace api {
         }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
+        }
+        void set_srspread_id(const srspread_id& value)  {
+            m_srspread_id = value;
         }
         void set_bid_price1(const bid_price1& value)  {
             m_bid_price1 = value;
@@ -486,6 +499,9 @@ namespace api {
         void set(const ticker & value) {
             set_ticker(value);
         }
+        void set(const srspread_id & value) {
+            set_srspread_id(value);
+        }
         void set(const bid_price1 & value) {
             set_bid_price1(value);
         }
@@ -557,6 +573,7 @@ namespace api {
             set(value.m__meta);
             set(value.m_pkey);
             set(value.m_ticker);
+            set(value.m_srspread_id);
             set(value.m_bid_price1);
             set(value.m_is_bid_price1_valid);
             set(value.m_ask_price1);
@@ -640,6 +657,9 @@ namespace api {
         bool IncludeTicker() const {
             return (m_ticker.ByteSizeLong() > 0);
         }
+        bool IncludeSrspreadId() const {
+            return !(m_srspread_id == 0);
+        }
         bool IncludeBidPrice1() const {
             return !(m_bid_price1 == 0.0);
         }
@@ -703,6 +723,9 @@ namespace api {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
                 m_ticker.setCodecTickerKey(tickerKeyLayout);
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+            }
+            if ( IncludeSrspreadId()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(101,m_srspread_id);
             }
             if ( IncludeBidPrice1()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(103,m_bid_price1);
@@ -774,6 +797,9 @@ namespace api {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
                 m_ticker.setCodecTickerKey(tickerKeyLayout);
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+            }
+            if ( IncludeSrspreadId()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,101,m_srspread_id);
             }
             if ( IncludeBidPrice1()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,103,m_bid_price1);
@@ -861,6 +887,12 @@ namespace api {
                         if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
                             auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
                             m_ticker.setFromCodec(tickerKey);
+                        }
+                        break;
+                    }
+                    case 101: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_srspread_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
@@ -1001,6 +1033,7 @@ namespace api {
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::_meta>() const { return SpreadBookQuote::_meta{ m__meta}; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::pkey>() const { return SpreadBookQuote::pkey{ m_pkey}; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::ticker>() const { return SpreadBookQuote::ticker{ m_ticker}; }
+    template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::srspread_id>() const { return m_srspread_id; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::bid_price1>() const { return m_bid_price1; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::is_bid_price1_valid>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_bid_price1_valid)); }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::ask_price1>() const { return m_ask_price1; }
@@ -1038,6 +1071,7 @@ namespace api {
         o << "\"_meta\":{" << m.get<SpreadBookQuote::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<SpreadBookQuote::pkey>() << "}";
         o << ",\"ticker\":{" << m.get<SpreadBookQuote::ticker>() << "}";
+        o << ",\"srspread_id\":" << m.get<SpreadBookQuote::srspread_id>();
         o << ",\"bid_price1\":" << m.get<SpreadBookQuote::bid_price1>();
         o << ",\"is_bid_price1_valid\":" << (int64_t)m.get<SpreadBookQuote::is_bid_price1_valid>();
         o << ",\"ask_price1\":" << m.get<SpreadBookQuote::ask_price1>();
