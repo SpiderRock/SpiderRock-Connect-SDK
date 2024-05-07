@@ -7,7 +7,7 @@ COMPILE_FLAGS = -std=c++11 -Wall -Wextra
 RCOMPILE_FLAGS = -O2
 DCOMPILE_FLAGS = -g -D DEBUG
 INCLUDES = -I ../include
-LINK_FLAGS = -L ../lib -lrt -pthread -lSpiderStream -Wl,-rpath,../lib
+LINK_FLAGS = -L ../lib -lrt -pthread -lssl -lcrypto -lSpiderStream -Wl,-rpath,../lib
 LIB_NAME = SpiderStream
 
 #### END PROJECT SETTINGS ####

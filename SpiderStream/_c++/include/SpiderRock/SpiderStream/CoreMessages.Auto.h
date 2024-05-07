@@ -16,7 +16,7 @@ using std::vector;
 #include "stdafx.h"
 #include "SpiderRock/SpiderStream/Fields.h"
 #include "SpiderRock/SpiderStream/Header.h"
-#include "Enums.h"
+#include "Enums.Auto.h"
 
 #pragma pack(1)
 
@@ -361,6 +361,7 @@ private:
 	{
 		Key pkey;
 		IdxSrc priceSource;
+		IdxDataSource dataSource;
 		Double idxBid;
 		Double idxAsk;
 		Double idxPrice;
@@ -381,6 +382,7 @@ public:
 	inline uint64_t time_received() const { return time_received_; }
 	
 	inline IdxSrc priceSource() const { return layout_.priceSource; }
+	inline IdxDataSource dataSource() const { return layout_.dataSource; }
 	inline Double idxBid() const { return layout_.idxBid; }
 	inline Double idxAsk() const { return layout_.idxAsk; }
 	inline Double idxPrice() const { return layout_.idxPrice; }
@@ -461,7 +463,7 @@ private:
 		Float dn15;
 		Float up06;
 		Float dn08;
-		Float spotUPrc;
+		Double synSpot;
 		CalcPriceType priceType;
 		ImpliedQuoteError calcErr;
 		CalcSource calcSource;
@@ -514,7 +516,7 @@ public:
 	inline Float dn15() const { return layout_.dn15; }
 	inline Float up06() const { return layout_.up06; }
 	inline Float dn08() const { return layout_.dn08; }
-	inline Float spotUPrc() const { return layout_.spotUPrc; }
+	inline Double synSpot() const { return layout_.synSpot; }
 	inline CalcPriceType priceType() const { return layout_.priceType; }
 	inline ImpliedQuoteError calcErr() const { return layout_.calcErr; }
 	inline CalcSource calcSource() const { return layout_.calcSource; }
@@ -528,6 +530,125 @@ public:
 		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
 		
 		layout_ = *reinterpret_cast<LiveImpliedQuote::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+
+	}
+
+};
+
+ class LiveRevConQuote
+{
+public:
+	class Key
+	{
+		OptionKey okey_;
+		DateKey tradeDate_;
+		
+	public:
+		inline const OptionKey& okey() const { return okey_; }
+		inline DateKey tradeDate() const { return tradeDate_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = OptionKey()(k.okey_);
+			hash_code = (hash_code * 397) ^ DateKey()(k.tradeDate_);
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.okey_ == b.okey_
+				&& a.tradeDate_ == b.tradeDate_;
+		}
+	};
+	
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		TickerKey ticker;
+		Float xAxis;
+		Float cDe;
+		Float pDe;
+		Double uPrc;
+		Float atmVol;
+		Float years;
+		Float globalRate;
+		Float ddiv;
+		Float ddivPv;
+		DDivSource ddivSource;
+		Int iDays;
+		Float strikePv;
+		Float fairSVol;
+		Float fairSDiv;
+		Float fairCallPrc;
+		Float fairCallPrcE;
+		Float fairPutPrc;
+		Float fairPutPrcE;
+		Float rcFairPrc;
+		Float rcEExPrem;
+		Float fairLoanPv;
+		Float fairLoanRate;
+		Float rcBidLoanPv;
+		Float rcAskLoanPv;
+		String<16> calcError;
+		Int cpOI;
+		Int cpVlm;
+		DateTime timestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline const TickerKey& ticker() const { return layout_.ticker; }
+	inline Float xAxis() const { return layout_.xAxis; }
+	inline Float cDe() const { return layout_.cDe; }
+	inline Float pDe() const { return layout_.pDe; }
+	inline Double uPrc() const { return layout_.uPrc; }
+	inline Float atmVol() const { return layout_.atmVol; }
+	inline Float years() const { return layout_.years; }
+	inline Float globalRate() const { return layout_.globalRate; }
+	inline Float ddiv() const { return layout_.ddiv; }
+	inline Float ddivPv() const { return layout_.ddivPv; }
+	inline DDivSource ddivSource() const { return layout_.ddivSource; }
+	inline Int iDays() const { return layout_.iDays; }
+	inline Float strikePv() const { return layout_.strikePv; }
+	inline Float fairSVol() const { return layout_.fairSVol; }
+	inline Float fairSDiv() const { return layout_.fairSDiv; }
+	inline Float fairCallPrc() const { return layout_.fairCallPrc; }
+	inline Float fairCallPrcE() const { return layout_.fairCallPrcE; }
+	inline Float fairPutPrc() const { return layout_.fairPutPrc; }
+	inline Float fairPutPrcE() const { return layout_.fairPutPrcE; }
+	inline Float rcFairPrc() const { return layout_.rcFairPrc; }
+	inline Float rcEExPrem() const { return layout_.rcEExPrem; }
+	inline Float fairLoanPv() const { return layout_.fairLoanPv; }
+	inline Float fairLoanRate() const { return layout_.fairLoanRate; }
+	inline Float rcBidLoanPv() const { return layout_.rcBidLoanPv; }
+	inline Float rcAskLoanPv() const { return layout_.rcAskLoanPv; }
+	inline const String<16>& calcError() const { return layout_.calcError; }
+	inline Int cpOI() const { return layout_.cpOI; }
+	inline Int cpVlm() const { return layout_.cpVlm; }
+	inline DateTime timestamp() const { return layout_.timestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<LiveRevConQuote::Layout*>(ptr);
 		ptr += sizeof(layout_);
 		
 
@@ -1925,8 +2046,9 @@ private:
 	struct Layout
 	{
 		Key pkey;
-		String<24> securityID;
+		String<255> securityID;
 		TickerKey ticker;
+		Long SRspreadID;
 		ProductClass productClass;
 		Long underlierID;
 		ExpiryKey undKey;
@@ -1934,7 +2056,8 @@ private:
 		String<6> productGroup;
 		String<6> securityGroup;
 		Int marketSegmentID;
-		String<80> securityDesc;
+		String<32> ricCode;
+		String<255> securityDesc;
 		String<8> exchange;
 		ProductType productType;
 		ProductTerm productTerm;
@@ -1981,8 +2104,9 @@ public:
 	inline void time_received(uint64_t value) { time_received_ = value; }
 	inline uint64_t time_received() const { return time_received_; }
 	
-	inline const String<24>& securityID() const { return layout_.securityID; }
+	inline String<255> securityID() const { return layout_.securityID; }
 	inline const TickerKey& ticker() const { return layout_.ticker; }
+	inline Long SRspreadID() const { return layout_.SRspreadID; }
 	inline ProductClass productClass() const { return layout_.productClass; }
 	inline Long underlierID() const { return layout_.underlierID; }
 	inline const ExpiryKey& undKey() const { return layout_.undKey; }
@@ -1990,7 +2114,8 @@ public:
 	inline const String<6>& productGroup() const { return layout_.productGroup; }
 	inline const String<6>& securityGroup() const { return layout_.securityGroup; }
 	inline Int marketSegmentID() const { return layout_.marketSegmentID; }
-	inline const String<80>& securityDesc() const { return layout_.securityDesc; }
+	inline const String<32>& ricCode() const { return layout_.ricCode; }
+	inline String<255> securityDesc() const { return layout_.securityDesc; }
 	inline const String<8>& exchange() const { return layout_.exchange; }
 	inline ProductType productType() const { return layout_.productType; }
 	inline ProductTerm productTerm() const { return layout_.productTerm; }
@@ -2072,6 +2197,18 @@ public:
 		}
 	};
 	
+	class Exchange
+	{
+		OptExch optExch_;
+		String<12> nativeRoot_;
+		
+	public:
+		inline OptExch optExch() const { return optExch_; }
+		inline const String<12>& nativeRoot() const { return nativeRoot_; }
+		inline void optExch(OptExch value) { optExch_ = value; }
+		inline void nativeRoot(const String<12>& value) { nativeRoot_ = value; }
+	};
+
 	class Underlying
 	{
 		TickerKey ticker_;
@@ -2124,11 +2261,14 @@ private:
 		Currency settleCurr;
 		Currency strikeCurr;
 		TickerKey defaultSurfaceRoot;
+		String<6> ricRoot;
 		DateTime timestamp;
+		PricingSource_V7 pricingSource_V7;
 	};
 	
 	Header header_;
 	Layout layout_;
+	vector<Exchange>exchange_;
 	vector<Underlying>underlying_;
 	int64_t time_received_;
 
@@ -2175,7 +2315,9 @@ public:
 	inline Currency settleCurr() const { return layout_.settleCurr; }
 	inline Currency strikeCurr() const { return layout_.strikeCurr; }
 	inline const TickerKey& defaultSurfaceRoot() const { return layout_.defaultSurfaceRoot; }
+	inline const String<6>& ricRoot() const { return layout_.ricRoot; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
+	inline PricingSource_V7 pricingSource_V7() const { return layout_.pricingSource_V7; }
 	
 	inline void Decode(Header* buf) 
 	{
@@ -2185,6 +2327,18 @@ public:
 		layout_ = *reinterpret_cast<RootDefinition::Layout*>(ptr);
 		ptr += sizeof(layout_);
 		
+		// Exchange Repeat Section
+		auto exchange_count = *reinterpret_cast<uint16_t*>(ptr);
+		ptr += sizeof(exchange_count);
+
+		exchange_.clear();
+		
+		for (int i = 0; i < exchange_count; i++)
+		{
+			exchange_.push_back(*reinterpret_cast<Exchange*>(ptr));
+			ptr += sizeof(Exchange);
+		}
+
 		// Underlying Repeat Section
 		auto underlying_count = *reinterpret_cast<uint16_t*>(ptr);
 		ptr += sizeof(underlying_count);
@@ -2263,7 +2417,7 @@ private:
 		String<20> exchAuctionId;
 		String<4> exchAuctionType;
 		YesNo isTestAuction;
-		AuctionState auctionState;
+		AuctionEvent auctionEvent;
 		NoticeShape auctionShape;
 		AuctionType auctionType;
 		BuySell auctionSide;
@@ -2310,7 +2464,7 @@ public:
 	inline const String<20>& exchAuctionId() const { return layout_.exchAuctionId; }
 	inline const String<4>& exchAuctionType() const { return layout_.exchAuctionType; }
 	inline YesNo isTestAuction() const { return layout_.isTestAuction; }
-	inline AuctionState auctionState() const { return layout_.auctionState; }
+	inline AuctionEvent auctionEvent() const { return layout_.auctionEvent; }
 	inline NoticeShape auctionShape() const { return layout_.auctionShape; }
 	inline AuctionType auctionType() const { return layout_.auctionType; }
 	inline BuySell auctionSide() const { return layout_.auctionSide; }
@@ -2398,6 +2552,7 @@ private:
 	{
 		Key pkey;
 		TickerKey ticker;
+		Long SRspreadID;
 		Double bidPrice1;
 		YesNo isBidPrice1Valid;
 		Double askPrice1;
@@ -2435,6 +2590,7 @@ public:
 	inline uint64_t time_received() const { return time_received_; }
 	
 	inline const TickerKey& ticker() const { return layout_.ticker; }
+	inline Long SRspreadID() const { return layout_.SRspreadID; }
 	inline Double bidPrice1() const { return layout_.bidPrice1; }
 	inline YesNo isBidPrice1Valid() const { return layout_.isBidPrice1Valid; }
 	inline Double askPrice1() const { return layout_.askPrice1; }
@@ -2466,6 +2622,222 @@ public:
 		layout_ = *reinterpret_cast<SpreadBookQuote::Layout*>(ptr);
 		ptr += sizeof(layout_);
 		
+
+	}
+
+};
+
+ class SpreadDefinition
+{
+public:
+	class Key
+	{
+		Long SRspreadID_;
+		
+	public:
+		inline Long SRspreadID() const { return SRspreadID_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = std::hash<Long>()(k.SRspreadID_);
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.SRspreadID_ == b.SRspreadID_;
+		}
+	};
+	
+	class ExchSprIDs
+	{
+		String<30> exchSprID_;
+		
+	public:
+		inline const String<30>& exchSprID() const { return exchSprID_; }
+		inline void exchSprID(const String<30>& value) { exchSprID_ = value; }
+	};
+
+	class Legs
+	{
+		OptionKey legSecKey_;
+		SpdrKeyType legSecType_;
+		BuySell legSide_;
+		UInt legRatio_;
+		Float refDelta_;
+		Double refPrc_;
+		
+	public:
+		inline const OptionKey& legSecKey() const { return legSecKey_; }
+		inline SpdrKeyType legSecType() const { return legSecType_; }
+		inline BuySell legSide() const { return legSide_; }
+		inline UInt legRatio() const { return legRatio_; }
+		inline Float refDelta() const { return refDelta_; }
+		inline Double refPrc() const { return refPrc_; }
+		inline void legSecKey(const OptionKey& value) { legSecKey_ = value; }
+		inline void legSecType(SpdrKeyType value) { legSecType_ = value; }
+		inline void legSide(BuySell value) { legSide_ = value; }
+		inline void legRatio(UInt value) { legRatio_ = value; }
+		inline void refDelta(Float value) { refDelta_ = value; }
+		inline void refPrc(Double value) { refPrc_ = value; }
+	};
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		TickerKey ticker;
+		ToolSpreadClass spreadClass;
+		DateTime timestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	vector<ExchSprIDs>exchsprids_;
+	vector<Legs>legs_;
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline const TickerKey& ticker() const { return layout_.ticker; }
+	inline ToolSpreadClass spreadClass() const { return layout_.spreadClass; }
+	inline DateTime timestamp() const { return layout_.timestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<SpreadDefinition::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+		// ExchSprIDs Repeat Section
+		auto exchsprids_count = *reinterpret_cast<uint16_t*>(ptr);
+		ptr += sizeof(exchsprids_count);
+
+		exchsprids_.clear();
+		
+		for (int i = 0; i < exchsprids_count; i++)
+		{
+			exchsprids_.push_back(*reinterpret_cast<ExchSprIDs*>(ptr));
+			ptr += sizeof(ExchSprIDs);
+		}
+
+		// Legs Repeat Section
+		auto legs_count = *reinterpret_cast<uint16_t*>(ptr);
+		ptr += sizeof(legs_count);
+
+		legs_.clear();
+		
+		for (int i = 0; i < legs_count; i++)
+		{
+			legs_.push_back(*reinterpret_cast<Legs*>(ptr));
+			ptr += sizeof(Legs);
+		}
+
+	}
+
+};
+
+ class SpreadExchDefinition
+{
+public:
+	class Key
+	{
+		OptExch exch_;
+		String<30> exchSprID_;
+		
+	public:
+		inline OptExch exch() const { return exch_; }
+		inline const String<30>& exchSprID() const { return exchSprID_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = std::hash<Byte>()(static_cast<Byte>(k.exch_));
+			hash_code = (hash_code * 397) ^ String<30>()(k.exchSprID_);
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.exch_ == b.exch_
+				&& a.exchSprID_ == b.exchSprID_;
+		}
+	};
+	
+	class Legs
+	{
+		OptionKey legSecKey_;
+		SpdrKeyType legSecType_;
+		BuySell legSide_;
+		UInt legRatio_;
+		Float refDelta_;
+		Double refPrc_;
+		
+	public:
+		inline const OptionKey& legSecKey() const { return legSecKey_; }
+		inline SpdrKeyType legSecType() const { return legSecType_; }
+		inline BuySell legSide() const { return legSide_; }
+		inline UInt legRatio() const { return legRatio_; }
+		inline Float refDelta() const { return refDelta_; }
+		inline Double refPrc() const { return refPrc_; }
+		inline void legSecKey(const OptionKey& value) { legSecKey_ = value; }
+		inline void legSecType(SpdrKeyType value) { legSecType_ = value; }
+		inline void legSide(BuySell value) { legSide_ = value; }
+		inline void legRatio(UInt value) { legRatio_ = value; }
+		inline void refDelta(Float value) { refDelta_ = value; }
+		inline void refPrc(Double value) { refPrc_ = value; }
+	};
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		DateTime timestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	vector<Legs>legs_;
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline DateTime timestamp() const { return layout_.timestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<SpreadExchDefinition::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+		// Legs Repeat Section
+		auto legs_count = *reinterpret_cast<uint16_t*>(ptr);
+		ptr += sizeof(legs_count);
+
+		legs_.clear();
+		
+		for (int i = 0; i < legs_count; i++)
+		{
+			legs_.push_back(*reinterpret_cast<Legs*>(ptr));
+			ptr += sizeof(Legs);
+		}
 
 	}
 
@@ -2507,26 +2879,6 @@ public:
 		}
 	};
 	
-	class Legs
-	{
-		OptionKey legSecKey_;
-		SpdrKeyType legSecType_;
-		BuySell legSide_;
-		UInt legRatio_;
-		PositionType positionType_;
-		
-	public:
-		inline const OptionKey& legSecKey() const { return legSecKey_; }
-		inline SpdrKeyType legSecType() const { return legSecType_; }
-		inline BuySell legSide() const { return legSide_; }
-		inline UInt legRatio() const { return legRatio_; }
-		inline PositionType positionType() const { return positionType_; }
-		inline void legSecKey(const OptionKey& value) { legSecKey_ = value; }
-		inline void legSecType(SpdrKeyType value) { legSecType_ = value; }
-		inline void legSide(BuySell value) { legSide_ = value; }
-		inline void legRatio(UInt value) { legRatio_ = value; }
-		inline void positionType(PositionType value) { positionType_ = value; }
-	};
 
 private:
 	struct Layout
@@ -2550,11 +2902,12 @@ private:
 		Long netTimestamp;
 		Long dgwTimestamp;
 		DateTime timestamp;
+		String<30> exchSprID;
 	};
 	
 	Header header_;
 	Layout layout_;
-	vector<Legs>legs_;
+	
 	int64_t time_received_;
 
 public:
@@ -2582,6 +2935,7 @@ public:
 	inline Long netTimestamp() const { return layout_.netTimestamp; }
 	inline Long dgwTimestamp() const { return layout_.dgwTimestamp; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
+	inline const String<30>& exchSprID() const { return layout_.exchSprID; }
 	
 	inline void Decode(Header* buf) 
 	{
@@ -2591,17 +2945,6 @@ public:
 		layout_ = *reinterpret_cast<SpreadExchOrder::Layout*>(ptr);
 		ptr += sizeof(layout_);
 		
-		// Legs Repeat Section
-		auto legs_count = *reinterpret_cast<uint16_t*>(ptr);
-		ptr += sizeof(legs_count);
-
-		legs_.clear();
-		
-		for (int i = 0; i < legs_count; i++)
-		{
-			legs_.push_back(*reinterpret_cast<Legs*>(ptr));
-			ptr += sizeof(Legs);
-		}
 
 	}
 

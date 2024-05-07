@@ -16,7 +16,7 @@ namespace SpiderRock
 {
 	namespace SpiderStream
 	{
-		template<class _Tkey, class _Tmessage> 
+		template <class _Tkey, class _Tmessage>
 		class MessageEventSource : public SpiderRock::SpiderStream::MessageHandler
 		{
 			std::unordered_map<_Tkey, _Tmessage, _Tkey, _Tkey> objects_by_key_;
@@ -27,9 +27,8 @@ namespace SpiderRock
 			std::vector<std::shared_ptr<UpdateEventObserver<_Tmessage>>> on_update_observers_;
 
 		public:
-			MessageEventSource() :
-				objects_by_key_(),
-				objects_by_key_mutex_()
+			MessageEventSource() : objects_by_key_(),
+								   objects_by_key_mutex_()
 			{
 			}
 
@@ -41,29 +40,29 @@ namespace SpiderRock
 			void RegisterObserver(std::shared_ptr<ChangeEventObserver<_Tmessage>> observer);
 			void RegisterObserver(std::shared_ptr<UpdateEventObserver<_Tmessage>> observer);
 
-			void Handle(Header* header, uint64_t timestamp, bool drops);
+			void Handle(Header *header, uint64_t timestamp, bool drops);
 		};
 
-		template<class _Tkey, class _Tmessage>
+		template <class _Tkey, class _Tmessage>
 		void MessageEventSource<_Tkey, _Tmessage>::RegisterObserver(std::shared_ptr<CreateEventObserver<_Tmessage>> observer)
 		{
 			on_create_observers_.push_back(observer);
 		}
 
-		template<class _Tkey, class _Tmessage>
+		template <class _Tkey, class _Tmessage>
 		void MessageEventSource<_Tkey, _Tmessage>::RegisterObserver(std::shared_ptr<ChangeEventObserver<_Tmessage>> observer)
 		{
 			on_change_observers_.push_back(observer);
 		}
 
-		template<class _Tkey, class _Tmessage>
+		template <class _Tkey, class _Tmessage>
 		void MessageEventSource<_Tkey, _Tmessage>::RegisterObserver(std::shared_ptr<UpdateEventObserver<_Tmessage>> observer)
 		{
 			on_update_observers_.push_back(observer);
 		}
 
-		template<class _Tkey, class _Tmessage>
-		void MessageEventSource<_Tkey, _Tmessage>::Handle(Header* header, uint64_t timestamp, bool drops)
+		template <class _Tkey, class _Tmessage>
+		void MessageEventSource<_Tkey, _Tmessage>::Handle(Header *header, uint64_t timestamp, bool drops)
 		{
 			static _Tmessage nullMessage;
 
@@ -91,17 +90,20 @@ namespace SpiderRock
 				{
 					if (on_create_observers_.size() > 0)
 					{
-						for (const auto& obs : on_create_observers_) obs->OnCreate(received, drops);
+						for (const auto &obs : on_create_observers_)
+							obs->OnCreate(received, drops);
 					}
 
 					if (on_change_observers_.size() > 0)
 					{
-						for (const auto& obs : on_change_observers_) obs->OnChange(received, drops);
+						for (const auto &obs : on_change_observers_)
+							obs->OnChange(received, drops);
 					}
 
 					if (on_update_observers_.size() > 0)
 					{
-						for (const auto& obs : on_update_observers_) obs->OnUpdate(received, nullMessage, drops);
+						for (const auto &obs : on_update_observers_)
+							obs->OnUpdate(received, nullMessage, drops);
 					}
 
 					received.header().bits = ~HeaderBits::FromCache & received.header().bits;
@@ -112,18 +114,21 @@ namespace SpiderRock
 				}
 			}
 
-			if ((header->bits & HeaderBits::FromCache) == HeaderBits::FromCache) return;
+			if ((header->bits & HeaderBits::FromCache) == HeaderBits::FromCache)
+				return;
 
 			if (on_update_observers_.size() > 0)
 			{
-				for (const auto& obs : on_update_observers_) obs->OnUpdate(received, entry->second, drops);
+				for (const auto &obs : on_update_observers_)
+					obs->OnUpdate(received, entry->second, drops);
 
 				entry->second = received;
 			}
 
 			if (on_change_observers_.size() > 0)
 			{
-				for (const auto& obs : on_change_observers_) obs->OnChange(received, drops);
+				for (const auto &obs : on_change_observers_)
+					obs->OnChange(received, drops);
 			}
 		}
 	}

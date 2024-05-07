@@ -1,0 +1,3 @@
+[submodule "SpiderStream/_c++/externals/websocket"]
+	path = SpiderStream/_c++/externals/websocket
+	url = https://github.com/zaphoyd/websocketpp.git

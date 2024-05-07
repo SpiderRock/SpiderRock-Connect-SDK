@@ -10,7 +10,7 @@ namespace SpiderRock
 		class MessageHandler
 		{
 		public:
-			virtual void Handle(Header* header, uint64_t timestamp, bool drops) = 0;
+			virtual void Handle(Header *header, uint64_t timestamp, bool drops) = 0;
 		};
 	}
 }

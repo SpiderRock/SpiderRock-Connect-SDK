@@ -3,13 +3,7 @@
 #include <string>
 #include <chrono>
 #include <iomanip>
-
-#ifdef _WINDOWS_
-#include <tchar.h>
-#else
 #include <netdb.h>
-#endif
-
 #include <chrono>
 #include <thread>
 
@@ -21,28 +15,72 @@ using namespace SpiderRock::SpiderStream;
 using namespace std;
 using namespace std::chrono;
 
-class SpyMaster : public UpdateEventObserver<StockBookQuote>,
-	public ChangeEventObserver<StockPrint>,
-	public ChangeEventObserver<OptionNbboQuote>
+/*
+
+This handler demonstrates event handler implementation but
+does not contain any meaningful logic in the handlers
+
+*/
+
+class ExampleHandler : public UpdateEventObserver<StockBookQuote>,
+					   public ChangeEventObserver<StockPrint>,
+
+					   public ChangeEventObserver<OptionNbboQuote>,
+
+					   public ChangeEventObserver<FutureBookQuote>,
+					   public CreateEventObserver<FuturePrint>
 {
 	Float bidPrice_;
+	Ticker ticker_;
 
 public:
+	ExampleHandler(std::string ticker_filter) : ticker_(ticker_filter) {}
+
+	void OnChange(const FutureBookQuote &, bool drops)
+	{
+		if (drops)
+		{
+			cerr << "FutureBookQuote drops" << endl;
+		}
+	}
+
+	void OnCreate(const FuturePrint &obj, bool drops)
+	{
+		if (drops)
+		{
+			cerr << "FuturePrint drops" << endl;
+		}
+
+		cout
+			<< *obj.pkey().fkey().ticker().str()
+			<< " printed"
+			<< endl;
+	}
+
 	void OnUpdate(const StockBookQuote &previous, const StockBookQuote &current, bool drops)
 	{
-		static Ticker spy = Ticker("SPY");
-		if (previous.pkey().ticker().ticker() != spy)
-			return;
+		if (drops)
+		{
+			cerr << "StockBookQuote drops" << endl;
+		}
 
-		auto bidDelta = previous.bidPrice1() - current.bidPrice1();
-		if (abs(bidDelta) < 0.05)
+		if (previous.pkey().ticker().ticker() != ticker_)
+		{
 			return;
+		}
 
 		bidPrice_ = current.bidPrice1();
 
-		(drops ? cerr : cout) 
+		auto bidDelta = previous.bidPrice1() - current.bidPrice1();
+
+		if (abs(bidDelta) < 0.05)
+		{
+			return;
+		}
+
+		cout
 			<< "Bid price change for " << *previous.pkey().ticker().ticker().str()
-			<< " from " << to_string(previous.bidPrice1()) 
+			<< " from " << to_string(previous.bidPrice1())
 			<< " to " << to_string(current.bidPrice1()) << endl;
 	}
 
@@ -55,103 +93,138 @@ public:
 
 	void OnChange(const StockPrint &obj, bool drops)
 	{
-		static Ticker spy = Ticker("SPY");
+		if (drops)
+		{
+			cerr << "StockPrint drops" << endl;
+		}
 
-		if (obj.pkey().ticker().ticker() != spy)
+		if (obj.pkey().ticker().ticker() != ticker_)
+		{
 			return;
-		
-    	auto prtTimestamp = to_tm(obj.prtTimestamp());
+		}
 
-		(drops ? cerr : cout) << "Print: "
-			<< *obj.pkey().ticker().ticker().str()
-			<< obj.prtSize() << " shares at $" << obj.prtPrice() 
-			<< " [" << std::put_time(&prtTimestamp, "%F %T") << "]" 
-			<< endl;
+		auto prtTimestamp = to_tm(obj.prtTimestamp());
+
+		cout << "Print: "
+			 << obj.prtSize() << " shares"
+			 << " of " << *obj.pkey().ticker().ticker().str()
+			 << " at $" << obj.prtPrice()
+			 << " [" << std::put_time(&prtTimestamp, "%F %T") << "]"
+			 << endl;
 	}
 
 	void OnChange(const OptionNbboQuote &obj, bool drops)
 	{
-		static Ticker spy = Ticker("SPY");
+		if (drops)
+		{
+			cerr << "OptionNbboQuote drops" << endl;
+		}
 
-		if (obj.pkey().okey().ticker() != spy)
+		if (obj.pkey().okey().ticker() != ticker_)
+		{
 			return;
+		}
 
 		auto xx = obj.pkey().okey().strike();
 
 		if (abs(xx - bidPrice_) > 1)
+		{
 			return;
+		}
 
-		(drops ? cerr : cout) << "SPY @ " << xx << " bid: " << obj.bidPrice() << ", ask: " << obj.askPrice() << endl;
+		cout << *obj.pkey().okey().ticker().str()
+			 << " @ " << xx
+			 << " bid: " << obj.bidPrice()
+			 << ", ask: " << obj.askPrice()
+			 << endl;
 	}
 };
 
-#ifdef _WINDOWS_
-int _tmain(int argc, _TCHAR *argv[])
-#else
 int main()
-#endif
 {
 	try
 	{
-		in_addr ifaddr;
-		ifaddr.s_addr = inet_addr("local_interface");
+		in_addr ifaddr { s_addr :inet_addr("local_interface") };
 
-		MbusClient engine(ifaddr);
+		MbusClient client(SysEnvironment::Saturn, ifaddr);
 
-		// engine.CreateThreadGroup(
+		// ExampleHandler implements the API for receiving 
+		// create/change/update callbacks of the message types
+		// it's interested in
+		auto handler = make_shared<ExampleHandler>("SPY");
+
+		// The wire-up of the callbacks to the MbusClient happens here
+		client.RegisterObserver(dynamic_pointer_cast<UpdateEventObserver<StockBookQuote>>(handler));
+		client.RegisterObserver(dynamic_pointer_cast<ChangeEventObserver<StockPrint>>(handler));
+		client.RegisterObserver(dynamic_pointer_cast<ChangeEventObserver<OptionNbboQuote>>(handler));
+		client.RegisterObserver(dynamic_pointer_cast<ChangeEventObserver<FutureBookQuote>>(handler));
+		client.RegisterObserver(dynamic_pointer_cast<CreateEventObserver<FuturePrint>>(handler));
+
+		// Below, we organize our incoming data into worker threads that 
+		// are termed "channel thread groups".  Each such group is assigned
+		// a unique channel set and its worker thread will spin block
+		// receiving data corresponding to its channels, parse the normalized MBUS
+		// packets into objects that are passed along to the callbacks.
+
+		// The organization of channels into groups provided below is 
+		// merely an example.  
+
+		// A good rule of thumb is to use as few thread groups as the 
+		// performance of the callbacks allows and only those channels
+		// that are absolutely necessary
+
+		// // stripes A, B, C, and D
+		// client.CreateThreadGroup(
 		// 	MbusClient::Protocol::UDP,
-		// 	{
-		// 		DataChannel::StkNbboQuoteABCD,
-		// 		DataChannel::OptNbboQuoteA,
-		// 		DataChannel::OptNbboQuoteB,
-		// 		DataChannel::OptNbboQuoteC,
-		// 		DataChannel::OptNbboQuoteD
-		// 	});
+		// 	{DataChannel::StkNbboQuoteAB,
+		// 	 DataChannel::StkNbboQuoteCD,
+		// 	 DataChannel::OptNbboQuoteA,
+		// 	 DataChannel::OptNbboQuoteB,
+		// 	 DataChannel::OptNbboQuoteC,
+		// 	 DataChannel::OptNbboQuoteD});
 
-		// engine.CreateThreadGroup(
+		// // stripes E, F, G, and H
+		// client.CreateThreadGroup(
 		// 	MbusClient::Protocol::UDP,
-		// 	{
-		// 		DataChannel::StkNbboQuoteEFGH,
-		// 		DataChannel::OptNbboQuoteE,
-		// 		DataChannel::OptNbboQuoteF,
-		// 		DataChannel::OptNbboQuoteG,
-		// 		DataChannel::OptNbboQuoteH
-		// 	});
+		// 	{DataChannel::StkNbboQuoteEF,
+		// 	 DataChannel::StkNbboQuoteGH,
+		// 	 DataChannel::OptNbboQuoteE,
+		// 	 DataChannel::OptNbboQuoteF,
+		// 	 DataChannel::OptNbboQuoteG,
+		// 	 DataChannel::OptNbboQuoteH});
 
-		// engine.CreateThreadGroup(
+		// // stripe S
+		// client.CreateThreadGroup(
 		// 	MbusClient::Protocol::UDP,
-		// 	{
-		// 		DataChannel::StkNbboQuoteS,
-		// 		DataChannel::OptNbboQuoteS
-		// 	});
+		// 	{DataChannel::StkNbboQuoteS,
+		// 	 DataChannel::OptNbboQuoteS});
 
-		engine.CreateThreadGroup(
+		// stripe M
+		client.CreateThreadGroup(
 			MbusClient::Protocol::UDP,
-			{
-				DataChannel::StkNbboQuoteM,
-				DataChannel::OptNbboQuoteM
-			});
+			{DataChannel::StkNbboQuoteM,
+			 DataChannel::OptNbboQuoteM});
 
-		auto spyMaster = make_shared<SpyMaster>();
-		engine.RegisterObserver(dynamic_pointer_cast<UpdateEventObserver<StockBookQuote>>(spyMaster));
-		engine.RegisterObserver(dynamic_pointer_cast<ChangeEventObserver<StockPrint>>(spyMaster));
-		engine.RegisterObserver(dynamic_pointer_cast<ChangeEventObserver<OptionNbboQuote>>(spyMaster));
+		// // stripe X
+		// client.CreateThreadGroup(
+		// 	MbusClient::Protocol::UDP,
+		// 	{DataChannel::OptNbboQuoteX1,
+		// 	 DataChannel::OptNbboQuoteX2,
+		// 	 DataChannel::OptNbboQuoteX3,
+		// 	 DataChannel::OptNbboQuoteX4,
+		// 	 DataChannel::FutNbboQuoteX});
 
-		engine.Start();
+		client.Start();
 
-		/*
 		auto start = clock();
 
-		engine.MakeCacheRequest(
-			{
-				MessageType::StockBookQuote, 
-				MessageType::OptionNbboQuote
-			}
-		);
+		client.MakeCacheRequest(
+			{MessageType::StockBookQuote,
+			 MessageType::OptionNbboQuote,
+			 MessageType::FutureBookQuote},
+			"API KEY assigned by SpiderRock");
 
 		cout << "Cache request time: " << ((double)clock() - start) / CLOCKS_PER_SEC << "s" << endl;
-		*/
-
 		cout << "Press Enter to exit..." << std::endl;
 
 		// Clear the input buffer

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "SpiderRock/SpiderStream/CodeGen/Enums.h"
-#include "SpiderRock/SpiderStream/CodeGen/MessageType.h"
-#include "SpiderRock/SpiderStream/CodeGen/CoreMessages.h"
-#include "SpiderRock/SpiderStream/CodeGen/MbusClient.h"
+#include "SpiderRock/SpiderStream/Enums.Auto.h"
+#include "SpiderRock/SpiderStream/MessageType.Auto.h"
+#include "SpiderRock/SpiderStream/CoreMessages.Auto.h"
+#include "SpiderRock/SpiderStream/MbusClient.Auto.h"
 #include "SpiderRock/SpiderStream/DataChannel.h"
 
 #include "SpiderRock/Net/IPAddress.h"

@@ -6,22 +6,25 @@ namespace SpiderRock
 {
 	namespace SpiderStream
 	{
-		template<class _Tmessage> class CreateEventObserver
+		template <class _Tmessage>
+		class CreateEventObserver
 		{
 		public:
-			virtual void OnCreate(const _Tmessage& created, const bool drops) = 0;
+			virtual void OnCreate(const _Tmessage &created, const bool drops) = 0;
 		};
 
-		template<class _Tmessage> class ChangeEventObserver
+		template <class _Tmessage>
+		class ChangeEventObserver
 		{
 		public:
-			virtual void OnChange(const _Tmessage& changed, const bool drops) = 0;
+			virtual void OnChange(const _Tmessage &changed, const bool drops) = 0;
 		};
 
-		template<class _Tmessage> class UpdateEventObserver
+		template <class _Tmessage>
+		class UpdateEventObserver
 		{
 		public:
-			virtual void OnUpdate(const _Tmessage& received, const _Tmessage& current, const bool drops) = 0;
+			virtual void OnUpdate(const _Tmessage &received, const _Tmessage &current, const bool drops) = 0;
 		};
 	}
 }

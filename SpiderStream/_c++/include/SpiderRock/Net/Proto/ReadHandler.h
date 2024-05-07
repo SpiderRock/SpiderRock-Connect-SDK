@@ -1,10 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
-
-#ifndef _WINDOWS_
-#	include <netinet/in.h>
-#endif
+#include <netinet/in.h>
 
 namespace SpiderRock
 {
@@ -12,10 +9,11 @@ namespace SpiderRock
 	{
 		namespace Proto
 		{
-			template<class _Tcontext> class ReadHandler
+			template <class _Tcontext>
+			class ReadHandler
 			{
 			public:
-				virtual int Handle(uint8_t* buffer, uint32_t length, _Tcontext* context, const sockaddr_in& source) = 0;
+				virtual int Handle(uint8_t *buffer, message_length_t length, _Tcontext *context, const sockaddr_in &source) = 0;
 			};
 		}
 	}

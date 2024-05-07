@@ -1,91 +1,74 @@
 #pragma once
 
-#if defined (_WIN64) || (_WIN32)
-#	include <windows.h>
-#endif
-
 #include <iostream>
+#include <chrono>
+#include <iomanip>
+#include <sstream>
+
+typedef uint16_t app_id_t;
+typedef uint16_t message_length_t;
 
 namespace SpiderRock
 {
-	template<typename TF>
-	inline void Trace(std::ostream & out, TF const& f)
+	inline std::string GetCurrentTime()
+	{
+		auto now = std::chrono::system_clock::now();
+		auto time = std::chrono::system_clock::to_time_t(now);
+		std::tm tm{};
+		localtime_r(&time, &tm);
+		auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) % 1000;
+
+		std::stringstream ss;
+
+		ss
+			<< "["
+			<< std::put_time(&tm, "%Y-%m-%d %H:%M:%S")
+			<< '.' << std::setfill('0') << std::setw(3) << milliseconds.count()
+			<< "]";
+
+		return ss.str();
+	}
+
+	template <typename TF>
+	inline void Trace(std::ostream &out, TF const &f)
 	{
 		out << f << std::endl;
 	}
 
-	template<typename TF, typename ... TR>
-	inline void Trace(std::ostream & out, TF const& f, TR const& ... rest)
+	template <typename TF, typename... TR>
+	inline void Trace(std::ostream &out, TF const &f, TR const &...rest)
 	{
 		out << f << " ";
 		Trace(out, rest...);
 	}
 }
 
+#ifdef __GNUC__
+#define __SR_FUNC__ __PRETTY_FUNCTION__
+#else
+#define __SR_FUNC__ __func__
+#endif
+
 #ifndef SR_TRACE_INFO
-#	ifdef _WINDOWS_
-#		define SR_TRACE_INFO(...) SpiderRock::Trace( std::cout, __FUNCTION__, ":", __VA_ARGS__ )
-#	else
-#		define SR_TRACE_INFO(...) SpiderRock::Trace( std::cout, __PRETTY_FUNCTION__, ":", __VA_ARGS__ )
-#	endif
+#define SR_TRACE_INFO(...) SpiderRock::Trace(std::cout, GetCurrentTime(), __SR_FUNC__, ":", __VA_ARGS__)
 #endif
 
 #ifndef SR_TRACE_WARNING
-#	ifdef _WINDOWS_
-#		define SR_TRACE_WARNING(...) SpiderRock::Trace( std::cerr, __FUNCTION__, ":", __VA_ARGS__ )
-#	else
-#		define SR_TRACE_WARNING(...) SpiderRock::Trace( std::cerr, __PRETTY_FUNCTION__, ":", __VA_ARGS__ )
-#	endif
+#define SR_TRACE_WARNING(...) SpiderRock::Trace(std::cerr, GetCurrentTime(), __SR_FUNC__, ":", __VA_ARGS__)
 #endif
 
 #ifndef SR_TRACE_ERROR
-#	ifdef _WINDOWS_
-#		define SR_TRACE_ERROR(...) SpiderRock::Trace( std::cerr, __FUNCTION__, ":", __VA_ARGS__ )
-#	else
-#		define SR_TRACE_ERROR(...) SpiderRock::Trace( std::cerr, __PRETTY_FUNCTION__, ":", __VA_ARGS__ )
-#	endif
+#define SR_TRACE_ERROR(...) SpiderRock::Trace(std::cerr, GetCurrentTime(), __SR_FUNC__, ":", __VA_ARGS__)
 #endif
-
-#ifdef _WINDOWS_
-
-#include <string>
-
-namespace SpiderRock
-{
-	inline int GetLastError() { return WSAGetLastError(); }
-
-	template<typename T> inline void ThrowLastErrorAs()
-	{
-		auto last_error = GetLastError();
-		LPWSTR s = nullptr;
-		FormatMessage(
-			FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM,
-			nullptr,
-			last_error,
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-			(LPWSTR)&s,
-			0,
-			nullptr);
-
-		auto wide_str = std::to_wstring(last_error) + L": " + std::wstring(s);
-		SR_TRACE_ERROR(last_error, ":", s);
-		auto exception = T(std::string(wide_str.begin(), wide_str.end()));
-		LocalFree(s);
-		throw exception;
-	}
-}
-
-#else
 
 #include <string>
 #include <cstring>
-#include <cerrno> 
+#include <cerrno>
 
 namespace SpiderRock
 {
 	inline int GetLastError() { return errno; }
 
-	template<typename T> inline void ThrowLastErrorAs() { throw T(std::string(strerror(GetLastError()))); }
+	template <typename T>
+	inline void ThrowLastErrorAs() { throw T(std::string(strerror(GetLastError()))); }
 }
-
-#endif

@@ -14,7 +14,7 @@
 
 #include "SpiderRock/SpiderStream/Fields.h"
 #include "SpiderRock/SpiderStream/Header.h"
-#include "Enums.h"
+#include "Enums.Auto.h"
 
 #pragma pack(1)
 

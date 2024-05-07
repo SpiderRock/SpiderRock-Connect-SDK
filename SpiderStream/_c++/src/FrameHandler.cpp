@@ -5,15 +5,15 @@
 #include <string>
 #include <stdexcept>
 #include <initializer_list>
+#include <atomic>
 
-#ifdef __GNUC__
 #include <ctime>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#endif
 
 using namespace SpiderRock::SpiderStream;
+using std::atomic;
 using std::exception;
 using std::initializer_list;
 using std::string;
@@ -30,13 +30,7 @@ inline bool FrameHandler::ErrorCounter::ShouldLog()
 	if (max_reached_)
 		return false;
 
-#ifdef _WINDOWS_
-	auto c = InterlockedIncrement16(&counter_);
-#elif defined __GNUC__
-	auto c = __sync_add_and_fetch(&counter_, 1);
-#else
-#error FrameHandler::ErrorCounter::ShouldLog() InterlockedIncrement implementation missing for this compiler
-#endif
+	auto c = counter_.fetch_add(1, std::memory_order_relaxed) + 1;
 
 	if (c == max_)
 	{
@@ -86,22 +80,23 @@ void FrameHandler::RegisterMessageHandler(MessageHandler *message_handler, initi
 const int64_t TICKS_PER_SECOND = 10000000;
 const int64_t TICKS_PER_NANOSECOND = 100;
 
-int FrameHandler::Handle(uint8_t *buffer, uint32_t length, Channel *channel, const sockaddr_in & /* unused for now: source */)
+int FrameHandler::Handle(uint8_t *buffer, message_length_t length, Channel *channel, const sockaddr_in &)
 {
 	int32_t offset = 0;
 
 	try
 	{
+		if (channel->CarriesFragments() &&
+			channel->IsFragment(buffer, length) &&
+			!channel->TryCompleteMessage(buffer, length))
+		{
+			return 0;
+		}
+
 		int64_t timestamp;
-#ifdef _WINDOWS_
-		LARGE_INTEGER ts;
-		QueryPerformanceCounter(&ts);
-		timestamp = ts.QuadPart;
-#elif defined __GNUC__
 		timespec ts;
 		clock_gettime(CLOCK_MONOTONIC, &ts);
 		timestamp = ts.tv_sec * TICKS_PER_SECOND + ts.tv_nsec / TICKS_PER_NANOSECOND;
-#endif
 
 		while (offset + sizeof(Header) <= length)
 		{

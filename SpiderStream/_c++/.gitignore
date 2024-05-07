@@ -1,0 +1,3 @@
+CodeGen/
+build/
+*.so

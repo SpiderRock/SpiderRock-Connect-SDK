@@ -43,7 +43,16 @@ namespace SpiderRock
 			MM=12,
 			MF=13,
 			COIN=14,
-			TOKEN=15
+			TOKEN=15,
+			ANY=16
+		};
+
+ 		enum class AuctionEvent : Enum 
+		{
+			None=0,
+			Start=1,
+			Update=2,
+			End=3
 		};
 
  		enum class AuctionLimitType : Enum 
@@ -61,14 +70,6 @@ namespace SpiderRock
 			Halt=3,
 			Closing=4,
 			RegulatoryImbalance=5
-		};
-
- 		enum class AuctionState : Enum 
-		{
-			None=0,
-			Start=1,
-			Update=2,
-			End=3
 		};
 
  		enum class AuctionStatus : Enum 
@@ -90,7 +91,8 @@ namespace SpiderRock
 			Opening=5,
 			Closing=6,
 			RFQ=7,
-			Block=8
+			Block=8,
+			Flash=9
 		};
 
  		enum class BuySell : Enum 
@@ -196,6 +198,13 @@ namespace SpiderRock
 			USX=22
 		};
 
+ 		enum class DDivSource : Enum 
+		{
+			None=0,
+			Announced=1,
+			Forecast=2
+		};
+
  		enum class ExchOrderStatus : Enum 
 		{
 			None=0,
@@ -281,6 +290,17 @@ namespace SpiderRock
 			BSpline2=5
 		};
 
+ 		enum class IdxDataSource : Enum 
+		{
+			None=0,
+			SpiderRock=1,
+			OPRA=2,
+			SIP=3,
+			CBOE=4,
+			CME=5,
+			MIAX=6
+		};
+
  		enum class IdxSrc : Enum 
 		{
 			Unknown=0,
@@ -339,10 +359,12 @@ namespace SpiderRock
  		enum class MarketSession : Enum 
 		{
 			None=0,
-			EarlySession=1,
-			RegularSession=2,
-			LateSession=3,
-			NextDay=4
+			PreMkt=1,
+			RegMkt=2,
+			PostMkt=3,
+			PreRegMkt=4,
+			RegPostMkt=5,
+			AllDay=6
 		};
 
  		enum class MarketStatus : Enum 
@@ -437,7 +459,8 @@ namespace SpiderRock
 			DQTE=22,
 			EMLD=23,
 			CFE=24,
-			MEMX=25
+			MEMX=25,
+			EUREX=26
 		};
 
  		enum class OptMktType : Flag 
@@ -551,6 +574,13 @@ namespace SpiderRock
 			NormalExact=5
 		};
 
+ 		enum class PricingSource_V7 : Enum 
+		{
+			None=0,
+			Native=1,
+			SyntheticExpiry=2
+		};
+
  		enum class PrimaryExchange : Enum 
 		{
 			None=0,
@@ -571,7 +601,13 @@ namespace SpiderRock
 			CBOT=15,
 			NYMEX=16,
 			COMEX=17,
-			ICE=18
+			ICE=18,
+			EUREX=19,
+			XETRA=20,
+			CDEX=21,
+			BXE=22,
+			CXE=23,
+			DXE=24
 		};
 
  		enum class ProductClass : Enum 
@@ -740,7 +776,13 @@ namespace SpiderRock
 			LTSE=20,
 			MEMX=21,
 			MXIDX=22,
-			DJIDX=23
+			DJIDX=23,
+			EUREX=24,
+			CDEX=25,
+			BXE=26,
+			CXE=27,
+			DXE=28,
+			XETRA=29
 		};
 
  		enum class StkPriceInc : Enum 
@@ -911,7 +953,10 @@ namespace SpiderRock
 			MIAX=16,
 			DJI=17,
 			CUSIP=18,
-			ISIN=19
+			ISIN=19,
+			EUR=20,
+			ESX=21,
+			ANY=22
 		};
 
  		enum class TimeInForce : Enum 
@@ -951,6 +996,31 @@ namespace SpiderRock
 			None=0,
 			Active=1,
 			Delisted=2
+		};
+
+ 		enum class ToolSpreadClass : Enum 
+		{
+			None=0,
+			Stk=1,
+			Fut=2,
+			Call=3,
+			Put=4,
+			Synth=5,
+			RevCon=6,
+			Box=7,
+			JRoll=8,
+			Roll=9,
+			Straddle=10,
+			Strangle=11,
+			CSpread=12,
+			PSpread=13,
+			VStrip=14,
+			VSpread=15,
+			HStrip=16,
+			HSpread=17,
+			BFly=18,
+			RiskRev=19,
+			Mixed=20
 		};
 
  		enum class TradeableStatus : Enum 

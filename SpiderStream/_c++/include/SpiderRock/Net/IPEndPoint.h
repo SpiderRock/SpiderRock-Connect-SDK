@@ -8,12 +8,6 @@
 
 #include "IPAddress.h"
 
-#ifndef _WINDOWS_
-#	include <netinet/in.h>
-#	include <arpa/inet.h>
-#	include <sys/socket.h>
-#endif
-
 namespace SpiderRock
 {
 	namespace Net

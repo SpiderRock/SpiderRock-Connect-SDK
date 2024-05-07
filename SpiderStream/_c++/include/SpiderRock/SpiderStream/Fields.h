@@ -8,11 +8,7 @@
 #include <string>
 #include <memory>
 
-#ifdef _WINDOWS_
-#	pragma warning( disable : 4996 )
-#endif
-
-#include "CodeGen/Enums.h"
+#include "Enums.Auto.h"
 
 #pragma pack(1)
 
@@ -32,8 +28,10 @@ namespace SpiderRock
 
 		typedef Byte SequenceNumber;
 		typedef UShort AppId;
+		typedef Byte AsciiChar;
 
-		template<uint16_t _Tsize> class FixedLengthString
+		template <uint16_t _Tsize>
+		class FixedLengthString
 		{
 			static_assert(_Tsize <= 256, "FixedLengthString size argument must be < 256");
 
@@ -45,17 +43,17 @@ namespace SpiderRock
 				chars_[0] = 0;
 			}
 
-			FixedLengthString(const FixedLengthString<_Tsize>& value)
+			FixedLengthString(const FixedLengthString<_Tsize> &value)
 			{
 				memcpy(&chars_[0], &value.chars_[0], _Tsize);
 			}
 
-			FixedLengthString(const std::string& value)
+			FixedLengthString(const std::string &value)
 			{
 				strncpy(&chars_[0], value.c_str(), _Tsize);
 			}
 
-			FixedLengthString(const char* value)
+			FixedLengthString(const char *value)
 			{
 				strncpy(&chars_[0], value, _Tsize);
 			}
@@ -75,28 +73,28 @@ namespace SpiderRock
 				return std::string(chars_, length());
 			}
 
-			inline size_t operator()(const FixedLengthString<_Tsize>& k) const
+			inline size_t operator()(const FixedLengthString<_Tsize> &k) const
 			{
 				size_t hash_code = 0;
-				auto max8 = reinterpret_cast<const int8_t*>(&k.chars_[_Tsize]);
-				auto max32 = reinterpret_cast<const int32_t*>(max8);
-				auto max64 = reinterpret_cast<const int64_t*>(max8);
+				auto max8 = reinterpret_cast<const int8_t *>(&k.chars_[_Tsize]);
+				auto max32 = reinterpret_cast<const int32_t *>(max8);
+				auto max64 = reinterpret_cast<const int64_t *>(max8);
 
-				auto ptr64 = reinterpret_cast<const int64_t*>(&k);
+				auto ptr64 = reinterpret_cast<const int64_t *>(&k);
 				while (ptr64 < max64)
 				{
 					hash_code *= 397;
 					hash_code ^= std::hash<int64_t>()(*(ptr64++));
 				}
 
-				auto ptr32 = reinterpret_cast<const int32_t*>(ptr64);
+				auto ptr32 = reinterpret_cast<const int32_t *>(ptr64);
 				while (ptr32 < max32)
 				{
 					hash_code *= 397;
 					hash_code ^= std::hash<int32_t>()(*(ptr32++));
 				}
 
-				auto ptr8 = reinterpret_cast<const int8_t*>(ptr32);
+				auto ptr8 = reinterpret_cast<const int8_t *>(ptr32);
 				while (ptr8 < max8)
 				{
 					hash_code *= 397;
@@ -111,12 +109,13 @@ namespace SpiderRock
 			inline bool operator==(const FixedLengthString<_Tsize> &other) const
 			{
 				auto count = _Tsize;
-				auto self_ptr = reinterpret_cast<const uint8_t*>(this);
-				auto other_ptr = reinterpret_cast<const uint8_t*>(&other);
+				auto self_ptr = reinterpret_cast<const uint8_t *>(this);
+				auto other_ptr = reinterpret_cast<const uint8_t *>(&other);
 
 				while (count >= sizeof(int64_t))
 				{
-					if (*reinterpret_cast<const int64_t*>(self_ptr) != *reinterpret_cast<const int64_t*>(other_ptr)) return false;
+					if (*reinterpret_cast<const int64_t *>(self_ptr) != *reinterpret_cast<const int64_t *>(other_ptr))
+						return false;
 					count -= sizeof(int64_t);
 					other_ptr += sizeof(int64_t);
 					self_ptr += sizeof(int64_t);
@@ -124,7 +123,8 @@ namespace SpiderRock
 
 				while (count >= sizeof(int32_t))
 				{
-					if (*reinterpret_cast<const int32_t*>(self_ptr) != *reinterpret_cast<const int32_t*>(other_ptr)) return false;
+					if (*reinterpret_cast<const int32_t *>(self_ptr) != *reinterpret_cast<const int32_t *>(other_ptr))
+						return false;
 					count -= sizeof(int32_t);
 					other_ptr += sizeof(int32_t);
 					self_ptr += sizeof(int32_t);
@@ -132,7 +132,8 @@ namespace SpiderRock
 
 				while (count > 0)
 				{
-					if (*self_ptr != *other_ptr) return false;
+					if (*self_ptr != *other_ptr)
+						return false;
 					--count;
 					++other_ptr;
 					++self_ptr;
@@ -142,7 +143,8 @@ namespace SpiderRock
 			}
 		};
 
-		template <uint16_t _Tsize> using String = FixedLengthString < _Tsize > ;
+		template <uint16_t _Tsize>
+		using String = FixedLengthString<_Tsize>;
 
 		typedef String<12> Ticker;
 
@@ -155,47 +157,43 @@ namespace SpiderRock
 			Byte reserved2_;
 
 		public:
-			ExpiryKey() { }
+			ExpiryKey() {}
 
 			ExpiryKey(
 				AssetType asset_type,
 				TickerSrc ticker_source,
-				const Ticker& ticker
-				) :
-				asset_type_(asset_type),
-				ticker_source_(ticker_source),
-				ticker_(ticker),
-				reserved1_(0),
-				reserved2_(0)
+				const Ticker &ticker) : asset_type_(asset_type),
+										ticker_source_(ticker_source),
+										ticker_(ticker),
+										reserved1_(0),
+										reserved2_(0)
 			{
 			}
 
 			inline AssetType asset_type() const { return asset_type_; }
 			inline TickerSrc ticker_source() const { return ticker_source_; }
-			inline const Ticker& ticker() const { return ticker_; }
+			inline const Ticker &ticker() const { return ticker_; }
 
-			inline size_t operator()(const ExpiryKey& k) const
+			inline size_t operator()(const ExpiryKey &k) const
 			{
-				auto ptr = reinterpret_cast<const int64_t*>(&k);
+				auto ptr = reinterpret_cast<const int64_t *>(&k);
 
 				size_t hash_code = *ptr;
 				hash_code = (hash_code * 397) ^ *(ptr + 1);
-				hash_code = (hash_code * 397) ^ *(int8_t*)(ptr + 2);
+				hash_code = (hash_code * 397) ^ *(int8_t *)(ptr + 2);
 
 				return hash_code;
 			}
 
 			inline bool operator==(const ExpiryKey &other) const
 			{
-				auto self_ptr = reinterpret_cast<const int64_t*>(this);
-				auto other_ptr = reinterpret_cast<const int64_t*>(&other);
-				return 
-					*self_ptr == *other_ptr && 
-					*(self_ptr + 1) == *(other_ptr + 1) &&
-					*(int8_t*)(self_ptr + 1) == *(int8_t*)(other_ptr + 1);
+				auto self_ptr = reinterpret_cast<const int64_t *>(this);
+				auto other_ptr = reinterpret_cast<const int64_t *>(&other);
+				return *self_ptr == *other_ptr &&
+					   *(self_ptr + 1) == *(other_ptr + 1) &&
+					   *(int8_t *)(self_ptr + 1) == *(int8_t *)(other_ptr + 1);
 			}
 		};
-
 
 		class TickerKey
 		{
@@ -204,29 +202,27 @@ namespace SpiderRock
 			Ticker ticker_;
 
 		public:
-			TickerKey() { }
+			TickerKey() {}
 
 			TickerKey(
 				AssetType asset_type,
 				TickerSrc ticker_source,
-				const Ticker& ticker
-				) :
-				asset_type_(asset_type),
-				ticker_source_(ticker_source),
-				ticker_(ticker)
+				const Ticker &ticker) : asset_type_(asset_type),
+										ticker_source_(ticker_source),
+										ticker_(ticker)
 			{
 			}
 
 			inline AssetType asset_type() const { return asset_type_; }
 			inline TickerSrc ticker_source() const { return ticker_source_; }
-			inline const Ticker& ticker() const { return ticker_; }
+			inline const Ticker &ticker() const { return ticker_; }
 
-			inline size_t operator()(const TickerKey& k) const
+			inline size_t operator()(const TickerKey &k) const
 			{
-				auto ptr = reinterpret_cast<const int64_t*>(&k);
+				auto ptr = reinterpret_cast<const int64_t *>(&k);
 
 				size_t hash_code = *ptr;
-				hash_code = (hash_code * 397) ^ *(int32_t*)(ptr + 1);
+				hash_code = (hash_code * 397) ^ *(int32_t *)(ptr + 1);
 				// only using 12 of the 14 bytes, betting on the fact
 				// that most tickers are empty at the end
 				// the equality should fill that gap
@@ -236,13 +232,11 @@ namespace SpiderRock
 
 			inline bool operator==(const TickerKey &other) const
 			{
-				return 
-					ticker_ == other.ticker_ && 
-					asset_type_ == other.asset_type_ && 
-					ticker_source_ == other.ticker_source_;
+				return ticker_ == other.ticker_ &&
+					   asset_type_ == other.asset_type_ &&
+					   ticker_source_ == other.ticker_source_;
 			}
 		};
-
 
 		class OptionKey
 		{
@@ -256,32 +250,30 @@ namespace SpiderRock
 			CallPut call_put_;
 
 		public:
-			OptionKey() { }
+			OptionKey() {}
 
 			OptionKey(
 				AssetType asset_type,
 				TickerSrc ticker_source,
-				const Ticker& ticker,
+				const Ticker &ticker,
 				UShort year,
 				Byte month,
 				Byte day,
 				Double strike,
-				CallPut call_put
-				) :
-				asset_type_(asset_type),
-				ticker_source_(ticker_source),
-				ticker_(ticker),
-				year_(year - 1900),
-				month_(month),
-				day_(day),
-				strike_(strike),
-				call_put_(call_put)
+				CallPut call_put) : asset_type_(asset_type),
+									ticker_source_(ticker_source),
+									ticker_(ticker),
+									year_(year - 1900),
+									month_(month),
+									day_(day),
+									strike_(strike),
+									call_put_(call_put)
 			{
 			}
 
 			inline AssetType asset_type() const { return asset_type_; }
 			inline TickerSrc ticker_source() const { return ticker_source_; }
-			inline const Ticker& ticker() const { return ticker_; }
+			inline const Ticker &ticker() const { return ticker_; }
 
 			inline UShort year() const { return year_ + 1900; }
 			inline Byte month() const { return month_; }
@@ -289,49 +281,47 @@ namespace SpiderRock
 			inline Double strike() const { return strike_; }
 			inline CallPut call_put() const { return call_put_; }
 
-			inline size_t operator()(const OptionKey& k) const
+			inline size_t operator()(const OptionKey &k) const
 			{
-				auto ptr = reinterpret_cast<const int64_t*>(&k);
+				auto ptr = reinterpret_cast<const int64_t *>(&k);
 
 				size_t hash_code = *ptr;
 				hash_code = (hash_code * 397) ^ *(ptr + 1);
 				hash_code = (hash_code * 397) ^ *(ptr + 2);
-				hash_code = (hash_code * 397) ^ *(int16_t*)(ptr + 3);
+				hash_code = (hash_code * 397) ^ *(int16_t *)(ptr + 3);
 
 				return hash_code;
 			}
 
 			inline bool operator==(const OptionKey &other) const
 			{
-				auto self_ptr = reinterpret_cast<const int64_t*>(this);
-				auto other_ptr = reinterpret_cast<const int64_t*>(&other);
-				return 
-					*self_ptr == *other_ptr && 
-					*(self_ptr + 1) == *(other_ptr + 1) &&
-					*(self_ptr + 2) == *(other_ptr + 2) &&
-					*(int16_t*)(self_ptr + 3) == *(int16_t*)(other_ptr + 3);
+				auto self_ptr = reinterpret_cast<const int64_t *>(this);
+				auto other_ptr = reinterpret_cast<const int64_t *>(&other);
+				return *self_ptr == *other_ptr &&
+					   *(self_ptr + 1) == *(other_ptr + 1) &&
+					   *(self_ptr + 2) == *(other_ptr + 2) &&
+					   *(int16_t *)(self_ptr + 3) == *(int16_t *)(other_ptr + 3);
 			}
 		};
 
 		class DateTime
 		{
-			static const uint64_t UNIX_EPOCH = 0x089f7ff5f7b58000;	// Thursday, January 01, 1970 12:00:00 AM  
+			static const uint64_t UNIX_EPOCH = 0x089f7ff5f7b58000; // Thursday, January 01, 1970 12:00:00 AM
 			static const uint64_t TICKS_PER_SECOND = 10000000;
 
 			int64_t ticks_;
 
 		public:
-
 			inline int64_t ticks() const { return ticks_; }
 
 			inline operator time_t() const { return static_cast<time_t>((ticks_ - UNIX_EPOCH) / TICKS_PER_SECOND); }
 
-			inline size_t operator()(const DateTime& k) const { return std::hash<int64_t>()(k.ticks_); }
+			inline size_t operator()(const DateTime &k) const { return std::hash<int64_t>()(k.ticks_); }
 			inline bool operator==(const DateTime &other) const { return ticks_ == other.ticks_; }
 		};
 
 		typedef DateTime DateKey;
-        typedef int64_t TimeSpan;
+		typedef int64_t TimeSpan;
 
 		static_assert(sizeof(size_t) == 8, "sizeof(size_t) must be 8 bytes");
 

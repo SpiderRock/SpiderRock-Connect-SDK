@@ -8,37 +8,13 @@
 #include <thread>
 #include <string>
 #include <stdexcept>
-
-#ifdef _WINDOWS_
-
-// These are defined incorrectly in winsock.h and need to be overriden
-
-#	undef IP_ADD_MEMBERSHIP
-#	undef IP_DROP_MEMBERSHIP
-#	undef EWOULDBLOCK
-
-#	define	IP_ADD_MEMBERSHIP		12
-#	define	IP_DROP_MEMBERSHIP		13
-#	define	EWOULDBLOCK				WSAEWOULDBLOCK
-
-#else
-
-#	include <unistd.h>
-#	include <netdb.h>
-#	include <arpa/inet.h>
-#	include <cstdio>
-#	include <cstdlib>
-#	include <cerrno>
-#	include <sys/types.h>
-#	include <sys/socket.h>
-#	include <netinet/in.h>
-#	include <fcntl.h>
+#include <unistd.h>
+#include <netdb.h>
+#include <fcntl.h>
 
 typedef int SOCKET;
 #define INVALID_SOCKET -1
 #define SOCKET_ERROR -1
-
-#endif
 
 #include "SpiderRock/Net/IPEndPoint.h"
 #include "SpiderRock/Net/IPAddress.h"
@@ -54,7 +30,8 @@ namespace SpiderRock
 		{
 			namespace UDP
 			{
-				template<class _Tcontext> class Receiver : public SpiderRock::Net::Proto::Receiver < _Tcontext >
+				template <class _Tcontext>
+				class Receiver : public SpiderRock::Net::Proto::Receiver<_Tcontext>
 				{
 					class Channel
 					{
@@ -69,23 +46,15 @@ namespace SpiderRock
 						sockaddr_in raw_end_point_;
 
 					public:
-						Channel(const SpiderRock::Net::IPAddress& if_addr, const SpiderRock::Net::IPEndPoint& end_point, std::shared_ptr<_Tcontext> context) :
-							if_addr_(if_addr),
-							end_point_(end_point),
-							context_(context),
-							socket_(INVALID_SOCKET),
-							buffer_(new uint8_t[BUFFER_LENGTH]),
-							offset_(0),
-							raw_end_point_(end_point_)
+						Channel(const SpiderRock::Net::IPAddress &if_addr, const SpiderRock::Net::IPEndPoint &end_point, std::shared_ptr<_Tcontext> context) : if_addr_(if_addr),
+																																							   end_point_(end_point),
+																																							   context_(context),
+																																							   socket_(INVALID_SOCKET),
+																																							   buffer_(new uint8_t[BUFFER_LENGTH]),
+																																							   offset_(0),
+																																							   raw_end_point_(end_point_)
 						{
 							SR_TRACE_INFO("Subscribing to ", end_point_.label());
-#ifdef _WINDOWS_
-							WSADATA wsaData;
-							if (WSAStartup(MAKEWORD(2, 2), &wsaData) == SOCKET_ERROR)
-							{
-								SpiderRock::ThrowLastErrorAs<std::runtime_error>();
-							}
-#endif
 							socket_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_IP);
 							if (socket_ < 0)
 							{
@@ -98,13 +67,6 @@ namespace SpiderRock
 								SpiderRock::ThrowLastErrorAs<std::runtime_error>();
 							}
 
-#ifdef _WINDOWS_
-							u_long mode = 1; /* Non-blocking */
-							if (ioctlsocket(socket_, FIONBIO, &mode) == SOCKET_ERROR)
-							{
-								SpiderRock::ThrowLastErrorAs<std::runtime_error>();
-							}
-#else
 							int opts = fcntl(socket_, F_GETFL);
 							if (opts < 0)
 							{
@@ -114,14 +76,13 @@ namespace SpiderRock
 							{
 								SpiderRock::ThrowLastErrorAs<std::runtime_error>();
 							}
-#endif
 
 							struct sockaddr_in local_socket;
-							memset(reinterpret_cast<char*>(&local_socket), 0, sizeof(local_socket));
+							memset(reinterpret_cast<char *>(&local_socket), 0, sizeof(local_socket));
 							local_socket.sin_family = AF_INET;
 							local_socket.sin_port = htons(end_point_.port());
 							local_socket.sin_addr = end_point_.address();
-							if (bind(socket_, reinterpret_cast<const struct sockaddr*>(&local_socket), static_cast<int>(sizeof(local_socket))) < 0)
+							if (bind(socket_, reinterpret_cast<const struct sockaddr *>(&local_socket), static_cast<int>(sizeof(local_socket))) < 0)
 							{
 								SpiderRock::ThrowLastErrorAs<std::runtime_error>();
 							}
@@ -129,7 +90,7 @@ namespace SpiderRock
 							struct ip_mreq group;
 							group.imr_multiaddr = end_point_.address();
 							group.imr_interface = if_addr_;
-							if (setsockopt(socket_, IPPROTO_IP, IP_ADD_MEMBERSHIP, reinterpret_cast<const char*>(&group), sizeof(group)) < 0)
+							if (setsockopt(socket_, IPPROTO_IP, IP_ADD_MEMBERSHIP, reinterpret_cast<const char *>(&group), sizeof(group)) < 0)
 							{
 								SpiderRock::ThrowLastErrorAs<std::runtime_error>();
 							}
@@ -150,21 +111,11 @@ namespace SpiderRock
 									SpiderRock::ThrowLastErrorAs<std::runtime_error>();
 								}
 
-#ifdef _WINDOWS_
-								if (closesocket(socket_) == SOCKET_ERROR)
-								{
-									SpiderRock::ThrowLastErrorAs<std::runtime_error>();
-								}
-								if (WSACleanup() == SOCKET_ERROR)
-								{
-									SpiderRock::ThrowLastErrorAs<std::runtime_error>();
-								}
-#else
 								if (close(socket_) < 0)
 								{
 									SpiderRock::ThrowLastErrorAs<std::runtime_error>();
 								}
-#endif
+
 								socket_ = INVALID_SOCKET;
 
 								SR_TRACE_INFO("Unsubscribed from ", end_point_.label());
@@ -173,18 +124,18 @@ namespace SpiderRock
 
 						inline int Read()
 						{
-							return recv(socket_, reinterpret_cast<char*>(&buffer_[offset_]), BUFFER_LENGTH - offset_, 0);
+							return recv(socket_, reinterpret_cast<char *>(&buffer_[offset_]), BUFFER_LENGTH - offset_, 0);
 						}
 
-						inline const IPEndPoint& end_point() const { return end_point_; }
-						inline const sockaddr_in& raw_end_point() const { return raw_end_point_; }
-						inline _Tcontext* context() const { return context_.get(); }
-						inline uint8_t* buffer() const { return &buffer_[offset_]; }
+						inline const IPEndPoint &end_point() const { return end_point_; }
+						inline const sockaddr_in &raw_end_point() const { return raw_end_point_; }
+						inline _Tcontext *context() const { return context_.get(); }
+						inline uint8_t *buffer() const { return &buffer_[offset_]; }
 						inline void offset(int value) { offset_ = value; }
 					};
 
 					SpiderRock::Net::IPAddress if_addr_;
-					SpiderRock::Net::Proto::ReadHandler<_Tcontext>* read_handler_;
+					SpiderRock::Net::Proto::ReadHandler<_Tcontext> *read_handler_;
 
 					bool cancel_requested_;
 
@@ -194,10 +145,9 @@ namespace SpiderRock
 					void Worker();
 
 				public:
-					Receiver(const SpiderRock::Net::IPAddress& if_addr, SpiderRock::Net::Proto::ReadHandler<_Tcontext>* read_handler) :
-						if_addr_(if_addr),
-						read_handler_(read_handler),
-						cancel_requested_(true)
+					Receiver(const SpiderRock::Net::IPAddress &if_addr, SpiderRock::Net::Proto::ReadHandler<_Tcontext> *read_handler) : if_addr_(if_addr),
+																																		read_handler_(read_handler),
+																																		cancel_requested_(true)
 					{
 					}
 
@@ -209,13 +159,13 @@ namespace SpiderRock
 						read_handler_ = nullptr;
 					}
 
-					void AddChannel(const SpiderRock::Net::IPEndPoint& end_point, std::shared_ptr<_Tcontext> context) override final
+					void AddChannel(const SpiderRock::Net::IPEndPoint &end_point, std::shared_ptr<_Tcontext> context) override final
 					{
-						for (auto& ch : channels_)
+						for (auto &ch : channels_)
 						{
 							if (ch->end_point() == end_point)
 							{
-								throw std::invalid_argument(std::string("Channel ") + context->label() + " has already been added");
+								throw std::invalid_argument(std::string("Channel ") + context->Label() + " has already been added");
 							}
 						}
 
@@ -230,7 +180,8 @@ namespace SpiderRock
 
 					void Stop() override final
 					{
-						if (cancel_requested_) return;
+						if (cancel_requested_)
+							return;
 
 						cancel_requested_ = true;
 
@@ -238,7 +189,7 @@ namespace SpiderRock
 					}
 				};
 
-				template<class _Tcontext>
+				template <class _Tcontext>
 				void Receiver<_Tcontext>::Worker()
 				{
 					int read_spin_cnt = 0,
@@ -257,10 +208,10 @@ namespace SpiderRock
 					{
 						while (!cancel_requested_)
 						{
-							for (auto& channel : channels_)
+							for (auto &channel : channels_)
 							{
 								int received = channel->Read();
-								
+
 								if (received > 0)
 								{
 									spin_miss_cnt = 0;
@@ -275,7 +226,7 @@ namespace SpiderRock
 										}
 										channel->offset(roffset);
 									}
-									catch (const std::exception& e)
+									catch (const std::exception &e)
 									{
 										SR_TRACE_ERROR("handler error", e.what());
 									}
@@ -284,11 +235,7 @@ namespace SpiderRock
 										SR_TRACE_ERROR("unknown handler error");
 									}
 								}
-#ifdef _WINDOWS_
-								else if (received == SOCKET_ERROR && WSAGetLastError() == WSAEWOULDBLOCK)
-#else
 								else if (received == SOCKET_ERROR && (errno == EWOULDBLOCK || errno == EAGAIN))
-#endif
 								{
 									++read_spin_cnt; // one spin count is roughly 1us
 									++spin_miss_cnt;
@@ -314,7 +261,7 @@ namespace SpiderRock
 							}
 						}
 					}
-					catch (const std::exception& e)
+					catch (const std::exception &e)
 					{
 						SR_TRACE_ERROR("critical error", e.what());
 					}

@@ -7,13 +7,11 @@
 #include <cctype>
 #include <stdexcept>
 
-#ifndef _WINDOWS_
-#	include <netdb.h>
-#	include <sys/types.h>
-#	include <sys/socket.h>
-#	include <netinet/in.h>
-#	include <arpa/inet.h>
-#endif
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 namespace SpiderRock
 {
@@ -23,7 +21,7 @@ namespace SpiderRock
 		{
 			in_addr address_;
 
-			static in_addr GetAddress(const std::string& hostname)
+			static in_addr GetAddress(const std::string &hostname)
 			{
 				struct in_addr addr;
 
@@ -31,8 +29,9 @@ namespace SpiderRock
 
 				if (std::isalpha(hostname[0]))
 				{
-					struct hostent* record = gethostbyname(hostname.c_str());
-					if (record == nullptr) throw std::runtime_error("Unable to resolve hostname");
+					struct hostent *record = gethostbyname(hostname.c_str());
+					if (record == nullptr)
+						throw std::runtime_error("Unable to resolve hostname");
 					addr.s_addr = *(u_long *)record->h_addr_list[0];
 				}
 				else
@@ -44,12 +43,12 @@ namespace SpiderRock
 			}
 
 		public:
-			IPAddress(const std::string& address)
+			IPAddress(const std::string &address)
 				: IPAddress(GetAddress(address))
 			{
 			}
 
-			IPAddress(const IPAddress& address)
+			IPAddress(const IPAddress &address)
 				: address_(address.address_)
 			{
 			}
@@ -67,7 +66,7 @@ namespace SpiderRock
 
 			inline operator std::string() const { return std::string(inet_ntoa(address_)); }
 			inline operator in_addr() const { return address_; }
-			inline bool operator == (const IPAddress& other) const { return address_.s_addr == other.address_.s_addr; }
+			inline bool operator==(const IPAddress &other) const { return address_.s_addr == other.address_.s_addr; }
 		};
 	}
 }
