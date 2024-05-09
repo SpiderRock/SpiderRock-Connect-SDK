@@ -9,8 +9,8 @@ import threading
 import datetime
 nest_asyncio.apply()
 
-uriJson = "wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/json"
-authentication_key = "ApiKey"
+uriJson = "wss://mlink-test.nms.venus.spiderrockconnect.com/mlink/json"
+authentication_key = "8BD76D6E-770A-4195-906E-A414034A6AC7"
 
 async def recv_msg(websocket):
     buffer = await websocket.recv()
@@ -33,8 +33,8 @@ async def query_mlink(authentication_key):
                     "message": {
                         "queryLabel": "ExampleStockNbbo",
                         "activeLatency": 1, #you can stream AAPL with minimum latency
-                        "msgName": "StockBookQuote", #the message you wish to stream
-                        "where":"ticker:eq:AAPL-NMS-EQT" #can also do ticker.tk:eq:AAPL & ticker.at:eq:EQT & ticker.ts:eq:NMS
+                        "msgName": "AuctionNotice", #the message you wish to stream
+                        #"where":"ticker:eq:AAPL-NMS-EQT" #can also do ticker.tk:eq:AAPL & ticker.at:eq:EQT & ticker.ts:eq:NMS
                     }
                 }
                 t = time.time_ns()

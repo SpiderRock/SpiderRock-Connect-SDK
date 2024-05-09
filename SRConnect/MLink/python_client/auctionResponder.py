@@ -2,6 +2,7 @@ import json
 import datetime
 import uuid
 
+
 async def create_notice_response(notice, websocket):
     #Create a NoticeResponse based on AuctionNotice details
     opposite_side = 'Buy' if notice['message']['custSide'] == 'Sell' else 'Sell'
@@ -11,7 +12,11 @@ async def create_notice_response(notice, websocket):
     response_message = {
         "header": {"mTyp": "NoticeResponse"},
         "message": {
-            "pkey": {"noticeNumber": notice['message']['pkey']['noticeNumber'], "accnt": "ACCT", "clientFirm": "CLIENTFIRM"},
+            "pkey": {"noticeNumber": notice['message']['pkey']['noticeNumber'],
+                     "accnt": "acct",
+                     "clientFirm": "CF",
+                     "responseId": response_id,
+                     },
             "ticker": f"{notice['message']['ticker']['tk']}-NMS-EQT",
             "tradeDate": notice['message']['tradeDate'],
             "responseId": response_id,
@@ -26,7 +31,12 @@ async def create_notice_response(notice, websocket):
             "minUBid": notice['message']['uBid'] - 0.25,
             "maxUAsk": notice['message']['uAsk'] + 0.25,
             "timestamp": current_timestamp,
-            "OrderLegs": [{"secKey": leg['secKey'], "secType": leg['secType'], "side": leg['side'], "positionType": "Auto"} for leg in notice['message'].get('OrderLegs', [])]
+            "OrderLegs": [{
+                "secKey": leg['secKey'],
+                "secType": leg['secType'],
+                "side": leg['side'],
+                "positionType": "Auto"  # Assuming position type is set to Auto for all legs
+            } for leg in notice['message'].get('OrderLegs', [])]
         }
     }
 
@@ -34,6 +44,5 @@ async def create_notice_response(notice, websocket):
 
     await websocket.send(json.dumps(response_message))
 
-    
 
 

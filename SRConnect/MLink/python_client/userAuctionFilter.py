@@ -6,8 +6,8 @@ async def send_user_auction_filter(websocket):
         "header": {"mTyp": "UserAuctionFilter"},
         "message": {
             "pkey": {
-                "userName": "raphael.tanneur",
-                "filterName": "Testing"
+                "userName": "your un",
+                "filterName": "your filter name"
             },
             #Define your filter criteria here
             "clientFirm": None,

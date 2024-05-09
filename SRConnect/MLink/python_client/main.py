@@ -18,10 +18,11 @@ print(noticeCancel)
 
 
 
-API_KEY = 'Your API Key'
-MLINK_URL = 'wss://mlink-live.nms.Saturn.spiderrockconnect.com/mlink/json'
+API_KEY = 'your api key'
+MLINK_URL = 'wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/json'
 file_path = r""
-
+account = 'acct'
+client_firm = 'CF'
                 
 async def handle_auction_stream():
     async with websockets.connect(MLINK_URL, extra_headers={"Authorization": f"Bearer {API_KEY}"}, ping_timeout=None) as websocket:
@@ -45,7 +46,7 @@ async def handle_auction_stream():
                     elif message['header']['mTyp'] == "NoticeExecReport" and message['message']['respStatus'] == "Closed" and message['message']['respDetail'] != "Filled":
                         ticker = message['message']['ticker']
                         trade_date = get_today_date()  
-                        await send_notice_cancel(websocket, message['message']['pkey']['noticeNumber'], "ACCT", "CF", ticker, trade_date)
+                        await send_notice_cancel(websocket, message['message']['pkey']['noticeNumber'], account, client_firm, ticker, trade_date)
                         print("NoticeCancel sent for:", message['message']['pkey']['noticeNumber'])
 
                 except Exception as e:

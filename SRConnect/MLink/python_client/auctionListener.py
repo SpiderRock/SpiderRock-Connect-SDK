@@ -40,7 +40,7 @@ async def listen_for_auctions(websocket, file_path):
     while True:
         buffer = await websocket.recv()
         result = json.loads(buffer)
-        #print(result)
+        print(result)
         if result.get('header', {}).get('mTyp') == 'AuctionNotice':
             if result.get('message', {}).get('isTestAuction') == 'Yes':    
                 print("Received AuctionNotice:", json.dumps(result, indent=4))
