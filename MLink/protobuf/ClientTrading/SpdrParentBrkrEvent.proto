@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    SpdrParentBrkrEvent records are published when a new or cxl/replace parent order arrives causes a broker to begin working and again when a parent order terminates and the underlying broker stops working.  The initial version contains state and market data from just after the initial risk check and first attempt at generating child orders.
+*/    
 message SpdrParentBrkrEvent {
     message PKey {
         
@@ -29,7 +31,8 @@ message SpdrParentBrkrEvent {
     string alt_accnt = 121; // alternate (client assigned) "long" account string (optional)
     string alt_user_name = 124; // alternate (client assigned) user name (optional)
     uint32 event_number = 127;
-    SpdrStageType stage_type = 130; // parent is a staged order [StageLock, StageModify, StageReview]
+    SpdrStageType stage_type = 130; // parent is a staged order [ToolVisible]
+    StageReview stage_review = 371;
     int64 base_parent_number = 133; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
     int64 prev_parent_number = 136; // SPDR order number (order being cancelled/replaced) (zero if none)
     string engine_name = 139; // server stripe
@@ -39,12 +42,6 @@ message SpdrParentBrkrEvent {
     SpdrCloseReason spdr_close_reason = 151; // parent order close reason (if closed)
     SpdrRejectReason spdr_reject_reason = 154; // parent order reject reason (if any)
     string spdr_comment = 157; // additional detail (close/reject reason; last child order error)
-    float mar_haircut_utilized1 = 160; // MAR haircut utilized on parent order arrival (riskFirm/riskGroup #1)
-    float mar_haircut_utilized2 = 163; // MAR haircut utilized on parent order arrival (riskFirm/riskGroup #2)
-    float mar_haircut_utilized3 = 166; // MAR haircut utilized on parent order arrival (riskFirm/riskGroup #3)
-    float mar_total_exposure_utilized1 = 169; // MAR totalExposure utilized on parent order arrival (riskFirm/riskGroup #1)
-    float mar_total_exposure_utilized2 = 172; // MAR totalExposure utilized on parent order arrival (riskFirm/riskGroup #2)
-    float mar_total_exposure_utilized3 = 175; // MAR totalExposure utilized on parent order arrival (riskFirm/riskGroup #3)
     double bid_prc = 178; // bid (nbbo) price @ record publish
     double ask_prc = 181; // ask (nbbo) price @ record publish
     float bid_iVol = 184; // bid (nbbo) ivol @ record publish
@@ -79,7 +76,8 @@ message SpdrParentBrkrEvent {
     int32 action_order_size = 271; // order size available for immediate action (note: not all algo combinations allow immediate action)
     int32 risk_limit_size = 274; // risk limit size (distance to most restrictive risk limit associated with this parent order)
     SpdrRisk risk_limit_desc = 277; // reason for size reduction (identifies the most restrictive risk limit)
-    string risk_limit_detail = 280; // addition risk detail
+    SpdrRiskLevel risk_limit_level = 372; // risk limit level responsible for reduction
+    string risk_limit_detail = 280; // risk limit level responsible for reduction
     double limit_ref_uPrc = 283; // effective reference underlier price @ record publish (usually either mid or bid/ask depending on limit type)
     double limit_price = 286; // parent simple prc limit (if any)
     float limit_vol = 289; // parent simple vol limit (if any)

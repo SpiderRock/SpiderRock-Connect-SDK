@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    TickerDefinition (internal only) records exist for all SpiderRock tickers including equity tickers (stocks and ETFs) as well as index tickers and synthetic tickers for future chains and option multihedge baskets.
+*/    
 message TickerDefinition {
     message PKey {
         
@@ -22,6 +24,7 @@ message TickerDefinition {
     SymbolType symbol_type = 103;
     string name = 106; // Symbol name
     string country = 109; // ISO Issuer Country Code
+    Currency primary_currency = 254;
     float par_value = 112; // Security Parvalue
     string par_value_currency = 115; // Security Parvalue currency
     float point_value = 118;

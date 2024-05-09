@@ -31,8 +31,6 @@ message SpreadBookMarkup {
         int32 leg_ask_size = 265;
         float leg_years = 268;
         double leg_uPrc = 271;
-        float leg_opt_mult = 274; // SPC if equity, 1 if option/future
-        float leg_fut_mult = 277; // 1 if equity, uMult if option/future
         float leg_surf_vol = 280; // leg surface volatility
         float leg_surf_price = 283; // surface price as of message arrival
         float leg_surf_de = 286;
@@ -63,10 +61,9 @@ message SpreadBookMarkup {
     int32 num_stk_legs = 145;
     int32 num_fut_legs = 148;
     int32 num_opt_legs = 151;
-    YesNo all_legs_valid = 154;
     YesNo user_defined = 157;
-    SRSpreadType spread_type = 160; // option spread type
-    SRRatioType ratio_type = 163;
+    ToolSpreadClass spread_class = 296;
+    YesNo contains_hedge = 297;
     double leg_bid_prc = 166;
     double leg_ask_prc = 169;
     int32 leg_bid_sz = 172;

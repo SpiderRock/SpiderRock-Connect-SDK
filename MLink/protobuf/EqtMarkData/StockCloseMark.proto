@@ -7,7 +7,10 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    StockCloseMark records are created immediately after the market close (clsMarkState=SRClose), when exchanges publish official marks (clsMarkState=ExchClose), and again during top of day rotation (clsMarkState=Final).  These records contain closing quotes and prices as well as markup details for all outright options.
+    StockCloseMark records are published to the SpiderRock elastic cluster when clsMarkState=Final
+*/    
 message StockCloseMark {
     message PKey {
         

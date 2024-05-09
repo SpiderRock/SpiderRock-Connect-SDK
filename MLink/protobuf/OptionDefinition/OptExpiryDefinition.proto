@@ -7,7 +7,10 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    This table maps option root/expiration combinations to their deliverable future.  Mappings are sourced fromm listing exchange product definitions.
+    BaseObj:Root
+*/    
 message OptExpiryDefinition {
     message PKey {
         
@@ -19,14 +22,17 @@ message OptExpiryDefinition {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // master ticker
-    ExpiryKey fkey = 103; // future key of the option deliverable
-    google.protobuf.Timestamp expiration = 106; // option expiration date and time
-    google.protobuf.Timestamp maturity_date = 109;
-    double display_factor = 112;
-    double cab_price = 115;
-    PriceFormat price_format = 118;
-    double min_tick_size = 121;
-    google.protobuf.Timestamp timestamp = 124;
+    ExpiryKey fkey = 103; // settlement future (if any)
+    ExpiryKey u_prc_driver_key = 106; // underlier price driver for this option expiry (default is fkey; if it exists)
+    SpdrKeyType u_prc_driver_key_type = 109; // Stock or Future
+    ExpiryKey u_prc_bound_fKey = 112; // underlier price bounding future (if any) for this option expiry
+    google.protobuf.Timestamp expiration = 115; // option expiration date and time
+    google.protobuf.Timestamp maturity_date = 118;
+    double display_factor = 121;
+    double cab_price = 124;
+    PriceFormat price_format = 127;
+    double min_tick_size = 130;
+    google.protobuf.Timestamp timestamp = 133;
 }
 
 

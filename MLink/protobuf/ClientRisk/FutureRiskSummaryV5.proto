@@ -7,7 +7,10 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    FutureRiskSummary records contain live future level risk aggregation of OptionPositionRecord and FuturePositionRecord details.
+    Records are published if/when positions change and about once per minute otherwise.
+*/    
 message FutureRiskSummaryV5 {
     message PKey {
         
@@ -15,13 +18,13 @@ message FutureRiskSummaryV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR client firm
     string risk_server_code = 103;
     TickerKey ticker = 106; // Ticker that this future is associated with
     double u_prc = 109; // current live underlier price (can be from risk server, tool server, or srse server)
@@ -195,26 +198,6 @@ message FutureRiskSummaryV5 {
     MktErrFlag fut_mark_flag = 613; // Future position error flag
     MktErrFlag opt_mark_flag = 616; // Option position error flag
     google.protobuf.Timestamp timestamp = 619;
-    RiskServerCode_V7 risk_server_code__v7 = 5000; // only v7: Field name [riskServerCode] matched but type did not: string != enum
-    double fut_clr_prc__v7 = 5001; // only V7
-    double fut_prv_prc__v7 = 5002; // only V7
-    float fc_cash_pn_l__v7 = 5003; // only V7
-    float op_pnl_vol__v7 = 5004; // only V7: Field name [opPnlVol] matched but type did not: double != float
-    float op_pnl_prv__v7 = 5005; // only V7: Field name [opPnlMid] matched but type did not: double != float
-    float op_pnl_clr__v7 = 5006; // only V7: Field name [opPnlClr] matched but type did not: double != float
-    float d_theta__v7 = 5007; // only V7
-    float d_rho__v7 = 5008; // only V7
-    float d_vega__v7 = 5009; // only V7
-    float td_vega__v7 = 5010; // only V7
-    float wd_vega__v7 = 5011; // only V7
-    float wtd_vega__v7 = 5012; // only V7
-    float z5_de_above__v7 = 5013; // only V7
-    float z5_de_below__v7 = 5014; // only V7
-    float z5_bandwidth__v7 = 5015; // only V7
-    float other_delta__v7 = 5016; // only V7
-    int32 other_contracts__v7 = 5017; // only V7
-    string other_sources__v7 = 5018; // only V7
-    float live_uPrc_tS__v7 = 5019; // only V7
 }
 
 

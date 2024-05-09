@@ -7,7 +7,12 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    StockPositionRecords are live risk records that contain start-of-day positions and all subsequent executions, including executions reported as done away.
+    These records are published by a CoreRiskServer and represent the position and risk markup detail for a single equity or ETF security.
+    New records are published immediately when a position changes and about once per minute if no position has changed.
+    Note that all stock, future and option records for a single ticker are published simultaneously and records for the same chain should have consistent marks.
+*/    
 message StockPositionRecordV5 {
     message PKey {
         
@@ -15,25 +20,13 @@ message StockPositionRecordV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
-    }
-
-    message CorpAction_V7 {
-        
-        TickerKey ticker_eOD__v7 = 5027; // only V7
-        int32 stk_eod_pos_sR__v7 = 5028; // only V7
-        double stk_eod_mark_sR__v7 = 5029; // only V7
-        double split_ratio__v7 = 5030; // only V7
-        double cash_per_unit__v7 = 5031; // only V7
-        int64 ex_as_trans_id__v7 = 5032; // only V7
-        int32 stk_ex_as_eod_pos_sR__v7 = 5033; // only V7
-        double stk_ex_as_eod_value_sR__v7 = 5034; // only V7
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR assigned client firm
     string risk_server_code = 103;
     string pri_agg_group = 106; // primary aggregation group
     string sec_agg_group = 109; // secondary aggregation group
@@ -74,36 +67,11 @@ message StockPositionRecordV5 {
     float borrow_rate = 214; // overnight rate required to borrow stock (if known)
     float beta = 217; // beta (usually beta to SPX; see AccountConfig.betaSource)
     BetaSource beta_source = 220;
+    float margin_uDn = 230; // Aggregate RiskSlide: uPrc dn
+    float margin_uUp = 231; // Aggregate RiskSlide: uPrc up
     int32 num_executions = 223; // number of included SpdrParentExecution records
     google.protobuf.Timestamp max_exec_dttm = 226; // max (timestamp) of included SpdrParentExecution records
     google.protobuf.Timestamp timestamp = 229;
-    google.protobuf.Timestamp start_of_period__v7 = 5000; // only V7
-    google.protobuf.Timestamp end_of_period__v7 = 5001; // only V7
-    RiskServerCode_V7 risk_server_code__v7 = 5002; // only v7: Field name [riskServerCode] matched but type did not: string != enum
-    string rollup_accnt__v7 = 5003; // only V7
-    float stk_mark_override__v7 = 5004; // only V7
-    float opn_div_pn_l__v7 = 5005; // only V7
-    float opn_htb_pn_l__v7 = 5006; // only V7
-    double stk_eod_net_value_clr__v7 = 5007; // only V7
-    double stk_eod_net_value_sR__v7 = 5008; // only V7
-    double stk_cAValue_sR__v7 = 5009; // only V7
-    int64 ex_as_trans_id__v7 = 5010; // only V7
-    int32 stk_ex_as_sod_pos_sR__v7 = 5011; // only V7
-    double stk_ex_as_sod_value_sR__v7 = 5012; // only V7
-    double stk_borrow_value_clr__v7 = 5013; // only V7
-    int64 corp_action_id__v7 = 5014; // only V7
-    CorpActionType_V7 corp_action_type__v7 = 5015; // only v7: enum values do not match with v8: V7[None=0,CashDividend=1,StockDividend=2,StockSplitNonInt=3,ReverseStockSplit=4,StockSplit=5,Merger=6,RightsOffering=7,Spinoff=8,TenderOffer=9,SymbolConversion=10,Other=11], V8[Does Not Exist]
-    int32 stk_cn_bot_clr__v7 = 5016; // only V7
-    int32 stk_cn_sld_clr__v7 = 5017; // only V7
-    double stk_mny_bot_clr__v7 = 5018; // only V7
-    double stk_mny_sld_clr__v7 = 5019; // only V7
-    int32 stk_cn_bot_sR__v7 = 5020; // only V7
-    int32 stk_cn_sld_sR__v7 = 5021; // only V7
-    double stk_mny_bot_sR__v7 = 5022; // only V7
-    double stk_mny_sld_sR__v7 = 5023; // only V7
-    double stk_tod_mark_clr__v7 = 5024; // only V7
-    double stk_tod_mark_sR__v7 = 5025; // only V7
-    repeated CorpAction_V7 corp_action__v7 = 5026;
 }
 
 

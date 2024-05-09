@@ -19,7 +19,7 @@ message WshFutureQuarters {
 
     message Earnings {
         
-        string confidence_ind = 109; // 3 Character code where first character captures historical reporting confidence: A: The company is highly reliable, B: The company is somewhat reliable ,C: The company is less reliable ,I: Insufficient Data Second and third characters are placeholders, set to “X”;
+        string confidence_ind = 109; // 3 Character code where first character captures historical reporting confidence: A: The company is highly reliable, B: The company is somewhat reliable, C: The company is less reliable, I: Insufficient Data Second and third characters are placeholders, set to 'X'
         google.protobuf.Timestamp earning_date = 112; // FOrecasted Earnings Date
         string quarter = 115; // Event time period, Q1 - Q4, H1 - H2, Q1T - Q4T, H1T - H2T
         int32 fiscal_yr = 118; // Company’s fiscal year for event

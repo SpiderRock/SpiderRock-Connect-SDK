@@ -7,7 +7,12 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    FuturePositionRecords are live risk records that contain start-of-day positions and all subsequent executions, including executions reported as done away.
+    These records are published by a CoreRiskServer and represent the position and risk markup detail for a single futures contract.
+    New records are published immediately when a position changes and about once per minute if no position has changed.
+    Note that all stock, future and option records for a chain are published simultaneously and records for the same chain should have consistent marks.
+*/    
 message FuturePositionRecordV5 {
     message PKey {
         
@@ -15,13 +20,13 @@ message FuturePositionRecordV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR assigned client firm
     string risk_server_code = 103;
     string agg_group = 106; // SR assigned aggregation group
     TickerKey ticker = 109; // underlying ticker
@@ -69,30 +74,11 @@ message FuturePositionRecordV5 {
     float ve = 235; // vega; (dPrc / dVol) - only for VIX futures
     float rate_pr = 238; // start of period global rate
     float years_pr = 241; // start of period years to expiration
+    float margin_uDn = 251; // Aggregate RiskSlide: uPrc dn
+    float margin_uUp = 252; // Aggregate RiskSlide: uPrc up
     int32 num_executions = 244; // number of included SpdrParentExecution records
     google.protobuf.Timestamp max_exec_dttm = 247; // maximum activity dttm of execution records included in this future risk record
     google.protobuf.Timestamp timestamp = 250;
-    google.protobuf.Timestamp start_of_period__v7 = 5000; // only V7
-    google.protobuf.Timestamp end_of_period__v7 = 5001; // only V7
-    RiskServerCode_V7 risk_server_code__v7 = 5002; // only v7: Field name [riskServerCode] matched but type did not: string != enum
-    string rollup_accnt__v7 = 5003; // only V7
-    float fut_mark_override__v7 = 5004; // only V7
-    float sum_mny_bot__v7 = 5005; // only V7: Field name [futMnyBot] matched but type did not: double != float
-    float sum_mny_sld__v7 = 5006; // only V7: Field name [futMnySld] matched but type did not: double != float
-    int64 ex_as_trans_id__v7 = 5007; // only V7
-    int32 fut_ex_as_sod_pos_sR__v7 = 5008; // only V7
-    double fut_ex_as_sod_value_sR__v7 = 5009; // only V7
-    double fut_settle_pn_l__v7 = 5010; // only V7
-    int32 fut_cn_bot_clr__v7 = 5011; // only V7
-    int32 fut_cn_sld_clr__v7 = 5012; // only V7
-    double fut_mny_bot_clr__v7 = 5013; // only V7
-    double fut_mny_sld_clr__v7 = 5014; // only V7
-    int32 fut_cn_bot_sR__v7 = 5015; // only V7
-    int32 fut_cn_sld_sR__v7 = 5016; // only V7
-    double fut_mny_bot_sR__v7 = 5017; // only V7
-    double fut_mny_sld_sR__v7 = 5018; // only V7
-    double fut_tod_mark_clr__v7 = 5019; // only V7
-    double fut_tod_mark_sR__v7 = 5020; // only V7
 }
 
 

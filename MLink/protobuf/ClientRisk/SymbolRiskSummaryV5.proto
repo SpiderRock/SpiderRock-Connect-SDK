@@ -7,7 +7,10 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    SymbolRiskSummary records contain live symbol level risk aggregation of StockPositionRecord and OptionPositionRecord values.
+    Records are published by AggRiskServers if/when positions change and about once per minute otherwise.
+*/    
 message SymbolRiskSummaryV5 {
     message PKey {
         
@@ -15,13 +18,13 @@ message SymbolRiskSummaryV5 {
         string accnt = 11; // SRAccnt (SR assigned;up to 16 chars)
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR client firm
     string risk_server_code = 103; // SR risk server code that published this record
     string sector = 106; // SymbolControl.sector: user defined sector code
     int32 industry = 109; // industry code [00000000]
@@ -199,6 +202,10 @@ message SymbolRiskSummaryV5 {
     float va_rsd2e = 625; // Aggregate RiskSlide: uPrc dn 2x implied earn move, vol ramp out
     float va_rearn = 628; // Aggregate RiskSlide: vol earn ramp out (no uPrc move)
     float va_rcash = 631; // Aggregate RiskSlide: uPrc up 30%, vol = 0.01, 6mn deal close (delta neutral)
+    float margin_uDn_vDn = 698; // Aggregate RiskSlide: uPrc dn, vol dn
+    float margin_uDn_vUp = 699; // Aggregate RiskSlide: uPrc dn, vol up
+    float margin_uUp_vDn = 700; // Aggregate RiskSlide: uPrc up, vol dn
+    float margin_uUp_vUp = 701; // Aggregate RiskSlide: uPrc up, vol up
     float stk_liq_risk = 634; // Aggregate Equity Liquidation Risk
     float opt_liq_risk = 637; // Aggregate Option Liquidation Risk
     int32 sh_bot_c0 = 640; // hypothetical shares bot (~1 minute intervals)
@@ -221,62 +228,6 @@ message SymbolRiskSummaryV5 {
     AlertCode risk_alert3 = 691; // Risk Alert Code: Early Exercise, etc.
     AlertCode risk_alert4 = 694; // Risk Alert Code: Early Exercise, etc.
     google.protobuf.Timestamp timestamp = 697;
-    DateKey prior_date__v7 = 5000; // only V7
-    RiskServerCode_V7 risk_server_code__v7 = 5001; // only v7: Field name [riskServerCode] matched but type did not: string != enum
-    float fut_point_value__v7 = 5002; // only V7
-    int32 fut_underliers_per_cn__v7 = 5003; // only V7
-    UnderlierType fut_underlier_type__v7 = 5004; // only v7 - enum values match with v8
-    StkStatus stk_status__v7 = 5005; // only v7 - enum values match with v8
-    OptStatus opt_status__v7 = 5006; // only v7 - enum values match with v8
-    float st_cur_prc__v7 = 5007; // only V7
-    float st_clr_prc__v7 = 5008; // only V7
-    float st_prv_prc__v7 = 5009; // only V7
-    int32 sh_opn_pos__v7 = 5010; // only V7: Field name [stPnlMid] matched but type did not: double != int
-    double st_pnl_prv__v7 = 5011; // only V7
-    double st_cAValue__v7 = 5012; // only V7
-    double st_ex_as_value__v7 = 5013; // only V7
-    int32 fc_abs_cur__v7 = 5014; // only V7
-    int32 fc_abs_clr__v7 = 5015; // only V7
-    int32 fc_abs_prv__v7 = 5016; // only V7
-    int32 fc_abs_brk__v7 = 5017; // only V7
-    int32 fc_bot__v7 = 5018; // only V7
-    int32 fc_sld__v7 = 5019; // only V7
-    int32 fc_bot_hdg__v7 = 5020; // only V7
-    int32 fc_sld_hdg__v7 = 5021; // only V7
-    int32 fc_bot_trh__v7 = 5022; // only V7
-    int32 fc_sld_trh__v7 = 5023; // only V7
-    int32 fc_bot_opn__v7 = 5024; // only V7
-    int32 fc_sld_opn__v7 = 5025; // only V7
-    int32 fc_bot_trd__v7 = 5026; // only V7
-    int32 fc_sld_trd__v7 = 5027; // only V7
-    int32 fc_net_pos__v7 = 5028; // only V7
-    google.protobuf.Timestamp max_fut_dttm__v7 = 5029; // only V7
-    double fc_pnl_prv__v7 = 5030; // only V7
-    double fc_pnl_clr__v7 = 5031; // only V7
-    double fc_pnl_day__v7 = 5032; // only V7
-    double fc_cash_pn_l__v7 = 5033; // only V7
-    double op_ex_as_value__v7 = 5034; // only V7
-    float fut_width_mny__v7 = 5035; // only V7
-    float d_theta__v7 = 5036; // only V7
-    float d_rho__v7 = 5037; // only V7
-    float d_vega__v7 = 5038; // only V7
-    float td_vega__v7 = 5039; // only V7
-    float wd_vega__v7 = 5040; // only V7
-    float wtd_vega__v7 = 5041; // only V7
-    float live_uPrc__v7 = 5042; // only V7: Field name [uPrc] matched but type did not: double != float
-    float live_uPrc_pr__v7 = 5043; // only V7: Field name [uMark] matched but type did not: double != float
-    float live_uPrt__v7 = 5044; // only V7
-    float z5_de_above__v7 = 5045; // only V7
-    float z5_de_below__v7 = 5046; // only V7
-    float z5_bandwidth__v7 = 5047; // only V7
-    float pos_tEdge_pn_l2__v7 = 5048; // only V7
-    float neg_tEdge_pn_l2__v7 = 5049; // only V7
-    float bad_tEdge_pn_l2__v7 = 5050; // only V7
-    float fut_liq_risk__v7 = 5051; // only V7
-    float fut_margin__v7 = 5052; // only V7
-    int32 num_fut_errors__v7 = 5053; // only V7
-    MktErrFlag fut_mark_flag__v7 = 5054; // only v7 - enum values match with v8
-    float live_uPrc_tS__v7 = 5055; // only V7
 }
 
 

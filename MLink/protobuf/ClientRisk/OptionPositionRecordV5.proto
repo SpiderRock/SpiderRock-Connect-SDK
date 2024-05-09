@@ -7,7 +7,12 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    OptionPositionRecords are live risk records that contain start-of-day positions and all subsequent executions, including executions reported as done away.
+    These records are published by a CoreRiskServer and represent the position and risk markup detail for a single option series.
+    New records are published immediately when a position changes and about once per minute if no position has changed.
+    Note that all records for a single underlier are published simultaneously and records for the same chain should have consistent marks.
+*/    
 message OptionPositionRecordV5 {
     message PKey {
         
@@ -15,13 +20,13 @@ message OptionPositionRecordV5 {
         string accnt = 11;
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR assigned client firm
     string risk_server_code = 103;
     string agg_group = 106; // SR assigned agg group
     ExpiryKey fkey = 109; // underlying future (if written on a future)
@@ -165,6 +170,10 @@ message OptionPositionRecordV5 {
     float t_opx_pr2 = 523; // prior period theo price
     float t_de_pr2 = 526; // prior period theo delta
     float xde_pr = 529;
+    float margin_uDn_vDn = 602; // Aggregate RiskSlide: uPrc dn, vol dn
+    float margin_uDn_vUp = 603; // Aggregate RiskSlide: uPrc dn, vol up
+    float margin_uUp_vDn = 604; // Aggregate RiskSlide: uPrc up, vol dn
+    float margin_uUp_vUp = 605; // Aggregate RiskSlide: uPrc up, vol up
     float opn_pnl_de = 532; // open position * mult * hedgeDe * dUPrc
     float opn_pnl_ga = 535; // open position * mult * 0.5 * optGamma * dUPrc * dUPrc
     float opn_pnl_th = 538; // open position * mult * optTheta * dTime
@@ -189,35 +198,6 @@ message OptionPositionRecordV5 {
     int32 num_executions = 595; // number of included SpdrParentExecution records
     google.protobuf.Timestamp max_exec_dttm = 598; // maximum activity dttm of execution records included in this option risk summary
     google.protobuf.Timestamp timestamp = 601;
-    google.protobuf.Timestamp start_of_period__v7 = 5000; // only V7
-    google.protobuf.Timestamp end_of_period__v7 = 5001; // only V7
-    RiskServerCode_V7 risk_server_code__v7 = 5002; // only v7: Field name [riskServerCode] matched but type did not: string != enum
-    string rollup_accnt__v7 = 5003; // only V7
-    float min_tick_size__v7 = 5004; // only V7
-    float pin_xX__v7 = 5005; // only V7
-    float z5_de__v7 = 5006; // only V7
-    float z5_band__v7 = 5007; // only V7
-    float z5_risk__v7 = 5008; // only V7
-    float z5_cost__v7 = 5009; // only V7
-    float pos_size__v7 = 5010; // only V7
-    string pos_limit__v7 = 5011; // only V7
-    double opt_eod_net_value_clr__v7 = 5012; // only V7
-    double opt_eod_net_value_sR__v7 = 5013; // only V7
-    int64 ex_as_trans_id__v7 = 5014; // only V7
-    int32 opt_ex_as_sod_pos_sR__v7 = 5015; // only V7
-    double opt_ex_as_sod_value_sR__v7 = 5016; // only V7
-    int64 corp_action_id__v7 = 5017; // only V7
-    OptionKey okey_eOD__v7 = 5018; // only V7
-    double split_ratio__v7 = 5019; // only V7
-    double cash_per_unit__v7 = 5020; // only V7
-    int32 opt_cn_bot_clr__v7 = 5021; // only V7
-    int32 opt_cn_sld_clr__v7 = 5022; // only V7
-    double opt_mny_bot_clr__v7 = 5023; // only V7
-    double opt_mny_sld_clr__v7 = 5024; // only V7
-    int32 opt_cn_bot_sR__v7 = 5025; // only V7
-    int32 opt_cn_sld_sR__v7 = 5026; // only V7
-    double opt_tod_mark_clr__v7 = 5027; // only V7
-    double opt_tod_mark_sR__v7 = 5028; // only V7
 }
 
 

@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserAuctionFilter {
+    message PKey {
+        
+        string user_name = 10;
+        string filter_name = 11;
+    }
+
+    message AuctionSources {
+        
+        AuctionSource auction_source = 113;
+    }
+
+    message AuctionTypes {
+        
+        AuctionType auction_type = 111;
+    }
+
+    message ExcludeTicker {
+        
+        TickerKey ticker = 107;
+    }
+
+    message IncludeTicker {
+        
+        TickerKey ticker = 105;
+    }
+
+    message Industry {
+        
+        string industry = 103; // industry string prefix (must match left edge)
+    }
+
+    message SpreadClass {
+        
+        ToolSpreadClass spread_class = 109;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100; // client firm of the user this filter belongs to
+    YesNo disabled = 151;
+    YesNo include_covered = 114; // must match if not None
+    YesNo include_eTFs = 115; // must match if not None
+    YesNo include_aDRs = 116; // must match if not None
+    YesNo include_indexes = 117; // must match if not None
+    float min_uPrc = 118; // min underlier price
+    YesNo has_uAvg_daily_vlm_filter = 119; // if Yes use fields: minUAvgDailyVlm, maxUAvgDailyVlm
+    float min_uAvg_daily_vlm = 120; // min underlier avg daily volume (in $1mm increments)
+    float max_uAvg_daily_vlm = 121; // max underlier avg daily volume (in $1mm increments)
+    float min_size = 122; // min order size
+    float min_abs_vega = 152; // min absolute vega
+    YesNo has_abs_delta_filter = 124; // if Yes use fields: minAbsDelta, maxAbsDelta
+    float min_abs_delta = 125; // min absolute delta
+    float max_abs_delta = 126; // max absolute delta
+    YesNo has_xDelta_filter = 127; // if Yes use fields: minXDelta, maxXDelta
+    float min_xDelta = 128;
+    float max_xDelta = 129;
+    YesNo has_atm_sVol_filter = 130; // if Yes use fields: minAtmSVol, maxAtmSVol
+    float min_atm_sVol = 131;
+    float max_atm_sVol = 132;
+    YesNo has_atm_sDiv_filter = 133; // if Yes use fields: minAtmSDiv, maxAtmSDiv
+    float min_atm_sDiv = 134;
+    float max_atm_sDiv = 135;
+    YesNo has_expiry_days = 136; // if Yes use fields: minExpiryDays, maxExpiryDays
+    int32 min_expiry_days = 137; // min days to expiration
+    int32 max_expiry_days = 138; // max days to expiration
+    YesNo include_zDte = 139; // must match if not None
+    YesNo include_daily = 140; // must match if not None
+    YesNo include_weekly = 141; // must match if not None
+    YesNo include_regular = 142; // must match if not None
+    YesNo include_quarterly = 143; // must match if not None
+    YesNo include_long_term = 153; // must match if not None
+    YesNo include_other_exp = 154; // must match if not None
+    YesNo include_flex = 144; // must match if not None
+    YesNo include_comm_paying = 145; // must match if not None
+    BuySell direction = 146; // must match if not None (Buy = Buy Regular or Sell Flipped) (Buy = cust is buying)
+    BuySell net_vega_direction = 155; // must match if not None (Buy = cust is buying net vega)
+    string modified_by = 148;
+    SysEnvironment modified_in = 149;
+    google.protobuf.Timestamp timestamp = 150;
+    repeated AuctionSources auction_sources = 112;
+    repeated AuctionTypes auction_types = 110;
+    repeated ExcludeTicker exclude_ticker = 106;
+    repeated IncludeTicker include_ticker = 104;
+    repeated Industry industry = 102;
+    repeated SpreadClass spread_class = 108;
+}
+
+

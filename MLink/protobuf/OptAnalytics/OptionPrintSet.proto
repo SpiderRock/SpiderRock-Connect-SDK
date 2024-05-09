@@ -59,6 +59,8 @@ message OptionPrintSet {
     float o_ask2 = 205; // Second level ask price
     int32 o_bid_sz2 = 208; // Cumulative size on the second level bid price
     int32 o_ask_sz2 = 211; // Cumulative size on the second level ask price
+    double o_bid_iv = 353; // option bid IV
+    double o_ask_iv = 354; // option ask IV
     double u_bid = 214; // underlier bid
     double u_ask = 217; // underlier ask
     double u_prc = 220; // underlier price
@@ -106,6 +108,19 @@ message OptionPrintSet {
     string s_err_m10 = 346; // Surface error condition (if any) 10 minutes after print was received
     float pnl_m10 = 349; // pnl after 10 minutes
     YesNo pnl_m10_err = 352; // Error condition for PnL calculated 10 minutes after the print was received
+    float o_bid_s1 = 355; // NBBO option bid 1 second after print was received
+    float o_ask_s1 = 356; // NBBO option ask 1 second after print was received
+    double u_bid_s1 = 357; // NBBO underlying bid 1 second after print was received
+    double u_ask_s1 = 358; // NBBO underlying ask 1 second after print was received
+    double u_prc_s1 = 359; // Underlying price 1 second after print was received
+    float s_vol_s1 = 360; // Suface volatility 1 second after print was received
+    float s_opx_s1 = 361; // Surface option price 1 second after print was received
+    float s_div_s1 = 362; // sDiv 1 second after print was received
+    string s_err_s1 = 363; // Surface error condition (if any) 1 second after print was received
+    float pnl_s1 = 364; // pnl after 1 second
+    YesNo pnl_s1_err = 365; // Error condition for PnL calculated over the first 1 second after the print was received
+    float o_bid_next = 366; // next NBBO option bid after print was received
+    float o_ask_next = 367; // next NBBO option ask after print was received
 }
 
 

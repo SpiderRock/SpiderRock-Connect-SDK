@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuctionPrint {
+    message PKey {
+        
+        int64 notice_number = 10; // AuctionNotice.noticeNumber
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier ticker
+    DateKey trade_date = 101;
+    google.protobuf.Timestamp notice_time = 102; // notice create timestamp (high precision)
+    AuctionType auction_type = 103; // (eg. Block, Flash, Improvement, Facilitation, etc.)
+    AuctionSource auction_source = 104; // source of the auction notice (eg. SRC, MIAX, etc.)
+    int32 num_opt_legs = 105; // MLEG Only
+    ToolSpreadClass spread_class = 106;
+    SpreadFlavor spread_flavor = 107; // MLEG Only
+    YesNo contains_hedge = 108; // MLEG Only
+    YesNo contains_flex = 109; // contains FLEX options (not regular listed options)
+    YesNo contains_multi_hedge = 110; // contains MultiHedge (corp action adjusted) options
+    string industry = 111; // industry string
+    SymbolType symbol_type = 112;
+    float u_avg_daily_vlm = 113; // underlier average daily trading volume
+    BuySell cust_side = 114; // from AuctionNotice (if known)
+    int32 cust_qty = 115; // from AuctionNotice (if known)
+    double cust_prc = 116; // from AuctionNotice (if known)
+    YesNo has_cust_prc = 117; // from AuctionNotice (if known)
+    FirmType cust_firm_type = 118; // cust firm type (if disclosed)
+    string cust_agent_mPID = 119; // cust agent exchange member initiating the auction (if disclosed)
+    string cust_client_firm = 120; // cust client firm (if disclosed)
+    double prt_price = 121; // reported OPRA print price (pkgPrice if MLeg)
+    double prt_price2 = 122; // if reported as 2 separate prints at different prices (ie, partial size improvement)
+    int32 prt_size = 123; // reported OPRA print size (pgkSize if MLeg)
+    int32 prt_size2 = 124; // reported OPRA print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 125; // reported OPRA print time (1st print if MLeg) (high precision)
+    PrtType prt_type = 126; // reported OPRA print type
+    double prt_uBid = 127; // best estimate of uBid @ auction print time
+    double prt_uAsk = 128; // best estimate of uAsk @ auction print time
+    double prt_uPrc = 129; // best estimate of uPrc @ auction print time
+    float prt_surf_vol = 130; // surface vol @ auction print time (single option auction only)
+    float prt_surf_prc = 131; // surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+    float bid_prc = 132; // option nbbo bid @ auction print time
+    int32 bid_sz = 133; // nbbo bid cum size
+    uint32 bid_mask = 134; // nbbo bid exch mask
+    float ask_prc = 135; // option nbbo ask @ auction print time
+    int32 ask_sz = 136; // nbbo ask cum size
+    uint32 ask_mask = 137; // nbbo ask exch mask
+    float exch_bid_prc = 138; // exch bid @ auction print time
+    int32 exch_bid_sz = 139; // exch bid size
+    float exch_ask_prc = 140; // exch ask @ auction print time
+    int32 exch_ask_sz = 141; // exch ask size
+    float net_de = 142;
+    float net_ga = 143;
+    float net_th = 144;
+    float net_ve = 145;
+    float u_prc1m = 146; // uPrc (mid market) @ auction print time + 1m
+    float bid_prc1m = 147; // option nbbo bid @ auction print time + 1m
+    float ask_prc1m = 148; // option nbbo ask @ auction print time + 1m
+    float surf_vol1m = 149; // surface vol @ auction print time + 1m (single option auction only)
+    float surf_prc1m = 150; // surface prc @ auction print time + 1m (@ uMid)
+    float u_prc10m = 151; // uPrc (mid market) @ auction print time + 10m
+    float bid_prc10m = 152; // option nbbo bid @ auction print time + 10m
+    float ask_prc10m = 153; // option nbbo ask @ auction print time + 10m
+    float surf_vol10m = 154; // surface vol @ auction print time + 10m (single option auction only)
+    float surf_prc10m = 155; // surface prc @ auction print time + 10m (@ uMid)
+    google.protobuf.Timestamp timestamp = 156;
+}
+
+

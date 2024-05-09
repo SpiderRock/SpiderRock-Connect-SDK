@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 message UserAuthentication {
     message PKey {
         
-        string usre_name = 10; // UserConfig.userName
+        string user_name = 12; // UserConfig.userName
         AuthLocation auth_location = 11;
     }
 

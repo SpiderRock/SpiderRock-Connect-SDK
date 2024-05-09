@@ -25,12 +25,12 @@ message OptionAtmMinuteBarData {
     string start_time_minute = 106; // Minute representation of startTime (note: this field will only be populated in the first message sent)
     google.protobuf.Timestamp end_time = 109; // End of trading period for this product (note: this field will only be populated in the first message sent)
     string end_time_minute = 112; // Minute representation of endTime (note: this field will only be populated in the first message sent)
-    float u_prc = 115; // Underlying price
+    double u_prc = 115; // Underlying price
     float years = 118; // Years to expiry
     float rate = 121; // Interest rate
     float sdiv = 124; // Continuous stock dividend
     float ddiv = 127; // Discrete stock dividend value
-    float u_prc_offset = 130; // Implied underlying price offset. For options with futures underlyings, this is like sDiv for futures.
+    double u_prc_ratio = 130; // Implied underlying price offset. For options with futures underlyings, this is like sDiv for futures.
     float ivol = 133; // atm ivol (atm: strike = fUPrc)
     float ivxx = 136; // fixed strike ivol (ivol @ refStrike)
     float iv_cen = 139; // atm ivol (atm: strike = fUPrc) [eMove/earnings censored]
@@ -45,14 +45,14 @@ message OptionAtmMinuteBarData {
     float iv_cen_lo = 166; // Censored implied volatility low value (during bar)
     float sdiv_hi = 169; // Continuous carry rate, high value (during bar)
     float sdiv_lo = 172; // Continuous carry rate, low value (during bar)
-    float u_prc_off_hi = 175; // Underlying price offset value, high value (during bar)
-    float u_prc_off_lo = 178; // Underlying price offset value, low value (during bar)
+    double u_prc_ratio_hi = 175; // Underlying price offset value, high value (during bar)
+    double u_prc_ratio_lo = 178; // Underlying price offset value, low value (during bar)
     float slope_hi = 181; // Slope high value (during bar).  The difference between the put and call at 1/2 standard deviation from the ATM point.
     float slope_lo = 184; // Slope low value (during bar).  The difference between the put and call at 1/2 standard deviation from the ATM point.
     float var_swap_fV = 187; // variance swap fair value (estimated by numerical integration over OTM price surface)
     float max_dIVol = 190; // maximum change in IVol (between LSA rec publishes)
     float max_dSDiv = 193; // maximum change is SDiv (between LSA rec publishes)
-    float u_prc_sPY = 196; // SPY underlying price
+    double u_prc_sPY = 196; // SPY underlying price
     float ivol_sPY = 199; // SPY atm ivol
     float ivxx_sPY = 202; // SPY fixed strike ivol
     MarketSegment market_segment = 205;

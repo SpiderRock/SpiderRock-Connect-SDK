@@ -55,11 +55,13 @@ message LiveImpliedQuote {
     float dn15 = 187; // underlier dn 15% slide
     float up06 = 190; // underlier up 6% slide
     float dn08 = 193; // underlier dn 8% slide
-    ImpliedQuoteError calc_err = 196; // option pricing calculation error (if any)
-    CalcSource calc_source = 199;
-    int64 src_timestamp = 202; // OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource != Tick
-    int64 net_timestamp = 205; // SR timestamp @ publish time
-    google.protobuf.Timestamp timestamp = 208;
+    double syn_spot = 196; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    CalcPriceType price_type = 199; // Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate
+    ImpliedQuoteError calc_err = 202; // option pricing calculation error (if any)
+    CalcSource calc_source = 205;
+    int64 src_timestamp = 208; // OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource != Tick
+    int64 net_timestamp = 211; // SR timestamp @ publish time
+    google.protobuf.Timestamp timestamp = 214;
 }
 
 

@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    The most recent (last) record for each active FLEX option.
+*/    
+message OptionFlexEvent {
+    message PKey {
+        
+        int32 sequence_number = 10; // sequence of the flex event message counting from the start of day or last restart of the feed handler
+    }
+
+    message Legs {
+        
+        OptionKey okey = 130; // OptionKey of the instrument, if available
+        FlexType flex_type = 133; // European or American exercise, AM or PM exercise time
+        int32 quantity = 136; // quantity of contracts in this leg of the event
+        double price = 139; // price of this leg of the event, could be quoted in percentage of closing price
+        FlexPriceType price_type = 142; // price type of the event
+        double delta = 145; // delta supplied with the event for delta adjusted at close events
+        double ref_price = 148; // reference price of the event, for use in delta ajusting the final price
+        double close_price = 151; // close price used for both percentage adjusted and delta adjusted events
+        double price_adj = 154; // final adjusted price, made available after the event is marked as PctAdjApplied or DeltaAdjApplied
+        double strike_adj = 157; // final adjusted strike, made available after the event is marked PctAdjApplied
+        double bid_price = 160; // bid price from QTE messages
+        double bid_size = 163; // bid size from QTE messages
+        double ask_price = 166; // ask price from QTE messages
+        double ask_size = 169; // ask size from QTE messages
+        string raw_text = 172; // raw text of the flex event
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 event_id = 100; // unique id of the event assigned by SpiderRock, subsequent messages on the event will use the same id
+    OptExch prt_exch = 103; // exchange code that produced this flex event
+    string prt_root = 106; // security symbol of the FLEX option
+    int32 request_id = 109; // request identifier associated with this trade assigned by the exchange (these appear to not be 100% reliable, particularly for PHLX)
+    FlexEventType event_type = 112; // type of event this message represents, e.g., RFQ, QTE, LST
+    int32 total_quantity = 115; // total quantity of the flex trade
+    double package_price = 118; // total price of the flex trade inclusive of all legs
+    int64 net_timestamp = 121; // timestamp of when this message was received
+    int64 src_timestamp = 124; // timestamp from the exchange of when this message was sent
+    repeated Legs legs = 127;
+}
+
+

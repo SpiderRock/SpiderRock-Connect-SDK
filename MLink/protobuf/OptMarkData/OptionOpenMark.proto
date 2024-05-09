@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    OptionOpenMark records are created during the end-of-day rotation for each product and intended for use the following trading day.
+*/    
 message OptionOpenMark {
     message PKey {
         

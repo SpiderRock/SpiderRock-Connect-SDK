@@ -49,10 +49,12 @@ message LiveImpliedQuoteAdj {
     float dn15 = 184; // underlier dn 15% slide
     float up06 = 187; // underlier up 6% slide
     float dn08 = 190; // underlier dn 8% slide
-    string calc_err = 193; // option pricing error (if any)
-    CalcSource calc_source = 196;
-    AdjResult u_prc_adj_result = 199;
-    google.protobuf.Timestamp timestamp = 202;
+    double syn_spot = 193; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    CalcPriceType price_type = 196; // Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate
+    string calc_err = 199; // option pricing error (if any)
+    CalcSource calc_source = 202;
+    AdjResult u_prc_adj_result = 205;
+    google.protobuf.Timestamp timestamp = 208;
 }
 
 

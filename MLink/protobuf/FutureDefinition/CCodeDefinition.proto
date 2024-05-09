@@ -7,7 +7,11 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    Commodity code (product code) definitions for all futures.  Also maps future ccodes to SpiderRock tickers. Information is sourced from listing exchange product definitions.
+    This table also contains definitions for exchange and user-defined spreads including spreads used as option underliers. SpiderRock typically uses a compact form of the exchange (spread) product ID as the ccode for these products if there is no natural (human-readable) exchange spread ticker issued for the spread.  Note that the full spread definition can be found in the ProductDefinition and human-readable version in the description field below.
+    Note that SpiderRock tickers below are synthetic and are created for organizational purposes only.  SpiderRock synthetic tickers typically begin with a '@' character.
+*/    
 message CCodeDefinition {
     message PKey {
         
@@ -29,7 +33,7 @@ message CCodeDefinition {
     int32 underliers_per_cn = 124; // shares, bond, or index units underlying the future (contract size)
     UnderlierType underlier_type = 127; // Underlying type; None; Equity; Other; FX
     string clearing_code = 130; // GMI/Clearing code
-    string ric_code = 133; // RIC Code
+    string ric_root = 164; // RIC Root
     string bbg_root = 136; // Bloomberg root
     YellowKey bbg_group = 139; // Bloomberg Yellow Key
     string gmi_exchange = 142; // GMI (Sungard) exchange code
@@ -40,6 +44,7 @@ message CCodeDefinition {
     string description = 157; // product description
     string market_center = 160; // market center, eg "ICE Market Type", "CME MarketGroup"
     google.protobuf.Timestamp timestamp = 163;
+    string ric_code__v7 = 5000; // only V7
 }
 
 

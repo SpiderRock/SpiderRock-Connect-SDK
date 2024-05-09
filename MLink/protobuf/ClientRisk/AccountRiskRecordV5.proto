@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    AccountRiskRecords contain account level position and risk summary detail. These records are published by AggRiskServers throughout the day approximately once per minute.
+*/    
 message AccountRiskRecordV5 {
     message PKey {
         
@@ -15,13 +17,13 @@ message AccountRiskRecordV5 {
         Currency currency = 11; // point currency of all associated positions and pnl values
         DateKey trade_date = 12;
         RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm acronym
     }
 
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string client_firm = 100; // SR assigned client firm
     string risk_server_code = 103; // risk server that published this record
     double ln_dDelta = 106; // long net position $delta value (underlier + options) (today; SR marks)
     double sh_dDelta = 109; // short net position $delta value (underlier + options) (today; SR marks)
@@ -157,41 +159,6 @@ message AccountRiskRecordV5 {
     float sr_risk_margin = 499; // SR assessed risk margin MAX(haircut37, worst3Risk + optCnMinimum)
     google.protobuf.Timestamp last_activity = 502;
     google.protobuf.Timestamp timestamp = 505;
-    DateKey prior_date__v7 = 5000; // only V7
-    RiskServerCode_V7 risk_server_code__v7 = 5001; // only v7: Field name [riskServerCode] matched but type did not: string != enum
-    double accnt_cash_balance_clr__v7 = 5002; // only V7
-    double accnt_cash_balance_sR__v7 = 5003; // only V7
-    double equity_balance_clr__v7 = 5004; // only V7
-    double equity_balance_sR__v7 = 5005; // only V7
-    double accnt_cash_balance__v7 = 5006; // only V7
-    double equity_balance__v7 = 5007; // only V7
-    PositionSource balance_src__v7 = 5008; // only v7 - enum values match with v8
-    double opt_mkt_value_mid__v7 = 5009; // only V7
-    double opt_mkt_value_vol__v7 = 5010; // only V7
-    double pn_lClr_pP__v7 = 5011; // only V7
-    double pn_lMid_pP__v7 = 5012; // only V7
-    double pn_lVol_pP__v7 = 5013; // only V7
-    double st_pnl_prv__v7 = 5014; // only V7
-    double st_pnl_clr__v7 = 5015; // only V7
-    double fc_pnl_prv__v7 = 5016; // only V7
-    double fc_pnl_clr__v7 = 5017; // only V7
-    double op_pnl_vol__v7 = 5018; // only V7
-    double op_pnl_prv__v7 = 5019; // only V7
-    double op_pnl_clr__v7 = 5020; // only V7
-    int32 op_day_cn__v7 = 5021; // only V7
-    double op_pn_lDay__v7 = 5022; // only V7
-    double op_mny_day__v7 = 5023; // only V7
-    double st_div_pn_l__v7 = 5024; // only V7
-    double st_borrow_pn_l__v7 = 5025; // only V7
-    double st_cAValue__v7 = 5026; // only V7
-    double st_ex_as_value__v7 = 5027; // only V7
-    double fc_cash_pn_l__v7 = 5028; // only V7
-    double op_ex_as_value__v7 = 5029; // only V7
-    float u_pnl_ln__v7 = 5030; // only V7
-    float u_pnl_sh__v7 = 5031; // only V7
-    float pos_tEdge_pn_l__v7 = 5032; // only V7
-    float neg_tEdge_pn_l__v7 = 5033; // only V7
-    float bad_tEdge_pn_l__v7 = 5034; // only V7
 }
 
 
