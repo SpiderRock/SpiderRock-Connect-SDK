@@ -36,7 +36,7 @@ message SpdrMLegBrkrState {
     SpdrStageType stage_type = 124; // parent is a staged order [ToolVisible]
     StartType start_type = 1039;
     YesNo is_flagged = 127; // broker state records is flagged for action (user alert only)
-    int64 cross_notice_id = 130;
+    int64 notice_number = 1052;
     int64 block_auction_number = 1040; // most recent block auction number (if any) associated with this broker
     string exec_brkr_code = 1041; // execBrkrCode attached to parent order (if any)
     ToolSpreadClass spread_class = 1042;
@@ -221,6 +221,7 @@ message SpdrMLegBrkrState {
     float surface_vol = 661;
     float surface_uPrc = 664;
     double limit_price = 667; // spread limit price
+    double limit_ref_uPrc = 1053;
     LimitError limit_err = 670; // limit price error code
     double make_limit_price = 673;
     double take_limit_price = 676;

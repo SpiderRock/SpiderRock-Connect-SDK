@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 message NoticeExecReport {
     message PKey {
         
-        int64 notice_number = 10; // AuctionNotice.noticeNumber
+        int64 notice_number = 13; // AuctionNotice.noticeNumber
         string accnt = 11; // SR Accnt
         string client_firm = 12; // SR ClientFirm
     }
@@ -31,22 +31,34 @@ message NoticeExecReport {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
+    TickerKey ticker = 125; // underlier ticker
+    DateKey trade_date = 126;
     string response_id = 100; // from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
     SpdrStageType stage_type = 101;
+    google.protobuf.Timestamp resp_dttm = 127; // response arrival dttm
     BuySell resp_side = 102;
     int32 resp_size = 103;
     int32 resp_active_size = 104; // active response order size (zero for ActiveHold)
-    double resp_price = 105;
-    double ref_uPrc = 106;
-    float ref_de = 107;
-    float ref_ga = 108;
+    double resp_price = 105; // effRespPrice = respPrice + de * (uMid - refUPrc) + 0.5 * ga * (uMid - refUPrc)^2
+    double ref_uPrc = 106; // reference price for tied to underlier orders (mid-market tie) (block auctions only)
+    float ref_de = 107; // reference delta for tied to underlier orders (zero if tie is not desired) (block auctions only)
+    float ref_ga = 108; // reference gamma for tied to underlier orders (zero if tie is not desired) (block auctions only)
+    RoundRule round_rule = 128; // Exact (100%) or Fuzzy (90%) [default is Exact] (block auctions only)
+    double step_up_incr = 129; // additional price increment (best price) (typically only used if auction is competitive)
     int64 risk_group_id = 109; // any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
     string strategy = 110; // user strategy field (visible on SR tools)
     string user_data1 = 111; // user data field (free text) (from NoticeResponse)
     SpdrOrderStatus resp_status = 112;
     string resp_detail = 113;
-    int32 pkg_cum_fill_qty = 114;
-    double pkg_avg_fill_price = 115;
+    int32 cum_fill_qty = 130; // pkg cumFillQty if MLeg
+    double avg_fill_price = 131; // pkg avgFillPrice if MLeg
+    NoticeResult response_result = 132;
+    int32 response_time = 133; // notice response arrival time (milliseconds since auction start)
+    double prt_price = 134; // reported OPRA print price (pkgPrice if MLeg)
+    int32 prt_size = 135; // reported OPRA print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 136; // reported OPRA print time (1st print if MLeg)
+    float prt_uBid = 137; // best estimate of uBid @ auction print time
+    float prt_uAsk = 138; // best estimate of uAsk @ auction print time
     google.protobuf.Timestamp timestamp = 124;
     repeated OrderLegs order_legs = 116;
 }

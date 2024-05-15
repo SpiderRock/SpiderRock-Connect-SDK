@@ -30,7 +30,7 @@ message SpdrParentBrkrState {
     int64 parent_number = 106; // SR parent number
     int64 base_parent_number = 109;
     int64 modify_number = 596; // most recent parent number affecting this order (AddReplace or Modify)
-    int64 cross_notice_id = 597; // SR crossNoticeId (from SpdrCrossNotice.crossNoticeId) [required when parentOrderHandling = BlockAuction | BlockResponse]
+    int64 notice_number = 604; // SR noticeNumber [required when parentOrderHandling = BlockAuction | BlockResponse]
     int64 block_auction_number = 598; // most recent block auction number (if any) associated with this broker
     int64 risk_group_id = 112; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
     int64 trigger_group_id = 115;
@@ -84,6 +84,7 @@ message SpdrParentBrkrState {
     SpdrRiskLevel risk_limit_level = 601; // risk limit level responsible for reduction
     string risk_limit_detail = 602; // risk limit detail
     double limit_price = 253; // simple limit
+    double limit_ref_uPrc = 605;
     LimitError limit_err = 256;
     string limit_err_desc = 259;
     float best_limit_offset = 262; // (possible price improvement) (gap between best price and init/limit price) (Face/Matrix orders)

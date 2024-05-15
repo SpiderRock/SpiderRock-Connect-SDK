@@ -25,7 +25,7 @@ message FieldDesc {
     string e_set = 130; // comma separated list of enum or string values (can be specific for a given user; default complete set)
     string default_val = 133; // from Core.def: (...) can be a string, number, xKey, or partial xKey
     string desc = 136; // from core.def: ... # comment line
-    FieldControl f_ctrl = 139; // None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI (form level directive)
+    FieldControl f_ctrl = 139; // None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI; Init = only can set during message creation; (form level directive)
     double min_v = 142; // form edit number range min bound (if field is a numeric type) [enforced on edit]
     double max_v = 145; // form edit number range max bound (if field is a numeric type) [enforced on edit]
     string meta_type = 148; // metatype associated with field

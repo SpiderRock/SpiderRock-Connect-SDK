@@ -228,7 +228,7 @@ message SpdrParentOrder {
     BuySell lead_side = 484; // for legged orders, which side to lead with.  (optional, None ok)
     double max_completion_slippage = 487; // maximum price slippage to complete an open basket
     float order_ref_premium = 490; // reference premium (mleg orders only)
-    int64 cross_notice_id = 1035; // SR CrossNoticeId (from SpdrCrossNotice.crossNoticeId) [required when parentOrderHandling = BlockResponse]
+    int64 notice_number = 1038; // required when parentOrderHandling = BlockResponse
     float theo_vol = 496; // client supplied theoretical volatility (used for markup only)
     float cl_arrive_mark = 499; // client specified arrival mark (passed through to ParentExecution; markup only)
     int64 risk_group_id = 502; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters

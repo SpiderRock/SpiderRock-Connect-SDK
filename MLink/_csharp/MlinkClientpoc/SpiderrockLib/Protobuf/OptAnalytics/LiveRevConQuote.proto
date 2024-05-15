@@ -41,7 +41,7 @@ message LiveRevConQuote {
     float rc_fair_prc = 119; // uPrc + fairPutPrc - fairCallPrc - strike  (revCon fairMid price)
     float rc_eEx_prem = 120; // (fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
     float fair_loan_pv = 121; // uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)
-    float fair_loan_rate = 122; // (fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 356 * (iDays + 1) / 2)
+    float fair_loan_rate = 122; // (fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)
     float rc_bid_loan_pv = 123; // uPrc - callAsk + putBid - strikePv - ddivPv - rcEExPrem (best way) (join markets)
     float rc_ask_loan_pv = 124; // uPrc - callBid + putAsk - strikePv - ddivPv - rcEExPrem (worst way) (cross markets)
     string calc_error = 125;

@@ -218,7 +218,7 @@ message SpdrParentExecution {
     float parent_theo_prc = 685; // option price corresponding parentTheoVol
     PositionType parent_pos_type = 688; // parent order position type
     ShortSaleFlag parent_sSale_flag = 691; // short sale flag on parent order
-    int64 cross_notice_id = 694; // RFR / Auction crossNoticeId (if any)
+    int64 notice_number = 832; // RFR / Auction noticeNumber (if any)
     int32 num_make_exchanges = 697; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
     PublicSizeHandling public_size = 700; // public order size handling: None=use default size handling (usually limits public size to 'typical' market size); Randomize=randomize public size; FullSize=expose entire order size where possible
     YesNo can_overlap_cxl_repl = 703; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)

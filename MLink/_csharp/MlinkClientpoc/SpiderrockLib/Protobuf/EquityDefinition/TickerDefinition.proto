@@ -24,6 +24,7 @@ message TickerDefinition {
     SymbolType symbol_type = 103;
     string name = 106; // Symbol name
     string country = 109; // ISO Issuer Country Code
+    Currency primary_currency = 254;
     float par_value = 112; // Security Parvalue
     string par_value_currency = 115; // Security Parvalue currency
     float point_value = 118;

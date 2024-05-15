@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Future settlement marks from the listing exchange
+*/    
+message FutureSettlementMark {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey settle_date = 100;
+    double settle_px = 103; // Exchange settlement price
+    double low_lmt_px = 106; // Exchange low limit price
+    double high_lmt_px = 109; // Exchange high limit price
+    int32 open_int = 112; // Exchange open interest (date prior to settle date)
+    int32 volume = 115; // Exchange volume (date prior to settle date)
+    YesNo early = 118;
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+
