@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuctionNoticeRC {
+    message PKey {
+        
+        int64 notice_number = 10;
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 144;
+        InclExclDisclose incl_excl = 145;
+        YesNo is_comm_paying = 146;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier ticker
+    DateKey trade_date = 101;
+    AuctionType auction_type = 102;
+    AuctionEvent auction_event = 103;
+    string src_auction_iD = 104; // auction ID as known by the auction source (empty for SRC)
+    string src_auction_type = 105;
+    AuctionSource auction_source = 106; // source of the auction notice (eg. SRC, MIAX, etc.)
+    YesNo is_test_auction = 107; // if yes, auction is a test auction (not a prod/live auction)
+    YesNo contains_flex = 108; // Flex = European
+    string short_code = 109; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    string industry = 110; // industry string
+    SymbolType symbol_type = 111;
+    float u_avg_daily_vlm = 112; // underlier average daily trading volume
+    TickerKey root = 113; // option root  (+C/-P/-U)
+    DateKey expiry = 114;
+    double strike = 115; // rev/con strike
+    BuySell cust_side = 116; // if available
+    int32 cust_qty = 117;
+    double cust_prc = 118; // public cust price
+    YesNo has_cust_prc = 119;
+    FirmType cust_firm_type = 120; // cust firm type (if disclosed)
+    string cust_agent_mPID = 121; // cust agent exchange member initiating the auction (if disclosed)
+    string cust_client_firm = 122; // cust client firm (if disclosed)
+    float comm_enhancement = 123; // additional commission (if any) paid by responder
+    YesNo cust_comm_paying = 124; // client is commission paying (to the responder)
+    CustQtyCond cust_qty_cond = 125; // UpToQty, AllOrNone, QtyOrMore
+    int32 auction_duration = 126; // [expected] auction duration (in milliseconds)
+    double u_bid = 127; // live stock price
+    double u_ask = 128;
+    double i_days = 129; // iDays = effective interest days [SR supplied]
+    double i_years = 130; // iYears = iDays / 360.0
+    double money_rate = 131; // effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+    double ddiv_pv = 132; // present value of any expected dividends to expiry [SR Supplied Estimate]
+    YesNo has_est_dDivs = 133; // Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+    double s_vol = 134; // surface volatility for rev/con strike [SR Supplied Estimate]
+    double rc_eEx_prem = 135; // rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+    double strike_pv = 136; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double eff_stock_lend_pv = 137; // effStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]
+    double eff_stock_rate = 138; // effStockRate = effStockLendPv / (uMid * iYears) [if cust price is visible]
+    int64 src_timestamp = 139;
+    int64 net_timestamp = 140;
+    google.protobuf.Timestamp timestamp = 141; // from ats / exchange net timestamp if possible
+    InclExclDisclose include_sRNetwork = 142;
+    repeated DirectedCounterParty directed_counter_party = 143;
+}
+
+

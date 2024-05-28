@@ -131,7 +131,7 @@ message SpdrParentOrder {
     string client_firm = 151; // SR client firm
     SpdrSource spdr_source = 154;
     int64 grouping_code = 157; // unique broker code;broker.pkey = (key + accnt + spdrSource + groupingCode)
-    string exec_brkr_code = 160; // overrides the default executing broker for this parent order
+    string exec_brkr_code = 1039; // overrides the default executing broker for this parent order
     string extern_ex_dest = 163; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
     string extern_params = 166; // external algo names/parameters (usually just an algo name)
     string strategy = 169; // client-supplied strategy string;visible on SpiderRock GUI tools and other order reports.

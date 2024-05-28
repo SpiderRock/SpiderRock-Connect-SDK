@@ -31,10 +31,10 @@ message SpdrParentBrkrState {
     int64 base_parent_number = 109;
     int64 modify_number = 596; // most recent parent number affecting this order (AddReplace or Modify)
     int64 notice_number = 604; // SR noticeNumber [required when parentOrderHandling = BlockAuction | BlockResponse]
-    int64 block_auction_number = 598; // most recent block auction number (if any) associated with this broker
     int64 risk_group_id = 112; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
     int64 trigger_group_id = 115;
     string strategy = 118; // parent order strategy string (can be user supplied)
+    string exec_brkr_code = 606; // execBrkrCode attached to parent order (if any)
     string alt_order_id = 121; // alternate order ID (usually clOrdId from client)
     int64 package_id = 124; // groups related order/brokers together (eg. Legger w/MLeg Parent)
     string alt_accnt = 127; // alternate (client assigned) "long" account string (optional)

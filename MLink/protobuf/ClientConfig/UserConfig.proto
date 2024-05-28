@@ -120,6 +120,7 @@ message UserConfig {
     string ice_trader_id = 235; // ICE assigned trader ID (if any)
     string ice_password = 238; // ICE assigned password (if any)
     string ice_company_id = 241; // ICE Company Id of trader (if any)
+    string ice_sub_room = 399; // User designated Sub-Chatroom in ICE Chat
     string cboe_trader_id = 244; // Cboe assigned trader ID (if any)
     YesNo firm_pos_visibility = 247; // Controls whether user sees the firm position in the SV's widget
     YesNo allow_random_strategy = 250; // SV Widget Control

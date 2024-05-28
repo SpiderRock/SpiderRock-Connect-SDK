@@ -56,7 +56,7 @@ message SpdrParentExecution {
     string engine_name = 811; // SpiderRock execution engine that handled the parent order
     string gateway_name = 208; // StreetGateway server than handled the child order (if any)
     ExecRole exec_role = 211; // SpiderRock relationship to this execution record
-    string exec_brkr_code = 214; // SR Assigned executing broker code
+    string exec_brkr_code = 833; // SR Assigned executing broker code
     string exec_brkr_mPID = 217; // FINRA/Assigned exec broker MPID (if any)
     string exec_brkr_accnt = 220; // account at executing broker (if any)
     string exec_brkr_cl_firm = 223; // client/firm at executing broker (if any)

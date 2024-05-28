@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuctionNoticeBX {
+    message PKey {
+        
+        int64 notice_number = 10;
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 134;
+        InclExclDisclose incl_excl = 135;
+        YesNo is_comm_paying = 136;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier ticker
+    DateKey trade_date = 101;
+    AuctionType auction_type = 102;
+    AuctionEvent auction_event = 103;
+    string src_auction_iD = 104; // auction ID as known by the auction source (empty for SRC)
+    string src_auction_type = 105;
+    AuctionSource auction_source = 106; // source of the auction notice (eg. SRC, MIAX, etc.)
+    YesNo is_test_auction = 107; // if yes, auction is a test auction (not a prod/live auction)
+    string short_code = 108; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    TickerKey root = 109; // option root (+C.Lo/-P.Lo/-C.Hi/+P.Hi)
+    DateKey expiry = 110;
+    double lo_strike = 111; // lo strike
+    double hi_strike = 112; // hi strike
+    BuySell cust_side = 113; // if available
+    int32 cust_qty = 114;
+    double cust_prc = 115; // public cust price
+    YesNo has_cust_prc = 116;
+    FirmType cust_firm_type = 117; // cust firm type (if disclosed)
+    string cust_agent_mPID = 118; // cust agent exchange member initiating the auction (if disclosed)
+    string cust_client_firm = 119; // cust client firm (if disclosed)
+    float comm_enhancement = 120; // additional commission (if any) paid by responder
+    YesNo cust_comm_paying = 121; // client is commission paying (to the responder)
+    CustQtyCond cust_qty_cond = 122; // UpToQty, AllOrNone, QtyOrMore
+    int32 auction_duration = 123; // [expected] auction duration (in milliseconds)
+    double i_days = 124; // iDays = effective interest days [SR supplied]
+    double i_years = 125; // iYears = iDays / 360.0
+    double point_value = 126; // point value of the associated options; expiry money = (hiStrike - loStrike) * pointValue;
+    double strike_pv = 127; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double eff_money_rate = 128; // effMoneyRate = (1.0 - (custPrc / (hiStrike - loStrike)) / iYears
+    int64 src_timestamp = 129;
+    int64 net_timestamp = 130;
+    google.protobuf.Timestamp timestamp = 131; // from ats / exchange net timestamp if possible
+    InclExclDisclose include_sRNetwork = 132;
+    repeated DirectedCounterParty directed_counter_party = 133;
+}
+
+

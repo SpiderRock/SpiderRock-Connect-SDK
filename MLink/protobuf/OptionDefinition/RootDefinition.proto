@@ -16,6 +16,12 @@ message RootDefinition {
         TickerKey root = 10;
     }
 
+    message Exchange {
+        
+        OptExch opt_exch = 220;
+        string native_root = 221;
+    }
+
     message Underlying {
         
         TickerKey ticker = 214;
@@ -37,7 +43,7 @@ message RootDefinition {
     ExpirationMap expiration_map = 124; // determines the underlying future (if any)
     UnderlierMode underlier_mode = 127;
     OptionType option_type = 130; // indicator for option type
-    Multihedge multihedge = 133; // indicates type of multihedge
+    Multihedge multihedge = 133; // indicates type of multihedge (None = standard root; all other root types are not None)
     ExerciseTime exercise_time = 136; // Exercise time type
     ExerciseType exercise_type = 139; // Exercise style
     TimeMetric time_metric = 142; // trading time metric - 252 or 365 trading days or a weekly cycle type
@@ -65,6 +71,7 @@ message RootDefinition {
     string ric_root = 218; // RIC Root
     google.protobuf.Timestamp timestamp = 208;
     PricingSource_V7 pricing_source__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]
+    repeated Exchange exchange = 219;
     repeated Underlying underlying = 211;
 }
 

@@ -12,8 +12,7 @@ message NoticeExecReport {
     message PKey {
         
         int64 notice_number = 13; // AuctionNotice.noticeNumber
-        string accnt = 11; // SR Accnt
-        string client_firm = 12; // SR ClientFirm
+        int64 base_parent_number = 14;
     }
 
     message OrderLegs {
@@ -33,9 +32,15 @@ message NoticeExecReport {
     PKey pkey = 2;
     TickerKey ticker = 125; // underlier ticker
     DateKey trade_date = 126;
+    string accnt = 139; // SR Accnt
+    string client_firm = 140; // SR ClientFirm
+    google.protobuf.Timestamp notice_dttm = 141; // either notice create datetime or notice arrival@SR datetime (high precision)
     string response_id = 100; // from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
+    SpdrSource resp_origin = 142;
     SpdrStageType stage_type = 101;
-    google.protobuf.Timestamp resp_dttm = 127; // response arrival dttm
+    AuctionType auction_type = 143;
+    AuctionSource auction_source = 144; // source of the auction notice (eg. SRC, MIAX, etc.)
+    google.protobuf.Timestamp resp_dttm = 127; // response arrival dttm (high precision)
     BuySell resp_side = 102;
     int32 resp_size = 103;
     int32 resp_active_size = 104; // active response order size (zero for ActiveHold)
@@ -50,15 +55,20 @@ message NoticeExecReport {
     string user_data1 = 111; // user data field (free text) (from NoticeResponse)
     SpdrOrderStatus resp_status = 112;
     string resp_detail = 113;
+    double last_uPrc = 145; // effective uPrc (mid-market) from last trial pass
+    double last_trial_prc = 146; // effective response price from last trial pass
+    int32 leaves_qty = 147; // open order quantity
     int32 cum_fill_qty = 130; // pkg cumFillQty if MLeg
     double avg_fill_price = 131; // pkg avgFillPrice if MLeg
+    double add_latency = 148; // latency from notice arrival@SR to external response send (in seconds) OR latency from notice create to response accepted (in seconds) (SRC Auctions)
+    double ack_latency = 149; // latency from external response send to external response ack (FRT) (in seconds) (external auctions only)
     NoticeResult response_result = 132;
     int32 response_time = 133; // notice response arrival time (milliseconds since auction start)
-    double prt_price = 134; // reported OPRA print price (pkgPrice if MLeg)
-    int32 prt_size = 135; // reported OPRA print size (pgkSize if MLeg)
-    google.protobuf.Timestamp prt_time = 136; // reported OPRA print time (1st print if MLeg)
-    float prt_uBid = 137; // best estimate of uBid @ auction print time
-    float prt_uAsk = 138; // best estimate of uAsk @ auction print time
+    double prt_price = 134; // reported print price (pkgPrice if MLeg)
+    int32 prt_size = 135; // reported print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 136; // reported print time (1st print if MLeg)
+    double prt_uBid = 150; // best estimate of uBid @ auction print time
+    double prt_uAsk = 151; // best estimate of uAsk @ auction print time
     google.protobuf.Timestamp timestamp = 124;
     repeated OrderLegs order_legs = 116;
 }

@@ -14,6 +14,7 @@ message NoticeResponse {
         int64 notice_number = 13; // (required) AuctionNotice.noticeNumber
         string accnt = 11; // (required) SR Accnt
         string client_firm = 12; // (optional) SR ClientFirm
+        string response_id = 14; // (required) client ResponseId of this response; reflected back on NoticeExecReport messages
     }
 
     message OrderLegs {
@@ -30,7 +31,6 @@ message NoticeResponse {
     PKey pkey = 2;
     TickerKey ticker = 119; // (filled in on server) underlier ticker
     DateKey trade_date = 120; // (filled in on server)
-    string response_id = 100; // (required) client ResponseId of this response; reflected back on NoticeExecReport messages
     SpdrStageType stage_type = 101; // (optional) (default is None/Live) can only be supplied on the initial notice response in a cancel/replace chain
     BuySell resp_side = 102;
     int32 resp_size = 103;

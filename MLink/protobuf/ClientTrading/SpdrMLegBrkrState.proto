@@ -37,8 +37,7 @@ message SpdrMLegBrkrState {
     StartType start_type = 1039;
     YesNo is_flagged = 127; // broker state records is flagged for action (user alert only)
     int64 notice_number = 1052;
-    int64 block_auction_number = 1040; // most recent block auction number (if any) associated with this broker
-    string exec_brkr_code = 1041; // execBrkrCode attached to parent order (if any)
+    string exec_brkr_code = 1054; // execBrkrCode attached to parent order (if any)
     ToolSpreadClass spread_class = 1042;
     SpreadFlavor spread_flavor = 1043;
     BuySell stock_side = 133;

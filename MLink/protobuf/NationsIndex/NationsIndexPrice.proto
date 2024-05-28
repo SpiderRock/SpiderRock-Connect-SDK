@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    Intraday Nations Index Prices Calculated by SR
+*/    
+message NationsIndexPrice {
+    message PKey {
+        
+        TickerKey ticker = 10; // underlying stock key that this option expiration attaches to
+        string name = 11; // Nations Index Name
+        int32 days = 12; // calendar days to expiration (actual/365 days per year)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float mrk_price = 100; // last regular market price
+    DateKey expiry = 101; // running expiration date for index
+    int64 src_timestamp = 102; // OPRA source timestamp (nanoseconds since epoch)
+}
+
+

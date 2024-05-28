@@ -44,6 +44,7 @@ message SpreadBookMarkup {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // common spread underlier
+    int64 sRspread_iD = 298;
     PriceFormat price_format = 103;
     double bid_price1 = 106; // bid price
     YesNo is_bid_price1_valid = 109;

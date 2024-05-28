@@ -59,8 +59,8 @@ message UserAuctionFilter {
     YesNo has_uAvg_daily_vlm_filter = 119; // if Yes use fields: minUAvgDailyVlm, maxUAvgDailyVlm
     float min_uAvg_daily_vlm = 120; // min underlier avg daily volume (in $1mm increments)
     float max_uAvg_daily_vlm = 121; // max underlier avg daily volume (in $1mm increments)
-    float min_size = 122; // min order size
-    float min_abs_vega = 152; // min absolute vega
+    float min_size = 122; // min order size (no decimals)
+    float min_abs_vega = 152; // min absolute vega (no decimals)
     YesNo has_abs_delta_filter = 124; // if Yes use fields: minAbsDelta, maxAbsDelta
     float min_abs_delta = 125; // min absolute delta
     float max_abs_delta = 126; // max absolute delta
@@ -84,6 +84,7 @@ message UserAuctionFilter {
     YesNo include_long_term = 153; // must match if not None
     YesNo include_other_exp = 154; // must match if not None
     YesNo include_flex = 144; // must match if not None
+    YesNo include_directed = 156; // must match if not None
     YesNo include_comm_paying = 145; // must match if not None
     BuySell direction = 146; // must match if not None (Buy = Buy Regular or Sell Flipped) (Buy = cust is buying)
     BuySell net_vega_direction = 155; // must match if not None (Buy = cust is buying net vega)
