@@ -33,7 +33,7 @@ message SpdrAuctionState {
     string exch_auction_id = 103;
     string exch_auction_type = 106;
     YesNo is_test_auction = 109; // test auction (should only respond from T.accnts)
-    AuctionEvent auction_event = 212;
+    AuctionEvent auction_event = 112;
     NoticeShape auction_shape = 115;
     AuctionType auction_type = 118;
     BuySell auction_side = 121; // Market side (client/imbalance side of auction; if known) [responder should be opposite side]

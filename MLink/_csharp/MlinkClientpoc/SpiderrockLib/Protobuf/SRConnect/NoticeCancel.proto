@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 message NoticeCancel {
     message PKey {
         
-        int64 notice_number = 13; // (required) AuctionNotice.noticeNumber
+        int64 notice_number = 10; // (required) AuctionNotice.noticeNumber
         string accnt = 11; // (required) SR Accnt
         string client_firm = 12; // (optional) SR ClientFirm
     }
@@ -20,9 +20,9 @@ message NoticeCancel {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    TickerKey ticker = 101; // (filled in on server) underlier ticker
-    DateKey trade_date = 102; // (filled in on server)
-    google.protobuf.Timestamp timestamp = 100;
+    TickerKey ticker = 100; // (filled in on server) underlier ticker
+    DateKey trade_date = 103; // (filled in on server)
+    google.protobuf.Timestamp timestamp = 106;
 }
 
 

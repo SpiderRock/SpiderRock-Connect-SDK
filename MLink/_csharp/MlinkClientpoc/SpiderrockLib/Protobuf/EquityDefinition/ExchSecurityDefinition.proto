@@ -21,8 +21,8 @@ message ExchSecurityDefinition {
     
     PKey pkey = 2;
     Currency primary_currency = 100; // Currency that this ticker trades in
-    string isin = 101; // ISIN code
-    TickerKey primary_ticker = 102; // TickerKey that identifies the TickerDefinition for the primary listing for the security
+    string isin = 103; // ISIN code
+    TickerKey primary_ticker = 106; // TickerKey that identifies the TickerDefinition for the primary listing for the security
 }
 
 

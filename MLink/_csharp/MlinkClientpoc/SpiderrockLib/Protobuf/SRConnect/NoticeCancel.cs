@@ -26,17 +26,19 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiVQcm90b2J1Zi9TUkNvbm5lY3QvTm90aWNlQ2FuY2VsLnByb3RvEhNzcGlk",
             "ZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90bxofZ29v",
-            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLrAQoMTm90aWNlQ2FuY2Vs",
+            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLNAgoMTm90aWNlQ2FuY2Vs",
             "EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdl",
             "TWV0YWRhdGESNAoEcGtleRgCIAEoCzImLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "Tm90aWNlQ2FuY2VsLlBLZXkSLQoJdGltZXN0YW1wGGQgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBpBCgRQS2V5EhUKDW5vdGljZV9udW1iZXIY",
-            "CiABKAMSDQoFYWNjbnQYCyABKAkSEwoLY2xpZW50X2Zpcm0YDCABKAliBnBy",
-            "b3RvMw=="));
+            "Tm90aWNlQ2FuY2VsLlBLZXkSLgoGdGlja2VyGGQgASgLMh4uc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhnIAEoCzIcLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRItCgl0aW1lc3RhbXAYaiABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGkEKBFBLZXkSFQoNbm90aWNl",
+            "X251bWJlchgKIAEoAxINCgVhY2NudBgLIAEoCRITCgtjbGllbnRfZmlybRgM",
+            "IAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeCancel), global::Spiderrock.Protobuf.NoticeCancel.Parser, new[]{ "Meta", "Pkey", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeCancel.Types.PKey), global::Spiderrock.Protobuf.NoticeCancel.Types.PKey.Parser, new[]{ "NoticeNumber", "Accnt", "ClientFirm" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeCancel), global::Spiderrock.Protobuf.NoticeCancel.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeCancel.Types.PKey), global::Spiderrock.Protobuf.NoticeCancel.Types.PKey.Parser, new[]{ "NoticeNumber", "Accnt", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -79,6 +81,8 @@ namespace Spiderrock.Protobuf {
     public NoticeCancel(NoticeCancel other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
+      ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
+      tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -113,8 +117,38 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "ticker" field.</summary>
+    public const int TickerFieldNumber = 100;
+    private global::Spiderrock.Protobuf.TickerKey ticker_;
+    /// <summary>
+    /// (filled in on server) underlier ticker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TickerKey Ticker {
+      get { return ticker_; }
+      set {
+        ticker_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "trade_date" field.</summary>
+    public const int TradeDateFieldNumber = 103;
+    private global::Spiderrock.Protobuf.DateKey tradeDate_;
+    /// <summary>
+    /// (filled in on server)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.DateKey TradeDate {
+      get { return tradeDate_; }
+      set {
+        tradeDate_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 100;
+    public const int TimestampFieldNumber = 106;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -142,6 +176,8 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
+      if (!object.Equals(Ticker, other.Ticker)) return false;
+      if (!object.Equals(TradeDate, other.TradeDate)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -152,6 +188,8 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
+      if (ticker_ != null) hash ^= Ticker.GetHashCode();
+      if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -179,8 +217,16 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (timestamp_ != null) {
+      if (ticker_ != null) {
         output.WriteRawTag(162, 6);
+        output.WriteMessage(Ticker);
+      }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(186, 6);
+        output.WriteMessage(TradeDate);
+      }
+      if (timestamp_ != null) {
+        output.WriteRawTag(210, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -201,8 +247,16 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (timestamp_ != null) {
+      if (ticker_ != null) {
         output.WriteRawTag(162, 6);
+        output.WriteMessage(Ticker);
+      }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(186, 6);
+        output.WriteMessage(TradeDate);
+      }
+      if (timestamp_ != null) {
+        output.WriteRawTag(210, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -220,6 +274,12 @@ namespace Spiderrock.Protobuf {
       }
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
+      }
+      if (ticker_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
+      }
+      if (tradeDate_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(TradeDate);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -247,6 +307,18 @@ namespace Spiderrock.Protobuf {
           Pkey = new global::Spiderrock.Protobuf.NoticeCancel.Types.PKey();
         }
         Pkey.MergeFrom(other.Pkey);
+      }
+      if (other.ticker_ != null) {
+        if (ticker_ == null) {
+          Ticker = new global::Spiderrock.Protobuf.TickerKey();
+        }
+        Ticker.MergeFrom(other.Ticker);
+      }
+      if (other.tradeDate_ != null) {
+        if (tradeDate_ == null) {
+          TradeDate = new global::Spiderrock.Protobuf.DateKey();
+        }
+        TradeDate.MergeFrom(other.TradeDate);
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -284,6 +356,20 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 802: {
+            if (ticker_ == null) {
+              Ticker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(Ticker);
+            break;
+          }
+          case 826: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
+          case 850: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -320,6 +406,20 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 802: {
+            if (ticker_ == null) {
+              Ticker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(Ticker);
+            break;
+          }
+          case 826: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
+          case 850: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

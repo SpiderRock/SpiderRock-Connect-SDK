@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci5Qcm90b2J1Zi9PcHRpb25EZWZpbml0aW9uL1Jvb3REZWZpbml0aW9uLnBy",
             "b3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5w",
-            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byL+EAoOUm9v",
+            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKSEgoOUm9v",
             "dERlZmluaXRpb24SMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI2CgRwa2V5GAIgASgLMiguc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5Sb290RGVmaW5pdGlvbi5QS2V5Ei4KBnRpY2tlchhkIAEo",
@@ -70,16 +70,20 @@ namespace Spiderrock.Protobuf {
             "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIRCghyaWNfcm9v",
             "dBjaASABKAkSLgoJdGltZXN0YW1wGNABIAEoCzIaLmdvb2dsZS5wcm90b2J1",
             "Zi5UaW1lc3RhbXASQgoScHJpY2luZ19zb3VyY2VfX3Y3GIgnIAEoDjIlLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuUHJpY2luZ1NvdXJjZV9WNxJDCgp1bmRlcmx5",
-            "aW5nGNMBIAMoCzIuLnNwaWRlcnJvY2sucHJvdG9idWYuUm9vdERlZmluaXRp",
-            "b24uVW5kZXJseWluZxo0CgRQS2V5EiwKBHJvb3QYCiABKAsyHi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlRpY2tlcktleRpLCgpVbmRlcmx5aW5nEi8KBnRpY2tl",
-            "chjWASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIMCgNz",
-            "cGMY2QEgASgCYgZwcm90bzM="));
+            "aWRlcnJvY2sucHJvdG9idWYuUHJpY2luZ1NvdXJjZV9WNxI/CghleGNoYW5n",
+            "ZRjcASADKAsyLC5zcGlkZXJyb2NrLnByb3RvYnVmLlJvb3REZWZpbml0aW9u",
+            "LkV4Y2hhbmdlEkMKCnVuZGVybHlpbmcY0wEgAygLMi4uc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5Sb290RGVmaW5pdGlvbi5VbmRlcmx5aW5nGjQKBFBLZXkSLAoE",
+            "cm9vdBgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5GlEK",
+            "CEV4Y2hhbmdlEi8KCG9wdF9leGNoGN8BIAEoDjIcLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuT3B0RXhjaBIUCgtuYXRpdmVfcm9vdBjiASABKAkaSwoKVW5kZXJs",
+            "eWluZxIvCgZ0aWNrZXIY1gEgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5U",
+            "aWNrZXJLZXkSDAoDc3BjGNkBIAEoAmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "Timestamp", "PricingSourceV7", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "Timestamp", "PricingSourceV7", "Exchange", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Exchange), global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser, new[]{ "OptExch", "NativeRoot" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Underlying), global::Spiderrock.Protobuf.RootDefinition.Types.Underlying.Parser, new[]{ "Ticker", "Spc" }, null, null, null, null)})
           }));
     }
@@ -166,6 +170,7 @@ namespace Spiderrock.Protobuf {
       ricRoot_ = other.ricRoot_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       pricingSourceV7_ = other.pricingSourceV7_;
+      exchange_ = other.exchange_.Clone();
       underlying_ = other.underlying_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -363,7 +368,7 @@ namespace Spiderrock.Protobuf {
     public const int MultihedgeFieldNumber = 133;
     private global::Spiderrock.Protobuf.Multihedge multihedge_ = global::Spiderrock.Protobuf.Multihedge.Unspecified;
     /// <summary>
-    /// indicates type of multihedge
+    /// indicates type of multihedge (None = standard root; all other root types are not None)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -752,6 +757,17 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "exchange" field.</summary>
+    public const int ExchangeFieldNumber = 220;
+    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> _repeated_exchange_codec
+        = pb::FieldCodec.ForMessage(1762, global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser);
+    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> exchange_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> Exchange {
+      get { return exchange_; }
+    }
+
     /// <summary>Field number for the "underlying" field.</summary>
     public const int UnderlyingFieldNumber = 211;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.RootDefinition.Types.Underlying> _repeated_underlying_codec
@@ -819,6 +835,7 @@ namespace Spiderrock.Protobuf {
       if (RicRoot != other.RicRoot) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       if (PricingSourceV7 != other.PricingSourceV7) return false;
+      if(!exchange_.Equals(other.exchange_)) return false;
       if(!underlying_.Equals(other.underlying_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -868,6 +885,7 @@ namespace Spiderrock.Protobuf {
       if (RicRoot.Length != 0) hash ^= RicRoot.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) hash ^= PricingSourceV7.GetHashCode();
+      hash ^= exchange_.GetHashCode();
       hash ^= underlying_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1048,6 +1066,7 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 13);
         output.WriteString(RicRoot);
       }
+      exchange_.WriteTo(output, _repeated_exchange_codec);
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
         output.WriteRawTag(192, 184, 2);
         output.WriteEnum((int) PricingSourceV7);
@@ -1223,6 +1242,7 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 13);
         output.WriteString(RicRoot);
       }
+      exchange_.WriteTo(ref output, _repeated_exchange_codec);
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
         output.WriteRawTag(192, 184, 2);
         output.WriteEnum((int) PricingSourceV7);
@@ -1360,6 +1380,7 @@ namespace Spiderrock.Protobuf {
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
         size += 3 + pb::CodedOutputStream.ComputeEnumSize((int) PricingSourceV7);
       }
+      size += exchange_.CalculateSize(_repeated_exchange_codec);
       size += underlying_.CalculateSize(_repeated_underlying_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1520,6 +1541,7 @@ namespace Spiderrock.Protobuf {
       if (other.PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
         PricingSourceV7 = other.PricingSourceV7;
       }
+      exchange_.Add(other.exchange_);
       underlying_.Add(other.underlying_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1722,6 +1744,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1746: {
             RicRoot = input.ReadString();
+            break;
+          }
+          case 1762: {
+            exchange_.AddEntriesFrom(input, _repeated_exchange_codec);
             break;
           }
           case 40000: {
@@ -1929,6 +1955,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1746: {
             RicRoot = input.ReadString();
+            break;
+          }
+          case 1762: {
+            exchange_.AddEntriesFrom(ref input, _repeated_exchange_codec);
             break;
           }
           case 40000: {
@@ -2143,6 +2173,232 @@ namespace Spiderrock.Protobuf {
 
       }
 
+      public sealed partial class Exchange : pb::IMessage<Exchange>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<Exchange> _parser = new pb::MessageParser<Exchange>(() => new Exchange());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<Exchange> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Spiderrock.Protobuf.RootDefinition.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public Exchange() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public Exchange(Exchange other) : this() {
+          optExch_ = other.optExch_;
+          nativeRoot_ = other.nativeRoot_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public Exchange Clone() {
+          return new Exchange(this);
+        }
+
+        /// <summary>Field number for the "opt_exch" field.</summary>
+        public const int OptExchFieldNumber = 223;
+        private global::Spiderrock.Protobuf.OptExch optExch_ = global::Spiderrock.Protobuf.OptExch.Unspecified;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Spiderrock.Protobuf.OptExch OptExch {
+          get { return optExch_; }
+          set {
+            optExch_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "native_root" field.</summary>
+        public const int NativeRootFieldNumber = 226;
+        private string nativeRoot_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string NativeRoot {
+          get { return nativeRoot_; }
+          set {
+            nativeRoot_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as Exchange);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(Exchange other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (OptExch != other.OptExch) return false;
+          if (NativeRoot != other.NativeRoot) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) hash ^= OptExch.GetHashCode();
+          if (NativeRoot.Length != 0) hash ^= NativeRoot.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
+            output.WriteRawTag(248, 13);
+            output.WriteEnum((int) OptExch);
+          }
+          if (NativeRoot.Length != 0) {
+            output.WriteRawTag(146, 14);
+            output.WriteString(NativeRoot);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
+            output.WriteRawTag(248, 13);
+            output.WriteEnum((int) OptExch);
+          }
+          if (NativeRoot.Length != 0) {
+            output.WriteRawTag(146, 14);
+            output.WriteString(NativeRoot);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
+            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) OptExch);
+          }
+          if (NativeRoot.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(NativeRoot);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(Exchange other) {
+          if (other == null) {
+            return;
+          }
+          if (other.OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
+            OptExch = other.OptExch;
+          }
+          if (other.NativeRoot.Length != 0) {
+            NativeRoot = other.NativeRoot;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 1784: {
+                OptExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
+                break;
+              }
+              case 1810: {
+                NativeRoot = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 1784: {
+                OptExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
+                break;
+              }
+              case 1810: {
+                NativeRoot = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
       public sealed partial class Underlying : pb::IMessage<Underlying>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -2157,7 +2413,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.RootDefinition.Descriptor.NestedTypes[1]; }
+          get { return global::Spiderrock.Protobuf.RootDefinition.Descriptor.NestedTypes[2]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

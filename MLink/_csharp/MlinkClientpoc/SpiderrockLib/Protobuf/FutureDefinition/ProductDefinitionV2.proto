@@ -34,6 +34,7 @@ message ProductDefinitionV2 {
     PKey pkey = 2;
     string security_iD = 248; // unique exchange id (exch assigned)
     TickerKey ticker = 103; // master underlier
+    int64 sRspread_iD = 104;
     ProductClass product_class = 106;
     int64 underlier_iD = 109; // underlier product id (option only) [securityID of undKey/undType product]
     ExpiryKey und_key = 112; // SR Underlier Security Key [can be partially filled in (look at undType)] (option only)
@@ -41,8 +42,8 @@ message ProductDefinitionV2 {
     string product_group = 118; // Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message
     string security_group = 121; // Exchange specific code for a group of related securities that are all affected by market events.  I.E. All E-mini weekly options (EW) - This is SecurityGroup field from the SecurityDefinition messages
     int32 market_segment_iD = 124; // Exchange specific market segment identifier
-    string ric_code = 249; // Full RIC Code - only provided for non-user defined instruments
-    string security_desc = 250; // full exchange symbol
+    string ric_code = 250; // Full RIC Code - only provided for non-user defined instruments
+    string security_desc = 249; // full exchange symbol
     string exchange = 130; // listing exchange
     ProductType product_type = 133;
     ProductTerm product_term = 136;

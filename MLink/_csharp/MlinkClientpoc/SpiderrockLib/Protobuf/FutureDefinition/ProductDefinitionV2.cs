@@ -26,58 +26,58 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjNQcm90b2J1Zi9GdXR1cmVEZWZpbml0aW9uL1Byb2R1Y3REZWZpbml0aW9u",
             "VjIucHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29t",
-            "bW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpwQ",
+            "bW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrEQ",
             "ChNQcm9kdWN0RGVmaW5pdGlvblYyEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOwoEcGtleRgCIAEoCzIt",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuUHJvZHVjdERlZmluaXRpb25WMi5QS2V5",
             "EhQKC3NlY3VyaXR5X2lEGPgBIAEoCRIuCgZ0aWNrZXIYZyABKAsyHi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRI4Cg1wcm9kdWN0X2NsYXNzGGog",
-            "ASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0Q2xhc3MSFAoMdW5k",
-            "ZXJsaWVyX2lEGG0gASgDEi8KB3VuZF9rZXkYcCABKAsyHi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkV4cGlyeUtleRIyCgh1bmRfdHlwZRhzIAEoDjIgLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSFQoNcHJvZHVjdF9ncm91cBh2",
-            "IAEoCRIWCg5zZWN1cml0eV9ncm91cBh5IAEoCRIZChFtYXJrZXRfc2VnbWVu",
-            "dF9pRBh8IAEoBRIRCghyaWNfY29kZRj5ASABKAkSFgoNc2VjdXJpdHlfZGVz",
-            "Yxj6ASABKAkSEQoIZXhjaGFuZ2UYggEgASgJEjcKDHByb2R1Y3RfdHlwZRiF",
-            "ASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RUeXBlEjcKDHBy",
-            "b2R1Y3RfdGVybRiIASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1",
-            "Y3RUZXJtEkIKEnByb2R1Y3RfaW5kZXhfdHlwZRiLASABKA4yJS5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlByb2R1Y3RJbmRleFR5cGUSFQoMcHJvZHVjdF9yYXRl",
-            "GI4BIAEoAhIWCg1jb250cmFjdF9zaXplGJEBIAEoAhI5Cg1jb250cmFjdF91",
-            "bml0GJQBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuQ29udHJhY3RVbml0",
-            "EjcKDHByaWNlX2Zvcm1hdBiXASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlByaWNlRm9ybWF0EhYKDW1pbl90aWNrX3NpemUYmgEgASgBEhcKDmRpc3Bs",
-            "YXlfZmFjdG9yGJ0BIAEoARIVCgxzdHJpa2Vfc2NhbGUYoAEgASgBEhUKDG1p",
-            "bl9sb3Rfc2l6ZRijASABKAUSEwoKYm9va19kZXB0aBimASABKAUSGwoSaW1w",
-            "bGllZF9ib29rX2RlcHRoGKkBIAEoBRIXCg5pbXBfbWFya2V0X2luZBisASAB",
-            "KAUSIwoabWluX3ByaWNlX2luY3JlbWVudF9hbW91bnQYrwEgASgCEhIKCXBh",
-            "cl92YWx1ZRiyASABKAISGAoPY29udF9tdWx0aXBsaWVyGLUBIAEoAhISCglj",
-            "YWJfcHJpY2UYuAEgASgBEjIKCnRyYWRlX2N1cnIYuwEgASgOMh0uc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5DdXJyZW5jeRIzCgtzZXR0bGVfY3Vychi+ASABKA4y",
-            "HS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EjMKC3N0cmlrZV9jdXJy",
-            "GMEBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kSLwoKZXhw",
-            "aXJhdGlvbhjEASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8K",
-            "CG1hdHVyaXR5GMcBIAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtl",
-            "eRI5Cg1leGVyY2lzZV90eXBlGMoBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuRXhlcmNpc2VUeXBlEjEKDHVzZXJfZGVmaW5lZBjNASABKA4yGi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlllc05vEhkKEGRlY2F5X3N0YXJ0X3llYXIY0AEg",
-            "ASgFEhoKEWRlY2F5X3N0YXJ0X21vbnRoGNMBIAEoBRIYCg9kZWNheV9zdGFy",
-            "dF9kYXkY1gEgASgFEhIKCWRlY2F5X3F0eRjZASABKAUSFAoLcHJpY2VfcmF0",
-            "aW8Y3AEgASgBEi4KCXRpbWVzdGFtcBj3ASABKAsyGi5nb29nbGUucHJvdG9i",
-            "dWYuVGltZXN0YW1wEjwKBGxlZ3MY3wEgAygLMi0uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5Qcm9kdWN0RGVmaW5pdGlvblYyLkxlZ3MaawoEUEtleRIvCgdzZWNf",
-            "a2V5GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkSMgoI",
-            "c2VjX3R5cGUYCyABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlU",
-            "eXBlGuEBCgRMZWdzEg8KBmxlZ19pRBjiASABKAkSMAoHc2VjX2tleRjlASAB",
-            "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRIzCghzZWNfdHlw",
-            "ZRjoASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEisK",
-            "BHNpZGUY6wEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEg4K",
-            "BXJhdGlvGO4BIAEoDRISCglyZWZfZGVsdGEY8QEgASgCEhAKB3JlZl9wcmMY",
-            "9AEgASgBYgZwcm90bzM="));
+            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRITCgtzUnNwcmVhZF9pRBhoIAEo",
+            "AxI4Cg1wcm9kdWN0X2NsYXNzGGogASgOMiEuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5Qcm9kdWN0Q2xhc3MSFAoMdW5kZXJsaWVyX2lEGG0gASgDEi8KB3VuZF9r",
+            "ZXkYcCABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRIyCgh1",
+            "bmRfdHlwZRhzIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5",
+            "cGUSFQoNcHJvZHVjdF9ncm91cBh2IAEoCRIWCg5zZWN1cml0eV9ncm91cBh5",
+            "IAEoCRIZChFtYXJrZXRfc2VnbWVudF9pRBh8IAEoBRIRCghyaWNfY29kZRj6",
+            "ASABKAkSFgoNc2VjdXJpdHlfZGVzYxj5ASABKAkSEQoIZXhjaGFuZ2UYggEg",
+            "ASgJEjcKDHByb2R1Y3RfdHlwZRiFASABKA4yIC5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlByb2R1Y3RUeXBlEjcKDHByb2R1Y3RfdGVybRiIASABKA4yIC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RUZXJtEkIKEnByb2R1Y3RfaW5kZXhf",
+            "dHlwZRiLASABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RJbmRl",
+            "eFR5cGUSFQoMcHJvZHVjdF9yYXRlGI4BIAEoAhIWCg1jb250cmFjdF9zaXpl",
+            "GJEBIAEoAhI5Cg1jb250cmFjdF91bml0GJQBIAEoDjIhLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuQ29udHJhY3RVbml0EjcKDHByaWNlX2Zvcm1hdBiXASABKA4y",
+            "IC5zcGlkZXJyb2NrLnByb3RvYnVmLlByaWNlRm9ybWF0EhYKDW1pbl90aWNr",
+            "X3NpemUYmgEgASgBEhcKDmRpc3BsYXlfZmFjdG9yGJ0BIAEoARIVCgxzdHJp",
+            "a2Vfc2NhbGUYoAEgASgBEhUKDG1pbl9sb3Rfc2l6ZRijASABKAUSEwoKYm9v",
+            "a19kZXB0aBimASABKAUSGwoSaW1wbGllZF9ib29rX2RlcHRoGKkBIAEoBRIX",
+            "Cg5pbXBfbWFya2V0X2luZBisASABKAUSIwoabWluX3ByaWNlX2luY3JlbWVu",
+            "dF9hbW91bnQYrwEgASgCEhIKCXBhcl92YWx1ZRiyASABKAISGAoPY29udF9t",
+            "dWx0aXBsaWVyGLUBIAEoAhISCgljYWJfcHJpY2UYuAEgASgBEjIKCnRyYWRl",
+            "X2N1cnIYuwEgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5DdXJyZW5jeRIz",
+            "CgtzZXR0bGVfY3Vychi+ASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1",
+            "cnJlbmN5EjMKC3N0cmlrZV9jdXJyGMEBIAEoDjIdLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuQ3VycmVuY3kSLwoKZXhwaXJhdGlvbhjEASABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuVGltZXN0YW1wEi8KCG1hdHVyaXR5GMcBIAEoCzIcLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuRGF0ZUtleRI5Cg1leGVyY2lzZV90eXBlGMoBIAEo",
+            "DjIhLnNwaWRlcnJvY2sucHJvdG9idWYuRXhlcmNpc2VUeXBlEjEKDHVzZXJf",
+            "ZGVmaW5lZBjNASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhkK",
+            "EGRlY2F5X3N0YXJ0X3llYXIY0AEgASgFEhoKEWRlY2F5X3N0YXJ0X21vbnRo",
+            "GNMBIAEoBRIYCg9kZWNheV9zdGFydF9kYXkY1gEgASgFEhIKCWRlY2F5X3F0",
+            "eRjZASABKAUSFAoLcHJpY2VfcmF0aW8Y3AEgASgBEi4KCXRpbWVzdGFtcBj3",
+            "ASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjwKBGxlZ3MY3wEg",
+            "AygLMi0uc3BpZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0RGVmaW5pdGlvblYy",
+            "LkxlZ3MaawoEUEtleRIvCgdzZWNfa2V5GAogASgLMh4uc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5PcHRpb25LZXkSMgoIc2VjX3R5cGUYCyABKA4yIC5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlGuEBCgRMZWdzEg8KBmxlZ19pRBji",
+            "ASABKAkSMAoHc2VjX2tleRjlASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "Lk9wdGlvbktleRIzCghzZWNfdHlwZRjoASABKA4yIC5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlNwZHJLZXlUeXBlEisKBHNpZGUY6wEgASgOMhwuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5CdXlTZWxsEg4KBXJhdGlvGO4BIAEoDRISCglyZWZfZGVs",
+            "dGEY8QEgASgCEhAKB3JlZl9wcmMY9AEgASgBYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2), global::Spiderrock.Protobuf.ProductDefinitionV2.Parser, new[]{ "Meta", "Pkey", "SecurityID", "Ticker", "ProductClass", "UnderlierID", "UndKey", "UndType", "ProductGroup", "SecurityGroup", "MarketSegmentID", "RicCode", "SecurityDesc", "Exchange", "ProductType", "ProductTerm", "ProductIndexType", "ProductRate", "ContractSize", "ContractUnit", "PriceFormat", "MinTickSize", "DisplayFactor", "StrikeScale", "MinLotSize", "BookDepth", "ImpliedBookDepth", "ImpMarketInd", "MinPriceIncrementAmount", "ParValue", "ContMultiplier", "CabPrice", "TradeCurr", "SettleCurr", "StrikeCurr", "Expiration", "Maturity", "ExerciseType", "UserDefined", "DecayStartYear", "DecayStartMonth", "DecayStartDay", "DecayQty", "PriceRatio", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey), global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey.Parser, new[]{ "SecKey", "SecType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2), global::Spiderrock.Protobuf.ProductDefinitionV2.Parser, new[]{ "Meta", "Pkey", "SecurityID", "Ticker", "SRspreadID", "ProductClass", "UnderlierID", "UndKey", "UndType", "ProductGroup", "SecurityGroup", "MarketSegmentID", "RicCode", "SecurityDesc", "Exchange", "ProductType", "ProductTerm", "ProductIndexType", "ProductRate", "ContractSize", "ContractUnit", "PriceFormat", "MinTickSize", "DisplayFactor", "StrikeScale", "MinLotSize", "BookDepth", "ImpliedBookDepth", "ImpMarketInd", "MinPriceIncrementAmount", "ParValue", "ContMultiplier", "CabPrice", "TradeCurr", "SettleCurr", "StrikeCurr", "Expiration", "Maturity", "ExerciseType", "UserDefined", "DecayStartYear", "DecayStartMonth", "DecayStartDay", "DecayQty", "PriceRatio", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey), global::Spiderrock.Protobuf.ProductDefinitionV2.Types.PKey.Parser, new[]{ "SecKey", "SecType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ProductDefinitionV2.Types.Legs), global::Spiderrock.Protobuf.ProductDefinitionV2.Types.Legs.Parser, new[]{ "LegID", "SecKey", "SecType", "Side", "Ratio", "RefDelta", "RefPrc" }, null, null, null, null)})
           }));
     }
@@ -127,6 +127,7 @@ namespace Spiderrock.Protobuf {
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
       securityID_ = other.securityID_;
       ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
+      sRspreadID_ = other.sRspreadID_;
       productClass_ = other.productClass_;
       underlierID_ = other.underlierID_;
       undKey_ = other.undKey_ != null ? other.undKey_.Clone() : null;
@@ -229,6 +230,18 @@ namespace Spiderrock.Protobuf {
       get { return ticker_; }
       set {
         ticker_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sRspread_iD" field.</summary>
+    public const int SRspreadIDFieldNumber = 104;
+    private long sRspreadID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long SRspreadID {
+      get { return sRspreadID_; }
+      set {
+        sRspreadID_ = value;
       }
     }
 
@@ -335,7 +348,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ric_code" field.</summary>
-    public const int RicCodeFieldNumber = 249;
+    public const int RicCodeFieldNumber = 250;
     private string ricCode_ = "";
     /// <summary>
     /// Full RIC Code - only provided for non-user defined instruments
@@ -350,7 +363,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "security_desc" field.</summary>
-    public const int SecurityDescFieldNumber = 250;
+    public const int SecurityDescFieldNumber = 249;
     private string securityDesc_ = "";
     /// <summary>
     /// full exchange symbol
@@ -823,6 +836,7 @@ namespace Spiderrock.Protobuf {
       if (!object.Equals(Pkey, other.Pkey)) return false;
       if (SecurityID != other.SecurityID) return false;
       if (!object.Equals(Ticker, other.Ticker)) return false;
+      if (SRspreadID != other.SRspreadID) return false;
       if (ProductClass != other.ProductClass) return false;
       if (UnderlierID != other.UnderlierID) return false;
       if (!object.Equals(UndKey, other.UndKey)) return false;
@@ -876,6 +890,7 @@ namespace Spiderrock.Protobuf {
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
       if (SecurityID.Length != 0) hash ^= SecurityID.GetHashCode();
       if (ticker_ != null) hash ^= Ticker.GetHashCode();
+      if (SRspreadID != 0L) hash ^= SRspreadID.GetHashCode();
       if (ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) hash ^= ProductClass.GetHashCode();
       if (UnderlierID != 0L) hash ^= UnderlierID.GetHashCode();
       if (undKey_ != null) hash ^= UndKey.GetHashCode();
@@ -947,6 +962,10 @@ namespace Spiderrock.Protobuf {
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
+      }
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(192, 6);
+        output.WriteInt64(SRspreadID);
       }
       if (ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) {
         output.WriteRawTag(208, 6);
@@ -1109,13 +1128,13 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 15);
         output.WriteString(SecurityID);
       }
-      if (RicCode.Length != 0) {
-        output.WriteRawTag(202, 15);
-        output.WriteString(RicCode);
-      }
       if (SecurityDesc.Length != 0) {
-        output.WriteRawTag(210, 15);
+        output.WriteRawTag(202, 15);
         output.WriteString(SecurityDesc);
+      }
+      if (RicCode.Length != 0) {
+        output.WriteRawTag(210, 15);
+        output.WriteString(RicCode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1138,6 +1157,10 @@ namespace Spiderrock.Protobuf {
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
+      }
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(192, 6);
+        output.WriteInt64(SRspreadID);
       }
       if (ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) {
         output.WriteRawTag(208, 6);
@@ -1300,13 +1323,13 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 15);
         output.WriteString(SecurityID);
       }
-      if (RicCode.Length != 0) {
-        output.WriteRawTag(202, 15);
-        output.WriteString(RicCode);
-      }
       if (SecurityDesc.Length != 0) {
-        output.WriteRawTag(210, 15);
+        output.WriteRawTag(202, 15);
         output.WriteString(SecurityDesc);
+      }
+      if (RicCode.Length != 0) {
+        output.WriteRawTag(210, 15);
+        output.WriteString(RicCode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1329,6 +1352,9 @@ namespace Spiderrock.Protobuf {
       }
       if (ticker_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
+      }
+      if (SRspreadID != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SRspreadID);
       }
       if (ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ProductClass);
@@ -1486,6 +1512,9 @@ namespace Spiderrock.Protobuf {
           Ticker = new global::Spiderrock.Protobuf.TickerKey();
         }
         Ticker.MergeFrom(other.Ticker);
+      }
+      if (other.SRspreadID != 0L) {
+        SRspreadID = other.SRspreadID;
       }
       if (other.ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) {
         ProductClass = other.ProductClass;
@@ -1657,6 +1686,10 @@ namespace Spiderrock.Protobuf {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
+            break;
+          }
+          case 832: {
+            SRspreadID = input.ReadInt64();
             break;
           }
           case 848: {
@@ -1836,11 +1869,11 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1994: {
-            RicCode = input.ReadString();
+            SecurityDesc = input.ReadString();
             break;
           }
           case 2002: {
-            SecurityDesc = input.ReadString();
+            RicCode = input.ReadString();
             break;
           }
         }
@@ -1877,6 +1910,10 @@ namespace Spiderrock.Protobuf {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
+            break;
+          }
+          case 832: {
+            SRspreadID = input.ReadInt64();
             break;
           }
           case 848: {
@@ -2056,11 +2093,11 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1994: {
-            RicCode = input.ReadString();
+            SecurityDesc = input.ReadString();
             break;
           }
           case 2002: {
-            SecurityDesc = input.ReadString();
+            RicCode = input.ReadString();
             break;
           }
         }

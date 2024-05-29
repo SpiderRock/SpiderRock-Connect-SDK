@@ -30,8 +30,8 @@ namespace Spiderrock.Protobuf {
             "ZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRh",
             "dGESPgoEcGtleRgCIAEoCzIwLnNwaWRlcnJvY2sucHJvdG9idWYuRXhjaFNl",
             "Y3VyaXR5RGVmaW5pdGlvbi5QS2V5EjcKEHByaW1hcnlfY3VycmVuY3kYZCAB",
-            "KA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EgwKBGlzaW4YZSAB",
-            "KAkSNgoOcHJpbWFyeV90aWNrZXIYZiABKAsyHi5zcGlkZXJyb2NrLnByb3Rv",
+            "KA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EgwKBGlzaW4YZyAB",
+            "KAkSNgoOcHJpbWFyeV90aWNrZXIYaiABKAsyHi5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLlRpY2tlcktleRpvCgRQS2V5EjcKD2V4Y2hhbmdlX3RpY2tlchgKIAEo",
             "CzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5Ei4KCGV4Y2hhbmdl",
             "GAsgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5TdGtFeGNoYgZwcm90bzM="));
@@ -137,7 +137,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "isin" field.</summary>
-    public const int IsinFieldNumber = 101;
+    public const int IsinFieldNumber = 103;
     private string isin_ = "";
     /// <summary>
     /// ISIN code
@@ -152,7 +152,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "primary_ticker" field.</summary>
-    public const int PrimaryTickerFieldNumber = 102;
+    public const int PrimaryTickerFieldNumber = 106;
     private global::Spiderrock.Protobuf.TickerKey primaryTicker_;
     /// <summary>
     /// TickerKey that identifies the TickerDefinition for the primary listing for the security
@@ -229,11 +229,11 @@ namespace Spiderrock.Protobuf {
         output.WriteEnum((int) PrimaryCurrency);
       }
       if (Isin.Length != 0) {
-        output.WriteRawTag(170, 6);
+        output.WriteRawTag(186, 6);
         output.WriteString(Isin);
       }
       if (primaryTicker_ != null) {
-        output.WriteRawTag(178, 6);
+        output.WriteRawTag(210, 6);
         output.WriteMessage(PrimaryTicker);
       }
       if (_unknownFields != null) {
@@ -259,11 +259,11 @@ namespace Spiderrock.Protobuf {
         output.WriteEnum((int) PrimaryCurrency);
       }
       if (Isin.Length != 0) {
-        output.WriteRawTag(170, 6);
+        output.WriteRawTag(186, 6);
         output.WriteString(Isin);
       }
       if (primaryTicker_ != null) {
-        output.WriteRawTag(178, 6);
+        output.WriteRawTag(210, 6);
         output.WriteMessage(PrimaryTicker);
       }
       if (_unknownFields != null) {
@@ -360,11 +360,11 @@ namespace Spiderrock.Protobuf {
             PrimaryCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
             break;
           }
-          case 810: {
+          case 826: {
             Isin = input.ReadString();
             break;
           }
-          case 818: {
+          case 850: {
             if (primaryTicker_ == null) {
               PrimaryTicker = new global::Spiderrock.Protobuf.TickerKey();
             }
@@ -404,11 +404,11 @@ namespace Spiderrock.Protobuf {
             PrimaryCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
             break;
           }
-          case 810: {
+          case 826: {
             Isin = input.ReadString();
             break;
           }
-          case 818: {
+          case 850: {
             if (primaryTicker_ == null) {
               PrimaryTicker = new global::Spiderrock.Protobuf.TickerKey();
             }

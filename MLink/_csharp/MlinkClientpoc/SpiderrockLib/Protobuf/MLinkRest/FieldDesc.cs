@@ -326,7 +326,7 @@ namespace Spiderrock.Protobuf {
     public const int FCtrlFieldNumber = 139;
     private global::Spiderrock.Protobuf.FieldControl fCtrl_ = global::Spiderrock.Protobuf.FieldControl.Unspecified;
     /// <summary>
-    /// None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI (form level directive)
+    /// None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI; Init = only can set during message creation; (form level directive)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

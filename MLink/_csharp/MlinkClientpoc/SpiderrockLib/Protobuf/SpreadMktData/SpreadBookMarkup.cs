@@ -26,62 +26,62 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci1Qcm90b2J1Zi9TcHJlYWRNa3REYXRhL1NwcmVhZEJvb2tNYXJrdXAucHJv",
             "dG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnBy",
-            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItgRChBTcHJl",
+            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIu0RChBTcHJl",
             "YWRCb29rTWFya3VwEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90",
             "b2J1Zi5NZXNzYWdlTWV0YWRhdGESOAoEcGtleRgCIAEoCzIqLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuU3ByZWFkQm9va01hcmt1cC5QS2V5Ei4KBnRpY2tlchhk",
-            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EjYKDHByaWNl",
-            "X2Zvcm1hdBhnIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuUHJpY2VGb3Jt",
-            "YXQSEgoKYmlkX3ByaWNlMRhqIAEoARI3ChNpc19iaWRfcHJpY2UxX3ZhbGlk",
-            "GG0gASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxISCgphc2tfcHJp",
-            "Y2UxGHAgASgBEjcKE2lzX2Fza19wcmljZTFfdmFsaWQYcyABKA4yGi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlllc05vEhEKCWJpZF9zaXplMRh2IAEoBRIRCglh",
-            "c2tfc2l6ZTEYeSABKAUSEQoJYmlkX21hc2sxGHwgASgNEhEKCWFza19tYXNr",
-            "MRh/IAEoDRIwCgliaWRfZXhjaDEYggEgASgOMhwuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5PcHRFeGNoEjAKCWFza19leGNoMRiFASABKA4yHC5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLk9wdEV4Y2gSLQoIYmlkX3RpbWUYiAEgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBItCghhc2tfdGltZRiLASABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wEjUKC3VwZGF0ZV90eXBlGI4BIAEoDjIf",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuVXBkYXRlVHlwZRIVCgxudW1fc3RrX2xl",
-            "Z3MYkQEgASgFEhUKDG51bV9mdXRfbGVncxiUASABKAUSFQoMbnVtX29wdF9s",
-            "ZWdzGJcBIAEoBRIxCgx1c2VyX2RlZmluZWQYnQEgASgOMhouc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5ZZXNObxI7CgxzcHJlYWRfY2xhc3MYqAIgASgOMiQuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5Ub29sU3ByZWFkQ2xhc3MSMwoOY29udGFpbnNf",
-            "aGVkZ2UYqQIgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIUCgts",
-            "ZWdfYmlkX3ByYximASABKAESFAoLbGVnX2Fza19wcmMYqQEgASgBEhMKCmxl",
-            "Z19iaWRfc3oYrAEgASgFEhMKCmxlZ19hc2tfc3oYrwEgASgFEhEKCHN1cmZf",
-            "cHJjGLIBIAEoARITCgpzdXJmX2RlbHRhGLUBIAEoAhITCgpzdXJmX2dhbW1h",
-            "GLgBIAEoAhISCglzdXJmX3ZlZ2EYuwEgASgCEhUKDHN1cmZfd3RfdmVnYRi+",
-            "ASABKAISEwoKc3VyZl9lcnJvchjBASABKAUSLwoKbWluX2V4cGlyeRjEASAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8KCm1heF9leHBpcnkY",
-            "xwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgltaW5feWVh",
-            "cnMYygEgASgCEhIKCW1heF95ZWFycxjNASABKAISEQoIcmVmX3VQcmMY0AEg",
-            "ASgCEhQKC3ByaW50X3ByaWNlGNMBIAEoAhIvCgpwcmludF90aW1lGNYBIAEo",
-            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoKcHJpbnRfc2l6ZRjZ",
-            "ASABKAUSFQoMcHJpbnRfdm9sdW1lGNwBIAEoBRIQCgdncnBfbnVtGN8BIAEo",
-            "BRIWCg1zZWN1cml0eV9kZXNjGOIBIAEoCRISCglmaWx0ZXJfaWQY5QEgASgD",
-            "Ei4KCXRpbWVzdGFtcBjoASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wEkYKC21hcmt1cF9sZWdzGOsBIAMoCzIwLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuU3ByZWFkQm9va01hcmt1cC5NYXJrdXBMZWdzGmEKBFBLZXkSLAoEc2tl",
-            "eRgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EisKB2lz",
-            "X3Rlc3QYCyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vGqcECgpN",
-            "YXJrdXBMZWdzEjQKC2xlZ19zZWNfa2V5GO4BIAEoCzIeLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuT3B0aW9uS2V5EjcKDGxlZ19zZWNfdHlwZRjxASABKA4yIC5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEjsKEGxlZ19wcmljZV9m",
-            "b3JtYXQY9AEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5QcmljZUZvcm1h",
-            "dBIaChFsZWdfc2VjdXJpdHlfZGVzYxj3ASABKAkSLwoIbGVnX3NpZGUY+gEg",
-            "ASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhIKCWxlZ19yYXRp",
-            "bxj9ASABKA0SFgoNbGVnX2JpZF9wcmljZRiAAiABKAESFQoMbGVnX2JpZF9z",
-            "aXplGIMCIAEoBRIWCg1sZWdfYXNrX3ByaWNlGIYCIAEoARIVCgxsZWdfYXNr",
-            "X3NpemUYiQIgASgFEhIKCWxlZ195ZWFycxiMAiABKAISEQoIbGVnX3VQcmMY",
-            "jwIgASgBEhUKDGxlZ19zdXJmX3ZvbBiYAiABKAISFwoObGVnX3N1cmZfcHJp",
-            "Y2UYmwIgASgCEhQKC2xlZ19zdXJmX2RlGJ4CIAEoAhIUCgtsZWdfc3VyZl9n",
-            "YRihAiABKAISFAoLbGVnX3N1cmZfdmUYpAIgASgCEhUKDGxlZ19zdXJmX2Vy",
-            "chinAiABKAViBnByb3RvMw=="));
+            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EhMKC3NSc3By",
+            "ZWFkX2lEGGUgASgDEjYKDHByaWNlX2Zvcm1hdBhnIAEoDjIgLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuUHJpY2VGb3JtYXQSEgoKYmlkX3ByaWNlMRhqIAEoARI3",
+            "ChNpc19iaWRfcHJpY2UxX3ZhbGlkGG0gASgOMhouc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5ZZXNObxISCgphc2tfcHJpY2UxGHAgASgBEjcKE2lzX2Fza19wcmlj",
+            "ZTFfdmFsaWQYcyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhEK",
+            "CWJpZF9zaXplMRh2IAEoBRIRCglhc2tfc2l6ZTEYeSABKAUSEQoJYmlkX21h",
+            "c2sxGHwgASgNEhEKCWFza19tYXNrMRh/IAEoDRIwCgliaWRfZXhjaDEYggEg",
+            "ASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNoEjAKCWFza19leGNo",
+            "MRiFASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSLQoIYmlk",
+            "X3RpbWUYiAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBItCghh",
+            "c2tfdGltZRiLASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjUK",
+            "C3VwZGF0ZV90eXBlGI4BIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuVXBk",
+            "YXRlVHlwZRIVCgxudW1fc3RrX2xlZ3MYkQEgASgFEhUKDG51bV9mdXRfbGVn",
+            "cxiUASABKAUSFQoMbnVtX29wdF9sZWdzGJcBIAEoBRIxCgx1c2VyX2RlZmlu",
+            "ZWQYnQEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI7CgxzcHJl",
+            "YWRfY2xhc3MYqAIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5Ub29sU3By",
+            "ZWFkQ2xhc3MSMwoOY29udGFpbnNfaGVkZ2UYqQIgASgOMhouc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5ZZXNObxIUCgtsZWdfYmlkX3ByYximASABKAESFAoLbGVn",
+            "X2Fza19wcmMYqQEgASgBEhMKCmxlZ19iaWRfc3oYrAEgASgFEhMKCmxlZ19h",
+            "c2tfc3oYrwEgASgFEhEKCHN1cmZfcHJjGLIBIAEoARITCgpzdXJmX2RlbHRh",
+            "GLUBIAEoAhITCgpzdXJmX2dhbW1hGLgBIAEoAhISCglzdXJmX3ZlZ2EYuwEg",
+            "ASgCEhUKDHN1cmZfd3RfdmVnYRi+ASABKAISEwoKc3VyZl9lcnJvchjBASAB",
+            "KAUSLwoKbWluX2V4cGlyeRjEASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wEi8KCm1heF9leHBpcnkYxwEgASgLMhouZ29vZ2xlLnByb3RvYnVm",
+            "LlRpbWVzdGFtcBISCgltaW5feWVhcnMYygEgASgCEhIKCW1heF95ZWFycxjN",
+            "ASABKAISEQoIcmVmX3VQcmMY0AEgASgCEhQKC3ByaW50X3ByaWNlGNMBIAEo",
+            "AhIvCgpwcmludF90aW1lGNYBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASEwoKcHJpbnRfc2l6ZRjZASABKAUSFQoMcHJpbnRfdm9sdW1lGNwB",
+            "IAEoBRIQCgdncnBfbnVtGN8BIAEoBRIWCg1zZWN1cml0eV9kZXNjGOIBIAEo",
+            "CRISCglmaWx0ZXJfaWQY5QEgASgDEi4KCXRpbWVzdGFtcBjoASABKAsyGi5n",
+            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEkYKC21hcmt1cF9sZWdzGOsBIAMo",
+            "CzIwLnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFkQm9va01hcmt1cC5NYXJr",
+            "dXBMZWdzGmEKBFBLZXkSLAoEc2tleRgKIAEoCzIeLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuVGlja2VyS2V5EisKB2lzX3Rlc3QYCyABKA4yGi5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlllc05vGqcECgpNYXJrdXBMZWdzEjQKC2xlZ19zZWNfa2V5",
+            "GO4BIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjcKDGxl",
+            "Z19zZWNfdHlwZRjxASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJL",
+            "ZXlUeXBlEjsKEGxlZ19wcmljZV9mb3JtYXQY9AEgASgOMiAuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5QcmljZUZvcm1hdBIaChFsZWdfc2VjdXJpdHlfZGVzYxj3",
+            "ASABKAkSLwoIbGVnX3NpZGUY+gEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5CdXlTZWxsEhIKCWxlZ19yYXRpbxj9ASABKA0SFgoNbGVnX2JpZF9wcmlj",
+            "ZRiAAiABKAESFQoMbGVnX2JpZF9zaXplGIMCIAEoBRIWCg1sZWdfYXNrX3By",
+            "aWNlGIYCIAEoARIVCgxsZWdfYXNrX3NpemUYiQIgASgFEhIKCWxlZ195ZWFy",
+            "cxiMAiABKAISEQoIbGVnX3VQcmMYjwIgASgBEhUKDGxlZ19zdXJmX3ZvbBiY",
+            "AiABKAISFwoObGVnX3N1cmZfcHJpY2UYmwIgASgCEhQKC2xlZ19zdXJmX2Rl",
+            "GJ4CIAEoAhIUCgtsZWdfc3VyZl9nYRihAiABKAISFAoLbGVnX3N1cmZfdmUY",
+            "pAIgASgCEhUKDGxlZ19zdXJmX2VychinAiABKAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookMarkup), global::Spiderrock.Protobuf.SpreadBookMarkup.Parser, new[]{ "Meta", "Pkey", "Ticker", "PriceFormat", "BidPrice1", "IsBidPrice1Valid", "AskPrice1", "IsAskPrice1Valid", "BidSize1", "AskSize1", "BidMask1", "AskMask1", "BidExch1", "AskExch1", "BidTime", "AskTime", "UpdateType", "NumStkLegs", "NumFutLegs", "NumOptLegs", "UserDefined", "SpreadClass", "ContainsHedge", "LegBidPrc", "LegAskPrc", "LegBidSz", "LegAskSz", "SurfPrc", "SurfDelta", "SurfGamma", "SurfVega", "SurfWtVega", "SurfError", "MinExpiry", "MaxExpiry", "MinYears", "MaxYears", "RefUPrc", "PrintPrice", "PrintTime", "PrintSize", "PrintVolume", "GrpNum", "SecurityDesc", "FilterId", "Timestamp", "MarkupLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookMarkup.Types.PKey), global::Spiderrock.Protobuf.SpreadBookMarkup.Types.PKey.Parser, new[]{ "Skey", "IsTest" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookMarkup), global::Spiderrock.Protobuf.SpreadBookMarkup.Parser, new[]{ "Meta", "Pkey", "Ticker", "SRspreadID", "PriceFormat", "BidPrice1", "IsBidPrice1Valid", "AskPrice1", "IsAskPrice1Valid", "BidSize1", "AskSize1", "BidMask1", "AskMask1", "BidExch1", "AskExch1", "BidTime", "AskTime", "UpdateType", "NumStkLegs", "NumFutLegs", "NumOptLegs", "UserDefined", "SpreadClass", "ContainsHedge", "LegBidPrc", "LegAskPrc", "LegBidSz", "LegAskSz", "SurfPrc", "SurfDelta", "SurfGamma", "SurfVega", "SurfWtVega", "SurfError", "MinExpiry", "MaxExpiry", "MinYears", "MaxYears", "RefUPrc", "PrintPrice", "PrintTime", "PrintSize", "PrintVolume", "GrpNum", "SecurityDesc", "FilterId", "Timestamp", "MarkupLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookMarkup.Types.PKey), global::Spiderrock.Protobuf.SpreadBookMarkup.Types.PKey.Parser, new[]{ "Skey", "IsTest" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookMarkup.Types.MarkupLegs), global::Spiderrock.Protobuf.SpreadBookMarkup.Types.MarkupLegs.Parser, new[]{ "LegSecKey", "LegSecType", "LegPriceFormat", "LegSecurityDesc", "LegSide", "LegRatio", "LegBidPrice", "LegBidSize", "LegAskPrice", "LegAskSize", "LegYears", "LegUPrc", "LegSurfVol", "LegSurfPrice", "LegSurfDe", "LegSurfGa", "LegSurfVe", "LegSurfErr" }, null, null, null, null)})
           }));
     }
@@ -130,6 +130,7 @@ namespace Spiderrock.Protobuf {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
       ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
+      sRspreadID_ = other.sRspreadID_;
       priceFormat_ = other.priceFormat_;
       bidPrice1_ = other.bidPrice1_;
       isBidPrice1Valid_ = other.isBidPrice1Valid_;
@@ -219,6 +220,18 @@ namespace Spiderrock.Protobuf {
       get { return ticker_; }
       set {
         ticker_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sRspread_iD" field.</summary>
+    public const int SRspreadIDFieldNumber = 101;
+    private long sRspreadID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long SRspreadID {
+      get { return sRspreadID_; }
+      set {
+        sRspreadID_ = value;
       }
     }
 
@@ -818,6 +831,7 @@ namespace Spiderrock.Protobuf {
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
       if (!object.Equals(Ticker, other.Ticker)) return false;
+      if (SRspreadID != other.SRspreadID) return false;
       if (PriceFormat != other.PriceFormat) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(BidPrice1, other.BidPrice1)) return false;
       if (IsBidPrice1Valid != other.IsBidPrice1Valid) return false;
@@ -872,6 +886,7 @@ namespace Spiderrock.Protobuf {
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
       if (ticker_ != null) hash ^= Ticker.GetHashCode();
+      if (SRspreadID != 0L) hash ^= SRspreadID.GetHashCode();
       if (PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) hash ^= PriceFormat.GetHashCode();
       if (BidPrice1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(BidPrice1);
       if (IsBidPrice1Valid != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= IsBidPrice1Valid.GetHashCode();
@@ -945,6 +960,10 @@ namespace Spiderrock.Protobuf {
       if (ticker_ != null) {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Ticker);
+      }
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(168, 6);
+        output.WriteInt64(SRspreadID);
       }
       if (PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) {
         output.WriteRawTag(184, 6);
@@ -1141,6 +1160,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Ticker);
       }
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(168, 6);
+        output.WriteInt64(SRspreadID);
+      }
       if (PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) {
         output.WriteRawTag(184, 6);
         output.WriteEnum((int) PriceFormat);
@@ -1333,6 +1356,9 @@ namespace Spiderrock.Protobuf {
       if (ticker_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
       }
+      if (SRspreadID != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SRspreadID);
+      }
       if (PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PriceFormat);
       }
@@ -1492,6 +1518,9 @@ namespace Spiderrock.Protobuf {
           Ticker = new global::Spiderrock.Protobuf.TickerKey();
         }
         Ticker.MergeFrom(other.Ticker);
+      }
+      if (other.SRspreadID != 0L) {
+        SRspreadID = other.SRspreadID;
       }
       if (other.PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) {
         PriceFormat = other.PriceFormat;
@@ -1675,6 +1704,10 @@ namespace Spiderrock.Protobuf {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
+            break;
+          }
+          case 808: {
+            SRspreadID = input.ReadInt64();
             break;
           }
           case 824: {
@@ -1905,6 +1938,10 @@ namespace Spiderrock.Protobuf {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
+            break;
+          }
+          case 808: {
+            SRspreadID = input.ReadInt64();
             break;
           }
           case 824: {
