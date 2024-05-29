@@ -145,6 +145,9 @@ namespace api {
         fkey m_fkey{};
 
         public:
+		fkey get_fkey() const {
+            return m_fkey;
+        }
         void set_fkey(const fkey& value)  {
             m_fkey = value;
         }

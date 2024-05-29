@@ -55,10 +55,10 @@ namespace api {
     DECL_STRONG_TYPE(tick_value, float);
     #endif//_tick_value__GUARD__
 
-    #ifndef _point_value__GUARD__
-    #define _point_value__GUARD__
-    DECL_STRONG_TYPE(point_value, float);
-    #endif//_point_value__GUARD__
+    #ifndef _point_value__float__GUARD__
+    #define _point_value__float__GUARD__
+    DECL_STRONG_TYPE(point_value__float, float);
+    #endif//_point_value__float__GUARD__
 
     #ifndef _point_currency__GUARD__
     #define _point_currency__GUARD__
@@ -160,6 +160,9 @@ namespace api {
         ccode m_ccode{};
 
         public:
+		ccode get_ccode() const {
+            return m_ccode;
+        }
         void set_ccode(const ccode& value)  {
             m_ccode = value;
         }
@@ -247,7 +250,7 @@ namespace api {
         using settle_time = spiderrock::protobuf::api::settle_time;
         using position_limit = spiderrock::protobuf::api::position_limit;
         using tick_value = spiderrock::protobuf::api::tick_value;
-        using point_value = spiderrock::protobuf::api::point_value;
+        using point_value = spiderrock::protobuf::api::point_value__float;
         using point_currency = spiderrock::protobuf::api::point_currency;
         using price_scaling = spiderrock::protobuf::api::price_scaling;
         using underliers_per_cn = spiderrock::protobuf::api::underliers_per_cn;

@@ -244,6 +244,9 @@ namespace api {
         minute m_minute{};
 
         public:
+		ekey get_ekey() const {
+            return m_ekey;
+        }
         trading_date get_trading_date() const {
             return m_trading_date;
         }

@@ -172,6 +172,9 @@ namespace api {
         is_test m_is_test{};
 
         public:
+		skey get_skey() const {
+            return m_skey;
+        }
         is_test get_is_test() const {
             return m_is_test;
         }

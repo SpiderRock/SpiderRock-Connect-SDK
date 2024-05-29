@@ -141,6 +141,9 @@ namespace api {
         exchange m_exchange{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         auction_time get_auction_time() const {
             return m_auction_time;
         }

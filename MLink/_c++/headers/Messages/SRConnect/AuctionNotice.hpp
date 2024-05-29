@@ -155,6 +155,11 @@ namespace api {
     DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
     #endif//_spread_class__GUARD__
 
+    #ifndef _limit_type__SpdrLimitType__GUARD__
+    #define _limit_type__SpdrLimitType__GUARD__
+    DECL_STRONG_TYPE(limit_type__SpdrLimitType, spiderrock::protobuf::api::SpdrLimitType);
+    #endif//_limit_type__SpdrLimitType__GUARD__
+
     #ifndef _spread_flavor__GUARD__
     #define _spread_flavor__GUARD__
     DECL_STRONG_TYPE(spread_flavor, spiderrock::protobuf::api::SpreadFlavor);
@@ -175,15 +180,15 @@ namespace api {
     DECL_STRONG_TYPE(contains_multi_hedge, spiderrock::protobuf::api::YesNo);
     #endif//_contains_multi_hedge__GUARD__
 
-    #ifndef _u_bid__GUARD__
-    #define _u_bid__GUARD__
-    DECL_STRONG_TYPE(u_bid, double);
-    #endif//_u_bid__GUARD__
+    #ifndef _u_bid__double__GUARD__
+    #define _u_bid__double__GUARD__
+    DECL_STRONG_TYPE(u_bid__double, double);
+    #endif//_u_bid__double__GUARD__
 
-    #ifndef _u_ask__GUARD__
-    #define _u_ask__GUARD__
-    DECL_STRONG_TYPE(u_ask, double);
-    #endif//_u_ask__GUARD__
+    #ifndef _u_ask__double__GUARD__
+    #define _u_ask__double__GUARD__
+    DECL_STRONG_TYPE(u_ask__double, double);
+    #endif//_u_ask__double__GUARD__
 
     #ifndef _net_de__GUARD__
     #define _net_de__GUARD__
@@ -210,6 +215,11 @@ namespace api {
     DECL_STRONG_TYPE(pkg_surf_prc, float);
     #endif//_pkg_surf_prc__GUARD__
 
+    #ifndef _pkg_theo_prc__GUARD__
+    #define _pkg_theo_prc__GUARD__
+    DECL_STRONG_TYPE(pkg_theo_prc, float);
+    #endif//_pkg_theo_prc__GUARD__
+
     #ifndef _pkg_bid_prc__GUARD__
     #define _pkg_bid_prc__GUARD__
     DECL_STRONG_TYPE(pkg_bid_prc, float);
@@ -219,6 +229,11 @@ namespace api {
     #define _pkg_ask_prc__GUARD__
     DECL_STRONG_TYPE(pkg_ask_prc, float);
     #endif//_pkg_ask_prc__GUARD__
+
+    #ifndef _point_value__double__GUARD__
+    #define _point_value__double__GUARD__
+    DECL_STRONG_TYPE(point_value__double, double);
+    #endif//_point_value__double__GUARD__
 
     #ifndef _src_timestamp__GUARD__
     #define _src_timestamp__GUARD__
@@ -285,11 +300,6 @@ namespace api {
     DECL_STRONG_TYPE(und_per_cn, int32);
     #endif//_und_per_cn__GUARD__
 
-    #ifndef _point_value__GUARD__
-    #define _point_value__GUARD__
-    DECL_STRONG_TYPE(point_value, float);
-    #endif//_point_value__GUARD__
-
     #ifndef _exp_type__GUARD__
     #define _exp_type__GUARD__
     DECL_STRONG_TYPE(exp_type, spiderrock::protobuf::api::ExpiryType);
@@ -319,6 +329,11 @@ namespace api {
     #define _t_vol__GUARD__
     DECL_STRONG_TYPE(t_vol, float);
     #endif//_t_vol__GUARD__
+
+    #ifndef _t_prc__GUARD__
+    #define _t_prc__GUARD__
+    DECL_STRONG_TYPE(t_prc, float);
+    #endif//_t_prc__GUARD__
 
     #ifndef _s_vol__float__GUARD__
     #define _s_vol__float__GUARD__
@@ -533,16 +548,16 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(310,m_client_firm);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(313,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(316,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(319,m_client_firm);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(322,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(325,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,310,static_cast<string>(m_client_firm));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,313,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,316,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,319,static_cast<string>(m_client_firm));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,322,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,325,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
             return dest;
         }
 
@@ -559,13 +574,13 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 310: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 319: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 313: {m_incl_excl = static_cast<spiderrock::protobuf::api::InclExclDisclose>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 322: {m_incl_excl = static_cast<spiderrock::protobuf::api::InclExclDisclose>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 316: {m_is_comm_paying = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 325: {m_is_comm_paying = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
                 }
@@ -582,13 +597,13 @@ namespace api {
         using side = spiderrock::protobuf::api::side;
         using ratio = spiderrock::protobuf::api::ratio__uint32;
         using und_per_cn = spiderrock::protobuf::api::und_per_cn;
-        using point_value = spiderrock::protobuf::api::point_value;
         using exp_type = spiderrock::protobuf::api::exp_type;
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
         using atm_vol = spiderrock::protobuf::api::atm_vol;
         using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using t_vol = spiderrock::protobuf::api::t_vol;
+        using t_prc = spiderrock::protobuf::api::t_prc;
         using s_vol = spiderrock::protobuf::api::s_vol__float;
         using s_div = spiderrock::protobuf::api::s_div;
         using s_prc = spiderrock::protobuf::api::s_prc;
@@ -610,13 +625,13 @@ namespace api {
         side m_side{};
         ratio m_ratio{};
         und_per_cn m_und_per_cn{};
-        point_value m_point_value{};
         exp_type m_exp_type{};
         years m_years{};
         rate m_rate{};
         atm_vol m_atm_vol{};
         ddiv_pv m_ddiv_pv{};
         t_vol m_t_vol{};
+        t_prc m_t_prc{};
         s_vol m_s_vol{};
         s_div m_s_div{};
         s_prc m_s_prc{};
@@ -633,6 +648,9 @@ namespace api {
         o_ask_mask m_o_ask_mask{};
 
         public:
+		sec_key get_sec_key() const {
+            return m_sec_key;
+        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }
@@ -644,9 +662,6 @@ namespace api {
         }
         und_per_cn get_und_per_cn() const {
             return m_und_per_cn;
-        }
-        point_value get_point_value() const {
-            return m_point_value;
         }
         exp_type get_exp_type() const {
             return m_exp_type;
@@ -665,6 +680,9 @@ namespace api {
         }
         t_vol get_t_vol() const {
             return m_t_vol;
+        }
+        t_prc get_t_prc() const {
+            return m_t_prc;
         }
         s_vol get_s_vol() const {
             return m_s_vol;
@@ -723,9 +741,6 @@ namespace api {
         void set_und_per_cn(const und_per_cn& value)  {
             m_und_per_cn = value;
         }
-        void set_point_value(const point_value& value)  {
-            m_point_value = value;
-        }
         void set_exp_type(const exp_type& value)  {
             m_exp_type = value;
         }
@@ -743,6 +758,9 @@ namespace api {
         }
         void set_t_vol(const t_vol& value)  {
             m_t_vol = value;
+        }
+        void set_t_prc(const t_prc& value)  {
+            m_t_prc = value;
         }
         void set_s_vol(const s_vol& value)  {
             m_s_vol = value;
@@ -799,13 +817,13 @@ namespace api {
         void set(const side & value) { set_side(value); }
         void set(const ratio & value) { set_ratio(value); }
         void set(const und_per_cn & value) { set_und_per_cn(value); }
-        void set(const point_value & value) { set_point_value(value); }
         void set(const exp_type & value) { set_exp_type(value); }
         void set(const years & value) { set_years(value); }
         void set(const rate & value) { set_rate(value); }
         void set(const atm_vol & value) { set_atm_vol(value); }
         void set(const ddiv_pv & value) { set_ddiv_pv(value); }
         void set(const t_vol & value) { set_t_vol(value); }
+        void set(const t_prc & value) { set_t_prc(value); }
         void set(const s_vol & value) { set_s_vol(value); }
         void set(const s_div & value) { set_s_div(value); }
         void set(const s_prc & value) { set_s_prc(value); }
@@ -841,64 +859,64 @@ namespace api {
             size_t totalSize = 0;
             SRProtobufCPP::OptionKeyLayout optionKeyLayout;
             m_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(217,optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(226,m_ratio);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(229,m_und_per_cn);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(232,m_point_value);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(235,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExpiryType>(m_exp_type)));
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(238,m_years);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(241,m_rate);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(244,m_atm_vol);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(247,m_ddiv_pv);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(250,m_t_vol);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(253,m_s_vol);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(256,m_s_div);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(259,m_s_prc);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(262,m_de);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(265,m_ga);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(268,m_th);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(271,m_ve);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(274,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok)));
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_o_bid);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(280,m_o_bid_sz);
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(283,m_o_bid_mask);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(286,m_o_ask);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(289,m_o_ask_sz);
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(292,m_o_ask_mask);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(226,optionKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(229,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(232,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
+            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(235,m_ratio);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(238,m_und_per_cn);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExpiryType>(m_exp_type)));
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(244,m_years);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(247,m_rate);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(250,m_atm_vol);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(253,m_ddiv_pv);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(256,m_t_vol);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(259,m_t_prc);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(262,m_s_vol);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(265,m_s_div);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(268,m_s_prc);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(271,m_de);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(274,m_ga);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(277,m_th);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(280,m_ve);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(283,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok)));
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(286,m_o_bid);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(289,m_o_bid_sz);
+            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(292,m_o_bid_mask);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(295,m_o_ask);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(298,m_o_ask_sz);
+            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(301,m_o_ask_mask);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             SRProtobufCPP::OptionKeyLayout optionKeyLayout;
             m_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 217, optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,226,m_ratio);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,229,m_und_per_cn);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,232,m_point_value);
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,235,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExpiryType>(m_exp_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,238,m_years);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,241,m_rate);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,244,m_atm_vol);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,247,m_ddiv_pv);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,250,m_t_vol);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,253,m_s_vol);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,256,m_s_div);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,259,m_s_prc);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,262,m_de);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,265,m_ga);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,268,m_th);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,271,m_ve);
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,274,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok)));
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_o_bid);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,280,m_o_bid_sz);
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,283,m_o_bid_mask);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,286,m_o_ask);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,289,m_o_ask_sz);
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,292,m_o_ask_mask);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 226, optionKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,229,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,232,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
+            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,235,m_ratio);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,238,m_und_per_cn);
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExpiryType>(m_exp_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,244,m_years);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,247,m_rate);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,250,m_atm_vol);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,253,m_ddiv_pv);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,256,m_t_vol);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,259,m_t_prc);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,262,m_s_vol);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,265,m_s_div);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,268,m_s_prc);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,271,m_de);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,274,m_ga);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,277,m_th);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,280,m_ve);
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,283,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok)));
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,286,m_o_bid);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,289,m_o_bid_sz);
+            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,292,m_o_bid_mask);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,295,m_o_ask);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,298,m_o_ask_sz);
+            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,301,m_o_ask_mask);
             return dest;
         }
 
@@ -915,84 +933,84 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 217: {
+                    case 226: {
                         auto optionKey = SRProtobufCPP::FieldCodec::DecodeOptionKey(pos,max);
                         m_sec_key.setFromCodec(optionKey);
                         break;
                     }
-                    case 220: {m_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 229: {m_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 223: {m_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 232: {m_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 226: {m_ratio = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
+                    case 235: {m_ratio = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
                         break;
                     }
-                    case 229: {m_und_per_cn = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 238: {m_und_per_cn = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 232: {m_point_value = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 241: {m_exp_type = static_cast<spiderrock::protobuf::api::ExpiryType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 235: {m_exp_type = static_cast<spiderrock::protobuf::api::ExpiryType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 244: {m_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 238: {m_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 247: {m_rate = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 241: {m_rate = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 250: {m_atm_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 244: {m_atm_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 253: {m_ddiv_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 247: {m_ddiv_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 256: {m_t_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 250: {m_t_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 259: {m_t_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 253: {m_s_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 262: {m_s_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 256: {m_s_div = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 265: {m_s_div = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 259: {m_s_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 268: {m_s_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 262: {m_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 271: {m_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 265: {m_ga = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 274: {m_ga = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 268: {m_th = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 277: {m_th = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 271: {m_ve = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 280: {m_ve = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 274: {m_s_vol_ok = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 283: {m_s_vol_ok = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 277: {m_o_bid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 286: {m_o_bid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 280: {m_o_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 289: {m_o_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 283: {m_o_bid_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
+                    case 292: {m_o_bid_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
                         break;
                     }
-                    case 286: {m_o_ask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 295: {m_o_ask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 289: {m_o_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 298: {m_o_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 292: {m_o_ask_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
+                    case 301: {m_o_ask_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
                         break;
                     }
                 }
@@ -1033,19 +1051,22 @@ namespace api {
         using auction_duration = spiderrock::protobuf::api::auction_duration;
         using num_opt_legs = spiderrock::protobuf::api::num_opt_legs;
         using spread_class = spiderrock::protobuf::api::spread_class;
+        using limit_type = spiderrock::protobuf::api::limit_type__SpdrLimitType;
         using spread_flavor = spiderrock::protobuf::api::spread_flavor;
         using contains_hedge = spiderrock::protobuf::api::contains_hedge;
         using contains_flex = spiderrock::protobuf::api::contains_flex;
         using contains_multi_hedge = spiderrock::protobuf::api::contains_multi_hedge;
-        using u_bid = spiderrock::protobuf::api::u_bid;
-        using u_ask = spiderrock::protobuf::api::u_ask;
+        using u_bid = spiderrock::protobuf::api::u_bid__double;
+        using u_ask = spiderrock::protobuf::api::u_ask__double;
         using net_de = spiderrock::protobuf::api::net_de;
         using net_ga = spiderrock::protobuf::api::net_ga;
         using net_th = spiderrock::protobuf::api::net_th;
         using net_ve = spiderrock::protobuf::api::net_ve;
         using pkg_surf_prc = spiderrock::protobuf::api::pkg_surf_prc;
+        using pkg_theo_prc = spiderrock::protobuf::api::pkg_theo_prc;
         using pkg_bid_prc = spiderrock::protobuf::api::pkg_bid_prc;
         using pkg_ask_prc = spiderrock::protobuf::api::pkg_ask_prc;
+        using point_value = spiderrock::protobuf::api::point_value__double;
         using src_timestamp = spiderrock::protobuf::api::src_timestamp;
         using net_timestamp = spiderrock::protobuf::api::net_timestamp;
         using timestamp = spiderrock::protobuf::api::timestamp;
@@ -1081,6 +1102,7 @@ namespace api {
         auction_duration m_auction_duration{};
         num_opt_legs m_num_opt_legs{};
         spread_class m_spread_class{};
+        limit_type m_limit_type{};
         spread_flavor m_spread_flavor{};
         contains_hedge m_contains_hedge{};
         contains_flex m_contains_flex{};
@@ -1092,8 +1114,10 @@ namespace api {
         net_th m_net_th{};
         net_ve m_net_ve{};
         pkg_surf_prc m_pkg_surf_prc{};
+        pkg_theo_prc m_pkg_theo_prc{};
         pkg_bid_prc m_pkg_bid_prc{};
         pkg_ask_prc m_pkg_ask_prc{};
+        point_value m_point_value{};
         src_timestamp m_src_timestamp{};
         net_timestamp m_net_timestamp{};
         timestamp m_timestamp{};
@@ -1185,6 +1209,9 @@ namespace api {
         spread_class get_spread_class() const {
             return m_spread_class;
         }		
+        limit_type get_limit_type() const {
+            return m_limit_type;
+        }		
         spread_flavor get_spread_flavor() const {
             return m_spread_flavor;
         }		
@@ -1218,11 +1245,17 @@ namespace api {
         pkg_surf_prc get_pkg_surf_prc() const {
             return m_pkg_surf_prc;
         }		
+        pkg_theo_prc get_pkg_theo_prc() const {
+            return m_pkg_theo_prc;
+        }		
         pkg_bid_prc get_pkg_bid_prc() const {
             return m_pkg_bid_prc;
         }		
         pkg_ask_prc get_pkg_ask_prc() const {
             return m_pkg_ask_prc;
+        }		
+        point_value get_point_value() const {
+            return m_point_value;
         }		
         src_timestamp get_src_timestamp() const {
             return m_src_timestamp;
@@ -1333,6 +1366,9 @@ namespace api {
         void set_spread_class(const spread_class& value)  {
             m_spread_class = value;
         }
+        void set_limit_type(const limit_type& value)  {
+            m_limit_type = value;
+        }
         void set_spread_flavor(const spread_flavor& value)  {
             m_spread_flavor = value;
         }
@@ -1366,11 +1402,17 @@ namespace api {
         void set_pkg_surf_prc(const pkg_surf_prc& value)  {
             m_pkg_surf_prc = value;
         }
+        void set_pkg_theo_prc(const pkg_theo_prc& value)  {
+            m_pkg_theo_prc = value;
+        }
         void set_pkg_bid_prc(const pkg_bid_prc& value)  {
             m_pkg_bid_prc = value;
         }
         void set_pkg_ask_prc(const pkg_ask_prc& value)  {
             m_pkg_ask_prc = value;
+        }
+        void set_point_value(const point_value& value)  {
+            m_point_value = value;
         }
         void set_src_timestamp(const src_timestamp& value)  {
             m_src_timestamp = value;
@@ -1491,6 +1533,9 @@ namespace api {
         void set(const spread_class & value) {
             set_spread_class(value);
         }
+        void set(const limit_type & value) {
+            set_limit_type(value);
+        }
         void set(const spread_flavor & value) {
             set_spread_flavor(value);
         }
@@ -1524,11 +1569,17 @@ namespace api {
         void set(const pkg_surf_prc & value) {
             set_pkg_surf_prc(value);
         }
+        void set(const pkg_theo_prc & value) {
+            set_pkg_theo_prc(value);
+        }
         void set(const pkg_bid_prc & value) {
             set_pkg_bid_prc(value);
         }
         void set(const pkg_ask_prc & value) {
             set_pkg_ask_prc(value);
+        }
+        void set(const point_value & value) {
+            set_point_value(value);
         }
         void set(const src_timestamp & value) {
             set_src_timestamp(value);
@@ -1577,6 +1628,7 @@ namespace api {
             set(value.m_auction_duration);
             set(value.m_num_opt_legs);
             set(value.m_spread_class);
+            set(value.m_limit_type);
             set(value.m_spread_flavor);
             set(value.m_contains_hedge);
             set(value.m_contains_flex);
@@ -1588,8 +1640,10 @@ namespace api {
             set(value.m_net_th);
             set(value.m_net_ve);
             set(value.m_pkg_surf_prc);
+            set(value.m_pkg_theo_prc);
             set(value.m_pkg_bid_prc);
             set(value.m_pkg_ask_prc);
+            set(value.m_point_value);
             set(value.m_src_timestamp);
             set(value.m_net_timestamp);
             set(value.m_timestamp);
@@ -1715,11 +1769,17 @@ namespace api {
         bool IncludePkgSurfPrc() const {
             return !(m_pkg_surf_prc == 0.0);
         }
+        bool IncludePkgTheoPrc() const {
+            return !(m_pkg_theo_prc == 0.0);
+        }
         bool IncludePkgBidPrc() const {
             return !(m_pkg_bid_prc == 0.0);
         }
         bool IncludePkgAskPrc() const {
             return !(m_pkg_ask_prc == 0.0);
+        }
+        bool IncludePointValue() const {
+            return !(m_point_value == 0.0);
         }
         bool IncludeSrcTimestamp() const {
             return !(m_src_timestamp == 0);
@@ -1805,57 +1865,64 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(169,m_num_opt_legs);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(172,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(175,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(178,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(181,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(184,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_multi_hedge)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(175,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitType>(m_limit_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(178,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(181,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(184,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_multi_hedge)));
             if ( IncludeUBid()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(187,m_u_bid);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(190,m_u_bid);
             }
             if ( IncludeUAsk()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(190,m_u_ask);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(193,m_u_ask);
             }
             if ( IncludeNetDe()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(193,m_net_de);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(196,m_net_de);
             }
             if ( IncludeNetGa()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(196,m_net_ga);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(199,m_net_ga);
             }
             if ( IncludeNetTh()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(199,m_net_th);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_net_th);
             }
             if ( IncludeNetVe()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_net_ve);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_net_ve);
             }
             if ( IncludePkgSurfPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_pkg_surf_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_pkg_surf_prc);
+            }
+            if ( IncludePkgTheoPrc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(211,m_pkg_theo_prc);
             }
             if ( IncludePkgBidPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_pkg_bid_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(214,m_pkg_bid_prc);
             }
             if ( IncludePkgAskPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(211,m_pkg_ask_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(217,m_pkg_ask_prc);
+            }
+            if ( IncludePointValue()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(220,m_point_value);
             }
             if ( IncludeSrcTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(295,m_src_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(304,m_src_timestamp);
             }
             if ( IncludeNetTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(298,m_net_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(307,m_net_timestamp);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(301, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(310, m_timestamp);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(304,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(313,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
             if ( IncludeDirectedCounterParty()) {
                 for (auto& item : m_directed_counter_party) {
-					totalSize += SRProtobufCPP::TagCodec::Size(307, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(316, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
             }
             if ( IncludeOrderLegs()) {
                 for (auto& item : m_order_legs) {
-					totalSize += SRProtobufCPP::TagCodec::Size(214, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(223, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -1929,57 +1996,64 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,169,m_num_opt_legs);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,172,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,175,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,178,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,181,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,184,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_multi_hedge)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,175,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitType>(m_limit_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,178,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,181,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,184,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_multi_hedge)));
             if ( IncludeUBid()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,187,m_u_bid);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,190,m_u_bid);
             }
             if ( IncludeUAsk()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,190,m_u_ask);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,193,m_u_ask);
             }
             if ( IncludeNetDe()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,193,m_net_de);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,196,m_net_de);
             }
             if ( IncludeNetGa()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,196,m_net_ga);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,199,m_net_ga);
             }
             if ( IncludeNetTh()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,199,m_net_th);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_net_th);
             }
             if ( IncludeNetVe()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_net_ve);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_net_ve);
             }
             if ( IncludePkgSurfPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_pkg_surf_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_pkg_surf_prc);
+            }
+            if ( IncludePkgTheoPrc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,211,m_pkg_theo_prc);
             }
             if ( IncludePkgBidPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_pkg_bid_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,214,m_pkg_bid_prc);
             }
             if ( IncludePkgAskPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,211,m_pkg_ask_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,217,m_pkg_ask_prc);
+            }
+            if ( IncludePointValue()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,220,m_point_value);
             }
             if ( IncludeSrcTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,295,m_src_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,304,m_src_timestamp);
             }
             if ( IncludeNetTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,298,m_net_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,307,m_net_timestamp);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 301, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 310, m_timestamp);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,304,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,313,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
             if ( IncludeDirectedCounterParty()) {
                 for (auto& item : m_directed_counter_party) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 307, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 316, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
             }
             if ( IncludeOrderLegs()) {
                 for (auto& item : m_order_legs) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 214, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 223, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -2158,103 +2232,120 @@ namespace api {
                         break;
                     }
                     case 175: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_flavor = static_cast<spiderrock::protobuf::api::SpreadFlavor>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_limit_type = static_cast<spiderrock::protobuf::api::SpdrLimitType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 178: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_contains_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_spread_flavor = static_cast<spiderrock::protobuf::api::SpreadFlavor>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 181: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_contains_flex = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_contains_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 184: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_contains_multi_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_contains_flex = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 187: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_u_bid = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 187: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_contains_multi_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 190: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_u_ask = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                            m_u_bid = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
                     case 193: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_net_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_u_ask = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
                     case 196: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_net_ga = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_net_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
                     case 199: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_net_th = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_net_ga = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
                     case 202: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_net_ve = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_net_th = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
                     case 205: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_pkg_surf_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_net_ve = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
                     case 208: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_pkg_bid_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_pkg_surf_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
                     case 211: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pkg_theo_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 214: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pkg_bid_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 217: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_pkg_ask_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 295: {
+                    case 220: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_point_value = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 304: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_src_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 298: {
+                    case 307: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_net_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 301: {
+                    case 310: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 304: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 313: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_include_srnetwork = static_cast<spiderrock::protobuf::api::InclExclDisclose>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 307: {
+                    case 316: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             directed_counter_party item_directed_counter_party;
@@ -2263,7 +2354,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 214: {
+                    case 223: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             order_legs item_order_legs;
@@ -2308,6 +2399,7 @@ namespace api {
     template<> inline const auto AuctionNotice::get<AuctionNotice::auction_duration>() const { return m_auction_duration; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::num_opt_legs>() const { return m_num_opt_legs; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
+    template<> inline const auto AuctionNotice::get<AuctionNotice::limit_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitType>( m_limit_type)); }
     template<> inline const auto AuctionNotice::get<AuctionNotice::spread_flavor>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>( m_spread_flavor)); }
     template<> inline const auto AuctionNotice::get<AuctionNotice::contains_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_hedge)); }
     template<> inline const auto AuctionNotice::get<AuctionNotice::contains_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_flex)); }
@@ -2319,8 +2411,10 @@ namespace api {
     template<> inline const auto AuctionNotice::get<AuctionNotice::net_th>() const { return m_net_th; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::net_ve>() const { return m_net_ve; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::pkg_surf_prc>() const { return m_pkg_surf_prc; }
+    template<> inline const auto AuctionNotice::get<AuctionNotice::pkg_theo_prc>() const { return m_pkg_theo_prc; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::pkg_bid_prc>() const { return m_pkg_bid_prc; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::pkg_ask_prc>() const { return m_pkg_ask_prc; }
+    template<> inline const auto AuctionNotice::get<AuctionNotice::point_value>() const { return m_point_value; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::src_timestamp>() const { return m_src_timestamp; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::net_timestamp>() const { return m_net_timestamp; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::timestamp>() const { return m_timestamp; }
@@ -2340,13 +2434,13 @@ namespace api {
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side));}
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::ratio>() const { return m_ratio; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::und_per_cn>() const { return m_und_per_cn; }
-    template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::point_value>() const { return m_point_value; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::exp_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExpiryType>(m_exp_type));}
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::years>() const { return m_years; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::rate>() const { return m_rate; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::atm_vol>() const { return m_atm_vol; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::ddiv_pv>() const { return m_ddiv_pv; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::t_vol>() const { return m_t_vol; }
+    template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::t_prc>() const { return m_t_prc; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::s_vol>() const { return m_s_vol; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::s_div>() const { return m_s_div; }
     template<> inline const auto AuctionNotice_OrderLegs::get<AuctionNotice_OrderLegs::s_prc>() const { return m_s_prc; }
@@ -2382,13 +2476,13 @@ namespace api {
         o << ",\"side\":" << (int64_t)m.get<AuctionNotice_OrderLegs::side>();
         o << ",\"ratio\":" << m.get<AuctionNotice_OrderLegs::ratio>();
         o << ",\"und_per_cn\":" << m.get<AuctionNotice_OrderLegs::und_per_cn>();
-        o << ",\"point_value\":" << m.get<AuctionNotice_OrderLegs::point_value>();
         o << ",\"exp_type\":" << (int64_t)m.get<AuctionNotice_OrderLegs::exp_type>();
         o << ",\"years\":" << m.get<AuctionNotice_OrderLegs::years>();
         o << ",\"rate\":" << m.get<AuctionNotice_OrderLegs::rate>();
         o << ",\"atm_vol\":" << m.get<AuctionNotice_OrderLegs::atm_vol>();
         o << ",\"ddiv_pv\":" << m.get<AuctionNotice_OrderLegs::ddiv_pv>();
         o << ",\"t_vol\":" << m.get<AuctionNotice_OrderLegs::t_vol>();
+        o << ",\"t_prc\":" << m.get<AuctionNotice_OrderLegs::t_prc>();
         o << ",\"s_vol\":" << m.get<AuctionNotice_OrderLegs::s_vol>();
         o << ",\"s_div\":" << m.get<AuctionNotice_OrderLegs::s_div>();
         o << ",\"s_prc\":" << m.get<AuctionNotice_OrderLegs::s_prc>();
@@ -2434,6 +2528,7 @@ namespace api {
         o << ",\"auction_duration\":" << m.get<AuctionNotice::auction_duration>();
         o << ",\"num_opt_legs\":" << m.get<AuctionNotice::num_opt_legs>();
         o << ",\"spread_class\":" << (int64_t)m.get<AuctionNotice::spread_class>();
+        o << ",\"limit_type\":" << (int64_t)m.get<AuctionNotice::limit_type>();
         o << ",\"spread_flavor\":" << (int64_t)m.get<AuctionNotice::spread_flavor>();
         o << ",\"contains_hedge\":" << (int64_t)m.get<AuctionNotice::contains_hedge>();
         o << ",\"contains_flex\":" << (int64_t)m.get<AuctionNotice::contains_flex>();
@@ -2445,8 +2540,10 @@ namespace api {
         o << ",\"net_th\":" << m.get<AuctionNotice::net_th>();
         o << ",\"net_ve\":" << m.get<AuctionNotice::net_ve>();
         o << ",\"pkg_surf_prc\":" << m.get<AuctionNotice::pkg_surf_prc>();
+        o << ",\"pkg_theo_prc\":" << m.get<AuctionNotice::pkg_theo_prc>();
         o << ",\"pkg_bid_prc\":" << m.get<AuctionNotice::pkg_bid_prc>();
         o << ",\"pkg_ask_prc\":" << m.get<AuctionNotice::pkg_ask_prc>();
+        o << ",\"point_value\":" << m.get<AuctionNotice::point_value>();
         o << ",\"src_timestamp\":" << m.get<AuctionNotice::src_timestamp>();
         o << ",\"net_timestamp\":" << m.get<AuctionNotice::net_timestamp>();
         {

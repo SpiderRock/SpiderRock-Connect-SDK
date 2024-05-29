@@ -75,6 +75,26 @@ namespace api {
     DECL_STRONG_TYPE(short_code, string);
     #endif//_short_code__GUARD__
 
+    #ifndef _industry__GUARD__
+    #define _industry__GUARD__
+    DECL_STRONG_TYPE(industry, string);
+    #endif//_industry__GUARD__
+
+    #ifndef _symbol_type__GUARD__
+    #define _symbol_type__GUARD__
+    DECL_STRONG_TYPE(symbol_type, spiderrock::protobuf::api::SymbolType);
+    #endif//_symbol_type__GUARD__
+
+    #ifndef _u_avg_daily_vlm__GUARD__
+    #define _u_avg_daily_vlm__GUARD__
+    DECL_STRONG_TYPE(u_avg_daily_vlm, float);
+    #endif//_u_avg_daily_vlm__GUARD__
+
+    #ifndef _root__GUARD__
+    #define _root__GUARD__
+    DECL_STRONG_TYPE(root, TickerKey);
+    #endif//_root__GUARD__
+
     #ifndef _expiry__GUARD__
     #define _expiry__GUARD__
     DECL_STRONG_TYPE(expiry, DateKey);
@@ -154,6 +174,11 @@ namespace api {
     #define _i_years__GUARD__
     DECL_STRONG_TYPE(i_years, double);
     #endif//_i_years__GUARD__
+
+    #ifndef _point_value__double__GUARD__
+    #define _point_value__double__GUARD__
+    DECL_STRONG_TYPE(point_value__double, double);
+    #endif//_point_value__double__GUARD__
 
     #ifndef _strike_pv__double__GUARD__
     #define _strike_pv__double__GUARD__
@@ -348,16 +373,16 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(196,m_client_firm);
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(211,m_client_firm);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(214,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(217,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,196,static_cast<string>(m_client_firm));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,211,static_cast<string>(m_client_firm));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,214,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_incl_excl)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,217,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_comm_paying)));
             return dest;
         }
 
@@ -374,13 +399,13 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 196: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 211: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 199: {m_incl_excl = static_cast<spiderrock::protobuf::api::InclExclDisclose>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 214: {m_incl_excl = static_cast<spiderrock::protobuf::api::InclExclDisclose>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 202: {m_is_comm_paying = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 217: {m_is_comm_paying = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
                 }
@@ -405,6 +430,10 @@ namespace api {
         using auction_source = spiderrock::protobuf::api::auction_source;
         using is_test_auction = spiderrock::protobuf::api::is_test_auction;
         using short_code = spiderrock::protobuf::api::short_code;
+        using industry = spiderrock::protobuf::api::industry;
+        using symbol_type = spiderrock::protobuf::api::symbol_type;
+        using u_avg_daily_vlm = spiderrock::protobuf::api::u_avg_daily_vlm;
+        using root = spiderrock::protobuf::api::root;
         using expiry = spiderrock::protobuf::api::expiry;
         using lo_strike = spiderrock::protobuf::api::lo_strike;
         using hi_strike = spiderrock::protobuf::api::hi_strike;
@@ -421,6 +450,7 @@ namespace api {
         using auction_duration = spiderrock::protobuf::api::auction_duration;
         using i_days = spiderrock::protobuf::api::i_days__double;
         using i_years = spiderrock::protobuf::api::i_years;
+        using point_value = spiderrock::protobuf::api::point_value__double;
         using strike_pv = spiderrock::protobuf::api::strike_pv__double;
         using eff_money_rate = spiderrock::protobuf::api::eff_money_rate;
         using src_timestamp = spiderrock::protobuf::api::src_timestamp;
@@ -441,6 +471,10 @@ namespace api {
         auction_source m_auction_source{};
         is_test_auction m_is_test_auction{};
         short_code m_short_code{};
+        industry m_industry{};
+        symbol_type m_symbol_type{};
+        u_avg_daily_vlm m_u_avg_daily_vlm{};
+        root m_root{};
         expiry m_expiry{};
         lo_strike m_lo_strike{};
         hi_strike m_hi_strike{};
@@ -457,6 +491,7 @@ namespace api {
         auction_duration m_auction_duration{};
         i_days m_i_days{};
         i_years m_i_years{};
+        point_value m_point_value{};
         strike_pv m_strike_pv{};
         eff_money_rate m_eff_money_rate{};
         src_timestamp m_src_timestamp{};
@@ -500,6 +535,18 @@ namespace api {
         }		
         short_code get_short_code() const {
             return m_short_code;
+        }		
+        industry get_industry() const {
+            return m_industry;
+        }		
+        symbol_type get_symbol_type() const {
+            return m_symbol_type;
+        }		
+        u_avg_daily_vlm get_u_avg_daily_vlm() const {
+            return m_u_avg_daily_vlm;
+        }		
+        root get_root() const {
+            return m_root;
         }		
         expiry get_expiry() const {
             return m_expiry;
@@ -548,6 +595,9 @@ namespace api {
         }		
         i_years get_i_years() const {
             return m_i_years;
+        }		
+        point_value get_point_value() const {
+            return m_point_value;
         }		
         strike_pv get_strike_pv() const {
             return m_strike_pv;
@@ -610,6 +660,18 @@ namespace api {
         void set_short_code(const short_code& value)  {
             m_short_code = value;
         }
+        void set_industry(const industry& value)  {
+            m_industry = value;
+        }
+        void set_symbol_type(const symbol_type& value)  {
+            m_symbol_type = value;
+        }
+        void set_u_avg_daily_vlm(const u_avg_daily_vlm& value)  {
+            m_u_avg_daily_vlm = value;
+        }
+        void set_root(const root& value)  {
+            m_root = value;
+        }
         void set_expiry(const expiry& value)  {
             m_expiry = value;
         }
@@ -657,6 +719,9 @@ namespace api {
         }
         void set_i_years(const i_years& value)  {
             m_i_years = value;
+        }
+        void set_point_value(const point_value& value)  {
+            m_point_value = value;
         }
         void set_strike_pv(const strike_pv& value)  {
             m_strike_pv = value;
@@ -729,6 +794,18 @@ namespace api {
         void set(const short_code & value) {
             set_short_code(value);
         }
+        void set(const industry & value) {
+            set_industry(value);
+        }
+        void set(const symbol_type & value) {
+            set_symbol_type(value);
+        }
+        void set(const u_avg_daily_vlm & value) {
+            set_u_avg_daily_vlm(value);
+        }
+        void set(const root & value) {
+            set_root(value);
+        }
         void set(const expiry & value) {
             set_expiry(value);
         }
@@ -777,6 +854,9 @@ namespace api {
         void set(const i_years & value) {
             set_i_years(value);
         }
+        void set(const point_value & value) {
+            set_point_value(value);
+        }
         void set(const strike_pv & value) {
             set_strike_pv(value);
         }
@@ -811,6 +891,10 @@ namespace api {
             set(value.m_auction_source);
             set(value.m_is_test_auction);
             set(value.m_short_code);
+            set(value.m_industry);
+            set(value.m_symbol_type);
+            set(value.m_u_avg_daily_vlm);
+            set(value.m_root);
             set(value.m_expiry);
             set(value.m_lo_strike);
             set(value.m_hi_strike);
@@ -827,6 +911,7 @@ namespace api {
             set(value.m_auction_duration);
             set(value.m_i_days);
             set(value.m_i_years);
+            set(value.m_point_value);
             set(value.m_strike_pv);
             set(value.m_eff_money_rate);
             set(value.m_src_timestamp);
@@ -906,6 +991,15 @@ namespace api {
         bool IncludeShortCode() const {
             return !(m_short_code.empty());
         }
+        bool IncludeIndustry() const {
+            return !(m_industry.empty());
+        }
+        bool IncludeUAvgDailyVlm() const {
+            return !(m_u_avg_daily_vlm == 0.0);
+        }
+        bool IncludeRoot() const {
+            return (m_root.ByteSizeLong() > 0);
+        }
         bool IncludeExpiry() const {
             return (m_expiry.ByteSizeLong() > 0);
         }
@@ -938,6 +1032,9 @@ namespace api {
         }
         bool IncludeIYears() const {
             return !(m_i_years == 0.0);
+        }
+        bool IncludePointValue() const {
+            return !(m_point_value == 0.0);
         }
         bool IncludeStrikePv() const {
             return !(m_strike_pv == 0.0);
@@ -992,63 +1089,78 @@ namespace api {
             if ( IncludeShortCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(124,m_short_code);
             }
+            if ( IncludeIndustry()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(127,m_industry);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SymbolType>(m_symbol_type)));
+            if ( IncludeUAvgDailyVlm()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(133,m_u_avg_daily_vlm);
+            }
+            if ( IncludeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_root.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(136, tickerKeyLayout);
+            }
             if ( IncludeExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(127, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(139, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
             }
             if ( IncludeLoStrike()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(130,m_lo_strike);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(142,m_lo_strike);
             }
             if ( IncludeHiStrike()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(133,m_hi_strike);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(145,m_hi_strike);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
             if ( IncludeCustQty()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(139,m_cust_qty);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(151,m_cust_qty);
             }
             if ( IncludeCustPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(142,m_cust_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(154,m_cust_prc);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_cust_firm_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_cust_firm_type)));
             if ( IncludeCustAgentMpid()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(151,m_cust_agent_mpid);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(163,m_cust_agent_mpid);
             }
             if ( IncludeCustClientFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(154,m_cust_client_firm);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(166,m_cust_client_firm);
             }
             if ( IncludeCommEnhancement()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(157,m_comm_enhancement);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(169,m_comm_enhancement);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_cust_comm_paying)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>(m_cust_qty_cond)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(172,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_cust_comm_paying)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(175,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>(m_cust_qty_cond)));
             if ( IncludeAuctionDuration()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(166,m_auction_duration);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(178,m_auction_duration);
             }
             if ( IncludeIDays()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(169,m_i_days);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(181,m_i_days);
             }
             if ( IncludeIYears()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(172,m_i_years);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(184,m_i_years);
+            }
+            if ( IncludePointValue()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(187,m_point_value);
             }
             if ( IncludeStrikePv()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(175,m_strike_pv);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(190,m_strike_pv);
             }
             if ( IncludeEffMoneyRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(178,m_eff_money_rate);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(193,m_eff_money_rate);
             }
             if ( IncludeSrcTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(181,m_src_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(196,m_src_timestamp);
             }
             if ( IncludeNetTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(184,m_net_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(199,m_net_timestamp);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(187, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(202, m_timestamp);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
             if ( IncludeDirectedCounterParty()) {
                 for (auto& item : m_directed_counter_party) {
-					totalSize += SRProtobufCPP::TagCodec::Size(193, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(208, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -1088,63 +1200,78 @@ namespace api {
             if ( IncludeShortCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,124,static_cast<string>(m_short_code));
             }
+            if ( IncludeIndustry()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,127,static_cast<string>(m_industry));
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SymbolType>(m_symbol_type)));
+            if ( IncludeUAvgDailyVlm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,133,m_u_avg_daily_vlm);
+            }
+            if ( IncludeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_root.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 136, tickerKeyLayout);
+            }
             if ( IncludeExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,127, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,139, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
             }
             if ( IncludeLoStrike()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,130,m_lo_strike);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,142,m_lo_strike);
             }
             if ( IncludeHiStrike()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,133,m_hi_strike);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,145,m_hi_strike);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
             if ( IncludeCustQty()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,139,m_cust_qty);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,151,m_cust_qty);
             }
             if ( IncludeCustPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,142,m_cust_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,154,m_cust_prc);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_cust_firm_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_cust_firm_type)));
             if ( IncludeCustAgentMpid()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,151,static_cast<string>(m_cust_agent_mpid));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,163,static_cast<string>(m_cust_agent_mpid));
             }
             if ( IncludeCustClientFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,154,static_cast<string>(m_cust_client_firm));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,166,static_cast<string>(m_cust_client_firm));
             }
             if ( IncludeCommEnhancement()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,157,m_comm_enhancement);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,169,m_comm_enhancement);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,160,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_cust_comm_paying)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,163,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>(m_cust_qty_cond)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,172,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_cust_comm_paying)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,175,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>(m_cust_qty_cond)));
             if ( IncludeAuctionDuration()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,166,m_auction_duration);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,178,m_auction_duration);
             }
             if ( IncludeIDays()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,169,m_i_days);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,181,m_i_days);
             }
             if ( IncludeIYears()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,172,m_i_years);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,184,m_i_years);
+            }
+            if ( IncludePointValue()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,187,m_point_value);
             }
             if ( IncludeStrikePv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,175,m_strike_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,190,m_strike_pv);
             }
             if ( IncludeEffMoneyRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,178,m_eff_money_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,193,m_eff_money_rate);
             }
             if ( IncludeSrcTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,181,m_src_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,196,m_src_timestamp);
             }
             if ( IncludeNetTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,184,m_net_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,199,m_net_timestamp);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 187, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 202, m_timestamp);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::InclExclDisclose>(m_include_srnetwork)));
             if ( IncludeDirectedCounterParty()) {
                 for (auto& item : m_directed_counter_party) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 193, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 208, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -1234,6 +1361,30 @@ namespace api {
                         break;
                     }
                     case 127: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_industry = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 130: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_symbol_type = static_cast<spiderrock::protobuf::api::SymbolType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 133: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_u_avg_daily_vlm = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 136: {
+                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
+                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                            m_root.setFromCodec(tickerKey);
+                        }
+                        break;
+                    }
+                    case 139: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
                             m_expiry.set_year(dateKey.year());
@@ -1242,127 +1393,133 @@ namespace api {
                         }
                         break;
                     }
-                    case 130: {
+                    case 142: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_lo_strike = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 133: {
+                    case 145: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_hi_strike = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 136: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 148: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_cust_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 139: {
+                    case 151: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_cust_qty = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 154: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_cust_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 145: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 157: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_has_cust_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 148: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 160: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_cust_firm_type = static_cast<spiderrock::protobuf::api::FirmType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 151: {
+                    case 163: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_cust_agent_mpid = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 154: {
+                    case 166: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_cust_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 157: {
+                    case 169: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_comm_enhancement = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 160: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 172: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_cust_comm_paying = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 163: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 175: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_cust_qty_cond = static_cast<spiderrock::protobuf::api::CustQtyCond>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 166: {
+                    case 178: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_auction_duration = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 169: {
+                    case 181: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_i_days = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 172: {
+                    case 184: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_i_years = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 175: {
+                    case 187: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_point_value = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 190: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_strike_pv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 178: {
+                    case 193: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_eff_money_rate = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 181: {
+                    case 196: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_src_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 184: {
+                    case 199: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_net_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 187: {
+                    case 202: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 190: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 205: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_include_srnetwork = static_cast<spiderrock::protobuf::api::InclExclDisclose>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 193: {
+                    case 208: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             directed_counter_party item_directed_counter_party;
@@ -1391,6 +1548,10 @@ namespace api {
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::auction_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>( m_auction_source)); }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::is_test_auction>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_test_auction)); }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::short_code>() const { return m_short_code; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::industry>() const { return m_industry; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::symbol_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SymbolType>( m_symbol_type)); }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::u_avg_daily_vlm>() const { return m_u_avg_daily_vlm; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::root>() const { return AuctionNoticeBX::root{ m_root}; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::expiry>() const { return AuctionNoticeBX::expiry{ m_expiry}; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::lo_strike>() const { return m_lo_strike; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::hi_strike>() const { return m_hi_strike; }
@@ -1407,6 +1568,7 @@ namespace api {
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::auction_duration>() const { return m_auction_duration; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::i_days>() const { return m_i_days; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::i_years>() const { return m_i_years; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::point_value>() const { return m_point_value; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::strike_pv>() const { return m_strike_pv; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::eff_money_rate>() const { return m_eff_money_rate; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::src_timestamp>() const { return m_src_timestamp; }
@@ -1447,6 +1609,10 @@ namespace api {
         o << ",\"auction_source\":" << (int64_t)m.get<AuctionNoticeBX::auction_source>();
         o << ",\"is_test_auction\":" << (int64_t)m.get<AuctionNoticeBX::is_test_auction>();
         o << ",\"short_code\":\"" << m.get<AuctionNoticeBX::short_code>() << "\"";
+        o << ",\"industry\":\"" << m.get<AuctionNoticeBX::industry>() << "\"";
+        o << ",\"symbol_type\":" << (int64_t)m.get<AuctionNoticeBX::symbol_type>();
+        o << ",\"u_avg_daily_vlm\":" << m.get<AuctionNoticeBX::u_avg_daily_vlm>();
+        o << ",\"root\":{" << m.get<AuctionNoticeBX::root>() << "}";
         o << ",\"expiry\":{" << m.get<AuctionNoticeBX::expiry>() << "}";
         o << ",\"lo_strike\":" << m.get<AuctionNoticeBX::lo_strike>();
         o << ",\"hi_strike\":" << m.get<AuctionNoticeBX::hi_strike>();
@@ -1463,6 +1629,7 @@ namespace api {
         o << ",\"auction_duration\":" << m.get<AuctionNoticeBX::auction_duration>();
         o << ",\"i_days\":" << m.get<AuctionNoticeBX::i_days>();
         o << ",\"i_years\":" << m.get<AuctionNoticeBX::i_years>();
+        o << ",\"point_value\":" << m.get<AuctionNoticeBX::point_value>();
         o << ",\"strike_pv\":" << m.get<AuctionNoticeBX::strike_pv>();
         o << ",\"eff_money_rate\":" << m.get<AuctionNoticeBX::eff_money_rate>();
         o << ",\"src_timestamp\":" << m.get<AuctionNoticeBX::src_timestamp>();

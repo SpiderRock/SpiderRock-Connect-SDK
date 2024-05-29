@@ -155,6 +155,9 @@ namespace api {
         ticker m_ticker{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }

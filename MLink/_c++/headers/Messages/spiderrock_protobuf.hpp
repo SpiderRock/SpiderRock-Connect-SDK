@@ -93,6 +93,7 @@
 #include "SRConnect/AuctionPrintBX.hpp"
 #include "SRConnect/AuctionPrintRC.hpp"
 #include "SRConnect/AuctionPrintSN.hpp"
+#include "SRConnect/AuctionState.hpp"
 #include "SRConnect/NoticeCancel.hpp"
 #include "SRConnect/NoticeExecReport.hpp"
 #include "SRConnect/NoticeResponse.hpp"
@@ -194,6 +195,7 @@ class Observer {
     AuctionPrintBX msgAuctionPrintBX{};
     AuctionPrintRC msgAuctionPrintRC{};
     AuctionPrintSN msgAuctionPrintSN{};
+    AuctionState msgAuctionState{};
     NoticeCancel msgNoticeCancel{};
     NoticeExecReport msgNoticeExecReport{};
     NoticeResponse msgNoticeResponse{};
@@ -772,6 +774,12 @@ class Observer {
 			    msgAuctionPrintSN.Clear();
                 msgAuctionPrintSN.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const AuctionPrintSN &)msgAuctionPrintSN);
+                break;
+            }
+            case 2464: {  // AuctionState
+			    msgAuctionState.Clear();
+                msgAuctionState.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AuctionState &)msgAuctionState);
                 break;
             }
             case 2480: {  // NoticeCancel

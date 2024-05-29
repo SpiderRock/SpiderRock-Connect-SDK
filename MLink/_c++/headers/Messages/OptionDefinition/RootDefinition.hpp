@@ -140,10 +140,10 @@ namespace api {
     DECL_STRONG_TYPE(tick_value, float);
     #endif//_tick_value__GUARD__
 
-    #ifndef _point_value__GUARD__
-    #define _point_value__GUARD__
-    DECL_STRONG_TYPE(point_value, float);
-    #endif//_point_value__GUARD__
+    #ifndef _point_value__float__GUARD__
+    #define _point_value__float__GUARD__
+    DECL_STRONG_TYPE(point_value__float, float);
+    #endif//_point_value__float__GUARD__
 
     #ifndef _point_currency__GUARD__
     #define _point_currency__GUARD__
@@ -260,6 +260,9 @@ namespace api {
         root m_root{};
 
         public:
+		root get_root() const {
+            return m_root;
+        }
         void set_root(const root& value)  {
             m_root = value;
         }
@@ -434,6 +437,9 @@ namespace api {
         spc m_spc{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         spc get_spc() const {
             return m_spc;
         }
@@ -543,7 +549,7 @@ namespace api {
         using position_limit = spiderrock::protobuf::api::position_limit;
         using exchanges = spiderrock::protobuf::api::exchanges;
         using tick_value = spiderrock::protobuf::api::tick_value;
-        using point_value = spiderrock::protobuf::api::point_value;
+        using point_value = spiderrock::protobuf::api::point_value__float;
         using point_currency = spiderrock::protobuf::api::point_currency;
         using strike_scale = spiderrock::protobuf::api::strike_scale;
         using strike_ratio = spiderrock::protobuf::api::strike_ratio;

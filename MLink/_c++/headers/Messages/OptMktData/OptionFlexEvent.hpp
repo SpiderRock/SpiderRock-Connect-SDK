@@ -274,6 +274,9 @@ namespace api {
         raw_text m_raw_text{};
 
         public:
+		okey get_okey() const {
+            return m_okey;
+        }
         flex_type get_flex_type() const {
             return m_flex_type;
         }

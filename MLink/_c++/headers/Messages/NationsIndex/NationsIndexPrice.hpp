@@ -30,43 +30,67 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _ticker__TickerKey__GUARD__
-    #define _ticker__TickerKey__GUARD__
-    DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
-    #endif//_ticker__TickerKey__GUARD__
-
-    #ifndef _days__GUARD__
-    #define _days__GUARD__
-    DECL_STRONG_TYPE(days, int32);
-    #endif//_days__GUARD__
-
     #ifndef _mrk_price__float__GUARD__
     #define _mrk_price__float__GUARD__
     DECL_STRONG_TYPE(mrk_price__float, float);
     #endif//_mrk_price__float__GUARD__
+
+    #ifndef _expiry__GUARD__
+    #define _expiry__GUARD__
+    DECL_STRONG_TYPE(expiry, DateKey);
+    #endif//_expiry__GUARD__
 
     #ifndef _src_timestamp__GUARD__
     #define _src_timestamp__GUARD__
     DECL_STRONG_TYPE(src_timestamp, int64);
     #endif//_src_timestamp__GUARD__
 
-    #ifndef _ekey__GUARD__
-    #define _ekey__GUARD__
-    DECL_STRONG_TYPE(ekey, ExpiryKey);
-    #endif//_ekey__GUARD__
+    #ifndef _ticker__TickerKey__GUARD__
+    #define _ticker__TickerKey__GUARD__
+    DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
+    #endif//_ticker__TickerKey__GUARD__
+
+    #ifndef _name__GUARD__
+    #define _name__GUARD__
+    DECL_STRONG_TYPE(name, string);
+    #endif//_name__GUARD__
+
+    #ifndef _days__GUARD__
+    #define _days__GUARD__
+    DECL_STRONG_TYPE(days, int32);
+    #endif//_days__GUARD__
 
     
     class NationsIndexPrice_PKey {
         public:
         //using statements for all types used in this class
-        using ekey = spiderrock::protobuf::api::ekey;
+        using ticker = spiderrock::protobuf::api::ticker__TickerKey;
+        using name = spiderrock::protobuf::api::name;
+        using days = spiderrock::protobuf::api::days;
 
         private:
-        ekey m_ekey{};
+        ticker m_ticker{};
+        name m_name{};
+        days m_days{};
 
         public:
-        void set_ekey(const ekey& value)  {
-            m_ekey = value;
+		ticker get_ticker() const {
+            return m_ticker;
+        }
+        name get_name() const {
+            return m_name;
+        }
+        days get_days() const {
+            return m_days;
+        }
+        void set_ticker(const ticker& value)  {
+            m_ticker = value;
+        }
+        void set_name(const name& value)  {
+            m_name = value;
+        }
+        void set_days(const days& value)  {
+            m_days = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -76,7 +100,9 @@ namespace api {
 
         //specializations for set functions for the valid types
         
-        void set(const ekey & value) { set_ekey(value); }
+        void set(const ticker & value) { set_ticker(value); }
+        void set(const name & value) { set_name(value); }
+        void set(const days & value) { set_days(value); }
 
 
         NationsIndexPrice_PKey() {}
@@ -93,26 +119,44 @@ namespace api {
             set(arg);
             set_params(args...);
         }
-        bool IncludeEkey() const {
-            return (m_ekey.ByteSizeLong() > 0);
+        bool IncludeTicker() const {
+            return (m_ticker.ByteSizeLong() > 0);
+        }
+        bool IncludeName() const {
+            return !(m_name.empty());
+        }
+        bool IncludeDays() const {
+            return !(m_days == 0);
         }
 
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+            if ( IncludeTicker()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+            }
+            if ( IncludeName()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_name);
+            }
+            if ( IncludeDays()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(12,m_days);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
-            if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+            if ( IncludeTicker()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+            }
+            if ( IncludeName()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_name));
+            }
+            if ( IncludeDays()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,12,m_days);
             }
         }
 
@@ -129,8 +173,15 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 10: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
-                        m_ekey.setFromCodec(expiryKey);
+                    case 10: {
+                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                        m_ticker.setFromCodec(tickerKey);
+                        break;
+                    }
+                    case 11: {m_name = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                    case 12: {m_days = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
                 }
@@ -146,17 +197,15 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::NationsIndexPrice_PKey;
-        using ticker = spiderrock::protobuf::api::ticker__TickerKey;
-        using days = spiderrock::protobuf::api::days;
         using mrk_price = spiderrock::protobuf::api::mrk_price__float;
+        using expiry = spiderrock::protobuf::api::expiry;
         using src_timestamp = spiderrock::protobuf::api::src_timestamp;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
-        ticker m_ticker{};
-        days m_days{};
         mrk_price m_mrk_price{};
+        expiry m_expiry{};
         src_timestamp m_src_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -168,14 +217,11 @@ namespace api {
         pkey get_pkey() const {
             return m_pkey;
         }		
-        ticker get_ticker() const {
-            return m_ticker;
-        }		
-        days get_days() const {
-            return m_days;
-        }		
         mrk_price get_mrk_price() const {
             return m_mrk_price;
+        }		
+        expiry get_expiry() const {
+            return m_expiry;
         }		
         src_timestamp get_src_timestamp() const {
             return m_src_timestamp;
@@ -190,14 +236,11 @@ namespace api {
         void set_pkey(const pkey& value)  {
             m_pkey = value;
         }
-        void set_ticker(const ticker& value)  {
-            m_ticker = value;
-        }
-        void set_days(const days& value)  {
-            m_days = value;
-        }
         void set_mrk_price(const mrk_price& value)  {
             m_mrk_price = value;
+        }
+        void set_expiry(const expiry& value)  {
+            m_expiry = value;
         }
         void set_src_timestamp(const src_timestamp& value)  {
             m_src_timestamp = value;
@@ -216,14 +259,11 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
-        void set(const ticker & value) {
-            set_ticker(value);
-        }
-        void set(const days & value) {
-            set_days(value);
-        }
         void set(const mrk_price & value) {
             set_mrk_price(value);
+        }
+        void set(const expiry & value) {
+            set_expiry(value);
         }
         void set(const src_timestamp & value) {
             set_src_timestamp(value);
@@ -232,9 +272,8 @@ namespace api {
         void set(const NationsIndexPrice & value) {
             set(value.m__meta);
             set(value.m_pkey);
-            set(value.m_ticker);
-            set(value.m_days);
             set(value.m_mrk_price);
+            set(value.m_expiry);
             set(value.m_src_timestamp);
         }
 
@@ -294,14 +333,11 @@ namespace api {
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
         }
-        bool IncludeTicker() const {
-            return (m_ticker.ByteSizeLong() > 0);
-        }
-        bool IncludeDays() const {
-            return !(m_days == 0);
-        }
         bool IncludeMrkPrice() const {
             return !(m_mrk_price == 0.0);
+        }
+        bool IncludeExpiry() const {
+            return (m_expiry.ByteSizeLong() > 0);
         }
         bool IncludeSrcTimestamp() const {
             return !(m_src_timestamp == 0);
@@ -320,19 +356,14 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
-            if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
-            }
-            if ( IncludeDays()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(103,m_days);
-            }
             if ( IncludeMrkPrice()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(106,m_mrk_price);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(100,m_mrk_price);
+            }
+            if ( IncludeExpiry()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(103, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
             }
             if ( IncludeSrcTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(109,m_src_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(106,m_src_timestamp);
             }
             return totalSize;
         }
@@ -348,19 +379,14 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
-            if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
-            }
-            if ( IncludeDays()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,103,m_days);
-            }
             if ( IncludeMrkPrice()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,106,m_mrk_price);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,100,m_mrk_price);
+            }
+            if ( IncludeExpiry()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,103, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
             }
             if ( IncludeSrcTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,109,m_src_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,106,m_src_timestamp);
             }
         }
 
@@ -393,25 +419,21 @@ namespace api {
                         break;
                     }
                     case 100: {
-                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
-                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                            m_ticker.setFromCodec(tickerKey);
-                        }
-                        break;
-                    }
-                    case 103: {
-                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
-                            m_days = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
-                        }
-                        break;
-                    }
-                    case 106: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_mrk_price = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 109: {
+                    case 103: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
+                            m_expiry.set_year(dateKey.year());
+                            m_expiry.set_month(dateKey.month());
+                            m_expiry.set_day(dateKey.day());
+                        }
+                        break;
+                    }
+                    case 106: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_src_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
@@ -428,25 +450,27 @@ namespace api {
 
     template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::_meta>() const { return NationsIndexPrice::_meta{ m__meta}; }
     template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::pkey>() const { return NationsIndexPrice::pkey{ m_pkey}; }
-    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::ticker>() const { return NationsIndexPrice::ticker{ m_ticker}; }
-    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::days>() const { return m_days; }
     template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::mrk_price>() const { return m_mrk_price; }
+    template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::expiry>() const { return NationsIndexPrice::expiry{ m_expiry}; }
     template<> inline const auto NationsIndexPrice::get<NationsIndexPrice::src_timestamp>() const { return m_src_timestamp; }
-    template<> inline const auto NationsIndexPrice_PKey::get<NationsIndexPrice_PKey::ekey>() const { return NationsIndexPrice_PKey::ekey{m_ekey}; }
+    template<> inline const auto NationsIndexPrice_PKey::get<NationsIndexPrice_PKey::ticker>() const { return NationsIndexPrice_PKey::ticker{m_ticker}; }
+    template<> inline const auto NationsIndexPrice_PKey::get<NationsIndexPrice_PKey::name>() const { return m_name; }
+    template<> inline const auto NationsIndexPrice_PKey::get<NationsIndexPrice_PKey::days>() const { return m_days; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
     inline std::ostream& operator<<(std::ostream &o, const NationsIndexPrice_PKey& m) {
-        o << "\"ekey\":{" << m.get<NationsIndexPrice_PKey::ekey>() << "}";
+        o << "\"ticker\":{" << m.get<NationsIndexPrice_PKey::ticker>() << "}";
+        o << ",\"name\":\"" << m.get<NationsIndexPrice_PKey::name>() << "\"";
+        o << ",\"days\":" << m.get<NationsIndexPrice_PKey::days>();
         return o;
     }
 
     inline std::ostream& operator<<(std::ostream &o, const NationsIndexPrice& m) {
         o << "\"_meta\":{" << m.get<NationsIndexPrice::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<NationsIndexPrice::pkey>() << "}";
-        o << ",\"ticker\":{" << m.get<NationsIndexPrice::ticker>() << "}";
-        o << ",\"days\":" << m.get<NationsIndexPrice::days>();
         o << ",\"mrk_price\":" << m.get<NationsIndexPrice::mrk_price>();
+        o << ",\"expiry\":{" << m.get<NationsIndexPrice::expiry>() << "}";
         o << ",\"src_timestamp\":" << m.get<NationsIndexPrice::src_timestamp>();
         return o;
     }

@@ -202,6 +202,9 @@ namespace api {
         state_model m_state_model{};
 
         public:
+		fkey get_fkey() const {
+            return m_fkey;
+        }
         state_model get_state_model() const {
             return m_state_model;
         }

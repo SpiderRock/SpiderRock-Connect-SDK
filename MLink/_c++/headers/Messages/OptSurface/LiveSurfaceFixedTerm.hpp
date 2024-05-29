@@ -637,6 +637,9 @@ namespace api {
         surface_type m_surface_type{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         surface_type get_surface_type() const {
             return m_surface_type;
         }

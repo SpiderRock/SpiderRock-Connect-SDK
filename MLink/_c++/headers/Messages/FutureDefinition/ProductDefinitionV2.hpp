@@ -307,6 +307,9 @@ namespace api {
         sec_type m_sec_type{};
 
         public:
+		sec_key get_sec_key() const {
+            return m_sec_key;
+        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }
@@ -417,6 +420,9 @@ namespace api {
         public:
         leg_id get_leg_id() const {
             return m_leg_id;
+        }
+		sec_key get_sec_key() const {
+            return m_sec_key;
         }
         sec_type get_sec_type() const {
             return m_sec_type;

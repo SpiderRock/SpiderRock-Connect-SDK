@@ -197,6 +197,12 @@ namespace api {
         trade_date m_trade_date{};
 
         public:
+		okey get_okey() const {
+            return m_okey;
+        }
+		trade_date get_trade_date() const {
+            return m_trade_date;
+        }
         void set_okey(const okey& value)  {
             m_okey = value;
         }

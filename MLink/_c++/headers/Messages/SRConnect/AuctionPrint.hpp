@@ -140,15 +140,15 @@ namespace api {
     DECL_STRONG_TYPE(contains_multi_hedge, spiderrock::protobuf::api::YesNo);
     #endif//_contains_multi_hedge__GUARD__
 
-    #ifndef _u_bid__GUARD__
-    #define _u_bid__GUARD__
-    DECL_STRONG_TYPE(u_bid, double);
-    #endif//_u_bid__GUARD__
+    #ifndef _u_bid__double__GUARD__
+    #define _u_bid__double__GUARD__
+    DECL_STRONG_TYPE(u_bid__double, double);
+    #endif//_u_bid__double__GUARD__
 
-    #ifndef _u_ask__GUARD__
-    #define _u_ask__GUARD__
-    DECL_STRONG_TYPE(u_ask, double);
-    #endif//_u_ask__GUARD__
+    #ifndef _u_ask__double__GUARD__
+    #define _u_ask__double__GUARD__
+    DECL_STRONG_TYPE(u_ask__double, double);
+    #endif//_u_ask__double__GUARD__
 
     #ifndef _net_de__GUARD__
     #define _net_de__GUARD__
@@ -215,15 +215,15 @@ namespace api {
     DECL_STRONG_TYPE(prt_type__PrtType, spiderrock::protobuf::api::PrtType);
     #endif//_prt_type__PrtType__GUARD__
 
-    #ifndef _prt_ubid__double__GUARD__
-    #define _prt_ubid__double__GUARD__
-    DECL_STRONG_TYPE(prt_ubid__double, double);
-    #endif//_prt_ubid__double__GUARD__
+    #ifndef _prt_ubid__GUARD__
+    #define _prt_ubid__GUARD__
+    DECL_STRONG_TYPE(prt_ubid, double);
+    #endif//_prt_ubid__GUARD__
 
-    #ifndef _prt_uask__double__GUARD__
-    #define _prt_uask__double__GUARD__
-    DECL_STRONG_TYPE(prt_uask__double, double);
-    #endif//_prt_uask__double__GUARD__
+    #ifndef _prt_uask__GUARD__
+    #define _prt_uask__GUARD__
+    DECL_STRONG_TYPE(prt_uask, double);
+    #endif//_prt_uask__GUARD__
 
     #ifndef _prt_uprc__GUARD__
     #define _prt_uprc__GUARD__
@@ -375,10 +375,10 @@ namespace api {
     DECL_STRONG_TYPE(und_per_cn, int32);
     #endif//_und_per_cn__GUARD__
 
-    #ifndef _point_value__GUARD__
-    #define _point_value__GUARD__
-    DECL_STRONG_TYPE(point_value, float);
-    #endif//_point_value__GUARD__
+    #ifndef _point_value__float__GUARD__
+    #define _point_value__float__GUARD__
+    DECL_STRONG_TYPE(point_value__float, float);
+    #endif//_point_value__float__GUARD__
 
     #ifndef _exp_type__GUARD__
     #define _exp_type__GUARD__
@@ -570,7 +570,7 @@ namespace api {
         using side = spiderrock::protobuf::api::side;
         using ratio = spiderrock::protobuf::api::ratio__uint32;
         using und_per_cn = spiderrock::protobuf::api::und_per_cn;
-        using point_value = spiderrock::protobuf::api::point_value;
+        using point_value = spiderrock::protobuf::api::point_value__float;
         using exp_type = spiderrock::protobuf::api::exp_type;
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
@@ -621,6 +621,9 @@ namespace api {
         o_ask_mask m_o_ask_mask{};
 
         public:
+		sec_key get_sec_key() const {
+            return m_sec_key;
+        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }
@@ -1018,8 +1021,8 @@ namespace api {
         using contains_hedge = spiderrock::protobuf::api::contains_hedge;
         using contains_flex = spiderrock::protobuf::api::contains_flex;
         using contains_multi_hedge = spiderrock::protobuf::api::contains_multi_hedge;
-        using u_bid = spiderrock::protobuf::api::u_bid;
-        using u_ask = spiderrock::protobuf::api::u_ask;
+        using u_bid = spiderrock::protobuf::api::u_bid__double;
+        using u_ask = spiderrock::protobuf::api::u_ask__double;
         using net_de = spiderrock::protobuf::api::net_de;
         using net_ga = spiderrock::protobuf::api::net_ga;
         using net_th = spiderrock::protobuf::api::net_th;
@@ -1033,8 +1036,8 @@ namespace api {
         using prt_size2 = spiderrock::protobuf::api::prt_size2;
         using prt_time = spiderrock::protobuf::api::prt_time;
         using prt_type = spiderrock::protobuf::api::prt_type__PrtType;
-        using prt_ubid = spiderrock::protobuf::api::prt_ubid__double;
-        using prt_uask = spiderrock::protobuf::api::prt_uask__double;
+        using prt_ubid = spiderrock::protobuf::api::prt_ubid;
+        using prt_uask = spiderrock::protobuf::api::prt_uask;
         using prt_uprc = spiderrock::protobuf::api::prt_uprc;
         using prt_surf_vol = spiderrock::protobuf::api::prt_surf_vol;
         using prt_surf_prc = spiderrock::protobuf::api::prt_surf_prc;

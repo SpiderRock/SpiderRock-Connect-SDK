@@ -224,6 +224,9 @@ namespace api {
         surface_type m_surface_type{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         days get_days() const {
             return m_days;
         }

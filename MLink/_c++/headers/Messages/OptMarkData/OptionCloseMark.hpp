@@ -40,15 +40,15 @@ namespace api {
     DECL_STRONG_TYPE(cls_mark_state, spiderrock::protobuf::api::ClsMarkState);
     #endif//_cls_mark_state__GUARD__
 
-    #ifndef _u_bid__GUARD__
-    #define _u_bid__GUARD__
-    DECL_STRONG_TYPE(u_bid, double);
-    #endif//_u_bid__GUARD__
+    #ifndef _u_bid__double__GUARD__
+    #define _u_bid__double__GUARD__
+    DECL_STRONG_TYPE(u_bid__double, double);
+    #endif//_u_bid__double__GUARD__
 
-    #ifndef _u_ask__GUARD__
-    #define _u_ask__GUARD__
-    DECL_STRONG_TYPE(u_ask, double);
-    #endif//_u_ask__GUARD__
+    #ifndef _u_ask__double__GUARD__
+    #define _u_ask__double__GUARD__
+    DECL_STRONG_TYPE(u_ask__double, double);
+    #endif//_u_ask__double__GUARD__
 
     #ifndef _u_sr_cls__GUARD__
     #define _u_sr_cls__GUARD__
@@ -230,6 +230,9 @@ namespace api {
         okey m_okey{};
 
         public:
+		okey get_okey() const {
+            return m_okey;
+        }
         void set_okey(const okey& value)  {
             m_okey = value;
         }
@@ -314,8 +317,8 @@ namespace api {
         using pkey = spiderrock::protobuf::api::OptionCloseMark_PKey;
         using trade_date = spiderrock::protobuf::api::trade_date;
         using cls_mark_state = spiderrock::protobuf::api::cls_mark_state;
-        using u_bid = spiderrock::protobuf::api::u_bid;
-        using u_ask = spiderrock::protobuf::api::u_ask;
+        using u_bid = spiderrock::protobuf::api::u_bid__double;
+        using u_ask = spiderrock::protobuf::api::u_ask__double;
         using u_sr_cls = spiderrock::protobuf::api::u_sr_cls;
         using u_close = spiderrock::protobuf::api::u_close;
         using bid_prc = spiderrock::protobuf::api::bid_prc__float;

@@ -67,6 +67,9 @@ namespace api {
         exchange m_exchange{};
 
         public:
+		exchange_ticker get_exchange_ticker() const {
+            return m_exchange_ticker;
+        }
         exchange get_exchange() const {
             return m_exchange;
         }

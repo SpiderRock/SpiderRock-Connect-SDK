@@ -192,6 +192,9 @@ namespace api {
         window_type m_window_type{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         window_type get_window_type() const {
             return m_window_type;
         }

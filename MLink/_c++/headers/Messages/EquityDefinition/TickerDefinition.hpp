@@ -65,10 +65,10 @@ namespace api {
     DECL_STRONG_TYPE(par_value_currency, string);
     #endif//_par_value_currency__GUARD__
 
-    #ifndef _point_value__GUARD__
-    #define _point_value__GUARD__
-    DECL_STRONG_TYPE(point_value, float);
-    #endif//_point_value__GUARD__
+    #ifndef _point_value__float__GUARD__
+    #define _point_value__float__GUARD__
+    DECL_STRONG_TYPE(point_value__float, float);
+    #endif//_point_value__float__GUARD__
 
     #ifndef _point_currency__GUARD__
     #define _point_currency__GUARD__
@@ -310,6 +310,9 @@ namespace api {
         ticker m_ticker{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }
@@ -399,7 +402,7 @@ namespace api {
         using primary_currency = spiderrock::protobuf::api::primary_currency;
         using par_value = spiderrock::protobuf::api::par_value;
         using par_value_currency = spiderrock::protobuf::api::par_value_currency;
-        using point_value = spiderrock::protobuf::api::point_value;
+        using point_value = spiderrock::protobuf::api::point_value__float;
         using point_currency = spiderrock::protobuf::api::point_currency;
         using primary_exch = spiderrock::protobuf::api::primary_exch;
         using alt_id = spiderrock::protobuf::api::alt_id;

@@ -62,7 +62,7 @@ namespace api {
 
     #ifndef _resp_origin__GUARD__
     #define _resp_origin__GUARD__
-    DECL_STRONG_TYPE(resp_origin, spiderrock::protobuf::api::RespOrigin);
+    DECL_STRONG_TYPE(resp_origin, spiderrock::protobuf::api::SpdrSource);
     #endif//_resp_origin__GUARD__
 
     #ifndef _stage_type__GUARD__
@@ -165,6 +165,11 @@ namespace api {
     DECL_STRONG_TYPE(last_trial_prc, double);
     #endif//_last_trial_prc__GUARD__
 
+    #ifndef _leaves_qty__GUARD__
+    #define _leaves_qty__GUARD__
+    DECL_STRONG_TYPE(leaves_qty, int32);
+    #endif//_leaves_qty__GUARD__
+
     #ifndef _cum_fill_qty__GUARD__
     #define _cum_fill_qty__GUARD__
     DECL_STRONG_TYPE(cum_fill_qty, int32);
@@ -210,15 +215,15 @@ namespace api {
     DECL_STRONG_TYPE(prt_time, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_prt_time__GUARD__
 
-    #ifndef _prt_ubid__float__GUARD__
-    #define _prt_ubid__float__GUARD__
-    DECL_STRONG_TYPE(prt_ubid__float, float);
-    #endif//_prt_ubid__float__GUARD__
+    #ifndef _prt_ubid__GUARD__
+    #define _prt_ubid__GUARD__
+    DECL_STRONG_TYPE(prt_ubid, double);
+    #endif//_prt_ubid__GUARD__
 
-    #ifndef _prt_uask__float__GUARD__
-    #define _prt_uask__float__GUARD__
-    DECL_STRONG_TYPE(prt_uask__float, float);
-    #endif//_prt_uask__float__GUARD__
+    #ifndef _prt_uask__GUARD__
+    #define _prt_uask__GUARD__
+    DECL_STRONG_TYPE(prt_uask, double);
+    #endif//_prt_uask__GUARD__
 
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
@@ -394,6 +399,9 @@ namespace api {
         leg_avg_fill_price m_leg_avg_fill_price{};
 
         public:
+		sec_key get_sec_key() const {
+            return m_sec_key;
+        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }
@@ -568,6 +576,7 @@ namespace api {
         using resp_detail = spiderrock::protobuf::api::resp_detail;
         using last_uprc = spiderrock::protobuf::api::last_uprc;
         using last_trial_prc = spiderrock::protobuf::api::last_trial_prc;
+        using leaves_qty = spiderrock::protobuf::api::leaves_qty;
         using cum_fill_qty = spiderrock::protobuf::api::cum_fill_qty;
         using avg_fill_price = spiderrock::protobuf::api::avg_fill_price;
         using add_latency = spiderrock::protobuf::api::add_latency;
@@ -577,8 +586,8 @@ namespace api {
         using prt_price = spiderrock::protobuf::api::prt_price__double;
         using prt_size = spiderrock::protobuf::api::prt_size;
         using prt_time = spiderrock::protobuf::api::prt_time;
-        using prt_ubid = spiderrock::protobuf::api::prt_ubid__float;
-        using prt_uask = spiderrock::protobuf::api::prt_uask__float;
+        using prt_ubid = spiderrock::protobuf::api::prt_ubid;
+        using prt_uask = spiderrock::protobuf::api::prt_uask;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using order_legs = spiderrock::protobuf::api::NoticeExecReport_OrderLegs;
 
@@ -612,6 +621,7 @@ namespace api {
         resp_detail m_resp_detail{};
         last_uprc m_last_uprc{};
         last_trial_prc m_last_trial_prc{};
+        leaves_qty m_leaves_qty{};
         cum_fill_qty m_cum_fill_qty{};
         avg_fill_price m_avg_fill_price{};
         add_latency m_add_latency{};
@@ -715,6 +725,9 @@ namespace api {
         }		
         last_trial_prc get_last_trial_prc() const {
             return m_last_trial_prc;
+        }		
+        leaves_qty get_leaves_qty() const {
+            return m_leaves_qty;
         }		
         cum_fill_qty get_cum_fill_qty() const {
             return m_cum_fill_qty;
@@ -848,6 +861,9 @@ namespace api {
         }
         void set_last_trial_prc(const last_trial_prc& value)  {
             m_last_trial_prc = value;
+        }
+        void set_leaves_qty(const leaves_qty& value)  {
+            m_leaves_qty = value;
         }
         void set_cum_fill_qty(const cum_fill_qty& value)  {
             m_cum_fill_qty = value;
@@ -992,6 +1008,9 @@ namespace api {
         void set(const last_trial_prc & value) {
             set_last_trial_prc(value);
         }
+        void set(const leaves_qty & value) {
+            set_leaves_qty(value);
+        }
         void set(const cum_fill_qty & value) {
             set_cum_fill_qty(value);
         }
@@ -1062,6 +1081,7 @@ namespace api {
             set(value.m_resp_detail);
             set(value.m_last_uprc);
             set(value.m_last_trial_prc);
+            set(value.m_leaves_qty);
             set(value.m_cum_fill_qty);
             set(value.m_avg_fill_price);
             set(value.m_add_latency);
@@ -1192,6 +1212,9 @@ namespace api {
         bool IncludeLastTrialPrc() const {
             return !(m_last_trial_prc == 0.0);
         }
+        bool IncludeLeavesQty() const {
+            return !(m_leaves_qty == 0);
+        }
         bool IncludeCumFillQty() const {
             return !(m_cum_fill_qty == 0);
         }
@@ -1262,7 +1285,7 @@ namespace api {
             if ( IncludeResponseId()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_response_id);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RespOrigin>(m_resp_origin)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>(m_resp_origin)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrStageType>(m_stage_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(111,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>(m_auction_source)));
@@ -1311,8 +1334,11 @@ namespace api {
             if ( IncludeLastTrialPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(156,m_last_trial_prc);
             }
+            if ( IncludeLeavesQty()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(157,m_leaves_qty);
+            }
             if ( IncludeCumFillQty()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(157,m_cum_fill_qty);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(158,m_cum_fill_qty);
             }
             if ( IncludeAvgFillPrice()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(160,m_avg_fill_price);
@@ -1337,10 +1363,10 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(199, m_prt_time);
             }
             if ( IncludePrtUbid()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_prt_ubid);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(202,m_prt_ubid);
             }
             if ( IncludePrtUask()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_prt_uask);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(205,m_prt_uask);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
@@ -1386,7 +1412,7 @@ namespace api {
             if ( IncludeResponseId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_response_id));
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RespOrigin>(m_resp_origin)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>(m_resp_origin)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrStageType>(m_stage_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,111,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>(m_auction_source)));
@@ -1435,8 +1461,11 @@ namespace api {
             if ( IncludeLastTrialPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,156,m_last_trial_prc);
             }
+            if ( IncludeLeavesQty()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,157,m_leaves_qty);
+            }
             if ( IncludeCumFillQty()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,157,m_cum_fill_qty);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,158,m_cum_fill_qty);
             }
             if ( IncludeAvgFillPrice()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,160,m_avg_fill_price);
@@ -1461,10 +1490,10 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 199, m_prt_time);
             }
             if ( IncludePrtUbid()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_prt_ubid);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,202,m_prt_ubid);
             }
             if ( IncludePrtUask()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_prt_uask);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,205,m_prt_uask);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
@@ -1547,7 +1576,7 @@ namespace api {
                         break;
                     }
                     case 107: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_resp_origin = static_cast<spiderrock::protobuf::api::RespOrigin>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                            m_resp_origin = static_cast<spiderrock::protobuf::api::SpdrSource>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1667,6 +1696,12 @@ namespace api {
                     }
                     case 157: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_leaves_qty = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 158: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_cum_fill_qty = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
@@ -1719,14 +1754,14 @@ namespace api {
                         break;
                     }
                     case 202: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_prt_ubid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_prt_ubid = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
                     case 205: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_prt_uask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_prt_uask = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
@@ -1762,7 +1797,7 @@ namespace api {
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::client_firm>() const { return m_client_firm; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::notice_dttm>() const { return m_notice_dttm; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::response_id>() const { return m_response_id; }
-    template<> inline const auto NoticeExecReport::get<NoticeExecReport::resp_origin>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RespOrigin>( m_resp_origin)); }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::resp_origin>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>( m_resp_origin)); }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::stage_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrStageType>( m_stage_type)); }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::auction_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>( m_auction_type)); }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::auction_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>( m_auction_source)); }
@@ -1783,6 +1818,7 @@ namespace api {
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::resp_detail>() const { return m_resp_detail; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::last_uprc>() const { return m_last_uprc; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::last_trial_prc>() const { return m_last_trial_prc; }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::leaves_qty>() const { return m_leaves_qty; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::cum_fill_qty>() const { return m_cum_fill_qty; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::avg_fill_price>() const { return m_avg_fill_price; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::add_latency>() const { return m_add_latency; }
@@ -1867,6 +1903,7 @@ namespace api {
         o << ",\"resp_detail\":\"" << m.get<NoticeExecReport::resp_detail>() << "\"";
         o << ",\"last_uprc\":" << m.get<NoticeExecReport::last_uprc>();
         o << ",\"last_trial_prc\":" << m.get<NoticeExecReport::last_trial_prc>();
+        o << ",\"leaves_qty\":" << m.get<NoticeExecReport::leaves_qty>();
         o << ",\"cum_fill_qty\":" << m.get<NoticeExecReport::cum_fill_qty>();
         o << ",\"avg_fill_price\":" << m.get<NoticeExecReport::avg_fill_price>();
         o << ",\"add_latency\":" << m.get<NoticeExecReport::add_latency>();

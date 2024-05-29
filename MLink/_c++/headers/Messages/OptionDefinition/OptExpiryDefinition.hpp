@@ -105,6 +105,9 @@ namespace api {
         ekey m_ekey{};
 
         public:
+		ekey get_ekey() const {
+            return m_ekey;
+        }
         void set_ekey(const ekey& value)  {
             m_ekey = value;
         }

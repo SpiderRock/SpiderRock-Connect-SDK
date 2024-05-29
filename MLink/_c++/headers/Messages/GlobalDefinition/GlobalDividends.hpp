@@ -95,6 +95,9 @@ namespace api {
         ticker m_ticker{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }
@@ -191,6 +194,9 @@ namespace api {
         div_override_source m_div_override_source{};
 
         public:
+		div_date get_div_date() const {
+            return m_div_date;
+        }
         div_value get_div_value() const {
             return m_div_value;
         }

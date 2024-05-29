@@ -157,6 +157,9 @@ namespace api {
         state_model m_state_model{};
 
         public:
+		okey get_okey() const {
+            return m_okey;
+        }
         state_model get_state_model() const {
             return m_state_model;
         }

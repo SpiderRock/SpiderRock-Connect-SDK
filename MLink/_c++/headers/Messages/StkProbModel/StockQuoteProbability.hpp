@@ -202,6 +202,9 @@ namespace api {
         state_model m_state_model{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         state_model get_state_model() const {
             return m_state_model;
         }

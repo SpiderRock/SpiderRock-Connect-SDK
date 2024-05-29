@@ -150,6 +150,9 @@ namespace api {
         okey m_okey{};
 
         public:
+		okey get_okey() const {
+            return m_okey;
+        }
         void set_okey(const okey& value)  {
             m_okey = value;
         }

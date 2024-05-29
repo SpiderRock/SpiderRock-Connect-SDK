@@ -110,10 +110,10 @@ namespace api {
     DECL_STRONG_TYPE(min_response_size, int32);
     #endif//_min_response_size__GUARD__
 
-    #ifndef _limit_type__GUARD__
-    #define _limit_type__GUARD__
-    DECL_STRONG_TYPE(limit_type, spiderrock::protobuf::api::AuctionLimitType);
-    #endif//_limit_type__GUARD__
+    #ifndef _limit_type__AuctionLimitType__GUARD__
+    #define _limit_type__AuctionLimitType__GUARD__
+    DECL_STRONG_TYPE(limit_type__AuctionLimitType, spiderrock::protobuf::api::AuctionLimitType);
+    #endif//_limit_type__AuctionLimitType__GUARD__
 
     #ifndef _firm_type__GUARD__
     #define _firm_type__GUARD__
@@ -251,6 +251,9 @@ namespace api {
         auction_ex_dest m_auction_ex_dest{};
 
         public:
+		sec_key get_sec_key() const {
+            return m_sec_key;
+        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }
@@ -384,6 +387,9 @@ namespace api {
         leg_ratio m_leg_ratio{};
 
         public:
+		leg_sec_key get_leg_sec_key() const {
+            return m_leg_sec_key;
+        }
         leg_sec_type get_leg_sec_type() const {
             return m_leg_sec_type;
         }
@@ -511,7 +517,7 @@ namespace api {
         using auction_start_price = spiderrock::protobuf::api::auction_start_price;
         using auction_start_timestamp = spiderrock::protobuf::api::auction_start_timestamp;
         using min_response_size = spiderrock::protobuf::api::min_response_size;
-        using limit_type = spiderrock::protobuf::api::limit_type;
+        using limit_type = spiderrock::protobuf::api::limit_type__AuctionLimitType;
         using firm_type = spiderrock::protobuf::api::firm_type;
         using member_mpid = spiderrock::protobuf::api::member_mpid;
         using client_accnt = spiderrock::protobuf::api::client_accnt;

@@ -205,6 +205,11 @@ namespace api {
     DECL_STRONG_TYPE(include_flex, spiderrock::protobuf::api::YesNo);
     #endif//_include_flex__GUARD__
 
+    #ifndef _include_directed__GUARD__
+    #define _include_directed__GUARD__
+    DECL_STRONG_TYPE(include_directed, spiderrock::protobuf::api::YesNo);
+    #endif//_include_directed__GUARD__
+
     #ifndef _include_comm_paying__GUARD__
     #define _include_comm_paying__GUARD__
     DECL_STRONG_TYPE(include_comm_paying, spiderrock::protobuf::api::YesNo);
@@ -535,6 +540,9 @@ namespace api {
         ticker m_ticker{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }
@@ -612,6 +620,9 @@ namespace api {
         ticker m_ticker{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }
@@ -870,6 +881,7 @@ namespace api {
         using include_long_term = spiderrock::protobuf::api::include_long_term;
         using include_other_exp = spiderrock::protobuf::api::include_other_exp;
         using include_flex = spiderrock::protobuf::api::include_flex;
+        using include_directed = spiderrock::protobuf::api::include_directed;
         using include_comm_paying = spiderrock::protobuf::api::include_comm_paying;
         using direction = spiderrock::protobuf::api::direction;
         using net_vega_direction = spiderrock::protobuf::api::net_vega_direction;
@@ -921,6 +933,7 @@ namespace api {
         include_long_term m_include_long_term{};
         include_other_exp m_include_other_exp{};
         include_flex m_include_flex{};
+        include_directed m_include_directed{};
         include_comm_paying m_include_comm_paying{};
         direction m_direction{};
         net_vega_direction m_net_vega_direction{};
@@ -1047,6 +1060,9 @@ namespace api {
         }		
         include_flex get_include_flex() const {
             return m_include_flex;
+        }		
+        include_directed get_include_directed() const {
+            return m_include_directed;
         }		
         include_comm_paying get_include_comm_paying() const {
             return m_include_comm_paying;
@@ -1216,6 +1232,9 @@ namespace api {
         }
         void set_include_flex(const include_flex& value)  {
             m_include_flex = value;
+        }
+        void set_include_directed(const include_directed& value)  {
+            m_include_directed = value;
         }
         void set_include_comm_paying(const include_comm_paying& value)  {
             m_include_comm_paying = value;
@@ -1396,6 +1415,9 @@ namespace api {
         void set(const include_flex & value) {
             set_include_flex(value);
         }
+        void set(const include_directed & value) {
+            set_include_directed(value);
+        }
         void set(const include_comm_paying & value) {
             set_include_comm_paying(value);
         }
@@ -1471,6 +1493,7 @@ namespace api {
             set(value.m_include_long_term);
             set(value.m_include_other_exp);
             set(value.m_include_flex);
+            set(value.m_include_directed);
             set(value.m_include_comm_paying);
             set(value.m_direction);
             set(value.m_net_vega_direction);
@@ -1688,6 +1711,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(232,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_long_term)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(235,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_other_exp)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(238,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_flex)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(240,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_directed)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_comm_paying)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(244,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_direction)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(247,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_net_vega_direction)));
@@ -1821,6 +1845,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,232,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_long_term)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,235,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_other_exp)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,238,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_flex)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,240,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_directed)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_include_comm_paying)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,244,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_direction)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,247,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_net_vega_direction)));
@@ -2094,6 +2119,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 240: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_include_directed = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 241: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_include_comm_paying = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -2226,6 +2256,7 @@ namespace api {
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::include_long_term>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_include_long_term)); }
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::include_other_exp>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_include_other_exp)); }
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::include_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_include_flex)); }
+    template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::include_directed>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_include_directed)); }
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::include_comm_paying>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_include_comm_paying)); }
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::direction>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>( m_direction)); }
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::net_vega_direction>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>( m_net_vega_direction)); }
@@ -2335,6 +2366,7 @@ namespace api {
         o << ",\"include_long_term\":" << (int64_t)m.get<UserAuctionFilter::include_long_term>();
         o << ",\"include_other_exp\":" << (int64_t)m.get<UserAuctionFilter::include_other_exp>();
         o << ",\"include_flex\":" << (int64_t)m.get<UserAuctionFilter::include_flex>();
+        o << ",\"include_directed\":" << (int64_t)m.get<UserAuctionFilter::include_directed>();
         o << ",\"include_comm_paying\":" << (int64_t)m.get<UserAuctionFilter::include_comm_paying>();
         o << ",\"direction\":" << (int64_t)m.get<UserAuctionFilter::direction>();
         o << ",\"net_vega_direction\":" << (int64_t)m.get<UserAuctionFilter::net_vega_direction>();

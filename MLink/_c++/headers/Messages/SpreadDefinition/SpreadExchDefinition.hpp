@@ -190,6 +190,9 @@ namespace api {
         ref_prc m_ref_prc{};
 
         public:
+		leg_sec_key get_leg_sec_key() const {
+            return m_leg_sec_key;
+        }
         leg_sec_type get_leg_sec_type() const {
             return m_leg_sec_type;
         }

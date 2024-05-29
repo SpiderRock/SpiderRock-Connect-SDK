@@ -132,6 +132,9 @@ namespace api {
         source m_source{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         source get_source() const {
             return m_source;
         }
@@ -254,6 +257,9 @@ namespace api {
         h_emove m_h_emove{};
 
         public:
+		event_date get_event_date() const {
+            return m_event_date;
+        }
         event_time get_event_time() const {
             return m_event_time;
         }
@@ -262,6 +268,9 @@ namespace api {
         }
         guidance_issued get_guidance_issued() const {
             return m_guidance_issued;
+        }
+		earn_fiscal_qtr get_earn_fiscal_qtr() const {
+            return m_earn_fiscal_qtr;
         }
         earn_change get_earn_change() const {
             return m_earn_change;
@@ -283,6 +292,9 @@ namespace api {
         }
         close get_close() const {
             return m_close;
+        }
+		move_date get_move_date() const {
+            return m_move_date;
         }
         h_emove get_h_emove() const {
             return m_h_emove;

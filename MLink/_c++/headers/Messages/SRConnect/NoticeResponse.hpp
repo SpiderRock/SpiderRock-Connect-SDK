@@ -305,6 +305,9 @@ namespace api {
         position_type m_position_type{};
 
         public:
+		sec_key get_sec_key() const {
+            return m_sec_key;
+        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }

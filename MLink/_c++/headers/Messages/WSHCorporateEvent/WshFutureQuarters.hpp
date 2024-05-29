@@ -112,6 +112,9 @@ namespace api {
         source m_source{};
 
         public:
+		ticker get_ticker() const {
+            return m_ticker;
+        }
         source get_source() const {
             return m_source;
         }
