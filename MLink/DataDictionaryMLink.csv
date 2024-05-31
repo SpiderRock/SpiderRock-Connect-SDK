@@ -21,7 +21,7 @@ LiveAtmVol,OptSurface,151,uPrcDriverKey,ExpiryKey,underlier driver key
 LiveAtmVol,OptSurface,154,uPrcDriverType,Enum,underlier driver key type (stock or future)
 LiveAtmVol,OptSurface,157,uPrcDriver,Double,underlier driver (mid-market)
 LiveAtmVol,OptSurface,160,axisFUPrc,Float,forward underlier price;  also at-the-money (xAxis = 0) synthetic strike
-LiveAtmVol,OptSurface,163,spotUPrc,Float,spotUPrc = uPrc if priceType = Equity; spotUPrc != uPrc priceType = Future
+LiveAtmVol,OptSurface,163,synSpot,Double,Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
 LiveAtmVol,OptSurface,166,vWidth,Float,atm volatility market width (estimated from near expiries)
 LiveAtmVol,OptSurface,169,numAtmStrikes,Byte,
 LiveAtmVol,OptSurface,172,tradeableStatus,Enum,indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
@@ -61,7 +61,7 @@ LiveImpliedQuote,OptAnalytics,184,up15,Float,underlier up 15% slide
 LiveImpliedQuote,OptAnalytics,187,dn15,Float,underlier dn 15% slide
 LiveImpliedQuote,OptAnalytics,190,up06,Float,underlier up 6% slide
 LiveImpliedQuote,OptAnalytics,193,dn08,Float,underlier dn 8% slide
-LiveImpliedQuote,OptAnalytics,196,spotUPrc,Float,spot underlier price (same as uPrc when priceType = 'Equity') (note: if Future and spotUPrc is known it will appear here)
+LiveImpliedQuote,OptAnalytics,196,synSpot,Double,Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
 LiveImpliedQuote,OptAnalytics,199,priceType,Enum,Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate
 LiveImpliedQuote,OptAnalytics,202,calcErr,Enum,option pricing calculation error (if any)
 LiveImpliedQuote,OptAnalytics,205,calcSource,Enum,
@@ -100,7 +100,7 @@ LiveImpliedQuoteAdj,OptAnalytics,181,up15,Float,underlier up 15% slide
 LiveImpliedQuoteAdj,OptAnalytics,184,dn15,Float,underlier dn 15% slide
 LiveImpliedQuoteAdj,OptAnalytics,187,up06,Float,underlier up 6% slide
 LiveImpliedQuoteAdj,OptAnalytics,190,dn08,Float,underlier dn 8% slide
-LiveImpliedQuoteAdj,OptAnalytics,193,spotUPrc,Float,spot underlier price (same as uPrc when priceType = 'Equity') (note: if Future and spotUPrc is known it will appear here)
+LiveImpliedQuoteAdj,OptAnalytics,193,synSpot,Double,Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
 LiveImpliedQuoteAdj,OptAnalytics,196,priceType,Enum,Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate
 LiveImpliedQuoteAdj,OptAnalytics,199,calcErr,String,option pricing error (if any)
 LiveImpliedQuoteAdj,OptAnalytics,202,calcSource,Enum,
@@ -130,6 +130,8 @@ LiveSurfaceCurve,OptSurface,154,earnCnt,Float,number of qualifying earnings even
 LiveSurfaceCurve,OptSurface,157,earnCntAdj,Float,number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
 LiveSurfaceCurve,OptSurface,160,axisVolRT,Float,axis volatility x sqrt(years) (used to compute xAxis) [usually 4m atm vol]
 LiveSurfaceCurve,OptSurface,163,axisFUPrc,Float,axis FwdUPrc (fwd underlying price used to compute xAxis)
+LiveSurfaceCurve,OptSurface,164,synSpot,Double,Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+LiveSurfaceCurve,OptSurface,165,synCarry,Double,Synthetic carry rate; corresponds to the relationship between uPrc and synSpot (set when the underlying is not a traded instrument)
 LiveSurfaceCurve,OptSurface,166,atmStrike,Float,synthetic strike with cPrice = pPrice
 LiveSurfaceCurve,OptSurface,169,moneynessType,Enum,moneyness (xAxis) convention
 LiveSurfaceCurve,OptSurface,172,underlierMode,Enum,underlier pricing mode (None=use spot/stock market; FrontMonth=use front month future market * uPrcRatio; Actual = use actual underlier future market)
@@ -285,6 +287,7 @@ LiveSurfaceFixedGrid,OptSurface,193,maxDelta,Float,maximum valid strike delta
 LiveSurfaceFixedGrid,OptSurface,196,timestamp,DateTime,surface fit timestamp
 LiveSurfaceFixedTerm,OptSurface,10,ticker,TickerKey,
 LiveSurfaceFixedTerm,OptSurface,11,surfaceType,Enum,
+LiveSurfaceFixedTerm,OptSurface,50,synSpot,Double,Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
 LiveSurfaceFixedTerm,OptSurface,100,hEMove,Float,expected forward earnings move (average of the last 8-12 underlier earnings moves; w/max clipping)
 LiveSurfaceFixedTerm,OptSurface,103,hEMoveNum,Byte,num historical earnings moves in historical window
 LiveSurfaceFixedTerm,OptSurface,106,hEMoveAvg,Float,avg historical earnings move (last 8-12 underlier earnings moves)
@@ -421,155 +424,37 @@ OptionRiskFactor,OptAnalytics,145,dn03,Float,underlier dn 3% slide
 OptionRiskFactor,OptAnalytics,148,calcErr,String,"option pricing error, otherwise, an empty string."
 OptionRiskFactor,OptAnalytics,151,calcSource,Enum,
 OptionRiskFactor,OptAnalytics,154,timestamp,DateTime,
-SkewBasisCurveV4,OptSurface,10,ticker,TickerKey,
-SkewBasisCurveV4,OptSurface,100,minX,Double,typically: -30
-SkewBasisCurveV4,OptSurface,103,maxX,Double,typically: +30
-SkewBasisCurveV4,OptSurface,106,numPoints,Int,typically: 601  (skew points are 0.10 xAxis pts apart)
-SkewBasisCurveV4,OptSurface,115,timestamp,DateTime,
-SkewBasisCurveV4,OptSurface,109,Point,Repeater,
-SkewBasisCurveV4,OptSurface,112,yy,Double,skew fn value at grid point (usually; yy= 1.0 @ x= 0.0)
-LiveSurfaceCurveV4,OptSurface,10,ekey,ExpiryKey,
-LiveSurfaceCurveV4,OptSurface,11,surfaceType,Enum,
-LiveSurfaceCurveV4,OptSurface,100,ticker,TickerKey,underlying stock key that this option expiration attaches to
-LiveSurfaceCurveV4,OptSurface,103,fkey,ExpiryKey,underlying future key (if any)
-LiveSurfaceCurveV4,OptSurface,106,uPrcDriverKey,ExpiryKey,underlier driver key
-LiveSurfaceCurveV4,OptSurface,109,uPrcDriverType,Enum,underlier driver key type (stock or future)
-LiveSurfaceCurveV4,OptSurface,112,uPrcDriver,Double,underlier driver (mid-market)
-LiveSurfaceCurveV4,OptSurface,115,uPrc,Double,effective uPrc used for surface fitting
-LiveSurfaceCurveV4,OptSurface,118,uBid,Double,effective uBid
-LiveSurfaceCurveV4,OptSurface,121,uAsk,Double,effective uAsk
-LiveSurfaceCurveV4,OptSurface,124,years,Float,time to expiration (in years)
-LiveSurfaceCurveV4,OptSurface,127,rate,Float,average interest rate to expiration (SR global rate curve)
-LiveSurfaceCurveV4,OptSurface,130,sdiv,Float,stock dividend (borrow rate)
-LiveSurfaceCurveV4,OptSurface,133,ddiv,Float,(expected) cumulative discrete dividend $ amounts prior to expiration
-LiveSurfaceCurveV4,OptSurface,136,ddivPv,Float,(expected) cumulative npv of discrete dividend $ amounts prior to expiration (SR global rate curve)
-LiveSurfaceCurveV4,OptSurface,139,ddivSource,Enum,Forecast if any of the dividends prior to expiry are forecast rather than announced
-LiveSurfaceCurveV4,OptSurface,142,symbolRatio,Float,underlier price ratio (usually 1.0 or a multi-hedge option price ratio; if one exists)
-LiveSurfaceCurveV4,OptSurface,145,exType,Enum,exercise type (American or European)
-LiveSurfaceCurveV4,OptSurface,148,modelType,Enum,"option pricing model used for price calcs (Normal, LogNormal, etc.)"
-LiveSurfaceCurveV4,OptSurface,151,priceType,Enum,"Equity has independent sdiv and rate, Future has sdiv = rate"
-LiveSurfaceCurveV4,OptSurface,154,earnCnt,Float,number of qualifying earnings events prior to expiration [can be fractional] (from StockEarningsCalendar)
-LiveSurfaceCurveV4,OptSurface,157,earnCntAdj,Float,number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
-LiveSurfaceCurveV4,OptSurface,160,axisVolRT,Float,axis volatility x sqrt(years) (used to compute xAxis) [usually the minimum curve volatility]
-LiveSurfaceCurveV4,OptSurface,163,axisFUPrc,Float,axis FwdUPrc (fwd underlying price used to compute xAxis)
-LiveSurfaceCurveV4,OptSurface,166,moneynessType,Enum,moneyness (xAxis) convention
-LiveSurfaceCurveV4,OptSurface,169,priceQuoteType,Enum,Price or Vol
-LiveSurfaceCurveV4,OptSurface,172,atmVol,Float,atm vol (xAxis = 0)
-LiveSurfaceCurveV4,OptSurface,175,atmCen,Float,atm vol (xAxis = 0) (eMove/earnCntAdj censored)
-LiveSurfaceCurveV4,OptSurface,178,atmVolHist,Float,historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
-LiveSurfaceCurveV4,OptSurface,181,atmCenHist,Float,censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
-LiveSurfaceCurveV4,OptSurface,184,eMove,Float,implied earnings move (from LiveSurfaceTerm)
-LiveSurfaceCurveV4,OptSurface,187,eMoveHist,Float,historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
-LiveSurfaceCurveV4,OptSurface,190,uPrcRatio,Double,uPrcAdj = uPrc * uPrcRatioFit
-LiveSurfaceCurveV4,OptSurface,193,minAtmVol,Float,minimum estimated atm vol
-LiveSurfaceCurveV4,OptSurface,196,maxAtmVol,Float,maximum estimated atm vol
-LiveSurfaceCurveV4,OptSurface,199,minCPAdjVal,Double,minimum cpAdjVal (sdiv or uPrcRatio)
-LiveSurfaceCurveV4,OptSurface,202,maxCPAdjVal,Double,minimum cpAdjVal (sdiv or uPrcRatio)
-LiveSurfaceCurveV4,OptSurface,205,atmFixedMove,Float,fixed strike atm move from prior period
-LiveSurfaceCurveV4,OptSurface,208,atmPhi,Float,surface phi @ xAxis = 0
-LiveSurfaceCurveV4,OptSurface,211,atmRho,Float,surface rho @ xAxis = 0
-LiveSurfaceCurveV4,OptSurface,214,atmVega,Float,surface vega @ xAxis = 0
-LiveSurfaceCurveV4,OptSurface,217,slope,Float,volatility surface slope (dVol / dXAxis) @ ATM (xAxis=0)
-LiveSurfaceCurveV4,OptSurface,220,varSwapFV,Float,variance swap fair value (estimated by numerical integration over OTM price surface)
-LiveSurfaceCurveV4,OptSurface,223,minXAxis,Float,minimum xAxis value; left most point with a valid supporting strike
-LiveSurfaceCurveV4,OptSurface,226,maxXAxis,Float,maximum xAxis value; right most point with a valid supporting strike
-LiveSurfaceCurveV4,OptSurface,229,skewTicker,TickerKey,references a SkewBasisCurve record
-LiveSurfaceCurveV4,OptSurface,232,xShift,Double,
-LiveSurfaceCurveV4,OptSurface,235,xMult,Double,
-LiveSurfaceCurveV4,OptSurface,238,skewMult,Double,SVOL = skewMult * BasisSkewFn(xShift + xMult * xAxis) + IVolBias(xAxis)
-LiveSurfaceCurveV4,OptSurface,241,skewC00,Float,curve coeff[0]
-LiveSurfaceCurveV4,OptSurface,244,skewC01,Float,curve coeff[1]
-LiveSurfaceCurveV4,OptSurface,247,skewC02,Float,
-LiveSurfaceCurveV4,OptSurface,250,skewC03,Float,
-LiveSurfaceCurveV4,OptSurface,253,skewC04,Float,
-LiveSurfaceCurveV4,OptSurface,256,skewC05,Float,
-LiveSurfaceCurveV4,OptSurface,259,skewC06,Float,
-LiveSurfaceCurveV4,OptSurface,262,skewC07,Float,
-LiveSurfaceCurveV4,OptSurface,265,skewC08,Float,
-LiveSurfaceCurveV4,OptSurface,268,skewC09,Float,
-LiveSurfaceCurveV4,OptSurface,271,skewC10,Float,
-LiveSurfaceCurveV4,OptSurface,274,skewC11,Float,
-LiveSurfaceCurveV4,OptSurface,277,skewC12,Float,
-LiveSurfaceCurveV4,OptSurface,280,skewC13,Float,
-LiveSurfaceCurveV4,OptSurface,283,skewC14,Float,
-LiveSurfaceCurveV4,OptSurface,286,skewC15,Float,
-LiveSurfaceCurveV4,OptSurface,289,skewC16,Float,
-LiveSurfaceCurveV4,OptSurface,292,skewC17,Float,
-LiveSurfaceCurveV4,OptSurface,295,skewC18,Float,
-LiveSurfaceCurveV4,OptSurface,298,skewC19,Float,
-LiveSurfaceCurveV4,OptSurface,301,skewC20,Float,
-LiveSurfaceCurveV4,OptSurface,304,skewC21,Float,
-LiveSurfaceCurveV4,OptSurface,307,skewC22,Float,
-LiveSurfaceCurveV4,OptSurface,310,skewC23,Float,
-LiveSurfaceCurveV4,OptSurface,313,skewC24,Float,
-LiveSurfaceCurveV4,OptSurface,316,skewC25,Float,
-LiveSurfaceCurveV4,OptSurface,319,skewC26,Float,
-LiveSurfaceCurveV4,OptSurface,322,skewC27,Float,
-LiveSurfaceCurveV4,OptSurface,325,skewC28,Float,
-LiveSurfaceCurveV4,OptSurface,328,skewC29,Float,
-LiveSurfaceCurveV4,OptSurface,331,skewC30,Float,
-LiveSurfaceCurveV4,OptSurface,334,cpAdjD04,Float,xAxis = -4.0
-LiveSurfaceCurveV4,OptSurface,337,cpAdjD03,Float,xAxis = -3.0
-LiveSurfaceCurveV4,OptSurface,340,cpAdjD02,Float,xAxis = -2.0
-LiveSurfaceCurveV4,OptSurface,343,cpAdjD01,Float,xAxis = -1.0
-LiveSurfaceCurveV4,OptSurface,346,cpAdjU01,Float,xAxis = +1.0
-LiveSurfaceCurveV4,OptSurface,349,cpAdjU02,Float,xAxis = +2.0
-LiveSurfaceCurveV4,OptSurface,352,cpAdjU03,Float,xAxis = +3.0
-LiveSurfaceCurveV4,OptSurface,355,cpAdjU04,Float,xAxis = +4.0
-LiveSurfaceCurveV4,OptSurface,358,pwidth,Float,minimum mkt premium width
-LiveSurfaceCurveV4,OptSurface,361,vwidth,Float,minimum mkt volatility width
-LiveSurfaceCurveV4,OptSurface,364,cCnt,Byte,num call strikes in base fit
-LiveSurfaceCurveV4,OptSurface,367,pCnt,Byte,num put strikes in base fit
-LiveSurfaceCurveV4,OptSurface,370,cBidMiss,Byte,number of call bid violations (surface outside the market)
-LiveSurfaceCurveV4,OptSurface,373,cAskMiss,Byte,number of call ask violations (surface outside the market)
-LiveSurfaceCurveV4,OptSurface,376,pBidMiss,Byte,number of put bid violations
-LiveSurfaceCurveV4,OptSurface,379,pAskMiss,Byte,number of put ask violations
-LiveSurfaceCurveV4,OptSurface,382,fitAvgErr,Float,average error (sPrc - midPrc)
-LiveSurfaceCurveV4,OptSurface,385,fitAvgAbsErr,Float,average absolute error (sPrc - midPrc)
-LiveSurfaceCurveV4,OptSurface,388,fitMaxPrcErr,Float,worst case surface premium violation
-LiveSurfaceCurveV4,OptSurface,391,fitErrXX,Float,okey_xx of the option with the largest fit error in this expiration
-LiveSurfaceCurveV4,OptSurface,394,fitErrCP,Enum,okey_cp of the option with the largest fit error in this expiration
-LiveSurfaceCurveV4,OptSurface,397,fitErrDe,Float,delta of fixErrXX
-LiveSurfaceCurveV4,OptSurface,400,fitErrBid,Float,bid of the option with the largest fit error
-LiveSurfaceCurveV4,OptSurface,403,fitErrAsk,Float,ask of the option with the largest fit error
-LiveSurfaceCurveV4,OptSurface,406,fitErrPrc,Float,surface prc of the option with the largest fit error
-LiveSurfaceCurveV4,OptSurface,409,fitErrVol,Float,surface vol of the option with the largest fit error
-LiveSurfaceCurveV4,OptSurface,412,numSaddlePts,Byte,number of saddle points
-LiveSurfaceCurveV4,OptSurface,415,minSaddleSpan,Float,smallest distance between saddle points
-LiveSurfaceCurveV4,OptSurface,418,maxSaddleCurvature,Float,maximum saddle point curvature
-LiveSurfaceCurveV4,OptSurface,421,marketSession,Enum,market session this surface is from
-LiveSurfaceCurveV4,OptSurface,424,tradeableStatus,Enum,indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
-LiveSurfaceCurveV4,OptSurface,427,surfaceResult,Enum,
-LiveSurfaceCurveV4,OptSurface,430,timestamp,DateTime,
-LiveAtmVolV4,OptSurface,10,ekey,ExpiryKey,
-LiveAtmVolV4,OptSurface,100,ticker,TickerKey,underlying tickerKey (stock or product group) that this option expiration is associated with
-LiveAtmVolV4,OptSurface,103,uPrc,Double,effective underlier price
-LiveAtmVolV4,OptSurface,106,years,Float,SR years to expiry metric
-LiveAtmVolV4,OptSurface,109,rate,Float,average expected interest rate to expiry (SR global rate curve)
-LiveAtmVolV4,OptSurface,112,ddiv,Float,(expected) cumulative discrete dividend $ amounts prior to expiration (if any)
-LiveAtmVolV4,OptSurface,115,ddivPv,Float,(expected) cumulative npv of discrete dividend $ amounts prior to expiration (SR global rate curve) (if any)
-LiveAtmVolV4,OptSurface,118,ddivSource,Enum,Forecast if any of the dividends prior to expiry are forecast rather than announced
-LiveAtmVolV4,OptSurface,121,atmVol,Float,atm vol (xAxis = 0)
-LiveAtmVolV4,OptSurface,124,atmEMA,Float,atm vol exp moving average (half-life ~ 30 seconds)
-LiveAtmVolV4,OptSurface,127,uPrcRatio,Double,uPrc = uPrcDriver * uPrcRatio (when priceType = Future); uPrc = uPrcDriver (when priceType = Equity)
-LiveAtmVolV4,OptSurface,130,uPrcRatioEMA,Double,time smoothed implied uPrcRatio (half-life ~ 30 seconds)
-LiveAtmVolV4,OptSurface,133,sdiv,Float,stock dividend (borrow rate) (derived from call/put balance when priceType=Stock; =rate otherwise)
-LiveAtmVolV4,OptSurface,136,sdivEMA,Float,sdiv exp moving average (half-life ~ 30 seconds)
-LiveAtmVolV4,OptSurface,139,minCPAdjVal,Double,minimum cpAdjVal (sdiv or uPrcRatio)
-LiveAtmVolV4,OptSurface,142,maxCPAdjVal,Double,minimum cpAdjVal (sdiv or uPrcRatio)
-LiveAtmVolV4,OptSurface,145,cpAdjType,Enum,adjustment used to align calls/puts
-LiveAtmVolV4,OptSurface,148,priceType,Enum,[Equity] has independent uPrc and rate with sdiv derived from call/put balance; [Future] has sdiv = rate with uPrc' derived from call/put balance
-LiveAtmVolV4,OptSurface,151,uPrcDriverKey,ExpiryKey,underlier driver key
-LiveAtmVolV4,OptSurface,154,uPrcDriverType,Enum,underlier driver key type (stock or future)
-LiveAtmVolV4,OptSurface,157,uPrcDriver,Double,underlier driver (mid-market)
-LiveAtmVolV4,OptSurface,160,axisFUPrc,Float,forward underlier price;  also at-the-money (xAxis = 0) synthetic strike
-LiveAtmVolV4,OptSurface,163,spotUPrc,Double,spotUPrc = uPrc if priceType = Equity; spotUPrc != uPrc priceType = Future
-LiveAtmVolV4,OptSurface,166,vWidth,Float,atm volatility market width (estimated from near expiries)
-LiveAtmVolV4,OptSurface,169,numAtmStrikes,Byte,
-LiveAtmVolV4,OptSurface,172,tradeableStatus,Enum,indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
-LiveAtmVolV4,OptSurface,175,surfaceResult,Enum,
-LiveAtmVolV4,OptSurface,178,netTimestamp,Long,most recent unix timestamp (all option quotes)
-LiveAtmVolV4,OptSurface,181,timestamp,DateTime,
+LiveRevConQuote,OptAnalytics,10,okey,OptionKey,cp = Both
+LiveRevConQuote,OptAnalytics,11,tradeDate,DateKey,
+LiveRevConQuote,OptAnalytics,100,ticker,TickerKey,SR Ticker (Product Group)
+LiveRevConQuote,OptAnalytics,101,xAxis,Float,xAxis = Moneyness
+LiveRevConQuote,OptAnalytics,102,cDe,Float,call delta
+LiveRevConQuote,OptAnalytics,103,pDe,Float,put delta
+LiveRevConQuote,OptAnalytics,104,uPrc,Double,live underlier price
+LiveRevConQuote,OptAnalytics,105,atmVol,Float,
+LiveRevConQuote,OptAnalytics,106,years,Float,number of volatility years to exiry date (volatility time metric)
+LiveRevConQuote,OptAnalytics,107,globalRate,Float,global rate (average discount rate) to expiry date
+LiveRevConQuote,OptAnalytics,108,ddiv,Float,sum of estimated discrete dividend stream to expiry date
+LiveRevConQuote,OptAnalytics,109,ddivPv,Float,present value of estimated discrete dividend stream to expiry date
+LiveRevConQuote,OptAnalytics,110,ddivSource,Enum,present value of estimated discrete dividend stream to expiry date
+LiveRevConQuote,OptAnalytics,111,iDays,Int,number of interest (calendar) days to expiry
+LiveRevConQuote,OptAnalytics,112,strikePv,Float,strike * EXP(-globalRate * iDays / 365)
+LiveRevConQuote,OptAnalytics,113,fairSVol,Float,call/put surface volatility value
+LiveRevConQuote,OptAnalytics,114,fairSDiv,Float,call/put surface alignment sdiv value
+LiveRevConQuote,OptAnalytics,115,fairCallPrc,Float,"fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)"
+LiveRevConQuote,OptAnalytics,116,fairCallPrcE,Float,"fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)"
+LiveRevConQuote,OptAnalytics,117,fairPutPrc,Float,"fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)"
+LiveRevConQuote,OptAnalytics,118,fairPutPrcE,Float,"fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)"
+LiveRevConQuote,OptAnalytics,119,rcFairPrc,Float,uPrc + fairPutPrc - fairCallPrc - strike  (revCon fairMid price)
+LiveRevConQuote,OptAnalytics,120,rcEExPrem,Float,(fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
+LiveRevConQuote,OptAnalytics,121,fairLoanPv,Float,uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)
+LiveRevConQuote,OptAnalytics,122,fairLoanRate,Float,(fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)
+LiveRevConQuote,OptAnalytics,123,rcBidLoanPv,Float,uPrc - callAsk + putBid - strikePv - ddivPv - rcEExPrem (best way) (join markets)
+LiveRevConQuote,OptAnalytics,124,rcAskLoanPv,Float,uPrc - callBid + putAsk - strikePv - ddivPv - rcEExPrem (worst way) (cross markets)
+LiveRevConQuote,OptAnalytics,125,calcError,String,
+LiveRevConQuote,OptAnalytics,126,cpOI,Int,c/p open interest (market) [upper bound]
+LiveRevConQuote,OptAnalytics,127,cpVlm,Int,c/p print volume (this exchange) [upper bound]
+LiveRevConQuote,OptAnalytics,128,timestamp,DateTime,last update time (Date)
 FutureMinuteBar,FutSummaryData,10,fkey,ExpiryKey,
 FutureMinuteBar,FutSummaryData,100,date,String,Trade Date
 FutureMinuteBar,FutSummaryData,103,time,String,Trade Time end of period (Bar)
@@ -614,6 +499,62 @@ StockMinuteBar,EqtSummaryData,151,width,Float,Bid/ask spread
 StockMinuteBar,EqtSummaryData,154,isEOB,Enum,is end-of-bar (every 10 minutes)
 StockMinuteBar,EqtSummaryData,157,isEOH,Enum,is end-of-hour
 StockMinuteBar,EqtSummaryData,160,timestamp,DateTime,same as date + time
+UserAuctionFilter,SRConnect,10,userName,String,
+UserAuctionFilter,SRConnect,11,filterName,String,
+UserAuctionFilter,SRConnect,100,clientFirm,String,client firm of the user this filter belongs to
+UserAuctionFilter,SRConnect,151,disabled,Enum,
+UserAuctionFilter,SRConnect,114,includeCovered,Enum,must match if not None
+UserAuctionFilter,SRConnect,115,includeETFs,Enum,must match if not None
+UserAuctionFilter,SRConnect,116,includeADRs,Enum,must match if not None
+UserAuctionFilter,SRConnect,117,includeIndexes,Enum,must match if not None
+UserAuctionFilter,SRConnect,118,minUPrc,Float,min underlier price
+UserAuctionFilter,SRConnect,119,hasUAvgDailyVlmFilter,Enum,"if Yes use fields: minUAvgDailyVlm, maxUAvgDailyVlm"
+UserAuctionFilter,SRConnect,120,minUAvgDailyVlm,Float,min underlier avg daily volume (in $1mm increments)
+UserAuctionFilter,SRConnect,121,maxUAvgDailyVlm,Float,max underlier avg daily volume (in $1mm increments)
+UserAuctionFilter,SRConnect,122,minSize,Float,min order size (no decimals)
+UserAuctionFilter,SRConnect,152,minAbsVega,Float,min absolute vega (no decimals)
+UserAuctionFilter,SRConnect,124,hasAbsDeltaFilter,Enum,"if Yes use fields: minAbsDelta, maxAbsDelta"
+UserAuctionFilter,SRConnect,125,minAbsDelta,Float,min absolute delta
+UserAuctionFilter,SRConnect,126,maxAbsDelta,Float,max absolute delta
+UserAuctionFilter,SRConnect,127,hasXDeltaFilter,Enum,"if Yes use fields: minXDelta, maxXDelta"
+UserAuctionFilter,SRConnect,128,minXDelta,Float,
+UserAuctionFilter,SRConnect,129,maxXDelta,Float,
+UserAuctionFilter,SRConnect,130,hasAtmSVolFilter,Enum,"if Yes use fields: minAtmSVol, maxAtmSVol"
+UserAuctionFilter,SRConnect,131,minAtmSVol,Float,
+UserAuctionFilter,SRConnect,132,maxAtmSVol,Float,
+UserAuctionFilter,SRConnect,133,hasAtmSDivFilter,Enum,"if Yes use fields: minAtmSDiv, maxAtmSDiv"
+UserAuctionFilter,SRConnect,134,minAtmSDiv,Float,
+UserAuctionFilter,SRConnect,135,maxAtmSDiv,Float,
+UserAuctionFilter,SRConnect,136,hasExpiryDays,Enum,"if Yes use fields: minExpiryDays, maxExpiryDays"
+UserAuctionFilter,SRConnect,137,minExpiryDays,Int,min days to expiration
+UserAuctionFilter,SRConnect,138,maxExpiryDays,Int,max days to expiration
+UserAuctionFilter,SRConnect,139,includeZDte,Enum,must match if not None
+UserAuctionFilter,SRConnect,140,includeDaily,Enum,must match if not None
+UserAuctionFilter,SRConnect,141,includeWeekly,Enum,must match if not None
+UserAuctionFilter,SRConnect,142,includeRegular,Enum,must match if not None
+UserAuctionFilter,SRConnect,143,includeQuarterly,Enum,must match if not None
+UserAuctionFilter,SRConnect,153,includeLongTerm,Enum,must match if not None
+UserAuctionFilter,SRConnect,154,includeOtherExp,Enum,must match if not None
+UserAuctionFilter,SRConnect,144,includeFlex,Enum,must match if not None
+UserAuctionFilter,SRConnect,156,includeDirected,Enum,must match if not None
+UserAuctionFilter,SRConnect,145,includeCommPaying,Enum,must match if not None
+UserAuctionFilter,SRConnect,146,direction,Enum,must match if not None (Buy = Buy Regular or Sell Flipped) (Buy = cust is buying)
+UserAuctionFilter,SRConnect,155,netVegaDirection,Enum,must match if not None (Buy = cust is buying net vega)
+UserAuctionFilter,SRConnect,148,modifiedBy,String,
+UserAuctionFilter,SRConnect,149,modifiedIn,Enum,
+UserAuctionFilter,SRConnect,150,timestamp,DateTime,
+UserAuctionFilter,SRConnect,112,AuctionSources,Repeater,
+UserAuctionFilter,SRConnect,113,auctionSource,Enum,
+UserAuctionFilter,SRConnect,110,AuctionTypes,Repeater,
+UserAuctionFilter,SRConnect,111,auctionType,Enum,
+UserAuctionFilter,SRConnect,106,ExcludeTicker,Repeater,
+UserAuctionFilter,SRConnect,107,ticker,TickerKey,
+UserAuctionFilter,SRConnect,104,IncludeTicker,Repeater,
+UserAuctionFilter,SRConnect,105,ticker,TickerKey,
+UserAuctionFilter,SRConnect,102,Industry,Repeater,
+UserAuctionFilter,SRConnect,103,industry,String,industry string prefix (must match left edge)
+UserAuctionFilter,SRConnect,108,SpreadClass,Repeater,
+UserAuctionFilter,SRConnect,109,spreadClass,Enum,
 StockEarningsCalendar_Extern,GlobalDefinition,10,ticker,TickerKey,
 StockEarningsCalendar_Extern,GlobalDefinition,11,source,Enum,Live=currentEarningsDate; priorDay=previousEarningsDate
 StockEarningsCalendar_Extern,GlobalDefinition,100,eMoveHist,Float,historical average (trailing 8) earnings moves prior to today
@@ -633,6 +574,614 @@ StockEarningsCalendar_Extern,GlobalDefinition,139,low,Float,low price (on moveDa
 StockEarningsCalendar_Extern,GlobalDefinition,142,close,Float,close price (on moveDate)
 StockEarningsCalendar_Extern,GlobalDefinition,145,moveDate,DateKey,date corresponding to larger daily change (OHLC data taken from the same date or the date following each earnings announcement)
 StockEarningsCalendar_Extern,GlobalDefinition,148,hEMove,Float,historical average (trailing 8) earnings moves prior to announcement (historical only)
+AuctionState,SRConnect,10,noticeNumber,Long,
+AuctionState,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionState,SRConnect,101,tradeDate,DateKey,
+AuctionState,SRConnect,102,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionState,SRConnect,103,auctionType,Enum,
+AuctionState,SRConnect,104,blockAuctionCounter,Int,
+AuctionState,SRConnect,105,blockAuctionStatus,Enum,"Active,FinalTrial,Crossing,Crossed,CrossFailed,Closed"
+AuctionState,SRConnect,106,custSide,Enum,if available
+AuctionState,SRConnect,107,custQty,Int,
+AuctionState,SRConnect,108,custPrc,Double,public cust price
+AuctionState,SRConnect,109,hasCustPrc,Enum,
+AuctionState,SRConnect,110,uBid,Float,underlier bid price (used to resolve limits during the last auction trial)
+AuctionState,SRConnect,111,uAsk,Float,underlier ask price (used to resolve limits during the last auction trial)
+AuctionState,SRConnect,112,nbboBid,Float,current option nbbo bid (at time of record publish)
+AuctionState,SRConnect,113,nbboAsk,Float,current option nbbo ask (at time of record publish)
+AuctionState,SRConnect,114,nbboBidSz,Int,current option nbbo cum bid size (at time of record publish)
+AuctionState,SRConnect,115,nbboAskSz,Int,current option nbbo cum ask size (at time of record publish)
+AuctionState,SRConnect,116,surfacePrc,Float,SR surface price @ record publish (uMid)
+AuctionState,SRConnect,117,surfaceVol,Float,SR surface volatility @ record publish
+AuctionState,SRConnect,126,timestamp,DateTime,SR system timestamp (record publish)
+AuctionState,SRConnect,122,AskSolution,Repeater,
+AuctionState,SRConnect,123,numResponders,Byte,
+AuctionState,SRConnect,124,matchPrice,Double,current auction cross price (in exchange price increments)
+AuctionState,SRConnect,125,matchSize,Int,current auction size available @ match price
+AuctionState,SRConnect,118,BidSolution,Repeater,
+AuctionState,SRConnect,119,numResponders,Byte,
+AuctionState,SRConnect,120,matchPrice,Double,current auction cross price (in exchange price increments)
+AuctionState,SRConnect,121,matchSize,Int,current auction size available @ match price
+AuctionNotice,SRConnect,11,noticeNumber,Long,
+AuctionNotice,SRConnect,107,ticker,TickerKey,underlier ticker
+AuctionNotice,SRConnect,106,tradeDate,DateKey,
+AuctionNotice,SRConnect,104,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionNotice,SRConnect,105,shortCode,String,8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+AuctionNotice,SRConnect,100,auctionType,Enum,
+AuctionNotice,SRConnect,101,auctionEvent,Enum,
+AuctionNotice,SRConnect,169,srcAuctionID,String,auction ID as known by the auction source (empty for SRC)
+AuctionNotice,SRConnect,170,srcAuctionType,String,
+AuctionNotice,SRConnect,103,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionNotice,SRConnect,108,industry,Text1,industry string
+AuctionNotice,SRConnect,109,symbolType,Enum,
+AuctionNotice,SRConnect,110,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionNotice,SRConnect,111,custSide,Enum,if available
+AuctionNotice,SRConnect,112,custQty,Int,
+AuctionNotice,SRConnect,113,custPrc,Double,public cust price
+AuctionNotice,SRConnect,114,hasCustPrc,Enum,
+AuctionNotice,SRConnect,162,custFirmType,Enum,cust firm type (if disclosed)
+AuctionNotice,SRConnect,163,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionNotice,SRConnect,115,custClientFirm,String,cust client firm (if disclosed)
+AuctionNotice,SRConnect,116,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionNotice,SRConnect,117,custCommPaying,Enum,client is commission paying (to the responder)
+AuctionNotice,SRConnect,118,custQtyCond,Enum,"UpToQty, AllOrNone, QtyOrMore"
+AuctionNotice,SRConnect,119,auctionDuration,Int,[expected] auction duration (in milliseconds)
+AuctionNotice,SRConnect,120,numOptLegs,Byte,MLEG Only
+AuctionNotice,SRConnect,121,spreadClass,Enum,
+AuctionNotice,SRConnect,171,limitType,Enum,
+AuctionNotice,SRConnect,122,spreadFlavor,Enum,MLEG Only
+AuctionNotice,SRConnect,123,containsHedge,Enum,MLEG Only
+AuctionNotice,SRConnect,164,containsFlex,Enum,contains FLEX options (not regular listed options)
+AuctionNotice,SRConnect,165,containsMultiHedge,Enum,contains MultiHedge (corp action adjusted) options
+AuctionNotice,SRConnect,124,uBid,Double,
+AuctionNotice,SRConnect,125,uAsk,Double,
+AuctionNotice,SRConnect,172,netDe,Float,
+AuctionNotice,SRConnect,173,netGa,Float,
+AuctionNotice,SRConnect,174,netTh,Float,
+AuctionNotice,SRConnect,175,netVe,Float,
+AuctionNotice,SRConnect,176,pkgSurfPrc,Float,SR Surface Price (entire package)
+AuctionNotice,SRConnect,177,pkgBidPrc,Float,leg market best way price (pkg bid)
+AuctionNotice,SRConnect,178,pkgAskPrc,Float,leg market worst way price (pkg ask)
+AuctionNotice,SRConnect,179,pointValue,Double,money settlement value of one (1.0) point of option premium/strike
+AuctionNotice,SRConnect,180,srcTimestamp,Long,
+AuctionNotice,SRConnect,181,netTimestamp,Long,
+AuctionNotice,SRConnect,166,timestamp,DateTime,from ats / exchange net timestamp if possible
+AuctionNotice,SRConnect,157,includeSRNetwork,Enum,
+AuctionNotice,SRConnect,158,DirectedCounterParty,Repeater,
+AuctionNotice,SRConnect,159,clientFirm,String,
+AuctionNotice,SRConnect,160,inclExcl,Enum,
+AuctionNotice,SRConnect,161,isCommPaying,Enum,
+AuctionNotice,SRConnect,131,OrderLegs,Repeater,
+AuctionNotice,SRConnect,132,secKey,OptionKey,
+AuctionNotice,SRConnect,133,secType,Enum,
+AuctionNotice,SRConnect,134,side,Enum,
+AuctionNotice,SRConnect,135,ratio,UShort,
+AuctionNotice,SRConnect,136,undPerCn,Int,
+AuctionNotice,SRConnect,137,pointValue,Float,
+AuctionNotice,SRConnect,138,expType,Enum,"ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp"
+AuctionNotice,SRConnect,139,years,Float,SR volatility years to expiry
+AuctionNotice,SRConnect,140,rate,Float,SR global (discount) rate to expiry
+AuctionNotice,SRConnect,141,atmVol,Float,ATM (fwd uPrc) SR surface volatility
+AuctionNotice,SRConnect,142,ddivPv,Float,SR present value of ddiv stream
+AuctionNotice,SRConnect,143,tVol,Float,client theo surface volatility (if client surfaces uploaded to SR)
+AuctionNotice,SRConnect,144,sVol,Float,SR Surface Volatility
+AuctionNotice,SRConnect,145,sDiv,Float,SR Surface SDiv
+AuctionNotice,SRConnect,146,sPrc,Float,SR Surface Price
+AuctionNotice,SRConnect,147,de,Float,
+AuctionNotice,SRConnect,148,ga,Float,
+AuctionNotice,SRConnect,149,th,Float,
+AuctionNotice,SRConnect,150,ve,Float,
+AuctionNotice,SRConnect,168,sVolOk,Enum,Yes if live market and sVol are tracking as expected
+AuctionNotice,SRConnect,151,oBid,Float,NBBO bid price
+AuctionNotice,SRConnect,152,oBidSz,Int,cumulative NBBO bid size
+AuctionNotice,SRConnect,153,oBidMask,UInt,bit-mask of participating NBBO exchanges
+AuctionNotice,SRConnect,154,oAsk,Float,NBBO ask price
+AuctionNotice,SRConnect,155,oAskSz,Int,cumulative NBBO ask size
+AuctionNotice,SRConnect,156,oAskMask,UInt,bit-mask of participating NBBO exchanges
+AuctionNoticeRC,SRConnect,10,noticeNumber,Long,
+AuctionNoticeRC,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionNoticeRC,SRConnect,101,tradeDate,DateKey,
+AuctionNoticeRC,SRConnect,102,auctionType,Enum,
+AuctionNoticeRC,SRConnect,103,auctionEvent,Enum,
+AuctionNoticeRC,SRConnect,104,srcAuctionID,String,auction ID as known by the auction source (empty for SRC)
+AuctionNoticeRC,SRConnect,105,srcAuctionType,String,
+AuctionNoticeRC,SRConnect,106,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionNoticeRC,SRConnect,107,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionNoticeRC,SRConnect,108,containsFlex,Enum,Flex = European
+AuctionNoticeRC,SRConnect,109,shortCode,String,8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+AuctionNoticeRC,SRConnect,110,industry,Text1,industry string
+AuctionNoticeRC,SRConnect,111,symbolType,Enum,
+AuctionNoticeRC,SRConnect,112,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionNoticeRC,SRConnect,113,root,TickerKey,option root  (+C/-P/-U)
+AuctionNoticeRC,SRConnect,114,expiry,DateKey,
+AuctionNoticeRC,SRConnect,115,strike,Double,rev/con strike
+AuctionNoticeRC,SRConnect,116,custSide,Enum,if available
+AuctionNoticeRC,SRConnect,117,custQty,Int,
+AuctionNoticeRC,SRConnect,118,custPrc,Double,public cust price
+AuctionNoticeRC,SRConnect,119,hasCustPrc,Enum,
+AuctionNoticeRC,SRConnect,120,custFirmType,Enum,cust firm type (if disclosed)
+AuctionNoticeRC,SRConnect,121,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionNoticeRC,SRConnect,122,custClientFirm,String,cust client firm (if disclosed)
+AuctionNoticeRC,SRConnect,123,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionNoticeRC,SRConnect,124,custCommPaying,Enum,client is commission paying (to the responder)
+AuctionNoticeRC,SRConnect,125,custQtyCond,Enum,"UpToQty, AllOrNone, QtyOrMore"
+AuctionNoticeRC,SRConnect,126,auctionDuration,Int,[expected] auction duration (in milliseconds)
+AuctionNoticeRC,SRConnect,127,uBid,Double,live stock price
+AuctionNoticeRC,SRConnect,128,uAsk,Double,
+AuctionNoticeRC,SRConnect,129,iDays,Double,iDays = effective interest days [SR supplied]
+AuctionNoticeRC,SRConnect,130,iYears,Double,iYears = iDays / 360.0
+AuctionNoticeRC,SRConnect,131,moneyRate,Double,effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+AuctionNoticeRC,SRConnect,132,ddivPv,Double,present value of any expected dividends to expiry [SR Supplied Estimate]
+AuctionNoticeRC,SRConnect,133,hasEstDDivs,Enum,Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+AuctionNoticeRC,SRConnect,134,sVol,Double,surface volatility for rev/con strike [SR Supplied Estimate]
+AuctionNoticeRC,SRConnect,135,rcEExPrem,Double,rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+AuctionNoticeRC,SRConnect,136,strikePv,Double,strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+AuctionNoticeRC,SRConnect,137,effStockLendPv,Double,effStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]
+AuctionNoticeRC,SRConnect,138,effStockRate,Double,effStockRate = effStockLendPv / (uMid * iYears) [if cust price is visible]
+AuctionNoticeRC,SRConnect,139,srcTimestamp,Long,
+AuctionNoticeRC,SRConnect,140,netTimestamp,Long,
+AuctionNoticeRC,SRConnect,141,timestamp,DateTime,from ats / exchange net timestamp if possible
+AuctionNoticeRC,SRConnect,142,includeSRNetwork,Enum,
+AuctionNoticeRC,SRConnect,143,DirectedCounterParty,Repeater,
+AuctionNoticeRC,SRConnect,144,clientFirm,String,
+AuctionNoticeRC,SRConnect,145,inclExcl,Enum,
+AuctionNoticeRC,SRConnect,146,isCommPaying,Enum,
+AuctionNoticeSN,SRConnect,10,noticeNumber,Long,
+AuctionNoticeSN,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionNoticeSN,SRConnect,101,tradeDate,DateKey,
+AuctionNoticeSN,SRConnect,102,auctionType,Enum,
+AuctionNoticeSN,SRConnect,103,auctionEvent,Enum,
+AuctionNoticeSN,SRConnect,104,srcAuctionID,String,auction ID as known by the auction source (empty for SRC)
+AuctionNoticeSN,SRConnect,105,srcAuctionType,String,
+AuctionNoticeSN,SRConnect,106,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionNoticeSN,SRConnect,107,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionNoticeSN,SRConnect,108,containsFlex,Enum,Flex = European
+AuctionNoticeSN,SRConnect,109,shortCode,String,8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+AuctionNoticeSN,SRConnect,110,industry,Text1,industry string
+AuctionNoticeSN,SRConnect,111,symbolType,Enum,
+AuctionNoticeSN,SRConnect,112,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionNoticeSN,SRConnect,113,root,TickerKey,option root (+C/-P)
+AuctionNoticeSN,SRConnect,114,expiry,DateKey,
+AuctionNoticeSN,SRConnect,115,strike,Double,strike
+AuctionNoticeSN,SRConnect,116,custSide,Enum,if available
+AuctionNoticeSN,SRConnect,117,custQty,Int,
+AuctionNoticeSN,SRConnect,118,custPrc,Double,public cust price
+AuctionNoticeSN,SRConnect,119,hasCustPrc,Enum,
+AuctionNoticeSN,SRConnect,120,custFirmType,Enum,cust firm type (if disclosed)
+AuctionNoticeSN,SRConnect,121,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionNoticeSN,SRConnect,122,custClientFirm,String,cust client firm (if disclosed)
+AuctionNoticeSN,SRConnect,123,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionNoticeSN,SRConnect,124,custCommPaying,Enum,client is commission paying (to the responder)
+AuctionNoticeSN,SRConnect,125,custQtyCond,Enum,"UpToQty, AllOrNone, QtyOrMore"
+AuctionNoticeSN,SRConnect,126,auctionDuration,Int,[expected] auction duration (in milliseconds)
+AuctionNoticeSN,SRConnect,127,uBid,Double,live stock price
+AuctionNoticeSN,SRConnect,128,uAsk,Double,
+AuctionNoticeSN,SRConnect,129,iDays,Double,iDays = effective interest days [SR supplied]
+AuctionNoticeSN,SRConnect,130,iYears,Double,iYears = iDays / 360.0
+AuctionNoticeSN,SRConnect,131,moneyRate,Double,effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+AuctionNoticeSN,SRConnect,132,ddivPv,Double,present value of any expected dividends to expiry [SR Supplied Estimate]
+AuctionNoticeSN,SRConnect,133,hasEstDDivs,Enum,Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+AuctionNoticeSN,SRConnect,134,sVol,Double,surface volatility for rev/con strike [SR Supplied Estimate]
+AuctionNoticeSN,SRConnect,135,rcEExPrem,Double,rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+AuctionNoticeSN,SRConnect,136,strikePv,Double,strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+AuctionNoticeSN,SRConnect,137,srcTimestamp,Long,
+AuctionNoticeSN,SRConnect,138,netTimestamp,Long,
+AuctionNoticeSN,SRConnect,139,timestamp,DateTime,from ats / exchange net timestamp if possible
+AuctionNoticeSN,SRConnect,140,includeSRNetwork,Enum,
+AuctionNoticeSN,SRConnect,141,DirectedCounterParty,Repeater,
+AuctionNoticeSN,SRConnect,142,clientFirm,String,
+AuctionNoticeSN,SRConnect,143,inclExcl,Enum,
+AuctionNoticeSN,SRConnect,144,isCommPaying,Enum,
+AuctionNoticeBX,SRConnect,10,noticeNumber,Long,
+AuctionNoticeBX,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionNoticeBX,SRConnect,101,tradeDate,DateKey,
+AuctionNoticeBX,SRConnect,102,auctionType,Enum,
+AuctionNoticeBX,SRConnect,103,auctionEvent,Enum,
+AuctionNoticeBX,SRConnect,104,srcAuctionID,String,auction ID as known by the auction source (empty for SRC)
+AuctionNoticeBX,SRConnect,105,srcAuctionType,String,
+AuctionNoticeBX,SRConnect,106,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionNoticeBX,SRConnect,107,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionNoticeBX,SRConnect,108,shortCode,String,8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+AuctionNoticeBX,SRConnect,109,root,TickerKey,option root (+C.Lo/-P.Lo/-C.Hi/+P.Hi)
+AuctionNoticeBX,SRConnect,110,expiry,DateKey,
+AuctionNoticeBX,SRConnect,111,loStrike,Double,lo strike
+AuctionNoticeBX,SRConnect,112,hiStrike,Double,hi strike
+AuctionNoticeBX,SRConnect,113,custSide,Enum,if available
+AuctionNoticeBX,SRConnect,114,custQty,Int,
+AuctionNoticeBX,SRConnect,115,custPrc,Double,public cust price
+AuctionNoticeBX,SRConnect,116,hasCustPrc,Enum,
+AuctionNoticeBX,SRConnect,117,custFirmType,Enum,cust firm type (if disclosed)
+AuctionNoticeBX,SRConnect,118,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionNoticeBX,SRConnect,119,custClientFirm,String,cust client firm (if disclosed)
+AuctionNoticeBX,SRConnect,120,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionNoticeBX,SRConnect,121,custCommPaying,Enum,client is commission paying (to the responder)
+AuctionNoticeBX,SRConnect,122,custQtyCond,Enum,"UpToQty, AllOrNone, QtyOrMore"
+AuctionNoticeBX,SRConnect,123,auctionDuration,Int,[expected] auction duration (in milliseconds)
+AuctionNoticeBX,SRConnect,124,iDays,Double,iDays = effective interest days [SR supplied]
+AuctionNoticeBX,SRConnect,125,iYears,Double,iYears = iDays / 360.0
+AuctionNoticeBX,SRConnect,126,pointValue,Double,point value of the associated options; expiry money = (hiStrike - loStrike) * pointValue;
+AuctionNoticeBX,SRConnect,127,strikePv,Double,strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+AuctionNoticeBX,SRConnect,128,effMoneyRate,Double,effMoneyRate = (1.0 - (custPrc / (hiStrike - loStrike)) / iYears
+AuctionNoticeBX,SRConnect,129,srcTimestamp,Long,
+AuctionNoticeBX,SRConnect,130,netTimestamp,Long,
+AuctionNoticeBX,SRConnect,131,timestamp,DateTime,from ats / exchange net timestamp if possible
+AuctionNoticeBX,SRConnect,132,includeSRNetwork,Enum,
+AuctionNoticeBX,SRConnect,133,DirectedCounterParty,Repeater,
+AuctionNoticeBX,SRConnect,134,clientFirm,String,
+AuctionNoticeBX,SRConnect,135,inclExcl,Enum,
+AuctionNoticeBX,SRConnect,136,isCommPaying,Enum,
+NoticeResponse,SRConnect,13,noticeNumber,Long,(required) AuctionNotice.noticeNumber
+NoticeResponse,SRConnect,11,accnt,String,(required) SR Accnt
+NoticeResponse,SRConnect,12,clientFirm,String,(optional) SR ClientFirm
+NoticeResponse,SRConnect,14,responseId,String,(required) client ResponseId of this response; reflected back on NoticeExecReport messages
+NoticeResponse,SRConnect,119,ticker,TickerKey,(filled in on server) underlier ticker
+NoticeResponse,SRConnect,120,tradeDate,DateKey,(filled in on server)
+NoticeResponse,SRConnect,101,stageType,Enum,(optional) (default is None/Live) can only be supplied on the initial notice response in a cancel/replace chain
+NoticeResponse,SRConnect,102,respSide,Enum,
+NoticeResponse,SRConnect,103,respSize,Int,
+NoticeResponse,SRConnect,104,respPrice,Double,
+NoticeResponse,SRConnect,105,refUPrc,Double,
+NoticeResponse,SRConnect,106,refDe,Float,
+NoticeResponse,SRConnect,107,refGa,Float,
+NoticeResponse,SRConnect,108,minUBid,Float,
+NoticeResponse,SRConnect,109,maxUAsk,Float,
+NoticeResponse,SRConnect,110,riskGroupId,Long,(optional) any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
+NoticeResponse,SRConnect,111,strategy,String,(optional) user strategy field (visible on SR tools)
+NoticeResponse,SRConnect,112,userData1,Text1,(optional) user data field (free text) (reflected on NoticeResponse)
+NoticeResponse,SRConnect,118,timestamp,DateTime,
+NoticeResponse,SRConnect,113,OrderLegs,Repeater,
+NoticeResponse,SRConnect,114,secKey,OptionKey,
+NoticeResponse,SRConnect,115,secType,Enum,
+NoticeResponse,SRConnect,116,side,Enum,
+NoticeResponse,SRConnect,117,positionType,Enum,
+NoticeExecReport,SRConnect,13,noticeNumber,Long,AuctionNotice.noticeNumber
+NoticeExecReport,SRConnect,14,baseParentNumber,Long,
+NoticeExecReport,SRConnect,125,ticker,TickerKey,underlier ticker
+NoticeExecReport,SRConnect,126,tradeDate,DateKey,
+NoticeExecReport,SRConnect,139,accnt,String,SR Accnt
+NoticeExecReport,SRConnect,140,clientFirm,String,SR ClientFirm
+NoticeExecReport,SRConnect,141,noticeDttm,DateTime,either notice create datetime or notice arrival@SR datetime (high precision)
+NoticeExecReport,SRConnect,100,responseId,String,from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
+NoticeExecReport,SRConnect,142,respOrigin,Enum,
+NoticeExecReport,SRConnect,101,stageType,Enum,
+NoticeExecReport,SRConnect,143,auctionType,Enum,
+NoticeExecReport,SRConnect,144,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+NoticeExecReport,SRConnect,127,respDttm,DateTime,response arrival dttm (high precision)
+NoticeExecReport,SRConnect,102,respSide,Enum,
+NoticeExecReport,SRConnect,103,respSize,Int,
+NoticeExecReport,SRConnect,104,respActiveSize,Int,active response order size (zero for ActiveHold)
+NoticeExecReport,SRConnect,105,respPrice,Double,effRespPrice = respPrice + de * (uMid - refUPrc) + 0.5 * ga * (uMid - refUPrc)^2
+NoticeExecReport,SRConnect,106,refUPrc,Double,reference price for tied to underlier orders (mid-market tie) (block auctions only)
+NoticeExecReport,SRConnect,107,refDe,Float,reference delta for tied to underlier orders (zero if tie is not desired) (block auctions only)
+NoticeExecReport,SRConnect,108,refGa,Float,reference gamma for tied to underlier orders (zero if tie is not desired) (block auctions only)
+NoticeExecReport,SRConnect,128,roundRule,Enum,Exact (100%) or Fuzzy (90%) [default is Exact] (block auctions only)
+NoticeExecReport,SRConnect,129,stepUpIncr,Double,additional price increment (best price) (typically only used if auction is competitive)
+NoticeExecReport,SRConnect,109,riskGroupId,Long,any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
+NoticeExecReport,SRConnect,110,strategy,String,user strategy field (visible on SR tools)
+NoticeExecReport,SRConnect,111,userData1,Text1,user data field (free text) (from NoticeResponse)
+NoticeExecReport,SRConnect,112,respStatus,Enum,
+NoticeExecReport,SRConnect,113,respDetail,Text1,
+NoticeExecReport,SRConnect,145,lastUPrc,Double,effective uPrc (mid-market) from last trial pass
+NoticeExecReport,SRConnect,146,lastTrialPrc,Double,effective response price from last trial pass
+NoticeExecReport,SRConnect,147,leavesQty,Int,open order quantity
+NoticeExecReport,SRConnect,130,cumFillQty,Int,pkg cumFillQty if MLeg
+NoticeExecReport,SRConnect,131,avgFillPrice,Double,pkg avgFillPrice if MLeg
+NoticeExecReport,SRConnect,148,addLatency,Double,latency from notice arrival@SR to external response send (in seconds) OR latency from notice create to response accepted (in seconds) (SRC Auctions)
+NoticeExecReport,SRConnect,149,ackLatency,Double,latency from external response send to external response ack (FRT) (in seconds) (external auctions only)
+NoticeExecReport,SRConnect,132,responseResult,Enum,
+NoticeExecReport,SRConnect,133,responseTime,Short,notice response arrival time (milliseconds since auction start)
+NoticeExecReport,SRConnect,134,prtPrice,Double,reported print price (pkgPrice if MLeg)
+NoticeExecReport,SRConnect,135,prtSize,Int,reported print size (pgkSize if MLeg)
+NoticeExecReport,SRConnect,136,prtTime,DateTime,reported print time (1st print if MLeg)
+NoticeExecReport,SRConnect,150,prtUBid,Double,best estimate of uBid @ auction print time
+NoticeExecReport,SRConnect,151,prtUAsk,Double,best estimate of uAsk @ auction print time
+NoticeExecReport,SRConnect,124,timestamp,DateTime,
+NoticeExecReport,SRConnect,116,OrderLegs,Repeater,
+NoticeExecReport,SRConnect,117,secKey,OptionKey,
+NoticeExecReport,SRConnect,118,secType,Enum,
+NoticeExecReport,SRConnect,119,side,Enum,
+NoticeExecReport,SRConnect,120,ratio,Int,
+NoticeExecReport,SRConnect,121,positionType,Enum,
+NoticeExecReport,SRConnect,122,legCumFillQty,Int,
+NoticeExecReport,SRConnect,123,legAvgFillPrice,Double,
+NoticeCancel,SRConnect,13,noticeNumber,Long,(required) AuctionNotice.noticeNumber
+NoticeCancel,SRConnect,11,accnt,String,(required) SR Accnt
+NoticeCancel,SRConnect,12,clientFirm,String,(optional) SR ClientFirm
+NoticeCancel,SRConnect,101,ticker,TickerKey,(filled in on server) underlier ticker
+NoticeCancel,SRConnect,102,tradeDate,DateKey,(filled in on server)
+NoticeCancel,SRConnect,100,timestamp,DateTime,
+AuctionPrint,SRConnect,10,noticeNumber,Long,AuctionNotice.noticeNumber
+AuctionPrint,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionPrint,SRConnect,101,tradeDate,DateKey,
+AuctionPrint,SRConnect,157,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionPrint,SRConnect,102,noticeTime,DateTime,notice create timestamp (high precision)
+AuctionPrint,SRConnect,103,auctionType,Enum,"(eg. Block, Flash, Improvement, Facilitation, etc.)"
+AuctionPrint,SRConnect,104,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionPrint,SRConnect,111,industry,Text1,industry string
+AuctionPrint,SRConnect,112,symbolType,Enum,
+AuctionPrint,SRConnect,113,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionPrint,SRConnect,114,custSide,Enum,from AuctionNotice (if known)
+AuctionPrint,SRConnect,115,custQty,Int,from AuctionNotice (if known)
+AuctionPrint,SRConnect,116,custPrc,Double,from AuctionNotice (if known)
+AuctionPrint,SRConnect,117,hasCustPrc,Enum,from AuctionNotice (if known)
+AuctionPrint,SRConnect,118,custFirmType,Enum,cust firm type (if disclosed)
+AuctionPrint,SRConnect,119,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionPrint,SRConnect,158,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionPrint,SRConnect,105,numOptLegs,Byte,MLEG Only
+AuctionPrint,SRConnect,106,spreadClass,Enum,
+AuctionPrint,SRConnect,107,spreadFlavor,Enum,MLEG Only
+AuctionPrint,SRConnect,108,containsHedge,Enum,MLEG Only
+AuctionPrint,SRConnect,109,containsFlex,Enum,contains FLEX options (not regular listed options)
+AuctionPrint,SRConnect,110,containsMultiHedge,Enum,contains MultiHedge (corp action adjusted) options
+AuctionPrint,SRConnect,159,uBid,Double,
+AuctionPrint,SRConnect,160,uAsk,Double,
+AuctionPrint,SRConnect,142,netDe,Float,
+AuctionPrint,SRConnect,143,netGa,Float,
+AuctionPrint,SRConnect,144,netTh,Float,
+AuctionPrint,SRConnect,145,netVe,Float,
+AuctionPrint,SRConnect,161,pkgSurfPrc,Float,SR Surface Price (entire package)
+AuctionPrint,SRConnect,162,pkgBidPrc,Float,pkg bid price (best way price) (entire package)
+AuctionPrint,SRConnect,163,pkgAskPrc,Float,pkg ask price (best way price) (entire package)
+AuctionPrint,SRConnect,121,prtPrice,Double,reported OPRA print price (pkgPrice if MLeg)
+AuctionPrint,SRConnect,122,prtPrice2,Double,"if reported as 2 separate prints at different prices (ie, partial size improvement)"
+AuctionPrint,SRConnect,123,prtSize,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrint,SRConnect,124,prtSize2,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrint,SRConnect,125,prtTime,DateTime,reported OPRA print time (1st print if MLeg) (high precision)
+AuctionPrint,SRConnect,126,prtType,Enum,reported OPRA print type
+AuctionPrint,SRConnect,127,prtUBid,Double,best estimate of uBid @ auction print time
+AuctionPrint,SRConnect,128,prtUAsk,Double,best estimate of uAsk @ auction print time
+AuctionPrint,SRConnect,129,prtUPrc,Double,best estimate of uPrc @ auction print time
+AuctionPrint,SRConnect,130,prtSurfVol,Float,surface vol @ auction print time (single option auction only)
+AuctionPrint,SRConnect,131,prtSurfPrc,Float,surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+AuctionPrint,SRConnect,132,bidPrc,Float,option nbbo bid @ auction print time
+AuctionPrint,SRConnect,133,bidSz,Int,nbbo bid cum size
+AuctionPrint,SRConnect,134,bidMask,UInt,nbbo bid exch mask
+AuctionPrint,SRConnect,135,askPrc,Float,option nbbo ask @ auction print time
+AuctionPrint,SRConnect,136,askSz,Int,nbbo ask cum size
+AuctionPrint,SRConnect,137,askMask,UInt,nbbo ask exch mask
+AuctionPrint,SRConnect,138,exchBidPrc,Float,exch bid @ auction print time
+AuctionPrint,SRConnect,139,exchBidSz,Int,exch bid size
+AuctionPrint,SRConnect,140,exchAskPrc,Float,exch ask @ auction print time
+AuctionPrint,SRConnect,141,exchAskSz,Int,exch ask size
+AuctionPrint,SRConnect,146,uPrc1m,Float,uPrc (mid market) @ auction print time + 1m
+AuctionPrint,SRConnect,147,bidPrc1m,Float,option nbbo bid @ auction print time + 1m
+AuctionPrint,SRConnect,148,askPrc1m,Float,option nbbo ask @ auction print time + 1m
+AuctionPrint,SRConnect,149,surfVol1m,Float,surface vol @ auction print time + 1m (single option auction only)
+AuctionPrint,SRConnect,150,surfPrc1m,Float,surface prc @ auction print time + 1m (@ uMid)
+AuctionPrint,SRConnect,151,uPrc10m,Float,uPrc (mid market) @ auction print time + 10m
+AuctionPrint,SRConnect,152,bidPrc10m,Float,option nbbo bid @ auction print time + 10m
+AuctionPrint,SRConnect,153,askPrc10m,Float,option nbbo ask @ auction print time + 10m
+AuctionPrint,SRConnect,154,surfVol10m,Float,surface vol @ auction print time + 10m (single option auction only)
+AuctionPrint,SRConnect,155,surfPrc10m,Float,surface prc @ auction print time + 10m (@ uMid)
+AuctionPrint,SRConnect,156,timestamp,DateTime,
+AuctionPrint,SRConnect,164,OrderLegs,Repeater,
+AuctionPrint,SRConnect,165,secKey,OptionKey,
+AuctionPrint,SRConnect,166,secType,Enum,
+AuctionPrint,SRConnect,167,side,Enum,
+AuctionPrint,SRConnect,168,ratio,UShort,
+AuctionPrint,SRConnect,169,undPerCn,Int,
+AuctionPrint,SRConnect,170,pointValue,Float,
+AuctionPrint,SRConnect,171,expType,Enum,"ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp"
+AuctionPrint,SRConnect,172,years,Float,SR volatility years to expiry
+AuctionPrint,SRConnect,173,rate,Float,SR global (discount) rate to expiry
+AuctionPrint,SRConnect,174,atmVol,Float,ATM (fwd uPrc) SR surface volatility
+AuctionPrint,SRConnect,175,ddivPv,Float,SR present value of ddiv stream
+AuctionPrint,SRConnect,176,tVol,Float,client theo surface volatility (if client surfaces uploaded to SR)
+AuctionPrint,SRConnect,177,sVol,Float,SR Surface Volatility
+AuctionPrint,SRConnect,178,sDiv,Float,SR Surface SDiv
+AuctionPrint,SRConnect,179,sPrc,Float,SR Surface Price
+AuctionPrint,SRConnect,180,de,Float,
+AuctionPrint,SRConnect,181,ga,Float,
+AuctionPrint,SRConnect,182,th,Float,
+AuctionPrint,SRConnect,183,ve,Float,
+AuctionPrint,SRConnect,184,sVolOk,Enum,Yes if live market and sVol are tracking as expected
+AuctionPrint,SRConnect,185,oBid,Float,NBBO bid price
+AuctionPrint,SRConnect,186,oBidSz,Int,cumulative NBBO bid size
+AuctionPrint,SRConnect,187,oBidMask,UInt,bit-mask of participating NBBO exchanges
+AuctionPrint,SRConnect,188,oAsk,Float,NBBO ask price
+AuctionPrint,SRConnect,189,oAskSz,Int,cumulative NBBO ask size
+AuctionPrint,SRConnect,190,oAskMask,UInt,bit-mask of participating NBBO exchanges
+AuctionPrintRC,SRConnect,10,noticeNumber,Long,AuctionNotice.noticeNumber
+AuctionPrintRC,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionPrintRC,SRConnect,101,tradeDate,DateKey,
+AuctionPrintRC,SRConnect,102,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionPrintRC,SRConnect,103,noticeTime,DateTime,notice create timestamp (high precision)
+AuctionPrintRC,SRConnect,104,auctionType,Enum,"(eg. Block, Flash, Improvement, Facilitation, etc.)"
+AuctionPrintRC,SRConnect,105,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionPrintRC,SRConnect,106,containsFlex,Enum,Flex = European
+AuctionPrintRC,SRConnect,107,root,TickerKey,option root
+AuctionPrintRC,SRConnect,108,expiry,DateKey,
+AuctionPrintRC,SRConnect,109,strike,Double,rev/con strike
+AuctionPrintRC,SRConnect,110,industry,Text1,industry string
+AuctionPrintRC,SRConnect,111,symbolType,Enum,
+AuctionPrintRC,SRConnect,112,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionPrintRC,SRConnect,113,custSide,Enum,from AuctionNotice (if known)
+AuctionPrintRC,SRConnect,114,custQty,Int,from AuctionNotice (if known)
+AuctionPrintRC,SRConnect,115,custPrc,Double,from AuctionNotice (if known)
+AuctionPrintRC,SRConnect,116,hasCustPrc,Enum,from AuctionNotice (if known)
+AuctionPrintRC,SRConnect,117,custFirmType,Enum,cust firm type (if disclosed)
+AuctionPrintRC,SRConnect,118,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionPrintRC,SRConnect,119,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionPrintRC,SRConnect,120,noticeUBid,Double,
+AuctionPrintRC,SRConnect,121,noticeUAsk,Double,
+AuctionPrintRC,SRConnect,122,netSurfPrc,Float,SR Surface Price (entire package)
+AuctionPrintRC,SRConnect,123,iDays,Double,iDays = effective interest days [SR supplied]
+AuctionPrintRC,SRConnect,124,iYears,Double,iYears = iDays / 360.0
+AuctionPrintRC,SRConnect,125,moneyRate,Double,effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+AuctionPrintRC,SRConnect,126,ddivPv,Double,present value of any expected dividends to expiry [SR Supplied Estimate]
+AuctionPrintRC,SRConnect,127,hasEstDDivs,Enum,Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+AuctionPrintRC,SRConnect,128,sVol,Double,surface volatility for rev/con strike [SR Supplied Estimate]
+AuctionPrintRC,SRConnect,129,rcEExPrem,Double,rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+AuctionPrintRC,SRConnect,130,strikePv,Double,strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+AuctionPrintRC,SRConnect,131,effStockLendPv,Double,effStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]
+AuctionPrintRC,SRConnect,132,effStockRate,Double,effStockRate = effStockLendPv / (uMid * iYears) [if cust price is visible]
+AuctionPrintRC,SRConnect,133,prtPrice,Double,reported OPRA print price (pkgPrice if MLeg)
+AuctionPrintRC,SRConnect,134,prtPrice2,Double,"if reported as 2 separate prints at different prices (ie, partial size improvement)"
+AuctionPrintRC,SRConnect,135,prtSize,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrintRC,SRConnect,136,prtSize2,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrintRC,SRConnect,137,prtTime,DateTime,reported OPRA print time (1st print if MLeg) (high precision)
+AuctionPrintRC,SRConnect,138,prtType,Enum,reported OPRA print type
+AuctionPrintRC,SRConnect,139,prtUBid,Double,best estimate of uBid @ auction print time
+AuctionPrintRC,SRConnect,140,prtUAsk,Double,best estimate of uAsk @ auction print time
+AuctionPrintRC,SRConnect,141,prtUPrc,Double,best estimate of uPrc @ auction print time
+AuctionPrintRC,SRConnect,142,prtSurfPrc,Float,surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+AuctionPrintRC,SRConnect,143,prtStockLendPv,Double,prtStockLendPv = prtPrice - strikePv - ddivPv - rcEExPrem
+AuctionPrintRC,SRConnect,144,prtStockRate,Double,prtStockRate = prtStockLendPv / (prtUPrc * iYears)
+AuctionPrintRC,SRConnect,145,uPrc1m,Float,uPrc (mid market) @ auction print time + 1m
+AuctionPrintRC,SRConnect,146,bidPrc1m,Float,option nbbo bid @ auction print time + 1m
+AuctionPrintRC,SRConnect,147,askPrc1m,Float,option nbbo ask @ auction print time + 1m
+AuctionPrintRC,SRConnect,148,surfPrc1m,Float,surface prc @ auction print time + 1m (@ uMid)
+AuctionPrintRC,SRConnect,149,prtStockLendPv1m,Double,prtStockLendPv1m = surfPrc1m - strikePv - ddivPv - rcEExPrem
+AuctionPrintRC,SRConnect,150,prtStockRate1m,Double,prtStockRate1m = prtStockLendPv1m / (uPrc1m * iYears)
+AuctionPrintRC,SRConnect,151,uPrc10m,Float,uPrc (mid market) @ auction print time + 10m
+AuctionPrintRC,SRConnect,152,bidPrc10m,Float,option nbbo bid @ auction print time + 10m
+AuctionPrintRC,SRConnect,153,askPrc10m,Float,option nbbo ask @ auction print time + 10m
+AuctionPrintRC,SRConnect,154,surfPrc10m,Float,surface prc @ auction print time + 10m (@ uMid)
+AuctionPrintRC,SRConnect,155,prtStockLendPv10m,Double,prtStockLendPv10m = surfPrc10m - strikePv - ddivPv - rcEExPrem
+AuctionPrintRC,SRConnect,156,prtStockRate10m,Double,prtStockRate10m = prtStockLendPv10m / (uPrc10m * iYears)
+AuctionPrintRC,SRConnect,157,timestamp,DateTime,
+AuctionPrintSN,SRConnect,10,noticeNumber,Long,AuctionNotice.noticeNumber
+AuctionPrintSN,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionPrintSN,SRConnect,101,tradeDate,DateKey,
+AuctionPrintSN,SRConnect,102,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionPrintSN,SRConnect,103,noticeTime,DateTime,notice create timestamp (high precision)
+AuctionPrintSN,SRConnect,104,auctionType,Enum,"(eg. Block, Flash, Improvement, Facilitation, etc.)"
+AuctionPrintSN,SRConnect,105,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionPrintSN,SRConnect,106,containsFlex,Enum,Flex = European
+AuctionPrintSN,SRConnect,107,root,TickerKey,option root
+AuctionPrintSN,SRConnect,108,expiry,DateKey,
+AuctionPrintSN,SRConnect,109,strike,Double,rev/con strike
+AuctionPrintSN,SRConnect,110,industry,Text1,industry string
+AuctionPrintSN,SRConnect,111,symbolType,Enum,
+AuctionPrintSN,SRConnect,112,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionPrintSN,SRConnect,113,custSide,Enum,from AuctionNotice (if known)
+AuctionPrintSN,SRConnect,114,custQty,Int,from AuctionNotice (if known)
+AuctionPrintSN,SRConnect,115,custPrc,Double,from AuctionNotice (if known)
+AuctionPrintSN,SRConnect,116,hasCustPrc,Enum,from AuctionNotice (if known)
+AuctionPrintSN,SRConnect,117,custFirmType,Enum,cust firm type (if disclosed)
+AuctionPrintSN,SRConnect,118,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionPrintSN,SRConnect,119,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionPrintSN,SRConnect,120,noticeUBid,Double,
+AuctionPrintSN,SRConnect,121,noticeUAsk,Double,
+AuctionPrintSN,SRConnect,122,netSurfPrc,Float,SR Surface Price (entire package)
+AuctionPrintSN,SRConnect,123,iDays,Double,iDays = effective interest days [SR supplied]
+AuctionPrintSN,SRConnect,124,iYears,Double,iYears = iDays / 360.0
+AuctionPrintSN,SRConnect,125,moneyRate,Double,effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+AuctionPrintSN,SRConnect,126,ddivPv,Double,present value of any expected dividends to expiry [SR Supplied Estimate]
+AuctionPrintSN,SRConnect,127,hasEstDDivs,Enum,Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+AuctionPrintSN,SRConnect,128,sVol,Double,surface volatility for rev/con strike [SR Supplied Estimate]
+AuctionPrintSN,SRConnect,129,rcEExPrem,Double,rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+AuctionPrintSN,SRConnect,130,strikePv,Double,strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+AuctionPrintSN,SRConnect,131,prtPrice,Double,reported OPRA print price (pkgPrice if MLeg)
+AuctionPrintSN,SRConnect,132,prtPrice2,Double,"if reported as 2 separate prints at different prices (ie, partial size improvement)"
+AuctionPrintSN,SRConnect,133,prtSize,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrintSN,SRConnect,134,prtSize2,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrintSN,SRConnect,135,prtTime,DateTime,reported OPRA print time (1st print if MLeg) (high precision)
+AuctionPrintSN,SRConnect,136,prtType,Enum,reported OPRA print type
+AuctionPrintSN,SRConnect,137,prtUBid,Double,best estimate of uBid @ auction print time
+AuctionPrintSN,SRConnect,138,prtUAsk,Double,best estimate of uAsk @ auction print time
+AuctionPrintSN,SRConnect,139,prtUPrc,Double,best estimate of uPrc @ auction print time
+AuctionPrintSN,SRConnect,140,prtSurfPrc,Float,surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+AuctionPrintSN,SRConnect,141,uPrc1m,Float,uPrc (mid market) @ auction print time + 1m
+AuctionPrintSN,SRConnect,142,bidPrc1m,Float,option nbbo bid @ auction print time + 1m
+AuctionPrintSN,SRConnect,143,askPrc1m,Float,option nbbo ask @ auction print time + 1m
+AuctionPrintSN,SRConnect,144,surfPrc1m,Float,surface prc @ auction print time + 1m (@ uMid)
+AuctionPrintSN,SRConnect,145,uPrc10m,Float,uPrc (mid market) @ auction print time + 10m
+AuctionPrintSN,SRConnect,146,bidPrc10m,Float,option nbbo bid @ auction print time + 10m
+AuctionPrintSN,SRConnect,147,askPrc10m,Float,option nbbo ask @ auction print time + 10m
+AuctionPrintSN,SRConnect,148,surfPrc10m,Float,surface prc @ auction print time + 10m (@ uMid)
+AuctionPrintSN,SRConnect,149,timestamp,DateTime,
+AuctionPrintBX,SRConnect,10,noticeNumber,Long,AuctionNotice.noticeNumber
+AuctionPrintBX,SRConnect,100,ticker,TickerKey,underlier ticker
+AuctionPrintBX,SRConnect,101,tradeDate,DateKey,
+AuctionPrintBX,SRConnect,102,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
+AuctionPrintBX,SRConnect,103,noticeTime,DateTime,notice create timestamp (high precision)
+AuctionPrintBX,SRConnect,104,auctionType,Enum,"(eg. Block, Flash, Improvement, Facilitation, etc.)"
+AuctionPrintBX,SRConnect,105,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
+AuctionPrintBX,SRConnect,106,containsFlex,Enum,Flex = European
+AuctionPrintBX,SRConnect,107,root,TickerKey,option root
+AuctionPrintBX,SRConnect,108,expiry,DateKey,
+AuctionPrintBX,SRConnect,109,loStrike,Double,lo strike
+AuctionPrintBX,SRConnect,110,hiStrike,Double,hi strike
+AuctionPrintBX,SRConnect,111,industry,Text1,industry string
+AuctionPrintBX,SRConnect,112,symbolType,Enum,
+AuctionPrintBX,SRConnect,113,uAvgDailyVlm,Float,underlier average daily trading volume
+AuctionPrintBX,SRConnect,114,custSide,Enum,from AuctionNotice (if known)
+AuctionPrintBX,SRConnect,115,custQty,Int,from AuctionNotice (if known)
+AuctionPrintBX,SRConnect,116,custPrc,Double,from AuctionNotice (if known)
+AuctionPrintBX,SRConnect,117,hasCustPrc,Enum,from AuctionNotice (if known)
+AuctionPrintBX,SRConnect,118,custFirmType,Enum,cust firm type (if disclosed)
+AuctionPrintBX,SRConnect,119,custAgentMPID,String,cust agent exchange member initiating the auction (if disclosed)
+AuctionPrintBX,SRConnect,120,commEnhancement,Float,additional commission (if any) paid by responder
+AuctionPrintBX,SRConnect,121,noticeUBid,Double,
+AuctionPrintBX,SRConnect,122,noticeUAsk,Double,
+AuctionPrintBX,SRConnect,123,netSurfPrc,Float,SR Surface Price (entire package)
+AuctionPrintBX,SRConnect,124,iDays,Double,iDays = effective interest days [SR supplied]
+AuctionPrintBX,SRConnect,125,iYears,Double,iYears = iDays / 360.0
+AuctionPrintBX,SRConnect,126,moneyRate,Double,effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+AuctionPrintBX,SRConnect,127,strikePv,Double,strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+AuctionPrintBX,SRConnect,128,prtPrice,Double,reported OPRA print price (pkgPrice if MLeg)
+AuctionPrintBX,SRConnect,129,prtPrice2,Double,"if reported as 2 separate prints at different prices (ie, partial size improvement)"
+AuctionPrintBX,SRConnect,130,prtSize,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrintBX,SRConnect,131,prtSize2,Int,reported OPRA print size (pgkSize if MLeg)
+AuctionPrintBX,SRConnect,132,prtTime,DateTime,reported OPRA print time (1st print if MLeg) (high precision)
+AuctionPrintBX,SRConnect,133,prtType,Enum,reported OPRA print type
+AuctionPrintBX,SRConnect,134,prtUPrc,Double,best estimate of uPrc @ auction print time
+AuctionPrintBX,SRConnect,135,prtSurfPrc,Float,surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+AuctionPrintBX,SRConnect,136,prtMoneyRate,Double,prtMoneyRate = (1.0 - (prtPrice / (hiStrike - loStrike)) / iYears
+AuctionPrintBX,SRConnect,137,uPrc1m,Float,uPrc (mid market) @ auction print time + 1m
+AuctionPrintBX,SRConnect,138,bidPrc1m,Float,option nbbo bid @ auction print time + 1m
+AuctionPrintBX,SRConnect,139,askPrc1m,Float,option nbbo ask @ auction print time + 1m
+AuctionPrintBX,SRConnect,140,surfPrc1m,Float,surface prc @ auction print time + 1m (@ uMid)
+AuctionPrintBX,SRConnect,141,surfRate1m,Double,surfRate1m = (1.0 - (surfPrc1m / (hiStrike - loStrike)) / iYears
+AuctionPrintBX,SRConnect,142,uPrc10m,Float,uPrc (mid market) @ auction print time + 10m
+AuctionPrintBX,SRConnect,143,bidPrc10m,Float,option nbbo bid @ auction print time + 10m
+AuctionPrintBX,SRConnect,144,askPrc10m,Float,option nbbo ask @ auction print time + 10m
+AuctionPrintBX,SRConnect,145,surfPrc10m,Float,surface prc @ auction print time + 10m (@ uMid)
+AuctionPrintBX,SRConnect,146,surfRate10m,Double,surfRate10m = (1.0 - (surfPrc10m / (hiStrike - loStrike)) / iYears
+AuctionPrintBX,SRConnect,147,timestamp,DateTime,
+SpdrAuctionState,OptExchAuction,10,secKey,OptionKey,
+SpdrAuctionState,OptExchAuction,11,secType,Enum,
+SpdrAuctionState,OptExchAuction,12,auctionExch,Enum,exchange handling the auction
+SpdrAuctionState,OptExchAuction,13,auctionExDest,String,external exDest of auction (usually means auction is off-exchange)
+SpdrAuctionState,OptExchAuction,100,srAuctionID,Long,unique SR AUCTION ID (required when responding to an auction notice)
+SpdrAuctionState,OptExchAuction,103,exchAuctionId,String,
+SpdrAuctionState,OptExchAuction,106,exchAuctionType,String,
+SpdrAuctionState,OptExchAuction,109,isTestAuction,Enum,test auction (should only respond from T.accnts)
+SpdrAuctionState,OptExchAuction,212,auctionEvent,Enum,
+SpdrAuctionState,OptExchAuction,115,auctionShape,Enum,
+SpdrAuctionState,OptExchAuction,118,auctionType,Enum,
+SpdrAuctionState,OptExchAuction,121,auctionSide,Enum,Market side (client/imbalance side of auction; if known) [responder should be opposite side]
+SpdrAuctionState,OptExchAuction,124,auctionSize,Int,size available to trade
+SpdrAuctionState,OptExchAuction,127,auctionPrice,Double,auction price (can be positive or negative)
+SpdrAuctionState,OptExchAuction,130,isAuctionPriceValid,Enum,
+SpdrAuctionState,OptExchAuction,133,auctionDuration,Int,expected auction / imbalance action duration (ms)
+SpdrAuctionState,OptExchAuction,136,auctionStartSize,Int,initial (starting) auction size
+SpdrAuctionState,OptExchAuction,139,auctionStartPrice,Double,initial (starting) auction price
+SpdrAuctionState,OptExchAuction,142,auctionStartTimestamp,Long,auction start timestamp
+SpdrAuctionState,OptExchAuction,145,minResponseSize,Int,minimum size of the response order
+SpdrAuctionState,OptExchAuction,148,limitType,Enum,client / imbalance limit type (if available)
+SpdrAuctionState,OptExchAuction,151,firmType,Enum,firm type of the client side of auction (if available)
+SpdrAuctionState,OptExchAuction,154,memberMPID,String,exchange member initiating auction (if available)
+SpdrAuctionState,OptExchAuction,157,clientAccnt,String,client account designation (if known)
+SpdrAuctionState,OptExchAuction,160,otherDetail,String,additional auction detail (exchange specific)
+SpdrAuctionState,OptExchAuction,163,matchedSize,Int,size already matched (may still be available to trade at a better price)
+SpdrAuctionState,OptExchAuction,166,numUpdates,Byte,number of auction updates received (not counting auction termination message)
+SpdrAuctionState,OptExchAuction,169,numResponses,Byte,as reported by exchange (if available)
+SpdrAuctionState,OptExchAuction,172,bestResponseSize,Int,
+SpdrAuctionState,OptExchAuction,175,bestResponsePrice,Double,
+SpdrAuctionState,OptExchAuction,178,cumFillQuantity,Int,as reported by exchange (if available)
+SpdrAuctionState,OptExchAuction,181,avgFillPrice,Double,
+SpdrAuctionState,OptExchAuction,184,marketStatus,Enum,"market status (pre-open, open, closed, etc)"
+SpdrAuctionState,OptExchAuction,187,srcTimestamp,Long,source timestamp (nanoseconds) if available
+SpdrAuctionState,OptExchAuction,190,netTimestamp,Long,network timestamp message arrival @ direct exchange gateway
+SpdrAuctionState,OptExchAuction,193,dgwTimestamp,Long,network timestamp mbus message send @ direct exchange gateway
+SpdrAuctionState,OptExchAuction,196,timestamp,DateTime,
+SpdrAuctionState,OptExchAuction,199,Legs,Repeater,
+SpdrAuctionState,OptExchAuction,202,legSecKey,OptionKey,
+SpdrAuctionState,OptExchAuction,205,legSecType,Enum,
+SpdrAuctionState,OptExchAuction,208,legSide,Enum,
+SpdrAuctionState,OptExchAuction,211,legRatio,UShort,"leg ratio (1, 2, etc)"
 FutureBookQuote,FutMktData,10,fkey,ExpiryKey,
 FutureBookQuote,FutMktData,100,updateType,Enum,
 FutureBookQuote,FutMktData,103,marketStatus,Enum,"market status (open, halted, etc)"
@@ -829,6 +1378,8 @@ OptionPrintSet,OptAnalytics,202,oBid2,Float,Second level bid price
 OptionPrintSet,OptAnalytics,205,oAsk2,Float,Second level ask price
 OptionPrintSet,OptAnalytics,208,oBidSz2,Int,Cumulative size on the second level bid price
 OptionPrintSet,OptAnalytics,211,oAskSz2,Int,Cumulative size on the second level ask price
+OptionPrintSet,OptAnalytics,353,oBidIv,Double,option bid IV
+OptionPrintSet,OptAnalytics,354,oAskIv,Double,option ask IV
 OptionPrintSet,OptAnalytics,214,uBid,Double,underlier bid
 OptionPrintSet,OptAnalytics,217,uAsk,Double,underlier ask
 OptionPrintSet,OptAnalytics,220,uPrc,Double,underlier price
@@ -876,6 +1427,19 @@ OptionPrintSet,OptAnalytics,343,sDivM10,Float,sDiv 10 minutes after print was re
 OptionPrintSet,OptAnalytics,346,sErrM10,String,Surface error condition (if any) 10 minutes after print was received
 OptionPrintSet,OptAnalytics,349,pnlM10,Float,pnl after 10 minutes
 OptionPrintSet,OptAnalytics,352,pnlM10Err,Enum,Error condition for PnL calculated 10 minutes after the print was received
+OptionPrintSet,OptAnalytics,355,oBidS1,Float,NBBO option bid 1 second after print was received
+OptionPrintSet,OptAnalytics,356,oAskS1,Float,NBBO option ask 1 second after print was received
+OptionPrintSet,OptAnalytics,357,uBidS1,Double,NBBO underlying bid 1 second after print was received
+OptionPrintSet,OptAnalytics,358,uAskS1,Double,NBBO underlying ask 1 second after print was received
+OptionPrintSet,OptAnalytics,359,uPrcS1,Double,Underlying price 1 second after print was received
+OptionPrintSet,OptAnalytics,360,sVolS1,Float,Suface volatility 1 second after print was received
+OptionPrintSet,OptAnalytics,361,sOpxS1,Float,Surface option price 1 second after print was received
+OptionPrintSet,OptAnalytics,362,sDivS1,Float,sDiv 1 second after print was received
+OptionPrintSet,OptAnalytics,363,sErrS1,String,Surface error condition (if any) 1 second after print was received
+OptionPrintSet,OptAnalytics,364,pnlS1,Float,pnl after 1 second
+OptionPrintSet,OptAnalytics,365,pnlS1Err,Enum,Error condition for PnL calculated over the first 1 second after the print was received
+OptionPrintSet,OptAnalytics,366,oBidNext,Float,next NBBO option bid after print was received
+OptionPrintSet,OptAnalytics,367,oAskNext,Float,next NBBO option ask after print was received
 OptionFlexEvent,OptMktData,10,sequenceNumber,Int,sequence of the flex event message counting from the start of day or last restart of the feed handler
 OptionFlexEvent,OptMktData,100,eventId,Int,"unique id of the event assigned by SpiderRock, subsequent messages on the event will use the same id"
 OptionFlexEvent,OptMktData,103,prtExch,Enum,exchange code that produced this flex event
@@ -905,6 +1469,7 @@ OptionFlexEvent,OptMktData,172,rawText,String,raw text of the flex event
 SpreadBookMarkup,SpreadMktData,10,skey,TickerKey,SR Spread Key (should have corresponding ProductDefinition record)
 SpreadBookMarkup,SpreadMktData,11,isTest,Enum,Yes indicates that response is made of entirely of isTest=Yes SpreadExchOrders
 SpreadBookMarkup,SpreadMktData,100,ticker,TickerKey,common spread underlier
+SpreadBookMarkup,SpreadMktData,298,SRspreadID,Long,
 SpreadBookMarkup,SpreadMktData,103,priceFormat,Enum,
 SpreadBookMarkup,SpreadMktData,106,bidPrice1,Double,bid price
 SpreadBookMarkup,SpreadMktData,109,isBidPrice1Valid,Enum,
@@ -922,10 +1487,9 @@ SpreadBookMarkup,SpreadMktData,142,updateType,Enum,
 SpreadBookMarkup,SpreadMktData,145,numStkLegs,Byte,
 SpreadBookMarkup,SpreadMktData,148,numFutLegs,Byte,
 SpreadBookMarkup,SpreadMktData,151,numOptLegs,Byte,
-SpreadBookMarkup,SpreadMktData,154,allLegsValid,Enum,
 SpreadBookMarkup,SpreadMktData,157,userDefined,Enum,
-SpreadBookMarkup,SpreadMktData,160,spreadType,Enum,option spread type
-SpreadBookMarkup,SpreadMktData,163,ratioType,Enum,
+SpreadBookMarkup,SpreadMktData,296,spreadClass,Enum,
+SpreadBookMarkup,SpreadMktData,297,containsHedge,Enum,
 SpreadBookMarkup,SpreadMktData,166,legBidPrc,Double,
 SpreadBookMarkup,SpreadMktData,169,legAskPrc,Double,
 SpreadBookMarkup,SpreadMktData,172,legBidSz,Int,
@@ -962,8 +1526,6 @@ SpreadBookMarkup,SpreadMktData,262,legAskPrice,Double,leg market ask
 SpreadBookMarkup,SpreadMktData,265,legAskSize,Int,
 SpreadBookMarkup,SpreadMktData,268,legYears,Float,
 SpreadBookMarkup,SpreadMktData,271,legUPrc,Double,
-SpreadBookMarkup,SpreadMktData,274,legOptMult,Float,"SPC if equity, 1 if option/future"
-SpreadBookMarkup,SpreadMktData,277,legFutMult,Float,"1 if equity, uMult if option/future"
 SpreadBookMarkup,SpreadMktData,280,legSurfVol,Float,leg surface volatility
 SpreadBookMarkup,SpreadMktData,283,legSurfPrice,Float,surface price as of message arrival
 SpreadBookMarkup,SpreadMktData,286,legSurfDe,Float,
@@ -973,6 +1535,7 @@ SpreadBookMarkup,SpreadMktData,295,legSurfErr,Byte,
 SpreadBookQuote,SpreadMktData,10,skey,TickerKey,SR Spread Key (should have corresponding ProductDefinition record)
 SpreadBookQuote,SpreadMktData,11,isTest,Enum,Yes indicates that response is made of entirely of isTest=Yes SpreadExchOrders
 SpreadBookQuote,SpreadMktData,100,ticker,TickerKey,common spread underlier
+SpreadBookQuote,SpreadMktData,167,SRspreadID,Long,
 SpreadBookQuote,SpreadMktData,103,bidPrice1,Double,bid price
 SpreadBookQuote,SpreadMktData,106,isBidPrice1Valid,Enum,
 SpreadBookQuote,SpreadMktData,109,askPrice1,Double,ask price
@@ -1017,12 +1580,7 @@ SpreadExchOrder,SpreadExchData,142,srcTimestamp,Long,source high precision times
 SpreadExchOrder,SpreadExchData,145,netTimestamp,Long,SpiderRock network PTP timestamp
 SpreadExchOrder,SpreadExchData,148,dgwTimestamp,Long,SpiderRock data gateway timestamp
 SpreadExchOrder,SpreadExchData,151,timestamp,DateTime,
-SpreadExchOrder,SpreadExchData,154,Legs,Repeater,
-SpreadExchOrder,SpreadExchData,157,legSecKey,OptionKey,
-SpreadExchOrder,SpreadExchData,160,legSecType,Enum,
-SpreadExchOrder,SpreadExchData,163,legSide,Enum,
-SpreadExchOrder,SpreadExchData,166,legRatio,UInt,"leg ratio (1, 2, etc)"
-SpreadExchOrder,SpreadExchData,169,positionType,Enum,
+SpreadExchOrder,SpreadExchData,170,exchSprID,String,unique exchange spread id
 StockBookQuote,EqtMktData,10,ticker,TickerKey,
 StockBookQuote,EqtMktData,100,updateType,Enum,
 StockBookQuote,EqtMktData,103,marketStatus,Enum,"market status (open, halted, etc)"
@@ -1136,6 +1694,15 @@ FutureOpenMark,FutMarkData,106,closePrc,Double,exchange open mark; [exchange clo
 FutureOpenMark,FutMarkData,109,bidPrc,Double,bid price (SR bid price from previous day)
 FutureOpenMark,FutMarkData,112,askPrc,Double,ask price (SR ask price from previous day)
 FutureOpenMark,FutMarkData,115,timestamp,DateTime,
+FutureSettlementMark,FutMarkData,10,fkey,ExpiryKey,
+FutureSettlementMark,FutMarkData,100,settleDate,DateKey,
+FutureSettlementMark,FutMarkData,103,settlePx,Double,Exchange settlement price
+FutureSettlementMark,FutMarkData,106,lowLmtPx,Double,Exchange low limit price
+FutureSettlementMark,FutMarkData,109,highLmtPx,Double,Exchange high limit price
+FutureSettlementMark,FutMarkData,112,openInt,Int,Exchange open interest (date prior to settle date)
+FutureSettlementMark,FutMarkData,115,volume,Int,Exchange volume (date prior to settle date)
+FutureSettlementMark,FutMarkData,118,early,Enum,
+FutureSettlementMark,FutMarkData,121,timestamp,DateTime,
 OptionCloseMark,OptMarkData,10,okey,OptionKey,
 OptionCloseMark,OptMarkData,100,tradeDate,DateKey,
 OptionCloseMark,OptMarkData,103,clsMarkState,Enum,LastPrt = last print received; SRClose = SpiderRock snapshot; ExchClose = official exchange close price; Final = Final close mark
@@ -1290,7 +1857,7 @@ FieldDesc,MLinkRest,127,eName,String,enum name (if fType is enum)
 FieldDesc,MLinkRest,130,eSet,Text2,comma separated list of enum or string values (can be specific for a given user; default complete set)
 FieldDesc,MLinkRest,133,defaultVal,String,"from Core.def: (...) can be a string, number, xKey, or partial xKey"
 FieldDesc,MLinkRest,136,desc,Text2,from core.def: ... # comment line
-FieldDesc,MLinkRest,139,fCtrl,Enum,None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI (form level directive)
+FieldDesc,MLinkRest,139,fCtrl,Enum,None = should not be visible; View = view only; Edit = View/Edit; Hide = Suppress on UI; Init = only can set during message creation; (form level directive)
 FieldDesc,MLinkRest,142,minV,Double,form edit number range min bound (if field is a numeric type) [enforced on edit]
 FieldDesc,MLinkRest,145,maxV,Double,form edit number range max bound (if field is a numeric type) [enforced on edit]
 FieldDesc,MLinkRest,148,metaType,String,metatype associated with field
@@ -1380,8 +1947,8 @@ MLinkLogon,MLinkWs,106,pin,String,SR Mfa Pin
 MLinkLogon,MLinkWs,109,apiKey,String,SR generated API key
 MLinkLogon,MLinkWs,112,jwtToken,Text1,Cognito JWT token
 MLinkStream,MLinkWs,100,msgName,String,(required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
-MLinkStream,MLinkWs,103,where,String,"(optional) where clause; eg. ""(bidexch:eq:AMEX | bidexch:eq:CBOE) & bidsize:ge:100""  (default is all records)"
-MLinkStream,MLinkWs,106,view,String,"(optional) list (subset) of field names to return with this message (eg. bidprice,askprice,bidsize,asksize) (default is all names)"
+MLinkStream,MLinkWs,103,where,Text2,"(optional) where clause; eg. ""(bidexch:eq:AMEX | bidexch:eq:CBOE) & bidsize:ge:100""  (default is all records)"
+MLinkStream,MLinkWs,106,view,Text2,"(optional) list (subset) of field names to return with this message (eg. bidprice,askprice,bidsize,asksize) (default is all names)"
 MLinkStream,MLinkWs,109,unsubscribe,Enum,(optional) if set to Yes the specified message type will be unsubscribed and thus no longer return
 MLinkStream,MLinkWs,112,sessionID,Short,(optional) actions below apply only to the sessionID virtual session; should be zero for non-multiplexed web-socket connections.
 MLinkStream,MLinkWs,115,queryID,Long,(optional) queryID will be reflected back in the corresponding MLinkStreamAck message; nothing is assumed about structure of this number
@@ -1719,7 +2286,7 @@ CCodeDefinition,FutureDefinition,121,priceScaling,Float,underlying price scale f
 CCodeDefinition,FutureDefinition,124,underliersPerCn,Int,"shares, bond, or index units underlying the future (contract size)"
 CCodeDefinition,FutureDefinition,127,underlierType,Enum,Underlying type; None; Equity; Other; FX
 CCodeDefinition,FutureDefinition,130,clearingCode,String,GMI/Clearing code
-CCodeDefinition,FutureDefinition,133,ricCode,String,RIC Code
+CCodeDefinition,FutureDefinition,164,ricRoot,String,RIC Root
 CCodeDefinition,FutureDefinition,136,bbgRoot,String,Bloomberg root
 CCodeDefinition,FutureDefinition,139,bbgGroup,Enum,Bloomberg Yellow Key
 CCodeDefinition,FutureDefinition,142,gmiExchange,String,GMI (Sungard) exchange code
@@ -1730,6 +2297,7 @@ CCodeDefinition,FutureDefinition,154,strikeScaling,Float,internal strike price s
 CCodeDefinition,FutureDefinition,157,description,String,product description
 CCodeDefinition,FutureDefinition,160,marketCenter,String,"market center, eg ""ICE Market Type"", ""CME MarketGroup"""
 CCodeDefinition,FutureDefinition,163,timestamp,DateTime,
+CCodeDefinition,FutureDefinition,5000,ricCode_V7,String,only V7
 OptExpiryDefinition,OptionDefinition,10,ekey,ExpiryKey,option root+expiration
 OptExpiryDefinition,OptionDefinition,100,ticker,TickerKey,master ticker
 OptExpiryDefinition,OptionDefinition,103,fkey,ExpiryKey,settlement future (if any)
@@ -1745,8 +2313,9 @@ OptExpiryDefinition,OptionDefinition,130,minTickSize,Double,
 OptExpiryDefinition,OptionDefinition,133,timestamp,DateTime,
 ProductDefinitionV2,FutureDefinition,10,secKey,OptionKey,SR Security Key [can be partially filled in (look at secType)]
 ProductDefinitionV2,FutureDefinition,11,secType,Enum,"Security Type [Stock, Future, Option]"
-ProductDefinitionV2,FutureDefinition,100,securityID,String,unique exchange id (exch assigned)
+ProductDefinitionV2,FutureDefinition,248,securityID,Text1,unique exchange id (exch assigned)
 ProductDefinitionV2,FutureDefinition,103,ticker,TickerKey,master underlier
+ProductDefinitionV2,FutureDefinition,251,SRspreadID,Long,
 ProductDefinitionV2,FutureDefinition,106,productClass,Enum,
 ProductDefinitionV2,FutureDefinition,109,underlierID,Long,underlier product id (option only) [securityID of undKey/undType product]
 ProductDefinitionV2,FutureDefinition,112,undKey,ExpiryKey,SR Underlier Security Key [can be partially filled in (look at undType)] (option only)
@@ -1754,7 +2323,8 @@ ProductDefinitionV2,FutureDefinition,115,undType,Enum,"Underlier Security Type [
 ProductDefinitionV2,FutureDefinition,118,productGroup,String,"Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message"
 ProductDefinitionV2,FutureDefinition,121,securityGroup,String,Exchange specific code for a group of related securities that are all affected by market events.  I.E. All E-mini weekly options (EW) - This is SecurityGroup field from the SecurityDefinition messages
 ProductDefinitionV2,FutureDefinition,124,marketSegmentID,Int,Exchange specific market segment identifier
-ProductDefinitionV2,FutureDefinition,127,securityDesc,String,full exchange symbol
+ProductDefinitionV2,FutureDefinition,249,ricCode,String,Full RIC Code - only provided for non-user defined instruments
+ProductDefinitionV2,FutureDefinition,250,securityDesc,Text1,full exchange symbol
 ProductDefinitionV2,FutureDefinition,130,exchange,String,listing exchange
 ProductDefinitionV2,FutureDefinition,133,productType,Enum,
 ProductDefinitionV2,FutureDefinition,136,productTerm,Enum,
@@ -1807,7 +2377,7 @@ RootDefinition,OptionDefinition,121,uPrcBoundCCode,Enum,if Yes and if a future e
 RootDefinition,OptionDefinition,124,expirationMap,Enum,determines the underlying future (if any)
 RootDefinition,OptionDefinition,127,underlierMode,Enum,
 RootDefinition,OptionDefinition,130,optionType,Enum,indicator for option type
-RootDefinition,OptionDefinition,133,multihedge,Enum,indicates type of multihedge
+RootDefinition,OptionDefinition,133,multihedge,Enum,indicates type of multihedge (None = standard root; all other root types are not None)
 RootDefinition,OptionDefinition,136,exerciseTime,Enum,Exercise time type
 RootDefinition,OptionDefinition,139,exerciseType,Enum,Exercise style
 RootDefinition,OptionDefinition,142,timeMetric,Enum,trading time metric - 252 or 365 trading days or a weekly cycle type
@@ -1832,7 +2402,12 @@ RootDefinition,OptionDefinition,196,tradeCurr,Enum,
 RootDefinition,OptionDefinition,199,settleCurr,Enum,
 RootDefinition,OptionDefinition,202,strikeCurr,Enum,
 RootDefinition,OptionDefinition,205,defaultSurfaceRoot,TickerKey,fallback ticker to use for option surfaces if no native surfaces are available
+RootDefinition,OptionDefinition,218,ricRoot,String,RIC Root
 RootDefinition,OptionDefinition,208,timestamp,DateTime,
+RootDefinition,OptionDefinition,5000,pricingSource_V7,Enum,"only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]"
+RootDefinition,OptionDefinition,219,Exchange,Repeater,
+RootDefinition,OptionDefinition,220,optExch,Enum,
+RootDefinition,OptionDefinition,221,nativeRoot,String,
 RootDefinition,OptionDefinition,211,Underlying,Repeater,
 RootDefinition,OptionDefinition,214,ticker,TickerKey,
 RootDefinition,OptionDefinition,217,spc,Float,note: _root basket = sum(spc * ticker) / 100
@@ -1841,6 +2416,7 @@ TickerDefinition,EquityDefinition,100,securityID,Int,"Security ID number from th
 TickerDefinition,EquityDefinition,103,symbolType,Enum,
 TickerDefinition,EquityDefinition,106,name,String,Symbol name
 TickerDefinition,EquityDefinition,109,country,String,ISO Issuer Country Code
+TickerDefinition,EquityDefinition,254,primaryCurrency,Enum,
 TickerDefinition,EquityDefinition,112,parValue,Float,Security Parvalue
 TickerDefinition,EquityDefinition,115,parValueCurrency,String,Security Parvalue currency
 TickerDefinition,EquityDefinition,118,pointValue,Float,
@@ -1889,6 +2465,34 @@ TickerDefinition,EquityDefinition,244,hasOptions,Enum,Has Options flag
 TickerDefinition,EquityDefinition,247,numOptions,Int,total number of listed options
 TickerDefinition,EquityDefinition,250,timeMetric,Enum,trading time metric - 252 or 365 trading days or a weekly cycle type
 TickerDefinition,EquityDefinition,253,timestamp,DateTime,
+SpreadDefinition,SpreadDefinition,11,SRspreadID,Long,SR legs list hash
+SpreadDefinition,SpreadDefinition,100,ticker,TickerKey,underlier (or product group) tickerKey
+SpreadDefinition,SpreadDefinition,101,spreadClass,Enum,option spread type
+SpreadDefinition,SpreadDefinition,109,timestamp,DateTime,
+SpreadDefinition,SpreadDefinition,107,ExchSprIDs,Repeater,
+SpreadDefinition,SpreadDefinition,108,exchSprID,String,unique exchange spread id
+SpreadDefinition,SpreadDefinition,102,Legs,Repeater,
+SpreadDefinition,SpreadDefinition,103,legSecKey,OptionKey,
+SpreadDefinition,SpreadDefinition,104,legSecType,Enum,
+SpreadDefinition,SpreadDefinition,105,legSide,Enum,
+SpreadDefinition,SpreadDefinition,106,legRatio,UInt,"leg ratio (1, 2, etc)"
+SpreadDefinition,SpreadDefinition,110,refDelta,Float,
+SpreadDefinition,SpreadDefinition,111,refPrc,Double,
+SpreadExchDefinition,SpreadDefinition,10,exch,Enum,
+SpreadExchDefinition,SpreadDefinition,11,exchSprID,String,unique exchange spread id
+SpreadExchDefinition,SpreadDefinition,105,timestamp,DateTime,
+SpreadExchDefinition,SpreadDefinition,100,Legs,Repeater,
+SpreadExchDefinition,SpreadDefinition,101,legSecKey,OptionKey,
+SpreadExchDefinition,SpreadDefinition,102,legSecType,Enum,
+SpreadExchDefinition,SpreadDefinition,103,legSide,Enum,
+SpreadExchDefinition,SpreadDefinition,104,legRatio,UInt,"leg ratio (1, 2, etc)"
+SpreadExchDefinition,SpreadDefinition,106,refDelta,Float,
+SpreadExchDefinition,SpreadDefinition,107,refPrc,Double,
+ExchSecurityDefinition,EquityDefinition,10,exchangeTicker,TickerKey,
+ExchSecurityDefinition,EquityDefinition,11,exchange,Enum,
+ExchSecurityDefinition,EquityDefinition,100,primaryCurrency,Enum,Currency that this ticker trades in
+ExchSecurityDefinition,EquityDefinition,101,isin,String,ISIN code
+ExchSecurityDefinition,EquityDefinition,102,primaryTicker,TickerKey,TickerKey that identifies the TickerDefinition for the primary listing for the security
 OptionAtmMinuteBarData,OptSurface,10,ekey,ExpiryKey,
 OptionAtmMinuteBarData,OptSurface,11,tradingDate,DateTime,
 OptionAtmMinuteBarData,OptSurface,12,minute,Int,minutes since 2000-01-01
