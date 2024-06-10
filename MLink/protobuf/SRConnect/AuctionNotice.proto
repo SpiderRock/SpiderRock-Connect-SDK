@@ -28,13 +28,13 @@ message AuctionNotice {
         BuySell side = 134;
         uint32 ratio = 135;
         int32 und_per_cn = 136;
-        float point_value = 137;
         ExpiryType exp_type = 138; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
         float years = 139; // SR volatility years to expiry
         float rate = 140; // SR global (discount) rate to expiry
         float atm_vol = 141; // ATM (fwd uPrc) SR surface volatility
         float ddiv_pv = 142; // SR present value of ddiv stream
         float t_vol = 143; // client theo surface volatility (if client surfaces uploaded to SR)
+        float t_prc = 183; // client theo price (if client surfaces uploaded to SR)
         float s_vol = 144; // SR Surface Volatility
         float s_div = 145; // SR Surface SDiv
         float s_prc = 146; // SR Surface Price
@@ -92,6 +92,7 @@ message AuctionNotice {
     float net_th = 174;
     float net_ve = 175;
     float pkg_surf_prc = 176; // SR Surface Price (entire package)
+    float pkg_theo_prc = 182; // Client Theo Price (entire package) (if client surfaces uploaded to SR)
     float pkg_bid_prc = 177; // leg market best way price (pkg bid)
     float pkg_ask_prc = 178; // leg market worst way price (pkg ask)
     double point_value = 179; // money settlement value of one (1.0) point of option premium/strike

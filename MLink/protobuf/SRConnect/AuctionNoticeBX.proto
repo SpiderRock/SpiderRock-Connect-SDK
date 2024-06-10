@@ -34,6 +34,9 @@ message AuctionNoticeBX {
     AuctionSource auction_source = 106; // source of the auction notice (eg. SRC, MIAX, etc.)
     YesNo is_test_auction = 107; // if yes, auction is a test auction (not a prod/live auction)
     string short_code = 108; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    string industry = 137; // industry string
+    SymbolType symbol_type = 138;
+    float u_avg_daily_vlm = 139; // underlier average daily trading volume
     TickerKey root = 109; // option root (+C.Lo/-P.Lo/-C.Hi/+P.Hi)
     DateKey expiry = 110;
     double lo_strike = 111; // lo strike
