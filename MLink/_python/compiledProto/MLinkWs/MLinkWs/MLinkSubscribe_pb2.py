@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import spiderrock_common_pb2 as spiderrock__common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cMLinkWs/MLinkSubscribe.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\"\xc1\x04\n\x0eMLinkSubscribe\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x12\n\nsession_iD\x18\x64 \x01(\x05\x12\x14\n\x0csubscribe_iD\x18g \x01(\x03\x12\x16\n\x0e\x61\x63tive_latency\x18j \x01(\x05\x12:\n\x0b\x63ompression\x18m \x01(\x0e\x32%.spiderrock.protobuf.MLinkCompression\x12,\n\x08\x64o_reset\x18p \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x41\n\tsubscribe\x18\x85\x01 \x03(\x0b\x32-.spiderrock.protobuf.MLinkSubscribe.Subscribe\x12\x44\n\x0bunsubscribe\x18| \x03(\x0b\x32/.spiderrock.protobuf.MLinkSubscribe.Unsubscribe\x12\x36\n\x04view\x18s \x03(\x0b\x32(.spiderrock.protobuf.MLinkSubscribe.View\x1a\x31\n\tSubscribe\x12\x11\n\x08msg_name\x18\x88\x01 \x01(\t\x12\x11\n\x08msg_pKey\x18\x8b\x01 \x01(\t\x1a\x32\n\x0bUnsubscribe\x12\x10\n\x08msg_name\x18\x7f \x01(\t\x12\x11\n\x08msg_pKey\x18\x82\x01 \x01(\t\x1a&\n\x04View\x12\x10\n\x08msg_name\x18v \x01(\t\x12\x0c\n\x04view\x18y \x01(\tb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cMLinkWs/MLinkSubscribe.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\"\xd8\x04\n\x0eMLinkSubscribe\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x12\n\nsession_iD\x18\x64 \x01(\x05\x12\x14\n\x0csubscribe_iD\x18g \x01(\x03\x12\x16\n\x0e\x61\x63tive_latency\x18j \x01(\x05\x12:\n\x0b\x63ompression\x18m \x01(\x0e\x32%.spiderrock.protobuf.MLinkCompression\x12,\n\x08\x64o_reset\x18p \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x41\n\tsubscribe\x18\x85\x01 \x03(\x0b\x32-.spiderrock.protobuf.MLinkSubscribe.Subscribe\x12\x44\n\x0bunsubscribe\x18| \x03(\x0b\x32/.spiderrock.protobuf.MLinkSubscribe.Unsubscribe\x12\x36\n\x04view\x18s \x03(\x0b\x32(.spiderrock.protobuf.MLinkSubscribe.View\x1aH\n\tSubscribe\x12\x11\n\x08msg_name\x18\x88\x01 \x01(\t\x12\x11\n\x08msg_pKey\x18\x8b\x01 \x01(\t\x12\x15\n\x0chighwater_ts\x18\x8c\x01 \x01(\x03\x1a\x32\n\x0bUnsubscribe\x12\x10\n\x08msg_name\x18\x7f \x01(\t\x12\x11\n\x08msg_pKey\x18\x82\x01 \x01(\t\x1a&\n\x04View\x12\x10\n\x08msg_name\x18v \x01(\t\x12\x0c\n\x04view\x18y \x01(\tb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,11 +23,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_MLINKSUBSCRIBE']._serialized_start=79
-  _globals['_MLINKSUBSCRIBE']._serialized_end=656
+  _globals['_MLINKSUBSCRIBE']._serialized_end=679
   _globals['_MLINKSUBSCRIBE_SUBSCRIBE']._serialized_start=515
-  _globals['_MLINKSUBSCRIBE_SUBSCRIBE']._serialized_end=564
-  _globals['_MLINKSUBSCRIBE_UNSUBSCRIBE']._serialized_start=566
-  _globals['_MLINKSUBSCRIBE_UNSUBSCRIBE']._serialized_end=616
-  _globals['_MLINKSUBSCRIBE_VIEW']._serialized_start=618
-  _globals['_MLINKSUBSCRIBE_VIEW']._serialized_end=656
+  _globals['_MLINKSUBSCRIBE_SUBSCRIBE']._serialized_end=587
+  _globals['_MLINKSUBSCRIBE_UNSUBSCRIBE']._serialized_start=589
+  _globals['_MLINKSUBSCRIBE_UNSUBSCRIBE']._serialized_end=639
+  _globals['_MLINKSUBSCRIBE_VIEW']._serialized_start=641
+  _globals['_MLINKSUBSCRIBE_VIEW']._serialized_end=679
 # @@protoc_insertion_point(module_scope)
