@@ -640,6 +640,7 @@ AuctionNotice,SRConnect,173,netGa,Float,
 AuctionNotice,SRConnect,174,netTh,Float,
 AuctionNotice,SRConnect,175,netVe,Float,
 AuctionNotice,SRConnect,176,pkgSurfPrc,Float,SR Surface Price (entire package)
+AuctionNotice,SRConnect,182,pkgTheoPrc,Float,Client Theo Price (entire package) (if client surfaces uploaded to SR)
 AuctionNotice,SRConnect,177,pkgBidPrc,Float,leg market best way price (pkg bid)
 AuctionNotice,SRConnect,178,pkgAskPrc,Float,leg market worst way price (pkg ask)
 AuctionNotice,SRConnect,179,pointValue,Double,money settlement value of one (1.0) point of option premium/strike
@@ -657,13 +658,13 @@ AuctionNotice,SRConnect,133,secType,Enum,
 AuctionNotice,SRConnect,134,side,Enum,
 AuctionNotice,SRConnect,135,ratio,UShort,
 AuctionNotice,SRConnect,136,undPerCn,Int,
-AuctionNotice,SRConnect,137,pointValue,Float,
 AuctionNotice,SRConnect,138,expType,Enum,"ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp"
 AuctionNotice,SRConnect,139,years,Float,SR volatility years to expiry
 AuctionNotice,SRConnect,140,rate,Float,SR global (discount) rate to expiry
 AuctionNotice,SRConnect,141,atmVol,Float,ATM (fwd uPrc) SR surface volatility
 AuctionNotice,SRConnect,142,ddivPv,Float,SR present value of ddiv stream
 AuctionNotice,SRConnect,143,tVol,Float,client theo surface volatility (if client surfaces uploaded to SR)
+AuctionNotice,SRConnect,183,tPrc,Float,client theo price (if client surfaces uploaded to SR)
 AuctionNotice,SRConnect,144,sVol,Float,SR Surface Volatility
 AuctionNotice,SRConnect,145,sDiv,Float,SR Surface SDiv
 AuctionNotice,SRConnect,146,sPrc,Float,SR Surface Price
@@ -782,6 +783,9 @@ AuctionNoticeBX,SRConnect,105,srcAuctionType,String,
 AuctionNoticeBX,SRConnect,106,auctionSource,Enum,"source of the auction notice (eg. SRC, MIAX, etc.)"
 AuctionNoticeBX,SRConnect,107,isTestAuction,Enum,"if yes, auction is a test auction (not a prod/live auction)"
 AuctionNoticeBX,SRConnect,108,shortCode,String,8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+AuctionNoticeBX,SRConnect,137,industry,Text1,industry string
+AuctionNoticeBX,SRConnect,138,symbolType,Enum,
+AuctionNoticeBX,SRConnect,139,uAvgDailyVlm,Float,underlier average daily trading volume
 AuctionNoticeBX,SRConnect,109,root,TickerKey,option root (+C.Lo/-P.Lo/-C.Hi/+P.Hi)
 AuctionNoticeBX,SRConnect,110,expiry,DateKey,
 AuctionNoticeBX,SRConnect,111,loStrike,Double,lo strike
@@ -1554,6 +1558,7 @@ SpreadBookQuote,SpreadMktData,145,bidMask1,UInt,exchange bid bit mask (OptExch m
 SpreadBookQuote,SpreadMktData,148,askMask1,UInt,exchange ask bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
 SpreadBookQuote,SpreadMktData,151,bidTime,DateTime,last bid price or size change
 SpreadBookQuote,SpreadMktData,154,askTime,DateTime,last ask price or size change
+SpreadBookQuote,SpreadMktData,168,printVolume,Int,
 SpreadBookQuote,SpreadMktData,157,updateType,Enum,
 SpreadBookQuote,SpreadMktData,160,srcTimestamp,Long,source high precision timestamp (if available)
 SpreadBookQuote,SpreadMktData,163,netTimestamp,Long,inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
@@ -1991,6 +1996,7 @@ MLinkSubscribe,MLinkWs,112,doReset,Enum,if Yes all current subscriptions will be
 MLinkSubscribe,MLinkWs,133,Subscribe,Repeater,
 MLinkSubscribe,MLinkWs,136,msgName,String,(required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
 MLinkSubscribe,MLinkWs,139,msgPKey,String,(required) must be an existing message.pkey; can be in either flat string or JSON format
+MLinkSubscribe,MLinkWs,140,highwaterTs,Long,(optional) records must have a header.sentTs that is later than this value (nanoseconds after the UNIX epoch) [-1 means start from current server side highwaterTs]
 MLinkSubscribe,MLinkWs,124,Unsubscribe,Repeater,
 MLinkSubscribe,MLinkWs,127,msgName,String,(required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
 MLinkSubscribe,MLinkWs,130,msgPKey,String,# an existing message.pkey; can be in either flat string or JSON format; if missing/empty all active msgName subscriptions will be removed
