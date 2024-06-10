@@ -381,6 +381,7 @@ Query parameters are URL-encoded and passed in the querystring. If successful, r
 | {Subscribe}|               |                               |
 | msgName    | msgTypeName              | a SpiderRock message name (topic channel) (can be string name or protobuf message number)                                                         |
 | msgPKey       | string         | an existing message.pkey; can be in either flat string or JSON format; if missing/empty all active msgName subscriptions will be removed                                                |
+| highwterTs    | Long           | (optional) records must have a header.sentTs that is later than this value (nanoseconds after the UNIX epoch) -1 means start from current server side highwaterTs |
 | {Unsubscribe}|               |                               |
 | msgName    | msgTypeName              | a SpiderRock message name (topic channel) (can be string name or protobuf message number)                                                         |
 | msgPKey       | string         | an existing message.pkey; can be in either flat string or JSON format; if missing/empty all active msgName subscriptions will be removed         |                                                                                                                        
