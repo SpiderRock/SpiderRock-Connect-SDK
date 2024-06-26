@@ -24,7 +24,8 @@ set_property(TARGET livesurfaceprt PROPERTY CXX_STANDARD 17)
 target_compile_options(livesurfaceprt PUBLIC -Wall)
 
 # this lets me include files relative to the root source directory with a <> pair
-target_include_directories(livesurfaceprt PUBLIC . ../../../../output ../../../../Codec/Codec)
+target_include_directories(livesurfaceprt PUBLIC . ../../../headers/Codec ../../../headers/Messages)
+
 
 ###############################################################################
 ## dependencies ###############################################################
