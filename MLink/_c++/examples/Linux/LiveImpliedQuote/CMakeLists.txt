@@ -39,4 +39,5 @@ target_link_libraries(LiveImpliedQuoteMultipleStripes PUBLIC
   ssl
   crypto
   pthread
+  stdc++fs
 )

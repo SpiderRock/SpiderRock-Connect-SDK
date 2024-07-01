@@ -503,9 +503,6 @@ namespace api {
         run_status m_run_status{};
 
         public:
-		sec_key get_sec_key() const {
-            return m_sec_key;
-        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }
@@ -651,9 +648,6 @@ namespace api {
         leg_ratio m_leg_ratio{};
 
         public:
-		leg_sec_key get_leg_sec_key() const {
-            return m_leg_sec_key;
-        }
         leg_sec_type get_leg_sec_type() const {
             return m_leg_sec_type;
         }

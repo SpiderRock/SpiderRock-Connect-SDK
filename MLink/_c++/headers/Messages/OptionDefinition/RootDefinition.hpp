@@ -390,14 +390,14 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(226,m_native_root);
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(221,m_native_root);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,226,static_cast<string>(m_native_root));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,221,static_cast<string>(m_native_root));
             return dest;
         }
 
@@ -414,10 +414,10 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 223: {m_opt_exch = static_cast<spiderrock::protobuf::api::OptExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 220: {m_opt_exch = static_cast<spiderrock::protobuf::api::OptExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 226: {m_native_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 221: {m_native_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -1291,7 +1291,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
             if ( IncludeExchange()) {
                 for (auto& item : m_exchange) {
-					totalSize += SRProtobufCPP::TagCodec::Size(220, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(219, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -1402,7 +1402,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
             if ( IncludeExchange()) {
                 for (auto& item : m_exchange) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 220, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 219, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -1661,7 +1661,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 220: {
+                    case 219: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             exchange item_exchange;

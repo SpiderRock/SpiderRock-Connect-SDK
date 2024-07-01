@@ -65,6 +65,11 @@ namespace api {
     DECL_STRONG_TYPE(msg_pkey, string);
     #endif//_msg_pkey__GUARD__
 
+    #ifndef _highwater_ts__GUARD__
+    #define _highwater_ts__GUARD__
+    DECL_STRONG_TYPE(highwater_ts, int64);
+    #endif//_highwater_ts__GUARD__
+
     #ifndef _msg_name__GUARD__
     #define _msg_name__GUARD__
     DECL_STRONG_TYPE(msg_name, string);
@@ -91,10 +96,12 @@ namespace api {
         //using statements for all types used in this class
         using msg_name = spiderrock::protobuf::api::msg_name;
         using msg_pkey = spiderrock::protobuf::api::msg_pkey;
+        using highwater_ts = spiderrock::protobuf::api::highwater_ts;
 
         private:
         msg_name m_msg_name{};
         msg_pkey m_msg_pkey{};
+        highwater_ts m_highwater_ts{};
 
         public:
         msg_name get_msg_name() const {
@@ -103,11 +110,17 @@ namespace api {
         msg_pkey get_msg_pkey() const {
             return m_msg_pkey;
         }
+        highwater_ts get_highwater_ts() const {
+            return m_highwater_ts;
+        }
         void set_msg_name(const msg_name& value)  {
             m_msg_name = value;
         }
         void set_msg_pkey(const msg_pkey& value)  {
             m_msg_pkey = value;
+        }
+        void set_highwater_ts(const highwater_ts& value)  {
+            m_highwater_ts = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -119,6 +132,7 @@ namespace api {
         
         void set(const msg_name & value) { set_msg_name(value); }
         void set(const msg_pkey & value) { set_msg_pkey(value); }
+        void set(const highwater_ts & value) { set_highwater_ts(value); }
 
 
         MLinkSubscribe_Subscribe() {}
@@ -140,12 +154,14 @@ namespace api {
             size_t totalSize = 0;
             totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(136,m_msg_name);
             totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(139,m_msg_pkey);
+            totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(140,m_highwater_ts);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             dest = SRProtobufCPP::FieldCodec::EncodeString(dest,136,static_cast<string>(m_msg_name));
             dest = SRProtobufCPP::FieldCodec::EncodeString(dest,139,static_cast<string>(m_msg_pkey));
+            dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,140,m_highwater_ts);
             return dest;
         }
 
@@ -166,6 +182,9 @@ namespace api {
                         break;
                     }
                     case 139: {m_msg_pkey = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                    case 140: {m_highwater_ts = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         break;
                     }
                 }
@@ -759,6 +778,7 @@ namespace api {
     template<> inline int MLinkSubscribe::count<MLinkSubscribe::view>() const { return static_cast<int>( m_view.size()); }
     template<> inline const auto MLinkSubscribe_Subscribe::get<MLinkSubscribe_Subscribe::msg_name>() const { return m_msg_name; }
     template<> inline const auto MLinkSubscribe_Subscribe::get<MLinkSubscribe_Subscribe::msg_pkey>() const { return m_msg_pkey; }
+    template<> inline const auto MLinkSubscribe_Subscribe::get<MLinkSubscribe_Subscribe::highwater_ts>() const { return m_highwater_ts; }
     
     template<> inline const auto MLinkSubscribe_Unsubscribe::get<MLinkSubscribe_Unsubscribe::msg_name>() const { return m_msg_name; }
     template<> inline const auto MLinkSubscribe_Unsubscribe::get<MLinkSubscribe_Unsubscribe::msg_pkey>() const { return m_msg_pkey; }
@@ -771,6 +791,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const MLinkSubscribe_Subscribe& m) {
         o << "\"msg_name\":\"" << m.get<MLinkSubscribe_Subscribe::msg_name>() << "\"";
         o << ",\"msg_pkey\":\"" << m.get<MLinkSubscribe_Subscribe::msg_pkey>() << "\"";
+        o << ",\"highwater_ts\":" << m.get<MLinkSubscribe_Subscribe::highwater_ts>();
         return o;
     }
 

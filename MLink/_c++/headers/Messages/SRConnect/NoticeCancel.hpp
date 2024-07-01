@@ -133,7 +133,7 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeNoticeNumber()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(10,m_notice_number);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(13,m_notice_number);
             }
             if ( IncludeAccnt()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_accnt);
@@ -146,7 +146,7 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeNoticeNumber()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,10,m_notice_number);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,13,m_notice_number);
             }
             if ( IncludeAccnt()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_accnt));
@@ -169,7 +169,7 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 10: {m_notice_number = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                    case 13: {m_notice_number = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         break;
                     }
                     case 11: {m_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -353,13 +353,13 @@ namespace api {
             if ( IncludeTicker()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
                 m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(101, tickerKeyLayout);
             }
             if ( IncludeTradeDate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(103, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(102, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(106, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(100, m_timestamp);
             }
             return totalSize;
         }
@@ -378,13 +378,13 @@ namespace api {
             if ( IncludeTicker()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
                 m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 101, tickerKeyLayout);
             }
             if ( IncludeTradeDate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,103, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,102, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 106, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 100, m_timestamp);
             }
         }
 
@@ -416,14 +416,14 @@ namespace api {
                         }
                         break;
                     }
-                    case 100: {
+                    case 101: {
                         if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
                             auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
                             m_ticker.setFromCodec(tickerKey);
                         }
                         break;
                     }
-                    case 103: {
+                    case 102: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
                             m_trade_date.set_year(dateKey.year());
@@ -432,7 +432,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 106: {
+                    case 100: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }

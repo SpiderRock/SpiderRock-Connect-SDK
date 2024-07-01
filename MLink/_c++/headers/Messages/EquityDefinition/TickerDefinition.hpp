@@ -1278,7 +1278,7 @@ namespace api {
             if ( IncludeCountry()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_country);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(254,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
             if ( IncludeParValue()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_par_value);
             }
@@ -1427,7 +1427,7 @@ namespace api {
             if ( IncludeCountry()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_country));
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,254,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
             if ( IncludeParValue()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_par_value);
             }
@@ -1605,7 +1605,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 110: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 254: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_primary_currency = static_cast<spiderrock::protobuf::api::Currency>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;

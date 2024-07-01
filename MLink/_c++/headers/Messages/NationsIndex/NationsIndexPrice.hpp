@@ -360,10 +360,10 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(100,m_mrk_price);
             }
             if ( IncludeExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(103, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
             }
             if ( IncludeSrcTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(106,m_src_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(102,m_src_timestamp);
             }
             return totalSize;
         }
@@ -383,10 +383,10 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,100,m_mrk_price);
             }
             if ( IncludeExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,103, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
             }
             if ( IncludeSrcTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,106,m_src_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,102,m_src_timestamp);
             }
         }
 
@@ -424,7 +424,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 103: {
+                    case 101: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
                             m_expiry.set_year(dateKey.year());
@@ -433,7 +433,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 106: {
+                    case 102: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_src_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }

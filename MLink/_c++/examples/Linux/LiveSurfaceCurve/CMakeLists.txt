@@ -40,4 +40,5 @@ target_link_libraries(livesurfaceprt PUBLIC
   ssl
   crypto
   pthread
+  stdc++fs
 )

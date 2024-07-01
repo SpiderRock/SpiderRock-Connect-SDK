@@ -285,6 +285,19 @@ namespace spiderrock {
                 session.write(charBuffer, totalSize);
 				delete[] charBuffer;
             }
+			
+			template <typename ProtobufMessageType>
+            void SendMessage(const ProtobufMessageType& t) {
+
+                const size_t encodedSize = t.ByteSizeLong();
+                const size_t headerSize = t.getMLinkHeaderLength();
+                const size_t totalSize = encodedSize + headerSize;
+                char* charBuffer = new char[totalSize];
+                t.SerializeToArray(charBuffer, totalSize);
+
+                session.write(charBuffer, totalSize);
+                delete[] charBuffer;
+            }
 
 			void subscribe(std::vector<SubscriptionMessage> &&list, int activeLatency, bool reset) {
                 bool requires_framing = false;

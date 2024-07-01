@@ -303,16 +303,16 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(169,m_num_responders);
-            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(172,m_match_price);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(175,m_match_size);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(123,m_num_responders);
+            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_match_price);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(125,m_match_size);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,169,m_num_responders);
-            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,172,m_match_price);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,175,m_match_size);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,123,m_num_responders);
+            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_match_price);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,125,m_match_size);
             return dest;
         }
 
@@ -329,13 +329,13 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 169: {m_num_responders = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 123: {m_num_responders = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 172: {m_match_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 124: {m_match_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         break;
                     }
-                    case 175: {m_match_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 125: {m_match_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
                 }
@@ -405,16 +405,16 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(157,m_num_responders);
-            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(160,m_match_price);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(163,m_match_size);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(119,m_num_responders);
+            totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(120,m_match_price);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(121,m_match_size);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,157,m_num_responders);
-            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,160,m_match_price);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,163,m_match_size);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,119,m_num_responders);
+            dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,120,m_match_price);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,121,m_match_size);
             return dest;
         }
 
@@ -431,13 +431,13 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 157: {m_num_responders = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 119: {m_num_responders = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 160: {m_match_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 120: {m_match_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         break;
                     }
-                    case 163: {m_match_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 121: {m_match_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
                 }
@@ -889,59 +889,59 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeTradeDate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(103, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             if ( IncludeBlockAuctionCounter()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(112,m_block_auction_counter);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(104,m_block_auction_counter);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BlockAuctionStatus>(m_block_auction_status)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BlockAuctionStatus>(m_block_auction_status)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
             if ( IncludeCustQty()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(121,m_cust_qty);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(107,m_cust_qty);
             }
             if ( IncludeCustPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_cust_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(108,m_cust_prc);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
             if ( IncludeUBid()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_u_bid);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(110,m_u_bid);
             }
             if ( IncludeUAsk()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(133,m_u_ask);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(111,m_u_ask);
             }
             if ( IncludeNbboBid()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(136,m_nbbo_bid);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_nbbo_bid);
             }
             if ( IncludeNbboAsk()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(139,m_nbbo_ask);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(113,m_nbbo_ask);
             }
             if ( IncludeNbboBidSz()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(142,m_nbbo_bid_sz);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(114,m_nbbo_bid_sz);
             }
             if ( IncludeNbboAskSz()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(145,m_nbbo_ask_sz);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(115,m_nbbo_ask_sz);
             }
             if ( IncludeSurfacePrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(148,m_surface_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(116,m_surface_prc);
             }
             if ( IncludeSurfaceVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_surface_vol);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(117,m_surface_vol);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(178, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(126, m_timestamp);
             }
             if ( IncludeAskSolution()) {
                 for (auto& item : m_ask_solution) {
-					totalSize += SRProtobufCPP::TagCodec::Size(166, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(122, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
             }
             if ( IncludeBidSolution()) {
                 for (auto& item : m_bid_solution) {
-					totalSize += SRProtobufCPP::TagCodec::Size(154, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(118, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -966,59 +966,59 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeTradeDate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,103, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             if ( IncludeBlockAuctionCounter()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,112,m_block_auction_counter);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,104,m_block_auction_counter);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BlockAuctionStatus>(m_block_auction_status)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BlockAuctionStatus>(m_block_auction_status)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_cust_side)));
             if ( IncludeCustQty()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,121,m_cust_qty);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,107,m_cust_qty);
             }
             if ( IncludeCustPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_cust_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,108,m_cust_prc);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
             if ( IncludeUBid()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_u_bid);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,110,m_u_bid);
             }
             if ( IncludeUAsk()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,133,m_u_ask);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,111,m_u_ask);
             }
             if ( IncludeNbboBid()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,136,m_nbbo_bid);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_nbbo_bid);
             }
             if ( IncludeNbboAsk()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,139,m_nbbo_ask);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,113,m_nbbo_ask);
             }
             if ( IncludeNbboBidSz()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,142,m_nbbo_bid_sz);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,114,m_nbbo_bid_sz);
             }
             if ( IncludeNbboAskSz()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,145,m_nbbo_ask_sz);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,115,m_nbbo_ask_sz);
             }
             if ( IncludeSurfacePrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,148,m_surface_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,116,m_surface_prc);
             }
             if ( IncludeSurfaceVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_surface_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,117,m_surface_vol);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 178, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 126, m_timestamp);
             }
             if ( IncludeAskSolution()) {
                 for (auto& item : m_ask_solution) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 166, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 122, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
             }
             if ( IncludeBidSolution()) {
                 for (auto& item : m_bid_solution) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 154, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 118, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -1060,7 +1060,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 103: {
+                    case 101: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
                             m_trade_date.set_year(dateKey.year());
@@ -1069,104 +1069,104 @@ namespace api {
                         }
                         break;
                     }
-                    case 106: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 102: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_is_test_auction = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 109: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_auction_type = static_cast<spiderrock::protobuf::api::AuctionType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 112: {
+                    case 104: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_block_auction_counter = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 115: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 105: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_block_auction_status = static_cast<spiderrock::protobuf::api::BlockAuctionStatus>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 118: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 106: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_cust_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 121: {
+                    case 107: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_cust_qty = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 108: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_cust_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 127: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 109: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_has_cust_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 130: {
+                    case 110: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_u_bid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 133: {
+                    case 111: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_u_ask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 136: {
+                    case 112: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_nbbo_bid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 139: {
+                    case 113: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_nbbo_ask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 114: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_nbbo_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 145: {
+                    case 115: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_nbbo_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 148: {
+                    case 116: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_surface_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 151: {
+                    case 117: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_surface_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 178: {
+                    case 126: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 166: {
+                    case 122: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             ask_solution item_ask_solution;
@@ -1175,7 +1175,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 154: {
+                    case 118: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             bid_solution item_bid_solution;

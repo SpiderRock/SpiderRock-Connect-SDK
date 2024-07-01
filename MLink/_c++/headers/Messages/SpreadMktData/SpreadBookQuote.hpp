@@ -130,6 +130,11 @@ namespace api {
     DECL_STRONG_TYPE(ask_time__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_ask_time__timestamp__GUARD__
 
+    #ifndef _print_volume__GUARD__
+    #define _print_volume__GUARD__
+    DECL_STRONG_TYPE(print_volume, int32);
+    #endif//_print_volume__GUARD__
+
     #ifndef _update_type__GUARD__
     #define _update_type__GUARD__
     DECL_STRONG_TYPE(update_type, spiderrock::protobuf::api::UpdateType);
@@ -289,6 +294,7 @@ namespace api {
         using ask_mask1 = spiderrock::protobuf::api::ask_mask1;
         using bid_time = spiderrock::protobuf::api::bid_time__timestamp;
         using ask_time = spiderrock::protobuf::api::ask_time__timestamp;
+        using print_volume = spiderrock::protobuf::api::print_volume;
         using update_type = spiderrock::protobuf::api::update_type;
         using src_timestamp = spiderrock::protobuf::api::src_timestamp;
         using net_timestamp = spiderrock::protobuf::api::net_timestamp;
@@ -317,6 +323,7 @@ namespace api {
         ask_mask1 m_ask_mask1{};
         bid_time m_bid_time{};
         ask_time m_ask_time{};
+        print_volume m_print_volume{};
         update_type m_update_type{};
         src_timestamp m_src_timestamp{};
         net_timestamp m_net_timestamp{};
@@ -390,6 +397,9 @@ namespace api {
         }		
         ask_time get_ask_time() const {
             return m_ask_time;
+        }		
+        print_volume get_print_volume() const {
+            return m_print_volume;
         }		
         update_type get_update_type() const {
             return m_update_type;
@@ -472,6 +482,9 @@ namespace api {
         }
         void set_ask_time(const ask_time& value)  {
             m_ask_time = value;
+        }
+        void set_print_volume(const print_volume& value)  {
+            m_print_volume = value;
         }
         void set_update_type(const update_type& value)  {
             m_update_type = value;
@@ -559,6 +572,9 @@ namespace api {
         void set(const ask_time & value) {
             set_ask_time(value);
         }
+        void set(const print_volume & value) {
+            set_print_volume(value);
+        }
         void set(const update_type & value) {
             set_update_type(value);
         }
@@ -595,6 +611,7 @@ namespace api {
             set(value.m_ask_mask1);
             set(value.m_bid_time);
             set(value.m_ask_time);
+            set(value.m_print_volume);
             set(value.m_update_type);
             set(value.m_src_timestamp);
             set(value.m_net_timestamp);
@@ -699,6 +716,9 @@ namespace api {
         bool IncludeAskTime() const {
             return (m_ask_time.time_since_epoch().count() != 0);
         }
+        bool IncludePrintVolume() const {
+            return !(m_print_volume == 0);
+        }
         bool IncludeSrcTimestamp() const {
             return !(m_src_timestamp == 0);
         }
@@ -728,7 +748,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(101,m_srspread_id);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(167,m_srspread_id);
             }
             if ( IncludeBidPrice1()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(103,m_bid_price1);
@@ -772,6 +792,9 @@ namespace api {
             if ( IncludeAskTime()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(154, m_ask_time);
             }
+            if ( IncludePrintVolume()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(168,m_print_volume);
+            }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UpdateType>(m_update_type)));
             if ( IncludeSrcTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(160,m_src_timestamp);
@@ -802,7 +825,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,101,m_srspread_id);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,167,m_srspread_id);
             }
             if ( IncludeBidPrice1()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,103,m_bid_price1);
@@ -845,6 +868,9 @@ namespace api {
             }
             if ( IncludeAskTime()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 154, m_ask_time);
+            }
+            if ( IncludePrintVolume()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,168,m_print_volume);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UpdateType>(m_update_type)));
             if ( IncludeSrcTimestamp()) {
@@ -893,7 +919,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {
+                    case 167: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_srspread_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
@@ -1001,6 +1027,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 168: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_print_volume = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
                     case 157: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_update_type = static_cast<spiderrock::protobuf::api::UpdateType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1055,6 +1087,7 @@ namespace api {
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::ask_mask1>() const { return m_ask_mask1; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::bid_time>() const { return m_bid_time; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::ask_time>() const { return m_ask_time; }
+    template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::print_volume>() const { return m_print_volume; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::update_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UpdateType>( m_update_type)); }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::src_timestamp>() const { return m_src_timestamp; }
     template<> inline const auto SpreadBookQuote::get<SpreadBookQuote::net_timestamp>() const { return m_net_timestamp; }
@@ -1103,6 +1136,7 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"ask_time\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"print_volume\":" << m.get<SpreadBookQuote::print_volume>();
         o << ",\"update_type\":" << (int64_t)m.get<SpreadBookQuote::update_type>();
         o << ",\"src_timestamp\":" << m.get<SpreadBookQuote::src_timestamp>();
         o << ",\"net_timestamp\":" << m.get<SpreadBookQuote::net_timestamp>();

@@ -1119,7 +1119,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_exch_auction_type);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>(m_auction_event)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(212,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>(m_auction_event)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeShape>(m_auction_shape)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_auction_side)));
@@ -1221,7 +1221,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_exch_auction_type));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>(m_auction_event)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,212,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionEvent>(m_auction_event)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeShape>(m_auction_shape)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionType>(m_auction_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_auction_side)));
@@ -1352,7 +1352,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 212: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_auction_event = static_cast<spiderrock::protobuf::api::AuctionEvent>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;

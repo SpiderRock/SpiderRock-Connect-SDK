@@ -6,6 +6,8 @@
 #include <string>
 #include <algorithm>
 #include <fstream>
+#include <sstream>
+#include <filesystem>
 #include "spiderrock_mlink_base.hpp"
 
 #include <boost/beast.hpp>
@@ -32,22 +34,38 @@ namespace spiderrock {
                 }
             };
 
-            static void load_root_certificates(ssl::context& ctx)                                                                                                                                                                         
-            {                                                                                                                                                                                                                             
-                boost::system::error_code ec;                                                                                                                                                                                             
-                std::ifstream f("/etc/ssl/certs/ca-bundle.crt");                                                                                                                                                                          
-                                                                                                                                                                                                                                        
-                std::ostringstream sstr;                                                                                                                                                                                                  
-                                                                                                                                                                                                                                        
-                sstr << f.rdbuf();                                                                                                                                                                                                        
-                                                                                                                                                                                                                                        
-                std::string cert(sstr.str());                                                                                                                                                                                             
-                                                                                                                                                                                                                                        
-                ctx.add_certificate_authority(                                                                                                                                                                                            
-                    boost::asio::buffer(cert.data(), cert.size()), ec);                                                                                                                                                                   
-                if(ec)                                                                                                                                                                                                                    
-                    throw boost::system::system_error{ec};                                                                                                                                                                                
-            }                                                                                                                                                                                                                             
+            static void load_certificates_from_directory(ssl::context& ctx, const std::string& cert_dir) {
+                boost::system::error_code ec;
+                for (const auto& entry : std::filesystem::directory_iterator(cert_dir)) {
+                    if (entry.path().extension() == ".pem") {
+                        std::ifstream file(entry.path());
+                        if (file) {
+                             std::ostringstream sstr;
+                             sstr << file.rdbuf();
+                             std::string cert = sstr.str();
+                             ctx.add_certificate_authority(boost::asio::buffer(cert.data(), cert.size()), ec);
+                             if (ec) {
+                                throw boost::system::system_error{ec};
+                              }
+                        }
+                    }
+                }
+            }
+
+            static void load_root_certificates(ssl::context& ctx) {
+                // List of directories to search for CA certificates
+                std::vector<std::string> cert_dirs = {
+                    "/etc/ssl/certs/",               // Debian/Ubuntu
+                    "/etc/pki/tls/certs/",           // Red Hat/CentOS/Fedora
+                    "/usr/local/share/ca-certificates/" // Custom CA certificates
+                };
+
+                for (const auto& dir : cert_dirs) {
+                    if (std::filesystem::exists(dir) && std::filesystem::is_directory(dir)) {
+                         load_certificates_from_directory(ctx, dir);
+                      }
+                }
+            }                                                                                                                                                                                                                           
 
             template <bool UsingSSL>
             class WebSocket : public ISocket {

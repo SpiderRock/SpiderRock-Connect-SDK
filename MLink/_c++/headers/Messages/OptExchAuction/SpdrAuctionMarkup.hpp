@@ -403,9 +403,6 @@ namespace api {
         run_status m_run_status{};
 
         public:
-		sec_key get_sec_key() const {
-            return m_sec_key;
-        }
         sec_type get_sec_type() const {
             return m_sec_type;
         }

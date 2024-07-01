@@ -1576,7 +1576,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(101,m_srspread_id);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(298,m_srspread_id);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_price_format)));
             if ( IncludeBidPrice1()) {
@@ -1716,7 +1716,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,101,m_srspread_id);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,298,m_srspread_id);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_price_format)));
             if ( IncludeBidPrice1()) {
@@ -1873,7 +1873,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {
+                    case 298: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_srspread_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
