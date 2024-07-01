@@ -16,7 +16,7 @@ int main()
 
     MLinkSession rest_session(context);
 
-    std::string apiKey = "7c064895-dc15-46c6-97e2-506353851944";
+    std::string apiKey = "Your API Key";
 
     MLinkSession ws_session(context);
 
