@@ -16,26 +16,7 @@ int main()
 
     MLinkSession rest_session(context);
 
-    std::string apiKey = "<Your API Key>";
-
-    result = rest_session.connect("https://mlink-live.nms.saturn.spiderrockconnect.com/rest/jsonf?cmd=getmsgtypes&where=mToken:ne:SystemData", apiKey);
-
-    if (!result) {
-        result = rest_session.connect("http://mlink.saturn.srplatform.net:6700/rest/jsonf?cmd=getmsgtypes&where=mToken:ne:SystemData", apiKey);
-    }
-
-    int bytesRead = rest_session.read(buffer, sizeof(buffer));
-
-    while (bytesRead > 0) {
-        buffer[bytesRead] = 0;
-        std::cout << buffer;
-        bytesRead = rest_session.read(buffer, sizeof(buffer));
-    }
-
-    rest_session.close();
-
-    std::cout << std::endl;
-
+    std::string apiKey = "7c064895-dc15-46c6-97e2-506353851944";
 
     MLinkSession ws_session(context);
 
