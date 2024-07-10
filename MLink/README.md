@@ -343,7 +343,8 @@ The MLink Websocket API is implemented as a standard HTTP WebSocket service acce
 - Real-time data - wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/<protocol>
 - Delayed data - wss://mlink-delay.nms.saturn.spiderrockconnect.com/mlink/<protocol>
 
-Query parameters are URL-encoded and passed in the querystring. If successful, responses are sent back via the HTTP request body section. The URL also determines the protocol.
+The MLink Servers reduce client bandwidth needs (relative to a Multicast feed) by introducing a concept of smart skipping by which they will send the current state of a specific message type every millisecond, regardles of how any changes occured in the trailing ms. Otherwise said, receivers will receive, at most, 1 record per millisecond, per primary key, within a msgType.
+ 
 
 ### Websocket Parameters - MLinkStream:
 
@@ -372,7 +373,7 @@ Query parameters are URL-encoded and passed in the querystring. If successful, r
 |-----------------|--------------------|----------------------------------------------------------------------------------------------------------------------------|
 | sessionID| short| (optional) actions below apply only to the sessionID virtual session; should be zero for non-multiplexed web-socket connections.|
 |SubscribeID|GroupingCode|(optional) subscribeD will be reflected back in the corresponding MLinkSubscribeAck message; nothing is assumed about structure of this number|
-| activeLatency   | int                | (optional) number of milliseconds between active send attempts (1 = minimum delay, 0 = wait for SignalReady) [default = 0]                        |
+| activeLatency   | int                | (optional) number of milliseconds between active send attempts (1 = 1 ms, 0 = wait for SignalReady) [default = 0]                        |
 | compression  | enum               | (optional) FieldChangesOnly will supress fields in messages that have not changed since the previous send (resets automatically after every subscription) None=0,FieldChangesOnly=1                              |
 | doReset        | enum:YesNo               |   if Yes all current subscriptions will be removed prior to applying the actions below                                                                                                                         |
 | {View}     |                |                       |
@@ -659,7 +660,7 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
                     },
                     "message": {
                         "queryLabel": "ExampleStockNbbo",
-                        "activeLatency": 1, #stream
+                        "activeLatency": 1, #1 ms
                         "msgName": "StockBookQuote", 
                         "where":"ticker.tk:eq:AAPL | ticker.at:eq:EQT | ticker.ts:eq:NMS"
                     }
