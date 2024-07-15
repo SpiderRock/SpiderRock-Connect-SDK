@@ -998,6 +998,7 @@ public partial class IndexQuote : IMessage
     internal struct BodyLayout
     {
         public IdxSrc priceSource;
+		public IdxDataSource dataSource;
 		public double idxBid;
 		public double idxAsk;
 		public double idxPrice;
@@ -1009,6 +1010,8 @@ public partial class IndexQuote : IMessage
 
     /// <summary>price source of the quote (indication print or quote message)</summary>
     public IdxSrc PriceSource { get => body.priceSource; set => body.priceSource = value; }
+     /// <summary>source feed for this index quote</summary>
+    public IdxDataSource DataSource { get => body.dataSource; set => body.dataSource = value; }
      /// <summary>index bid value (if from quote, otherwise idxPrice)</summary>
     public double IdxBid { get => body.idxBid; set => body.idxBid = value; }
      /// <summary>index ask value (if from quote, otherwise idxPrice)</summary>
@@ -1247,7 +1250,7 @@ public partial class LiveImpliedQuote : IMessage
 		public float dn15;
 		public float up06;
 		public float dn08;
-		public float spotUPrc;
+		public double synSpot;
 		public CalcPriceType priceType;
 		public ImpliedQuoteError calcErr;
 		public CalcSource calcSource;
@@ -1322,8 +1325,8 @@ public partial class LiveImpliedQuote : IMessage
     public float Up06 { get => body.up06; set => body.up06 = value; }
      /// <summary>underlier dn 8% slide</summary>
     public float Dn08 { get => body.dn08; set => body.dn08 = value; }
-     /// <summary>spot underlier price (same as uPrc when priceType = 'Equity') (note: if Future and spotUPrc is known it will appear here)</summary>
-    public float SpotUPrc { get => body.spotUPrc; set => body.spotUPrc = value; }
+     /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
+    public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
      /// <summary>Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate</summary>
     public CalcPriceType PriceType { get => body.priceType; set => body.priceType = value; }
      /// <summary>option pricing calculation error (if any)</summary>
@@ -1339,6 +1342,295 @@ public partial class LiveImpliedQuote : IMessage
 
 
 } // LiveImpliedQuote
+
+
+/// <summary>
+/// LiveRevConQuote:1125
+/// </summary>
+/// <remarks>
+/// </remarks>
+
+public partial class LiveRevConQuote : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public LiveRevConQuote()
+    {
+    }
+    
+    public LiveRevConQuote(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public LiveRevConQuote(LiveRevConQuote source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal LiveRevConQuote(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as LiveRevConQuote);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(LiveRevConQuote other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(LiveRevConQuote target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.LiveRevConQuote};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        /// <summary>cp = Both</summary>
+        public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
+         
+        public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public OptionKeyLayout okey;
+         public DateKeyLayout tradeDate;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	okey.Equals(other.okey) &&
+					 	tradeDate.Equals(other.tradeDate);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = okey.GetHashCode();
+                 hashCode = (hashCode*397) ^ (tradeDate.GetHashCode());
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public TickerKeyLayout ticker;
+		public float xAxis;
+		public float cDe;
+		public float pDe;
+		public double uPrc;
+		public float atmVol;
+		public float years;
+		public float globalRate;
+		public float ddiv;
+		public float ddivPv;
+		public DDivSource ddivSource;
+		public int iDays;
+		public float strikePv;
+		public float fairSVol;
+		public float fairSDiv;
+		public float fairCallPrc;
+		public float fairCallPrcE;
+		public float fairPutPrc;
+		public float fairPutPrcE;
+		public float rcFairPrc;
+		public float rcEExPrem;
+		public float fairLoanPv;
+		public float fairLoanRate;
+		public float rcBidLoanPv;
+		public float rcAskLoanPv;
+		public FixedString16Layout calcError;
+		public int cpOI;
+		public int cpVlm;
+		public DateTimeLayout timestamp;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>SR Ticker (Product Group)</summary>
+    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+     /// <summary>xAxis = Moneyness</summary>
+    public float XAxis { get => body.xAxis; set => body.xAxis = value; }
+     /// <summary>call delta</summary>
+    public float CDe { get => body.cDe; set => body.cDe = value; }
+     /// <summary>put delta</summary>
+    public float PDe { get => body.pDe; set => body.pDe = value; }
+     /// <summary>live underlier price</summary>
+    public double UPrc { get => body.uPrc; set => body.uPrc = value; }
+     
+    public float AtmVol { get => body.atmVol; set => body.atmVol = value; }
+     /// <summary>number of volatility years to exiry date (volatility time metric)</summary>
+    public float Years { get => body.years; set => body.years = value; }
+     /// <summary>global rate (average discount rate) to expiry date</summary>
+    public float GlobalRate { get => body.globalRate; set => body.globalRate = value; }
+     /// <summary>sum of estimated discrete dividend stream to expiry date</summary>
+    public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
+     /// <summary>present value of estimated discrete dividend stream to expiry date</summary>
+    public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
+     /// <summary>present value of estimated discrete dividend stream to expiry date</summary>
+    public DDivSource DdivSource { get => body.ddivSource; set => body.ddivSource = value; }
+     /// <summary>number of interest (calendar) days to expiry</summary>
+    public int IDays { get => body.iDays; set => body.iDays = value; }
+     /// <summary>strike * EXP(-globalRate * iDays / 365)</summary>
+    public float StrikePv { get => body.strikePv; set => body.strikePv = value; }
+     /// <summary>call/put surface volatility value</summary>
+    public float FairSVol { get => body.fairSVol; set => body.fairSVol = value; }
+     /// <summary>call/put surface alignment sdiv value</summary>
+    public float FairSDiv { get => body.fairSDiv; set => body.fairSDiv = value; }
+     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+    public float FairCallPrc { get => body.fairCallPrc; set => body.fairCallPrc = value; }
+     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+    public float FairCallPrcE { get => body.fairCallPrcE; set => body.fairCallPrcE = value; }
+     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+    public float FairPutPrc { get => body.fairPutPrc; set => body.fairPutPrc = value; }
+     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+    public float FairPutPrcE { get => body.fairPutPrcE; set => body.fairPutPrcE = value; }
+     /// <summary>uPrc + fairPutPrc - fairCallPrc - strike  (revCon fairMid price)</summary>
+    public float RcFairPrc { get => body.rcFairPrc; set => body.rcFairPrc = value; }
+     /// <summary>(fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)</summary>
+    public float RcEExPrem { get => body.rcEExPrem; set => body.rcEExPrem = value; }
+     /// <summary>uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)</summary>
+    public float FairLoanPv { get => body.fairLoanPv; set => body.fairLoanPv = value; }
+     /// <summary>(fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)</summary>
+    public float FairLoanRate { get => body.fairLoanRate; set => body.fairLoanRate = value; }
+     /// <summary>uPrc - callAsk + putBid - strikePv - ddivPv - rcEExPrem (best way) (join markets)</summary>
+    public float RcBidLoanPv { get => body.rcBidLoanPv; set => body.rcBidLoanPv = value; }
+     /// <summary>uPrc - callBid + putAsk - strikePv - ddivPv - rcEExPrem (worst way) (cross markets)</summary>
+    public float RcAskLoanPv { get => body.rcAskLoanPv; set => body.rcAskLoanPv = value; }
+     
+    public string CalcError { get => body.calcError; set => body.calcError = value; }
+     /// <summary>c/p open interest (market) [upper bound]</summary>
+    public int CpOI { get => body.cpOI; set => body.cpOI = value; }
+     /// <summary>c/p print volume (this exchange) [upper bound]</summary>
+    public int CpVlm { get => body.cpVlm; set => body.cpVlm = value; }
+     /// <summary>last update time (Date)</summary>
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+
+
+} // LiveRevConQuote
 
 
 /// <summary>
@@ -3537,6 +3829,7 @@ public partial class OptionPrint : IMessage
 		public int prtClusterNum;
 		public int prtClusterSize;
 		public PrtType prtType;
+		public FixedString18Layout printCodes;
 		public ushort prtOrders;
 		public int prtVolume;
 		public int cxlVolume;
@@ -3582,6 +3875,8 @@ public partial class OptionPrint : IMessage
     public int PrtClusterSize { get => body.prtClusterSize; set => body.prtClusterSize = value; }
      /// <summary>print type</summary>
     public PrtType PrtType { get => body.prtType; set => body.prtType = value; }
+     /// <summary>European trade condition codes</summary>
+    public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
      /// <summary>number of participating orders</summary>
     public ushort PrtOrders { get => body.prtOrders; set => body.prtOrders = value; }
      /// <summary>day print volume in contracts [this exchange]</summary>
@@ -3839,6 +4134,7 @@ public partial class OptionPrint2 : IMessage
 		public int prtClusterNum;
 		public int prtClusterSize;
 		public PrtType prtType;
+		public FixedString18Layout printCodes;
 		public ushort prtOrders;
 		public int prtVolume;
 		public int oosVolume;
@@ -3880,6 +4176,8 @@ public partial class OptionPrint2 : IMessage
     public int PrtClusterSize { get => body.prtClusterSize; set => body.prtClusterSize = value; }
      /// <summary>print type</summary>
     public PrtType PrtType { get => body.prtType; set => body.prtType = value; }
+     /// <summary>European trade condition codes</summary>
+    public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
      /// <summary>number of participating orders</summary>
     public ushort PrtOrders { get => body.prtOrders; set => body.prtOrders = value; }
      /// <summary>day print volume in contracts (regular, electronic) [AUTO, REOP, MESL, TESL]</summary>
@@ -4653,6 +4951,8 @@ public partial class ProductDefinitionV2 : IMessage
         target.header = header;
          pkey.CopyTo(target.pkey);
          target.body = body;
+         target.SecurityID = SecurityID;
+         target.SecurityDesc = SecurityDesc;
  
         if ((LegsList?.Length ?? 0) > 0)
         {
@@ -4687,6 +4987,8 @@ public partial class ProductDefinitionV2 : IMessage
     {
         pkey.Clear();
          body = new BodyLayout();
+         SecurityID = null;
+         SecurityDesc = null;
          LegsList = null;
 
     }
@@ -4816,8 +5118,8 @@ public partial class ProductDefinitionV2 : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public FixedString24Layout securityID;
-		public TickerKeyLayout ticker;
+        public TickerKeyLayout ticker;
+		public long SRspreadID;
 		public ProductClass productClass;
 		public long underlierID;
 		public ExpiryKeyLayout undKey;
@@ -4825,7 +5127,7 @@ public partial class ProductDefinitionV2 : IMessage
 		public FixedString6Layout productGroup;
 		public FixedString6Layout securityGroup;
 		public int marketSegmentID;
-		public FixedString80Layout securityDesc;
+		public FixedString32Layout ricCode;
 		public FixedString8Layout exchange;
 		public ProductType productType;
 		public ProductTerm productTerm;
@@ -4863,9 +5165,11 @@ public partial class ProductDefinitionV2 : IMessage
     internal BodyLayout body;
 
     /// <summary>unique exchange id (exch assigned)</summary>
-    public string SecurityID { get => body.securityID; set => body.securityID = value; }
+    public string SecurityID { get; set; } = string.Empty;
      /// <summary>master underlier</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+     
+    public long SRspreadID { get => body.SRspreadID; set => body.SRspreadID = value; }
      
     public ProductClass ProductClass { get => body.productClass; set => body.productClass = value; }
      /// <summary>underlier product id (option only) [securityID of undKey/undType product]</summary>
@@ -4880,8 +5184,10 @@ public partial class ProductDefinitionV2 : IMessage
     public string SecurityGroup { get => body.securityGroup; set => body.securityGroup = value; }
      /// <summary>Exchange specific market segment identifier</summary>
     public int MarketSegmentID { get => body.marketSegmentID; set => body.marketSegmentID = value; }
+     /// <summary>Full RIC Code - only provided for non-user defined instruments</summary>
+    public string RicCode { get => body.ricCode; set => body.ricCode = value; }
      /// <summary>full exchange symbol</summary>
-    public string SecurityDesc { get => body.securityDesc; set => body.securityDesc = value; }
+    public string SecurityDesc { get; set; } = string.Empty;
      /// <summary>listing exchange</summary>
     public string Exchange { get => body.exchange; set => body.exchange = value; }
      
@@ -5042,6 +5348,28 @@ public partial class RootDefinition : IMessage
          pkey.CopyTo(target.pkey);
          target.body = body;
  
+        if ((ExchangeList?.Length ?? 0) > 0)
+        {
+            if ((target.ExchangeList?.Length ?? 0) != ExchangeList.Length)
+            {
+                target.ExchangeList = new ExchangeItem[ExchangeList.Length];
+            }
+
+            for (int i = 0; i < ExchangeList.Length; i++)
+            {
+                var src = ExchangeList[i];
+                var dest = target.ExchangeList[i] ?? new ExchangeItem();
+				dest.OptExch = src.OptExch;
+ 				dest.NativeRoot = src.NativeRoot;
+
+                target.ExchangeList[i] = dest;
+            }
+        }
+        else if ((target.ExchangeList?.Length ?? 0) > 0)
+        {
+            target.ExchangeList = null;
+        }
+ 
         if ((UnderlyingList?.Length ?? 0) > 0)
         {
             if ((target.UnderlyingList?.Length ?? 0) != UnderlyingList.Length)
@@ -5070,6 +5398,7 @@ public partial class RootDefinition : IMessage
     {
         pkey.Clear();
          body = new BodyLayout();
+         ExchangeList = null;
          UnderlyingList = null;
 
     }
@@ -5161,6 +5490,26 @@ public partial class RootDefinition : IMessage
      
 
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    public class ExchangeItem
+    {
+        public const int Length = 13;
+
+        public ExchangeItem() { }
+        
+        public ExchangeItem(OptExch optExch, string nativeRoot)
+        {
+            this.OptExch = optExch;
+			this.NativeRoot = nativeRoot;
+        }
+
+        public OptExch OptExch { get; internal set; }
+		private FixedString12Layout _nativeRoot;
+		public string NativeRoot { get { return _nativeRoot; } internal set { _nativeRoot = value; } }
+    }
+
+    public ExchangeItem[] ExchangeList { get; set; }
+ 
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class UnderlyingItem
     {
         public const int Length = 18;
@@ -5212,6 +5561,7 @@ public partial class RootDefinition : IMessage
 		public float cashOnExercise;
 		public int underliersPerCn;
 		public double premiumMult;
+		public float symbolRatio;
 		public AdjConvention adjConvention;
 		public OptPriceInc optPriceInc;
 		public PriceFormat priceFormat;
@@ -5219,7 +5569,9 @@ public partial class RootDefinition : IMessage
 		public Currency settleCurr;
 		public Currency strikeCurr;
 		public TickerKeyLayout defaultSurfaceRoot;
+		public FixedString6Layout ricRoot;
 		public DateTimeLayout timestamp;
+		public PricingSource_V7 pricingSource_V7;
     }
 
     internal BodyLayout body;
@@ -5246,7 +5598,7 @@ public partial class RootDefinition : IMessage
     public UnderlierMode UnderlierMode { get => body.underlierMode; set => body.underlierMode = value; }
      /// <summary>indicator for option type</summary>
     public OptionType OptionType { get => body.optionType; set => body.optionType = value; }
-     /// <summary>indicates type of multihedge</summary>
+     /// <summary>indicates type of multihedge (None = standard root; all other root types are not None)</summary>
     public Multihedge Multihedge { get => body.multihedge; set => body.multihedge = value; }
      /// <summary>Exercise time type</summary>
     public ExerciseTime ExerciseTime { get => body.exerciseTime; set => body.exerciseTime = value; }
@@ -5282,6 +5634,8 @@ public partial class RootDefinition : IMessage
     public int UnderliersPerCn { get => body.underliersPerCn; set => body.underliersPerCn = value; }
      /// <summary>note: OCC premium/strike multiplier (usually 100)</summary>
     public double PremiumMult { get => body.premiumMult; set => body.premiumMult = value; }
+     /// <summary>note: currently used when AdjConvention is None, value of 0 implies symbolRatio is 1</summary>
+    public float SymbolRatio { get => body.symbolRatio; set => body.symbolRatio = value; }
      
     public AdjConvention AdjConvention { get => body.adjConvention; set => body.adjConvention = value; }
      
@@ -5296,8 +5650,12 @@ public partial class RootDefinition : IMessage
     public Currency StrikeCurr { get => body.strikeCurr; set => body.strikeCurr = value; }
      /// <summary>fallback ticker to use for option surfaces if no native surfaces are available</summary>
     public TickerKey DefaultSurfaceRoot { get => TickerKey.GetCreateTickerKey(body.defaultSurfaceRoot); set => body.defaultSurfaceRoot = value.Layout; }
+     /// <summary>RIC Root</summary>
+    public string RicRoot { get => body.ricRoot; set => body.ricRoot = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
+    public PricingSource_V7 PricingSource_V7 { get => body.pricingSource_V7; set => body.pricingSource_V7 = value; }
 
 
 } // RootDefinition
@@ -5560,7 +5918,7 @@ public partial class SpdrAuctionState : IMessage
 		public FixedString20Layout exchAuctionId;
 		public FixedString4Layout exchAuctionType;
 		public YesNo isTestAuction;
-		public AuctionState auctionState;
+		public AuctionEvent auctionEvent;
 		public NoticeShape auctionShape;
 		public AuctionType auctionType;
 		public BuySell auctionSide;
@@ -5602,7 +5960,7 @@ public partial class SpdrAuctionState : IMessage
      /// <summary>test auction (should only respond from T.accnts)</summary>
     public YesNo IsTestAuction { get => body.isTestAuction; set => body.isTestAuction = value; }
      
-    public AuctionState AuctionState { get => body.auctionState; set => body.auctionState = value; }
+    public AuctionEvent AuctionEvent { get => body.auctionEvent; set => body.auctionEvent = value; }
      
     public NoticeShape AuctionShape { get => body.auctionShape; set => body.auctionShape = value; }
      
@@ -5858,6 +6216,7 @@ public partial class SpreadBookQuote : IMessage
     internal struct BodyLayout
     {
         public TickerKeyLayout ticker;
+		public long SRspreadID;
 		public double bidPrice1;
 		public YesNo isBidPrice1Valid;
 		public double askPrice1;
@@ -5876,6 +6235,7 @@ public partial class SpreadBookQuote : IMessage
 		public uint askMask1;
 		public DateTimeLayout bidTime;
 		public DateTimeLayout askTime;
+		public int printVolume;
 		public UpdateType updateType;
 		public long srcTimestamp;
 		public long netTimestamp;
@@ -5886,6 +6246,8 @@ public partial class SpreadBookQuote : IMessage
 
     /// <summary>common spread underlier</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+     
+    public long SRspreadID { get => body.SRspreadID; set => body.SRspreadID = value; }
      /// <summary>bid price</summary>
     public double BidPrice1 { get => body.bidPrice1; set => body.bidPrice1 = value; }
      
@@ -5923,6 +6285,8 @@ public partial class SpreadBookQuote : IMessage
      /// <summary>last ask price or size change</summary>
     public DateTime AskTime { get => body.askTime; set => body.askTime = value; }
      
+    public int PrintVolume { get => body.printVolume; set => body.printVolume = value; }
+     
     public UpdateType UpdateType { get => body.updateType; set => body.updateType = value; }
      /// <summary>source high precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
@@ -5933,6 +6297,569 @@ public partial class SpreadBookQuote : IMessage
 
 
 } // SpreadBookQuote
+
+
+/// <summary>
+/// SpreadDefinition:4390
+/// </summary>
+/// <remarks>
+/// </remarks>
+
+public partial class SpreadDefinition : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public SpreadDefinition()
+    {
+    }
+    
+    public SpreadDefinition(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public SpreadDefinition(SpreadDefinition source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal SpreadDefinition(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as SpreadDefinition);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(SpreadDefinition other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(SpreadDefinition target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+ 
+        if ((ExchSprIDsList?.Length ?? 0) > 0)
+        {
+            if ((target.ExchSprIDsList?.Length ?? 0) != ExchSprIDsList.Length)
+            {
+                target.ExchSprIDsList = new ExchSprIDsItem[ExchSprIDsList.Length];
+            }
+
+            for (int i = 0; i < ExchSprIDsList.Length; i++)
+            {
+                var src = ExchSprIDsList[i];
+                var dest = target.ExchSprIDsList[i] ?? new ExchSprIDsItem();
+				dest.ExchSprID = src.ExchSprID;
+
+                target.ExchSprIDsList[i] = dest;
+            }
+        }
+        else if ((target.ExchSprIDsList?.Length ?? 0) > 0)
+        {
+            target.ExchSprIDsList = null;
+        }
+ 
+        if ((LegsList?.Length ?? 0) > 0)
+        {
+            if ((target.LegsList?.Length ?? 0) != LegsList.Length)
+            {
+                target.LegsList = new LegsItem[LegsList.Length];
+            }
+
+            for (int i = 0; i < LegsList.Length; i++)
+            {
+                var src = LegsList[i];
+                var dest = target.LegsList[i] ?? new LegsItem();
+				dest.LegSecKey = src.LegSecKey;
+ 				dest.LegSecType = src.LegSecType;
+ 				dest.LegSide = src.LegSide;
+ 				dest.LegRatio = src.LegRatio;
+ 				dest.RefDelta = src.RefDelta;
+ 				dest.RefPrc = src.RefPrc;
+
+                target.LegsList[i] = dest;
+            }
+        }
+        else if ((target.LegsList?.Length ?? 0) > 0)
+        {
+            target.LegsList = null;
+        }
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+         ExchSprIDsList = null;
+         LegsList = null;
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.SpreadDefinition};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        /// <summary>SR legs list hash</summary>
+        public long SRspreadID { get => body.SRspreadID; set => body.SRspreadID = value; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public long SRspreadID;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	SRspreadID.Equals(other.SRspreadID);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = SRspreadID.GetHashCode();
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    public class ExchSprIDsItem
+    {
+        public const int Length = 30;
+
+        public ExchSprIDsItem() { }
+        
+        public ExchSprIDsItem(string exchSprID)
+        {
+            this.ExchSprID = exchSprID;
+        }
+
+        private FixedString30Layout _exchSprID;
+		public string ExchSprID { get { return _exchSprID; } internal set { _exchSprID = value; } }
+    }
+
+    public ExchSprIDsItem[] ExchSprIDsList { get; set; }
+ 
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    public class LegsItem
+    {
+        public const int Length = 44;
+
+        public LegsItem() { }
+        
+        public LegsItem(OptionKey legSecKey, SpdrKeyType legSecType, BuySell legSide, uint legRatio, float refDelta, double refPrc)
+        {
+            this.LegSecKey = legSecKey;
+			this.LegSecType = legSecType;
+			this.LegSide = legSide;
+			this.LegRatio = legRatio;
+			this.RefDelta = refDelta;
+			this.RefPrc = refPrc;
+        }
+
+        public OptionKey LegSecKey { get; internal set; }
+		public SpdrKeyType LegSecType { get; internal set; }
+		public BuySell LegSide { get; internal set; }
+		public uint LegRatio { get; internal set; }
+		public float RefDelta { get; internal set; }
+		public double RefPrc { get; internal set; }
+    }
+
+    public LegsItem[] LegsList { get; set; }
+
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public TickerKeyLayout ticker;
+		public ToolSpreadClass spreadClass;
+		public DateTimeLayout timestamp;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>underlier (or product group) tickerKey</summary>
+    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+     /// <summary>option spread type</summary>
+    public ToolSpreadClass SpreadClass { get => body.spreadClass; set => body.spreadClass = value; }
+     
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+
+
+} // SpreadDefinition
+
+
+/// <summary>
+/// SpreadExchDefinition:4395
+/// </summary>
+/// <remarks>
+/// </remarks>
+
+public partial class SpreadExchDefinition : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public SpreadExchDefinition()
+    {
+    }
+    
+    public SpreadExchDefinition(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public SpreadExchDefinition(SpreadExchDefinition source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal SpreadExchDefinition(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as SpreadExchDefinition);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(SpreadExchDefinition other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(SpreadExchDefinition target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+ 
+        if ((LegsList?.Length ?? 0) > 0)
+        {
+            if ((target.LegsList?.Length ?? 0) != LegsList.Length)
+            {
+                target.LegsList = new LegsItem[LegsList.Length];
+            }
+
+            for (int i = 0; i < LegsList.Length; i++)
+            {
+                var src = LegsList[i];
+                var dest = target.LegsList[i] ?? new LegsItem();
+				dest.LegSecKey = src.LegSecKey;
+ 				dest.LegSecType = src.LegSecType;
+ 				dest.LegSide = src.LegSide;
+ 				dest.LegRatio = src.LegRatio;
+ 				dest.RefDelta = src.RefDelta;
+ 				dest.RefPrc = src.RefPrc;
+
+                target.LegsList[i] = dest;
+            }
+        }
+        else if ((target.LegsList?.Length ?? 0) > 0)
+        {
+            target.LegsList = null;
+        }
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+         LegsList = null;
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.SpreadExchDefinition};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        
+        public OptExch Exch { get => body.exch; set => body.exch = value; }
+         /// <summary>unique exchange spread id</summary>
+        public string ExchSprID { get => body.exchSprID; set => body.exchSprID = value; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public OptExch exch;
+         public FixedString30Layout exchSprID;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	exch.Equals(other.exch) &&
+					 	exchSprID.Equals(other.exchSprID);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (int) exch;
+                 hashCode = (hashCode*397) ^ (exchSprID.GetHashCode());
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    public class LegsItem
+    {
+        public const int Length = 44;
+
+        public LegsItem() { }
+        
+        public LegsItem(OptionKey legSecKey, SpdrKeyType legSecType, BuySell legSide, uint legRatio, float refDelta, double refPrc)
+        {
+            this.LegSecKey = legSecKey;
+			this.LegSecType = legSecType;
+			this.LegSide = legSide;
+			this.LegRatio = legRatio;
+			this.RefDelta = refDelta;
+			this.RefPrc = refPrc;
+        }
+
+        public OptionKey LegSecKey { get; internal set; }
+		public SpdrKeyType LegSecType { get; internal set; }
+		public BuySell LegSide { get; internal set; }
+		public uint LegRatio { get; internal set; }
+		public float RefDelta { get; internal set; }
+		public double RefPrc { get; internal set; }
+    }
+
+    public LegsItem[] LegsList { get; set; }
+
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public DateTimeLayout timestamp;
+    }
+
+    internal BodyLayout body;
+
+    
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+
+
+} // SpreadExchDefinition
 
 
 /// <summary>
@@ -6025,31 +6952,6 @@ public partial class SpreadExchOrder : IMessage
         target.header = header;
          pkey.CopyTo(target.pkey);
          target.body = body;
- 
-        if ((LegsList?.Length ?? 0) > 0)
-        {
-            if ((target.LegsList?.Length ?? 0) != LegsList.Length)
-            {
-                target.LegsList = new LegsItem[LegsList.Length];
-            }
-
-            for (int i = 0; i < LegsList.Length; i++)
-            {
-                var src = LegsList[i];
-                var dest = target.LegsList[i] ?? new LegsItem();
-				dest.LegSecKey = src.LegSecKey;
- 				dest.LegSecType = src.LegSecType;
- 				dest.LegSide = src.LegSide;
- 				dest.LegRatio = src.LegRatio;
- 				dest.PositionType = src.PositionType;
-
-                target.LegsList[i] = dest;
-            }
-        }
-        else if ((target.LegsList?.Length ?? 0) > 0)
-        {
-            target.LegsList = null;
-        }
 
     }
 
@@ -6057,7 +6959,6 @@ public partial class SpreadExchOrder : IMessage
     {
         pkey.Clear();
          body = new BodyLayout();
-         LegsList = null;
 
     }
 
@@ -6161,33 +7062,6 @@ public partial class SpreadExchOrder : IMessage
 
     internal readonly PKey pkey = new();
      
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    public class LegsItem
-    {
-        public const int Length = 33;
-
-        public LegsItem() { }
-        
-        public LegsItem(OptionKey legSecKey, SpdrKeyType legSecType, BuySell legSide, uint legRatio, PositionType positionType)
-        {
-            this.LegSecKey = legSecKey;
-			this.LegSecType = legSecType;
-			this.LegSide = legSide;
-			this.LegRatio = legRatio;
-			this.PositionType = positionType;
-        }
-
-        public OptionKey LegSecKey { get; internal set; }
-		public SpdrKeyType LegSecType { get; internal set; }
-		public BuySell LegSide { get; internal set; }
-		public uint LegRatio { get; internal set; }
-		public PositionType PositionType { get; internal set; }
-    }
-
-    public LegsItem[] LegsList { get; set; }
-
-     
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
@@ -6209,6 +7083,7 @@ public partial class SpreadExchOrder : IMessage
 		public long netTimestamp;
 		public long dgwTimestamp;
 		public DateTimeLayout timestamp;
+		public FixedString30Layout exchSprID;
     }
 
     internal BodyLayout body;
@@ -6249,6 +7124,8 @@ public partial class SpreadExchOrder : IMessage
     public long DgwTimestamp { get => body.dgwTimestamp; set => body.dgwTimestamp = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>unique exchange spread id</summary>
+    public string ExchSprID { get => body.exchSprID; set => body.exchSprID = value; }
 
 
 } // SpreadExchOrder
@@ -7516,7 +8393,7 @@ public partial class StockMarketSummary : IMessage
 		public double clsPrice;
 		public double minPrice;
 		public double maxPrice;
-		public int sharesOutstanding;
+		public long sharesOutstanding;
 		public int bidCount;
 		public int bidVolume;
 		public int askCount;
@@ -7546,7 +8423,7 @@ public partial class StockMarketSummary : IMessage
      /// <summary>maximum print price within market hours</summary>
     public double MaxPrice { get => body.maxPrice; set => body.maxPrice = value; }
      /// <summary>shares outstanding</summary>
-    public int SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
+    public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
      /// <summary>num prints &lt;= quote.bid</summary>
     public int BidCount { get => body.bidCount; set => body.bidCount = value; }
      /// <summary>volume when prtPrice &lt;= quote.bid</summary>
@@ -7777,6 +8654,7 @@ public partial class StockPrint : IMessage
 		public float mrkPrice;
 		public float clsPrice;
 		public StkPrintType prtType;
+		public FixedString18Layout printCodes;
 		public byte prtCond1;
 		public byte prtCond2;
 		public byte prtCond3;
@@ -7812,6 +8690,8 @@ public partial class StockPrint : IMessage
     public float ClsPrice { get => body.clsPrice; set => body.clsPrice = value; }
      
     public StkPrintType PrtType { get => body.prtType; set => body.prtType = value; }
+     /// <summary>European trade condition codes</summary>
+    public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
      /// <summary>print condition (from SIP feed)</summary>
     public byte PrtCond1 { get => body.prtCond1; set => body.prtCond1 = value; }
      
@@ -8784,7 +9664,7 @@ public partial class TickerDefinitionExt : IMessage
 		public FixedString8Layout exchString;
 		public YesNo hasOptions;
 		public int numOptions;
-		public int sharesOutstanding;
+		public long sharesOutstanding;
 		public TimeMetric timeMetric;
 		public OTCPrimaryMarket otcPrimaryMarket;
 		public OTCTier otcTier;
@@ -8858,11 +9738,11 @@ public partial class TickerDefinitionExt : IMessage
     public string BbgCurrency { get => body.bbgCurrency; set => body.bbgCurrency = value; }
      /// <summary>Price increment: None; FullPenny; Nickle</summary>
     public StkPriceInc StkPriceInc { get => body.stkPriceInc; set => body.stkPriceInc = value; }
-     /// <summary>trailing average daily stock volume</summary>
+     /// <summary>daily stock volume</summary>
     public float StkVolume { get => body.stkVolume; set => body.stkVolume = value; }
-     /// <summary>trailing average daily future volume</summary>
+     /// <summary>daily future volume</summary>
     public float FutVolume { get => body.futVolume; set => body.futVolume = value; }
-     /// <summary>trailing average daily option volume</summary>
+     /// <summary>daily option volume</summary>
     public float OptVolume { get => body.optVolume; set => body.optVolume = value; }
      /// <summary>exchanges listing any options on this underlying</summary>
     public string ExchString { get => body.exchString; set => body.exchString = value; }
@@ -8871,7 +9751,7 @@ public partial class TickerDefinitionExt : IMessage
      /// <summary>total number of listed options</summary>
     public int NumOptions { get => body.numOptions; set => body.numOptions = value; }
      /// <summary>symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)</summary>
-    public int SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
+    public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
      /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
     public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
      

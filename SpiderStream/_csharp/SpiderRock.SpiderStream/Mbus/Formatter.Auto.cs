@@ -194,6 +194,41 @@ internal unsafe partial class Formatter
     }
      
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, LiveRevConQuote dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, LiveRevConQuote dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(LiveRevConQuote.PKeyLayout) + sizeof(LiveRevConQuote.BodyLayout) > max) throw new IOException("Max exceeded decoding LiveRevConQuote");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((LiveRevConQuote.PKeyLayout*) src); src += sizeof(LiveRevConQuote.PKeyLayout);
+             dest.body = *((LiveRevConQuote.BodyLayout*) src); src += sizeof(LiveRevConQuote.BodyLayout);
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, LiveSurfaceAtm dest)
     {
         fixed (byte* p = buffer)
@@ -608,16 +643,18 @@ internal unsafe partial class Formatter
 
             dest.pkey.body = *((ProductDefinitionV2.PKeyLayout*) src); src += sizeof(ProductDefinitionV2.PKeyLayout);
              dest.body = *((ProductDefinitionV2.BodyLayout*) src); src += sizeof(ProductDefinitionV2.BodyLayout);
+                 dest.SecurityID = DecodeText1(ref src, max, "ProductDefinitionV2.securityID");
+                 dest.SecurityDesc = DecodeText1(ref src, max, "ProductDefinitionV2.securityDesc");
  
             // LegsItem Repeat Section
 
             if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding ProductDefinitionV2.Legs length");
-            ushort size = *((ushort*) src); src += sizeof(ushort);
-            if (src + size * ProductDefinitionV2.LegsItem.Length > max) throw new IOException("Max exceeded decoding ProductDefinitionV2.Legs items");
+            ushort sizeLegs = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeLegs * ProductDefinitionV2.LegsItem.Length > max) throw new IOException("Max exceeded decoding ProductDefinitionV2.Legs items");
 
-            dest.LegsList = new ProductDefinitionV2.LegsItem[size];
+            dest.LegsList = new ProductDefinitionV2.LegsItem[sizeLegs];
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeLegs; i++)
             {
                 var item = new ProductDefinitionV2.LegsItem();
                     item.LegID = *((FixedString24Layout*) src); src += sizeof(FixedString24Layout);
@@ -666,15 +703,32 @@ internal unsafe partial class Formatter
             dest.pkey.body = *((RootDefinition.PKeyLayout*) src); src += sizeof(RootDefinition.PKeyLayout);
              dest.body = *((RootDefinition.BodyLayout*) src); src += sizeof(RootDefinition.BodyLayout);
  
+            // ExchangeItem Repeat Section
+
+            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding RootDefinition.Exchange length");
+            ushort sizeExchange = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeExchange * RootDefinition.ExchangeItem.Length > max) throw new IOException("Max exceeded decoding RootDefinition.Exchange items");
+
+            dest.ExchangeList = new RootDefinition.ExchangeItem[sizeExchange];
+            
+            for (int i = 0; i < sizeExchange; i++)
+            {
+                var item = new RootDefinition.ExchangeItem();
+                    item.OptExch = *((OptExch*) src); src++;
+                     item.NativeRoot = *((FixedString12Layout*) src); src += sizeof(FixedString12Layout);
+
+                dest.ExchangeList[i] = item;
+            }
+ 
             // UnderlyingItem Repeat Section
 
             if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding RootDefinition.Underlying length");
-            ushort size = *((ushort*) src); src += sizeof(ushort);
-            if (src + size * RootDefinition.UnderlyingItem.Length > max) throw new IOException("Max exceeded decoding RootDefinition.Underlying items");
+            ushort sizeUnderlying = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeUnderlying * RootDefinition.UnderlyingItem.Length > max) throw new IOException("Max exceeded decoding RootDefinition.Underlying items");
 
-            dest.UnderlyingList = new RootDefinition.UnderlyingItem[size];
+            dest.UnderlyingList = new RootDefinition.UnderlyingItem[sizeUnderlying];
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeUnderlying; i++)
             {
                 var item = new RootDefinition.UnderlyingItem();
                     item.Ticker = TickerKey.GetCreateTickerKey(*((TickerKeyLayout*) src)); src += sizeof(TickerKeyLayout);
@@ -721,12 +775,12 @@ internal unsafe partial class Formatter
             // LegsItem Repeat Section
 
             if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding SpdrAuctionState.Legs length");
-            ushort size = *((ushort*) src); src += sizeof(ushort);
-            if (src + size * SpdrAuctionState.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpdrAuctionState.Legs items");
+            ushort sizeLegs = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeLegs * SpdrAuctionState.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpdrAuctionState.Legs items");
 
-            dest.LegsList = new SpdrAuctionState.LegsItem[size];
+            dest.LegsList = new SpdrAuctionState.LegsItem[sizeLegs];
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeLegs; i++)
             {
                 var item = new SpdrAuctionState.LegsItem();
                     item.LegSecKey = OptionKey.GetCreateOptionKey(*((OptionKeyLayout*) src)); src += sizeof(OptionKeyLayout);
@@ -777,6 +831,134 @@ internal unsafe partial class Formatter
     }
      
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, SpreadDefinition dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, SpreadDefinition dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(SpreadDefinition.PKeyLayout) + sizeof(SpreadDefinition.BodyLayout) > max) throw new IOException("Max exceeded decoding SpreadDefinition");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((SpreadDefinition.PKeyLayout*) src); src += sizeof(SpreadDefinition.PKeyLayout);
+             dest.body = *((SpreadDefinition.BodyLayout*) src); src += sizeof(SpreadDefinition.BodyLayout);
+ 
+            // ExchSprIDsItem Repeat Section
+
+            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding SpreadDefinition.ExchSprIDs length");
+            ushort sizeExchSprIDs = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeExchSprIDs * SpreadDefinition.ExchSprIDsItem.Length > max) throw new IOException("Max exceeded decoding SpreadDefinition.ExchSprIDs items");
+
+            dest.ExchSprIDsList = new SpreadDefinition.ExchSprIDsItem[sizeExchSprIDs];
+            
+            for (int i = 0; i < sizeExchSprIDs; i++)
+            {
+                var item = new SpreadDefinition.ExchSprIDsItem();
+                    item.ExchSprID = *((FixedString30Layout*) src); src += sizeof(FixedString30Layout);
+
+                dest.ExchSprIDsList[i] = item;
+            }
+ 
+            // LegsItem Repeat Section
+
+            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding SpreadDefinition.Legs length");
+            ushort sizeLegs = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeLegs * SpreadDefinition.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpreadDefinition.Legs items");
+
+            dest.LegsList = new SpreadDefinition.LegsItem[sizeLegs];
+            
+            for (int i = 0; i < sizeLegs; i++)
+            {
+                var item = new SpreadDefinition.LegsItem();
+                    item.LegSecKey = OptionKey.GetCreateOptionKey(*((OptionKeyLayout*) src)); src += sizeof(OptionKeyLayout);
+                     item.LegSecType = *((SpdrKeyType*) src); src++;
+                     item.LegSide = *((BuySell*) src); src++;
+                     item.LegRatio = *((uint*) src); src += sizeof(uint);
+                     item.RefDelta = *((float*) src); src += sizeof(float);
+                     item.RefPrc = *((double*) src); src += sizeof(double);
+
+                dest.LegsList[i] = item;
+            }
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, SpreadExchDefinition dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, SpreadExchDefinition dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(SpreadExchDefinition.PKeyLayout) + sizeof(SpreadExchDefinition.BodyLayout) > max) throw new IOException("Max exceeded decoding SpreadExchDefinition");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((SpreadExchDefinition.PKeyLayout*) src); src += sizeof(SpreadExchDefinition.PKeyLayout);
+             dest.body = *((SpreadExchDefinition.BodyLayout*) src); src += sizeof(SpreadExchDefinition.BodyLayout);
+ 
+            // LegsItem Repeat Section
+
+            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding SpreadExchDefinition.Legs length");
+            ushort sizeLegs = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeLegs * SpreadExchDefinition.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpreadExchDefinition.Legs items");
+
+            dest.LegsList = new SpreadExchDefinition.LegsItem[sizeLegs];
+            
+            for (int i = 0; i < sizeLegs; i++)
+            {
+                var item = new SpreadExchDefinition.LegsItem();
+                    item.LegSecKey = OptionKey.GetCreateOptionKey(*((OptionKeyLayout*) src)); src += sizeof(OptionKeyLayout);
+                     item.LegSecType = *((SpdrKeyType*) src); src++;
+                     item.LegSide = *((BuySell*) src); src++;
+                     item.LegRatio = *((uint*) src); src += sizeof(uint);
+                     item.RefDelta = *((float*) src); src += sizeof(float);
+                     item.RefPrc = *((double*) src); src += sizeof(double);
+
+                dest.LegsList[i] = item;
+            }
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, SpreadExchOrder dest)
     {
         fixed (byte* p = buffer)
@@ -806,26 +988,6 @@ internal unsafe partial class Formatter
 
             dest.pkey.body = *((SpreadExchOrder.PKeyLayout*) src); src += sizeof(SpreadExchOrder.PKeyLayout);
              dest.body = *((SpreadExchOrder.BodyLayout*) src); src += sizeof(SpreadExchOrder.BodyLayout);
- 
-            // LegsItem Repeat Section
-
-            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding SpreadExchOrder.Legs length");
-            ushort size = *((ushort*) src); src += sizeof(ushort);
-            if (src + size * SpreadExchOrder.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpreadExchOrder.Legs items");
-
-            dest.LegsList = new SpreadExchOrder.LegsItem[size];
-            
-            for (int i = 0; i < size; i++)
-            {
-                var item = new SpreadExchOrder.LegsItem();
-                    item.LegSecKey = OptionKey.GetCreateOptionKey(*((OptionKeyLayout*) src)); src += sizeof(OptionKeyLayout);
-                     item.LegSecType = *((SpdrKeyType*) src); src++;
-                     item.LegSide = *((BuySell*) src); src++;
-                     item.LegRatio = *((uint*) src); src += sizeof(uint);
-                     item.PositionType = *((PositionType*) src); src++;
-
-                dest.LegsList[i] = item;
-            }
 			
             return src;
         }
@@ -865,12 +1027,12 @@ internal unsafe partial class Formatter
             // LegsItem Repeat Section
 
             if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding SpreadExchPrint.Legs length");
-            ushort size = *((ushort*) src); src += sizeof(ushort);
-            if (src + size * SpreadExchPrint.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpreadExchPrint.Legs items");
+            ushort sizeLegs = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeLegs * SpreadExchPrint.LegsItem.Length > max) throw new IOException("Max exceeded decoding SpreadExchPrint.Legs items");
 
-            dest.LegsList = new SpreadExchPrint.LegsItem[size];
+            dest.LegsList = new SpreadExchPrint.LegsItem[sizeLegs];
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeLegs; i++)
             {
                 var item = new SpreadExchPrint.LegsItem();
                     item.LegSecKey = OptionKey.GetCreateOptionKey(*((OptionKeyLayout*) src)); src += sizeof(OptionKeyLayout);
@@ -1284,12 +1446,12 @@ internal unsafe partial class Formatter
             // MsgTypeItem Repeat Section
 
             if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding MLinkCacheRequest.MsgType length");
-            ushort size = *((ushort*) src); src += sizeof(ushort);
-            if (src + size * MLinkCacheRequest.MsgTypeItem.Length > max) throw new IOException("Max exceeded decoding MLinkCacheRequest.MsgType items");
+            ushort sizeMsgType = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeMsgType * MLinkCacheRequest.MsgTypeItem.Length > max) throw new IOException("Max exceeded decoding MLinkCacheRequest.MsgType items");
 
-            dest.MsgTypeList = new MLinkCacheRequest.MsgTypeItem[size];
+            dest.MsgTypeList = new MLinkCacheRequest.MsgTypeItem[sizeMsgType];
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeMsgType; i++)
             {
                 var item = new MLinkCacheRequest.MsgTypeItem();
                 item.MsgType = *((ushort*) src); src += sizeof(ushort);

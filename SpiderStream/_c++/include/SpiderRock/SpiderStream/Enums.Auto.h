@@ -143,6 +143,7 @@ namespace SpiderRock
 			CAD=6,
 			CHF=7,
 			CTRCT=8,
+			CUR=36,
 			CWT=9,
 			CZK=10,
 			EUR=11,
@@ -195,7 +196,8 @@ namespace SpiderRock
 			CZK=19,
 			ZAR=20,
 			HUF=21,
-			USX=22
+			USX=22,
+			GBX=23
 		};
 
  		enum class DDivSource : Enum 
@@ -277,7 +279,16 @@ namespace SpiderRock
 			CBOT=3,
 			COMEX=4,
 			NYMEX=5,
-			ICE=6
+			ICE=6,
+			EUREX=7,
+			CEDX=8,
+			NXAM=9,
+			NXBR=10,
+			NXLS=11,
+			NXML=12,
+			NXOS=13,
+			NXP=14,
+			ICEFE=15
 		};
 
  		enum class GridType : Enum 
@@ -460,7 +471,15 @@ namespace SpiderRock
 			EMLD=23,
 			CFE=24,
 			MEMX=25,
-			EUREX=26
+			EUREX=26,
+			CEDX=27,
+			NXAM=28,
+			NXBR=29,
+			NXLS=30,
+			NXML=31,
+			NXOS=32,
+			NXP=33,
+			ICEFE=34
 		};
 
  		enum class OptMktType : Flag 
@@ -607,7 +626,17 @@ namespace SpiderRock
 			CDEX=21,
 			BXE=22,
 			CXE=23,
-			DXE=24
+			DXE=24,
+			LSE=25,
+			NXAM=26,
+			NXBR=27,
+			NXDUB=28,
+			NXLS=29,
+			NXLDN=30,
+			NXML=31,
+			NXMLT=32,
+			NXOS=33,
+			NXP=34
 		};
 
  		enum class ProductClass : Enum 
@@ -647,7 +676,8 @@ namespace SpiderRock
 			Weekly=13,
 			Pack=14,
 			Bundle=15,
-			IRSAndCDSTenor=16
+			IRSAndCDSTenor=16,
+			Year=17
 		};
 
  		enum class ProductType : Enum 
@@ -777,12 +807,19 @@ namespace SpiderRock
 			MEMX=21,
 			MXIDX=22,
 			DJIDX=23,
-			EUREX=24,
-			CDEX=25,
-			BXE=26,
-			CXE=27,
-			DXE=28,
-			XETRA=29
+			BXE=24,
+			CXE=25,
+			DXE=26,
+			XETRA=27,
+			NXAM=28,
+			NXBR=29,
+			NXDUB=30,
+			NXLS=31,
+			NXLDN=32,
+			NXML=33,
+			NXMLT=34,
+			NXOS=35,
+			NXP=36
 		};
 
  		enum class StkPriceInc : Enum 
@@ -929,7 +966,10 @@ namespace SpiderRock
 			None=0,
 			SysTest=1,
 			NMS=2,
-			CME=3
+			CME=3,
+			FR2=4,
+			LD4=5,
+			DR=6
 		};
 
  		enum class TickerSrc : Enum 
@@ -954,9 +994,23 @@ namespace SpiderRock
 			DJI=17,
 			CUSIP=18,
 			ISIN=19,
-			EUR=20,
+			BXE=20,
 			ESX=21,
-			ANY=22
+			ANY=22,
+			CXE=23,
+			DXE=24,
+			NXAM=25,
+			NXBR=26,
+			NXDUB=27,
+			NXLS=28,
+			NXLDN=29,
+			NXML=30,
+			NXMLT=31,
+			NXOS=32,
+			NXP=33,
+			EUREX=34,
+			CEDX=35,
+			ICEFE=36
 		};
 
  		enum class TimeInForce : Enum 
@@ -1020,7 +1074,8 @@ namespace SpiderRock
 			HSpread=17,
 			BFly=18,
 			RiskRev=19,
-			Mixed=20
+			Mixed=20,
+			VarSwap=21
 		};
 
  		enum class TradeableStatus : Enum 

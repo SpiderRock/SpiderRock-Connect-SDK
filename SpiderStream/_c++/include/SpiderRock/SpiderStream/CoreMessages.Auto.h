@@ -1506,6 +1506,7 @@ private:
 		Int prtClusterNum;
 		Int prtClusterSize;
 		PrtType prtType;
+		String<18> printCodes;
 		UShort prtOrders;
 		Int prtVolume;
 		Int cxlVolume;
@@ -1555,6 +1556,7 @@ public:
 	inline Int prtClusterNum() const { return layout_.prtClusterNum; }
 	inline Int prtClusterSize() const { return layout_.prtClusterSize; }
 	inline PrtType prtType() const { return layout_.prtType; }
+	inline const String<18>& printCodes() const { return layout_.printCodes; }
 	inline UShort prtOrders() const { return layout_.prtOrders; }
 	inline Int prtVolume() const { return layout_.prtVolume; }
 	inline Int cxlVolume() const { return layout_.cxlVolume; }
@@ -1633,6 +1635,7 @@ private:
 		Int prtClusterNum;
 		Int prtClusterSize;
 		PrtType prtType;
+		String<18> printCodes;
 		UShort prtOrders;
 		Int prtVolume;
 		Int oosVolume;
@@ -1678,6 +1681,7 @@ public:
 	inline Int prtClusterNum() const { return layout_.prtClusterNum; }
 	inline Int prtClusterSize() const { return layout_.prtClusterSize; }
 	inline PrtType prtType() const { return layout_.prtType; }
+	inline const String<18>& printCodes() const { return layout_.printCodes; }
 	inline UShort prtOrders() const { return layout_.prtOrders; }
 	inline Int prtVolume() const { return layout_.prtVolume; }
 	inline Int oosVolume() const { return layout_.oosVolume; }
@@ -2254,6 +2258,7 @@ private:
 		Float cashOnExercise;
 		Int underliersPerCn;
 		Double premiumMult;
+		Float symbolRatio;
 		AdjConvention adjConvention;
 		OptPriceInc optPriceInc;
 		PriceFormat priceFormat;
@@ -2308,6 +2313,7 @@ public:
 	inline Float cashOnExercise() const { return layout_.cashOnExercise; }
 	inline Int underliersPerCn() const { return layout_.underliersPerCn; }
 	inline Double premiumMult() const { return layout_.premiumMult; }
+	inline Float symbolRatio() const { return layout_.symbolRatio; }
 	inline AdjConvention adjConvention() const { return layout_.adjConvention; }
 	inline OptPriceInc optPriceInc() const { return layout_.optPriceInc; }
 	inline PriceFormat priceFormat() const { return layout_.priceFormat; }
@@ -2571,6 +2577,7 @@ private:
 		UInt askMask1;
 		DateTime bidTime;
 		DateTime askTime;
+		Int printVolume;
 		UpdateType updateType;
 		Long srcTimestamp;
 		Long netTimestamp;
@@ -2609,6 +2616,7 @@ public:
 	inline UInt askMask1() const { return layout_.askMask1; }
 	inline DateTime bidTime() const { return layout_.bidTime; }
 	inline DateTime askTime() const { return layout_.askTime; }
+	inline Int printVolume() const { return layout_.printVolume; }
 	inline UpdateType updateType() const { return layout_.updateType; }
 	inline Long srcTimestamp() const { return layout_.srcTimestamp; }
 	inline Long netTimestamp() const { return layout_.netTimestamp; }
@@ -3397,7 +3405,7 @@ private:
 		Double clsPrice;
 		Double minPrice;
 		Double maxPrice;
-		Int sharesOutstanding;
+		Long sharesOutstanding;
 		Int bidCount;
 		Int bidVolume;
 		Int askCount;
@@ -3431,7 +3439,7 @@ public:
 	inline Double clsPrice() const { return layout_.clsPrice; }
 	inline Double minPrice() const { return layout_.minPrice; }
 	inline Double maxPrice() const { return layout_.maxPrice; }
-	inline Int sharesOutstanding() const { return layout_.sharesOutstanding; }
+	inline Long sharesOutstanding() const { return layout_.sharesOutstanding; }
 	inline Int bidCount() const { return layout_.bidCount; }
 	inline Int bidVolume() const { return layout_.bidVolume; }
 	inline Int askCount() const { return layout_.askCount; }
@@ -3498,6 +3506,7 @@ private:
 		Float mrkPrice;
 		Float clsPrice;
 		StkPrintType prtType;
+		String<18> printCodes;
 		Byte prtCond1;
 		Byte prtCond2;
 		Byte prtCond3;
@@ -3534,6 +3543,7 @@ public:
 	inline Float mrkPrice() const { return layout_.mrkPrice; }
 	inline Float clsPrice() const { return layout_.clsPrice; }
 	inline StkPrintType prtType() const { return layout_.prtType; }
+	inline const String<18>& printCodes() const { return layout_.printCodes; }
 	inline Byte prtCond1() const { return layout_.prtCond1; }
 	inline Byte prtCond2() const { return layout_.prtCond2; }
 	inline Byte prtCond3() const { return layout_.prtCond3; }
@@ -3881,7 +3891,7 @@ private:
 		String<8> exchString;
 		YesNo hasOptions;
 		Int numOptions;
-		Int sharesOutstanding;
+		Long sharesOutstanding;
 		TimeMetric timeMetric;
 		OTCPrimaryMarket otcPrimaryMarket;
 		OTCTier otcTier;
@@ -3941,7 +3951,7 @@ public:
 	inline const String<8>& exchString() const { return layout_.exchString; }
 	inline YesNo hasOptions() const { return layout_.hasOptions; }
 	inline Int numOptions() const { return layout_.numOptions; }
-	inline Int sharesOutstanding() const { return layout_.sharesOutstanding; }
+	inline Long sharesOutstanding() const { return layout_.sharesOutstanding; }
 	inline TimeMetric timeMetric() const { return layout_.timeMetric; }
 	inline OTCPrimaryMarket otcPrimaryMarket() const { return layout_.otcPrimaryMarket; }
 	inline OTCTier otcTier() const { return layout_.otcTier; }

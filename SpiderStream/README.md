@@ -1,6 +1,4 @@
-# SpiderStream API
-The SpiderStream API provides access to live-data objects (real-time or delayed data feeds) within the SpiderRock system through a multicast broadcast feed. Tailored for C++ and C# projects, included below are libraries your apps can consume to make these feeds available. 
+# SRDataFeed
+SpiderRock Multicast Data Feeds Client Libraries
 
-## Libraries
-1. [C++](./_c++/) - examples and libraries made for C++ programs
-2. [C#](./_csharp/) - examples and libraries made for C# programs
+C# and C++ libraries for receiving and processing the SpiderRock consolidated market data feeds.

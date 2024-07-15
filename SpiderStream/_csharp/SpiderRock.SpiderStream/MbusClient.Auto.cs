@@ -19,6 +19,7 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<FuturePrintMarkup> futurePrintMarkupDispatch;
     MessageEventsDispatcher<IndexQuote> indexQuoteDispatch;
     MessageEventsDispatcher<LiveImpliedQuote> liveImpliedQuoteDispatch;
+    MessageEventsDispatcher<LiveRevConQuote> liveRevConQuoteDispatch;
     MessageEventsDispatcher<LiveSurfaceAtm> liveSurfaceAtmDispatch;
     MessageEventsDispatcher<OptionCloseMark> optionCloseMarkDispatch;
     MessageEventsDispatcher<OptionExchOrder> optionExchOrderDispatch;
@@ -34,6 +35,8 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<RootDefinition> rootDefinitionDispatch;
     MessageEventsDispatcher<SpdrAuctionState> spdrAuctionStateDispatch;
     MessageEventsDispatcher<SpreadBookQuote> spreadBookQuoteDispatch;
+    MessageEventsDispatcher<SpreadDefinition> spreadDefinitionDispatch;
+    MessageEventsDispatcher<SpreadExchDefinition> spreadExchDefinitionDispatch;
     MessageEventsDispatcher<SpreadExchOrder> spreadExchOrderDispatch;
     MessageEventsDispatcher<SpreadExchPrint> spreadExchPrintDispatch;
     MessageEventsDispatcher<StockBookQuote> stockBookQuoteDispatch;
@@ -53,6 +56,7 @@ public sealed partial class MbusClient
         futurePrintMarkupDispatch = new(messageCache.FuturePrintMarkup);
         indexQuoteDispatch = new(messageCache.IndexQuote);
         liveImpliedQuoteDispatch = new(messageCache.LiveImpliedQuote);
+        liveRevConQuoteDispatch = new(messageCache.LiveRevConQuote);
         liveSurfaceAtmDispatch = new(messageCache.LiveSurfaceAtm);
         optionCloseMarkDispatch = new(messageCache.OptionCloseMark);
         optionExchOrderDispatch = new(messageCache.OptionExchOrder);
@@ -68,6 +72,8 @@ public sealed partial class MbusClient
         rootDefinitionDispatch = new(messageCache.RootDefinition);
         spdrAuctionStateDispatch = new(messageCache.SpdrAuctionState);
         spreadBookQuoteDispatch = new(messageCache.SpreadBookQuote);
+        spreadDefinitionDispatch = new(messageCache.SpreadDefinition);
+        spreadExchDefinitionDispatch = new(messageCache.SpreadExchDefinition);
         spreadExchOrderDispatch = new(messageCache.SpreadExchOrder);
         spreadExchPrintDispatch = new(messageCache.SpreadExchPrint);
         stockBookQuoteDispatch = new(messageCache.StockBookQuote);
@@ -90,6 +96,7 @@ public sealed partial class MbusClient
             /* FuturePrintMarkup */ 2605 => futurePrintMarkupDispatch,
             /* IndexQuote */ 2675 => indexQuoteDispatch,
             /* LiveImpliedQuote */ 1015 => liveImpliedQuoteDispatch,
+            /* LiveRevConQuote */ 1125 => liveRevConQuoteDispatch,
             /* LiveSurfaceAtm */ 1030 => liveSurfaceAtmDispatch,
             /* OptionCloseMark */ 3140 => optionCloseMarkDispatch,
             /* OptionExchOrder */ 2765 => optionExchOrderDispatch,
@@ -105,6 +112,8 @@ public sealed partial class MbusClient
             /* RootDefinition */ 4365 => rootDefinitionDispatch,
             /* SpdrAuctionState */ 2525 => spdrAuctionStateDispatch,
             /* SpreadBookQuote */ 2900 => spreadBookQuoteDispatch,
+            /* SpreadDefinition */ 4390 => spreadDefinitionDispatch,
+            /* SpreadExchDefinition */ 4395 => spreadExchDefinitionDispatch,
             /* SpreadExchOrder */ 2915 => spreadExchOrderDispatch,
             /* SpreadExchPrint */ 2920 => spreadExchPrintDispatch,
             /* StockBookQuote */ 3000 => stockBookQuoteDispatch,
@@ -125,6 +134,7 @@ public sealed partial class MbusClient
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => messageCache.FuturePrintMarkup;
     public IMessageEvents<IndexQuote> IndexQuote => messageCache.IndexQuote;
     public IMessageEvents<LiveImpliedQuote> LiveImpliedQuote => messageCache.LiveImpliedQuote;
+    public IMessageEvents<LiveRevConQuote> LiveRevConQuote => messageCache.LiveRevConQuote;
     public IMessageEvents<LiveSurfaceAtm> LiveSurfaceAtm => messageCache.LiveSurfaceAtm;
     public IMessageEvents<OptionCloseMark> OptionCloseMark => messageCache.OptionCloseMark;
     public IMessageEvents<OptionExchOrder> OptionExchOrder => messageCache.OptionExchOrder;
@@ -140,6 +150,8 @@ public sealed partial class MbusClient
     public IMessageEvents<RootDefinition> RootDefinition => messageCache.RootDefinition;
     public IMessageEvents<SpdrAuctionState> SpdrAuctionState => messageCache.SpdrAuctionState;
     public IMessageEvents<SpreadBookQuote> SpreadBookQuote => messageCache.SpreadBookQuote;
+    public IMessageEvents<SpreadDefinition> SpreadDefinition => messageCache.SpreadDefinition;
+    public IMessageEvents<SpreadExchDefinition> SpreadExchDefinition => messageCache.SpreadExchDefinition;
     public IMessageEvents<SpreadExchOrder> SpreadExchOrder => messageCache.SpreadExchOrder;
     public IMessageEvents<SpreadExchPrint> SpreadExchPrint => messageCache.SpreadExchPrint;
     public IMessageEvents<StockBookQuote> StockBookQuote => messageCache.StockBookQuote;
