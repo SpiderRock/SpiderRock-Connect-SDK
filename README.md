@@ -2,7 +2,9 @@
 
 # SpiderRock's Connection Toolbox
 
-This repo contains documentation, specifications and general information for how customers are expected to connect to the SpiderRock system. Whether you are a trading entity, developer or liquiity provider you may need to connect to SpiderRock for a variety of reasons and depending on those reasons a certain connection method may be more advantageous than another. Please consider your need to connect and consider all options. If you are having trouble choosing a method, reach out to our Support Desk for guidance. 
+This repo contains documentation, specifications and general information for how customers are expected to connect to the SpiderRock system. Whether you are a trading entity, developer or liquidity provider you may need to connect to SpiderRock for a variety of reasons and depending on those reasons a certain connection method may be more advantageous than another. Please consider your need to connect and consider all options. If you are having trouble choosing a method, reach out to our Support Desk for guidance. 
+
+## Official V8 Documentation website - https://docs.spiderrockconnect.com/
 
 ## Connection Methods
 1. **[MLink API](./MLink/README.md)** - Our newest proprietary connection method, is a server that supports an SQL-like API where a user can connect via REST or WebSocket connection. This method is bi-direction and users can interact and manipulate their orders and related messages as well as consume data. 
