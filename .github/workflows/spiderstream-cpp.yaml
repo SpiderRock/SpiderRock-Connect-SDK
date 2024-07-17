@@ -1,0 +1,20 @@
+name: Build C++ (Linux)
+
+on:
+  push:
+    branches: [ "v7-stable", "jdugan/add-actions" ]
+  pull_request:
+    branches: [ "v7-stable" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build libSRDF
+      working-directory: SpiderStream/_c++/libSpiderStream
+      run: make && make install
+    - name: Build ServerExample
+      working-directory: SpiderStream/_c++/ServerExample
+      run: make

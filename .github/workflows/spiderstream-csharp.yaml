@@ -1,0 +1,24 @@
+name: Build C#
+
+on:
+  push:
+    branches: [ "main", "jdugan/add-github-actions" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Restore dependencies
+      working-directory: SpiderStream/_csharp
+      run: dotnet restore
+    - name: Build
+      working-directory: SpiderStream/_csharp
+      run: dotnet build --no-restore
+    - name: Test
+      working-directory: SpiderStream/_csharp
+      run: dotnet test --no-build --verbosity normal
