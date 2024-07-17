@@ -2,9 +2,9 @@ name: Build C++ (Linux)
 
 on:
   push:
-    branches: [ "v7-stable", "jdugan/add-actions" ]
+    branches: [ "main", "jdugan/add-github-actions" ]
   pull_request:
-    branches: [ "v7-stable" ]
+    branches: [ "main" ]
 
 jobs:
   build:
