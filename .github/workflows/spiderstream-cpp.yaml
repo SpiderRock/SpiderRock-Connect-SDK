@@ -16,7 +16,7 @@ jobs:
       run: sudo apt-get install -y libwebsocketpp-dev libboost-all-dev
     - name: Build libSRDF
       working-directory: SpiderStream/_c++/libSpiderStream
-      run: make && make install
+      run: make
     - name: Build ServerExample
       working-directory: SpiderStream/_c++/ServerExample
       run: make
