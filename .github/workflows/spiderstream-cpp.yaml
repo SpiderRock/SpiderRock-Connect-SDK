@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: sudo apt-get install -y libwebsocketpp-dev
     - name: Build libSRDF
       working-directory: SpiderStream/_c++/libSpiderStream
       run: make && make install
