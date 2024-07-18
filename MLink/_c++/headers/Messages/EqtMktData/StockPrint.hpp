@@ -75,6 +75,11 @@ namespace api {
     DECL_STRONG_TYPE(prt_type__StkPrintType, spiderrock::protobuf::api::StkPrintType);
     #endif//_prt_type__StkPrintType__GUARD__
 
+    #ifndef _print_codes__GUARD__
+    #define _print_codes__GUARD__
+    DECL_STRONG_TYPE(print_codes, string);
+    #endif//_print_codes__GUARD__
+
     #ifndef _prt_cond1__GUARD__
     #define _prt_cond1__GUARD__
     DECL_STRONG_TYPE(prt_cond1, int32);
@@ -249,6 +254,7 @@ namespace api {
         using mrk_price = spiderrock::protobuf::api::mrk_price__float;
         using cls_price = spiderrock::protobuf::api::cls_price__float;
         using prt_type = spiderrock::protobuf::api::prt_type__StkPrintType;
+        using print_codes = spiderrock::protobuf::api::print_codes;
         using prt_cond1 = spiderrock::protobuf::api::prt_cond1;
         using prt_cond2 = spiderrock::protobuf::api::prt_cond2;
         using prt_cond3 = spiderrock::protobuf::api::prt_cond3;
@@ -275,6 +281,7 @@ namespace api {
         mrk_price m_mrk_price{};
         cls_price m_cls_price{};
         prt_type m_prt_type{};
+        print_codes m_print_codes{};
         prt_cond1 m_prt_cond1{};
         prt_cond2 m_prt_cond2{};
         prt_cond3 m_prt_cond3{};
@@ -324,6 +331,9 @@ namespace api {
         }		
         prt_type get_prt_type() const {
             return m_prt_type;
+        }		
+        print_codes get_print_codes() const {
+            return m_print_codes;
         }		
         prt_cond1 get_prt_cond1() const {
             return m_prt_cond1;
@@ -400,6 +410,9 @@ namespace api {
         }
         void set_prt_type(const prt_type& value)  {
             m_prt_type = value;
+        }
+        void set_print_codes(const print_codes& value)  {
+            m_print_codes = value;
         }
         void set_prt_cond1(const prt_cond1& value)  {
             m_prt_cond1 = value;
@@ -481,6 +494,9 @@ namespace api {
         void set(const prt_type & value) {
             set_prt_type(value);
         }
+        void set(const print_codes & value) {
+            set_print_codes(value);
+        }
         void set(const prt_cond1 & value) {
             set_prt_cond1(value);
         }
@@ -533,6 +549,7 @@ namespace api {
             set(value.m_mrk_price);
             set(value.m_cls_price);
             set(value.m_prt_type);
+            set(value.m_print_codes);
             set(value.m_prt_cond1);
             set(value.m_prt_cond2);
             set(value.m_prt_cond3);
@@ -625,6 +642,9 @@ namespace api {
         bool IncludeClsPrice() const {
             return !(m_cls_price == 0.0);
         }
+        bool IncludePrintCodes() const {
+            return !(m_print_codes.empty());
+        }
         bool IncludePrtCond1() const {
             return !(m_prt_cond1 == 0);
         }
@@ -698,6 +718,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(121,m_cls_price);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkPrintType>(m_prt_type)));
+            if ( IncludePrintCodes()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(164,m_print_codes);
+            }
             if ( IncludePrtCond1()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(127,m_prt_cond1);
             }
@@ -772,6 +795,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,121,m_cls_price);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkPrintType>(m_prt_type)));
+            if ( IncludePrintCodes()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,164,static_cast<string>(m_print_codes));
+            }
             if ( IncludePrtCond1()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,127,m_prt_cond1);
             }
@@ -891,6 +917,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 164: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_print_codes = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
                     case 127: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_prt_cond1 = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
@@ -988,6 +1020,7 @@ namespace api {
     template<> inline const auto StockPrint::get<StockPrint::mrk_price>() const { return m_mrk_price; }
     template<> inline const auto StockPrint::get<StockPrint::cls_price>() const { return m_cls_price; }
     template<> inline const auto StockPrint::get<StockPrint::prt_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkPrintType>( m_prt_type)); }
+    template<> inline const auto StockPrint::get<StockPrint::print_codes>() const { return m_print_codes; }
     template<> inline const auto StockPrint::get<StockPrint::prt_cond1>() const { return m_prt_cond1; }
     template<> inline const auto StockPrint::get<StockPrint::prt_cond2>() const { return m_prt_cond2; }
     template<> inline const auto StockPrint::get<StockPrint::prt_cond3>() const { return m_prt_cond3; }
@@ -1022,6 +1055,7 @@ namespace api {
         o << ",\"mrk_price\":" << m.get<StockPrint::mrk_price>();
         o << ",\"cls_price\":" << m.get<StockPrint::cls_price>();
         o << ",\"prt_type\":" << (int64_t)m.get<StockPrint::prt_type>();
+        o << ",\"print_codes\":\"" << m.get<StockPrint::print_codes>() << "\"";
         o << ",\"prt_cond1\":" << m.get<StockPrint::prt_cond1>();
         o << ",\"prt_cond2\":" << m.get<StockPrint::prt_cond2>();
         o << ",\"prt_cond3\":" << m.get<StockPrint::prt_cond3>();

@@ -1222,7 +1222,8 @@ enum class FlipType : uint8_t {
     FLIPTYPE_UNSPECIFIED = 0
     };
 enum class FutExch : uint8_t {
-	FUTEXCH_NXP = 14,
+	FUTEXCH_ICEFE = 15,
+    FUTEXCH_NXP = 14,
     FUTEXCH_NXOS = 13,
     FUTEXCH_NXML = 12,
     FUTEXCH_NXLS = 11,
@@ -1735,7 +1736,8 @@ enum class OpenPosType : uint8_t {
     OPENPOSTYPE_UNSPECIFIED = 0
     };
 enum class OptExch : uint8_t {
-	OPTEXCH_NXP = 33,
+	OPTEXCH_ICEFE = 34,
+    OPTEXCH_NXP = 33,
     OPTEXCH_NXOS = 32,
     OPTEXCH_NXML = 31,
     OPTEXCH_NXLS = 30,
@@ -2288,11 +2290,20 @@ enum class RMetricSource : uint8_t {
     RMETRICSOURCE_USER = 1,
     RMETRICSOURCE_UNSPECIFIED = 0
     };
+enum class RateCurve : uint8_t {
+	RATECURVE_STOXX_BOX = 4,
+    RATECURVE_SPX_BOX = 3,
+    RATECURVE_SOFR = 2,
+    RATECURVE_DEFAULT = 1,
+    RATECURVE_UNSPECIFIED = 0
+    };
 enum class RateSource : uint8_t {
-	RATESOURCE_TEST2 = 6,
-    RATESOURCE_TEST1 = 5,
+	RATESOURCE_ESTR = 8,
+    RATESOURCE_TEST2 = 7,
+    RATESOURCE_TEST1 = 6,
+    RATESOURCE_STOXX_BOX = 5,
     RATESOURCE_SPX_BOX = 4,
-    RATESOURCE_LIBOR = 3,
+    RATESOURCE_SOFR = 3,
     RATESOURCE_OIS = 2,
     RATESOURCE_DEFAULT = 1,
     RATESOURCE_UNSPECIFIED = 0
@@ -2725,7 +2736,11 @@ enum class SpdrRejectReason : uint8_t {
     SPDRREJECTREASON_UNSPECIFIED = 0
     };
 enum class SpdrRisk : uint8_t {
-	SPDRRISK_RISK_COLLAR_RNG = 185,
+	SPDRRISK_ACC_FUT_CN_ABS = 189,
+    SPDRRISK_DAY_FUT_CN_ABS = 188,
+    SPDRRISK_DAY_FUT_CN_SLD = 187,
+    SPDRRISK_DAY_FUT_CN_BOT = 186,
+    SPDRRISK_RISK_COLLAR_RNG = 185,
     SPDRRISK_INVLD_DELTA = 180,
     SPDRRISK_NO_DDELTA_MULT = 175,
     SPDRRISK_MKT_CLOSED = 173,
@@ -3160,7 +3175,8 @@ enum class SysEnvironment : uint8_t {
     SYSENVIRONMENT_UNSPECIFIED = 0
     };
 enum class SysRealm : uint8_t {
-	SYSREALM_LD4 = 5,
+	SYSREALM_DR = 6,
+    SYSREALM_LD4 = 5,
     SYSREALM_FR2 = 4,
     SYSREALM_CME = 3,
     SYSREALM_NMS = 2,
@@ -3180,7 +3196,8 @@ enum class TapeCode : uint8_t {
     TAPECODE_UNSPECIFIED = 0
     };
 enum class TickerSrc : uint8_t {
-	TICKERSRC_CEDX = 35,
+	TICKERSRC_ICEFE = 36,
+    TICKERSRC_CEDX = 35,
     TICKERSRC_EUREX = 34,
     TICKERSRC_NXP = 33,
     TICKERSRC_NXOS = 32,
@@ -3218,7 +3235,8 @@ enum class TickerSrc : uint8_t {
     TICKERSRC_UNSPECIFIED = 0
     };
 enum class TickerSrc_V7 : uint8_t {
-	TICKERSRC_V7_CEDX = 44,
+	TICKERSRC_V7_ICEFE = 45,
+    TICKERSRC_V7_CEDX = 44,
     TICKERSRC_V7_EUREX = 43,
     TICKERSRC_V7_NXP = 42,
     TICKERSRC_V7_NXOS = 41,

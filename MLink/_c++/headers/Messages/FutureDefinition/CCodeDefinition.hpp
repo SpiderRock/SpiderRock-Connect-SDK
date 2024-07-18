@@ -75,10 +75,10 @@ namespace api {
     DECL_STRONG_TYPE(underliers_per_cn, int32);
     #endif//_underliers_per_cn__GUARD__
 
-    #ifndef _underlier_type__GUARD__
-    #define _underlier_type__GUARD__
-    DECL_STRONG_TYPE(underlier_type, spiderrock::protobuf::api::UnderlierType);
-    #endif//_underlier_type__GUARD__
+    #ifndef _underlier_type__UnderlierType__GUARD__
+    #define _underlier_type__UnderlierType__GUARD__
+    DECL_STRONG_TYPE(underlier_type__UnderlierType, spiderrock::protobuf::api::UnderlierType);
+    #endif//_underlier_type__UnderlierType__GUARD__
 
     #ifndef _clearing_code__GUARD__
     #define _clearing_code__GUARD__
@@ -254,7 +254,7 @@ namespace api {
         using point_currency = spiderrock::protobuf::api::point_currency;
         using price_scaling = spiderrock::protobuf::api::price_scaling;
         using underliers_per_cn = spiderrock::protobuf::api::underliers_per_cn;
-        using underlier_type = spiderrock::protobuf::api::underlier_type;
+        using underlier_type = spiderrock::protobuf::api::underlier_type__UnderlierType;
         using clearing_code = spiderrock::protobuf::api::clearing_code;
         using ric_root = spiderrock::protobuf::api::ric_root;
         using bbg_root = spiderrock::protobuf::api::bbg_root;

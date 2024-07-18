@@ -175,6 +175,11 @@ namespace api {
     DECL_STRONG_TYPE(premium_mult, double);
     #endif//_premium_mult__GUARD__
 
+    #ifndef _symbol_ratio__GUARD__
+    #define _symbol_ratio__GUARD__
+    DECL_STRONG_TYPE(symbol_ratio, float);
+    #endif//_symbol_ratio__GUARD__
+
     #ifndef _adj_convention__GUARD__
     #define _adj_convention__GUARD__
     DECL_STRONG_TYPE(adj_convention, spiderrock::protobuf::api::AdjConvention);
@@ -556,6 +561,7 @@ namespace api {
         using cash_on_exercise = spiderrock::protobuf::api::cash_on_exercise;
         using underliers_per_cn = spiderrock::protobuf::api::underliers_per_cn;
         using premium_mult = spiderrock::protobuf::api::premium_mult;
+        using symbol_ratio = spiderrock::protobuf::api::symbol_ratio;
         using adj_convention = spiderrock::protobuf::api::adj_convention;
         using opt_price_inc = spiderrock::protobuf::api::opt_price_inc;
         using price_format = spiderrock::protobuf::api::price_format;
@@ -601,6 +607,7 @@ namespace api {
         cash_on_exercise m_cash_on_exercise{};
         underliers_per_cn m_underliers_per_cn{};
         premium_mult m_premium_mult{};
+        symbol_ratio m_symbol_ratio{};
         adj_convention m_adj_convention{};
         opt_price_inc m_opt_price_inc{};
         price_format m_price_format{};
@@ -709,6 +716,9 @@ namespace api {
         }		
         premium_mult get_premium_mult() const {
             return m_premium_mult;
+        }		
+        symbol_ratio get_symbol_ratio() const {
+            return m_symbol_ratio;
         }		
         adj_convention get_adj_convention() const {
             return m_adj_convention;
@@ -848,6 +858,9 @@ namespace api {
         }
         void set_premium_mult(const premium_mult& value)  {
             m_premium_mult = value;
+        }
+        void set_symbol_ratio(const symbol_ratio& value)  {
+            m_symbol_ratio = value;
         }
         void set_adj_convention(const adj_convention& value)  {
             m_adj_convention = value;
@@ -998,6 +1011,9 @@ namespace api {
         void set(const premium_mult & value) {
             set_premium_mult(value);
         }
+        void set(const symbol_ratio & value) {
+            set_symbol_ratio(value);
+        }
         void set(const adj_convention & value) {
             set_adj_convention(value);
         }
@@ -1067,6 +1083,7 @@ namespace api {
             set(value.m_cash_on_exercise);
             set(value.m_underliers_per_cn);
             set(value.m_premium_mult);
+            set(value.m_symbol_ratio);
             set(value.m_adj_convention);
             set(value.m_opt_price_inc);
             set(value.m_price_format);
@@ -1177,6 +1194,9 @@ namespace api {
         bool IncludePremiumMult() const {
             return !(m_premium_mult == 0.0);
         }
+        bool IncludeSymbolRatio() const {
+            return !(m_symbol_ratio == 0.0);
+        }
         bool IncludeDefaultSurfaceRoot() const {
             return (m_default_surface_root.ByteSizeLong() > 0);
         }
@@ -1270,6 +1290,9 @@ namespace api {
             }
             if ( IncludePremiumMult()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(184,m_premium_mult);
+            }
+            if ( IncludeSymbolRatio()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(222,m_symbol_ratio);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
@@ -1381,6 +1404,9 @@ namespace api {
             }
             if ( IncludePremiumMult()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,184,m_premium_mult);
+            }
+            if ( IncludeSymbolRatio()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,222,m_symbol_ratio);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
@@ -1607,6 +1633,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 222: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_symbol_ratio = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 187: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_adj_convention = static_cast<spiderrock::protobuf::api::AdjConvention>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1719,6 +1751,7 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::cash_on_exercise>() const { return m_cash_on_exercise; }
     template<> inline const auto RootDefinition::get<RootDefinition::underliers_per_cn>() const { return m_underliers_per_cn; }
     template<> inline const auto RootDefinition::get<RootDefinition::premium_mult>() const { return m_premium_mult; }
+    template<> inline const auto RootDefinition::get<RootDefinition::symbol_ratio>() const { return m_symbol_ratio; }
     template<> inline const auto RootDefinition::get<RootDefinition::adj_convention>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>( m_adj_convention)); }
     template<> inline const auto RootDefinition::get<RootDefinition::opt_price_inc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>( m_opt_price_inc)); }
     template<> inline const auto RootDefinition::get<RootDefinition::price_format>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>( m_price_format)); }
@@ -1792,6 +1825,7 @@ namespace api {
         o << ",\"cash_on_exercise\":" << m.get<RootDefinition::cash_on_exercise>();
         o << ",\"underliers_per_cn\":" << m.get<RootDefinition::underliers_per_cn>();
         o << ",\"premium_mult\":" << m.get<RootDefinition::premium_mult>();
+        o << ",\"symbol_ratio\":" << m.get<RootDefinition::symbol_ratio>();
         o << ",\"adj_convention\":" << (int64_t)m.get<RootDefinition::adj_convention>();
         o << ",\"opt_price_inc\":" << (int64_t)m.get<RootDefinition::opt_price_inc>();
         o << ",\"price_format\":" << (int64_t)m.get<RootDefinition::price_format>();

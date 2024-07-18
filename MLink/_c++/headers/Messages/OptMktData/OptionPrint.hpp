@@ -60,6 +60,11 @@ namespace api {
     DECL_STRONG_TYPE(prt_type__PrtType, spiderrock::protobuf::api::PrtType);
     #endif//_prt_type__PrtType__GUARD__
 
+    #ifndef _print_codes__GUARD__
+    #define _print_codes__GUARD__
+    DECL_STRONG_TYPE(print_codes, string);
+    #endif//_print_codes__GUARD__
+
     #ifndef _prt_orders__GUARD__
     #define _prt_orders__GUARD__
     DECL_STRONG_TYPE(prt_orders, uint32);
@@ -311,6 +316,7 @@ namespace api {
         using prt_cluster_num = spiderrock::protobuf::api::prt_cluster_num;
         using prt_cluster_size = spiderrock::protobuf::api::prt_cluster_size;
         using prt_type = spiderrock::protobuf::api::prt_type__PrtType;
+        using print_codes = spiderrock::protobuf::api::print_codes;
         using prt_orders = spiderrock::protobuf::api::prt_orders;
         using prt_volume = spiderrock::protobuf::api::prt_volume;
         using cxl_volume = spiderrock::protobuf::api::cxl_volume;
@@ -350,6 +356,7 @@ namespace api {
         prt_cluster_num m_prt_cluster_num{};
         prt_cluster_size m_prt_cluster_size{};
         prt_type m_prt_type{};
+        print_codes m_print_codes{};
         prt_orders m_prt_orders{};
         prt_volume m_prt_volume{};
         cxl_volume m_cxl_volume{};
@@ -406,6 +413,9 @@ namespace api {
         }		
         prt_type get_prt_type() const {
             return m_prt_type;
+        }		
+        print_codes get_print_codes() const {
+            return m_print_codes;
         }		
         prt_orders get_prt_orders() const {
             return m_prt_orders;
@@ -521,6 +531,9 @@ namespace api {
         }
         void set_prt_type(const prt_type& value)  {
             m_prt_type = value;
+        }
+        void set_print_codes(const print_codes& value)  {
+            m_print_codes = value;
         }
         void set_prt_orders(const prt_orders& value)  {
             m_prt_orders = value;
@@ -641,6 +654,9 @@ namespace api {
         void set(const prt_type & value) {
             set_prt_type(value);
         }
+        void set(const print_codes & value) {
+            set_print_codes(value);
+        }
         void set(const prt_orders & value) {
             set_prt_orders(value);
         }
@@ -738,6 +754,7 @@ namespace api {
             set(value.m_prt_cluster_num);
             set(value.m_prt_cluster_size);
             set(value.m_prt_type);
+            set(value.m_print_codes);
             set(value.m_prt_orders);
             set(value.m_prt_volume);
             set(value.m_cxl_volume);
@@ -836,6 +853,9 @@ namespace api {
         }
         bool IncludePrtClusterSize() const {
             return !(m_prt_cluster_size == 0);
+        }
+        bool IncludePrintCodes() const {
+            return !(m_print_codes.empty());
         }
         bool IncludePrtOrders() const {
             return !(m_prt_orders == 0);
@@ -949,6 +969,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(112,m_prt_cluster_size);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtType>(m_prt_type)));
+            if ( IncludePrintCodes()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(203,m_print_codes);
+            }
             if ( IncludePrtOrders()) {
                 totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(118,m_prt_orders);
             }
@@ -1062,6 +1085,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,112,m_prt_cluster_size);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtType>(m_prt_type)));
+            if ( IncludePrintCodes()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,203,static_cast<string>(m_print_codes));
+            }
             if ( IncludePrtOrders()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,118,m_prt_orders);
             }
@@ -1208,6 +1234,12 @@ namespace api {
                     }
                     case 115: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_prt_type = static_cast<spiderrock::protobuf::api::PrtType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 203: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_print_codes = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -1401,6 +1433,7 @@ namespace api {
     template<> inline const auto OptionPrint::get<OptionPrint::prt_cluster_num>() const { return m_prt_cluster_num; }
     template<> inline const auto OptionPrint::get<OptionPrint::prt_cluster_size>() const { return m_prt_cluster_size; }
     template<> inline const auto OptionPrint::get<OptionPrint::prt_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtType>( m_prt_type)); }
+    template<> inline const auto OptionPrint::get<OptionPrint::print_codes>() const { return m_print_codes; }
     template<> inline const auto OptionPrint::get<OptionPrint::prt_orders>() const { return m_prt_orders; }
     template<> inline const auto OptionPrint::get<OptionPrint::prt_volume>() const { return m_prt_volume; }
     template<> inline const auto OptionPrint::get<OptionPrint::cxl_volume>() const { return m_cxl_volume; }
@@ -1448,6 +1481,7 @@ namespace api {
         o << ",\"prt_cluster_num\":" << m.get<OptionPrint::prt_cluster_num>();
         o << ",\"prt_cluster_size\":" << m.get<OptionPrint::prt_cluster_size>();
         o << ",\"prt_type\":" << (int64_t)m.get<OptionPrint::prt_type>();
+        o << ",\"print_codes\":\"" << m.get<OptionPrint::print_codes>() << "\"";
         o << ",\"prt_orders\":" << m.get<OptionPrint::prt_orders>();
         o << ",\"prt_volume\":" << m.get<OptionPrint::prt_volume>();
         o << ",\"cxl_volume\":" << m.get<OptionPrint::cxl_volume>();

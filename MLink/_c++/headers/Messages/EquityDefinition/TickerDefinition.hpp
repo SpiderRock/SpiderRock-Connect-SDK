@@ -55,6 +55,11 @@ namespace api {
     DECL_STRONG_TYPE(primary_currency, spiderrock::protobuf::api::Currency);
     #endif//_primary_currency__GUARD__
 
+    #ifndef _rate_curve__GUARD__
+    #define _rate_curve__GUARD__
+    DECL_STRONG_TYPE(rate_curve, spiderrock::protobuf::api::RateCurve);
+    #endif//_rate_curve__GUARD__
+
     #ifndef _par_value__GUARD__
     #define _par_value__GUARD__
     DECL_STRONG_TYPE(par_value, float);
@@ -107,7 +112,7 @@ namespace api {
 
     #ifndef _shares_outstanding__GUARD__
     #define _shares_outstanding__GUARD__
-    DECL_STRONG_TYPE(shares_outstanding, int32);
+    DECL_STRONG_TYPE(shares_outstanding, int64);
     #endif//_shares_outstanding__GUARD__
 
     #ifndef _cusip__GUARD__
@@ -400,6 +405,7 @@ namespace api {
         using name = spiderrock::protobuf::api::name;
         using country = spiderrock::protobuf::api::country;
         using primary_currency = spiderrock::protobuf::api::primary_currency;
+        using rate_curve = spiderrock::protobuf::api::rate_curve;
         using par_value = spiderrock::protobuf::api::par_value;
         using par_value_currency = spiderrock::protobuf::api::par_value_currency;
         using point_value = spiderrock::protobuf::api::point_value__float;
@@ -457,6 +463,7 @@ namespace api {
         name m_name{};
         country m_country{};
         primary_currency m_primary_currency{};
+        rate_curve m_rate_curve{};
         par_value m_par_value{};
         par_value_currency m_par_value_currency{};
         point_value m_point_value{};
@@ -529,6 +536,9 @@ namespace api {
         }		
         primary_currency get_primary_currency() const {
             return m_primary_currency;
+        }		
+        rate_curve get_rate_curve() const {
+            return m_rate_curve;
         }		
         par_value get_par_value() const {
             return m_par_value;
@@ -698,6 +708,9 @@ namespace api {
         }
         void set_primary_currency(const primary_currency& value)  {
             m_primary_currency = value;
+        }
+        void set_rate_curve(const rate_curve& value)  {
+            m_rate_curve = value;
         }
         void set_par_value(const par_value& value)  {
             m_par_value = value;
@@ -872,6 +885,9 @@ namespace api {
         void set(const primary_currency & value) {
             set_primary_currency(value);
         }
+        void set(const rate_curve & value) {
+            set_rate_curve(value);
+        }
         void set(const par_value & value) {
             set_par_value(value);
         }
@@ -1025,6 +1041,7 @@ namespace api {
             set(value.m_name);
             set(value.m_country);
             set(value.m_primary_currency);
+            set(value.m_rate_curve);
             set(value.m_par_value);
             set(value.m_par_value_currency);
             set(value.m_point_value);
@@ -1279,6 +1296,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_country);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(254,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(255,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RateCurve>(m_rate_curve)));
             if ( IncludeParValue()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_par_value);
             }
@@ -1306,7 +1324,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(139,m_issue_class);
             }
             if ( IncludeSharesOutstanding()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(142,m_shares_outstanding);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(256,m_shares_outstanding);
             }
             if ( IncludeCusip()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(145,m_cusip);
@@ -1428,6 +1446,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_country));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,254,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,255,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RateCurve>(m_rate_curve)));
             if ( IncludeParValue()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_par_value);
             }
@@ -1455,7 +1474,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,139,static_cast<string>(m_issue_class));
             }
             if ( IncludeSharesOutstanding()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,142,m_shares_outstanding);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,256,m_shares_outstanding);
             }
             if ( IncludeCusip()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,145,static_cast<string>(m_cusip));
@@ -1610,6 +1629,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 255: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_rate_curve = static_cast<spiderrock::protobuf::api::RateCurve>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 112: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_par_value = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -1668,9 +1692,9 @@ namespace api {
                         }
                         break;
                     }
-                    case 142: {
-                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
-                            m_shares_outstanding = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 256: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_shares_outstanding = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
@@ -1904,6 +1928,7 @@ namespace api {
     template<> inline const auto TickerDefinition::get<TickerDefinition::name>() const { return m_name; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::country>() const { return m_country; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::primary_currency>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_primary_currency)); }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::rate_curve>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RateCurve>( m_rate_curve)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::par_value>() const { return m_par_value; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::par_value_currency>() const { return m_par_value_currency; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::point_value>() const { return m_point_value; }
@@ -1969,6 +1994,7 @@ namespace api {
         o << ",\"name\":\"" << m.get<TickerDefinition::name>() << "\"";
         o << ",\"country\":\"" << m.get<TickerDefinition::country>() << "\"";
         o << ",\"primary_currency\":" << (int64_t)m.get<TickerDefinition::primary_currency>();
+        o << ",\"rate_curve\":" << (int64_t)m.get<TickerDefinition::rate_curve>();
         o << ",\"par_value\":" << m.get<TickerDefinition::par_value>();
         o << ",\"par_value_currency\":\"" << m.get<TickerDefinition::par_value_currency>() << "\"";
         o << ",\"point_value\":" << m.get<TickerDefinition::point_value>();

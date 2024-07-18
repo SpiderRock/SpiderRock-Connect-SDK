@@ -190,6 +190,11 @@ namespace api {
     DECL_STRONG_TYPE(u_ask__double, double);
     #endif//_u_ask__double__GUARD__
 
+    #ifndef _ref_uprc__double__GUARD__
+    #define _ref_uprc__double__GUARD__
+    DECL_STRONG_TYPE(ref_uprc__double, double);
+    #endif//_ref_uprc__double__GUARD__
+
     #ifndef _net_de__GUARD__
     #define _net_de__GUARD__
     DECL_STRONG_TYPE(net_de, float);
@@ -1058,6 +1063,7 @@ namespace api {
         using contains_multi_hedge = spiderrock::protobuf::api::contains_multi_hedge;
         using u_bid = spiderrock::protobuf::api::u_bid__double;
         using u_ask = spiderrock::protobuf::api::u_ask__double;
+        using ref_uprc = spiderrock::protobuf::api::ref_uprc__double;
         using net_de = spiderrock::protobuf::api::net_de;
         using net_ga = spiderrock::protobuf::api::net_ga;
         using net_th = spiderrock::protobuf::api::net_th;
@@ -1109,6 +1115,7 @@ namespace api {
         contains_multi_hedge m_contains_multi_hedge{};
         u_bid m_u_bid{};
         u_ask m_u_ask{};
+        ref_uprc m_ref_uprc{};
         net_de m_net_de{};
         net_ga m_net_ga{};
         net_th m_net_th{};
@@ -1229,6 +1236,9 @@ namespace api {
         }		
         u_ask get_u_ask() const {
             return m_u_ask;
+        }		
+        ref_uprc get_ref_uprc() const {
+            return m_ref_uprc;
         }		
         net_de get_net_de() const {
             return m_net_de;
@@ -1386,6 +1396,9 @@ namespace api {
         }
         void set_u_ask(const u_ask& value)  {
             m_u_ask = value;
+        }
+        void set_ref_uprc(const ref_uprc& value)  {
+            m_ref_uprc = value;
         }
         void set_net_de(const net_de& value)  {
             m_net_de = value;
@@ -1554,6 +1567,9 @@ namespace api {
         void set(const u_ask & value) {
             set_u_ask(value);
         }
+        void set(const ref_uprc & value) {
+            set_ref_uprc(value);
+        }
         void set(const net_de & value) {
             set_net_de(value);
         }
@@ -1635,6 +1651,7 @@ namespace api {
             set(value.m_contains_multi_hedge);
             set(value.m_u_bid);
             set(value.m_u_ask);
+            set(value.m_ref_uprc);
             set(value.m_net_de);
             set(value.m_net_ga);
             set(value.m_net_th);
@@ -1753,6 +1770,9 @@ namespace api {
         }
         bool IncludeUAsk() const {
             return !(m_u_ask == 0.0);
+        }
+        bool IncludeRefUprc() const {
+            return !(m_ref_uprc == 0.0);
         }
         bool IncludeNetDe() const {
             return !(m_net_de == 0.0);
@@ -1875,6 +1895,9 @@ namespace api {
             }
             if ( IncludeUAsk()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(125,m_u_ask);
+            }
+            if ( IncludeRefUprc()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(184,m_ref_uprc);
             }
             if ( IncludeNetDe()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(172,m_net_de);
@@ -2006,6 +2029,9 @@ namespace api {
             }
             if ( IncludeUAsk()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,125,m_u_ask);
+            }
+            if ( IncludeRefUprc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,184,m_ref_uprc);
             }
             if ( IncludeNetDe()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,172,m_net_de);
@@ -2268,6 +2294,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 184: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_ref_uprc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
                     case 172: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_net_de = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -2406,6 +2438,7 @@ namespace api {
     template<> inline const auto AuctionNotice::get<AuctionNotice::contains_multi_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_multi_hedge)); }
     template<> inline const auto AuctionNotice::get<AuctionNotice::u_bid>() const { return m_u_bid; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::u_ask>() const { return m_u_ask; }
+    template<> inline const auto AuctionNotice::get<AuctionNotice::ref_uprc>() const { return m_ref_uprc; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::net_de>() const { return m_net_de; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::net_ga>() const { return m_net_ga; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::net_th>() const { return m_net_th; }
@@ -2535,6 +2568,7 @@ namespace api {
         o << ",\"contains_multi_hedge\":" << (int64_t)m.get<AuctionNotice::contains_multi_hedge>();
         o << ",\"u_bid\":" << m.get<AuctionNotice::u_bid>();
         o << ",\"u_ask\":" << m.get<AuctionNotice::u_ask>();
+        o << ",\"ref_uprc\":" << m.get<AuctionNotice::ref_uprc>();
         o << ",\"net_de\":" << m.get<AuctionNotice::net_de>();
         o << ",\"net_ga\":" << m.get<AuctionNotice::net_ga>();
         o << ",\"net_th\":" << m.get<AuctionNotice::net_th>();

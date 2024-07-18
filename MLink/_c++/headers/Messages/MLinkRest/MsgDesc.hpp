@@ -75,6 +75,11 @@ namespace api {
     DECL_STRONG_TYPE(m_token, spiderrock::protobuf::api::MLinkToken);
     #endif//_m_token__GUARD__
 
+    #ifndef _srse_products__GUARD__
+    #define _srse_products__GUARD__
+    DECL_STRONG_TYPE(srse_products, string);
+    #endif//_srse_products__GUARD__
+
     #ifndef _desc__GUARD__
     #define _desc__GUARD__
     DECL_STRONG_TYPE(desc, string);
@@ -90,16 +95,109 @@ namespace api {
     DECL_STRONG_TYPE(sec_time_field, string);
     #endif//_sec_time_field__GUARD__
 
-    #ifndef _default_grid_fields__GUARD__
-    #define _default_grid_fields__GUARD__
-    DECL_STRONG_TYPE(default_grid_fields, string);
-    #endif//_default_grid_fields__GUARD__
-
     #ifndef _static_filter_fields__GUARD__
     #define _static_filter_fields__GUARD__
     DECL_STRONG_TYPE(static_filter_fields, string);
     #endif//_static_filter_fields__GUARD__
 
+    #ifndef _name__GUARD__
+    #define _name__GUARD__
+    DECL_STRONG_TYPE(name, string);
+    #endif//_name__GUARD__
+
+    #ifndef _fields__GUARD__
+    #define _fields__GUARD__
+    DECL_STRONG_TYPE(fields, string);
+    #endif//_fields__GUARD__
+
+    
+    class MsgDesc_GridFieldOptions {
+        public:
+        //using statements for all types used in this class
+        using name = spiderrock::protobuf::api::name;
+        using fields = spiderrock::protobuf::api::fields;
+
+        private:
+        name m_name{};
+        fields m_fields{};
+
+        public:
+        name get_name() const {
+            return m_name;
+        }
+        fields get_fields() const {
+            return m_fields;
+        }
+        void set_name(const name& value)  {
+            m_name = value;
+        }
+        void set_fields(const fields& value)  {
+            m_fields = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to MsgDesc_GridFieldOptions::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to MsgDesc_GridFieldOptions::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const name & value) { set_name(value); }
+        void set(const fields & value) { set_fields(value); }
+
+
+        MsgDesc_GridFieldOptions() {}
+
+        virtual ~MsgDesc_GridFieldOptions() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(142,m_name);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(143,m_fields);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,142,static_cast<string>(m_name));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,143,static_cast<string>(m_fields));
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 142: {m_name = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                    case 143: {m_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
     
 
     class MsgDesc {
@@ -116,11 +214,12 @@ namespace api {
         using has_okey = spiderrock::protobuf::api::has_okey;
         using has_cf = spiderrock::protobuf::api::has_cf;
         using m_token = spiderrock::protobuf::api::m_token;
+        using srse_products = spiderrock::protobuf::api::srse_products;
         using desc = spiderrock::protobuf::api::desc;
         using pri_time_field = spiderrock::protobuf::api::pri_time_field;
         using sec_time_field = spiderrock::protobuf::api::sec_time_field;
-        using default_grid_fields = spiderrock::protobuf::api::default_grid_fields;
         using static_filter_fields = spiderrock::protobuf::api::static_filter_fields;
+        using grid_field_options = spiderrock::protobuf::api::MsgDesc_GridFieldOptions;
 
         private:
         _meta m__meta{};
@@ -133,11 +232,12 @@ namespace api {
         has_okey m_has_okey{};
         has_cf m_has_cf{};
         m_token m_m_token{};
+        srse_products m_srse_products{};
         desc m_desc{};
         pri_time_field m_pri_time_field{};
         sec_time_field m_sec_time_field{};
-        default_grid_fields m_default_grid_fields{};
         static_filter_fields m_static_filter_fields{};
+        std::vector<grid_field_options> m_grid_field_options{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -172,6 +272,9 @@ namespace api {
         m_token get_m_token() const {
             return m_m_token;
         }		
+        srse_products get_srse_products() const {
+            return m_srse_products;
+        }		
         desc get_desc() const {
             return m_desc;
         }		
@@ -181,11 +284,14 @@ namespace api {
         sec_time_field get_sec_time_field() const {
             return m_sec_time_field;
         }		
-        default_grid_fields get_default_grid_fields() const {
-            return m_default_grid_fields;
-        }		
         static_filter_fields get_static_filter_fields() const {
             return m_static_filter_fields;
+        }
+        const std::vector<grid_field_options>& get_grid_field_options_list() const {
+            return m_grid_field_options;
+        }
+        const grid_field_options& get_grid_field_options(const int i) const {
+            return m_grid_field_options.at(i);
         }
         size_t getMLinkHeaderLength() const
         {
@@ -221,6 +327,9 @@ namespace api {
         void set_m_token(const m_token& value)  {
             m_m_token = value;
         }
+        void set_srse_products(const srse_products& value)  {
+            m_srse_products = value;
+        }
         void set_desc(const desc& value)  {
             m_desc = value;
         }
@@ -230,17 +339,26 @@ namespace api {
         void set_sec_time_field(const sec_time_field& value)  {
             m_sec_time_field = value;
         }
-        void set_default_grid_fields(const default_grid_fields& value)  {
-            m_default_grid_fields = value;
-        }
         void set_static_filter_fields(const static_filter_fields& value)  {
             m_static_filter_fields = value;
+        }
+        void set_grid_field_options_list(const std::vector<grid_field_options>& list)  {
+            m_grid_field_options = list;
+        }
+        void add_grid_field_options(const grid_field_options& item) {
+            m_grid_field_options.emplace_back(item);
         }
 
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
         const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to MsgDesc::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        const auto get(int i) const { static_assert(sizeof(T) == -1, "Unexpected type in call to MsgDesc::get(int)"); return T{};}  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        int count() const { static_assert(sizeof(T) == -1, "Unexpected type in call to MsgDesc::count()"); return 0;}  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -274,6 +392,9 @@ namespace api {
         void set(const m_token & value) {
             set_m_token(value);
         }
+        void set(const srse_products & value) {
+            set_srse_products(value);
+        }
         void set(const desc & value) {
             set_desc(value);
         }
@@ -283,11 +404,11 @@ namespace api {
         void set(const sec_time_field & value) {
             set_sec_time_field(value);
         }
-        void set(const default_grid_fields & value) {
-            set_default_grid_fields(value);
-        }
         void set(const static_filter_fields & value) {
             set_static_filter_fields(value);
+        }
+        void set(const grid_field_options & value) {
+            add_grid_field_options(value);
         }
 
         void set(const MsgDesc & value) {
@@ -301,11 +422,11 @@ namespace api {
             set(value.m_has_okey);
             set(value.m_has_cf);
             set(value.m_m_token);
+            set(value.m_srse_products);
             set(value.m_desc);
             set(value.m_pri_time_field);
             set(value.m_sec_time_field);
-            set(value.m_default_grid_fields);
-            set(value.m_static_filter_fields);
+            set(value.m_static_filter_fields);set_grid_field_options_list(value.m_grid_field_options);
         }
 
         MsgDesc() {
@@ -373,6 +494,9 @@ namespace api {
         bool IncludeActions() const {
             return !(m_actions.empty());
         }
+        bool IncludeSrseProducts() const {
+            return !(m_srse_products.empty());
+        }
         bool IncludeDesc() const {
             return !(m_desc.empty());
         }
@@ -382,11 +506,11 @@ namespace api {
         bool IncludeSecTimeField() const {
             return !(m_sec_time_field.empty());
         }
-        bool IncludeDefaultGridFields() const {
-            return !(m_default_grid_fields.empty());
-        }
         bool IncludeStaticFilterFields() const {
             return !(m_static_filter_fields.empty());
+        }
+        bool IncludeGridFieldOptions() const {
+            return (!m_grid_field_options.empty());
         }
 
         size_t ByteSizeLong() const {
@@ -413,6 +537,9 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_okey)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cf)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>(m_m_token)));
+            if ( IncludeSrseProducts()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(140,m_srse_products);
+            }
             if ( IncludeDesc()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(127,m_desc);
             }
@@ -422,11 +549,15 @@ namespace api {
             if ( IncludeSecTimeField()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(133,m_sec_time_field);
             }
-            if ( IncludeDefaultGridFields()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(136,m_default_grid_fields);
-            }
             if ( IncludeStaticFilterFields()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(139,m_static_filter_fields);
+            }
+            if ( IncludeGridFieldOptions()) {
+                for (auto& item : m_grid_field_options) {
+					totalSize += SRProtobufCPP::TagCodec::Size(141, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
             }
             return totalSize;
         }
@@ -454,6 +585,9 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_okey)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cf)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>(m_m_token)));
+            if ( IncludeSrseProducts()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,140,static_cast<string>(m_srse_products));
+            }
             if ( IncludeDesc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,127,static_cast<string>(m_desc));
             }
@@ -463,11 +597,15 @@ namespace api {
             if ( IncludeSecTimeField()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,133,static_cast<string>(m_sec_time_field));
             }
-            if ( IncludeDefaultGridFields()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,136,static_cast<string>(m_default_grid_fields));
-            }
             if ( IncludeStaticFilterFields()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,139,static_cast<string>(m_static_filter_fields));
+            }
+            if ( IncludeGridFieldOptions()) {
+                for (auto& item : m_grid_field_options) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 141, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
             }
         }
 
@@ -541,6 +679,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 140: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_srse_products = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
                     case 127: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -559,15 +703,18 @@ namespace api {
                         }
                         break;
                     }
-                    case 136: {
-                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
-                            m_default_grid_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        }
-                        break;
-                    }
                     case 139: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_static_filter_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 141: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            grid_field_options item_grid_field_options;
+                            item_grid_field_options.Decode(pos, pos+length);  
+                            m_grid_field_options.emplace_back(item_grid_field_options);
                         }
                         break;
                     }
@@ -590,12 +737,23 @@ namespace api {
     template<> inline const auto MsgDesc::get<MsgDesc::has_okey>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_okey)); }
     template<> inline const auto MsgDesc::get<MsgDesc::has_cf>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_cf)); }
     template<> inline const auto MsgDesc::get<MsgDesc::m_token>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>( m_m_token)); }
+    template<> inline const auto MsgDesc::get<MsgDesc::srse_products>() const { return m_srse_products; }
     template<> inline const auto MsgDesc::get<MsgDesc::desc>() const { return m_desc; }
     template<> inline const auto MsgDesc::get<MsgDesc::pri_time_field>() const { return m_pri_time_field; }
     template<> inline const auto MsgDesc::get<MsgDesc::sec_time_field>() const { return m_sec_time_field; }
-    template<> inline const auto MsgDesc::get<MsgDesc::default_grid_fields>() const { return m_default_grid_fields; }
     template<> inline const auto MsgDesc::get<MsgDesc::static_filter_fields>() const { return m_static_filter_fields; }
+    template<> inline const auto MsgDesc::get<MsgDesc::grid_field_options>(int i) const { return MsgDesc::grid_field_options{ get_grid_field_options(i)}; }
+    template<> inline int MsgDesc::count<MsgDesc::grid_field_options>() const { return static_cast<int>( m_grid_field_options.size()); }
+    template<> inline const auto MsgDesc_GridFieldOptions::get<MsgDesc_GridFieldOptions::name>() const { return m_name; }
+    template<> inline const auto MsgDesc_GridFieldOptions::get<MsgDesc_GridFieldOptions::fields>() const { return m_fields; }
+    
     // ostream operators for all classes above, output should adhere to a JSON format
+
+    inline std::ostream& operator<<(std::ostream &o, const MsgDesc_GridFieldOptions& m) {
+        o << "\"name\":\"" << m.get<MsgDesc_GridFieldOptions::name>() << "\"";
+        o << ",\"fields\":\"" << m.get<MsgDesc_GridFieldOptions::fields>() << "\"";
+        return o;
+    }
 
     inline std::ostream& operator<<(std::ostream &o, const MsgDesc& m) {
         o << "\"_meta\":{" << m.get<MsgDesc::_meta>() << "}";
@@ -608,11 +766,20 @@ namespace api {
         o << ",\"has_okey\":" << (int64_t)m.get<MsgDesc::has_okey>();
         o << ",\"has_cf\":" << (int64_t)m.get<MsgDesc::has_cf>();
         o << ",\"m_token\":" << (int64_t)m.get<MsgDesc::m_token>();
+        o << ",\"srse_products\":\"" << m.get<MsgDesc::srse_products>() << "\"";
         o << ",\"desc\":\"" << m.get<MsgDesc::desc>() << "\"";
         o << ",\"pri_time_field\":\"" << m.get<MsgDesc::pri_time_field>() << "\"";
         o << ",\"sec_time_field\":\"" << m.get<MsgDesc::sec_time_field>() << "\"";
-        o << ",\"default_grid_fields\":\"" << m.get<MsgDesc::default_grid_fields>() << "\"";
         o << ",\"static_filter_fields\":\"" << m.get<MsgDesc::static_filter_fields>() << "\"";
+        o << ",\"grid_field_options\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<MsgDesc::grid_field_options>(); ++i) {
+                o << delim << m.get<MsgDesc::grid_field_options>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
         return o;
     }
 

@@ -13,7 +13,7 @@
 #include "EqtMktData/StockPrint.hpp"
 #include "EqtSummaryData/StockMarketSummary.hpp"
 #include "EqtSummaryData/StockMinuteBar.hpp"
-#include "EquityDefinition/ExchSecurityDefinition.hpp"
+#include "EquityDefinition/RegionalUnderlierComposite.hpp"
 #include "EquityDefinition/TickerDefinition.hpp"
 #include "FutMarkData/FutureCloseMark.hpp"
 #include "FutMarkData/FutureOpenMark.hpp"
@@ -62,6 +62,7 @@
 #include "OptExchAuction/SpdrAuctionState.hpp"
 #include "OptionDefinition/OpraPrintType.hpp"
 #include "OptionDefinition/OptExpiryDefinition.hpp"
+#include "OptionDefinition/RegionalOptionComposite.hpp"
 #include "OptionDefinition/RootDefinition.hpp"
 #include "OptMarkData/OptionCloseMark.hpp"
 #include "OptMarkData/OptionOpenInterest.hpp"
@@ -115,7 +116,7 @@ class Observer {
     StockPrint msgStockPrint{};
     StockMarketSummary msgStockMarketSummary{};
     StockMinuteBar msgStockMinuteBar{};
-    ExchSecurityDefinition msgExchSecurityDefinition{};
+    RegionalUnderlierComposite msgRegionalUnderlierComposite{};
     TickerDefinition msgTickerDefinition{};
     FutureCloseMark msgFutureCloseMark{};
     FutureOpenMark msgFutureOpenMark{};
@@ -164,6 +165,7 @@ class Observer {
     SpdrAuctionState msgSpdrAuctionState{};
     OpraPrintType msgOpraPrintType{};
     OptExpiryDefinition msgOptExpiryDefinition{};
+    RegionalOptionComposite msgRegionalOptionComposite{};
     RootDefinition msgRootDefinition{};
     OptionCloseMark msgOptionCloseMark{};
     OptionOpenInterest msgOptionOpenInterest{};
@@ -296,10 +298,10 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const StockMinuteBar &)msgStockMinuteBar);
                 break;
             }
-            case 4400: {  // ExchSecurityDefinition
-			    msgExchSecurityDefinition.Clear();
-                msgExchSecurityDefinition.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const ExchSecurityDefinition &)msgExchSecurityDefinition);
+            case 4400: {  // RegionalUnderlierComposite
+			    msgRegionalUnderlierComposite.Clear();
+                msgRegionalUnderlierComposite.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const RegionalUnderlierComposite &)msgRegionalUnderlierComposite);
                 break;
             }
             case 4375: {  // TickerDefinition
@@ -588,6 +590,12 @@ class Observer {
 			    msgOptExpiryDefinition.Clear();
                 msgOptExpiryDefinition.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const OptExpiryDefinition &)msgOptExpiryDefinition);
+                break;
+            }
+            case 4405: {  // RegionalOptionComposite
+			    msgRegionalOptionComposite.Clear();
+                msgRegionalOptionComposite.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const RegionalOptionComposite &)msgRegionalOptionComposite);
                 break;
             }
             case 4365: {  // RootDefinition

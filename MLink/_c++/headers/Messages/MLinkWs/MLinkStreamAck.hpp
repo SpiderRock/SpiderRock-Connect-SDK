@@ -303,7 +303,7 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AckResult>(m_result)));
             if ( IncludeDetail()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(121,m_detail);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(122,m_detail);
             }
             return totalSize;
         }
@@ -332,7 +332,7 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AckResult>(m_result)));
             if ( IncludeDetail()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,121,static_cast<string>(m_detail));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,122,static_cast<string>(m_detail));
             }
         }
 
@@ -397,7 +397,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 121: {
+                    case 122: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_detail = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }

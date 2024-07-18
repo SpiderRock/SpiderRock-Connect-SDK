@@ -115,10 +115,10 @@ namespace api {
     DECL_STRONG_TYPE(product_rate, float);
     #endif//_product_rate__GUARD__
 
-    #ifndef _contract_size__GUARD__
-    #define _contract_size__GUARD__
-    DECL_STRONG_TYPE(contract_size, float);
-    #endif//_contract_size__GUARD__
+    #ifndef _contract_size__float__GUARD__
+    #define _contract_size__float__GUARD__
+    DECL_STRONG_TYPE(contract_size__float, float);
+    #endif//_contract_size__float__GUARD__
 
     #ifndef _contract_unit__GUARD__
     #define _contract_unit__GUARD__
@@ -585,7 +585,7 @@ namespace api {
         using product_term = spiderrock::protobuf::api::product_term;
         using product_index_type = spiderrock::protobuf::api::product_index_type;
         using product_rate = spiderrock::protobuf::api::product_rate;
-        using contract_size = spiderrock::protobuf::api::contract_size;
+        using contract_size = spiderrock::protobuf::api::contract_size__float;
         using contract_unit = spiderrock::protobuf::api::contract_unit;
         using price_format = spiderrock::protobuf::api::price_format;
         using min_tick_size = spiderrock::protobuf::api::min_tick_size;
