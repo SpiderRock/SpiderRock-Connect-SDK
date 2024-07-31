@@ -6850,12 +6850,15 @@ public partial class SpreadExchDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public DateTimeLayout timestamp;
+        public YesNo flipSide;
+		public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    
+    /// <summary>if the leg sides have been flipped</summary>
+    public YesNo FlipSide { get => body.flipSide; set => body.flipSide = value; }
+     
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -7070,6 +7073,7 @@ public partial class SpreadExchOrder : IMessage
 		public int size;
 		public double price;
 		public YesNo isPriceValid;
+		public YesNo flipSide;
 		public int origOrderSize;
 		public ExchOrderType orderType;
 		public ExchOrderStatus orderStatus;
@@ -7098,6 +7102,8 @@ public partial class SpreadExchOrder : IMessage
     public double Price { get => body.price; set => body.price = value; }
      
     public YesNo IsPriceValid { get => body.isPriceValid; set => body.isPriceValid = value; }
+     /// <summary>if the side and price have been flipped</summary>
+    public YesNo FlipSide { get => body.flipSide; set => body.flipSide = value; }
      /// <summary>original order size (if available)</summary>
     public int OrigOrderSize { get => body.origOrderSize; set => body.origOrderSize = value; }
      
