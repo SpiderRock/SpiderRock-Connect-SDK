@@ -263,7 +263,7 @@ public partial struct MessageType
             Type = 4395,
             Name = nameof(SpreadExchDefinition),
             IsCore = true,
-            SchemaHash = 0x4f9d925cd6261141
+            SchemaHash = 0x24240ff4da07ff30
         };
 
         attributes[2915] = new()
@@ -271,7 +271,7 @@ public partial struct MessageType
             Type = 2915,
             Name = nameof(SpreadExchOrder),
             IsCore = true,
-            SchemaHash = 0x4c287e07e6a24de4
+            SchemaHash = 0x619649e85f8e6fbe
         };
 
         attributes[2920] = new()

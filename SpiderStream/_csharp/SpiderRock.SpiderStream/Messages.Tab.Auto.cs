@@ -1900,7 +1900,7 @@ public partial class SpreadExchDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "exch\texchSprID\ttimestamp\tLegs";
+    public const string TabHeader = "exch\texchSprID\tflipSide\ttimestamp\tLegs";
 
     public string TabRecord
     {
@@ -1915,6 +1915,8 @@ public partial class SpreadExchDefinition
 
             recordBuilder.Append('\t');
 
+            recordBuilder.Append(FlipSide);
+            recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
 
             return recordBuilder.ToString();
@@ -1926,7 +1928,7 @@ public partial class SpreadExchOrder
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "skey\texch\tside\tisTest\tticker\torderID\tsize\tprice\tisPriceValid\torigOrderSize\torderType\torderStatus\tmarketQualifier\texecQualifier\ttimeInForce\tfirmType\tclearingFirm\tclearingAccnt\tsrcTimestamp\tnetTimestamp\tdgwTimestamp\ttimestamp\texchSprID";
+    public const string TabHeader = "skey\texch\tside\tisTest\tticker\torderID\tsize\tprice\tisPriceValid\tflipSide\torigOrderSize\torderType\torderStatus\tmarketQualifier\texecQualifier\ttimeInForce\tfirmType\tclearingFirm\tclearingAccnt\tsrcTimestamp\tnetTimestamp\tdgwTimestamp\ttimestamp\texchSprID";
 
     public string TabRecord
     {
@@ -1954,6 +1956,8 @@ public partial class SpreadExchOrder
             recordBuilder.Append(Price);
             recordBuilder.Append('\t');
             recordBuilder.Append(IsPriceValid);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(FlipSide);
             recordBuilder.Append('\t');
             recordBuilder.Append(OrigOrderSize);
             recordBuilder.Append('\t');
