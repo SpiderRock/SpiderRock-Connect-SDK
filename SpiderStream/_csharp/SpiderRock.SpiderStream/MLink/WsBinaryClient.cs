@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Buffers;
 using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Runtime.CompilerServices;
@@ -12,6 +14,37 @@ using SpiderRock.SpiderStream.Mbus;
 
 namespace SpiderRock.SpiderStream.MLink;
 
+public class MLinkWebSocketClient
+{
+    public MLinkWebSocketClient(SysEnvironment environment, SysRealm realm, MessageType[] messageTypes, string queryLabel, string apiKey, string uri)
+    {
+        MessageCache messageCache = new();
+        Mbus.FrameHandler<MessageCache> frameHandler = new(messageCache);
+        MLink.WsBinaryClient<Mbus.FrameHandler<MessageCache>> cacheRequest = null;
+
+        try
+        {
+            cacheRequest = new(
+                environment,
+                realm,
+                messageTypes,
+                frameHandler,
+                queryLabel,
+                apiKey);
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+
+            Task.Run(async () => await cacheRequest.ExecuteAsync(cts.Token), cts.Token).Wait();
+        }
+        catch (Exception ex)
+        {
+            cacheRequest = null;
+
+            SRTrace.Default.TraceError(ex, $"Cache request failed, execution will continue but it may impact the efficiency of initial message processing");
+        }
+    }
+
+}
 internal sealed class WsBinaryClient<TFrameHandler>
     where TFrameHandler : IFrameHandler
 {
@@ -44,6 +77,7 @@ internal sealed class WsBinaryClient<TFrameHandler>
         Realm = realm;
         MessageTypes = messageTypes;
         ApiKey = authToken;
+
         MLinkEndPoint = new($"wss://mlink-live.nms.{environment}.spiderrockconnect.com/mlink/binary".ToLower(), UriKind.Absolute);
 
         this.frameHandler = new(frameHandler);
@@ -63,7 +97,7 @@ internal sealed class WsBinaryClient<TFrameHandler>
     public async Task ExecuteAsync(CancellationToken cancellationToken)
     {
         Channel sendChannel = new(ChannelType.WssSend, "mlink.req", MLinkEndPoint.Host);
-        Channel recvChannel = new(ChannelType.WssRecv, "mlink.req", MLinkEndPoint.Host);
+        Channel recvChannel = new(ChannelType.WssRecv, "mlink.rcv", MLinkEndPoint.Host);
 
         using NetStatisticsAggregator netStats = new("cache request");
         netStats.Register(sendChannel);

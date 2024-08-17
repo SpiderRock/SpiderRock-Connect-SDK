@@ -7556,7 +7556,7 @@ public partial class StockBookQuote : IMessage
     
     internal SourceId SourceId => header.sourceid;
 
-    internal Header header = new() {msgtype = MessageType.StockBookQuote};
+    public Header header = new() {msgtype = MessageType.StockBookQuote};
     
      public sealed class PKey : IEquatable<PKey>, ICloneable
     {

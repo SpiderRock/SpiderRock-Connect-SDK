@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace SpiderRock.SpiderStream.Mbus;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1, Size = 28)]
-internal struct Header
+public struct Header
 {
     public const int MaxMessageLength = 64000;
 
