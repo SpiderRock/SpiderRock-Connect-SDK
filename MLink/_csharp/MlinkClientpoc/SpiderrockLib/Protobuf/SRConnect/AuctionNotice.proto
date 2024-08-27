@@ -16,39 +16,39 @@ message AuctionNotice {
 
     message DirectedCounterParty {
         
-        string client_firm = 319;
-        InclExclDisclose incl_excl = 322;
-        YesNo is_comm_paying = 325;
+        string client_firm = 322;
+        InclExclDisclose incl_excl = 325;
+        YesNo is_comm_paying = 328;
     }
 
     message OrderLegs {
         
-        OptionKey sec_key = 226;
-        SpdrKeyType sec_type = 229;
-        BuySell side = 232;
-        uint32 ratio = 235;
-        int32 und_per_cn = 238;
-        ExpiryType exp_type = 241; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
-        float years = 244; // SR volatility years to expiry
-        float rate = 247; // SR global (discount) rate to expiry
-        float atm_vol = 250; // ATM (fwd uPrc) SR surface volatility
-        float ddiv_pv = 253; // SR present value of ddiv stream
-        float t_vol = 256; // client theo surface volatility (if client surfaces uploaded to SR)
-        float t_prc = 259; // client theo price (if client surfaces uploaded to SR)
-        float s_vol = 262; // SR Surface Volatility
-        float s_div = 265; // SR Surface SDiv
-        float s_prc = 268; // SR Surface Price
-        float de = 271;
-        float ga = 274;
-        float th = 277;
-        float ve = 280;
-        YesNo s_vol_ok = 283; // Yes if live market and sVol are tracking as expected
-        float o_bid = 286; // NBBO bid price
-        int32 o_bid_sz = 289; // cumulative NBBO bid size
-        uint32 o_bid_mask = 292; // bit-mask of participating NBBO exchanges
-        float o_ask = 295; // NBBO ask price
-        int32 o_ask_sz = 298; // cumulative NBBO ask size
-        uint32 o_ask_mask = 301; // bit-mask of participating NBBO exchanges
+        OptionKey sec_key = 229;
+        SpdrKeyType sec_type = 232;
+        BuySell side = 235;
+        uint32 ratio = 238;
+        int32 und_per_cn = 241;
+        ExpiryType exp_type = 244; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
+        float years = 247; // SR volatility years to expiry
+        float rate = 250; // SR global (discount) rate to expiry
+        float atm_vol = 253; // ATM (fwd uPrc) SR surface volatility
+        float ddiv_pv = 256; // SR present value of ddiv stream
+        float t_vol = 259; // client theo surface volatility (if client surfaces uploaded to SR)
+        float t_prc = 262; // client theo price (if client surfaces uploaded to SR)
+        float s_vol = 265; // SR Surface Volatility
+        float s_div = 268; // SR Surface SDiv
+        float s_prc = 271; // SR Surface Price
+        float de = 274;
+        float ga = 277;
+        float th = 280;
+        float ve = 283;
+        YesNo s_vol_ok = 286; // Yes if live market and sVol are tracking as expected
+        float o_bid = 289; // NBBO bid price
+        int32 o_bid_sz = 292; // cumulative NBBO bid size
+        uint32 o_bid_mask = 295; // bit-mask of participating NBBO exchanges
+        float o_ask = 298; // NBBO ask price
+        int32 o_ask_sz = 301; // cumulative NBBO ask size
+        uint32 o_ask_mask = 304; // bit-mask of participating NBBO exchanges
     }
 
 
@@ -87,21 +87,22 @@ message AuctionNotice {
     YesNo contains_multi_hedge = 187; // contains MultiHedge (corp action adjusted) options
     double u_bid = 190;
     double u_ask = 193;
-    float net_de = 196;
-    float net_ga = 199;
-    float net_th = 202;
-    float net_ve = 205;
-    float pkg_surf_prc = 208; // SR Surface Price (entire package)
-    float pkg_theo_prc = 211; // Client Theo Price (entire package) (if client surfaces uploaded to SR)
-    float pkg_bid_prc = 214; // leg market best way price (pkg bid)
-    float pkg_ask_prc = 217; // leg market worst way price (pkg ask)
-    double point_value = 220; // money settlement value of one (1.0) point of option premium/strike
-    int64 src_timestamp = 304;
-    int64 net_timestamp = 307;
-    google.protobuf.Timestamp timestamp = 310; // from ats / exchange net timestamp if possible
-    InclExclDisclose include_sRNetwork = 313;
-    repeated DirectedCounterParty directed_counter_party = 316;
-    repeated OrderLegs order_legs = 223;
+    double ref_uPrc = 196;
+    float net_de = 199;
+    float net_ga = 202;
+    float net_th = 205;
+    float net_ve = 208;
+    float pkg_surf_prc = 211; // SR Surface Price (entire package)
+    float pkg_theo_prc = 214; // Client Theo Price (entire package) (if client surfaces uploaded to SR)
+    float pkg_bid_prc = 217; // leg market best way price (pkg bid)
+    float pkg_ask_prc = 220; // leg market worst way price (pkg ask)
+    double point_value = 223; // money settlement value of one (1.0) point of option premium/strike
+    int64 src_timestamp = 307;
+    int64 net_timestamp = 310;
+    google.protobuf.Timestamp timestamp = 313; // from ats / exchange net timestamp if possible
+    InclExclDisclose include_sRNetwork = 316;
+    repeated DirectedCounterParty directed_counter_party = 319;
+    repeated OrderLegs order_legs = 226;
 }
 
 

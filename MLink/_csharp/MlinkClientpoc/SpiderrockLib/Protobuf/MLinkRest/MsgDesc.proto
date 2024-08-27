@@ -8,6 +8,11 @@ package spiderrock.protobuf;
 
     
 message MsgDesc {
+    message GridFieldOptions {
+        
+        string name = 141;
+        string fields = 142;
+    }
 
 
     MessageMetadata _meta = 1;
@@ -21,11 +26,12 @@ message MsgDesc {
     YesNo has_oKey = 118; // message contains an 'OptionKey' x-ray field
     YesNo has_cF = 121; // message has a 'ClientFirm' fields (message has client firm visiblity restrictions)
     MLinkToken m_token = 124; // the mlink token this message is associated with
+    string srse_products = 125; // comma separated list of the SRSE Products this message is associated with
     string desc = 127; // message description (if any)
     string pri_time_field = 130; // this is the primary time field for the time control and histogram
     string sec_time_field = 133; // this is the Top10 field for the stacked bar / label on the time control histogram (blank if none)
-    string default_grid_fields = 136; // comma separated list of (default) visible grid fields (in grid order)
     string static_filter_fields = 139; // comma separated list of (default) static filter fields (in display order)
+    repeated GridFieldOptions grid_field_options = 140;
 }
 
 

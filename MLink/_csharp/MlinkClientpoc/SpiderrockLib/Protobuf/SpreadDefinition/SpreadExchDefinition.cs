@@ -26,24 +26,25 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjRQcm90b2J1Zi9TcHJlYWREZWZpbml0aW9uL1NwcmVhZEV4Y2hEZWZpbml0",
             "aW9uLnByb3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2Nv",
-            "bW1vbi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKc",
+            "bW1vbi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLL",
             "BAoUU3ByZWFkRXhjaERlZmluaXRpb24SMwoFX21ldGEYASABKAsyJC5zcGlk",
             "ZXJyb2NrLnByb3RvYnVmLk1lc3NhZ2VNZXRhZGF0YRI8CgRwa2V5GAIgASgL",
             "Mi4uc3BpZGVycm9jay5wcm90b2J1Zi5TcHJlYWRFeGNoRGVmaW5pdGlvbi5Q",
-            "S2V5Ei0KCXRpbWVzdGFtcBhrIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXASPAoEbGVncxhkIAMoCzIuLnNwaWRlcnJvY2sucHJvdG9idWYuU3By",
-            "ZWFkRXhjaERlZmluaXRpb24uTGVncxpHCgRQS2V5EioKBGV4Y2gYCiABKA4y",
-            "HC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSEwoLZXhjaF9zcHJfaUQY",
-            "CyABKAka2gEKBExlZ3MSMwoLbGVnX3NlY19rZXkYZSABKAsyHi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLk9wdGlvbktleRI2CgxsZWdfc2VjX3R5cGUYZiABKA4y",
-            "IC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEi4KCGxlZ19zaWRl",
-            "GGcgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhEKCWxlZ19y",
-            "YXRpbxhoIAEoDRIRCglyZWZfZGVsdGEYaSABKAISDwoHcmVmX3ByYxhqIAEo",
-            "AWIGcHJvdG8z"));
+            "S2V5Ei0KCWZsaXBfc2lkZRhsIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "WWVzTm8SLQoJdGltZXN0YW1wGGkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
+            "bWVzdGFtcBI8CgRsZWdzGGQgAygLMi4uc3BpZGVycm9jay5wcm90b2J1Zi5T",
+            "cHJlYWRFeGNoRGVmaW5pdGlvbi5MZWdzGkcKBFBLZXkSKgoEZXhjaBgKIAEo",
+            "DjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhjaBITCgtleGNoX3Nwcl9p",
+            "RBgLIAEoCRraAQoETGVncxIzCgtsZWdfc2VjX2tleRhlIAEoCzIeLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjYKDGxlZ19zZWNfdHlwZRhmIAEo",
+            "DjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSLgoIbGVnX3Np",
+            "ZGUYZyABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSEQoJbGVn",
+            "X3JhdGlvGGggASgNEhEKCXJlZl9kZWx0YRhqIAEoAhIPCgdyZWZfcHJjGGsg",
+            "ASgBYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchDefinition), global::Spiderrock.Protobuf.SpreadExchDefinition.Parser, new[]{ "Meta", "Pkey", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchDefinition.Types.PKey), global::Spiderrock.Protobuf.SpreadExchDefinition.Types.PKey.Parser, new[]{ "Exch", "ExchSprID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchDefinition), global::Spiderrock.Protobuf.SpreadExchDefinition.Parser, new[]{ "Meta", "Pkey", "FlipSide", "Timestamp", "Legs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchDefinition.Types.PKey), global::Spiderrock.Protobuf.SpreadExchDefinition.Types.PKey.Parser, new[]{ "Exch", "ExchSprID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadExchDefinition.Types.Legs), global::Spiderrock.Protobuf.SpreadExchDefinition.Types.Legs.Parser, new[]{ "LegSecKey", "LegSecType", "LegSide", "LegRatio", "RefDelta", "RefPrc" }, null, null, null, null)})
           }));
     }
@@ -87,6 +88,7 @@ namespace Spiderrock.Protobuf {
     public SpreadExchDefinition(SpreadExchDefinition other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
+      flipSide_ = other.flipSide_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       legs_ = other.legs_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -122,8 +124,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "flip_side" field.</summary>
+    public const int FlipSideFieldNumber = 108;
+    private global::Spiderrock.Protobuf.YesNo flipSide_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// if the leg sides have been flipped
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo FlipSide {
+      get { return flipSide_; }
+      set {
+        flipSide_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 107;
+    public const int TimestampFieldNumber = 105;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -162,6 +179,7 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
+      if (FlipSide != other.FlipSide) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       if(!legs_.Equals(other.legs_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -173,6 +191,7 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
+      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= FlipSide.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       hash ^= legs_.GetHashCode();
       if (_unknownFields != null) {
@@ -203,8 +222,12 @@ namespace Spiderrock.Protobuf {
       }
       legs_.WriteTo(output, _repeated_legs_codec);
       if (timestamp_ != null) {
-        output.WriteRawTag(218, 6);
+        output.WriteRawTag(202, 6);
         output.WriteMessage(Timestamp);
+      }
+      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(224, 6);
+        output.WriteEnum((int) FlipSide);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -226,8 +249,12 @@ namespace Spiderrock.Protobuf {
       }
       legs_.WriteTo(ref output, _repeated_legs_codec);
       if (timestamp_ != null) {
-        output.WriteRawTag(218, 6);
+        output.WriteRawTag(202, 6);
         output.WriteMessage(Timestamp);
+      }
+      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(224, 6);
+        output.WriteEnum((int) FlipSide);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -244,6 +271,9 @@ namespace Spiderrock.Protobuf {
       }
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
+      }
+      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) FlipSide);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -272,6 +302,9 @@ namespace Spiderrock.Protobuf {
           Pkey = new global::Spiderrock.Protobuf.SpreadExchDefinition.Types.PKey();
         }
         Pkey.MergeFrom(other.Pkey);
+      }
+      if (other.FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        FlipSide = other.FlipSide;
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -313,11 +346,15 @@ namespace Spiderrock.Protobuf {
             legs_.AddEntriesFrom(input, _repeated_legs_codec);
             break;
           }
-          case 858: {
+          case 842: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 864: {
+            FlipSide = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }
@@ -353,11 +390,15 @@ namespace Spiderrock.Protobuf {
             legs_.AddEntriesFrom(ref input, _repeated_legs_codec);
             break;
           }
-          case 858: {
+          case 842: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 864: {
+            FlipSide = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }
@@ -700,7 +741,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "ref_delta" field.</summary>
-        public const int RefDeltaFieldNumber = 105;
+        public const int RefDeltaFieldNumber = 106;
         private float refDelta_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -712,7 +753,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "ref_prc" field.</summary>
-        public const int RefPrcFieldNumber = 106;
+        public const int RefPrcFieldNumber = 107;
         private double refPrc_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -792,11 +833,11 @@ namespace Spiderrock.Protobuf {
             output.WriteUInt32(LegRatio);
           }
           if (RefDelta != 0F) {
-            output.WriteRawTag(205, 6);
+            output.WriteRawTag(213, 6);
             output.WriteFloat(RefDelta);
           }
           if (RefPrc != 0D) {
-            output.WriteRawTag(209, 6);
+            output.WriteRawTag(217, 6);
             output.WriteDouble(RefPrc);
           }
           if (_unknownFields != null) {
@@ -826,11 +867,11 @@ namespace Spiderrock.Protobuf {
             output.WriteUInt32(LegRatio);
           }
           if (RefDelta != 0F) {
-            output.WriteRawTag(205, 6);
+            output.WriteRawTag(213, 6);
             output.WriteFloat(RefDelta);
           }
           if (RefPrc != 0D) {
-            output.WriteRawTag(209, 6);
+            output.WriteRawTag(217, 6);
             output.WriteDouble(RefPrc);
           }
           if (_unknownFields != null) {
@@ -928,11 +969,11 @@ namespace Spiderrock.Protobuf {
                 LegRatio = input.ReadUInt32();
                 break;
               }
-              case 845: {
+              case 853: {
                 RefDelta = input.ReadFloat();
                 break;
               }
-              case 849: {
+              case 857: {
                 RefPrc = input.ReadDouble();
                 break;
               }
@@ -970,11 +1011,11 @@ namespace Spiderrock.Protobuf {
                 LegRatio = input.ReadUInt32();
                 break;
               }
-              case 845: {
+              case 853: {
                 RefDelta = input.ReadFloat();
                 break;
               }
-              case 849: {
+              case 857: {
                 RefPrc = input.ReadDouble();
                 break;
               }

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CurrencyConversion {
+    message PKey {
+        
+        Currency src_currency = 10;
+        Currency tgt_currency = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double convert_rate = 100;
+    google.protobuf.Timestamp timestamp = 103;
+}
+
+

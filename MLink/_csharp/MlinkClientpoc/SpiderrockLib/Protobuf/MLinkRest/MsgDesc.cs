@@ -25,7 +25,7 @@ namespace Spiderrock.Protobuf {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiBQcm90b2J1Zi9NTGlua1Jlc3QvTXNnRGVzYy5wcm90bxITc3BpZGVycm9j",
-            "ay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8i5gMKB01zZ0Rl",
+            "ay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8i3wQKB01zZ0Rl",
             "c2MSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3Nh",
             "Z2VNZXRhZGF0YRIMCgRuYW1lGGQgASgJEg0KBW1fbnVtGGcgASgNEhMKC3Nj",
             "aGVtYV9oYXNoGGogASgJEg8KB2FjdGlvbnMYbSABKAkSLAoIaGFzX3RLZXkY",
@@ -33,14 +33,17 @@ namespace Spiderrock.Protobuf {
             "GHMgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIsCghoYXNfb0tl",
             "eRh2IAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SKgoGaGFzX2NG",
             "GHkgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIwCgdtX3Rva2Vu",
-            "GHwgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5NTGlua1Rva2VuEgwKBGRl",
-            "c2MYfyABKAkSFwoOcHJpX3RpbWVfZmllbGQYggEgASgJEhcKDnNlY190aW1l",
-            "X2ZpZWxkGIUBIAEoCRIcChNkZWZhdWx0X2dyaWRfZmllbGRzGIgBIAEoCRId",
-            "ChRzdGF0aWNfZmlsdGVyX2ZpZWxkcxiLASABKAliBnByb3RvMw=="));
+            "GHwgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5NTGlua1Rva2VuEhUKDXNy",
+            "c2VfcHJvZHVjdHMYfSABKAkSDAoEZGVzYxh/IAEoCRIXCg5wcmlfdGltZV9m",
+            "aWVsZBiCASABKAkSFwoOc2VjX3RpbWVfZmllbGQYhQEgASgJEh0KFHN0YXRp",
+            "Y19maWx0ZXJfZmllbGRzGIsBIAEoCRJKChJncmlkX2ZpZWxkX29wdGlvbnMY",
+            "jAEgAygLMi0uc3BpZGVycm9jay5wcm90b2J1Zi5Nc2dEZXNjLkdyaWRGaWVs",
+            "ZE9wdGlvbnMaMgoQR3JpZEZpZWxkT3B0aW9ucxINCgRuYW1lGI0BIAEoCRIP",
+            "CgZmaWVsZHMYjgEgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc), global::Spiderrock.Protobuf.MsgDesc.Parser, new[]{ "Meta", "Name", "MNum", "SchemaHash", "Actions", "HasTKey", "HasEKey", "HasOKey", "HasCF", "MToken", "Desc", "PriTimeField", "SecTimeField", "DefaultGridFields", "StaticFilterFields" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc), global::Spiderrock.Protobuf.MsgDesc.Parser, new[]{ "Meta", "Name", "MNum", "SchemaHash", "Actions", "HasTKey", "HasEKey", "HasOKey", "HasCF", "MToken", "SrseProducts", "Desc", "PriTimeField", "SecTimeField", "StaticFilterFields", "GridFieldOptions" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions), global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions.Parser, new[]{ "Name", "Fields" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -91,11 +94,12 @@ namespace Spiderrock.Protobuf {
       hasOKey_ = other.hasOKey_;
       hasCF_ = other.hasCF_;
       mToken_ = other.mToken_;
+      srseProducts_ = other.srseProducts_;
       desc_ = other.desc_;
       priTimeField_ = other.priTimeField_;
       secTimeField_ = other.secTimeField_;
-      defaultGridFields_ = other.defaultGridFields_;
       staticFilterFields_ = other.staticFilterFields_;
+      gridFieldOptions_ = other.gridFieldOptions_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -252,6 +256,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "srse_products" field.</summary>
+    public const int SrseProductsFieldNumber = 125;
+    private string srseProducts_ = "";
+    /// <summary>
+    /// comma separated list of the SRSE Products this message is associated with
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SrseProducts {
+      get { return srseProducts_; }
+      set {
+        srseProducts_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "desc" field.</summary>
     public const int DescFieldNumber = 127;
     private string desc_ = "";
@@ -297,21 +316,6 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "default_grid_fields" field.</summary>
-    public const int DefaultGridFieldsFieldNumber = 136;
-    private string defaultGridFields_ = "";
-    /// <summary>
-    /// comma separated list of (default) visible grid fields (in grid order)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string DefaultGridFields {
-      get { return defaultGridFields_; }
-      set {
-        defaultGridFields_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "static_filter_fields" field.</summary>
     public const int StaticFilterFieldsFieldNumber = 139;
     private string staticFilterFields_ = "";
@@ -325,6 +329,17 @@ namespace Spiderrock.Protobuf {
       set {
         staticFilterFields_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+
+    /// <summary>Field number for the "grid_field_options" field.</summary>
+    public const int GridFieldOptionsFieldNumber = 140;
+    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions> _repeated_gridFieldOptions_codec
+        = pb::FieldCodec.ForMessage(1122, global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions.Parser);
+    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions> gridFieldOptions_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions> GridFieldOptions {
+      get { return gridFieldOptions_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -352,11 +367,12 @@ namespace Spiderrock.Protobuf {
       if (HasOKey != other.HasOKey) return false;
       if (HasCF != other.HasCF) return false;
       if (MToken != other.MToken) return false;
+      if (SrseProducts != other.SrseProducts) return false;
       if (Desc != other.Desc) return false;
       if (PriTimeField != other.PriTimeField) return false;
       if (SecTimeField != other.SecTimeField) return false;
-      if (DefaultGridFields != other.DefaultGridFields) return false;
       if (StaticFilterFields != other.StaticFilterFields) return false;
+      if(!gridFieldOptions_.Equals(other.gridFieldOptions_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -374,11 +390,12 @@ namespace Spiderrock.Protobuf {
       if (HasOKey != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasOKey.GetHashCode();
       if (HasCF != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasCF.GetHashCode();
       if (MToken != global::Spiderrock.Protobuf.MLinkToken.Unspecified) hash ^= MToken.GetHashCode();
+      if (SrseProducts.Length != 0) hash ^= SrseProducts.GetHashCode();
       if (Desc.Length != 0) hash ^= Desc.GetHashCode();
       if (PriTimeField.Length != 0) hash ^= PriTimeField.GetHashCode();
       if (SecTimeField.Length != 0) hash ^= SecTimeField.GetHashCode();
-      if (DefaultGridFields.Length != 0) hash ^= DefaultGridFields.GetHashCode();
       if (StaticFilterFields.Length != 0) hash ^= StaticFilterFields.GetHashCode();
+      hash ^= gridFieldOptions_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -437,6 +454,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 7);
         output.WriteEnum((int) MToken);
       }
+      if (SrseProducts.Length != 0) {
+        output.WriteRawTag(234, 7);
+        output.WriteString(SrseProducts);
+      }
       if (Desc.Length != 0) {
         output.WriteRawTag(250, 7);
         output.WriteString(Desc);
@@ -449,14 +470,11 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(170, 8);
         output.WriteString(SecTimeField);
       }
-      if (DefaultGridFields.Length != 0) {
-        output.WriteRawTag(194, 8);
-        output.WriteString(DefaultGridFields);
-      }
       if (StaticFilterFields.Length != 0) {
         output.WriteRawTag(218, 8);
         output.WriteString(StaticFilterFields);
       }
+      gridFieldOptions_.WriteTo(output, _repeated_gridFieldOptions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -507,6 +525,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 7);
         output.WriteEnum((int) MToken);
       }
+      if (SrseProducts.Length != 0) {
+        output.WriteRawTag(234, 7);
+        output.WriteString(SrseProducts);
+      }
       if (Desc.Length != 0) {
         output.WriteRawTag(250, 7);
         output.WriteString(Desc);
@@ -519,14 +541,11 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(170, 8);
         output.WriteString(SecTimeField);
       }
-      if (DefaultGridFields.Length != 0) {
-        output.WriteRawTag(194, 8);
-        output.WriteString(DefaultGridFields);
-      }
       if (StaticFilterFields.Length != 0) {
         output.WriteRawTag(218, 8);
         output.WriteString(StaticFilterFields);
       }
+      gridFieldOptions_.WriteTo(ref output, _repeated_gridFieldOptions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -567,6 +586,9 @@ namespace Spiderrock.Protobuf {
       if (MToken != global::Spiderrock.Protobuf.MLinkToken.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) MToken);
       }
+      if (SrseProducts.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SrseProducts);
+      }
       if (Desc.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Desc);
       }
@@ -576,12 +598,10 @@ namespace Spiderrock.Protobuf {
       if (SecTimeField.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(SecTimeField);
       }
-      if (DefaultGridFields.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(DefaultGridFields);
-      }
       if (StaticFilterFields.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(StaticFilterFields);
       }
+      size += gridFieldOptions_.CalculateSize(_repeated_gridFieldOptions_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -627,6 +647,9 @@ namespace Spiderrock.Protobuf {
       if (other.MToken != global::Spiderrock.Protobuf.MLinkToken.Unspecified) {
         MToken = other.MToken;
       }
+      if (other.SrseProducts.Length != 0) {
+        SrseProducts = other.SrseProducts;
+      }
       if (other.Desc.Length != 0) {
         Desc = other.Desc;
       }
@@ -636,12 +659,10 @@ namespace Spiderrock.Protobuf {
       if (other.SecTimeField.Length != 0) {
         SecTimeField = other.SecTimeField;
       }
-      if (other.DefaultGridFields.Length != 0) {
-        DefaultGridFields = other.DefaultGridFields;
-      }
       if (other.StaticFilterFields.Length != 0) {
         StaticFilterFields = other.StaticFilterFields;
       }
+      gridFieldOptions_.Add(other.gridFieldOptions_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -700,6 +721,10 @@ namespace Spiderrock.Protobuf {
             MToken = (global::Spiderrock.Protobuf.MLinkToken) input.ReadEnum();
             break;
           }
+          case 1002: {
+            SrseProducts = input.ReadString();
+            break;
+          }
           case 1018: {
             Desc = input.ReadString();
             break;
@@ -712,12 +737,12 @@ namespace Spiderrock.Protobuf {
             SecTimeField = input.ReadString();
             break;
           }
-          case 1090: {
-            DefaultGridFields = input.ReadString();
-            break;
-          }
           case 1114: {
             StaticFilterFields = input.ReadString();
+            break;
+          }
+          case 1122: {
+            gridFieldOptions_.AddEntriesFrom(input, _repeated_gridFieldOptions_codec);
             break;
           }
         }
@@ -778,6 +803,10 @@ namespace Spiderrock.Protobuf {
             MToken = (global::Spiderrock.Protobuf.MLinkToken) input.ReadEnum();
             break;
           }
+          case 1002: {
+            SrseProducts = input.ReadString();
+            break;
+          }
           case 1018: {
             Desc = input.ReadString();
             break;
@@ -790,18 +819,252 @@ namespace Spiderrock.Protobuf {
             SecTimeField = input.ReadString();
             break;
           }
-          case 1090: {
-            DefaultGridFields = input.ReadString();
-            break;
-          }
           case 1114: {
             StaticFilterFields = input.ReadString();
+            break;
+          }
+          case 1122: {
+            gridFieldOptions_.AddEntriesFrom(ref input, _repeated_gridFieldOptions_codec);
             break;
           }
         }
       }
     }
     #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the MsgDesc message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static partial class Types {
+      public sealed partial class GridFieldOptions : pb::IMessage<GridFieldOptions>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<GridFieldOptions> _parser = new pb::MessageParser<GridFieldOptions>(() => new GridFieldOptions());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<GridFieldOptions> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Spiderrock.Protobuf.MsgDesc.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public GridFieldOptions() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public GridFieldOptions(GridFieldOptions other) : this() {
+          name_ = other.name_;
+          fields_ = other.fields_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public GridFieldOptions Clone() {
+          return new GridFieldOptions(this);
+        }
+
+        /// <summary>Field number for the "name" field.</summary>
+        public const int NameFieldNumber = 141;
+        private string name_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Name {
+          get { return name_; }
+          set {
+            name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "fields" field.</summary>
+        public const int FieldsFieldNumber = 142;
+        private string fields_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Fields {
+          get { return fields_; }
+          set {
+            fields_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as GridFieldOptions);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(GridFieldOptions other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Name != other.Name) return false;
+          if (Fields != other.Fields) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Name.Length != 0) hash ^= Name.GetHashCode();
+          if (Fields.Length != 0) hash ^= Fields.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (Name.Length != 0) {
+            output.WriteRawTag(234, 8);
+            output.WriteString(Name);
+          }
+          if (Fields.Length != 0) {
+            output.WriteRawTag(242, 8);
+            output.WriteString(Fields);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Name.Length != 0) {
+            output.WriteRawTag(234, 8);
+            output.WriteString(Name);
+          }
+          if (Fields.Length != 0) {
+            output.WriteRawTag(242, 8);
+            output.WriteString(Fields);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (Name.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(Name);
+          }
+          if (Fields.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(Fields);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(GridFieldOptions other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Name.Length != 0) {
+            Name = other.Name;
+          }
+          if (other.Fields.Length != 0) {
+            Fields = other.Fields;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 1130: {
+                Name = input.ReadString();
+                break;
+              }
+              case 1138: {
+                Fields = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 1130: {
+                Name = input.ReadString();
+                break;
+              }
+              case 1138: {
+                Fields = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+    }
+    #endregion
 
   }
 

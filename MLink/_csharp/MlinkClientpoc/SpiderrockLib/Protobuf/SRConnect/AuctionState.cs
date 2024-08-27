@@ -26,32 +26,32 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiVQcm90b2J1Zi9TUkNvbm5lY3QvQXVjdGlvblN0YXRlLnByb3RvEhNzcGlk",
             "ZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90bxofZ29v",
-            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLUCAoMQXVjdGlvblN0YXRl",
+            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLDCAoMQXVjdGlvblN0YXRl",
             "EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdl",
             "TWV0YWRhdGESNAoEcGtleRgCIAEoCzImLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "QXVjdGlvblN0YXRlLlBLZXkSLgoGdGlja2VyGGQgASgLMh4uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhnIAEoCzIcLnNw",
+            "ay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhlIAEoCzIcLnNw",
             "aWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRIzCg9pc190ZXN0X2F1Y3Rpb24Y",
-            "aiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjYKDGF1Y3Rpb25f",
-            "dHlwZRhtIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQXVjdGlvblR5cGUS",
-            "HQoVYmxvY2tfYXVjdGlvbl9jb3VudGVyGHAgASgFEkUKFGJsb2NrX2F1Y3Rp",
-            "b25fc3RhdHVzGHMgASgOMicuc3BpZGVycm9jay5wcm90b2J1Zi5CbG9ja0F1",
-            "Y3Rpb25TdGF0dXMSLwoJY3VzdF9zaWRlGHYgASgOMhwuc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5CdXlTZWxsEhAKCGN1c3RfcXR5GHkgASgFEhAKCGN1c3RfcHJj",
-            "GHwgASgBEjAKDGhhc19jdXN0X3ByYxh/IAEoDjIaLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuWWVzTm8SDgoFdV9iaWQYggEgASgCEg4KBXVfYXNrGIUBIAEoAhIR",
-            "CghuYmJvX2JpZBiIASABKAISEQoIbmJib19hc2sYiwEgASgCEhQKC25iYm9f",
-            "YmlkX3N6GI4BIAEoBRIUCgtuYmJvX2Fza19zehiRASABKAUSFAoLc3VyZmFj",
-            "ZV9wcmMYlAEgASgCEhQKC3N1cmZhY2Vfdm9sGJcBIAEoAhIuCgl0aW1lc3Rh",
-            "bXAYsgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJECgxhc2tf",
-            "c29sdXRpb24YpgEgAygLMi0uc3BpZGVycm9jay5wcm90b2J1Zi5BdWN0aW9u",
-            "U3RhdGUuQXNrU29sdXRpb24SRAoMYmlkX3NvbHV0aW9uGJoBIAMoCzItLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuQXVjdGlvblN0YXRlLkJpZFNvbHV0aW9uGh0K",
-            "BFBLZXkSFQoNbm90aWNlX251bWJlchgKIAEoAxpRCgtBc2tTb2x1dGlvbhIX",
-            "Cg5udW1fcmVzcG9uZGVycxipASABKAUSFAoLbWF0Y2hfcHJpY2UYrAEgASgB",
-            "EhMKCm1hdGNoX3NpemUYrwEgASgFGlEKC0JpZFNvbHV0aW9uEhcKDm51bV9y",
-            "ZXNwb25kZXJzGJ0BIAEoBRIUCgttYXRjaF9wcmljZRigASABKAESEwoKbWF0",
-            "Y2hfc2l6ZRijASABKAViBnByb3RvMw=="));
+            "ZiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjYKDGF1Y3Rpb25f",
+            "dHlwZRhnIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQXVjdGlvblR5cGUS",
+            "HQoVYmxvY2tfYXVjdGlvbl9jb3VudGVyGGggASgFEkUKFGJsb2NrX2F1Y3Rp",
+            "b25fc3RhdHVzGGkgASgOMicuc3BpZGVycm9jay5wcm90b2J1Zi5CbG9ja0F1",
+            "Y3Rpb25TdGF0dXMSLwoJY3VzdF9zaWRlGGogASgOMhwuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5CdXlTZWxsEhAKCGN1c3RfcXR5GGsgASgFEhAKCGN1c3RfcHJj",
+            "GGwgASgBEjAKDGhhc19jdXN0X3ByYxhtIAEoDjIaLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuWWVzTm8SDQoFdV9iaWQYbiABKAISDQoFdV9hc2sYbyABKAISEAoI",
+            "bmJib19iaWQYcCABKAISEAoIbmJib19hc2sYcSABKAISEwoLbmJib19iaWRf",
+            "c3oYciABKAUSEwoLbmJib19hc2tfc3oYcyABKAUSEwoLc3VyZmFjZV9wcmMY",
+            "dCABKAISEwoLc3VyZmFjZV92b2wYdSABKAISLQoJdGltZXN0YW1wGH4gASgL",
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJDCgxhc2tfc29sdXRpb24Y",
+            "eiADKAsyLS5zcGlkZXJyb2NrLnByb3RvYnVmLkF1Y3Rpb25TdGF0ZS5Bc2tT",
+            "b2x1dGlvbhJDCgxiaWRfc29sdXRpb24YdiADKAsyLS5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLkF1Y3Rpb25TdGF0ZS5CaWRTb2x1dGlvbhodCgRQS2V5EhUKDW5v",
+            "dGljZV9udW1iZXIYCiABKAMaTgoLQXNrU29sdXRpb24SFgoObnVtX3Jlc3Bv",
+            "bmRlcnMYeyABKAUSEwoLbWF0Y2hfcHJpY2UYfCABKAESEgoKbWF0Y2hfc2l6",
+            "ZRh9IAEoBRpOCgtCaWRTb2x1dGlvbhIWCg5udW1fcmVzcG9uZGVycxh3IAEo",
+            "BRITCgttYXRjaF9wcmljZRh4IAEoARISCgptYXRjaF9zaXplGHkgASgFYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -170,7 +170,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "trade_date" field.</summary>
-    public const int TradeDateFieldNumber = 103;
+    public const int TradeDateFieldNumber = 101;
     private global::Spiderrock.Protobuf.DateKey tradeDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -182,7 +182,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "is_test_auction" field.</summary>
-    public const int IsTestAuctionFieldNumber = 106;
+    public const int IsTestAuctionFieldNumber = 102;
     private global::Spiderrock.Protobuf.YesNo isTestAuction_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// if yes, auction is a test auction (not a prod/live auction)
@@ -197,7 +197,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "auction_type" field.</summary>
-    public const int AuctionTypeFieldNumber = 109;
+    public const int AuctionTypeFieldNumber = 103;
     private global::Spiderrock.Protobuf.AuctionType auctionType_ = global::Spiderrock.Protobuf.AuctionType.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -209,7 +209,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "block_auction_counter" field.</summary>
-    public const int BlockAuctionCounterFieldNumber = 112;
+    public const int BlockAuctionCounterFieldNumber = 104;
     private int blockAuctionCounter_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -221,7 +221,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "block_auction_status" field.</summary>
-    public const int BlockAuctionStatusFieldNumber = 115;
+    public const int BlockAuctionStatusFieldNumber = 105;
     private global::Spiderrock.Protobuf.BlockAuctionStatus blockAuctionStatus_ = global::Spiderrock.Protobuf.BlockAuctionStatus.Unspecified;
     /// <summary>
     /// Active,FinalTrial,Crossing,Crossed,CrossFailed,Closed
@@ -236,7 +236,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_side" field.</summary>
-    public const int CustSideFieldNumber = 118;
+    public const int CustSideFieldNumber = 106;
     private global::Spiderrock.Protobuf.BuySell custSide_ = global::Spiderrock.Protobuf.BuySell.Unspecified;
     /// <summary>
     /// if available
@@ -251,7 +251,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_qty" field.</summary>
-    public const int CustQtyFieldNumber = 121;
+    public const int CustQtyFieldNumber = 107;
     private int custQty_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -263,7 +263,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_prc" field.</summary>
-    public const int CustPrcFieldNumber = 124;
+    public const int CustPrcFieldNumber = 108;
     private double custPrc_;
     /// <summary>
     /// public cust price
@@ -278,7 +278,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "has_cust_prc" field.</summary>
-    public const int HasCustPrcFieldNumber = 127;
+    public const int HasCustPrcFieldNumber = 109;
     private global::Spiderrock.Protobuf.YesNo hasCustPrc_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -290,7 +290,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_bid" field.</summary>
-    public const int UBidFieldNumber = 130;
+    public const int UBidFieldNumber = 110;
     private float uBid_;
     /// <summary>
     /// underlier bid price (used to resolve limits during the last auction trial)
@@ -305,7 +305,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_ask" field.</summary>
-    public const int UAskFieldNumber = 133;
+    public const int UAskFieldNumber = 111;
     private float uAsk_;
     /// <summary>
     /// underlier ask price (used to resolve limits during the last auction trial)
@@ -320,7 +320,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "nbbo_bid" field.</summary>
-    public const int NbboBidFieldNumber = 136;
+    public const int NbboBidFieldNumber = 112;
     private float nbboBid_;
     /// <summary>
     /// current option nbbo bid (at time of record publish)
@@ -335,7 +335,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "nbbo_ask" field.</summary>
-    public const int NbboAskFieldNumber = 139;
+    public const int NbboAskFieldNumber = 113;
     private float nbboAsk_;
     /// <summary>
     /// current option nbbo ask (at time of record publish)
@@ -350,7 +350,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "nbbo_bid_sz" field.</summary>
-    public const int NbboBidSzFieldNumber = 142;
+    public const int NbboBidSzFieldNumber = 114;
     private int nbboBidSz_;
     /// <summary>
     /// current option nbbo cum bid size (at time of record publish)
@@ -365,7 +365,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "nbbo_ask_sz" field.</summary>
-    public const int NbboAskSzFieldNumber = 145;
+    public const int NbboAskSzFieldNumber = 115;
     private int nbboAskSz_;
     /// <summary>
     /// current option nbbo cum ask size (at time of record publish)
@@ -380,7 +380,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_prc" field.</summary>
-    public const int SurfacePrcFieldNumber = 148;
+    public const int SurfacePrcFieldNumber = 116;
     private float surfacePrc_;
     /// <summary>
     /// SR surface price @ record publish (uMid)
@@ -395,7 +395,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surface_vol" field.</summary>
-    public const int SurfaceVolFieldNumber = 151;
+    public const int SurfaceVolFieldNumber = 117;
     private float surfaceVol_;
     /// <summary>
     /// SR surface volatility @ record publish
@@ -410,7 +410,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 178;
+    public const int TimestampFieldNumber = 126;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     /// <summary>
     /// SR system timestamp (record publish)
@@ -425,9 +425,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ask_solution" field.</summary>
-    public const int AskSolutionFieldNumber = 166;
+    public const int AskSolutionFieldNumber = 122;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.AuctionState.Types.AskSolution> _repeated_askSolution_codec
-        = pb::FieldCodec.ForMessage(1330, global::Spiderrock.Protobuf.AuctionState.Types.AskSolution.Parser);
+        = pb::FieldCodec.ForMessage(978, global::Spiderrock.Protobuf.AuctionState.Types.AskSolution.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.AuctionState.Types.AskSolution> askSolution_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.AuctionState.Types.AskSolution>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -436,9 +436,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "bid_solution" field.</summary>
-    public const int BidSolutionFieldNumber = 154;
+    public const int BidSolutionFieldNumber = 118;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.AuctionState.Types.BidSolution> _repeated_bidSolution_codec
-        = pb::FieldCodec.ForMessage(1234, global::Spiderrock.Protobuf.AuctionState.Types.BidSolution.Parser);
+        = pb::FieldCodec.ForMessage(946, global::Spiderrock.Protobuf.AuctionState.Types.BidSolution.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.AuctionState.Types.BidSolution> bidSolution_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.AuctionState.Types.BidSolution>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -545,77 +545,77 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Ticker);
       }
       if (tradeDate_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(TradeDate);
       }
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 6);
+        output.WriteRawTag(176, 6);
         output.WriteEnum((int) IsTestAuction);
       }
       if (AuctionType != global::Spiderrock.Protobuf.AuctionType.Unspecified) {
-        output.WriteRawTag(232, 6);
+        output.WriteRawTag(184, 6);
         output.WriteEnum((int) AuctionType);
       }
       if (BlockAuctionCounter != 0) {
-        output.WriteRawTag(128, 7);
+        output.WriteRawTag(192, 6);
         output.WriteInt32(BlockAuctionCounter);
       }
       if (BlockAuctionStatus != global::Spiderrock.Protobuf.BlockAuctionStatus.Unspecified) {
-        output.WriteRawTag(152, 7);
+        output.WriteRawTag(200, 6);
         output.WriteEnum((int) BlockAuctionStatus);
       }
       if (CustSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-        output.WriteRawTag(176, 7);
+        output.WriteRawTag(208, 6);
         output.WriteEnum((int) CustSide);
       }
       if (CustQty != 0) {
-        output.WriteRawTag(200, 7);
+        output.WriteRawTag(216, 6);
         output.WriteInt32(CustQty);
       }
       if (CustPrc != 0D) {
-        output.WriteRawTag(225, 7);
+        output.WriteRawTag(225, 6);
         output.WriteDouble(CustPrc);
       }
       if (HasCustPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(248, 7);
+        output.WriteRawTag(232, 6);
         output.WriteEnum((int) HasCustPrc);
       }
       if (UBid != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(245, 6);
         output.WriteFloat(UBid);
       }
       if (UAsk != 0F) {
-        output.WriteRawTag(173, 8);
+        output.WriteRawTag(253, 6);
         output.WriteFloat(UAsk);
       }
       if (NbboBid != 0F) {
-        output.WriteRawTag(197, 8);
+        output.WriteRawTag(133, 7);
         output.WriteFloat(NbboBid);
       }
       if (NbboAsk != 0F) {
-        output.WriteRawTag(221, 8);
+        output.WriteRawTag(141, 7);
         output.WriteFloat(NbboAsk);
       }
       if (NbboBidSz != 0) {
-        output.WriteRawTag(240, 8);
+        output.WriteRawTag(144, 7);
         output.WriteInt32(NbboBidSz);
       }
       if (NbboAskSz != 0) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(152, 7);
         output.WriteInt32(NbboAskSz);
       }
       if (SurfacePrc != 0F) {
-        output.WriteRawTag(165, 9);
+        output.WriteRawTag(165, 7);
         output.WriteFloat(SurfacePrc);
       }
       if (SurfaceVol != 0F) {
-        output.WriteRawTag(189, 9);
+        output.WriteRawTag(173, 7);
         output.WriteFloat(SurfaceVol);
       }
       bidSolution_.WriteTo(output, _repeated_bidSolution_codec);
       askSolution_.WriteTo(output, _repeated_askSolution_codec);
       if (timestamp_ != null) {
-        output.WriteRawTag(146, 11);
+        output.WriteRawTag(242, 7);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -641,77 +641,77 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Ticker);
       }
       if (tradeDate_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(TradeDate);
       }
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 6);
+        output.WriteRawTag(176, 6);
         output.WriteEnum((int) IsTestAuction);
       }
       if (AuctionType != global::Spiderrock.Protobuf.AuctionType.Unspecified) {
-        output.WriteRawTag(232, 6);
+        output.WriteRawTag(184, 6);
         output.WriteEnum((int) AuctionType);
       }
       if (BlockAuctionCounter != 0) {
-        output.WriteRawTag(128, 7);
+        output.WriteRawTag(192, 6);
         output.WriteInt32(BlockAuctionCounter);
       }
       if (BlockAuctionStatus != global::Spiderrock.Protobuf.BlockAuctionStatus.Unspecified) {
-        output.WriteRawTag(152, 7);
+        output.WriteRawTag(200, 6);
         output.WriteEnum((int) BlockAuctionStatus);
       }
       if (CustSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-        output.WriteRawTag(176, 7);
+        output.WriteRawTag(208, 6);
         output.WriteEnum((int) CustSide);
       }
       if (CustQty != 0) {
-        output.WriteRawTag(200, 7);
+        output.WriteRawTag(216, 6);
         output.WriteInt32(CustQty);
       }
       if (CustPrc != 0D) {
-        output.WriteRawTag(225, 7);
+        output.WriteRawTag(225, 6);
         output.WriteDouble(CustPrc);
       }
       if (HasCustPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(248, 7);
+        output.WriteRawTag(232, 6);
         output.WriteEnum((int) HasCustPrc);
       }
       if (UBid != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(245, 6);
         output.WriteFloat(UBid);
       }
       if (UAsk != 0F) {
-        output.WriteRawTag(173, 8);
+        output.WriteRawTag(253, 6);
         output.WriteFloat(UAsk);
       }
       if (NbboBid != 0F) {
-        output.WriteRawTag(197, 8);
+        output.WriteRawTag(133, 7);
         output.WriteFloat(NbboBid);
       }
       if (NbboAsk != 0F) {
-        output.WriteRawTag(221, 8);
+        output.WriteRawTag(141, 7);
         output.WriteFloat(NbboAsk);
       }
       if (NbboBidSz != 0) {
-        output.WriteRawTag(240, 8);
+        output.WriteRawTag(144, 7);
         output.WriteInt32(NbboBidSz);
       }
       if (NbboAskSz != 0) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(152, 7);
         output.WriteInt32(NbboAskSz);
       }
       if (SurfacePrc != 0F) {
-        output.WriteRawTag(165, 9);
+        output.WriteRawTag(165, 7);
         output.WriteFloat(SurfacePrc);
       }
       if (SurfaceVol != 0F) {
-        output.WriteRawTag(189, 9);
+        output.WriteRawTag(173, 7);
         output.WriteFloat(SurfaceVol);
       }
       bidSolution_.WriteTo(ref output, _repeated_bidSolution_codec);
       askSolution_.WriteTo(ref output, _repeated_askSolution_codec);
       if (timestamp_ != null) {
-        output.WriteRawTag(146, 11);
+        output.WriteRawTag(242, 7);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -917,86 +917,86 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 826: {
+          case 810: {
             if (tradeDate_ == null) {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
             break;
           }
-          case 848: {
+          case 816: {
             IsTestAuction = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 872: {
+          case 824: {
             AuctionType = (global::Spiderrock.Protobuf.AuctionType) input.ReadEnum();
             break;
           }
-          case 896: {
+          case 832: {
             BlockAuctionCounter = input.ReadInt32();
             break;
           }
-          case 920: {
+          case 840: {
             BlockAuctionStatus = (global::Spiderrock.Protobuf.BlockAuctionStatus) input.ReadEnum();
             break;
           }
-          case 944: {
+          case 848: {
             CustSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
             break;
           }
-          case 968: {
+          case 856: {
             CustQty = input.ReadInt32();
             break;
           }
-          case 993: {
+          case 865: {
             CustPrc = input.ReadDouble();
             break;
           }
-          case 1016: {
+          case 872: {
             HasCustPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1045: {
+          case 885: {
             UBid = input.ReadFloat();
             break;
           }
-          case 1069: {
+          case 893: {
             UAsk = input.ReadFloat();
             break;
           }
-          case 1093: {
+          case 901: {
             NbboBid = input.ReadFloat();
             break;
           }
-          case 1117: {
+          case 909: {
             NbboAsk = input.ReadFloat();
             break;
           }
-          case 1136: {
+          case 912: {
             NbboBidSz = input.ReadInt32();
             break;
           }
-          case 1160: {
+          case 920: {
             NbboAskSz = input.ReadInt32();
             break;
           }
-          case 1189: {
+          case 933: {
             SurfacePrc = input.ReadFloat();
             break;
           }
-          case 1213: {
+          case 941: {
             SurfaceVol = input.ReadFloat();
             break;
           }
-          case 1234: {
+          case 946: {
             bidSolution_.AddEntriesFrom(input, _repeated_bidSolution_codec);
             break;
           }
-          case 1330: {
+          case 978: {
             askSolution_.AddEntriesFrom(input, _repeated_askSolution_codec);
             break;
           }
-          case 1426: {
+          case 1010: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -1039,86 +1039,86 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 826: {
+          case 810: {
             if (tradeDate_ == null) {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
             break;
           }
-          case 848: {
+          case 816: {
             IsTestAuction = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 872: {
+          case 824: {
             AuctionType = (global::Spiderrock.Protobuf.AuctionType) input.ReadEnum();
             break;
           }
-          case 896: {
+          case 832: {
             BlockAuctionCounter = input.ReadInt32();
             break;
           }
-          case 920: {
+          case 840: {
             BlockAuctionStatus = (global::Spiderrock.Protobuf.BlockAuctionStatus) input.ReadEnum();
             break;
           }
-          case 944: {
+          case 848: {
             CustSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
             break;
           }
-          case 968: {
+          case 856: {
             CustQty = input.ReadInt32();
             break;
           }
-          case 993: {
+          case 865: {
             CustPrc = input.ReadDouble();
             break;
           }
-          case 1016: {
+          case 872: {
             HasCustPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1045: {
+          case 885: {
             UBid = input.ReadFloat();
             break;
           }
-          case 1069: {
+          case 893: {
             UAsk = input.ReadFloat();
             break;
           }
-          case 1093: {
+          case 901: {
             NbboBid = input.ReadFloat();
             break;
           }
-          case 1117: {
+          case 909: {
             NbboAsk = input.ReadFloat();
             break;
           }
-          case 1136: {
+          case 912: {
             NbboBidSz = input.ReadInt32();
             break;
           }
-          case 1160: {
+          case 920: {
             NbboAskSz = input.ReadInt32();
             break;
           }
-          case 1189: {
+          case 933: {
             SurfacePrc = input.ReadFloat();
             break;
           }
-          case 1213: {
+          case 941: {
             SurfaceVol = input.ReadFloat();
             break;
           }
-          case 1234: {
+          case 946: {
             bidSolution_.AddEntriesFrom(ref input, _repeated_bidSolution_codec);
             break;
           }
-          case 1330: {
+          case 978: {
             askSolution_.AddEntriesFrom(ref input, _repeated_askSolution_codec);
             break;
           }
-          case 1426: {
+          case 1010: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -1371,7 +1371,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "num_responders" field.</summary>
-        public const int NumRespondersFieldNumber = 169;
+        public const int NumRespondersFieldNumber = 123;
         private int numResponders_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1383,7 +1383,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "match_price" field.</summary>
-        public const int MatchPriceFieldNumber = 172;
+        public const int MatchPriceFieldNumber = 124;
         private double matchPrice_;
         /// <summary>
         /// current auction cross price (in exchange price increments)
@@ -1398,7 +1398,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "match_size" field.</summary>
-        public const int MatchSizeFieldNumber = 175;
+        public const int MatchSizeFieldNumber = 125;
         private int matchSize_;
         /// <summary>
         /// current auction size available @ match price
@@ -1459,15 +1459,15 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (NumResponders != 0) {
-            output.WriteRawTag(200, 10);
+            output.WriteRawTag(216, 7);
             output.WriteInt32(NumResponders);
           }
           if (MatchPrice != 0D) {
-            output.WriteRawTag(225, 10);
+            output.WriteRawTag(225, 7);
             output.WriteDouble(MatchPrice);
           }
           if (MatchSize != 0) {
-            output.WriteRawTag(248, 10);
+            output.WriteRawTag(232, 7);
             output.WriteInt32(MatchSize);
           }
           if (_unknownFields != null) {
@@ -1481,15 +1481,15 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (NumResponders != 0) {
-            output.WriteRawTag(200, 10);
+            output.WriteRawTag(216, 7);
             output.WriteInt32(NumResponders);
           }
           if (MatchPrice != 0D) {
-            output.WriteRawTag(225, 10);
+            output.WriteRawTag(225, 7);
             output.WriteDouble(MatchPrice);
           }
           if (MatchSize != 0) {
-            output.WriteRawTag(248, 10);
+            output.WriteRawTag(232, 7);
             output.WriteInt32(MatchSize);
           }
           if (_unknownFields != null) {
@@ -1547,15 +1547,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 1352: {
+              case 984: {
                 NumResponders = input.ReadInt32();
                 break;
               }
-              case 1377: {
+              case 993: {
                 MatchPrice = input.ReadDouble();
                 break;
               }
-              case 1400: {
+              case 1000: {
                 MatchSize = input.ReadInt32();
                 break;
               }
@@ -1574,15 +1574,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 1352: {
+              case 984: {
                 NumResponders = input.ReadInt32();
                 break;
               }
-              case 1377: {
+              case 993: {
                 MatchPrice = input.ReadDouble();
                 break;
               }
-              case 1400: {
+              case 1000: {
                 MatchSize = input.ReadInt32();
                 break;
               }
@@ -1640,7 +1640,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "num_responders" field.</summary>
-        public const int NumRespondersFieldNumber = 157;
+        public const int NumRespondersFieldNumber = 119;
         private int numResponders_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1652,7 +1652,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "match_price" field.</summary>
-        public const int MatchPriceFieldNumber = 160;
+        public const int MatchPriceFieldNumber = 120;
         private double matchPrice_;
         /// <summary>
         /// current auction cross price (in exchange price increments)
@@ -1667,7 +1667,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "match_size" field.</summary>
-        public const int MatchSizeFieldNumber = 163;
+        public const int MatchSizeFieldNumber = 121;
         private int matchSize_;
         /// <summary>
         /// current auction size available @ match price
@@ -1728,15 +1728,15 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (NumResponders != 0) {
-            output.WriteRawTag(232, 9);
+            output.WriteRawTag(184, 7);
             output.WriteInt32(NumResponders);
           }
           if (MatchPrice != 0D) {
-            output.WriteRawTag(129, 10);
+            output.WriteRawTag(193, 7);
             output.WriteDouble(MatchPrice);
           }
           if (MatchSize != 0) {
-            output.WriteRawTag(152, 10);
+            output.WriteRawTag(200, 7);
             output.WriteInt32(MatchSize);
           }
           if (_unknownFields != null) {
@@ -1750,15 +1750,15 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (NumResponders != 0) {
-            output.WriteRawTag(232, 9);
+            output.WriteRawTag(184, 7);
             output.WriteInt32(NumResponders);
           }
           if (MatchPrice != 0D) {
-            output.WriteRawTag(129, 10);
+            output.WriteRawTag(193, 7);
             output.WriteDouble(MatchPrice);
           }
           if (MatchSize != 0) {
-            output.WriteRawTag(152, 10);
+            output.WriteRawTag(200, 7);
             output.WriteInt32(MatchSize);
           }
           if (_unknownFields != null) {
@@ -1816,15 +1816,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 1256: {
+              case 952: {
                 NumResponders = input.ReadInt32();
                 break;
               }
-              case 1281: {
+              case 961: {
                 MatchPrice = input.ReadDouble();
                 break;
               }
-              case 1304: {
+              case 968: {
                 MatchSize = input.ReadInt32();
                 break;
               }
@@ -1843,15 +1843,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 1256: {
+              case 952: {
                 NumResponders = input.ReadInt32();
                 break;
               }
-              case 1281: {
+              case 961: {
                 MatchPrice = input.ReadDouble();
                 break;
               }
-              case 1304: {
+              case 968: {
                 MatchSize = input.ReadInt32();
                 break;
               }

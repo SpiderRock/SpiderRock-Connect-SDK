@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiZQcm90b2J1Zi9SaXNrQ2FsYy9HZXRPcHRpb25QcmljZS5wcm90bxITc3Bp",
             "ZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aH2dv",
-            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8irwgKDkdldE9wdGlvblBy",
+            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ixwgKDkdldE9wdGlvblBy",
             "aWNlEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNz",
             "YWdlTWV0YWRhdGESLAoEcm9vdBhkIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuVGlja2VyS2V5EiwKBmV4cGlyeRhnIAEoCzIcLnNwaWRlcnJvY2sucHJv",
@@ -41,20 +41,21 @@ namespace Spiderrock.Protobuf {
             "bFR5cGUSNQoLY2FsY19lbmdpbmUYlAEgASgOMh8uc3BpZGVycm9jay5wcm90",
             "b2J1Zi5DYWxjRW5naW5lEi8KCmluY19ncmVla3MYlwEgASgOMhouc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5ZZXNObxIOCgVwcmljZRiaASABKAESEwoKZWZmX3N0",
-            "cmlrZRidASABKAESGAoPZGl2aWRlbmRfYW1vdW50GKABIAEoAhIOCgVkZWx0",
-            "YRijASABKAISDgoFZ2FtbWEYpgEgASgCEg4KBXRoZXRhGKkBIAEoAhINCgR2",
-            "ZWdhGKwBIAEoAhIOCgV2b2xnYRivASABKAISDgoFdmFubmEYsgEgASgCEhEK",
-            "CGRlX2RlY2F5GLUBIAEoAhIMCgNyaG8YuAEgASgCEgwKA3BoaRi7ASABKAIS",
-            "DgoFZXJyb3IYvgEgASgJEhUKDHByaWNlcl9tb2RlbBjBASABKAkSLgoJdGlt",
-            "ZXN0YW1wGMQBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASUAoR",
-            "ZGlzY3JldGVfZGl2aWRlbmQYiAEgAygLMjQuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5HZXRPcHRpb25QcmljZS5EaXNjcmV0ZURpdmlkZW5kGk4KEERpc2NyZXRl",
-            "RGl2aWRlbmQSKQoEZGF0ZRiLASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wEg8KBmFtb3VudBiOASABKAJiBnByb3RvMw=="));
+            "cmlrZRidASABKAESDwoGaV9kYXlzGJ8BIAEoBRINCgRkZGl2GKABIAEoAhIQ",
+            "CgdkZGl2X3BWGKEBIAEoAhIOCgVkZWx0YRijASABKAISDgoFZ2FtbWEYpgEg",
+            "ASgCEg4KBXRoZXRhGKkBIAEoAhINCgR2ZWdhGKwBIAEoAhIOCgV2b2xnYRiv",
+            "ASABKAISDgoFdmFubmEYsgEgASgCEhEKCGRlX2RlY2F5GLUBIAEoAhIMCgNy",
+            "aG8YuAEgASgCEgwKA3BoaRi7ASABKAISDgoFZXJyb3IYvgEgASgJEhUKDHBy",
+            "aWNlcl9tb2RlbBjBASABKAkSLgoJdGltZXN0YW1wGMQBIAEoCzIaLmdvb2ds",
+            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASUAoRZGlzY3JldGVfZGl2aWRlbmQYiAEg",
+            "AygLMjQuc3BpZGVycm9jay5wcm90b2J1Zi5HZXRPcHRpb25QcmljZS5EaXNj",
+            "cmV0ZURpdmlkZW5kGk4KEERpc2NyZXRlRGl2aWRlbmQSKQoEZGF0ZRiLASAB",
+            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEg8KBmFtb3VudBiOASAB",
+            "KAJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionPrice), global::Spiderrock.Protobuf.GetOptionPrice.Parser, new[]{ "Meta", "Root", "Expiry", "Strike", "CallPut", "Vol", "UPrc", "Years", "Sdiv", "Rate", "ExType", "ExTime", "TimeMetric", "ModelType", "CalcEngine", "IncGreeks", "Price", "EffStrike", "DividendAmount", "Delta", "Gamma", "Theta", "Vega", "Volga", "Vanna", "DeDecay", "Rho", "Phi", "Error", "PricerModel", "Timestamp", "DiscreteDividend" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionPrice.Types.DiscreteDividend), global::Spiderrock.Protobuf.GetOptionPrice.Types.DiscreteDividend.Parser, new[]{ "Date", "Amount" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionPrice), global::Spiderrock.Protobuf.GetOptionPrice.Parser, new[]{ "Meta", "Root", "Expiry", "Strike", "CallPut", "Vol", "UPrc", "Years", "Sdiv", "Rate", "ExType", "ExTime", "TimeMetric", "ModelType", "CalcEngine", "IncGreeks", "Price", "EffStrike", "IDays", "Ddiv", "DdivPV", "Delta", "Gamma", "Theta", "Vega", "Volga", "Vanna", "DeDecay", "Rho", "Phi", "Error", "PricerModel", "Timestamp", "DiscreteDividend" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionPrice.Types.DiscreteDividend), global::Spiderrock.Protobuf.GetOptionPrice.Types.DiscreteDividend.Parser, new[]{ "Date", "Amount" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -113,7 +114,9 @@ namespace Spiderrock.Protobuf {
       incGreeks_ = other.incGreeks_;
       price_ = other.price_;
       effStrike_ = other.effStrike_;
-      dividendAmount_ = other.dividendAmount_;
+      iDays_ = other.iDays_;
+      ddiv_ = other.ddiv_;
+      ddivPV_ = other.ddivPV_;
       delta_ = other.delta_;
       gamma_ = other.gamma_;
       theta_ = other.theta_;
@@ -388,18 +391,48 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "dividend_amount" field.</summary>
-    public const int DividendAmountFieldNumber = 160;
-    private float dividendAmount_;
+    /// <summary>Field number for the "i_days" field.</summary>
+    public const int IDaysFieldNumber = 159;
+    private int iDays_;
+    /// <summary>
+    /// interest days to expiry
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IDays {
+      get { return iDays_; }
+      set {
+        iDays_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ddiv" field.</summary>
+    public const int DdivFieldNumber = 160;
+    private float ddiv_;
     /// <summary>
     /// sum of discrete dividend amounts payable prior to exercise (if any) (simple; not net present value)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float DividendAmount {
-      get { return dividendAmount_; }
+    public float Ddiv {
+      get { return ddiv_; }
       set {
-        dividendAmount_ = value;
+        ddiv_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ddiv_pV" field.</summary>
+    public const int DdivPVFieldNumber = 161;
+    private float ddivPV_;
+    /// <summary>
+    /// sum of present value of discrete dividend amounts payable prior to exercise (if any)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float DdivPV {
+      get { return ddivPV_; }
+      set {
+        ddivPV_ = value;
       }
     }
 
@@ -618,7 +651,9 @@ namespace Spiderrock.Protobuf {
       if (IncGreeks != other.IncGreeks) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(EffStrike, other.EffStrike)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DividendAmount, other.DividendAmount)) return false;
+      if (IDays != other.IDays) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Ddiv, other.Ddiv)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DdivPV, other.DdivPV)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Delta, other.Delta)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Gamma, other.Gamma)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Theta, other.Theta)) return false;
@@ -657,7 +692,9 @@ namespace Spiderrock.Protobuf {
       if (IncGreeks != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= IncGreeks.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
       if (EffStrike != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(EffStrike);
-      if (DividendAmount != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DividendAmount);
+      if (IDays != 0) hash ^= IDays.GetHashCode();
+      if (Ddiv != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Ddiv);
+      if (DdivPV != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DdivPV);
       if (Delta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Delta);
       if (Gamma != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Gamma);
       if (Theta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Theta);
@@ -762,9 +799,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(233, 9);
         output.WriteDouble(EffStrike);
       }
-      if (DividendAmount != 0F) {
+      if (IDays != 0) {
+        output.WriteRawTag(248, 9);
+        output.WriteInt32(IDays);
+      }
+      if (Ddiv != 0F) {
         output.WriteRawTag(133, 10);
-        output.WriteFloat(DividendAmount);
+        output.WriteFloat(Ddiv);
+      }
+      if (DdivPV != 0F) {
+        output.WriteRawTag(141, 10);
+        output.WriteFloat(DdivPV);
       }
       if (Delta != 0F) {
         output.WriteRawTag(157, 10);
@@ -897,9 +942,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(233, 9);
         output.WriteDouble(EffStrike);
       }
-      if (DividendAmount != 0F) {
+      if (IDays != 0) {
+        output.WriteRawTag(248, 9);
+        output.WriteInt32(IDays);
+      }
+      if (Ddiv != 0F) {
         output.WriteRawTag(133, 10);
-        output.WriteFloat(DividendAmount);
+        output.WriteFloat(Ddiv);
+      }
+      if (DdivPV != 0F) {
+        output.WriteRawTag(141, 10);
+        output.WriteFloat(DdivPV);
       }
       if (Delta != 0F) {
         output.WriteRawTag(157, 10);
@@ -1013,7 +1066,13 @@ namespace Spiderrock.Protobuf {
       if (EffStrike != 0D) {
         size += 2 + 8;
       }
-      if (DividendAmount != 0F) {
+      if (IDays != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(IDays);
+      }
+      if (Ddiv != 0F) {
+        size += 2 + 4;
+      }
+      if (DdivPV != 0F) {
         size += 2 + 4;
       }
       if (Delta != 0F) {
@@ -1128,8 +1187,14 @@ namespace Spiderrock.Protobuf {
       if (other.EffStrike != 0D) {
         EffStrike = other.EffStrike;
       }
-      if (other.DividendAmount != 0F) {
-        DividendAmount = other.DividendAmount;
+      if (other.IDays != 0) {
+        IDays = other.IDays;
+      }
+      if (other.Ddiv != 0F) {
+        Ddiv = other.Ddiv;
+      }
+      if (other.DdivPV != 0F) {
+        DdivPV = other.DdivPV;
       }
       if (other.Delta != 0F) {
         Delta = other.Delta;
@@ -1271,8 +1336,16 @@ namespace Spiderrock.Protobuf {
             EffStrike = input.ReadDouble();
             break;
           }
+          case 1272: {
+            IDays = input.ReadInt32();
+            break;
+          }
           case 1285: {
-            DividendAmount = input.ReadFloat();
+            Ddiv = input.ReadFloat();
+            break;
+          }
+          case 1293: {
+            DdivPV = input.ReadFloat();
             break;
           }
           case 1309: {
@@ -1426,8 +1499,16 @@ namespace Spiderrock.Protobuf {
             EffStrike = input.ReadDouble();
             break;
           }
+          case 1272: {
+            IDays = input.ReadInt32();
+            break;
+          }
           case 1285: {
-            DividendAmount = input.ReadFloat();
+            Ddiv = input.ReadFloat();
+            break;
+          }
+          case 1293: {
+            DdivPV = input.ReadFloat();
             break;
           }
           case 1309: {

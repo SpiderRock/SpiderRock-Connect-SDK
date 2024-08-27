@@ -20,34 +20,35 @@ message LiveRevConQuote {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // SR Ticker (Product Group)
-    float x_axis = 103; // xAxis = Moneyness
-    float c_de = 106; // call delta
-    float p_de = 109; // put delta
-    double u_prc = 112; // live underlier price
-    float atm_vol = 115;
-    float years = 118; // number of volatility years to exiry date (volatility time metric)
-    float global_rate = 121; // global rate (average discount rate) to expiry date
-    float ddiv = 124; // sum of estimated discrete dividend stream to expiry date
-    float ddiv_pv = 127; // present value of estimated discrete dividend stream to expiry date
-    DDivSource ddiv_source = 130; // present value of estimated discrete dividend stream to expiry date
-    int32 i_days = 133; // number of interest (calendar) days to expiry
-    float strike_pv = 136; // strike * EXP(-globalRate * iDays / 365)
-    float fair_sVol = 139; // call/put surface volatility value
-    float fair_sDiv = 142; // call/put surface alignment sdiv value
-    float fair_call_prc = 145; // fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)
-    float fair_call_prc_e = 148; // fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)
-    float fair_put_prc = 151; // fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)
-    float fair_put_prc_e = 154; // fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)
-    float rc_fair_prc = 157; // uPrc + fairPutPrc - fairCallPrc - strike  (revCon fairMid price)
-    float rc_eEx_prem = 160; // (fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
-    float fair_loan_pv = 163; // uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)
-    float fair_loan_rate = 166; // (fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)
-    float rc_bid_loan_pv = 169; // uPrc - callAsk + putBid - strikePv - ddivPv - rcEExPrem (best way) (join markets)
-    float rc_ask_loan_pv = 172; // uPrc - callBid + putAsk - strikePv - ddivPv - rcEExPrem (worst way) (cross markets)
-    string calc_error = 175;
-    int32 cp_oI = 178; // c/p open interest (market) [upper bound]
-    int32 cp_vlm = 181; // c/p print volume (this exchange) [upper bound]
-    google.protobuf.Timestamp timestamp = 184; // last update time (Date)
+    float x_axis = 101; // xAxis = Moneyness
+    float c_de = 102; // call delta
+    float p_de = 103; // put delta
+    double u_prc = 104; // live underlier price
+    float atm_vol = 105;
+    float years = 106; // number of volatility years to exiry date (volatility time metric)
+    float global_rate = 107; // global rate (average discount rate) to expiry date
+    float ddiv = 108; // sum of estimated discrete dividend stream to expiry date
+    float ddiv_pv = 109; // present value of estimated discrete dividend stream to expiry date
+    DDivSource ddiv_source = 110; // present value of estimated discrete dividend stream to expiry date
+    int32 i_days = 111; // number of interest (calendar) days to expiry
+    float ddiv_disc = 130; // dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry
+    float strike_pv = 112; // strike * EXP(-globalRate * iDays / 365)
+    float fair_sVol = 113; // call/put surface volatility value
+    float fair_sDiv = 114; // call/put surface alignment sdiv value
+    float fair_call_prc = 115; // fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})
+    float fair_call_prc_e = 116; // fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})
+    float fair_put_prc = 117; // fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})
+    float fair_put_prc_e = 118; // fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})
+    float rc_fair_prc = 119; // fairCallPrc - fairPutPrc - uPrc + strike  (revCon fairMid price)
+    float rc_eEx_prem = 120; // (fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
+    float fair_loan_pv = 121; // fairCallPrc - fairPutPrc - uPrc + strike + strikePv + ddivPv  (total present value of letting out shares) (term to expiry) (per share)
+    float fair_loan_rate = 122; // fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)
+    float rc_bid_prc = 123; // callBid - putAsk - uPrc + strike (best way) (join markets)
+    float rc_ask_prc = 124; // callAsk - putBid - uPrc + strike (worst way) (cross markets)
+    string calc_error = 125;
+    int32 cp_oI = 126; // c/p open interest (market) [upper bound]
+    int32 cp_vlm = 127; // c/p print volume (this exchange) [upper bound]
+    google.protobuf.Timestamp timestamp = 128; // last update time (Date)
 }
 
 

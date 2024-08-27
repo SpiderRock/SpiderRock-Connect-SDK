@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    RegionalUnderlierComposite (internal only) records exist per composite underlier (aka per ISIN). Eg for BMW there would be BMW-ESX-EQT which is the composite, but could have several contributing exchanges across the region
+*/    
+message RegionalUnderlierComposite {
+    message PKey {
+        
+        string isin = 10; // ISIN code
+    }
+
+    message Contributors {
+        
+        StkExch exchange = 104;
+        string native_exch_symbol = 105;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    Currency currency = 100; // Currency that this ticker trades in
+    TickerKey composite_tKey = 101;
+    ProductClass underlier_type = 102; // The type of underlying attribute that this composite represents
+    repeated Contributors contributors = 103;
+}
+
+

@@ -32,17 +32,17 @@ namespace Spiderrock.Protobuf {
             "cnJvY2sucHJvdG9idWYuU3ByZWFkRGVmaW5pdGlvbi5QS2V5Ei4KBnRpY2tl",
             "chhkIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EjoKDHNw",
             "cmVhZF9jbGFzcxhlIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuVG9vbFNw",
-            "cmVhZENsYXNzEi0KCXRpbWVzdGFtcBhvIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASRwoNZXhjaF9zcHJfaV9kcxhtIAMoCzIwLnNwaWRlcnJv",
+            "cmVhZENsYXNzEi0KCXRpbWVzdGFtcBhtIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXASRwoNZXhjaF9zcHJfaV9kcxhrIAMoCzIwLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuU3ByZWFkRGVmaW5pdGlvbi5FeGNoU3BySURzEjgKBGxl",
             "Z3MYZiADKAsyKi5zcGlkZXJyb2NrLnByb3RvYnVmLlNwcmVhZERlZmluaXRp",
-            "b24uTGVncxobCgRQS2V5EhMKC3NSc3ByZWFkX2lEGAogASgDGiEKCkV4Y2hT",
-            "cHJJRHMSEwoLZXhjaF9zcHJfaUQYbiABKAka2gEKBExlZ3MSMwoLbGVnX3Nl",
+            "b24uTGVncxobCgRQS2V5EhMKC3NSc3ByZWFkX2lEGAsgASgDGiEKCkV4Y2hT",
+            "cHJJRHMSEwoLZXhjaF9zcHJfaUQYbCABKAka2gEKBExlZ3MSMwoLbGVnX3Nl",
             "Y19rZXkYZyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRI2",
             "CgxsZWdfc2VjX3R5cGUYaCABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNw",
             "ZHJLZXlUeXBlEi4KCGxlZ19zaWRlGGkgASgOMhwuc3BpZGVycm9jay5wcm90",
             "b2J1Zi5CdXlTZWxsEhEKCWxlZ19yYXRpbxhqIAEoDRIRCglyZWZfZGVsdGEY",
-            "ayABKAISDwoHcmVmX3ByYxhsIAEoAWIGcHJvdG8z"));
+            "biABKAISDwoHcmVmX3ByYxhvIAEoAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -160,7 +160,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 111;
+    public const int TimestampFieldNumber = 109;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -172,9 +172,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exch_spr_i_ds" field.</summary>
-    public const int ExchSprIDsFieldNumber = 109;
+    public const int ExchSprIDsFieldNumber = 107;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.SpreadDefinition.Types.ExchSprIDs> _repeated_exchSprIDs_codec
-        = pb::FieldCodec.ForMessage(874, global::Spiderrock.Protobuf.SpreadDefinition.Types.ExchSprIDs.Parser);
+        = pb::FieldCodec.ForMessage(858, global::Spiderrock.Protobuf.SpreadDefinition.Types.ExchSprIDs.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.SpreadDefinition.Types.ExchSprIDs> exchSprIDs_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.SpreadDefinition.Types.ExchSprIDs>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -266,7 +266,7 @@ namespace Spiderrock.Protobuf {
       legs_.WriteTo(output, _repeated_legs_codec);
       exchSprIDs_.WriteTo(output, _repeated_exchSprIDs_codec);
       if (timestamp_ != null) {
-        output.WriteRawTag(250, 6);
+        output.WriteRawTag(234, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -298,7 +298,7 @@ namespace Spiderrock.Protobuf {
       legs_.WriteTo(ref output, _repeated_legs_codec);
       exchSprIDs_.WriteTo(ref output, _repeated_exchSprIDs_codec);
       if (timestamp_ != null) {
-        output.WriteRawTag(250, 6);
+        output.WriteRawTag(234, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -413,11 +413,11 @@ namespace Spiderrock.Protobuf {
             legs_.AddEntriesFrom(input, _repeated_legs_codec);
             break;
           }
-          case 874: {
+          case 858: {
             exchSprIDs_.AddEntriesFrom(input, _repeated_exchSprIDs_codec);
             break;
           }
-          case 890: {
+          case 874: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -468,11 +468,11 @@ namespace Spiderrock.Protobuf {
             legs_.AddEntriesFrom(ref input, _repeated_legs_codec);
             break;
           }
-          case 874: {
+          case 858: {
             exchSprIDs_.AddEntriesFrom(ref input, _repeated_exchSprIDs_codec);
             break;
           }
-          case 890: {
+          case 874: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -534,7 +534,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "sRspread_iD" field.</summary>
-        public const int SRspreadIDFieldNumber = 10;
+        public const int SRspreadIDFieldNumber = 11;
         private long sRspreadID_;
         /// <summary>
         /// SR legs list hash
@@ -591,7 +591,7 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (SRspreadID != 0L) {
-            output.WriteRawTag(80);
+            output.WriteRawTag(88);
             output.WriteInt64(SRspreadID);
           }
           if (_unknownFields != null) {
@@ -605,7 +605,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (SRspreadID != 0L) {
-            output.WriteRawTag(80);
+            output.WriteRawTag(88);
             output.WriteInt64(SRspreadID);
           }
           if (_unknownFields != null) {
@@ -651,7 +651,7 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 80: {
+              case 88: {
                 SRspreadID = input.ReadInt64();
                 break;
               }
@@ -670,7 +670,7 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 80: {
+              case 88: {
                 SRspreadID = input.ReadInt64();
                 break;
               }
@@ -726,7 +726,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "exch_spr_iD" field.</summary>
-        public const int ExchSprIDFieldNumber = 110;
+        public const int ExchSprIDFieldNumber = 108;
         private string exchSprID_ = "";
         /// <summary>
         /// unique exchange spread id
@@ -783,7 +783,7 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (ExchSprID.Length != 0) {
-            output.WriteRawTag(242, 6);
+            output.WriteRawTag(226, 6);
             output.WriteString(ExchSprID);
           }
           if (_unknownFields != null) {
@@ -797,7 +797,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (ExchSprID.Length != 0) {
-            output.WriteRawTag(242, 6);
+            output.WriteRawTag(226, 6);
             output.WriteString(ExchSprID);
           }
           if (_unknownFields != null) {
@@ -843,7 +843,7 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 882: {
+              case 866: {
                 ExchSprID = input.ReadString();
                 break;
               }
@@ -862,7 +862,7 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 882: {
+              case 866: {
                 ExchSprID = input.ReadString();
                 break;
               }
@@ -974,7 +974,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "ref_delta" field.</summary>
-        public const int RefDeltaFieldNumber = 107;
+        public const int RefDeltaFieldNumber = 110;
         private float refDelta_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -986,7 +986,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "ref_prc" field.</summary>
-        public const int RefPrcFieldNumber = 108;
+        public const int RefPrcFieldNumber = 111;
         private double refPrc_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1066,11 +1066,11 @@ namespace Spiderrock.Protobuf {
             output.WriteUInt32(LegRatio);
           }
           if (RefDelta != 0F) {
-            output.WriteRawTag(221, 6);
+            output.WriteRawTag(245, 6);
             output.WriteFloat(RefDelta);
           }
           if (RefPrc != 0D) {
-            output.WriteRawTag(225, 6);
+            output.WriteRawTag(249, 6);
             output.WriteDouble(RefPrc);
           }
           if (_unknownFields != null) {
@@ -1100,11 +1100,11 @@ namespace Spiderrock.Protobuf {
             output.WriteUInt32(LegRatio);
           }
           if (RefDelta != 0F) {
-            output.WriteRawTag(221, 6);
+            output.WriteRawTag(245, 6);
             output.WriteFloat(RefDelta);
           }
           if (RefPrc != 0D) {
-            output.WriteRawTag(225, 6);
+            output.WriteRawTag(249, 6);
             output.WriteDouble(RefPrc);
           }
           if (_unknownFields != null) {
@@ -1202,11 +1202,11 @@ namespace Spiderrock.Protobuf {
                 LegRatio = input.ReadUInt32();
                 break;
               }
-              case 861: {
+              case 885: {
                 RefDelta = input.ReadFloat();
                 break;
               }
-              case 865: {
+              case 889: {
                 RefPrc = input.ReadDouble();
                 break;
               }
@@ -1244,11 +1244,11 @@ namespace Spiderrock.Protobuf {
                 LegRatio = input.ReadUInt32();
                 break;
               }
-              case 861: {
+              case 885: {
                 RefDelta = input.ReadFloat();
                 break;
               }
-              case 865: {
+              case 889: {
                 RefPrc = input.ReadDouble();
                 break;
               }

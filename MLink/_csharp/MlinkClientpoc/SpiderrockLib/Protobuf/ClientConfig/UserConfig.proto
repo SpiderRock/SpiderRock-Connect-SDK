@@ -89,12 +89,12 @@ message UserConfig {
     LogAmount mlink_activity_logging = 139; // Amount of user activity logging/archiving for MLink products. Complete --> Log Everything, Partial --> Take samples, None --> No non-error logging
     ConfigAccess client_config_access = 160; // user can create new (pending approval) or edit existing client configuration records (SRAdmin, SponsorAdmin, ClientAdmin, or SRUser (any sysenv))
     AccountTypeControl account_type_control = 163;
-    OrderAccess prod_order_access = 390;
-    OrderAccess test_order_access = 391;
-    YesNo can_cancel_prod_orders = 392; // user can cancel prod (live) orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
-    YesNo can_cancel_test_orders = 393; // user can cancel test orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
-    YesNo can_book_prod_executions = 394; // user can enter prod (live) away tickets (default false for SRUsers SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
-    YesNo can_book_test_executions = 395; // user can enter test away tickets (default false for SRUsers, SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
+    OrderAccess prod_order_access = 386;
+    OrderAccess test_order_access = 387;
+    YesNo can_cancel_prod_orders = 388; // user can cancel prod (live) orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
+    YesNo can_cancel_test_orders = 389; // user can cancel test orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
+    YesNo can_book_prod_executions = 390; // user can enter prod (live) away tickets (default false for SRUsers SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
+    YesNo can_book_test_executions = 391; // user can enter test away tickets (default false for SRUsers, SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
     YesNo can_edit_mar_risk = 175;
     YesNo can_edit_supervisory_risk = 181;
     YesNo can_edit_stock_locate_list = 184;
@@ -104,12 +104,12 @@ message UserConfig {
     string contact_slack = 196; // Contact Slack Handle
     string contact_ice_chat = 199; // Contact ICE Handle
     string contact_bBerg_handle = 202; // Contact Bloomberg Handle (BBGID)
-    string ice_client_firm = 200; // ICE Gateway (Bot) responder client firm
-    string ice_prod_accnt = 203; // ICE Gateway (Bot) prod responder accnt
-    string ice_test_accnt = 204; // ICE Gateway (Bot) test responder accnt
+    string ice_client_firm = 392; // ICE Gateway (Bot) responder client firm
+    string ice_prod_accnt = 393; // ICE Gateway (Bot) prod responder accnt
+    string ice_test_accnt = 394; // ICE Gateway (Bot) test responder accnt
     AuthType auth_type = 205; // type of user logon allowed
     string auth_extern_name = 208; // eg.  CorpName
-    string auth_extern_params = 211; // eg. 'https://corp.domain.com:xxxx'
+    string auth_extern_params = 211; // eg. `https://corp.domain.com:xxxx`
     string default_accnt = 214; // default account for this user (used as a tool default/setting); ignored if not viewable; if missing then default is the 1st accnt in the viewable list (alpha order)
     string alt_user_name = 217; // alternate (client supplied) user name (usually for client system integration)
     string cme_trader_id = 220; // CME assigned trader ID (if any)
@@ -137,10 +137,10 @@ message UserConfig {
     int32 srse_max_new_orders = 292; // maximum number of new parent orders (per day) that can be inserted via SRSE (0=NONE) [default = 500,000]
     int32 srse_max_new_orders_per_sec = 295; // maximum number of new parent orders (per second; 4 second burst) that can be inserted via SRSE (0=NONE) [default = 250]
     int32 srse_max_new_orders_per_statement = 298; // maximum number of new parent orders (per SQL statement) that can be inserted via SRSE (0=NONE) [default = 1,000]
-    string nms_badge = 386; // NMS exchange memembership and badge ids
-    string cfe_badge = 387; // CFE exchange memembership and badge ids.
-    string cme_badge = 388; // CME/CBOT/COMEX/NYMEX exchange memembership and badge ids.
-    string ice_badge = 389; // ICE exchange memembership and badge ids.
+    string nms_badge = 395; // NMS exchange memembership and badge ids
+    string cfe_badge = 396; // CFE exchange memembership and badge ids.
+    string cme_badge = 397; // CME/CBOT/COMEX/NYMEX exchange memembership and badge ids.
+    string ice_badge = 398; // ICE exchange memembership and badge ids.
     string api_key = 355; // API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
     google.protobuf.Timestamp api_key_expires = 358; // API access key expiration
     string password_hash = 361; // user password (client supplied; optional; hashed value; HEX representation; SHA-256)
@@ -151,7 +151,7 @@ message UserConfig {
     string mfa_secret = 376; // MFA Secret (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
     string modified_by = 379; // [custom:ModifiedBy] user who last modified this record
     SysEnvironment modified_in = 382;
-    google.protobuf.Timestamp timestamp = 385; // [custom:LastModified] timestamp of last modification
+    google.protobuf.Timestamp timestamp = 385;
     string client_firm_list__v7 = 5000; // only V7
     string billing_firm__v7 = 5001; // only V7
     string first_name__v7 = 5002; // only V7

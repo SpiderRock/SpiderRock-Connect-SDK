@@ -26,44 +26,44 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CidQcm90b2J1Zi9TUkNvbm5lY3QvQXVjdGlvblByaW50QlgucHJvdG8SE3Nw",
             "aWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3RvGh9n",
-            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIusMCg5BdWN0aW9uUHJp",
+            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItkMCg5BdWN0aW9uUHJp",
             "bnRCWBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVz",
             "c2FnZU1ldGFkYXRhEjYKBHBrZXkYAiABKAsyKC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLkF1Y3Rpb25QcmludEJYLlBLZXkSLgoGdGlja2VyGGQgASgLMh4uc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhnIAEo",
+            "ZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhlIAEo",
             "CzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRIzCg9pc190ZXN0X2F1",
-            "Y3Rpb24YaiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEi8KC25v",
-            "dGljZV90aW1lGG0gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI2",
-            "CgxhdWN0aW9uX3R5cGUYcCABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLkF1",
-            "Y3Rpb25UeXBlEjoKDmF1Y3Rpb25fc291cmNlGHMgASgOMiIuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5BdWN0aW9uU291cmNlEjEKDWNvbnRhaW5zX2ZsZXgYdiAB",
-            "KA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEiwKBHJvb3QYeSABKAsy",
-            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIsCgZleHBpcnkYfCAB",
+            "Y3Rpb24YZiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEi8KC25v",
+            "dGljZV90aW1lGGcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI2",
+            "CgxhdWN0aW9uX3R5cGUYaCABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLkF1",
+            "Y3Rpb25UeXBlEjoKDmF1Y3Rpb25fc291cmNlGGkgASgOMiIuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5BdWN0aW9uU291cmNlEjEKDWNvbnRhaW5zX2ZsZXgYaiAB",
+            "KA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEiwKBHJvb3QYayABKAsy",
+            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIsCgZleHBpcnkYbCAB",
             "KAsyHC5zcGlkZXJyb2NrLnByb3RvYnVmLkRhdGVLZXkSEQoJbG9fc3RyaWtl",
-            "GH8gASgBEhIKCWhpX3N0cmlrZRiCASABKAESEQoIaW5kdXN0cnkYhQEgASgJ",
-            "EjUKC3N5bWJvbF90eXBlGIgBIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "U3ltYm9sVHlwZRIYCg91X2F2Z19kYWlseV92bG0YiwEgASgCEjAKCWN1c3Rf",
-            "c2lkZRiOASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSEQoI",
-            "Y3VzdF9xdHkYkQEgASgFEhEKCGN1c3RfcHJjGJQBIAEoARIxCgxoYXNfY3Vz",
-            "dF9wcmMYlwEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI2Cg5j",
-            "dXN0X2Zpcm1fdHlwZRiaASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkZp",
-            "cm1UeXBlEhgKD2N1c3RfYWdlbnRfbVBJRBidASABKAkSGQoQY29tbV9lbmhh",
-            "bmNlbWVudBigASABKAISFAoLbm90aWNlX3VCaWQYowEgASgBEhQKC25vdGlj",
-            "ZV91QXNrGKYBIAEoARIVCgxuZXRfc3VyZl9wcmMYqQEgASgCEg8KBmlfZGF5",
-            "cxisASABKAESEAoHaV95ZWFycxivASABKAESEwoKbW9uZXlfcmF0ZRiyASAB",
-            "KAESEgoJc3RyaWtlX3B2GLUBIAEoARISCglwcnRfcHJpY2UYuAEgASgBEhMK",
-            "CnBydF9wcmljZTIYuwEgASgBEhEKCHBydF9zaXplGL4BIAEoBRISCglwcnRf",
-            "c2l6ZTIYwQEgASgFEi0KCHBydF90aW1lGMQBIAEoCzIaLmdvb2dsZS5wcm90",
-            "b2J1Zi5UaW1lc3RhbXASLwoIcHJ0X3R5cGUYxwEgASgOMhwuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5QcnRUeXBlEhEKCHBydF91UHJjGMoBIAEoARIVCgxwcnRf",
-            "c3VyZl9wcmMYzQEgASgCEhcKDnBydF9tb25leV9yYXRlGNABIAEoARIQCgd1",
-            "X3ByYzFtGNMBIAEoAhISCgliaWRfcHJjMW0Y1gEgASgCEhIKCWFza19wcmMx",
-            "bRjZASABKAISEwoKc3VyZl9wcmMxbRjcASABKAISFAoLc3VyZl9yYXRlMW0Y",
-            "3wEgASgBEhEKCHVfcHJjMTBtGOIBIAEoAhITCgpiaWRfcHJjMTBtGOUBIAEo",
-            "AhITCgphc2tfcHJjMTBtGOgBIAEoAhIUCgtzdXJmX3ByYzEwbRjrASABKAIS",
-            "FQoMc3VyZl9yYXRlMTBtGO4BIAEoARIuCgl0aW1lc3RhbXAY8QEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBodCgRQS2V5EhUKDW5vdGljZV9u",
-            "dW1iZXIYCiABKANiBnByb3RvMw=="));
+            "GG0gASgBEhEKCWhpX3N0cmlrZRhuIAEoARIQCghpbmR1c3RyeRhvIAEoCRI0",
+            "CgtzeW1ib2xfdHlwZRhwIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuU3lt",
+            "Ym9sVHlwZRIXCg91X2F2Z19kYWlseV92bG0YcSABKAISLwoJY3VzdF9zaWRl",
+            "GHIgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhAKCGN1c3Rf",
+            "cXR5GHMgASgFEhAKCGN1c3RfcHJjGHQgASgBEjAKDGhhc19jdXN0X3ByYxh1",
+            "IAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNQoOY3VzdF9maXJt",
+            "X3R5cGUYdiABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkZpcm1UeXBlEhcK",
+            "D2N1c3RfYWdlbnRfbVBJRBh3IAEoCRIYChBjb21tX2VuaGFuY2VtZW50GHgg",
+            "ASgCEhMKC25vdGljZV91QmlkGHkgASgBEhMKC25vdGljZV91QXNrGHogASgB",
+            "EhQKDG5ldF9zdXJmX3ByYxh7IAEoAhIOCgZpX2RheXMYfCABKAESDwoHaV95",
+            "ZWFycxh9IAEoARISCgptb25leV9yYXRlGH4gASgBEhEKCXN0cmlrZV9wdhh/",
+            "IAEoARISCglwcnRfcHJpY2UYgAEgASgBEhMKCnBydF9wcmljZTIYgQEgASgB",
+            "EhEKCHBydF9zaXplGIIBIAEoBRISCglwcnRfc2l6ZTIYgwEgASgFEi0KCHBy",
+            "dF90aW1lGIQBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLwoI",
+            "cHJ0X3R5cGUYhQEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5QcnRUeXBl",
+            "EhEKCHBydF91UHJjGIYBIAEoARIVCgxwcnRfc3VyZl9wcmMYhwEgASgCEhcK",
+            "DnBydF9tb25leV9yYXRlGIgBIAEoARIQCgd1X3ByYzFtGIkBIAEoAhISCgli",
+            "aWRfcHJjMW0YigEgASgCEhIKCWFza19wcmMxbRiLASABKAISEwoKc3VyZl9w",
+            "cmMxbRiMASABKAISFAoLc3VyZl9yYXRlMW0YjQEgASgBEhEKCHVfcHJjMTBt",
+            "GI4BIAEoAhITCgpiaWRfcHJjMTBtGI8BIAEoAhITCgphc2tfcHJjMTBtGJAB",
+            "IAEoAhIUCgtzdXJmX3ByYzEwbRiRASABKAISFQoMc3VyZl9yYXRlMTBtGJIB",
+            "IAEoARIuCgl0aW1lc3RhbXAYkwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
+            "bWVzdGFtcBodCgRQS2V5EhUKDW5vdGljZV9udW1iZXIYCiABKANiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -207,7 +207,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "trade_date" field.</summary>
-    public const int TradeDateFieldNumber = 103;
+    public const int TradeDateFieldNumber = 101;
     private global::Spiderrock.Protobuf.DateKey tradeDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -219,7 +219,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "is_test_auction" field.</summary>
-    public const int IsTestAuctionFieldNumber = 106;
+    public const int IsTestAuctionFieldNumber = 102;
     private global::Spiderrock.Protobuf.YesNo isTestAuction_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// if yes, auction is a test auction (not a prod/live auction)
@@ -234,7 +234,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "notice_time" field.</summary>
-    public const int NoticeTimeFieldNumber = 109;
+    public const int NoticeTimeFieldNumber = 103;
     private global::Google.Protobuf.WellKnownTypes.Timestamp noticeTime_;
     /// <summary>
     /// notice create timestamp (high precision)
@@ -249,7 +249,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "auction_type" field.</summary>
-    public const int AuctionTypeFieldNumber = 112;
+    public const int AuctionTypeFieldNumber = 104;
     private global::Spiderrock.Protobuf.AuctionType auctionType_ = global::Spiderrock.Protobuf.AuctionType.Unspecified;
     /// <summary>
     /// (eg. Block, Flash, Improvement, Facilitation, etc.)
@@ -264,7 +264,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "auction_source" field.</summary>
-    public const int AuctionSourceFieldNumber = 115;
+    public const int AuctionSourceFieldNumber = 105;
     private global::Spiderrock.Protobuf.AuctionSource auctionSource_ = global::Spiderrock.Protobuf.AuctionSource.Unspecified;
     /// <summary>
     /// source of the auction notice (eg. SRC, MIAX, etc.)
@@ -279,7 +279,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "contains_flex" field.</summary>
-    public const int ContainsFlexFieldNumber = 118;
+    public const int ContainsFlexFieldNumber = 106;
     private global::Spiderrock.Protobuf.YesNo containsFlex_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// Flex = European
@@ -294,7 +294,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "root" field.</summary>
-    public const int RootFieldNumber = 121;
+    public const int RootFieldNumber = 107;
     private global::Spiderrock.Protobuf.TickerKey root_;
     /// <summary>
     /// option root
@@ -309,7 +309,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "expiry" field.</summary>
-    public const int ExpiryFieldNumber = 124;
+    public const int ExpiryFieldNumber = 108;
     private global::Spiderrock.Protobuf.DateKey expiry_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -321,7 +321,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "lo_strike" field.</summary>
-    public const int LoStrikeFieldNumber = 127;
+    public const int LoStrikeFieldNumber = 109;
     private double loStrike_;
     /// <summary>
     /// lo strike
@@ -336,7 +336,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hi_strike" field.</summary>
-    public const int HiStrikeFieldNumber = 130;
+    public const int HiStrikeFieldNumber = 110;
     private double hiStrike_;
     /// <summary>
     /// hi strike
@@ -351,7 +351,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "industry" field.</summary>
-    public const int IndustryFieldNumber = 133;
+    public const int IndustryFieldNumber = 111;
     private string industry_ = "";
     /// <summary>
     /// industry string
@@ -366,7 +366,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "symbol_type" field.</summary>
-    public const int SymbolTypeFieldNumber = 136;
+    public const int SymbolTypeFieldNumber = 112;
     private global::Spiderrock.Protobuf.SymbolType symbolType_ = global::Spiderrock.Protobuf.SymbolType.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -378,7 +378,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_avg_daily_vlm" field.</summary>
-    public const int UAvgDailyVlmFieldNumber = 139;
+    public const int UAvgDailyVlmFieldNumber = 113;
     private float uAvgDailyVlm_;
     /// <summary>
     /// underlier average daily trading volume
@@ -393,7 +393,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_side" field.</summary>
-    public const int CustSideFieldNumber = 142;
+    public const int CustSideFieldNumber = 114;
     private global::Spiderrock.Protobuf.BuySell custSide_ = global::Spiderrock.Protobuf.BuySell.Unspecified;
     /// <summary>
     /// from AuctionNotice (if known)
@@ -408,7 +408,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_qty" field.</summary>
-    public const int CustQtyFieldNumber = 145;
+    public const int CustQtyFieldNumber = 115;
     private int custQty_;
     /// <summary>
     /// from AuctionNotice (if known)
@@ -423,7 +423,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_prc" field.</summary>
-    public const int CustPrcFieldNumber = 148;
+    public const int CustPrcFieldNumber = 116;
     private double custPrc_;
     /// <summary>
     /// from AuctionNotice (if known)
@@ -438,7 +438,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "has_cust_prc" field.</summary>
-    public const int HasCustPrcFieldNumber = 151;
+    public const int HasCustPrcFieldNumber = 117;
     private global::Spiderrock.Protobuf.YesNo hasCustPrc_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// from AuctionNotice (if known)
@@ -453,7 +453,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_firm_type" field.</summary>
-    public const int CustFirmTypeFieldNumber = 154;
+    public const int CustFirmTypeFieldNumber = 118;
     private global::Spiderrock.Protobuf.FirmType custFirmType_ = global::Spiderrock.Protobuf.FirmType.Unspecified;
     /// <summary>
     /// cust firm type (if disclosed)
@@ -468,7 +468,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cust_agent_mPID" field.</summary>
-    public const int CustAgentMPIDFieldNumber = 157;
+    public const int CustAgentMPIDFieldNumber = 119;
     private string custAgentMPID_ = "";
     /// <summary>
     /// cust agent exchange member initiating the auction (if disclosed)
@@ -483,7 +483,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "comm_enhancement" field.</summary>
-    public const int CommEnhancementFieldNumber = 160;
+    public const int CommEnhancementFieldNumber = 120;
     private float commEnhancement_;
     /// <summary>
     /// additional commission (if any) paid by responder
@@ -498,7 +498,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "notice_uBid" field.</summary>
-    public const int NoticeUBidFieldNumber = 163;
+    public const int NoticeUBidFieldNumber = 121;
     private double noticeUBid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -510,7 +510,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "notice_uAsk" field.</summary>
-    public const int NoticeUAskFieldNumber = 166;
+    public const int NoticeUAskFieldNumber = 122;
     private double noticeUAsk_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -522,7 +522,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "net_surf_prc" field.</summary>
-    public const int NetSurfPrcFieldNumber = 169;
+    public const int NetSurfPrcFieldNumber = 123;
     private float netSurfPrc_;
     /// <summary>
     /// SR Surface Price (entire package)
@@ -537,7 +537,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_days" field.</summary>
-    public const int IDaysFieldNumber = 172;
+    public const int IDaysFieldNumber = 124;
     private double iDays_;
     /// <summary>
     /// iDays = effective interest days [SR supplied]
@@ -552,7 +552,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_years" field.</summary>
-    public const int IYearsFieldNumber = 175;
+    public const int IYearsFieldNumber = 125;
     private double iYears_;
     /// <summary>
     /// iYears = iDays / 360.0
@@ -567,7 +567,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "money_rate" field.</summary>
-    public const int MoneyRateFieldNumber = 178;
+    public const int MoneyRateFieldNumber = 126;
     private double moneyRate_;
     /// <summary>
     /// effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
@@ -582,7 +582,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "strike_pv" field.</summary>
-    public const int StrikePvFieldNumber = 181;
+    public const int StrikePvFieldNumber = 127;
     private double strikePv_;
     /// <summary>
     /// strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
@@ -597,7 +597,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_price" field.</summary>
-    public const int PrtPriceFieldNumber = 184;
+    public const int PrtPriceFieldNumber = 128;
     private double prtPrice_;
     /// <summary>
     /// reported OPRA print price (pkgPrice if MLeg)
@@ -612,7 +612,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_price2" field.</summary>
-    public const int PrtPrice2FieldNumber = 187;
+    public const int PrtPrice2FieldNumber = 129;
     private double prtPrice2_;
     /// <summary>
     /// if reported as 2 separate prints at different prices (ie, partial size improvement)
@@ -627,7 +627,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_size" field.</summary>
-    public const int PrtSizeFieldNumber = 190;
+    public const int PrtSizeFieldNumber = 130;
     private int prtSize_;
     /// <summary>
     /// reported OPRA print size (pgkSize if MLeg)
@@ -642,7 +642,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_size2" field.</summary>
-    public const int PrtSize2FieldNumber = 193;
+    public const int PrtSize2FieldNumber = 131;
     private int prtSize2_;
     /// <summary>
     /// reported OPRA print size (pgkSize if MLeg)
@@ -657,7 +657,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_time" field.</summary>
-    public const int PrtTimeFieldNumber = 196;
+    public const int PrtTimeFieldNumber = 132;
     private global::Google.Protobuf.WellKnownTypes.Timestamp prtTime_;
     /// <summary>
     /// reported OPRA print time (1st print if MLeg) (high precision)
@@ -672,7 +672,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_type" field.</summary>
-    public const int PrtTypeFieldNumber = 199;
+    public const int PrtTypeFieldNumber = 133;
     private global::Spiderrock.Protobuf.PrtType prtType_ = global::Spiderrock.Protobuf.PrtType.Unspecified;
     /// <summary>
     /// reported OPRA print type
@@ -687,7 +687,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_uPrc" field.</summary>
-    public const int PrtUPrcFieldNumber = 202;
+    public const int PrtUPrcFieldNumber = 134;
     private double prtUPrc_;
     /// <summary>
     /// best estimate of uPrc @ auction print time
@@ -702,7 +702,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_surf_prc" field.</summary>
-    public const int PrtSurfPrcFieldNumber = 205;
+    public const int PrtSurfPrcFieldNumber = 135;
     private float prtSurfPrc_;
     /// <summary>
     /// surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
@@ -717,7 +717,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_money_rate" field.</summary>
-    public const int PrtMoneyRateFieldNumber = 208;
+    public const int PrtMoneyRateFieldNumber = 136;
     private double prtMoneyRate_;
     /// <summary>
     /// prtMoneyRate = (1.0 - (prtPrice / (hiStrike - loStrike)) / iYears
@@ -732,7 +732,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_prc1m" field.</summary>
-    public const int UPrc1MFieldNumber = 211;
+    public const int UPrc1MFieldNumber = 137;
     private float uPrc1M_;
     /// <summary>
     /// uPrc (mid market) @ auction print time + 1m
@@ -747,7 +747,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "bid_prc1m" field.</summary>
-    public const int BidPrc1MFieldNumber = 214;
+    public const int BidPrc1MFieldNumber = 138;
     private float bidPrc1M_;
     /// <summary>
     /// option nbbo bid @ auction print time + 1m
@@ -762,7 +762,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ask_prc1m" field.</summary>
-    public const int AskPrc1MFieldNumber = 217;
+    public const int AskPrc1MFieldNumber = 139;
     private float askPrc1M_;
     /// <summary>
     /// option nbbo ask @ auction print time + 1m
@@ -777,7 +777,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surf_prc1m" field.</summary>
-    public const int SurfPrc1MFieldNumber = 220;
+    public const int SurfPrc1MFieldNumber = 140;
     private float surfPrc1M_;
     /// <summary>
     /// surface prc @ auction print time + 1m (@ uMid)
@@ -792,7 +792,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surf_rate1m" field.</summary>
-    public const int SurfRate1MFieldNumber = 223;
+    public const int SurfRate1MFieldNumber = 141;
     private double surfRate1M_;
     /// <summary>
     /// surfRate1m = (1.0 - (surfPrc1m / (hiStrike - loStrike)) / iYears
@@ -807,7 +807,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "u_prc10m" field.</summary>
-    public const int UPrc10MFieldNumber = 226;
+    public const int UPrc10MFieldNumber = 142;
     private float uPrc10M_;
     /// <summary>
     /// uPrc (mid market) @ auction print time + 10m
@@ -822,7 +822,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "bid_prc10m" field.</summary>
-    public const int BidPrc10MFieldNumber = 229;
+    public const int BidPrc10MFieldNumber = 143;
     private float bidPrc10M_;
     /// <summary>
     /// option nbbo bid @ auction print time + 10m
@@ -837,7 +837,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ask_prc10m" field.</summary>
-    public const int AskPrc10MFieldNumber = 232;
+    public const int AskPrc10MFieldNumber = 144;
     private float askPrc10M_;
     /// <summary>
     /// option nbbo ask @ auction print time + 10m
@@ -852,7 +852,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surf_prc10m" field.</summary>
-    public const int SurfPrc10MFieldNumber = 235;
+    public const int SurfPrc10MFieldNumber = 145;
     private float surfPrc10M_;
     /// <summary>
     /// surface prc @ auction print time + 10m (@ uMid)
@@ -867,7 +867,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "surf_rate10m" field.</summary>
-    public const int SurfRate10MFieldNumber = 238;
+    public const int SurfRate10MFieldNumber = 146;
     private double surfRate10M_;
     /// <summary>
     /// surfRate10m = (1.0 - (surfPrc10m / (hiStrike - loStrike)) / iYears
@@ -882,7 +882,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 241;
+    public const int TimestampFieldNumber = 147;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1046,191 +1046,191 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Ticker);
       }
       if (tradeDate_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(TradeDate);
       }
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 6);
+        output.WriteRawTag(176, 6);
         output.WriteEnum((int) IsTestAuction);
       }
       if (noticeTime_ != null) {
-        output.WriteRawTag(234, 6);
+        output.WriteRawTag(186, 6);
         output.WriteMessage(NoticeTime);
       }
       if (AuctionType != global::Spiderrock.Protobuf.AuctionType.Unspecified) {
-        output.WriteRawTag(128, 7);
+        output.WriteRawTag(192, 6);
         output.WriteEnum((int) AuctionType);
       }
       if (AuctionSource != global::Spiderrock.Protobuf.AuctionSource.Unspecified) {
-        output.WriteRawTag(152, 7);
+        output.WriteRawTag(200, 6);
         output.WriteEnum((int) AuctionSource);
       }
       if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(176, 7);
+        output.WriteRawTag(208, 6);
         output.WriteEnum((int) ContainsFlex);
       }
       if (root_ != null) {
-        output.WriteRawTag(202, 7);
+        output.WriteRawTag(218, 6);
         output.WriteMessage(Root);
       }
       if (expiry_ != null) {
-        output.WriteRawTag(226, 7);
+        output.WriteRawTag(226, 6);
         output.WriteMessage(Expiry);
       }
       if (LoStrike != 0D) {
-        output.WriteRawTag(249, 7);
+        output.WriteRawTag(233, 6);
         output.WriteDouble(LoStrike);
       }
       if (HiStrike != 0D) {
-        output.WriteRawTag(145, 8);
+        output.WriteRawTag(241, 6);
         output.WriteDouble(HiStrike);
       }
       if (Industry.Length != 0) {
-        output.WriteRawTag(170, 8);
+        output.WriteRawTag(250, 6);
         output.WriteString(Industry);
       }
       if (SymbolType != global::Spiderrock.Protobuf.SymbolType.Unspecified) {
-        output.WriteRawTag(192, 8);
+        output.WriteRawTag(128, 7);
         output.WriteEnum((int) SymbolType);
       }
       if (UAvgDailyVlm != 0F) {
-        output.WriteRawTag(221, 8);
+        output.WriteRawTag(141, 7);
         output.WriteFloat(UAvgDailyVlm);
       }
       if (CustSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-        output.WriteRawTag(240, 8);
+        output.WriteRawTag(144, 7);
         output.WriteEnum((int) CustSide);
       }
       if (CustQty != 0) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(152, 7);
         output.WriteInt32(CustQty);
       }
       if (CustPrc != 0D) {
-        output.WriteRawTag(161, 9);
+        output.WriteRawTag(161, 7);
         output.WriteDouble(CustPrc);
       }
       if (HasCustPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(184, 9);
+        output.WriteRawTag(168, 7);
         output.WriteEnum((int) HasCustPrc);
       }
       if (CustFirmType != global::Spiderrock.Protobuf.FirmType.Unspecified) {
-        output.WriteRawTag(208, 9);
+        output.WriteRawTag(176, 7);
         output.WriteEnum((int) CustFirmType);
       }
       if (CustAgentMPID.Length != 0) {
-        output.WriteRawTag(234, 9);
+        output.WriteRawTag(186, 7);
         output.WriteString(CustAgentMPID);
       }
       if (CommEnhancement != 0F) {
-        output.WriteRawTag(133, 10);
+        output.WriteRawTag(197, 7);
         output.WriteFloat(CommEnhancement);
       }
       if (NoticeUBid != 0D) {
-        output.WriteRawTag(153, 10);
+        output.WriteRawTag(201, 7);
         output.WriteDouble(NoticeUBid);
       }
       if (NoticeUAsk != 0D) {
-        output.WriteRawTag(177, 10);
+        output.WriteRawTag(209, 7);
         output.WriteDouble(NoticeUAsk);
       }
       if (NetSurfPrc != 0F) {
-        output.WriteRawTag(205, 10);
+        output.WriteRawTag(221, 7);
         output.WriteFloat(NetSurfPrc);
       }
       if (IDays != 0D) {
-        output.WriteRawTag(225, 10);
+        output.WriteRawTag(225, 7);
         output.WriteDouble(IDays);
       }
       if (IYears != 0D) {
-        output.WriteRawTag(249, 10);
+        output.WriteRawTag(233, 7);
         output.WriteDouble(IYears);
       }
       if (MoneyRate != 0D) {
-        output.WriteRawTag(145, 11);
+        output.WriteRawTag(241, 7);
         output.WriteDouble(MoneyRate);
       }
       if (StrikePv != 0D) {
-        output.WriteRawTag(169, 11);
+        output.WriteRawTag(249, 7);
         output.WriteDouble(StrikePv);
       }
       if (PrtPrice != 0D) {
-        output.WriteRawTag(193, 11);
+        output.WriteRawTag(129, 8);
         output.WriteDouble(PrtPrice);
       }
       if (PrtPrice2 != 0D) {
-        output.WriteRawTag(217, 11);
+        output.WriteRawTag(137, 8);
         output.WriteDouble(PrtPrice2);
       }
       if (PrtSize != 0) {
-        output.WriteRawTag(240, 11);
+        output.WriteRawTag(144, 8);
         output.WriteInt32(PrtSize);
       }
       if (PrtSize2 != 0) {
-        output.WriteRawTag(136, 12);
+        output.WriteRawTag(152, 8);
         output.WriteInt32(PrtSize2);
       }
       if (prtTime_ != null) {
-        output.WriteRawTag(162, 12);
+        output.WriteRawTag(162, 8);
         output.WriteMessage(PrtTime);
       }
       if (PrtType != global::Spiderrock.Protobuf.PrtType.Unspecified) {
-        output.WriteRawTag(184, 12);
+        output.WriteRawTag(168, 8);
         output.WriteEnum((int) PrtType);
       }
       if (PrtUPrc != 0D) {
-        output.WriteRawTag(209, 12);
+        output.WriteRawTag(177, 8);
         output.WriteDouble(PrtUPrc);
       }
       if (PrtSurfPrc != 0F) {
-        output.WriteRawTag(237, 12);
+        output.WriteRawTag(189, 8);
         output.WriteFloat(PrtSurfPrc);
       }
       if (PrtMoneyRate != 0D) {
-        output.WriteRawTag(129, 13);
+        output.WriteRawTag(193, 8);
         output.WriteDouble(PrtMoneyRate);
       }
       if (UPrc1M != 0F) {
-        output.WriteRawTag(157, 13);
+        output.WriteRawTag(205, 8);
         output.WriteFloat(UPrc1M);
       }
       if (BidPrc1M != 0F) {
-        output.WriteRawTag(181, 13);
+        output.WriteRawTag(213, 8);
         output.WriteFloat(BidPrc1M);
       }
       if (AskPrc1M != 0F) {
-        output.WriteRawTag(205, 13);
+        output.WriteRawTag(221, 8);
         output.WriteFloat(AskPrc1M);
       }
       if (SurfPrc1M != 0F) {
-        output.WriteRawTag(229, 13);
+        output.WriteRawTag(229, 8);
         output.WriteFloat(SurfPrc1M);
       }
       if (SurfRate1M != 0D) {
-        output.WriteRawTag(249, 13);
+        output.WriteRawTag(233, 8);
         output.WriteDouble(SurfRate1M);
       }
       if (UPrc10M != 0F) {
-        output.WriteRawTag(149, 14);
+        output.WriteRawTag(245, 8);
         output.WriteFloat(UPrc10M);
       }
       if (BidPrc10M != 0F) {
-        output.WriteRawTag(173, 14);
+        output.WriteRawTag(253, 8);
         output.WriteFloat(BidPrc10M);
       }
       if (AskPrc10M != 0F) {
-        output.WriteRawTag(197, 14);
+        output.WriteRawTag(133, 9);
         output.WriteFloat(AskPrc10M);
       }
       if (SurfPrc10M != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(141, 9);
         output.WriteFloat(SurfPrc10M);
       }
       if (SurfRate10M != 0D) {
-        output.WriteRawTag(241, 14);
+        output.WriteRawTag(145, 9);
         output.WriteDouble(SurfRate10M);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(138, 15);
+        output.WriteRawTag(154, 9);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -1256,191 +1256,191 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Ticker);
       }
       if (tradeDate_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(TradeDate);
       }
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 6);
+        output.WriteRawTag(176, 6);
         output.WriteEnum((int) IsTestAuction);
       }
       if (noticeTime_ != null) {
-        output.WriteRawTag(234, 6);
+        output.WriteRawTag(186, 6);
         output.WriteMessage(NoticeTime);
       }
       if (AuctionType != global::Spiderrock.Protobuf.AuctionType.Unspecified) {
-        output.WriteRawTag(128, 7);
+        output.WriteRawTag(192, 6);
         output.WriteEnum((int) AuctionType);
       }
       if (AuctionSource != global::Spiderrock.Protobuf.AuctionSource.Unspecified) {
-        output.WriteRawTag(152, 7);
+        output.WriteRawTag(200, 6);
         output.WriteEnum((int) AuctionSource);
       }
       if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(176, 7);
+        output.WriteRawTag(208, 6);
         output.WriteEnum((int) ContainsFlex);
       }
       if (root_ != null) {
-        output.WriteRawTag(202, 7);
+        output.WriteRawTag(218, 6);
         output.WriteMessage(Root);
       }
       if (expiry_ != null) {
-        output.WriteRawTag(226, 7);
+        output.WriteRawTag(226, 6);
         output.WriteMessage(Expiry);
       }
       if (LoStrike != 0D) {
-        output.WriteRawTag(249, 7);
+        output.WriteRawTag(233, 6);
         output.WriteDouble(LoStrike);
       }
       if (HiStrike != 0D) {
-        output.WriteRawTag(145, 8);
+        output.WriteRawTag(241, 6);
         output.WriteDouble(HiStrike);
       }
       if (Industry.Length != 0) {
-        output.WriteRawTag(170, 8);
+        output.WriteRawTag(250, 6);
         output.WriteString(Industry);
       }
       if (SymbolType != global::Spiderrock.Protobuf.SymbolType.Unspecified) {
-        output.WriteRawTag(192, 8);
+        output.WriteRawTag(128, 7);
         output.WriteEnum((int) SymbolType);
       }
       if (UAvgDailyVlm != 0F) {
-        output.WriteRawTag(221, 8);
+        output.WriteRawTag(141, 7);
         output.WriteFloat(UAvgDailyVlm);
       }
       if (CustSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
-        output.WriteRawTag(240, 8);
+        output.WriteRawTag(144, 7);
         output.WriteEnum((int) CustSide);
       }
       if (CustQty != 0) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(152, 7);
         output.WriteInt32(CustQty);
       }
       if (CustPrc != 0D) {
-        output.WriteRawTag(161, 9);
+        output.WriteRawTag(161, 7);
         output.WriteDouble(CustPrc);
       }
       if (HasCustPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(184, 9);
+        output.WriteRawTag(168, 7);
         output.WriteEnum((int) HasCustPrc);
       }
       if (CustFirmType != global::Spiderrock.Protobuf.FirmType.Unspecified) {
-        output.WriteRawTag(208, 9);
+        output.WriteRawTag(176, 7);
         output.WriteEnum((int) CustFirmType);
       }
       if (CustAgentMPID.Length != 0) {
-        output.WriteRawTag(234, 9);
+        output.WriteRawTag(186, 7);
         output.WriteString(CustAgentMPID);
       }
       if (CommEnhancement != 0F) {
-        output.WriteRawTag(133, 10);
+        output.WriteRawTag(197, 7);
         output.WriteFloat(CommEnhancement);
       }
       if (NoticeUBid != 0D) {
-        output.WriteRawTag(153, 10);
+        output.WriteRawTag(201, 7);
         output.WriteDouble(NoticeUBid);
       }
       if (NoticeUAsk != 0D) {
-        output.WriteRawTag(177, 10);
+        output.WriteRawTag(209, 7);
         output.WriteDouble(NoticeUAsk);
       }
       if (NetSurfPrc != 0F) {
-        output.WriteRawTag(205, 10);
+        output.WriteRawTag(221, 7);
         output.WriteFloat(NetSurfPrc);
       }
       if (IDays != 0D) {
-        output.WriteRawTag(225, 10);
+        output.WriteRawTag(225, 7);
         output.WriteDouble(IDays);
       }
       if (IYears != 0D) {
-        output.WriteRawTag(249, 10);
+        output.WriteRawTag(233, 7);
         output.WriteDouble(IYears);
       }
       if (MoneyRate != 0D) {
-        output.WriteRawTag(145, 11);
+        output.WriteRawTag(241, 7);
         output.WriteDouble(MoneyRate);
       }
       if (StrikePv != 0D) {
-        output.WriteRawTag(169, 11);
+        output.WriteRawTag(249, 7);
         output.WriteDouble(StrikePv);
       }
       if (PrtPrice != 0D) {
-        output.WriteRawTag(193, 11);
+        output.WriteRawTag(129, 8);
         output.WriteDouble(PrtPrice);
       }
       if (PrtPrice2 != 0D) {
-        output.WriteRawTag(217, 11);
+        output.WriteRawTag(137, 8);
         output.WriteDouble(PrtPrice2);
       }
       if (PrtSize != 0) {
-        output.WriteRawTag(240, 11);
+        output.WriteRawTag(144, 8);
         output.WriteInt32(PrtSize);
       }
       if (PrtSize2 != 0) {
-        output.WriteRawTag(136, 12);
+        output.WriteRawTag(152, 8);
         output.WriteInt32(PrtSize2);
       }
       if (prtTime_ != null) {
-        output.WriteRawTag(162, 12);
+        output.WriteRawTag(162, 8);
         output.WriteMessage(PrtTime);
       }
       if (PrtType != global::Spiderrock.Protobuf.PrtType.Unspecified) {
-        output.WriteRawTag(184, 12);
+        output.WriteRawTag(168, 8);
         output.WriteEnum((int) PrtType);
       }
       if (PrtUPrc != 0D) {
-        output.WriteRawTag(209, 12);
+        output.WriteRawTag(177, 8);
         output.WriteDouble(PrtUPrc);
       }
       if (PrtSurfPrc != 0F) {
-        output.WriteRawTag(237, 12);
+        output.WriteRawTag(189, 8);
         output.WriteFloat(PrtSurfPrc);
       }
       if (PrtMoneyRate != 0D) {
-        output.WriteRawTag(129, 13);
+        output.WriteRawTag(193, 8);
         output.WriteDouble(PrtMoneyRate);
       }
       if (UPrc1M != 0F) {
-        output.WriteRawTag(157, 13);
+        output.WriteRawTag(205, 8);
         output.WriteFloat(UPrc1M);
       }
       if (BidPrc1M != 0F) {
-        output.WriteRawTag(181, 13);
+        output.WriteRawTag(213, 8);
         output.WriteFloat(BidPrc1M);
       }
       if (AskPrc1M != 0F) {
-        output.WriteRawTag(205, 13);
+        output.WriteRawTag(221, 8);
         output.WriteFloat(AskPrc1M);
       }
       if (SurfPrc1M != 0F) {
-        output.WriteRawTag(229, 13);
+        output.WriteRawTag(229, 8);
         output.WriteFloat(SurfPrc1M);
       }
       if (SurfRate1M != 0D) {
-        output.WriteRawTag(249, 13);
+        output.WriteRawTag(233, 8);
         output.WriteDouble(SurfRate1M);
       }
       if (UPrc10M != 0F) {
-        output.WriteRawTag(149, 14);
+        output.WriteRawTag(245, 8);
         output.WriteFloat(UPrc10M);
       }
       if (BidPrc10M != 0F) {
-        output.WriteRawTag(173, 14);
+        output.WriteRawTag(253, 8);
         output.WriteFloat(BidPrc10M);
       }
       if (AskPrc10M != 0F) {
-        output.WriteRawTag(197, 14);
+        output.WriteRawTag(133, 9);
         output.WriteFloat(AskPrc10M);
       }
       if (SurfPrc10M != 0F) {
-        output.WriteRawTag(221, 14);
+        output.WriteRawTag(141, 9);
         output.WriteFloat(SurfPrc10M);
       }
       if (SurfRate10M != 0D) {
-        output.WriteRawTag(241, 14);
+        output.WriteRawTag(145, 9);
         output.WriteDouble(SurfRate10M);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(138, 15);
+        output.WriteRawTag(154, 9);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -1828,206 +1828,206 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 826: {
+          case 810: {
             if (tradeDate_ == null) {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
             break;
           }
-          case 848: {
+          case 816: {
             IsTestAuction = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 874: {
+          case 826: {
             if (noticeTime_ == null) {
               NoticeTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(NoticeTime);
             break;
           }
-          case 896: {
+          case 832: {
             AuctionType = (global::Spiderrock.Protobuf.AuctionType) input.ReadEnum();
             break;
           }
-          case 920: {
+          case 840: {
             AuctionSource = (global::Spiderrock.Protobuf.AuctionSource) input.ReadEnum();
             break;
           }
-          case 944: {
+          case 848: {
             ContainsFlex = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 970: {
+          case 858: {
             if (root_ == null) {
               Root = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Root);
             break;
           }
-          case 994: {
+          case 866: {
             if (expiry_ == null) {
               Expiry = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(Expiry);
             break;
           }
-          case 1017: {
+          case 873: {
             LoStrike = input.ReadDouble();
             break;
           }
-          case 1041: {
+          case 881: {
             HiStrike = input.ReadDouble();
             break;
           }
-          case 1066: {
+          case 890: {
             Industry = input.ReadString();
             break;
           }
-          case 1088: {
+          case 896: {
             SymbolType = (global::Spiderrock.Protobuf.SymbolType) input.ReadEnum();
             break;
           }
-          case 1117: {
+          case 909: {
             UAvgDailyVlm = input.ReadFloat();
             break;
           }
-          case 1136: {
+          case 912: {
             CustSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
             break;
           }
-          case 1160: {
+          case 920: {
             CustQty = input.ReadInt32();
             break;
           }
-          case 1185: {
+          case 929: {
             CustPrc = input.ReadDouble();
             break;
           }
-          case 1208: {
+          case 936: {
             HasCustPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1232: {
+          case 944: {
             CustFirmType = (global::Spiderrock.Protobuf.FirmType) input.ReadEnum();
             break;
           }
-          case 1258: {
+          case 954: {
             CustAgentMPID = input.ReadString();
             break;
           }
-          case 1285: {
+          case 965: {
             CommEnhancement = input.ReadFloat();
             break;
           }
-          case 1305: {
+          case 969: {
             NoticeUBid = input.ReadDouble();
             break;
           }
-          case 1329: {
+          case 977: {
             NoticeUAsk = input.ReadDouble();
             break;
           }
-          case 1357: {
+          case 989: {
             NetSurfPrc = input.ReadFloat();
             break;
           }
-          case 1377: {
+          case 993: {
             IDays = input.ReadDouble();
             break;
           }
-          case 1401: {
+          case 1001: {
             IYears = input.ReadDouble();
             break;
           }
-          case 1425: {
+          case 1009: {
             MoneyRate = input.ReadDouble();
             break;
           }
-          case 1449: {
+          case 1017: {
             StrikePv = input.ReadDouble();
             break;
           }
-          case 1473: {
+          case 1025: {
             PrtPrice = input.ReadDouble();
             break;
           }
-          case 1497: {
+          case 1033: {
             PrtPrice2 = input.ReadDouble();
             break;
           }
-          case 1520: {
+          case 1040: {
             PrtSize = input.ReadInt32();
             break;
           }
-          case 1544: {
+          case 1048: {
             PrtSize2 = input.ReadInt32();
             break;
           }
-          case 1570: {
+          case 1058: {
             if (prtTime_ == null) {
               PrtTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(PrtTime);
             break;
           }
-          case 1592: {
+          case 1064: {
             PrtType = (global::Spiderrock.Protobuf.PrtType) input.ReadEnum();
             break;
           }
-          case 1617: {
+          case 1073: {
             PrtUPrc = input.ReadDouble();
             break;
           }
-          case 1645: {
+          case 1085: {
             PrtSurfPrc = input.ReadFloat();
             break;
           }
-          case 1665: {
+          case 1089: {
             PrtMoneyRate = input.ReadDouble();
             break;
           }
-          case 1693: {
+          case 1101: {
             UPrc1M = input.ReadFloat();
             break;
           }
-          case 1717: {
+          case 1109: {
             BidPrc1M = input.ReadFloat();
             break;
           }
-          case 1741: {
+          case 1117: {
             AskPrc1M = input.ReadFloat();
             break;
           }
-          case 1765: {
+          case 1125: {
             SurfPrc1M = input.ReadFloat();
             break;
           }
-          case 1785: {
+          case 1129: {
             SurfRate1M = input.ReadDouble();
             break;
           }
-          case 1813: {
+          case 1141: {
             UPrc10M = input.ReadFloat();
             break;
           }
-          case 1837: {
+          case 1149: {
             BidPrc10M = input.ReadFloat();
             break;
           }
-          case 1861: {
+          case 1157: {
             AskPrc10M = input.ReadFloat();
             break;
           }
-          case 1885: {
+          case 1165: {
             SurfPrc10M = input.ReadFloat();
             break;
           }
-          case 1905: {
+          case 1169: {
             SurfRate10M = input.ReadDouble();
             break;
           }
-          case 1930: {
+          case 1178: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -2070,206 +2070,206 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 826: {
+          case 810: {
             if (tradeDate_ == null) {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
             break;
           }
-          case 848: {
+          case 816: {
             IsTestAuction = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 874: {
+          case 826: {
             if (noticeTime_ == null) {
               NoticeTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(NoticeTime);
             break;
           }
-          case 896: {
+          case 832: {
             AuctionType = (global::Spiderrock.Protobuf.AuctionType) input.ReadEnum();
             break;
           }
-          case 920: {
+          case 840: {
             AuctionSource = (global::Spiderrock.Protobuf.AuctionSource) input.ReadEnum();
             break;
           }
-          case 944: {
+          case 848: {
             ContainsFlex = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 970: {
+          case 858: {
             if (root_ == null) {
               Root = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Root);
             break;
           }
-          case 994: {
+          case 866: {
             if (expiry_ == null) {
               Expiry = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(Expiry);
             break;
           }
-          case 1017: {
+          case 873: {
             LoStrike = input.ReadDouble();
             break;
           }
-          case 1041: {
+          case 881: {
             HiStrike = input.ReadDouble();
             break;
           }
-          case 1066: {
+          case 890: {
             Industry = input.ReadString();
             break;
           }
-          case 1088: {
+          case 896: {
             SymbolType = (global::Spiderrock.Protobuf.SymbolType) input.ReadEnum();
             break;
           }
-          case 1117: {
+          case 909: {
             UAvgDailyVlm = input.ReadFloat();
             break;
           }
-          case 1136: {
+          case 912: {
             CustSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
             break;
           }
-          case 1160: {
+          case 920: {
             CustQty = input.ReadInt32();
             break;
           }
-          case 1185: {
+          case 929: {
             CustPrc = input.ReadDouble();
             break;
           }
-          case 1208: {
+          case 936: {
             HasCustPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1232: {
+          case 944: {
             CustFirmType = (global::Spiderrock.Protobuf.FirmType) input.ReadEnum();
             break;
           }
-          case 1258: {
+          case 954: {
             CustAgentMPID = input.ReadString();
             break;
           }
-          case 1285: {
+          case 965: {
             CommEnhancement = input.ReadFloat();
             break;
           }
-          case 1305: {
+          case 969: {
             NoticeUBid = input.ReadDouble();
             break;
           }
-          case 1329: {
+          case 977: {
             NoticeUAsk = input.ReadDouble();
             break;
           }
-          case 1357: {
+          case 989: {
             NetSurfPrc = input.ReadFloat();
             break;
           }
-          case 1377: {
+          case 993: {
             IDays = input.ReadDouble();
             break;
           }
-          case 1401: {
+          case 1001: {
             IYears = input.ReadDouble();
             break;
           }
-          case 1425: {
+          case 1009: {
             MoneyRate = input.ReadDouble();
             break;
           }
-          case 1449: {
+          case 1017: {
             StrikePv = input.ReadDouble();
             break;
           }
-          case 1473: {
+          case 1025: {
             PrtPrice = input.ReadDouble();
             break;
           }
-          case 1497: {
+          case 1033: {
             PrtPrice2 = input.ReadDouble();
             break;
           }
-          case 1520: {
+          case 1040: {
             PrtSize = input.ReadInt32();
             break;
           }
-          case 1544: {
+          case 1048: {
             PrtSize2 = input.ReadInt32();
             break;
           }
-          case 1570: {
+          case 1058: {
             if (prtTime_ == null) {
               PrtTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(PrtTime);
             break;
           }
-          case 1592: {
+          case 1064: {
             PrtType = (global::Spiderrock.Protobuf.PrtType) input.ReadEnum();
             break;
           }
-          case 1617: {
+          case 1073: {
             PrtUPrc = input.ReadDouble();
             break;
           }
-          case 1645: {
+          case 1085: {
             PrtSurfPrc = input.ReadFloat();
             break;
           }
-          case 1665: {
+          case 1089: {
             PrtMoneyRate = input.ReadDouble();
             break;
           }
-          case 1693: {
+          case 1101: {
             UPrc1M = input.ReadFloat();
             break;
           }
-          case 1717: {
+          case 1109: {
             BidPrc1M = input.ReadFloat();
             break;
           }
-          case 1741: {
+          case 1117: {
             AskPrc1M = input.ReadFloat();
             break;
           }
-          case 1765: {
+          case 1125: {
             SurfPrc1M = input.ReadFloat();
             break;
           }
-          case 1785: {
+          case 1129: {
             SurfRate1M = input.ReadDouble();
             break;
           }
-          case 1813: {
+          case 1141: {
             UPrc10M = input.ReadFloat();
             break;
           }
-          case 1837: {
+          case 1149: {
             BidPrc10M = input.ReadFloat();
             break;
           }
-          case 1861: {
+          case 1157: {
             AskPrc10M = input.ReadFloat();
             break;
           }
-          case 1885: {
+          case 1165: {
             SurfPrc10M = input.ReadFloat();
             break;
           }
-          case 1905: {
+          case 1169: {
             SurfRate10M = input.ReadDouble();
             break;
           }
-          case 1930: {
+          case 1178: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

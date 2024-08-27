@@ -29,11 +29,11 @@ namespace Spiderrock.Protobuf {
             "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLNAgoMTm90aWNlQ2FuY2Vs",
             "EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdl",
             "TWV0YWRhdGESNAoEcGtleRgCIAEoCzImLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "Tm90aWNlQ2FuY2VsLlBLZXkSLgoGdGlja2VyGGQgASgLMh4uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhnIAEoCzIcLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRItCgl0aW1lc3RhbXAYaiABKAsy",
+            "Tm90aWNlQ2FuY2VsLlBLZXkSLgoGdGlja2VyGGUgASgLMh4uc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0ZRhmIAEoCzIcLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRItCgl0aW1lc3RhbXAYZCABKAsy",
             "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGkEKBFBLZXkSFQoNbm90aWNl",
-            "X251bWJlchgKIAEoAxINCgVhY2NudBgLIAEoCRITCgtjbGllbnRfZmlybRgM",
+            "X251bWJlchgNIAEoAxINCgVhY2NudBgLIAEoCRITCgtjbGllbnRfZmlybRgM",
             "IAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
@@ -118,7 +118,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ticker" field.</summary>
-    public const int TickerFieldNumber = 100;
+    public const int TickerFieldNumber = 101;
     private global::Spiderrock.Protobuf.TickerKey ticker_;
     /// <summary>
     /// (filled in on server) underlier ticker
@@ -133,7 +133,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "trade_date" field.</summary>
-    public const int TradeDateFieldNumber = 103;
+    public const int TradeDateFieldNumber = 102;
     private global::Spiderrock.Protobuf.DateKey tradeDate_;
     /// <summary>
     /// (filled in on server)
@@ -148,7 +148,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 106;
+    public const int TimestampFieldNumber = 100;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -217,17 +217,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (ticker_ != null) {
+      if (timestamp_ != null) {
         output.WriteRawTag(162, 6);
+        output.WriteMessage(Timestamp);
+      }
+      if (ticker_ != null) {
+        output.WriteRawTag(170, 6);
         output.WriteMessage(Ticker);
       }
       if (tradeDate_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(178, 6);
         output.WriteMessage(TradeDate);
-      }
-      if (timestamp_ != null) {
-        output.WriteRawTag(210, 6);
-        output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -247,17 +247,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (ticker_ != null) {
+      if (timestamp_ != null) {
         output.WriteRawTag(162, 6);
+        output.WriteMessage(Timestamp);
+      }
+      if (ticker_ != null) {
+        output.WriteRawTag(170, 6);
         output.WriteMessage(Ticker);
       }
       if (tradeDate_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(178, 6);
         output.WriteMessage(TradeDate);
-      }
-      if (timestamp_ != null) {
-        output.WriteRawTag(210, 6);
-        output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -356,24 +356,24 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 802: {
+            if (timestamp_ == null) {
+              Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(Timestamp);
+            break;
+          }
+          case 810: {
             if (ticker_ == null) {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
             break;
           }
-          case 826: {
+          case 818: {
             if (tradeDate_ == null) {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
-            break;
-          }
-          case 850: {
-            if (timestamp_ == null) {
-              Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(Timestamp);
             break;
           }
         }
@@ -406,24 +406,24 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 802: {
+            if (timestamp_ == null) {
+              Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(Timestamp);
+            break;
+          }
+          case 810: {
             if (ticker_ == null) {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
             break;
           }
-          case 826: {
+          case 818: {
             if (tradeDate_ == null) {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
-            break;
-          }
-          case 850: {
-            if (timestamp_ == null) {
-              Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(Timestamp);
             break;
           }
         }
@@ -483,7 +483,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "notice_number" field.</summary>
-        public const int NoticeNumberFieldNumber = 10;
+        public const int NoticeNumberFieldNumber = 13;
         private long noticeNumber_;
         /// <summary>
         /// (required) AuctionNotice.noticeNumber
@@ -573,10 +573,6 @@ namespace Spiderrock.Protobuf {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (NoticeNumber != 0L) {
-            output.WriteRawTag(80);
-            output.WriteInt64(NoticeNumber);
-          }
           if (Accnt.Length != 0) {
             output.WriteRawTag(90);
             output.WriteString(Accnt);
@@ -584,6 +580,10 @@ namespace Spiderrock.Protobuf {
           if (ClientFirm.Length != 0) {
             output.WriteRawTag(98);
             output.WriteString(ClientFirm);
+          }
+          if (NoticeNumber != 0L) {
+            output.WriteRawTag(104);
+            output.WriteInt64(NoticeNumber);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -595,10 +595,6 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (NoticeNumber != 0L) {
-            output.WriteRawTag(80);
-            output.WriteInt64(NoticeNumber);
-          }
           if (Accnt.Length != 0) {
             output.WriteRawTag(90);
             output.WriteString(Accnt);
@@ -606,6 +602,10 @@ namespace Spiderrock.Protobuf {
           if (ClientFirm.Length != 0) {
             output.WriteRawTag(98);
             output.WriteString(ClientFirm);
+          }
+          if (NoticeNumber != 0L) {
+            output.WriteRawTag(104);
+            output.WriteInt64(NoticeNumber);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -662,16 +662,16 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 80: {
-                NoticeNumber = input.ReadInt64();
-                break;
-              }
               case 90: {
                 Accnt = input.ReadString();
                 break;
               }
               case 98: {
                 ClientFirm = input.ReadString();
+                break;
+              }
+              case 104: {
+                NoticeNumber = input.ReadInt64();
                 break;
               }
             }
@@ -689,16 +689,16 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 80: {
-                NoticeNumber = input.ReadInt64();
-                break;
-              }
               case 90: {
                 Accnt = input.ReadString();
                 break;
               }
               case 98: {
                 ClientFirm = input.ReadString();
+                break;
+              }
+              case 104: {
+                NoticeNumber = input.ReadInt64();
                 break;
               }
             }

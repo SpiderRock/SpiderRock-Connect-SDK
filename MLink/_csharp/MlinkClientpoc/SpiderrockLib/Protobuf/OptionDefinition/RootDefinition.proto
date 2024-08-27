@@ -18,8 +18,8 @@ message RootDefinition {
 
     message Exchange {
         
-        OptExch opt_exch = 223;
-        string native_root = 226;
+        OptExch opt_exch = 220;
+        string native_root = 221;
     }
 
     message Underlying {
@@ -61,6 +61,7 @@ message RootDefinition {
     float cash_on_exercise = 178; // note: cashOnExercise is positive if it decreases the effective strike price
     int32 underliers_per_cn = 181; // note: always 100 if underlying list is in use
     double premium_mult = 184; // note: OCC premium/strike multiplier (usually 100)
+    float symbol_ratio = 185; // note: currently used when AdjConvention is None, value of 0 implies symbolRatio is 1
     AdjConvention adj_convention = 187;
     OptPriceInc opt_price_inc = 190;
     PriceFormat price_format = 193; // price display format
@@ -71,7 +72,7 @@ message RootDefinition {
     string ric_root = 218; // RIC Root
     google.protobuf.Timestamp timestamp = 208;
     PricingSource_V7 pricing_source__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]
-    repeated Exchange exchange = 220;
+    repeated Exchange exchange = 219;
     repeated Underlying underlying = 211;
 }
 

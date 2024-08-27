@@ -25,7 +25,6 @@ message SymbolRiskSummaryV5 {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string risk_server_code = 103; // SR risk server code that published this record
     string sector = 106; // SymbolControl.sector: user defined sector code
     int32 industry = 109; // industry code [00000000]
     float beta = 112; // beta (usually beta to SPX; see AccountConfig.betaSource)
