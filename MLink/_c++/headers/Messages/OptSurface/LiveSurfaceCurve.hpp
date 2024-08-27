@@ -85,10 +85,10 @@ namespace api {
     DECL_STRONG_TYPE(sdiv__float, float);
     #endif//_sdiv__float__GUARD__
 
-    #ifndef _ddiv__GUARD__
-    #define _ddiv__GUARD__
-    DECL_STRONG_TYPE(ddiv, float);
-    #endif//_ddiv__GUARD__
+    #ifndef _ddiv__float__GUARD__
+    #define _ddiv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv__float, float);
+    #endif//_ddiv__float__GUARD__
 
     #ifndef _ddiv_pv__float__GUARD__
     #define _ddiv_pv__float__GUARD__
@@ -864,7 +864,7 @@ namespace api {
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
-        using ddiv = spiderrock::protobuf::api::ddiv;
+        using ddiv = spiderrock::protobuf::api::ddiv__float;
         using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using ddiv_source = spiderrock::protobuf::api::ddiv_source;
         using symbol_ratio = spiderrock::protobuf::api::symbol_ratio;

@@ -387,16 +387,16 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(114,m_shares_per_contract);
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(115,m_native_exch_symbol);
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(116,m_activ_symbology);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(140,m_shares_per_contract);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(143,m_native_exch_symbol);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(146,m_activ_symbology);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,114,m_shares_per_contract);
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,115,static_cast<string>(m_native_exch_symbol));
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,116,static_cast<string>(m_activ_symbology));
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,140,m_shares_per_contract);
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,143,static_cast<string>(m_native_exch_symbol));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,146,static_cast<string>(m_activ_symbology));
             return dest;
         }
 
@@ -413,13 +413,13 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 114: {m_shares_per_contract = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 140: {m_shares_per_contract = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 115: {m_native_exch_symbol = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 143: {m_native_exch_symbol = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 116: {m_activ_symbology = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 146: {m_activ_symbology = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -741,7 +741,7 @@ namespace api {
             }
             if ( IncludeMultihedgeUnderlying()) {
                 for (auto& item : m_multihedge_underlying) {
-					totalSize += SRProtobufCPP::TagCodec::Size(113, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(137, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -786,7 +786,7 @@ namespace api {
             }
             if ( IncludeMultihedgeUnderlying()) {
                 for (auto& item : m_multihedge_underlying) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 113, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 137, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -879,7 +879,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 113: {
+                    case 137: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             multihedge_underlying item_multihedge_underlying;

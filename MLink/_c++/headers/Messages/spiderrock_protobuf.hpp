@@ -26,6 +26,7 @@
 #include "FutSummaryData/FutureMinuteBar.hpp"
 #include "FutureDefinition/CCodeDefinition.hpp"
 #include "FutureDefinition/ProductDefinitionV2.hpp"
+#include "FxMktData/CurrencyConversion.hpp"
 #include "GlobalDefinition/GlobalDividends.hpp"
 #include "GlobalDefinition/GlobalRates.hpp"
 #include "GlobalDefinition/StockEarningsCalendar_Extern.hpp"
@@ -79,8 +80,11 @@
 #include "OptSurface/LiveSurfaceFixedGrid.hpp"
 #include "OptSurface/LiveSurfaceFixedTerm.hpp"
 #include "OptSurface/OptionAtmMinuteBarData.hpp"
+#include "RiskCalc/GetOptionBasket.hpp"
 #include "RiskCalc/GetOptionPrice.hpp"
 #include "RiskCalc/GetOptionVolatility.hpp"
+#include "RiskCalc/OptionItemCalc.hpp"
+#include "RiskCalc/OptionItemDef.hpp"
 #include "SpreadDefinition/SpreadDefinition.hpp"
 #include "SpreadDefinition/SpreadExchDefinition.hpp"
 #include "SpreadExchData/SpreadExchOrder.hpp"
@@ -129,6 +133,7 @@ class Observer {
     FutureMinuteBar msgFutureMinuteBar{};
     CCodeDefinition msgCCodeDefinition{};
     ProductDefinitionV2 msgProductDefinitionV2{};
+    CurrencyConversion msgCurrencyConversion{};
     GlobalDividends msgGlobalDividends{};
     GlobalRates msgGlobalRates{};
     StockEarningsCalendar_Extern msgStockEarningsCalendar_Extern{};
@@ -182,8 +187,11 @@ class Observer {
     LiveSurfaceFixedGrid msgLiveSurfaceFixedGrid{};
     LiveSurfaceFixedTerm msgLiveSurfaceFixedTerm{};
     OptionAtmMinuteBarData msgOptionAtmMinuteBarData{};
+    GetOptionBasket msgGetOptionBasket{};
     GetOptionPrice msgGetOptionPrice{};
     GetOptionVolatility msgGetOptionVolatility{};
+    OptionItemCalc msgOptionItemCalc{};
+    OptionItemDef msgOptionItemDef{};
     SpreadDefinition msgSpreadDefinition{};
     SpreadExchDefinition msgSpreadExchDefinition{};
     SpreadExchOrder msgSpreadExchOrder{};
@@ -374,6 +382,12 @@ class Observer {
 			    msgProductDefinitionV2.Clear();
                 msgProductDefinitionV2.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const ProductDefinitionV2 &)msgProductDefinitionV2);
+                break;
+            }
+            case 2540: {  // CurrencyConversion
+			    msgCurrencyConversion.Clear();
+                msgCurrencyConversion.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const CurrencyConversion &)msgCurrencyConversion);
                 break;
             }
             case 3590: {  // GlobalDividends
@@ -694,6 +708,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const OptionAtmMinuteBarData &)msgOptionAtmMinuteBarData);
                 break;
             }
+            case 3485: {  // GetOptionBasket
+			    msgGetOptionBasket.Clear();
+                msgGetOptionBasket.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const GetOptionBasket &)msgGetOptionBasket);
+                break;
+            }
             case 3335: {  // GetOptionPrice
 			    msgGetOptionPrice.Clear();
                 msgGetOptionPrice.ParseFromArray(buf, len);
@@ -704,6 +724,18 @@ class Observer {
 			    msgGetOptionVolatility.Clear();
                 msgGetOptionVolatility.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const GetOptionVolatility &)msgGetOptionVolatility);
+                break;
+            }
+            case 3487: {  // OptionItemCalc
+			    msgOptionItemCalc.Clear();
+                msgOptionItemCalc.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const OptionItemCalc &)msgOptionItemCalc);
+                break;
+            }
+            case 3486: {  // OptionItemDef
+			    msgOptionItemDef.Clear();
+                msgOptionItemDef.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const OptionItemDef &)msgOptionItemDef);
                 break;
             }
             case 4390: {  // SpreadDefinition

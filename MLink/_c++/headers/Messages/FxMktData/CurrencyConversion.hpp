@@ -30,66 +30,65 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _trade_date__GUARD__
-    #define _trade_date__GUARD__
-    DECL_STRONG_TYPE(trade_date, DateKey);
-    #endif//_trade_date__GUARD__
-
-    #ifndef _opn_mark_state__GUARD__
-    #define _opn_mark_state__GUARD__
-    DECL_STRONG_TYPE(opn_mark_state, spiderrock::protobuf::api::OpnMarkState);
-    #endif//_opn_mark_state__GUARD__
-
-    #ifndef _sr_cls_prc__double__GUARD__
-    #define _sr_cls_prc__double__GUARD__
-    DECL_STRONG_TYPE(sr_cls_prc__double, double);
-    #endif//_sr_cls_prc__double__GUARD__
-
-    #ifndef _close_prc__double__GUARD__
-    #define _close_prc__double__GUARD__
-    DECL_STRONG_TYPE(close_prc__double, double);
-    #endif//_close_prc__double__GUARD__
+    #ifndef _convert_rate__GUARD__
+    #define _convert_rate__GUARD__
+    DECL_STRONG_TYPE(convert_rate, double);
+    #endif//_convert_rate__GUARD__
 
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _fkey__GUARD__
-    #define _fkey__GUARD__
-    DECL_STRONG_TYPE(fkey, ExpiryKey);
-    #endif//_fkey__GUARD__
+    #ifndef _src_currency__GUARD__
+    #define _src_currency__GUARD__
+    DECL_STRONG_TYPE(src_currency, spiderrock::protobuf::api::Currency);
+    #endif//_src_currency__GUARD__
+
+    #ifndef _tgt_currency__GUARD__
+    #define _tgt_currency__GUARD__
+    DECL_STRONG_TYPE(tgt_currency, spiderrock::protobuf::api::Currency);
+    #endif//_tgt_currency__GUARD__
 
     
-    class FutureOpenMark_PKey {
+    class CurrencyConversion_PKey {
         public:
         //using statements for all types used in this class
-        using fkey = spiderrock::protobuf::api::fkey;
+        using src_currency = spiderrock::protobuf::api::src_currency;
+        using tgt_currency = spiderrock::protobuf::api::tgt_currency;
 
         private:
-        fkey m_fkey{};
+        src_currency m_src_currency{};
+        tgt_currency m_tgt_currency{};
 
         public:
-		fkey get_fkey() const {
-            return m_fkey;
+        src_currency get_src_currency() const {
+            return m_src_currency;
         }
-        void set_fkey(const fkey& value)  {
-            m_fkey = value;
+        tgt_currency get_tgt_currency() const {
+            return m_tgt_currency;
+        }
+        void set_src_currency(const src_currency& value)  {
+            m_src_currency = value;
+        }
+        void set_tgt_currency(const tgt_currency& value)  {
+            m_tgt_currency = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to FutureOpenMark_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to CurrencyConversion_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
         template <typename T, size_t S = sizeof(T)>
-        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to FutureOpenMark_PKey::set()"); }  // specializations for valid types are listed below
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to CurrencyConversion_PKey::set()"); }  // specializations for valid types are listed below
 
         //specializations for set functions for the valid types
         
-        void set(const fkey & value) { set_fkey(value); }
+        void set(const src_currency & value) { set_src_currency(value); }
+        void set(const tgt_currency & value) { set_tgt_currency(value); }
 
 
-        FutureOpenMark_PKey() {}
+        CurrencyConversion_PKey() {}
 
-        virtual ~FutureOpenMark_PKey() {
+        virtual ~CurrencyConversion_PKey() {
         }
         //templatized set functions that can take multiple arguments simultaneously
         template <typename Arg>
@@ -101,27 +100,18 @@ namespace api {
             set(arg);
             set_params(args...);
         }
-        bool IncludeFkey() const {
-            return (m_fkey.ByteSizeLong() > 0);
-        }
 
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
-            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(10,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_src_currency)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_tgt_currency)));
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
-            if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
-            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,10,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_src_currency)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_tgt_currency)));
         }
 
         const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
@@ -137,8 +127,10 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 10: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
-                        m_fkey.setFromCodec(expiryKey);
+                    case 10: {m_src_currency = static_cast<spiderrock::protobuf::api::Currency>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        break;
+                    }
+                    case 11: {m_tgt_currency = static_cast<spiderrock::protobuf::api::Currency>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
                 }
@@ -148,25 +140,19 @@ namespace api {
     };
     
 
-    class FutureOpenMark {
+    class CurrencyConversion {
         public:
         //using statements for all types used in this class
     
         using _meta = spiderrock::protobuf::api::_meta;
-        using pkey = spiderrock::protobuf::api::FutureOpenMark_PKey;
-        using trade_date = spiderrock::protobuf::api::trade_date;
-        using opn_mark_state = spiderrock::protobuf::api::opn_mark_state;
-        using sr_cls_prc = spiderrock::protobuf::api::sr_cls_prc__double;
-        using close_prc = spiderrock::protobuf::api::close_prc__double;
+        using pkey = spiderrock::protobuf::api::CurrencyConversion_PKey;
+        using convert_rate = spiderrock::protobuf::api::convert_rate;
         using timestamp = spiderrock::protobuf::api::timestamp;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
-        trade_date m_trade_date{};
-        opn_mark_state m_opn_mark_state{};
-        sr_cls_prc m_sr_cls_prc{};
-        close_prc m_close_prc{};
+        convert_rate m_convert_rate{};
         timestamp m_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -178,17 +164,8 @@ namespace api {
         pkey get_pkey() const {
             return m_pkey;
         }		
-        trade_date get_trade_date() const {
-            return m_trade_date;
-        }		
-        opn_mark_state get_opn_mark_state() const {
-            return m_opn_mark_state;
-        }		
-        sr_cls_prc get_sr_cls_prc() const {
-            return m_sr_cls_prc;
-        }		
-        close_prc get_close_prc() const {
-            return m_close_prc;
+        convert_rate get_convert_rate() const {
+            return m_convert_rate;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -203,17 +180,8 @@ namespace api {
         void set_pkey(const pkey& value)  {
             m_pkey = value;
         }
-        void set_trade_date(const trade_date& value)  {
-            m_trade_date = value;
-        }
-        void set_opn_mark_state(const opn_mark_state& value)  {
-            m_opn_mark_state = value;
-        }
-        void set_sr_cls_prc(const sr_cls_prc& value)  {
-            m_sr_cls_prc = value;
-        }
-        void set_close_prc(const close_prc& value)  {
-            m_close_prc = value;
+        void set_convert_rate(const convert_rate& value)  {
+            m_convert_rate = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -222,7 +190,7 @@ namespace api {
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to FutureOpenMark::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to CurrencyConversion::get()"); return T{}; }  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -232,34 +200,22 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
-        void set(const trade_date & value) {
-            set_trade_date(value);
-        }
-        void set(const opn_mark_state & value) {
-            set_opn_mark_state(value);
-        }
-        void set(const sr_cls_prc & value) {
-            set_sr_cls_prc(value);
-        }
-        void set(const close_prc & value) {
-            set_close_prc(value);
+        void set(const convert_rate & value) {
+            set_convert_rate(value);
         }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
 
-        void set(const FutureOpenMark & value) {
+        void set(const CurrencyConversion & value) {
             set(value.m__meta);
             set(value.m_pkey);
-            set(value.m_trade_date);
-            set(value.m_opn_mark_state);
-            set(value.m_sr_cls_prc);
-            set(value.m_close_prc);
+            set(value.m_convert_rate);
             set(value.m_timestamp);
         }
 
-        FutureOpenMark() {
-            m__meta.set_message_type("FutureOpenMark");
+        CurrencyConversion() {
+            m__meta.set_message_type("CurrencyConversion");
         }
 
 
@@ -277,7 +233,7 @@ namespace api {
         bool SerializeToArray(void* data, size_t size) const  {
             size_t length = ByteSizeLong();
             if (size <  _mlinkHeaderLength + length) return false;
-            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 3125, length);
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 2540, length);
             //Encode the message
             uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
             auto max = encodePos + length;
@@ -289,7 +245,7 @@ namespace api {
         bool SerializeToString(std::string *s) const {
             size_t length = ByteSizeLong();
             s->resize( _mlinkHeaderLength + length);
-            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 3125, length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 2540, length);
             return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 
@@ -306,7 +262,7 @@ namespace api {
         }
 
         void Clear() {
-             *this = FutureOpenMark{};
+             *this = CurrencyConversion{};
         }
         bool IncludeMeta() const {
             return (m__meta.ByteSizeLong() > 0);
@@ -314,14 +270,8 @@ namespace api {
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
         }
-        bool IncludeTradeDate() const {
-            return (m_trade_date.ByteSizeLong() > 0);
-        }
-        bool IncludeSrClsPrc() const {
-            return !(m_sr_cls_prc == 0.0);
-        }
-        bool IncludeClosePrc() const {
-            return !(m_close_prc == 0.0);
+        bool IncludeConvertRate() const {
+            return !(m_convert_rate == 0.0);
         }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
@@ -340,18 +290,11 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
-            if ( IncludeTradeDate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
-            }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
-            if ( IncludeSrClsPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(103,m_sr_cls_prc);
-            }
-            if ( IncludeClosePrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(106,m_close_prc);
+            if ( IncludeConvertRate()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(100,m_convert_rate);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(115, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(103, m_timestamp);
             }
             return totalSize;
         }
@@ -367,18 +310,11 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
-            if ( IncludeTradeDate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
-            }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
-            if ( IncludeSrClsPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,103,m_sr_cls_prc);
-            }
-            if ( IncludeClosePrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,106,m_close_prc);
+            if ( IncludeConvertRate()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,100,m_convert_rate);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 115, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 103, m_timestamp);
             }
         }
 
@@ -411,32 +347,12 @@ namespace api {
                         break;
                     }
                     case 100: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                            m_trade_date.set_year(dateKey.year());
-                            m_trade_date.set_month(dateKey.month());
-                            m_trade_date.set_day(dateKey.day());
-                        }
-                        break;
-                    }
-                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_opn_mark_state = static_cast<spiderrock::protobuf::api::OpnMarkState>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_convert_rate = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
                     case 103: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_sr_cls_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
-                        }
-                        break;
-                    }
-                    case 106: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_close_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
-                        }
-                        break;
-                    }
-                    case 115: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
@@ -451,31 +367,27 @@ namespace api {
 
     // getter definitions for all classes above, both inner and outer classes
 
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::_meta>() const { return FutureOpenMark::_meta{ m__meta}; }
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::pkey>() const { return FutureOpenMark::pkey{ m_pkey}; }
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::trade_date>() const { return FutureOpenMark::trade_date{ m_trade_date}; }
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::opn_mark_state>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>( m_opn_mark_state)); }
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::sr_cls_prc>() const { return m_sr_cls_prc; }
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::close_prc>() const { return m_close_prc; }
-    template<> inline const auto FutureOpenMark::get<FutureOpenMark::timestamp>() const { return m_timestamp; }
-    template<> inline const auto FutureOpenMark_PKey::get<FutureOpenMark_PKey::fkey>() const { return FutureOpenMark_PKey::fkey{m_fkey}; }
+    template<> inline const auto CurrencyConversion::get<CurrencyConversion::_meta>() const { return CurrencyConversion::_meta{ m__meta}; }
+    template<> inline const auto CurrencyConversion::get<CurrencyConversion::pkey>() const { return CurrencyConversion::pkey{ m_pkey}; }
+    template<> inline const auto CurrencyConversion::get<CurrencyConversion::convert_rate>() const { return m_convert_rate; }
+    template<> inline const auto CurrencyConversion::get<CurrencyConversion::timestamp>() const { return m_timestamp; }
+    template<> inline const auto CurrencyConversion_PKey::get<CurrencyConversion_PKey::src_currency>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_src_currency));}
+    template<> inline const auto CurrencyConversion_PKey::get<CurrencyConversion_PKey::tgt_currency>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_tgt_currency));}
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
-    inline std::ostream& operator<<(std::ostream &o, const FutureOpenMark_PKey& m) {
-        o << "\"fkey\":{" << m.get<FutureOpenMark_PKey::fkey>() << "}";
+    inline std::ostream& operator<<(std::ostream &o, const CurrencyConversion_PKey& m) {
+        o << "\"src_currency\":" << (int64_t)m.get<CurrencyConversion_PKey::src_currency>();
+        o << ",\"tgt_currency\":" << (int64_t)m.get<CurrencyConversion_PKey::tgt_currency>();
         return o;
     }
 
-    inline std::ostream& operator<<(std::ostream &o, const FutureOpenMark& m) {
-        o << "\"_meta\":{" << m.get<FutureOpenMark::_meta>() << "}";
-        o << ",\"pkey\":{" << m.get<FutureOpenMark::pkey>() << "}";
-        o << ",\"trade_date\":{" << m.get<FutureOpenMark::trade_date>() << "}";
-        o << ",\"opn_mark_state\":" << (int64_t)m.get<FutureOpenMark::opn_mark_state>();
-        o << ",\"sr_cls_prc\":" << m.get<FutureOpenMark::sr_cls_prc>();
-        o << ",\"close_prc\":" << m.get<FutureOpenMark::close_prc>();
+    inline std::ostream& operator<<(std::ostream &o, const CurrencyConversion& m) {
+        o << "\"_meta\":{" << m.get<CurrencyConversion::_meta>() << "}";
+        o << ",\"pkey\":{" << m.get<CurrencyConversion::pkey>() << "}";
+        o << ",\"convert_rate\":" << m.get<CurrencyConversion::convert_rate>();
         {
-            std::time_t tt = m.get<FutureOpenMark::timestamp>().time_since_epoch().count() / 1'000'000'000;
+            std::time_t tt = m.get<CurrencyConversion::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";

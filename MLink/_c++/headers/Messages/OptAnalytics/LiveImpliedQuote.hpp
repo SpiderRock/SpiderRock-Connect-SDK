@@ -65,10 +65,10 @@ namespace api {
     DECL_STRONG_TYPE(sdiv__float, float);
     #endif//_sdiv__float__GUARD__
 
-    #ifndef _ddiv__GUARD__
-    #define _ddiv__GUARD__
-    DECL_STRONG_TYPE(ddiv, float);
-    #endif//_ddiv__GUARD__
+    #ifndef _ddiv__float__GUARD__
+    #define _ddiv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv__float, float);
+    #endif//_ddiv__float__GUARD__
 
     #ifndef _o_bid__GUARD__
     #define _o_bid__GUARD__
@@ -332,7 +332,7 @@ namespace api {
         using x_axis = spiderrock::protobuf::api::x_axis;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
-        using ddiv = spiderrock::protobuf::api::ddiv;
+        using ddiv = spiderrock::protobuf::api::ddiv__float;
         using o_bid = spiderrock::protobuf::api::o_bid;
         using o_ask = spiderrock::protobuf::api::o_ask;
         using o_bid_iv = spiderrock::protobuf::api::o_bid_iv__float;

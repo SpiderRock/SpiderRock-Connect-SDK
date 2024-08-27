@@ -70,10 +70,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_orders, uint32);
     #endif//_prt_orders__GUARD__
 
-    #ifndef _prt_volume__GUARD__
-    #define _prt_volume__GUARD__
-    DECL_STRONG_TYPE(prt_volume, int32);
-    #endif//_prt_volume__GUARD__
+    #ifndef _prt_volume__int32__GUARD__
+    #define _prt_volume__int32__GUARD__
+    DECL_STRONG_TYPE(prt_volume__int32, int32);
+    #endif//_prt_volume__int32__GUARD__
 
     #ifndef _cxl_volume__GUARD__
     #define _cxl_volume__GUARD__
@@ -318,7 +318,7 @@ namespace api {
         using prt_type = spiderrock::protobuf::api::prt_type__PrtType;
         using print_codes = spiderrock::protobuf::api::print_codes;
         using prt_orders = spiderrock::protobuf::api::prt_orders;
-        using prt_volume = spiderrock::protobuf::api::prt_volume;
+        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
         using cxl_volume = spiderrock::protobuf::api::cxl_volume;
         using bid_count = spiderrock::protobuf::api::bid_count__uint32;
         using ask_count = spiderrock::protobuf::api::ask_count__uint32;

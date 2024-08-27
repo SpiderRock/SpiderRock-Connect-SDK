@@ -30,6 +30,11 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
+    #ifndef _flip_side__GUARD__
+    #define _flip_side__GUARD__
+    DECL_STRONG_TYPE(flip_side, spiderrock::protobuf::api::YesNo);
+    #endif//_flip_side__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -328,12 +333,14 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::SpreadExchDefinition_PKey;
+        using flip_side = spiderrock::protobuf::api::flip_side;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using legs = spiderrock::protobuf::api::SpreadExchDefinition_Legs;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
+        flip_side m_flip_side{};
         timestamp m_timestamp{};
         std::vector<legs> m_legs{};
 
@@ -345,6 +352,9 @@ namespace api {
         }		
         pkey get_pkey() const {
             return m_pkey;
+        }		
+        flip_side get_flip_side() const {
+            return m_flip_side;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -364,6 +374,9 @@ namespace api {
         }
         void set_pkey(const pkey& value)  {
             m_pkey = value;
+        }
+        void set_flip_side(const flip_side& value)  {
+            m_flip_side = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -394,6 +407,9 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
+        void set(const flip_side & value) {
+            set_flip_side(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -404,6 +420,7 @@ namespace api {
         void set(const SpreadExchDefinition & value) {
             set(value.m__meta);
             set(value.m_pkey);
+            set(value.m_flip_side);
             set(value.m_timestamp);set_legs_list(value.m_legs);
         }
 
@@ -483,6 +500,7 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(105, m_timestamp);
             }
@@ -507,6 +525,7 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 105, m_timestamp);
             }
@@ -547,6 +566,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 108: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_flip_side = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 105: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -573,6 +597,7 @@ namespace api {
 
     template<> inline const auto SpreadExchDefinition::get<SpreadExchDefinition::_meta>() const { return SpreadExchDefinition::_meta{ m__meta}; }
     template<> inline const auto SpreadExchDefinition::get<SpreadExchDefinition::pkey>() const { return SpreadExchDefinition::pkey{ m_pkey}; }
+    template<> inline const auto SpreadExchDefinition::get<SpreadExchDefinition::flip_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_flip_side)); }
     template<> inline const auto SpreadExchDefinition::get<SpreadExchDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto SpreadExchDefinition::get<SpreadExchDefinition::legs>(int i) const { return SpreadExchDefinition::legs{ get_legs(i)}; }
     template<> inline int SpreadExchDefinition::count<SpreadExchDefinition::legs>() const { return static_cast<int>( m_legs.size()); }
@@ -607,6 +632,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const SpreadExchDefinition& m) {
         o << "\"_meta\":{" << m.get<SpreadExchDefinition::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<SpreadExchDefinition::pkey>() << "}";
+        o << ",\"flip_side\":" << (int64_t)m.get<SpreadExchDefinition::flip_side>();
         {
             std::time_t tt = m.get<SpreadExchDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

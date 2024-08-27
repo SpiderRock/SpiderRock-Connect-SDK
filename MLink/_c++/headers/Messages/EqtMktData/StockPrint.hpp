@@ -55,10 +55,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_cluster_size, int32);
     #endif//_prt_cluster_size__GUARD__
 
-    #ifndef _prt_volume__GUARD__
-    #define _prt_volume__GUARD__
-    DECL_STRONG_TYPE(prt_volume, int32);
-    #endif//_prt_volume__GUARD__
+    #ifndef _prt_volume__int32__GUARD__
+    #define _prt_volume__int32__GUARD__
+    DECL_STRONG_TYPE(prt_volume__int32, int32);
+    #endif//_prt_volume__int32__GUARD__
 
     #ifndef _mrk_price__float__GUARD__
     #define _mrk_price__float__GUARD__
@@ -250,7 +250,7 @@ namespace api {
         using prt_price = spiderrock::protobuf::api::prt_price__float;
         using prt_cluster_num = spiderrock::protobuf::api::prt_cluster_num;
         using prt_cluster_size = spiderrock::protobuf::api::prt_cluster_size;
-        using prt_volume = spiderrock::protobuf::api::prt_volume;
+        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
         using mrk_price = spiderrock::protobuf::api::mrk_price__float;
         using cls_price = spiderrock::protobuf::api::cls_price__float;
         using prt_type = spiderrock::protobuf::api::prt_type__StkPrintType;
