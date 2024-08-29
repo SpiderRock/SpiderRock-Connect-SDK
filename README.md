@@ -1,6 +1,6 @@
 <img src="https://data-portal.spiderrock.net/imgs/SpiderRock-Horizontal-Logo.png" width="300" alt="SpiderRock">
 
-# SpiderRock's Connection Toolbox
+# SpiderRock Connect SDK
 
 This repo contains documentation, specifications and general information for how customers are expected to connect to the SpiderRock system. Whether you are a trading entity, developer or liquidity provider you may need to connect to SpiderRock for a variety of reasons and depending on those reasons a certain connection method may be more advantageous than another. Please consider your need to connect and consider all options. If you are having trouble choosing a method, reach out to our Support Desk for guidance. 
 
