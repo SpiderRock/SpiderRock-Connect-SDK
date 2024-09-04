@@ -3,27 +3,19 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
+
 namespace SpiderRock.SpiderStream.Mbus.Layouts;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1, Size = 8)]
 internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(DateTimeLayout other)
-    {
-        return _data == other._data;
-    }
+    public bool Equals(DateTimeLayout other) => Ticks == other.Ticks;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override bool Equals(object obj)
-    {
-        return obj is DateTimeLayout && Equals((DateTimeLayout)obj);
-    }
+    public override bool Equals(object obj) => obj is DateTimeLayout dtl && Equals(dtl);
 
-    public override int GetHashCode()
-    {
-        return _data.GetHashCode();
-    }
+    public override int GetHashCode() => _data.GetHashCode();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool operator ==(DateTimeLayout left, DateTimeLayout right) => left.Equals(right);
@@ -35,25 +27,30 @@ internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 
     public DateTimeLayout(long data)
     {
-        _data = data;
+        var dttm = new DateTime(ticks, DateTimeKind.Unspecified);
+        _data = *(long*)&dttm;
     }
 
-    public long Ticks { get { return _data; } }
+    public long Ticks => ((DateTime)this).Ticks;
 
-    public bool IsEmpty { get { return _data == 0; } }
+    public bool IsEmpty => _data == 0;
 
-    public int Microseconds { get { return (int)(_data / 10L % 1000000L); } }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static implicit operator DateTimeLayout(DateTime value)
+    public int Microseconds
     {
-        return new DateTimeLayout(value.Ticks);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (int)unchecked(Ticks / 10L % 1000000L);
     }
 
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static implicit operator DateTime(DateTimeLayout value)
+    public static implicit operator DateTimeLayout(DateTime value) => *(DateTimeLayout*)&value;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static implicit operator DateTime(DateTimeLayout value) => *(DateTime*)&value;
+
+    public override string ToString()
     {
-        return new DateTime(value._data);
+        return ((DateTime)this).ToString(CultureInfo.InvariantCulture);
     }
 }
 

@@ -16,6 +16,7 @@ public partial struct MessageType
     public static readonly MessageType None = 0;
     public static readonly MessageType Max = 11000;
 
+    internal static readonly MessageType CurrencyConversion = 2540;
     internal static readonly MessageType FutureBookQuote = 2580;
     internal static readonly MessageType FuturePrint = 2595;
     internal static readonly MessageType FuturePrintMarkup = 2605;
@@ -58,6 +59,14 @@ public partial struct MessageType
     {
         var isCore = CreateSizedArray<bool>();
         
+        attributes[2540] = new()
+        {
+            Type = 2540,
+            Name = nameof(CurrencyConversion),
+            IsCore = true,
+            SchemaHash = 0x3b2af32e4e3f0c51
+        };
+
         attributes[2580] = new()
         {
             Type = 2580,
@@ -103,7 +112,7 @@ public partial struct MessageType
             Type = 1125,
             Name = nameof(LiveRevConQuote),
             IsCore = true,
-            SchemaHash = 0x37efcd350dd295ee
+            SchemaHash = 0x96ad7ed0837318e
         };
 
         attributes[1030] = new()
@@ -143,7 +152,7 @@ public partial struct MessageType
             Type = 3140,
             Name = nameof(OptionCloseMark),
             IsCore = true,
-            SchemaHash = 0x20efad0ad8bccecc
+            SchemaHash = 0x14a672a8a8fc1482
         };
 
         attributes[2765] = new()
@@ -311,7 +320,7 @@ public partial struct MessageType
             Type = 3040,
             Name = nameof(StockMarketSummary),
             IsCore = true,
-            SchemaHash = 0x2e6982925ad2f9ae
+            SchemaHash = 0x10fed9870b45ae18
         };
 
         attributes[3045] = new()
