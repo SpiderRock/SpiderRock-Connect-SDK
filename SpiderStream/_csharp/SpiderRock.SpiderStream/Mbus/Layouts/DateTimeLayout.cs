@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Text;
 namespace SpiderRock.SpiderStream.Mbus.Layouts;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1, Size = 8)]
-internal struct DateTimeLayout : IEquatable<DateTimeLayout>
+unsafe internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Equals(DateTimeLayout other) => Ticks == other.Ticks;
@@ -25,7 +26,7 @@ internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 
     private readonly long _data;
 
-    public DateTimeLayout(long data)
+    unsafe public DateTimeLayout(long ticks)
     {
         var dttm = new DateTime(ticks, DateTimeKind.Unspecified);
         _data = *(long*)&dttm;

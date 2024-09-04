@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CmePrintDefChecker", "CmePr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpiderRock.SpiderStream", "SpiderRock.SpiderStream\SpiderRock.SpiderStream.csproj", "{A96908AA-7692-4536-B277-5DEA14B7CB7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotePriceSizeTracker", "QuotePriceSizeTracker\QuotePriceSizeTracker.csproj", "{BCAC3D7A-2CFC-4657-B84C-658BAE766ABB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
