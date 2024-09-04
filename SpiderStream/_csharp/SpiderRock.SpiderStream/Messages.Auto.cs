@@ -15,6 +15,214 @@ using SpiderRock.SpiderStream.Mbus.Layouts;
 namespace SpiderRock.SpiderStream;
 
 /// <summary>
+/// CurrencyConversion:2540
+/// </summary>
+/// <remarks>
+/// </remarks>
+
+public partial class CurrencyConversion : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public CurrencyConversion()
+    {
+    }
+    
+    public CurrencyConversion(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public CurrencyConversion(CurrencyConversion source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal CurrencyConversion(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as CurrencyConversion);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(CurrencyConversion other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(CurrencyConversion target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.CurrencyConversion};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        
+        public Currency SrcCurrency { get => body.srcCurrency; set => body.srcCurrency = value; }
+         
+        public Currency TgtCurrency { get => body.tgtCurrency; set => body.tgtCurrency = value; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public Currency srcCurrency;
+         public Currency tgtCurrency;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	srcCurrency.Equals(other.srcCurrency) &&
+					 	tgtCurrency.Equals(other.tgtCurrency);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (int) srcCurrency;
+                 hashCode = (hashCode*397) ^ ((int) tgtCurrency);
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public double convertRate;
+		public DateTimeLayout timestamp;
+    }
+
+    internal BodyLayout body;
+
+    
+    public double ConvertRate { get => body.convertRate; set => body.convertRate = value; }
+     
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+
+
+} // CurrencyConversion
+
+
+/// <summary>
 /// FutureBookQuote:2580
 /// </summary>
 /// <remarks>
@@ -1549,6 +1757,7 @@ public partial class LiveRevConQuote : IMessage
 		public float ddivPv;
 		public DDivSource ddivSource;
 		public int iDays;
+		public float ddivDisc;
 		public float strikePv;
 		public float fairSVol;
 		public float fairSDiv;
@@ -1560,8 +1769,8 @@ public partial class LiveRevConQuote : IMessage
 		public float rcEExPrem;
 		public float fairLoanPv;
 		public float fairLoanRate;
-		public float rcBidLoanPv;
-		public float rcAskLoanPv;
+		public float rcBidPrc;
+		public float rcAskPrc;
 		public FixedString16Layout calcError;
 		public int cpOI;
 		public int cpVlm;
@@ -1594,32 +1803,34 @@ public partial class LiveRevConQuote : IMessage
     public DDivSource DdivSource { get => body.ddivSource; set => body.ddivSource = value; }
      /// <summary>number of interest (calendar) days to expiry</summary>
     public int IDays { get => body.iDays; set => body.iDays = value; }
+     /// <summary>dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry</summary>
+    public float DdivDisc { get => body.ddivDisc; set => body.ddivDisc = value; }
      /// <summary>strike * EXP(-globalRate * iDays / 365)</summary>
     public float StrikePv { get => body.strikePv; set => body.strikePv = value; }
      /// <summary>call/put surface volatility value</summary>
     public float FairSVol { get => body.fairSVol; set => body.fairSVol = value; }
      /// <summary>call/put surface alignment sdiv value</summary>
     public float FairSDiv { get => body.fairSDiv; set => body.fairSDiv = value; }
-     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
     public float FairCallPrc { get => body.fairCallPrc; set => body.fairCallPrc = value; }
-     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
     public float FairCallPrcE { get => body.fairCallPrcE; set => body.fairCallPrcE = value; }
-     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
     public float FairPutPrc { get => body.fairPutPrc; set => body.fairPutPrc = value; }
-     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
+     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
     public float FairPutPrcE { get => body.fairPutPrcE; set => body.fairPutPrcE = value; }
-     /// <summary>uPrc + fairPutPrc - fairCallPrc - strike  (revCon fairMid price)</summary>
+     /// <summary>fairCallPrc - fairPutPrc - uPrc + strike  (revCon fairMid price)</summary>
     public float RcFairPrc { get => body.rcFairPrc; set => body.rcFairPrc = value; }
      /// <summary>(fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)</summary>
     public float RcEExPrem { get => body.rcEExPrem; set => body.rcEExPrem = value; }
-     /// <summary>uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)</summary>
+     /// <summary>fairCallPrc - fairPutPrc - uPrc + strike + strikePv + ddivPv  (total present value of letting out shares) (term to expiry) (per share)</summary>
     public float FairLoanPv { get => body.fairLoanPv; set => body.fairLoanPv = value; }
-     /// <summary>(fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)</summary>
+     /// <summary>fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)</summary>
     public float FairLoanRate { get => body.fairLoanRate; set => body.fairLoanRate = value; }
-     /// <summary>uPrc - callAsk + putBid - strikePv - ddivPv - rcEExPrem (best way) (join markets)</summary>
-    public float RcBidLoanPv { get => body.rcBidLoanPv; set => body.rcBidLoanPv = value; }
-     /// <summary>uPrc - callBid + putAsk - strikePv - ddivPv - rcEExPrem (worst way) (cross markets)</summary>
-    public float RcAskLoanPv { get => body.rcAskLoanPv; set => body.rcAskLoanPv = value; }
+     /// <summary>callBid - putAsk - uPrc + strike (best way) (join markets)</summary>
+    public float RcBidPrc { get => body.rcBidPrc; set => body.rcBidPrc = value; }
+     /// <summary>callAsk - putBid - uPrc + strike (worst way) (cross markets)</summary>
+    public float RcAskPrc { get => body.rcAskPrc; set => body.rcAskPrc = value; }
      
     public string CalcError { get => body.calcError; set => body.calcError = value; }
      /// <summary>c/p open interest (market) [upper bound]</summary>
@@ -2116,7 +2327,7 @@ public partial class LiveSurfaceAtm : IMessage
 /// OptionCloseMark:3140
 /// </summary>
 /// <remarks>
-	/// OptionCloseMark records are created immediately after the market close (clsMarkState=SRClose), when exchanges publish official marks (clsMarkState=ExchClose), and again during top of day rotation (clsMarkState=Final).  These records contain closing quotes and prices as well as markup details for all outright options.
+	/// OptionCloseMark records are published immediately after the market close - 5 min and again when exchanges publish official marks.
 	/// OptionCloseMark records are published to the SpiderRock elastic cluster when clsMarkState=Final/// </remarks>
 
 public partial class OptionCloseMark : IMessage
@@ -2313,6 +2524,7 @@ public partial class OptionCloseMark : IMessage
 		public double closePrc;
 		public YesNo hasSRClsPrc;
 		public YesNo hasClosePrc;
+		public YesNo hasUClsPrc;
 		public float bidIV;
 		public float askIV;
 		public float srPrc;
@@ -2330,7 +2542,9 @@ public partial class OptionCloseMark : IMessage
 		public float deDecay;
 		public float sdiv;
 		public float ddiv;
+		public float ddivPv;
 		public float rate;
+		public int iDays;
 		public float years;
 		public byte error;
 		public int openInterest;
@@ -2344,21 +2558,21 @@ public partial class OptionCloseMark : IMessage
 
     
     public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
-     /// <summary>LastPrt = last print received; SRClose = SpiderRock snapshot; ExchClose = official exchange close price; Final = Final close mark</summary>
+     /// <summary>Preview or Final</summary>
     public ClsMarkState ClsMarkState { get => body.clsMarkState; set => body.clsMarkState = value; }
-     /// <summary>SpiderRock closing underlier bid (C - 1m)</summary>
+     /// <summary>SpiderRock closing underlier bid (C - 5m)</summary>
     public double UBid { get => body.uBid; set => body.uBid = value; }
-     /// <summary>SpiderRock closing underlier ask (C - 1m)</summary>
+     /// <summary>SpiderRock closing underlier ask (C - 5m)</summary>
     public double UAsk { get => body.uAsk; set => body.uAsk = value; }
-     /// <summary>SpiderRock underlier closing mark (C - 1m)</summary>
+     /// <summary>SpiderRock underlier closing mark (C - 5m)</summary>
     public double USrCls { get => body.uSrCls; set => body.uSrCls = value; }
      /// <summary>exchange underlier closing mark</summary>
     public double UClose { get => body.uClose; set => body.uClose = value; }
-     /// <summary>SpiderRock closing option bid (C - 1m)</summary>
+     /// <summary>SpiderRock closing option bid (C - 5m)</summary>
     public float BidPrc { get => body.bidPrc; set => body.bidPrc = value; }
-     /// <summary>SpiderRock closing option ask (C - 1m)</summary>
+     /// <summary>SpiderRock closing option ask (C - 5m)</summary>
     public float AskPrc { get => body.askPrc; set => body.askPrc = value; }
-     /// <summary>SpiderRock close mark (close - 1min)</summary>
+     /// <summary>SpiderRock close mark (close - 5min) [NBBO mid-market]</summary>
     public double SrClsPrc { get => body.srClsPrc; set => body.srClsPrc = value; }
      /// <summary>official exchange closing mark (last print;then official close)</summary>
     public double ClosePrc { get => body.closePrc; set => body.closePrc = value; }
@@ -2366,51 +2580,57 @@ public partial class OptionCloseMark : IMessage
     public YesNo HasSRClsPrc { get => body.hasSRClsPrc; set => body.hasSRClsPrc = value; }
      
     public YesNo HasClosePrc { get => body.hasClosePrc; set => body.hasClosePrc = value; }
-     /// <summary>implied vol of SpiderRock closing bid price (C - 1m)</summary>
+     
+    public YesNo HasUClsPrc { get => body.hasUClsPrc; set => body.hasUClsPrc = value; }
+     /// <summary>implied vol of SpiderRock closing bid price (C - 5m)</summary>
     public float BidIV { get => body.bidIV; set => body.bidIV = value; }
-     /// <summary>implied vol of SpiderRock closing ask price (C - 1m)</summary>
+     /// <summary>implied vol of SpiderRock closing ask price (C - 5m)</summary>
     public float AskIV { get => body.askIV; set => body.askIV = value; }
-     /// <summary>SpiderRock surface price (always within bidPx/askPx) (C - 1m)</summary>
+     /// <summary>sr close mark price (always within bidPx/askPx) (C - 5m)</summary>
     public float SrPrc { get => body.srPrc; set => body.srPrc = value; }
-     /// <summary>SpiderRock surface volatility (C - 1m)</summary>
+     /// <summary>sr close mark volatility (C - 5m)</summary>
     public float SrVol { get => body.srVol; set => body.srVol = value; }
-     /// <summary>SpiderRock price source [NbboMid, SRVol, LoBound, HiBound, SRPricer, SRQuote, CloseMark]</summary>
+     /// <summary>sr close mark source (SRVol is SurfaceVol)</summary>
     public MarkSource SrSrc { get => body.srSrc; set => body.srSrc = value; }
-     /// <summary>delta (SR surface)</summary>
+     /// <summary>delta</summary>
     public float De { get => body.de; set => body.de = value; }
-     /// <summary>gamma (SR surface)</summary>
+     /// <summary>gamma</summary>
     public float Ga { get => body.ga; set => body.ga = value; }
-     /// <summary>theta (SR surface)</summary>
+     /// <summary>theta</summary>
     public float Th { get => body.th; set => body.th = value; }
-     /// <summary>vega (SR surface)</summary>
+     /// <summary>vega</summary>
     public float Ve { get => body.ve; set => body.ve = value; }
-     /// <summary>volga (SR surface)</summary>
+     /// <summary>volga</summary>
     public float Vo { get => body.vo; set => body.vo = value; }
-     /// <summary>vanna (SR surface)</summary>
+     /// <summary>vanna</summary>
     public float Va { get => body.va; set => body.va = value; }
-     /// <summary>rho (SR surrface)</summary>
+     /// <summary>rho</summary>
     public float Rh { get => body.rh; set => body.rh = value; }
-     /// <summary>phi (SR surface)</summary>
+     /// <summary>phi</summary>
     public float Ph { get => body.ph; set => body.ph = value; }
      /// <summary>surface slope (SR surface)</summary>
     public float SrSlope { get => body.srSlope; set => body.srSlope = value; }
-     /// <summary>delta decay (SR surface)</summary>
+     /// <summary>delta decay</summary>
     public float DeDecay { get => body.deDecay; set => body.deDecay = value; }
-     /// <summary>SpiderRock sdiv rate</summary>
+     /// <summary>sdiv rate</summary>
     public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
-     /// <summary>SpiderRock ddiv rate (sum of discrete dividend amounts)</summary>
+     /// <summary>ddiv amount (sum of discrete dividend amounts)</summary>
     public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
-     /// <summary>SpiderRock interest rate</summary>
+     /// <summary>ddiv (present value) amount (sum of discrete dividend pv amounts)</summary>
+    public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
+     /// <summary>discount rate</summary>
     public float Rate { get => body.rate; set => body.rate = value; }
+     /// <summary>interest days (today to expiry) (T+1)</summary>
+    public int IDays { get => body.iDays; set => body.iDays = value; }
      /// <summary>years to expiration</summary>
     public float Years { get => body.years; set => body.years = value; }
-     /// <summary>SpiderRock pricing library calculation error code</summary>
+     /// <summary>calculation error code</summary>
     public byte Error { get => body.error; set => body.error = value; }
-     /// <summary>Open Interest</summary>
+     /// <summary>option open Interest</summary>
     public int OpenInterest { get => body.openInterest; set => body.openInterest = value; }
      /// <summary>print count</summary>
     public int PrtCount { get => body.prtCount; set => body.prtCount = value; }
-     /// <summary>total printed volume</summary>
+     /// <summary>total printed volume (all prt types)</summary>
     public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
      /// <summary>from MarketCloseQuote.srCloseMarkDttm</summary>
     public DateTime SrCloseMarkDttm { get => body.srCloseMarkDttm; set => body.srCloseMarkDttm = value; }
@@ -8394,7 +8614,8 @@ public partial class StockMarketSummary : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public double opnPrice;
+        public DateKeyLayout tradeDate;
+		public double opnPrice;
 		public double mrkPrice;
 		public double clsPrice;
 		public double minPrice;
@@ -8407,18 +8628,21 @@ public partial class StockMarketSummary : IMessage
 		public int midCount;
 		public int midVolume;
 		public int prtCount;
-		public double prtPrice;
+		public int prtVolume;
+		public double lastPrtPrice;
+		public DateTimeLayout lastPrtDttm;
 		public int expCount;
 		public double expWidth;
 		public float expBidSize;
 		public float expAskSize;
-		public DateTimeLayout lastPrint;
 		public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    /// <summary>first print price of the day during regular market hours</summary>
+    
+    public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
+     /// <summary>first print price of the day during regular market hours</summary>
     public double OpnPrice { get => body.opnPrice; set => body.opnPrice = value; }
      /// <summary>last print handled during regular market hours</summary>
     public double MrkPrice { get => body.mrkPrice; set => body.mrkPrice = value; }
@@ -8444,8 +8668,12 @@ public partial class StockMarketSummary : IMessage
     public int MidVolume { get => body.midVolume; set => body.midVolume = value; }
      /// <summary>number of distinct print reports</summary>
     public int PrtCount { get => body.prtCount; set => body.prtCount = value; }
+     /// <summary>total print volume (all print types)</summary>
+    public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
      /// <summary>last print price</summary>
-    public double PrtPrice { get => body.prtPrice; set => body.prtPrice = value; }
+    public double LastPrtPrice { get => body.lastPrtPrice; set => body.lastPrtPrice = value; }
+     /// <summary>last print time</summary>
+    public DateTime LastPrtDttm { get => body.lastPrtDttm; set => body.lastPrtDttm = value; }
      /// <summary>number of updates included in exponential average</summary>
     public int ExpCount { get => body.expCount; set => body.expCount = value; }
      /// <summary>exponential average market width (10 minute 1/2 life)</summary>
@@ -8454,8 +8682,6 @@ public partial class StockMarketSummary : IMessage
     public float ExpBidSize { get => body.expBidSize; set => body.expBidSize = value; }
      /// <summary>exponential average ask size (10 minute 1/2 life)</summary>
     public float ExpAskSize { get => body.expAskSize; set => body.expAskSize = value; }
-     
-    public DateTime LastPrint { get => body.lastPrint; set => body.lastPrint = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
