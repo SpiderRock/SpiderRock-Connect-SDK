@@ -630,8 +630,6 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
     ```Python
     uriJson = "wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/json"
     apiKey = 'your api key'
-    password = 'your password'
-    api_key_token = f"{apiKey}.{password}"
     ```
 
     Asynchronously query AAPL:
