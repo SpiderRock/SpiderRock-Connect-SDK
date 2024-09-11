@@ -26,26 +26,28 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9FcXRTdW1tYXJ5RGF0YS9TdG9ja01hcmtldFN1bW1hcnku",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIo4FChJT",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIt0FChJT",
             "dG9ja01hcmtldFN1bW1hcnkSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2Nr",
             "LnByb3RvYnVmLk1lc3NhZ2VNZXRhZGF0YRI6CgRwa2V5GAIgASgLMiwuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5TdG9ja01hcmtldFN1bW1hcnkuUEtleRIRCglv",
-            "cG5fcHJpY2UYZCABKAESEQoJbXJrX3ByaWNlGGcgASgBEhEKCWNsc19wcmlj",
-            "ZRhqIAEoARIRCgltaW5fcHJpY2UYbSABKAESEQoJbWF4X3ByaWNlGHAgASgB",
-            "EhoKEnNoYXJlc19vdXRzdGFuZGluZxhzIAEoBRIRCgliaWRfY291bnQYdiAB",
-            "KAUSEgoKYmlkX3ZvbHVtZRh5IAEoBRIRCglhc2tfY291bnQYfCABKAUSEgoK",
-            "YXNrX3ZvbHVtZRh/IAEoBRISCgltaWRfY291bnQYggEgASgFEhMKCm1pZF92",
-            "b2x1bWUYhQEgASgFEhIKCXBydF9jb3VudBiIASABKAUSEgoJcHJ0X3ByaWNl",
-            "GIsBIAEoARISCglleHBfY291bnQYjgEgASgFEhIKCWV4cF93aWR0aBiRASAB",
-            "KAESFQoMZXhwX2JpZF9zaXplGJQBIAEoAhIVCgxleHBfYXNrX3NpemUYlwEg",
-            "ASgCEi8KCmxhc3RfcHJpbnQYmgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
-            "bWVzdGFtcBIuCgl0aW1lc3RhbXAYnQEgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBo2CgRQS2V5Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuVGlja2VyS2V5YgZwcm90bzM="));
+            "ZGVycm9jay5wcm90b2J1Zi5TdG9ja01hcmtldFN1bW1hcnkuUEtleRIwCgp0",
+            "cmFkZV9kYXRlGGUgASgLMhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5",
+            "EhEKCW9wbl9wcmljZRhkIAEoARIRCgltcmtfcHJpY2UYZyABKAESEQoJY2xz",
+            "X3ByaWNlGGogASgBEhEKCW1pbl9wcmljZRhtIAEoARIRCgltYXhfcHJpY2UY",
+            "cCABKAESGgoSc2hhcmVzX291dHN0YW5kaW5nGHMgASgDEhEKCWJpZF9jb3Vu",
+            "dBh2IAEoBRISCgpiaWRfdm9sdW1lGHkgASgFEhEKCWFza19jb3VudBh8IAEo",
+            "BRISCgphc2tfdm9sdW1lGH8gASgFEhIKCW1pZF9jb3VudBiCASABKAUSEwoK",
+            "bWlkX3ZvbHVtZRiFASABKAUSEgoJcHJ0X2NvdW50GIgBIAEoBRITCgpwcnRf",
+            "dm9sdW1lGIkBIAEoBRIXCg5sYXN0X3BydF9wcmljZRiLASABKAESMgoNbGFz",
+            "dF9wcnRfZHR0bRiMASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "EhIKCWV4cF9jb3VudBiOASABKAUSEgoJZXhwX3dpZHRoGJEBIAEoARIVCgxl",
+            "eHBfYmlkX3NpemUYlAEgASgCEhUKDGV4cF9hc2tfc2l6ZRiXASABKAISLgoJ",
+            "dGltZXN0YW1wGJ0BIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAa",
+            "NgoEUEtleRIuCgZ0aWNrZXIYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlRpY2tlcktleWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockMarketSummary), global::Spiderrock.Protobuf.StockMarketSummary.Parser, new[]{ "Meta", "Pkey", "OpnPrice", "MrkPrice", "ClsPrice", "MinPrice", "MaxPrice", "SharesOutstanding", "BidCount", "BidVolume", "AskCount", "AskVolume", "MidCount", "MidVolume", "PrtCount", "PrtPrice", "ExpCount", "ExpWidth", "ExpBidSize", "ExpAskSize", "LastPrint", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockMarketSummary.Types.PKey), global::Spiderrock.Protobuf.StockMarketSummary.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockMarketSummary), global::Spiderrock.Protobuf.StockMarketSummary.Parser, new[]{ "Meta", "Pkey", "TradeDate", "OpnPrice", "MrkPrice", "ClsPrice", "MinPrice", "MaxPrice", "SharesOutstanding", "BidCount", "BidVolume", "AskCount", "AskVolume", "MidCount", "MidVolume", "PrtCount", "PrtVolume", "LastPrtPrice", "LastPrtDttm", "ExpCount", "ExpWidth", "ExpBidSize", "ExpAskSize", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockMarketSummary.Types.PKey), global::Spiderrock.Protobuf.StockMarketSummary.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -92,6 +94,7 @@ namespace Spiderrock.Protobuf {
     public StockMarketSummary(StockMarketSummary other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
+      tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
       opnPrice_ = other.opnPrice_;
       mrkPrice_ = other.mrkPrice_;
       clsPrice_ = other.clsPrice_;
@@ -105,12 +108,13 @@ namespace Spiderrock.Protobuf {
       midCount_ = other.midCount_;
       midVolume_ = other.midVolume_;
       prtCount_ = other.prtCount_;
-      prtPrice_ = other.prtPrice_;
+      prtVolume_ = other.prtVolume_;
+      lastPrtPrice_ = other.lastPrtPrice_;
+      lastPrtDttm_ = other.lastPrtDttm_ != null ? other.lastPrtDttm_.Clone() : null;
       expCount_ = other.expCount_;
       expWidth_ = other.expWidth_;
       expBidSize_ = other.expBidSize_;
       expAskSize_ = other.expAskSize_;
-      lastPrint_ = other.lastPrint_ != null ? other.lastPrint_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -142,6 +146,18 @@ namespace Spiderrock.Protobuf {
       get { return pkey_; }
       set {
         pkey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "trade_date" field.</summary>
+    public const int TradeDateFieldNumber = 101;
+    private global::Spiderrock.Protobuf.DateKey tradeDate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.DateKey TradeDate {
+      get { return tradeDate_; }
+      set {
+        tradeDate_ = value;
       }
     }
 
@@ -222,13 +238,13 @@ namespace Spiderrock.Protobuf {
 
     /// <summary>Field number for the "shares_outstanding" field.</summary>
     public const int SharesOutstandingFieldNumber = 115;
-    private int sharesOutstanding_;
+    private long sharesOutstanding_;
     /// <summary>
     /// shares outstanding
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int SharesOutstanding {
+    public long SharesOutstanding {
       get { return sharesOutstanding_; }
       set {
         sharesOutstanding_ = value;
@@ -340,18 +356,48 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "prt_price" field.</summary>
-    public const int PrtPriceFieldNumber = 139;
-    private double prtPrice_;
+    /// <summary>Field number for the "prt_volume" field.</summary>
+    public const int PrtVolumeFieldNumber = 137;
+    private int prtVolume_;
+    /// <summary>
+    /// total print volume (all print types)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int PrtVolume {
+      get { return prtVolume_; }
+      set {
+        prtVolume_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "last_prt_price" field.</summary>
+    public const int LastPrtPriceFieldNumber = 139;
+    private double lastPrtPrice_;
     /// <summary>
     /// last print price
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public double PrtPrice {
-      get { return prtPrice_; }
+    public double LastPrtPrice {
+      get { return lastPrtPrice_; }
       set {
-        prtPrice_ = value;
+        lastPrtPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "last_prt_dttm" field.</summary>
+    public const int LastPrtDttmFieldNumber = 140;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp lastPrtDttm_;
+    /// <summary>
+    /// last print time
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp LastPrtDttm {
+      get { return lastPrtDttm_; }
+      set {
+        lastPrtDttm_ = value;
       }
     }
 
@@ -415,18 +461,6 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "last_print" field.</summary>
-    public const int LastPrintFieldNumber = 154;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp lastPrint_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp LastPrint {
-      get { return lastPrint_; }
-      set {
-        lastPrint_ = value;
-      }
-    }
-
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 157;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -456,6 +490,7 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
+      if (!object.Equals(TradeDate, other.TradeDate)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OpnPrice, other.OpnPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MrkPrice, other.MrkPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ClsPrice, other.ClsPrice)) return false;
@@ -469,12 +504,13 @@ namespace Spiderrock.Protobuf {
       if (MidCount != other.MidCount) return false;
       if (MidVolume != other.MidVolume) return false;
       if (PrtCount != other.PrtCount) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(PrtPrice, other.PrtPrice)) return false;
+      if (PrtVolume != other.PrtVolume) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LastPrtPrice, other.LastPrtPrice)) return false;
+      if (!object.Equals(LastPrtDttm, other.LastPrtDttm)) return false;
       if (ExpCount != other.ExpCount) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ExpWidth, other.ExpWidth)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ExpBidSize, other.ExpBidSize)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ExpAskSize, other.ExpAskSize)) return false;
-      if (!object.Equals(LastPrint, other.LastPrint)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -485,12 +521,13 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
+      if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
       if (OpnPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OpnPrice);
       if (MrkPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MrkPrice);
       if (ClsPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ClsPrice);
       if (MinPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MinPrice);
       if (MaxPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MaxPrice);
-      if (SharesOutstanding != 0) hash ^= SharesOutstanding.GetHashCode();
+      if (SharesOutstanding != 0L) hash ^= SharesOutstanding.GetHashCode();
       if (BidCount != 0) hash ^= BidCount.GetHashCode();
       if (BidVolume != 0) hash ^= BidVolume.GetHashCode();
       if (AskCount != 0) hash ^= AskCount.GetHashCode();
@@ -498,12 +535,13 @@ namespace Spiderrock.Protobuf {
       if (MidCount != 0) hash ^= MidCount.GetHashCode();
       if (MidVolume != 0) hash ^= MidVolume.GetHashCode();
       if (PrtCount != 0) hash ^= PrtCount.GetHashCode();
-      if (PrtPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(PrtPrice);
+      if (PrtVolume != 0) hash ^= PrtVolume.GetHashCode();
+      if (LastPrtPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LastPrtPrice);
+      if (lastPrtDttm_ != null) hash ^= LastPrtDttm.GetHashCode();
       if (ExpCount != 0) hash ^= ExpCount.GetHashCode();
       if (ExpWidth != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ExpWidth);
       if (ExpBidSize != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ExpBidSize);
       if (ExpAskSize != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ExpAskSize);
-      if (lastPrint_ != null) hash ^= LastPrint.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -535,6 +573,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(161, 6);
         output.WriteDouble(OpnPrice);
       }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(170, 6);
+        output.WriteMessage(TradeDate);
+      }
       if (MrkPrice != 0D) {
         output.WriteRawTag(185, 6);
         output.WriteDouble(MrkPrice);
@@ -551,9 +593,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(129, 7);
         output.WriteDouble(MaxPrice);
       }
-      if (SharesOutstanding != 0) {
+      if (SharesOutstanding != 0L) {
         output.WriteRawTag(152, 7);
-        output.WriteInt32(SharesOutstanding);
+        output.WriteInt64(SharesOutstanding);
       }
       if (BidCount != 0) {
         output.WriteRawTag(176, 7);
@@ -583,9 +625,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(192, 8);
         output.WriteInt32(PrtCount);
       }
-      if (PrtPrice != 0D) {
+      if (PrtVolume != 0) {
+        output.WriteRawTag(200, 8);
+        output.WriteInt32(PrtVolume);
+      }
+      if (LastPrtPrice != 0D) {
         output.WriteRawTag(217, 8);
-        output.WriteDouble(PrtPrice);
+        output.WriteDouble(LastPrtPrice);
+      }
+      if (lastPrtDttm_ != null) {
+        output.WriteRawTag(226, 8);
+        output.WriteMessage(LastPrtDttm);
       }
       if (ExpCount != 0) {
         output.WriteRawTag(240, 8);
@@ -602,10 +652,6 @@ namespace Spiderrock.Protobuf {
       if (ExpAskSize != 0F) {
         output.WriteRawTag(189, 9);
         output.WriteFloat(ExpAskSize);
-      }
-      if (lastPrint_ != null) {
-        output.WriteRawTag(210, 9);
-        output.WriteMessage(LastPrint);
       }
       if (timestamp_ != null) {
         output.WriteRawTag(234, 9);
@@ -633,6 +679,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(161, 6);
         output.WriteDouble(OpnPrice);
       }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(170, 6);
+        output.WriteMessage(TradeDate);
+      }
       if (MrkPrice != 0D) {
         output.WriteRawTag(185, 6);
         output.WriteDouble(MrkPrice);
@@ -649,9 +699,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(129, 7);
         output.WriteDouble(MaxPrice);
       }
-      if (SharesOutstanding != 0) {
+      if (SharesOutstanding != 0L) {
         output.WriteRawTag(152, 7);
-        output.WriteInt32(SharesOutstanding);
+        output.WriteInt64(SharesOutstanding);
       }
       if (BidCount != 0) {
         output.WriteRawTag(176, 7);
@@ -681,9 +731,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(192, 8);
         output.WriteInt32(PrtCount);
       }
-      if (PrtPrice != 0D) {
+      if (PrtVolume != 0) {
+        output.WriteRawTag(200, 8);
+        output.WriteInt32(PrtVolume);
+      }
+      if (LastPrtPrice != 0D) {
         output.WriteRawTag(217, 8);
-        output.WriteDouble(PrtPrice);
+        output.WriteDouble(LastPrtPrice);
+      }
+      if (lastPrtDttm_ != null) {
+        output.WriteRawTag(226, 8);
+        output.WriteMessage(LastPrtDttm);
       }
       if (ExpCount != 0) {
         output.WriteRawTag(240, 8);
@@ -700,10 +758,6 @@ namespace Spiderrock.Protobuf {
       if (ExpAskSize != 0F) {
         output.WriteRawTag(189, 9);
         output.WriteFloat(ExpAskSize);
-      }
-      if (lastPrint_ != null) {
-        output.WriteRawTag(210, 9);
-        output.WriteMessage(LastPrint);
       }
       if (timestamp_ != null) {
         output.WriteRawTag(234, 9);
@@ -725,6 +779,9 @@ namespace Spiderrock.Protobuf {
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
       }
+      if (tradeDate_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(TradeDate);
+      }
       if (OpnPrice != 0D) {
         size += 2 + 8;
       }
@@ -740,8 +797,8 @@ namespace Spiderrock.Protobuf {
       if (MaxPrice != 0D) {
         size += 2 + 8;
       }
-      if (SharesOutstanding != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(SharesOutstanding);
+      if (SharesOutstanding != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SharesOutstanding);
       }
       if (BidCount != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(BidCount);
@@ -764,8 +821,14 @@ namespace Spiderrock.Protobuf {
       if (PrtCount != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(PrtCount);
       }
-      if (PrtPrice != 0D) {
+      if (PrtVolume != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(PrtVolume);
+      }
+      if (LastPrtPrice != 0D) {
         size += 2 + 8;
+      }
+      if (lastPrtDttm_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(LastPrtDttm);
       }
       if (ExpCount != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(ExpCount);
@@ -778,9 +841,6 @@ namespace Spiderrock.Protobuf {
       }
       if (ExpAskSize != 0F) {
         size += 2 + 4;
-      }
-      if (lastPrint_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(LastPrint);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -809,6 +869,12 @@ namespace Spiderrock.Protobuf {
         }
         Pkey.MergeFrom(other.Pkey);
       }
+      if (other.tradeDate_ != null) {
+        if (tradeDate_ == null) {
+          TradeDate = new global::Spiderrock.Protobuf.DateKey();
+        }
+        TradeDate.MergeFrom(other.TradeDate);
+      }
       if (other.OpnPrice != 0D) {
         OpnPrice = other.OpnPrice;
       }
@@ -824,7 +890,7 @@ namespace Spiderrock.Protobuf {
       if (other.MaxPrice != 0D) {
         MaxPrice = other.MaxPrice;
       }
-      if (other.SharesOutstanding != 0) {
+      if (other.SharesOutstanding != 0L) {
         SharesOutstanding = other.SharesOutstanding;
       }
       if (other.BidCount != 0) {
@@ -848,8 +914,17 @@ namespace Spiderrock.Protobuf {
       if (other.PrtCount != 0) {
         PrtCount = other.PrtCount;
       }
-      if (other.PrtPrice != 0D) {
-        PrtPrice = other.PrtPrice;
+      if (other.PrtVolume != 0) {
+        PrtVolume = other.PrtVolume;
+      }
+      if (other.LastPrtPrice != 0D) {
+        LastPrtPrice = other.LastPrtPrice;
+      }
+      if (other.lastPrtDttm_ != null) {
+        if (lastPrtDttm_ == null) {
+          LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        LastPrtDttm.MergeFrom(other.LastPrtDttm);
       }
       if (other.ExpCount != 0) {
         ExpCount = other.ExpCount;
@@ -862,12 +937,6 @@ namespace Spiderrock.Protobuf {
       }
       if (other.ExpAskSize != 0F) {
         ExpAskSize = other.ExpAskSize;
-      }
-      if (other.lastPrint_ != null) {
-        if (lastPrint_ == null) {
-          LastPrint = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        LastPrint.MergeFrom(other.LastPrint);
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -908,6 +977,13 @@ namespace Spiderrock.Protobuf {
             OpnPrice = input.ReadDouble();
             break;
           }
+          case 810: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
           case 825: {
             MrkPrice = input.ReadDouble();
             break;
@@ -925,7 +1001,7 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 920: {
-            SharesOutstanding = input.ReadInt32();
+            SharesOutstanding = input.ReadInt64();
             break;
           }
           case 944: {
@@ -956,8 +1032,19 @@ namespace Spiderrock.Protobuf {
             PrtCount = input.ReadInt32();
             break;
           }
+          case 1096: {
+            PrtVolume = input.ReadInt32();
+            break;
+          }
           case 1113: {
-            PrtPrice = input.ReadDouble();
+            LastPrtPrice = input.ReadDouble();
+            break;
+          }
+          case 1122: {
+            if (lastPrtDttm_ == null) {
+              LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(LastPrtDttm);
             break;
           }
           case 1136: {
@@ -974,13 +1061,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1213: {
             ExpAskSize = input.ReadFloat();
-            break;
-          }
-          case 1234: {
-            if (lastPrint_ == null) {
-              LastPrint = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LastPrint);
             break;
           }
           case 1258: {
@@ -1023,6 +1103,13 @@ namespace Spiderrock.Protobuf {
             OpnPrice = input.ReadDouble();
             break;
           }
+          case 810: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
           case 825: {
             MrkPrice = input.ReadDouble();
             break;
@@ -1040,7 +1127,7 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 920: {
-            SharesOutstanding = input.ReadInt32();
+            SharesOutstanding = input.ReadInt64();
             break;
           }
           case 944: {
@@ -1071,8 +1158,19 @@ namespace Spiderrock.Protobuf {
             PrtCount = input.ReadInt32();
             break;
           }
+          case 1096: {
+            PrtVolume = input.ReadInt32();
+            break;
+          }
           case 1113: {
-            PrtPrice = input.ReadDouble();
+            LastPrtPrice = input.ReadDouble();
+            break;
+          }
+          case 1122: {
+            if (lastPrtDttm_ == null) {
+              LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(LastPrtDttm);
             break;
           }
           case 1136: {
@@ -1089,13 +1187,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1213: {
             ExpAskSize = input.ReadFloat();
-            break;
-          }
-          case 1234: {
-            if (lastPrint_ == null) {
-              LastPrint = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LastPrint);
             break;
           }
           case 1258: {

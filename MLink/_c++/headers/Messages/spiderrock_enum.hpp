@@ -837,10 +837,8 @@ enum class ClientFirmType : uint8_t {
     CLIENTFIRMTYPE_UNSPECIFIED = 0
     };
 enum class ClsMarkState : uint8_t {
-	CLSMARKSTATE_FINAL = 8,
-    CLSMARKSTATE_EXCH_CLOSE = 4,
-    CLSMARKSTATE_SRCLOSE = 2,
-    CLSMARKSTATE_LAST_PRT = 1,
+	CLSMARKSTATE_FINAL = 2,
+    CLSMARKSTATE_PREVIEW = 1,
     CLSMARKSTATE_UNSPECIFIED = 0
     };
 enum class ConfigAccess : uint8_t {
@@ -1006,6 +1004,17 @@ enum class DropServerCode_V7 : uint8_t {
     DROPSERVERCODE_V7_DS2 = 2,
     DROPSERVERCODE_V7_DS1 = 1,
     DROPSERVERCODE_V7_UNSPECIFIED = 0
+    };
+enum class EDaysCode : uint8_t {
+	EDAYSCODE_E_DAYS_26_65 = 9,
+    EDAYSCODE_E_DAYS_11_25 = 8,
+    EDAYSCODE_E_DAYS_6_10 = 7,
+    EDAYSCODE_E_DAYS_4_5 = 6,
+    EDAYSCODE_E_DAYS_2_3 = 5,
+    EDAYSCODE_E_DAY_1 = 4,
+    EDAYSCODE_E_DAY_0 = 3,
+    EDAYSCODE_PAST = 2,
+    EDAYSCODE_UNSPECIFIED = 0
     };
 enum class EFitCode : uint8_t {
 	EFITCODE_CENTER_FLAT = 10,
@@ -1440,7 +1449,8 @@ enum class MLinkSubscribeState : uint8_t {
     MLINKSUBSCRIBESTATE_UNSPECIFIED = 0
     };
 enum class MLinkToken : uint8_t {
-	MLINKTOKEN_SPREAD_DEFINITION = 34,
+	MLINKTOKEN_FX_MKT_DATA = 35,
+    MLINKTOKEN_SPREAD_DEFINITION = 34,
     MLINKTOKEN_NATIONS_INDEX = 33,
     MLINKTOKEN_SRCONNECT = 32,
     MLINKTOKEN_WSHCORPORATE_EVENT = 31,
@@ -1490,6 +1500,12 @@ enum class MakerTaker : uint8_t {
     MAKERTAKER_MAKER = 1,
     MAKERTAKER_UNSPECIFIED = 0
     };
+enum class MarginType : uint8_t {
+	MARGINTYPE_NMS__MEDIUM = 3,
+    MARGINTYPE_NMS__INDEX = 2,
+    MARGINTYPE_NMS__EQUITY = 1,
+    MARGINTYPE_UNSPECIFIED = 0
+    };
 enum class MarkErrorCode : uint8_t {
 	MARKERRORCODE_OLD_OPX = 32,
     MARKERRORCODE_NO_OPX = 16,
@@ -1500,10 +1516,7 @@ enum class MarkErrorCode : uint8_t {
     MARKERRORCODE_UNSPECIFIED = 0
     };
 enum class MarkSource : uint8_t {
-	MARKSOURCE_OPEN_MARK = 8,
-    MARKSOURCE_CLOSE_MARK = 7,
-    MARKSOURCE_SRQUOTE = 6,
-    MARKSOURCE_SRPRICER = 5,
+	MARKSOURCE_OTHER = 5,
     MARKSOURCE_HI_BOUND = 4,
     MARKSOURCE_LO_BOUND = 3,
     MARKSOURCE_SRVOL = 2,
@@ -1734,6 +1747,11 @@ enum class OpenPosType : uint8_t {
 	OPENPOSTYPE_TRUNCATED = 2,
     OPENPOSTYPE_EXACT = 1,
     OPENPOSTYPE_UNSPECIFIED = 0
+    };
+enum class OpnMarkState : uint8_t {
+	OPNMARKSTATE_FINAL = 2,
+    OPNMARKSTATE_PREVIEW = 1,
+    OPNMARKSTATE_UNSPECIFIED = 0
     };
 enum class OptExch : uint8_t {
 	OPTEXCH_ICEFE = 34,
@@ -2234,6 +2252,11 @@ enum class PrtType : uint8_t {
     PRTTYPE_CANC = 1,
     PRTTYPE_UNSPECIFIED = 0
     };
+enum class PrtUpdateType : uint8_t {
+	PRTUPDATETYPE_MARKUP = 2,
+    PRTUPDATETYPE_PRINT = 1,
+    PRTUPDATETYPE_UNSPECIFIED = 0
+    };
 enum class PublicSizeHandling : uint8_t {
 	PUBLICSIZEHANDLING_NO_SIZE = 11,
     PUBLICSIZEHANDLING_MAX75_PCT = 10,
@@ -2324,8 +2347,9 @@ enum class RawDataToken : uint8_t {
     RAWDATATOKEN_UNSPECIFIED = 0
     };
 enum class ReachRule : uint8_t {
-	REACHRULE_AT_MOST25 = 25,
+	REACHRULE_MIN_TAKE_FEE = 12,
     REACHRULE_AT_MOST50 = 11,
+    REACHRULE_AT_MOST25 = 10,
     REACHRULE_UP_TO_QTY = 9,
     REACHRULE_QTY_OR_MORE = 8,
     REACHRULE_ALL_OR_NONE = 7,
@@ -2366,6 +2390,12 @@ enum class RiskCode : uint8_t {
     RISKCODE_R2 = 2,
     RISKCODE_R1 = 1,
     RISKCODE_UNSPECIFIED = 0
+    };
+enum class RiskCubeVersion : uint8_t {
+	RISKCUBEVERSION_LATE_ARCHIVE = 3,
+    RISKCUBEVERSION_EARLY_ARCHIVE = 2,
+    RISKCUBEVERSION_LIVE = 1,
+    RISKCUBEVERSION_UNSPECIFIED = 0
     };
 enum class RiskServerCode_V7 : uint8_t {
 	RISKSERVERCODE_V7_RST = 21,
@@ -2421,6 +2451,14 @@ enum class SRTimeZone : uint8_t {
     SRTIMEZONE_US__CST = 1,
     SRTIMEZONE_UNSPECIFIED = 0
     };
+enum class SecType : uint8_t {
+	SECTYPE_CASH = 5,
+    SECTYPE_FUTURE = 4,
+    SECTYPE_STOCK = 3,
+    SECTYPE_PUT = 2,
+    SECTYPE_CALL = 1,
+    SECTYPE_UNSPECIFIED = 0
+    };
 enum class SendReason : uint8_t {
 	SENDREASON_AUCTION_NOTICE = 8,
     SENDREASON_BROKER_DESK_MSG = 7,
@@ -2455,6 +2493,24 @@ enum class SkewCode : uint8_t {
     SKEWCODE_DN = 2,
     SKEWCODE_DD = 1,
     SKEWCODE_UNSPECIFIED = 0
+    };
+enum class SpanPricingModel : uint8_t {
+	SPANPRICINGMODEL_I = 9,
+    SPANPRICINGMODEL_CE = 8,
+    SPANPRICINGMODEL_CA = 7,
+    SPANPRICINGMODEL_WB = 6,
+    SPANPRICINGMODEL_WS = 5,
+    SPANPRICINGMODEL_W = 4,
+    SPANPRICINGMODEL_M = 3,
+    SPANPRICINGMODEL_B = 2,
+    SPANPRICINGMODEL_BS = 1,
+    SPANPRICINGMODEL_UNSPECIFIED = 0
+    };
+enum class SpanType : uint8_t {
+	SPANTYPE_LOG = 3,
+    SPANTYPE_PCT = 2,
+    SPANTYPE_PTS = 1,
+    SPANTYPE_UNSPECIFIED = 0
     };
 enum class SpdrActionType : uint8_t {
 	SPDRACTIONTYPE_MODIFY = 5,
@@ -2891,7 +2947,8 @@ enum class SpdrRiskLevel : uint8_t {
     SPDRRISKLEVEL_UNSPECIFIED = 0
     };
 enum class SpdrSource : uint8_t {
-	SPDRSOURCE_AUTO_RESPONDER_BX = 38,
+	SPDRSOURCE_MLINK = 39,
+    SPDRSOURCE_AUTO_RESPONDER_BX = 38,
     SPDRSOURCE_AUTO_RESPONDER_SN = 37,
     SPDRSOURCE_AUTO_RESPONDER_RC = 36,
     SPDRSOURCE_AUTO_RESPONDER_VD = 35,
@@ -3517,6 +3574,20 @@ enum class earnChange : uint8_t {
 	EARNCHANGE_CHANGED = 2,
     EARNCHANGE_NEW = 1,
     EARNCHANGE_UNSPECIFIED = 0
+    };
+enum class iVolRange : uint8_t {
+	IVOLRANGE_I_VOL_RNG_80_UP = 11,
+    IVOLRANGE_I_VOL_RNG_50_80 = 10,
+    IVOLRANGE_I_VOL_RNG_35_50 = 9,
+    IVOLRANGE_I_VOL_RNG_25_35 = 8,
+    IVOLRANGE_I_VOL_RNG_20_25 = 7,
+    IVOLRANGE_I_VOL_RNG_15_20 = 6,
+    IVOLRANGE_I_VOL_RNG_12_15 = 5,
+    IVOLRANGE_I_VOL_RNG_09_12 = 4,
+    IVOLRANGE_I_VOL_RNG_06_09 = 3,
+    IVOLRANGE_I_VOL_RNG_03_06 = 2,
+    IVOLRANGE_I_VOL_RNG_01_03 = 1,
+    IVOLRANGE_UNSPECIFIED = 0
     };
 
 }

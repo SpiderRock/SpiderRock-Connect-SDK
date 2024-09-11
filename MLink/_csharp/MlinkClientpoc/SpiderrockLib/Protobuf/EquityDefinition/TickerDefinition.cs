@@ -26,50 +26,51 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9FcXVpdHlEZWZpbml0aW9uL1RpY2tlckRlZmluaXRpb24u",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIqsNChBU",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIuENChBU",
             "aWNrZXJEZWZpbml0aW9uEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5w",
             "cm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOAoEcGtleRgCIAEoCzIqLnNwaWRl",
             "cnJvY2sucHJvdG9idWYuVGlja2VyRGVmaW5pdGlvbi5QS2V5EhMKC3NlY3Vy",
             "aXR5X2lEGGQgASgFEjQKC3N5bWJvbF90eXBlGGcgASgOMh8uc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5TeW1ib2xUeXBlEgwKBG5hbWUYaiABKAkSDwoHY291bnRy",
-            "eRhtIAEoCRI3ChBwcmltYXJ5X2N1cnJlbmN5GG4gASgOMh0uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5DdXJyZW5jeRIRCglwYXJfdmFsdWUYcCABKAISGgoScGFy",
-            "X3ZhbHVlX2N1cnJlbmN5GHMgASgJEhMKC3BvaW50X3ZhbHVlGHYgASgCEjUK",
-            "DnBvaW50X2N1cnJlbmN5GHkgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5D",
-            "dXJyZW5jeRI6CgxwcmltYXJ5X2V4Y2gYfCABKA4yJC5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlByaW1hcnlFeGNoYW5nZRIOCgZhbHRfaUQYfyABKAUSDAoDbWlj",
-            "GIIBIAEoCRIQCgdtaWNfc2VnGIUBIAEoCRIPCgZzeW1ib2wYiAEgASgJEhQK",
-            "C2lzc3VlX2NsYXNzGIsBIAEoCRIbChJzaGFyZXNfb3V0c3RhbmRpbmcYjgEg",
-            "ASgFEg4KBWN1c2lwGJEBIAEoCRIQCgdpbmRfbnVtGJQBIAEoBRIQCgdzdWJf",
-            "bnVtGJcBIAEoBRIQCgdncnBfbnVtGJoBIAEoBRIQCgduYnJfbnVtGJ0BIAEo",
-            "BRIMCgNzaWMYoAEgASgJEgwKA2NpaxijASABKAkSDQoEZ2ljcximASABKAkS",
-            "DAoDbGVpGKkBIAEoCRIOCgVuYWljcxisASABKAkSDAoDY2ZpGK8BIAEoCRIM",
-            "CgNjaWMYsgEgASgJEg0KBGZpc24YtQEgASgJEg0KBGlzaW4YuAEgASgJEg0K",
-            "BGZpZ2kYuwEgASgJEh0KFGJiZ19jb21wb3NpdGVfdGlja2VyGL4BIAEoCRIc",
-            "ChNiYmdfZXhjaGFuZ2VfdGlja2VyGMEBIAEoCRIgChdiYmdfY29tcG9zaXRl",
-            "X2dsb2JhbF9pRBjEASABKAkSFgoNYmJnX2dsb2JhbF9pRBjHASABKAkSFQoM",
-            "YmJnX2N1cnJlbmN5GMoBIAEoCRJCChJvdGNfcHJpbWFyeV9tYXJrZXQYzQEg",
-            "ASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5PVENQcmltYXJ5TWFya2V0Ei8K",
-            "CG90Y190aWVyGNABIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT1RDVGll",
-            "chIdChRvdGNfcmVwb3J0aW5nX3N0YXR1cxjTASABKAkSHgoVb3RjX2Rpc2Ns",
-            "b3N1cmVfc3RhdHVzGNYBIAEoBRISCglvdGNfZmxhZ3MY2QEgASgFEjgKDXN0",
-            "a19wcmljZV9pbmMY3AEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TdGtQ",
-            "cmljZUluYxI4Cg10a19kZWZfc291cmNlGN8BIAEoDjIgLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuVGtEZWZTb3VyY2USNwoLc3RhdHVzX2ZsYWcY4gEgASgOMiEu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5Ua1N0YXR1c0ZsYWcSMQoJdGFwZV9jb2Rl",
-            "GOUBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuVGFwZUNvZGUSEwoKc3Rr",
-            "X3ZvbHVtZRjoASABKAISEwoKZnV0X3ZvbHVtZRjrASABKAISEwoKb3B0X3Zv",
-            "bHVtZRjuASABKAISFAoLZXhjaF9zdHJpbmcY8QEgASgJEjAKC2hhc19vcHRp",
-            "b25zGPQBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SFAoLbnVt",
-            "X29wdGlvbnMY9wEgASgFEjUKC3RpbWVfbWV0cmljGPoBIAEoDjIfLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuVGltZU1ldHJpYxIuCgl0aW1lc3RhbXAY/QEgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo2CgRQS2V5Ei4KBnRpY2tl",
-            "chgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5YgZwcm90",
-            "bzM="));
+            "eRhtIAEoCRI4ChBwcmltYXJ5X2N1cnJlbmN5GP4BIAEoDjIdLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuQ3VycmVuY3kSMwoKcmF0ZV9jdXJ2ZRj/ASABKA4yHi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlJhdGVDdXJ2ZRIRCglwYXJfdmFsdWUYcCAB",
+            "KAISGgoScGFyX3ZhbHVlX2N1cnJlbmN5GHMgASgJEhMKC3BvaW50X3ZhbHVl",
+            "GHYgASgCEjUKDnBvaW50X2N1cnJlbmN5GHkgASgOMh0uc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5DdXJyZW5jeRI6CgxwcmltYXJ5X2V4Y2gYfCABKA4yJC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlByaW1hcnlFeGNoYW5nZRIOCgZhbHRfaUQYfyAB",
+            "KAUSDAoDbWljGIIBIAEoCRIQCgdtaWNfc2VnGIUBIAEoCRIPCgZzeW1ib2wY",
+            "iAEgASgJEhQKC2lzc3VlX2NsYXNzGIsBIAEoCRIbChJzaGFyZXNfb3V0c3Rh",
+            "bmRpbmcYjgEgASgDEg4KBWN1c2lwGJEBIAEoCRIQCgdpbmRfbnVtGJQBIAEo",
+            "BRIQCgdzdWJfbnVtGJcBIAEoBRIQCgdncnBfbnVtGJoBIAEoBRIQCgduYnJf",
+            "bnVtGJ0BIAEoBRIMCgNzaWMYoAEgASgJEgwKA2NpaxijASABKAkSDQoEZ2lj",
+            "cximASABKAkSDAoDbGVpGKkBIAEoCRIOCgVuYWljcxisASABKAkSDAoDY2Zp",
+            "GK8BIAEoCRIMCgNjaWMYsgEgASgJEg0KBGZpc24YtQEgASgJEg0KBGlzaW4Y",
+            "uAEgASgJEg0KBGZpZ2kYuwEgASgJEh0KFGJiZ19jb21wb3NpdGVfdGlja2Vy",
+            "GL4BIAEoCRIcChNiYmdfZXhjaGFuZ2VfdGlja2VyGMEBIAEoCRIgChdiYmdf",
+            "Y29tcG9zaXRlX2dsb2JhbF9pRBjEASABKAkSFgoNYmJnX2dsb2JhbF9pRBjH",
+            "ASABKAkSFQoMYmJnX2N1cnJlbmN5GMoBIAEoCRJCChJvdGNfcHJpbWFyeV9t",
+            "YXJrZXQYzQEgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5PVENQcmltYXJ5",
+            "TWFya2V0Ei8KCG90Y190aWVyGNABIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuT1RDVGllchIdChRvdGNfcmVwb3J0aW5nX3N0YXR1cxjTASABKAkSHgoV",
+            "b3RjX2Rpc2Nsb3N1cmVfc3RhdHVzGNYBIAEoBRISCglvdGNfZmxhZ3MY2QEg",
+            "ASgFEjgKDXN0a19wcmljZV9pbmMY3AEgASgOMiAuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5TdGtQcmljZUluYxI4Cg10a19kZWZfc291cmNlGN8BIAEoDjIgLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuVGtEZWZTb3VyY2USNwoLc3RhdHVzX2ZsYWcY",
+            "4gEgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5Ua1N0YXR1c0ZsYWcSMQoJ",
+            "dGFwZV9jb2RlGOUBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuVGFwZUNv",
+            "ZGUSEwoKc3RrX3ZvbHVtZRjoASABKAISEwoKZnV0X3ZvbHVtZRjrASABKAIS",
+            "EwoKb3B0X3ZvbHVtZRjuASABKAISFAoLZXhjaF9zdHJpbmcY8QEgASgJEjAK",
+            "C2hhc19vcHRpb25zGPQBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVz",
+            "Tm8SFAoLbnVtX29wdGlvbnMY9wEgASgFEjUKC3RpbWVfbWV0cmljGPoBIAEo",
+            "DjIfLnNwaWRlcnJvY2sucHJvdG9idWYuVGltZU1ldHJpYxIuCgl0aW1lc3Rh",
+            "bXAY/QEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo2CgRQS2V5",
+            "Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2Vy",
+            "S2V5YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition), global::Spiderrock.Protobuf.TickerDefinition.Parser, new[]{ "Meta", "Pkey", "SecurityID", "SymbolType", "Name", "Country", "PrimaryCurrency", "ParValue", "ParValueCurrency", "PointValue", "PointCurrency", "PrimaryExch", "AltID", "Mic", "MicSeg", "Symbol", "IssueClass", "SharesOutstanding", "Cusip", "IndNum", "SubNum", "GrpNum", "NbrNum", "Sic", "Cik", "Gics", "Lei", "Naics", "Cfi", "Cic", "Fisn", "Isin", "Figi", "BbgCompositeTicker", "BbgExchangeTicker", "BbgCompositeGlobalID", "BbgGlobalID", "BbgCurrency", "OtcPrimaryMarket", "OtcTier", "OtcReportingStatus", "OtcDisclosureStatus", "OtcFlags", "StkPriceInc", "TkDefSource", "StatusFlag", "TapeCode", "StkVolume", "FutVolume", "OptVolume", "ExchString", "HasOptions", "NumOptions", "TimeMetric", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition.Types.PKey), global::Spiderrock.Protobuf.TickerDefinition.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition), global::Spiderrock.Protobuf.TickerDefinition.Parser, new[]{ "Meta", "Pkey", "SecurityID", "SymbolType", "Name", "Country", "PrimaryCurrency", "RateCurve", "ParValue", "ParValueCurrency", "PointValue", "PointCurrency", "PrimaryExch", "AltID", "Mic", "MicSeg", "Symbol", "IssueClass", "SharesOutstanding", "Cusip", "IndNum", "SubNum", "GrpNum", "NbrNum", "Sic", "Cik", "Gics", "Lei", "Naics", "Cfi", "Cic", "Fisn", "Isin", "Figi", "BbgCompositeTicker", "BbgExchangeTicker", "BbgCompositeGlobalID", "BbgGlobalID", "BbgCurrency", "OtcPrimaryMarket", "OtcTier", "OtcReportingStatus", "OtcDisclosureStatus", "OtcFlags", "StkPriceInc", "TkDefSource", "StatusFlag", "TapeCode", "StkVolume", "FutVolume", "OptVolume", "ExchString", "HasOptions", "NumOptions", "TimeMetric", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition.Types.PKey), global::Spiderrock.Protobuf.TickerDefinition.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -121,6 +122,7 @@ namespace Spiderrock.Protobuf {
       name_ = other.name_;
       country_ = other.country_;
       primaryCurrency_ = other.primaryCurrency_;
+      rateCurve_ = other.rateCurve_;
       parValue_ = other.parValue_;
       parValueCurrency_ = other.parValueCurrency_;
       pointValue_ = other.pointValue_;
@@ -260,7 +262,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "primary_currency" field.</summary>
-    public const int PrimaryCurrencyFieldNumber = 110;
+    public const int PrimaryCurrencyFieldNumber = 254;
     private global::Spiderrock.Protobuf.Currency primaryCurrency_ = global::Spiderrock.Protobuf.Currency.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -268,6 +270,18 @@ namespace Spiderrock.Protobuf {
       get { return primaryCurrency_; }
       set {
         primaryCurrency_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "rate_curve" field.</summary>
+    public const int RateCurveFieldNumber = 255;
+    private global::Spiderrock.Protobuf.RateCurve rateCurve_ = global::Spiderrock.Protobuf.RateCurve.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.RateCurve RateCurve {
+      get { return rateCurve_; }
+      set {
+        rateCurve_ = value;
       }
     }
 
@@ -414,13 +428,13 @@ namespace Spiderrock.Protobuf {
 
     /// <summary>Field number for the "shares_outstanding" field.</summary>
     public const int SharesOutstandingFieldNumber = 142;
-    private int sharesOutstanding_;
+    private long sharesOutstanding_;
     /// <summary>
     /// symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int SharesOutstanding {
+    public long SharesOutstanding {
       get { return sharesOutstanding_; }
       set {
         sharesOutstanding_ = value;
@@ -848,7 +862,7 @@ namespace Spiderrock.Protobuf {
     public const int StkVolumeFieldNumber = 232;
     private float stkVolume_;
     /// <summary>
-    /// trailing average 20D daily stock volume
+    /// daily stock volume
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -863,7 +877,7 @@ namespace Spiderrock.Protobuf {
     public const int FutVolumeFieldNumber = 235;
     private float futVolume_;
     /// <summary>
-    /// trailing average 20D daily future volume
+    /// daily future volume
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -878,7 +892,7 @@ namespace Spiderrock.Protobuf {
     public const int OptVolumeFieldNumber = 238;
     private float optVolume_;
     /// <summary>
-    /// trailing average 20D daily option volume
+    /// daily option volume
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -983,6 +997,7 @@ namespace Spiderrock.Protobuf {
       if (Name != other.Name) return false;
       if (Country != other.Country) return false;
       if (PrimaryCurrency != other.PrimaryCurrency) return false;
+      if (RateCurve != other.RateCurve) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ParValue, other.ParValue)) return false;
       if (ParValueCurrency != other.ParValueCurrency) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PointValue, other.PointValue)) return false;
@@ -1045,6 +1060,7 @@ namespace Spiderrock.Protobuf {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Country.Length != 0) hash ^= Country.GetHashCode();
       if (PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) hash ^= PrimaryCurrency.GetHashCode();
+      if (RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) hash ^= RateCurve.GetHashCode();
       if (ParValue != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ParValue);
       if (ParValueCurrency.Length != 0) hash ^= ParValueCurrency.GetHashCode();
       if (PointValue != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PointValue);
@@ -1055,7 +1071,7 @@ namespace Spiderrock.Protobuf {
       if (MicSeg.Length != 0) hash ^= MicSeg.GetHashCode();
       if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
       if (IssueClass.Length != 0) hash ^= IssueClass.GetHashCode();
-      if (SharesOutstanding != 0) hash ^= SharesOutstanding.GetHashCode();
+      if (SharesOutstanding != 0L) hash ^= SharesOutstanding.GetHashCode();
       if (Cusip.Length != 0) hash ^= Cusip.GetHashCode();
       if (IndNum != 0) hash ^= IndNum.GetHashCode();
       if (SubNum != 0) hash ^= SubNum.GetHashCode();
@@ -1135,10 +1151,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 6);
         output.WriteString(Country);
       }
-      if (PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) {
-        output.WriteRawTag(240, 6);
-        output.WriteEnum((int) PrimaryCurrency);
-      }
       if (ParValue != 0F) {
         output.WriteRawTag(133, 7);
         output.WriteFloat(ParValue);
@@ -1179,9 +1191,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(218, 8);
         output.WriteString(IssueClass);
       }
-      if (SharesOutstanding != 0) {
+      if (SharesOutstanding != 0L) {
         output.WriteRawTag(240, 8);
-        output.WriteInt32(SharesOutstanding);
+        output.WriteInt64(SharesOutstanding);
       }
       if (Cusip.Length != 0) {
         output.WriteRawTag(138, 9);
@@ -1330,6 +1342,14 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(234, 15);
         output.WriteMessage(Timestamp);
+      }
+      if (PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) {
+        output.WriteRawTag(240, 15);
+        output.WriteEnum((int) PrimaryCurrency);
+      }
+      if (RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) {
+        output.WriteRawTag(248, 15);
+        output.WriteEnum((int) RateCurve);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1365,10 +1385,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 6);
         output.WriteString(Country);
       }
-      if (PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) {
-        output.WriteRawTag(240, 6);
-        output.WriteEnum((int) PrimaryCurrency);
-      }
       if (ParValue != 0F) {
         output.WriteRawTag(133, 7);
         output.WriteFloat(ParValue);
@@ -1409,9 +1425,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(218, 8);
         output.WriteString(IssueClass);
       }
-      if (SharesOutstanding != 0) {
+      if (SharesOutstanding != 0L) {
         output.WriteRawTag(240, 8);
-        output.WriteInt32(SharesOutstanding);
+        output.WriteInt64(SharesOutstanding);
       }
       if (Cusip.Length != 0) {
         output.WriteRawTag(138, 9);
@@ -1561,6 +1577,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 15);
         output.WriteMessage(Timestamp);
       }
+      if (PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) {
+        output.WriteRawTag(240, 15);
+        output.WriteEnum((int) PrimaryCurrency);
+      }
+      if (RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) {
+        output.WriteRawTag(248, 15);
+        output.WriteEnum((int) RateCurve);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1592,6 +1616,9 @@ namespace Spiderrock.Protobuf {
       if (PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PrimaryCurrency);
       }
+      if (RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RateCurve);
+      }
       if (ParValue != 0F) {
         size += 2 + 4;
       }
@@ -1622,8 +1649,8 @@ namespace Spiderrock.Protobuf {
       if (IssueClass.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(IssueClass);
       }
-      if (SharesOutstanding != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(SharesOutstanding);
+      if (SharesOutstanding != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SharesOutstanding);
       }
       if (Cusip.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Cusip);
@@ -1775,6 +1802,9 @@ namespace Spiderrock.Protobuf {
       if (other.PrimaryCurrency != global::Spiderrock.Protobuf.Currency.Unspecified) {
         PrimaryCurrency = other.PrimaryCurrency;
       }
+      if (other.RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) {
+        RateCurve = other.RateCurve;
+      }
       if (other.ParValue != 0F) {
         ParValue = other.ParValue;
       }
@@ -1805,7 +1835,7 @@ namespace Spiderrock.Protobuf {
       if (other.IssueClass.Length != 0) {
         IssueClass = other.IssueClass;
       }
-      if (other.SharesOutstanding != 0) {
+      if (other.SharesOutstanding != 0L) {
         SharesOutstanding = other.SharesOutstanding;
       }
       if (other.Cusip.Length != 0) {
@@ -1967,10 +1997,6 @@ namespace Spiderrock.Protobuf {
             Country = input.ReadString();
             break;
           }
-          case 880: {
-            PrimaryCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
-            break;
-          }
           case 901: {
             ParValue = input.ReadFloat();
             break;
@@ -2012,7 +2038,7 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1136: {
-            SharesOutstanding = input.ReadInt32();
+            SharesOutstanding = input.ReadInt64();
             break;
           }
           case 1162: {
@@ -2164,6 +2190,14 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 2032: {
+            PrimaryCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
+            break;
+          }
+          case 2040: {
+            RateCurve = (global::Spiderrock.Protobuf.RateCurve) input.ReadEnum();
             break;
           }
         }
@@ -2211,10 +2245,6 @@ namespace Spiderrock.Protobuf {
             Country = input.ReadString();
             break;
           }
-          case 880: {
-            PrimaryCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
-            break;
-          }
           case 901: {
             ParValue = input.ReadFloat();
             break;
@@ -2256,7 +2286,7 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1136: {
-            SharesOutstanding = input.ReadInt32();
+            SharesOutstanding = input.ReadInt64();
             break;
           }
           case 1162: {
@@ -2408,6 +2438,14 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 2032: {
+            PrimaryCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
+            break;
+          }
+          case 2040: {
+            RateCurve = (global::Spiderrock.Protobuf.RateCurve) input.ReadEnum();
             break;
           }
         }

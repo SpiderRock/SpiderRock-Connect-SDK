@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionItemCalc {
+
+
+    MessageMetadata _meta = 1;
+    
+    OptionKey okey = 100; // okey.root can be a listed/flex root symbol or an underlying symbol
+    int64 basket_number = 103;
+    ExerciseType ex_type = 106; // exercise type of the option (American or European) (default: from root definition)
+    ExerciseTime ex_time = 109; // exercise time (AM or PM) (default: from root definition)
+    TimeMetric time_metric = 112; // time metric (D252, D365, etc.) (default: D252)
+    CalcPriceType price_type = 115; // Equity (spot price) or Future (fwd price) conventions (default: from root definition)
+    CalcModelType model_type = 118; // LogNormal, Normal, etc.  (default: from root definition)
+    YesNo inc_greeks = 121; // default (No)
+    double vol = 124; // volatility (default: SR surface volatility)
+    double u_prc = 127; // underlying price (default: SR live uPrc)
+    int32 i_days = 130; // interest days to expiration (default: SR interest days)
+    double years = 133; // years-to-expiration (default: SR volatility time value)
+    double sdiv = 136; // continuous stock dividend using for pricing
+    double rate = 139; // discount rate used for pricing
+    double ddiv = 142;
+    double ddiv_pV = 145;
+    double price = 148; // price (premium)
+    double eff_strike = 151; // effective strike used to for pricing calc
+    float delta = 154; // delta
+    float gamma = 157; // gamma
+    float theta = 160; // theta
+    float vega = 163; // vega
+    float volga = 166; // volga
+    float vanna = 169; // vanna
+    float de_decay = 172; // delta decay
+    float rho = 175; // rho
+    float phi = 178; // phi
+    string error = 181;
+    string pricer_model = 184;
+    google.protobuf.Timestamp timestamp = 187;
+}
+
+

@@ -35,7 +35,9 @@ message GetOptionPrice {
     YesNo inc_greeks = 151; // default (No)
     double price = 154; // price (premium)
     double eff_strike = 157; // effective strike used to for pricing calc
-    float dividend_amount = 160; // sum of discrete dividend amounts payable prior to exercise (if any) (simple; not net present value)
+    int32 i_days = 159; // interest days to expiry
+    float ddiv = 160; // sum of discrete dividend amounts payable prior to exercise (if any) (simple; not net present value)
+    float ddiv_pV = 161; // sum of present value of discrete dividend amounts payable prior to exercise (if any)
     float delta = 163; // delta
     float gamma = 166; // gamma
     float theta = 169; // theta

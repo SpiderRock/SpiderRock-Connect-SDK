@@ -1324,7 +1324,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(139,m_issue_class);
             }
             if ( IncludeSharesOutstanding()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(256,m_shares_outstanding);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(142,m_shares_outstanding);
             }
             if ( IncludeCusip()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(145,m_cusip);
@@ -1474,7 +1474,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,139,static_cast<string>(m_issue_class));
             }
             if ( IncludeSharesOutstanding()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,256,m_shares_outstanding);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,142,m_shares_outstanding);
             }
             if ( IncludeCusip()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,145,static_cast<string>(m_cusip));
@@ -1692,7 +1692,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 256: {
+                    case 142: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_shares_outstanding = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }

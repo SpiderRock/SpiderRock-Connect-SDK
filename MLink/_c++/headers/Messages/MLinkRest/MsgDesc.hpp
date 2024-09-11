@@ -163,14 +163,14 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(142,m_name);
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(143,m_fields);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(141,m_name);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(142,m_fields);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,142,static_cast<string>(m_name));
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,143,static_cast<string>(m_fields));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,141,static_cast<string>(m_name));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,142,static_cast<string>(m_fields));
             return dest;
         }
 
@@ -187,10 +187,10 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 142: {m_name = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 141: {m_name = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 143: {m_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 142: {m_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -538,7 +538,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cf)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>(m_m_token)));
             if ( IncludeSrseProducts()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(140,m_srse_products);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(125,m_srse_products);
             }
             if ( IncludeDesc()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(127,m_desc);
@@ -554,7 +554,7 @@ namespace api {
             }
             if ( IncludeGridFieldOptions()) {
                 for (auto& item : m_grid_field_options) {
-					totalSize += SRProtobufCPP::TagCodec::Size(141, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(140, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -586,7 +586,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cf)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>(m_m_token)));
             if ( IncludeSrseProducts()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,140,static_cast<string>(m_srse_products));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,125,static_cast<string>(m_srse_products));
             }
             if ( IncludeDesc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,127,static_cast<string>(m_desc));
@@ -602,7 +602,7 @@ namespace api {
             }
             if ( IncludeGridFieldOptions()) {
                 for (auto& item : m_grid_field_options) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 141, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 140, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -679,7 +679,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 140: {
+                    case 125: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_srse_products = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
@@ -709,7 +709,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 141: {
+                    case 140: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             grid_field_options item_grid_field_options;

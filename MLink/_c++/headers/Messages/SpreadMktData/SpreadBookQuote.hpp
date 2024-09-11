@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(print_volume, int32);
     #endif//_print_volume__GUARD__
 
-    #ifndef _update_type__GUARD__
-    #define _update_type__GUARD__
-    DECL_STRONG_TYPE(update_type, spiderrock::protobuf::api::UpdateType);
-    #endif//_update_type__GUARD__
+    #ifndef _update_type__UpdateType__GUARD__
+    #define _update_type__UpdateType__GUARD__
+    DECL_STRONG_TYPE(update_type__UpdateType, spiderrock::protobuf::api::UpdateType);
+    #endif//_update_type__UpdateType__GUARD__
 
     #ifndef _src_timestamp__GUARD__
     #define _src_timestamp__GUARD__
@@ -295,7 +295,7 @@ namespace api {
         using bid_time = spiderrock::protobuf::api::bid_time__timestamp;
         using ask_time = spiderrock::protobuf::api::ask_time__timestamp;
         using print_volume = spiderrock::protobuf::api::print_volume;
-        using update_type = spiderrock::protobuf::api::update_type;
+        using update_type = spiderrock::protobuf::api::update_type__UpdateType;
         using src_timestamp = spiderrock::protobuf::api::src_timestamp;
         using net_timestamp = spiderrock::protobuf::api::net_timestamp;
         using timestamp = spiderrock::protobuf::api::timestamp;

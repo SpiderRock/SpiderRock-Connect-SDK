@@ -21,10 +21,9 @@ message FutureOpenMark {
     
     PKey pkey = 2;
     DateKey trade_date = 100;
-    double sr_cls_prc = 103; // SR open mark; [SR close mark (close - 1min) from previous day]
+    OpnMarkState opn_mark_state = 101; // Preview or Final
+    double sr_cls_prc = 103; // SR open mark; [SR close mark (close - 5min) from previous day]
     double close_prc = 106; // exchange open mark; [exchange close mark from previous day]
-    double bid_prc = 109; // bid price (SR bid price from previous day)
-    double ask_prc = 112; // ask price (SR ask price from previous day)
     google.protobuf.Timestamp timestamp = 115;
 }
 

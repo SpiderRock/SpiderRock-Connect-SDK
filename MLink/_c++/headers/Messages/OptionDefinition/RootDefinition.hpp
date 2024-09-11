@@ -1292,7 +1292,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(184,m_premium_mult);
             }
             if ( IncludeSymbolRatio()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(222,m_symbol_ratio);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(185,m_symbol_ratio);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
@@ -1406,7 +1406,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,184,m_premium_mult);
             }
             if ( IncludeSymbolRatio()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,222,m_symbol_ratio);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,185,m_symbol_ratio);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
@@ -1633,7 +1633,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 222: {
+                    case 185: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_symbol_ratio = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }

@@ -115,10 +115,20 @@ namespace api {
     DECL_STRONG_TYPE(eff_strike, double);
     #endif//_eff_strike__GUARD__
 
-    #ifndef _dividend_amount__GUARD__
-    #define _dividend_amount__GUARD__
-    DECL_STRONG_TYPE(dividend_amount, float);
-    #endif//_dividend_amount__GUARD__
+    #ifndef _i_days__int32__GUARD__
+    #define _i_days__int32__GUARD__
+    DECL_STRONG_TYPE(i_days__int32, int32);
+    #endif//_i_days__int32__GUARD__
+
+    #ifndef _ddiv__float__GUARD__
+    #define _ddiv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv__float, float);
+    #endif//_ddiv__float__GUARD__
+
+    #ifndef _ddiv_pv__float__GUARD__
+    #define _ddiv_pv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv_pv__float, float);
+    #endif//_ddiv_pv__float__GUARD__
 
     #ifndef _delta__float__GUARD__
     #define _delta__float__GUARD__
@@ -303,7 +313,9 @@ namespace api {
         using inc_greeks = spiderrock::protobuf::api::inc_greeks;
         using price = spiderrock::protobuf::api::price;
         using eff_strike = spiderrock::protobuf::api::eff_strike;
-        using dividend_amount = spiderrock::protobuf::api::dividend_amount;
+        using i_days = spiderrock::protobuf::api::i_days__int32;
+        using ddiv = spiderrock::protobuf::api::ddiv__float;
+        using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using delta = spiderrock::protobuf::api::delta__float;
         using gamma = spiderrock::protobuf::api::gamma;
         using theta = spiderrock::protobuf::api::theta;
@@ -337,7 +349,9 @@ namespace api {
         inc_greeks m_inc_greeks{};
         price m_price{};
         eff_strike m_eff_strike{};
-        dividend_amount m_dividend_amount{};
+        i_days m_i_days{};
+        ddiv m_ddiv{};
+        ddiv_pv m_ddiv_pv{};
         delta m_delta{};
         gamma m_gamma{};
         theta m_theta{};
@@ -409,8 +423,14 @@ namespace api {
         eff_strike get_eff_strike() const {
             return m_eff_strike;
         }		
-        dividend_amount get_dividend_amount() const {
-            return m_dividend_amount;
+        i_days get_i_days() const {
+            return m_i_days;
+        }		
+        ddiv get_ddiv() const {
+            return m_ddiv;
+        }		
+        ddiv_pv get_ddiv_pv() const {
+            return m_ddiv_pv;
         }		
         delta get_delta() const {
             return m_delta;
@@ -512,8 +532,14 @@ namespace api {
         void set_eff_strike(const eff_strike& value)  {
             m_eff_strike = value;
         }
-        void set_dividend_amount(const dividend_amount& value)  {
-            m_dividend_amount = value;
+        void set_i_days(const i_days& value)  {
+            m_i_days = value;
+        }
+        void set_ddiv(const ddiv& value)  {
+            m_ddiv = value;
+        }
+        void set_ddiv_pv(const ddiv_pv& value)  {
+            m_ddiv_pv = value;
         }
         void set_delta(const delta& value)  {
             m_delta = value;
@@ -625,8 +651,14 @@ namespace api {
         void set(const eff_strike & value) {
             set_eff_strike(value);
         }
-        void set(const dividend_amount & value) {
-            set_dividend_amount(value);
+        void set(const i_days & value) {
+            set_i_days(value);
+        }
+        void set(const ddiv & value) {
+            set_ddiv(value);
+        }
+        void set(const ddiv_pv & value) {
+            set_ddiv_pv(value);
         }
         void set(const delta & value) {
             set_delta(value);
@@ -687,7 +719,9 @@ namespace api {
             set(value.m_inc_greeks);
             set(value.m_price);
             set(value.m_eff_strike);
-            set(value.m_dividend_amount);
+            set(value.m_i_days);
+            set(value.m_ddiv);
+            set(value.m_ddiv_pv);
             set(value.m_delta);
             set(value.m_gamma);
             set(value.m_theta);
@@ -785,8 +819,14 @@ namespace api {
         bool IncludeEffStrike() const {
             return !(m_eff_strike == 0.0);
         }
-        bool IncludeDividendAmount() const {
-            return !(m_dividend_amount == 0.0);
+        bool IncludeIDays() const {
+            return !(m_i_days == 0);
+        }
+        bool IncludeDdiv() const {
+            return !(m_ddiv == 0.0);
+        }
+        bool IncludeDdivPv() const {
+            return !(m_ddiv_pv == 0.0);
         }
         bool IncludeDelta() const {
             return !(m_delta == 0.0);
@@ -874,8 +914,14 @@ namespace api {
             if ( IncludeEffStrike()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(157,m_eff_strike);
             }
-            if ( IncludeDividendAmount()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(160,m_dividend_amount);
+            if ( IncludeIDays()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(159,m_i_days);
+            }
+            if ( IncludeDdiv()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(160,m_ddiv);
+            }
+            if ( IncludeDdivPv()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(161,m_ddiv_pv);
             }
             if ( IncludeDelta()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(163,m_delta);
@@ -968,8 +1014,14 @@ namespace api {
             if ( IncludeEffStrike()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,157,m_eff_strike);
             }
-            if ( IncludeDividendAmount()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,160,m_dividend_amount);
+            if ( IncludeIDays()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,159,m_i_days);
+            }
+            if ( IncludeDdiv()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,160,m_ddiv);
+            }
+            if ( IncludeDdivPv()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,161,m_ddiv_pv);
             }
             if ( IncludeDelta()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,163,m_delta);
@@ -1136,9 +1188,21 @@ namespace api {
                         }
                         break;
                     }
+                    case 159: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_i_days = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
                     case 160: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_dividend_amount = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_ddiv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 161: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_ddiv_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
@@ -1250,7 +1314,9 @@ namespace api {
     template<> inline const auto GetOptionPrice::get<GetOptionPrice::inc_greeks>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_inc_greeks)); }
     template<> inline const auto GetOptionPrice::get<GetOptionPrice::price>() const { return m_price; }
     template<> inline const auto GetOptionPrice::get<GetOptionPrice::eff_strike>() const { return m_eff_strike; }
-    template<> inline const auto GetOptionPrice::get<GetOptionPrice::dividend_amount>() const { return m_dividend_amount; }
+    template<> inline const auto GetOptionPrice::get<GetOptionPrice::i_days>() const { return m_i_days; }
+    template<> inline const auto GetOptionPrice::get<GetOptionPrice::ddiv>() const { return m_ddiv; }
+    template<> inline const auto GetOptionPrice::get<GetOptionPrice::ddiv_pv>() const { return m_ddiv_pv; }
     template<> inline const auto GetOptionPrice::get<GetOptionPrice::delta>() const { return m_delta; }
     template<> inline const auto GetOptionPrice::get<GetOptionPrice::gamma>() const { return m_gamma; }
     template<> inline const auto GetOptionPrice::get<GetOptionPrice::theta>() const { return m_theta; }
@@ -1300,7 +1366,9 @@ namespace api {
         o << ",\"inc_greeks\":" << (int64_t)m.get<GetOptionPrice::inc_greeks>();
         o << ",\"price\":" << m.get<GetOptionPrice::price>();
         o << ",\"eff_strike\":" << m.get<GetOptionPrice::eff_strike>();
-        o << ",\"dividend_amount\":" << m.get<GetOptionPrice::dividend_amount>();
+        o << ",\"i_days\":" << m.get<GetOptionPrice::i_days>();
+        o << ",\"ddiv\":" << m.get<GetOptionPrice::ddiv>();
+        o << ",\"ddiv_pv\":" << m.get<GetOptionPrice::ddiv_pv>();
         o << ",\"delta\":" << m.get<GetOptionPrice::delta>();
         o << ",\"gamma\":" << m.get<GetOptionPrice::gamma>();
         o << ",\"theta\":" << m.get<GetOptionPrice::theta>();

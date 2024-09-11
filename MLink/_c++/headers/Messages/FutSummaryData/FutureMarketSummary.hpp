@@ -30,6 +30,11 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
+    #ifndef _trade_date__GUARD__
+    #define _trade_date__GUARD__
+    DECL_STRONG_TYPE(trade_date, DateKey);
+    #endif//_trade_date__GUARD__
+
     #ifndef _opn_price__GUARD__
     #define _opn_price__GUARD__
     DECL_STRONG_TYPE(opn_price, double);
@@ -95,10 +100,20 @@ namespace api {
     DECL_STRONG_TYPE(prt_count, int32);
     #endif//_prt_count__GUARD__
 
-    #ifndef _prt_price__double__GUARD__
-    #define _prt_price__double__GUARD__
-    DECL_STRONG_TYPE(prt_price__double, double);
-    #endif//_prt_price__double__GUARD__
+    #ifndef _prt_volume__int32__GUARD__
+    #define _prt_volume__int32__GUARD__
+    DECL_STRONG_TYPE(prt_volume__int32, int32);
+    #endif//_prt_volume__int32__GUARD__
+
+    #ifndef _last_prt_price__GUARD__
+    #define _last_prt_price__GUARD__
+    DECL_STRONG_TYPE(last_prt_price, double);
+    #endif//_last_prt_price__GUARD__
+
+    #ifndef _last_prt_dttm__GUARD__
+    #define _last_prt_dttm__GUARD__
+    DECL_STRONG_TYPE(last_prt_dttm, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_last_prt_dttm__GUARD__
 
     #ifndef _exp_count__GUARD__
     #define _exp_count__GUARD__
@@ -119,11 +134,6 @@ namespace api {
     #define _exp_ask_size__GUARD__
     DECL_STRONG_TYPE(exp_ask_size, float);
     #endif//_exp_ask_size__GUARD__
-
-    #ifndef _last_print__GUARD__
-    #define _last_print__GUARD__
-    DECL_STRONG_TYPE(last_print, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_last_print__GUARD__
 
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
@@ -229,6 +239,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::FutureMarketSummary_PKey;
+        using trade_date = spiderrock::protobuf::api::trade_date;
         using opn_price = spiderrock::protobuf::api::opn_price;
         using mrk_price = spiderrock::protobuf::api::mrk_price__double;
         using cls_price = spiderrock::protobuf::api::cls_price__double;
@@ -242,17 +253,19 @@ namespace api {
         using mid_count = spiderrock::protobuf::api::mid_count;
         using mid_volume = spiderrock::protobuf::api::mid_volume;
         using prt_count = spiderrock::protobuf::api::prt_count;
-        using prt_price = spiderrock::protobuf::api::prt_price__double;
+        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
+        using last_prt_price = spiderrock::protobuf::api::last_prt_price;
+        using last_prt_dttm = spiderrock::protobuf::api::last_prt_dttm;
         using exp_count = spiderrock::protobuf::api::exp_count;
         using exp_width = spiderrock::protobuf::api::exp_width;
         using exp_bid_size = spiderrock::protobuf::api::exp_bid_size;
         using exp_ask_size = spiderrock::protobuf::api::exp_ask_size;
-        using last_print = spiderrock::protobuf::api::last_print;
         using timestamp = spiderrock::protobuf::api::timestamp;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
+        trade_date m_trade_date{};
         opn_price m_opn_price{};
         mrk_price m_mrk_price{};
         cls_price m_cls_price{};
@@ -266,12 +279,13 @@ namespace api {
         mid_count m_mid_count{};
         mid_volume m_mid_volume{};
         prt_count m_prt_count{};
-        prt_price m_prt_price{};
+        prt_volume m_prt_volume{};
+        last_prt_price m_last_prt_price{};
+        last_prt_dttm m_last_prt_dttm{};
         exp_count m_exp_count{};
         exp_width m_exp_width{};
         exp_bid_size m_exp_bid_size{};
         exp_ask_size m_exp_ask_size{};
-        last_print m_last_print{};
         timestamp m_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -282,6 +296,9 @@ namespace api {
         }		
         pkey get_pkey() const {
             return m_pkey;
+        }		
+        trade_date get_trade_date() const {
+            return m_trade_date;
         }		
         opn_price get_opn_price() const {
             return m_opn_price;
@@ -322,8 +339,14 @@ namespace api {
         prt_count get_prt_count() const {
             return m_prt_count;
         }		
-        prt_price get_prt_price() const {
-            return m_prt_price;
+        prt_volume get_prt_volume() const {
+            return m_prt_volume;
+        }		
+        last_prt_price get_last_prt_price() const {
+            return m_last_prt_price;
+        }		
+        last_prt_dttm get_last_prt_dttm() const {
+            return m_last_prt_dttm;
         }		
         exp_count get_exp_count() const {
             return m_exp_count;
@@ -337,9 +360,6 @@ namespace api {
         exp_ask_size get_exp_ask_size() const {
             return m_exp_ask_size;
         }		
-        last_print get_last_print() const {
-            return m_last_print;
-        }		
         timestamp get_timestamp() const {
             return m_timestamp;
         }
@@ -352,6 +372,9 @@ namespace api {
         }
         void set_pkey(const pkey& value)  {
             m_pkey = value;
+        }
+        void set_trade_date(const trade_date& value)  {
+            m_trade_date = value;
         }
         void set_opn_price(const opn_price& value)  {
             m_opn_price = value;
@@ -392,8 +415,14 @@ namespace api {
         void set_prt_count(const prt_count& value)  {
             m_prt_count = value;
         }
-        void set_prt_price(const prt_price& value)  {
-            m_prt_price = value;
+        void set_prt_volume(const prt_volume& value)  {
+            m_prt_volume = value;
+        }
+        void set_last_prt_price(const last_prt_price& value)  {
+            m_last_prt_price = value;
+        }
+        void set_last_prt_dttm(const last_prt_dttm& value)  {
+            m_last_prt_dttm = value;
         }
         void set_exp_count(const exp_count& value)  {
             m_exp_count = value;
@@ -406,9 +435,6 @@ namespace api {
         }
         void set_exp_ask_size(const exp_ask_size& value)  {
             m_exp_ask_size = value;
-        }
-        void set_last_print(const last_print& value)  {
-            m_last_print = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -426,6 +452,9 @@ namespace api {
         }
         void set(const pkey & value) {
             set_pkey(value);
+        }
+        void set(const trade_date & value) {
+            set_trade_date(value);
         }
         void set(const opn_price & value) {
             set_opn_price(value);
@@ -466,8 +495,14 @@ namespace api {
         void set(const prt_count & value) {
             set_prt_count(value);
         }
-        void set(const prt_price & value) {
-            set_prt_price(value);
+        void set(const prt_volume & value) {
+            set_prt_volume(value);
+        }
+        void set(const last_prt_price & value) {
+            set_last_prt_price(value);
+        }
+        void set(const last_prt_dttm & value) {
+            set_last_prt_dttm(value);
         }
         void set(const exp_count & value) {
             set_exp_count(value);
@@ -481,9 +516,6 @@ namespace api {
         void set(const exp_ask_size & value) {
             set_exp_ask_size(value);
         }
-        void set(const last_print & value) {
-            set_last_print(value);
-        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -491,6 +523,7 @@ namespace api {
         void set(const FutureMarketSummary & value) {
             set(value.m__meta);
             set(value.m_pkey);
+            set(value.m_trade_date);
             set(value.m_opn_price);
             set(value.m_mrk_price);
             set(value.m_cls_price);
@@ -504,12 +537,13 @@ namespace api {
             set(value.m_mid_count);
             set(value.m_mid_volume);
             set(value.m_prt_count);
-            set(value.m_prt_price);
+            set(value.m_prt_volume);
+            set(value.m_last_prt_price);
+            set(value.m_last_prt_dttm);
             set(value.m_exp_count);
             set(value.m_exp_width);
             set(value.m_exp_bid_size);
             set(value.m_exp_ask_size);
-            set(value.m_last_print);
             set(value.m_timestamp);
         }
 
@@ -569,6 +603,9 @@ namespace api {
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
         }
+        bool IncludeTradeDate() const {
+            return (m_trade_date.ByteSizeLong() > 0);
+        }
         bool IncludeOpnPrice() const {
             return !(m_opn_price == 0.0);
         }
@@ -608,8 +645,14 @@ namespace api {
         bool IncludePrtCount() const {
             return !(m_prt_count == 0);
         }
-        bool IncludePrtPrice() const {
-            return !(m_prt_price == 0.0);
+        bool IncludePrtVolume() const {
+            return !(m_prt_volume == 0);
+        }
+        bool IncludeLastPrtPrice() const {
+            return !(m_last_prt_price == 0.0);
+        }
+        bool IncludeLastPrtDttm() const {
+            return (m_last_prt_dttm.time_since_epoch().count() != 0);
         }
         bool IncludeExpCount() const {
             return !(m_exp_count == 0);
@@ -622,9 +665,6 @@ namespace api {
         }
         bool IncludeExpAskSize() const {
             return !(m_exp_ask_size == 0.0);
-        }
-        bool IncludeLastPrint() const {
-            return (m_last_print.time_since_epoch().count() != 0);
         }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
@@ -642,6 +682,9 @@ namespace api {
                 totalSize += SRProtobufCPP::TagCodec::Size(2, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
+            }
+            if ( IncludeTradeDate()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeOpnPrice()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(100,m_opn_price);
@@ -682,8 +725,14 @@ namespace api {
             if ( IncludePrtCount()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(136,m_prt_count);
             }
-            if ( IncludePrtPrice()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_prt_price);
+            if ( IncludePrtVolume()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(137,m_prt_volume);
+            }
+            if ( IncludeLastPrtPrice()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_last_prt_price);
+            }
+            if ( IncludeLastPrtDttm()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(140, m_last_prt_dttm);
             }
             if ( IncludeExpCount()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(142,m_exp_count);
@@ -696,9 +745,6 @@ namespace api {
             }
             if ( IncludeExpAskSize()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_exp_ask_size);
-            }
-            if ( IncludeLastPrint()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(154, m_last_print);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(157, m_timestamp);
@@ -716,6 +762,9 @@ namespace api {
                 dest = SRProtobufCPP::TagCodec::Encode(dest,2, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
+            }
+            if ( IncludeTradeDate()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeOpnPrice()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,100,m_opn_price);
@@ -756,8 +805,14 @@ namespace api {
             if ( IncludePrtCount()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,136,m_prt_count);
             }
-            if ( IncludePrtPrice()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_prt_price);
+            if ( IncludePrtVolume()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,137,m_prt_volume);
+            }
+            if ( IncludeLastPrtPrice()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_last_prt_price);
+            }
+            if ( IncludeLastPrtDttm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 140, m_last_prt_dttm);
             }
             if ( IncludeExpCount()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,142,m_exp_count);
@@ -770,9 +825,6 @@ namespace api {
             }
             if ( IncludeExpAskSize()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_exp_ask_size);
-            }
-            if ( IncludeLastPrint()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 154, m_last_print);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 157, m_timestamp);
@@ -804,6 +856,15 @@ namespace api {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             m_pkey.Decode(pos, pos + std::min(max - pos, static_cast<std::ptrdiff_t>(length)));
+                        }
+                        break;
+                    }
+                    case 101: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
+                            m_trade_date.set_year(dateKey.year());
+                            m_trade_date.set_month(dateKey.month());
+                            m_trade_date.set_day(dateKey.day());
                         }
                         break;
                     }
@@ -885,9 +946,21 @@ namespace api {
                         }
                         break;
                     }
+                    case 137: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_prt_volume = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
                     case 139: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_prt_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                            m_last_prt_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 140: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_last_prt_dttm = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
@@ -915,12 +988,6 @@ namespace api {
                         }
                         break;
                     }
-                    case 154: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            m_last_print = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
-                        }
-                        break;
-                    }
                     case 157: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -938,6 +1005,7 @@ namespace api {
 
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::_meta>() const { return FutureMarketSummary::_meta{ m__meta}; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::pkey>() const { return FutureMarketSummary::pkey{ m_pkey}; }
+    template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::trade_date>() const { return FutureMarketSummary::trade_date{ m_trade_date}; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::opn_price>() const { return m_opn_price; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::mrk_price>() const { return m_mrk_price; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::cls_price>() const { return m_cls_price; }
@@ -951,12 +1019,13 @@ namespace api {
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::mid_count>() const { return m_mid_count; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::mid_volume>() const { return m_mid_volume; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::prt_count>() const { return m_prt_count; }
-    template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::prt_price>() const { return m_prt_price; }
+    template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::prt_volume>() const { return m_prt_volume; }
+    template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::last_prt_price>() const { return m_last_prt_price; }
+    template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::last_prt_dttm>() const { return m_last_prt_dttm; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::exp_count>() const { return m_exp_count; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::exp_width>() const { return m_exp_width; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::exp_bid_size>() const { return m_exp_bid_size; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::exp_ask_size>() const { return m_exp_ask_size; }
-    template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::last_print>() const { return m_last_print; }
     template<> inline const auto FutureMarketSummary::get<FutureMarketSummary::timestamp>() const { return m_timestamp; }
     template<> inline const auto FutureMarketSummary_PKey::get<FutureMarketSummary_PKey::fkey>() const { return FutureMarketSummary_PKey::fkey{m_fkey}; }
     
@@ -970,6 +1039,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const FutureMarketSummary& m) {
         o << "\"_meta\":{" << m.get<FutureMarketSummary::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<FutureMarketSummary::pkey>() << "}";
+        o << ",\"trade_date\":{" << m.get<FutureMarketSummary::trade_date>() << "}";
         o << ",\"opn_price\":" << m.get<FutureMarketSummary::opn_price>();
         o << ",\"mrk_price\":" << m.get<FutureMarketSummary::mrk_price>();
         o << ",\"cls_price\":" << m.get<FutureMarketSummary::cls_price>();
@@ -983,17 +1053,18 @@ namespace api {
         o << ",\"mid_count\":" << m.get<FutureMarketSummary::mid_count>();
         o << ",\"mid_volume\":" << m.get<FutureMarketSummary::mid_volume>();
         o << ",\"prt_count\":" << m.get<FutureMarketSummary::prt_count>();
-        o << ",\"prt_price\":" << m.get<FutureMarketSummary::prt_price>();
+        o << ",\"prt_volume\":" << m.get<FutureMarketSummary::prt_volume>();
+        o << ",\"last_prt_price\":" << m.get<FutureMarketSummary::last_prt_price>();
+        {
+            std::time_t tt = m.get<FutureMarketSummary::last_prt_dttm>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"last_prt_dttm\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
         o << ",\"exp_count\":" << m.get<FutureMarketSummary::exp_count>();
         o << ",\"exp_width\":" << m.get<FutureMarketSummary::exp_width>();
         o << ",\"exp_bid_size\":" << m.get<FutureMarketSummary::exp_bid_size>();
         o << ",\"exp_ask_size\":" << m.get<FutureMarketSummary::exp_ask_size>();
-        {
-            std::time_t tt = m.get<FutureMarketSummary::last_print>().time_since_epoch().count() / 1'000'000'000;
-			struct tm tm1{};
-			localtime_s(&tm1, &tt);
-            o << ",\"last_print\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
-        }
         {
             std::time_t tt = m.get<FutureMarketSummary::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

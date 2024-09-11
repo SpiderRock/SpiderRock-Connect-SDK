@@ -65,20 +65,20 @@ namespace api {
     DECL_STRONG_TYPE(prt_count, int32);
     #endif//_prt_count__GUARD__
 
-    #ifndef _prt_volume__GUARD__
-    #define _prt_volume__GUARD__
-    DECL_STRONG_TYPE(prt_volume, int32);
-    #endif//_prt_volume__GUARD__
+    #ifndef _prt_volume__int32__GUARD__
+    #define _prt_volume__int32__GUARD__
+    DECL_STRONG_TYPE(prt_volume__int32, int32);
+    #endif//_prt_volume__int32__GUARD__
 
     #ifndef _realized_cnt__GUARD__
     #define _realized_cnt__GUARD__
     DECL_STRONG_TYPE(realized_cnt, int32);
     #endif//_realized_cnt__GUARD__
 
-    #ifndef _realized_var__GUARD__
-    #define _realized_var__GUARD__
-    DECL_STRONG_TYPE(realized_var, float);
-    #endif//_realized_var__GUARD__
+    #ifndef _realized_vol__double__GUARD__
+    #define _realized_vol__double__GUARD__
+    DECL_STRONG_TYPE(realized_vol__double, double);
+    #endif//_realized_vol__double__GUARD__
 
     #ifndef _avg_mkt_size__GUARD__
     #define _avg_mkt_size__GUARD__
@@ -236,9 +236,9 @@ namespace api {
         using max_prc = spiderrock::protobuf::api::max_prc__double;
         using open_interest = spiderrock::protobuf::api::open_interest;
         using prt_count = spiderrock::protobuf::api::prt_count;
-        using prt_volume = spiderrock::protobuf::api::prt_volume;
+        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
         using realized_cnt = spiderrock::protobuf::api::realized_cnt;
-        using realized_var = spiderrock::protobuf::api::realized_var;
+        using realized_vol = spiderrock::protobuf::api::realized_vol__double;
         using avg_mkt_size = spiderrock::protobuf::api::avg_mkt_size;
         using avg_mkt_width = spiderrock::protobuf::api::avg_mkt_width;
         using bid_prc = spiderrock::protobuf::api::bid_prc__double;
@@ -262,7 +262,7 @@ namespace api {
         prt_count m_prt_count{};
         prt_volume m_prt_volume{};
         realized_cnt m_realized_cnt{};
-        realized_var m_realized_var{};
+        realized_vol m_realized_vol{};
         avg_mkt_size m_avg_mkt_size{};
         avg_mkt_width m_avg_mkt_width{};
         bid_prc m_bid_prc{};
@@ -310,8 +310,8 @@ namespace api {
         realized_cnt get_realized_cnt() const {
             return m_realized_cnt;
         }		
-        realized_var get_realized_var() const {
-            return m_realized_var;
+        realized_vol get_realized_vol() const {
+            return m_realized_vol;
         }		
         avg_mkt_size get_avg_mkt_size() const {
             return m_avg_mkt_size;
@@ -380,8 +380,8 @@ namespace api {
         void set_realized_cnt(const realized_cnt& value)  {
             m_realized_cnt = value;
         }
-        void set_realized_var(const realized_var& value)  {
-            m_realized_var = value;
+        void set_realized_vol(const realized_vol& value)  {
+            m_realized_vol = value;
         }
         void set_avg_mkt_size(const avg_mkt_size& value)  {
             m_avg_mkt_size = value;
@@ -454,8 +454,8 @@ namespace api {
         void set(const realized_cnt & value) {
             set_realized_cnt(value);
         }
-        void set(const realized_var & value) {
-            set_realized_var(value);
+        void set(const realized_vol & value) {
+            set_realized_vol(value);
         }
         void set(const avg_mkt_size & value) {
             set_avg_mkt_size(value);
@@ -500,7 +500,7 @@ namespace api {
             set(value.m_prt_count);
             set(value.m_prt_volume);
             set(value.m_realized_cnt);
-            set(value.m_realized_var);
+            set(value.m_realized_vol);
             set(value.m_avg_mkt_size);
             set(value.m_avg_mkt_width);
             set(value.m_bid_prc);
@@ -593,8 +593,8 @@ namespace api {
         bool IncludeRealizedCnt() const {
             return !(m_realized_cnt == 0);
         }
-        bool IncludeRealizedVar() const {
-            return !(m_realized_var == 0.0);
+        bool IncludeRealizedVol() const {
+            return !(m_realized_vol == 0.0);
         }
         bool IncludeAvgMktSize() const {
             return !(m_avg_mkt_size == 0.0);
@@ -659,34 +659,34 @@ namespace api {
             if ( IncludeRealizedCnt()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(124,m_realized_cnt);
             }
-            if ( IncludeRealizedVar()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(127,m_realized_var);
+            if ( IncludeRealizedVol()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(125,m_realized_vol);
             }
             if ( IncludeAvgMktSize()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_avg_mkt_size);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(127,m_avg_mkt_size);
             }
             if ( IncludeAvgMktWidth()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(133,m_avg_mkt_width);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_avg_mkt_width);
             }
             if ( IncludeBidPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(136,m_bid_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(133,m_bid_prc);
             }
             if ( IncludeAskPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_ask_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(136,m_ask_prc);
             }
             if ( IncludeSrClsPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(142,m_sr_cls_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_sr_cls_prc);
             }
             if ( IncludeClosePrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(145,m_close_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(142,m_close_prc);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_srcls_prc)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_close_prc)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_srcls_prc)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_close_prc)));
             if ( IncludeSrCloseMarkDttm()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(154, m_sr_close_mark_dttm);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(151, m_sr_close_mark_dttm);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(157, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(154, m_timestamp);
             }
             return totalSize;
         }
@@ -727,34 +727,34 @@ namespace api {
             if ( IncludeRealizedCnt()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,124,m_realized_cnt);
             }
-            if ( IncludeRealizedVar()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,127,m_realized_var);
+            if ( IncludeRealizedVol()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,125,m_realized_vol);
             }
             if ( IncludeAvgMktSize()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_avg_mkt_size);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,127,m_avg_mkt_size);
             }
             if ( IncludeAvgMktWidth()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,133,m_avg_mkt_width);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_avg_mkt_width);
             }
             if ( IncludeBidPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,136,m_bid_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,133,m_bid_prc);
             }
             if ( IncludeAskPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_ask_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,136,m_ask_prc);
             }
             if ( IncludeSrClsPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,142,m_sr_cls_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_sr_cls_prc);
             }
             if ( IncludeClosePrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,145,m_close_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,142,m_close_prc);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_srcls_prc)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_close_prc)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_srcls_prc)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_close_prc)));
             if ( IncludeSrCloseMarkDttm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 154, m_sr_close_mark_dttm);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 151, m_sr_close_mark_dttm);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 157, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 154, m_timestamp);
             }
         }
 
@@ -842,65 +842,65 @@ namespace api {
                         }
                         break;
                     }
-                    case 127: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_realized_var = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 125: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_realized_vol = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 130: {
+                    case 127: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_avg_mkt_size = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 133: {
+                    case 130: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_avg_mkt_width = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 136: {
+                    case 133: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_bid_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 139: {
+                    case 136: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_ask_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 139: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_sr_cls_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 145: {
+                    case 142: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_close_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 148: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 145: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_has_srcls_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 151: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 148: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_has_close_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 154: {
+                    case 151: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_sr_close_mark_dttm = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 157: {
+                    case 154: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
@@ -926,7 +926,7 @@ namespace api {
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::prt_count>() const { return m_prt_count; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::prt_volume>() const { return m_prt_volume; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::realized_cnt>() const { return m_realized_cnt; }
-    template<> inline const auto FutureCloseMark::get<FutureCloseMark::realized_var>() const { return m_realized_var; }
+    template<> inline const auto FutureCloseMark::get<FutureCloseMark::realized_vol>() const { return m_realized_vol; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::avg_mkt_size>() const { return m_avg_mkt_size; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::avg_mkt_width>() const { return m_avg_mkt_width; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::bid_prc>() const { return m_bid_prc; }
@@ -958,7 +958,7 @@ namespace api {
         o << ",\"prt_count\":" << m.get<FutureCloseMark::prt_count>();
         o << ",\"prt_volume\":" << m.get<FutureCloseMark::prt_volume>();
         o << ",\"realized_cnt\":" << m.get<FutureCloseMark::realized_cnt>();
-        o << ",\"realized_var\":" << m.get<FutureCloseMark::realized_var>();
+        o << ",\"realized_vol\":" << m.get<FutureCloseMark::realized_vol>();
         o << ",\"avg_mkt_size\":" << m.get<FutureCloseMark::avg_mkt_size>();
         o << ",\"avg_mkt_width\":" << m.get<FutureCloseMark::avg_mkt_width>();
         o << ",\"bid_prc\":" << m.get<FutureCloseMark::bid_prc>();

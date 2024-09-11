@@ -105,10 +105,10 @@ namespace api {
     DECL_STRONG_TYPE(ask_time__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_ask_time__timestamp__GUARD__
 
-    #ifndef _update_type__GUARD__
-    #define _update_type__GUARD__
-    DECL_STRONG_TYPE(update_type, spiderrock::protobuf::api::UpdateType);
-    #endif//_update_type__GUARD__
+    #ifndef _update_type__UpdateType__GUARD__
+    #define _update_type__UpdateType__GUARD__
+    DECL_STRONG_TYPE(update_type__UpdateType, spiderrock::protobuf::api::UpdateType);
+    #endif//_update_type__UpdateType__GUARD__
 
     #ifndef _num_stk_legs__GUARD__
     #define _num_stk_legs__GUARD__
@@ -797,7 +797,7 @@ namespace api {
         using ask_exch1 = spiderrock::protobuf::api::ask_exch1__OptExch;
         using bid_time = spiderrock::protobuf::api::bid_time__timestamp;
         using ask_time = spiderrock::protobuf::api::ask_time__timestamp;
-        using update_type = spiderrock::protobuf::api::update_type;
+        using update_type = spiderrock::protobuf::api::update_type__UpdateType;
         using num_stk_legs = spiderrock::protobuf::api::num_stk_legs;
         using num_fut_legs = spiderrock::protobuf::api::num_fut_legs;
         using num_opt_legs = spiderrock::protobuf::api::num_opt_legs;

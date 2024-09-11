@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci5Qcm90b2J1Zi9PcHRpb25EZWZpbml0aW9uL1Jvb3REZWZpbml0aW9uLnBy",
             "b3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5w",
-            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKSEgoOUm9v",
+            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKpEgoOUm9v",
             "dERlZmluaXRpb24SMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI2CgRwa2V5GAIgASgLMiguc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5Sb290RGVmaW5pdGlvbi5QS2V5Ei4KBnRpY2tlchhkIAEo",
@@ -58,31 +58,32 @@ namespace Spiderrock.Protobuf {
             "DnBvaW50X2N1cnJlbmN5GKkBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "Q3VycmVuY3kSFQoMc3RyaWtlX3NjYWxlGKwBIAEoARIVCgxzdHJpa2VfcmF0",
             "aW8YrwEgASgCEhkKEGNhc2hfb25fZXhlcmNpc2UYsgEgASgCEhoKEXVuZGVy",
-            "bGllcnNfcGVyX2NuGLUBIAEoBRIVCgxwcmVtaXVtX211bHQYuAEgASgBEjsK",
-            "DmFkal9jb252ZW50aW9uGLsBIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "QWRqQ29udmVudGlvbhI4Cg1vcHRfcHJpY2VfaW5jGL4BIAEoDjIgLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuT3B0UHJpY2VJbmMSNwoMcHJpY2VfZm9ybWF0GMEB",
-            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuUHJpY2VGb3JtYXQSMgoKdHJh",
-            "ZGVfY3VychjEASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5",
-            "EjMKC3NldHRsZV9jdXJyGMcBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "Q3VycmVuY3kSMwoLc3RyaWtlX2N1cnIYygEgASgOMh0uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5DdXJyZW5jeRI9ChRkZWZhdWx0X3N1cmZhY2Vfcm9vdBjNASAB",
-            "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIRCghyaWNfcm9v",
-            "dBjaASABKAkSLgoJdGltZXN0YW1wGNABIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASQgoScHJpY2luZ19zb3VyY2VfX3Y3GIgnIAEoDjIlLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuUHJpY2luZ1NvdXJjZV9WNxI/CghleGNoYW5n",
-            "ZRjcASADKAsyLC5zcGlkZXJyb2NrLnByb3RvYnVmLlJvb3REZWZpbml0aW9u",
-            "LkV4Y2hhbmdlEkMKCnVuZGVybHlpbmcY0wEgAygLMi4uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5Sb290RGVmaW5pdGlvbi5VbmRlcmx5aW5nGjQKBFBLZXkSLAoE",
-            "cm9vdBgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5GlEK",
-            "CEV4Y2hhbmdlEi8KCG9wdF9leGNoGN8BIAEoDjIcLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuT3B0RXhjaBIUCgtuYXRpdmVfcm9vdBjiASABKAkaSwoKVW5kZXJs",
-            "eWluZxIvCgZ0aWNrZXIY1gEgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5U",
-            "aWNrZXJLZXkSDAoDc3BjGNkBIAEoAmIGcHJvdG8z"));
+            "bGllcnNfcGVyX2NuGLUBIAEoBRIVCgxwcmVtaXVtX211bHQYuAEgASgBEhUK",
+            "DHN5bWJvbF9yYXRpbxi5ASABKAISOwoOYWRqX2NvbnZlbnRpb24YuwEgASgO",
+            "MiIuc3BpZGVycm9jay5wcm90b2J1Zi5BZGpDb252ZW50aW9uEjgKDW9wdF9w",
+            "cmljZV9pbmMYvgEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRQcmlj",
+            "ZUluYxI3CgxwcmljZV9mb3JtYXQYwQEgASgOMiAuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5QcmljZUZvcm1hdBIyCgp0cmFkZV9jdXJyGMQBIAEoDjIdLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuQ3VycmVuY3kSMwoLc2V0dGxlX2N1cnIYxwEgASgO",
+            "Mh0uc3BpZGVycm9jay5wcm90b2J1Zi5DdXJyZW5jeRIzCgtzdHJpa2VfY3Vy",
+            "chjKASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5Ej0KFGRl",
+            "ZmF1bHRfc3VyZmFjZV9yb290GM0BIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuVGlja2VyS2V5EhEKCHJpY19yb290GNoBIAEoCRIuCgl0aW1lc3RhbXAY",
+            "0AEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJCChJwcmljaW5n",
+            "X3NvdXJjZV9fdjcYiCcgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5Qcmlj",
+            "aW5nU291cmNlX1Y3Ej8KCGV4Y2hhbmdlGNsBIAMoCzIsLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuUm9vdERlZmluaXRpb24uRXhjaGFuZ2USQwoKdW5kZXJseWlu",
+            "ZxjTASADKAsyLi5zcGlkZXJyb2NrLnByb3RvYnVmLlJvb3REZWZpbml0aW9u",
+            "LlVuZGVybHlpbmcaNAoEUEtleRIsCgRyb290GAogASgLMh4uc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5UaWNrZXJLZXkaUQoIRXhjaGFuZ2USLwoIb3B0X2V4Y2gY",
+            "3AEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNoEhQKC25hdGl2",
+            "ZV9yb290GN0BIAEoCRpLCgpVbmRlcmx5aW5nEi8KBnRpY2tlchjWASABKAsy",
+            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIMCgNzcGMY2QEgASgC",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "Timestamp", "PricingSourceV7", "Exchange", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "SymbolRatio", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "Timestamp", "PricingSourceV7", "Exchange", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Exchange), global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser, new[]{ "OptExch", "NativeRoot" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Underlying), global::Spiderrock.Protobuf.RootDefinition.Types.Underlying.Parser, new[]{ "Ticker", "Spc" }, null, null, null, null)})
           }));
@@ -160,6 +161,7 @@ namespace Spiderrock.Protobuf {
       cashOnExercise_ = other.cashOnExercise_;
       underliersPerCn_ = other.underliersPerCn_;
       premiumMult_ = other.premiumMult_;
+      symbolRatio_ = other.symbolRatio_;
       adjConvention_ = other.adjConvention_;
       optPriceInc_ = other.optPriceInc_;
       priceFormat_ = other.priceFormat_;
@@ -625,6 +627,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "symbol_ratio" field.</summary>
+    public const int SymbolRatioFieldNumber = 185;
+    private float symbolRatio_;
+    /// <summary>
+    /// note: currently used when AdjConvention is None, value of 0 implies symbolRatio is 1
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SymbolRatio {
+      get { return symbolRatio_; }
+      set {
+        symbolRatio_ = value;
+      }
+    }
+
     /// <summary>Field number for the "adj_convention" field.</summary>
     public const int AdjConventionFieldNumber = 187;
     private global::Spiderrock.Protobuf.AdjConvention adjConvention_ = global::Spiderrock.Protobuf.AdjConvention.Unspecified;
@@ -758,9 +775,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exchange" field.</summary>
-    public const int ExchangeFieldNumber = 220;
+    public const int ExchangeFieldNumber = 219;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> _repeated_exchange_codec
-        = pb::FieldCodec.ForMessage(1762, global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser);
+        = pb::FieldCodec.ForMessage(1754, global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> exchange_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -825,6 +842,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(CashOnExercise, other.CashOnExercise)) return false;
       if (UnderliersPerCn != other.UnderliersPerCn) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(PremiumMult, other.PremiumMult)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymbolRatio, other.SymbolRatio)) return false;
       if (AdjConvention != other.AdjConvention) return false;
       if (OptPriceInc != other.OptPriceInc) return false;
       if (PriceFormat != other.PriceFormat) return false;
@@ -875,6 +893,7 @@ namespace Spiderrock.Protobuf {
       if (CashOnExercise != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(CashOnExercise);
       if (UnderliersPerCn != 0) hash ^= UnderliersPerCn.GetHashCode();
       if (PremiumMult != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(PremiumMult);
+      if (SymbolRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymbolRatio);
       if (AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) hash ^= AdjConvention.GetHashCode();
       if (OptPriceInc != global::Spiderrock.Protobuf.OptPriceInc.Unspecified) hash ^= OptPriceInc.GetHashCode();
       if (PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) hash ^= PriceFormat.GetHashCode();
@@ -1028,6 +1047,10 @@ namespace Spiderrock.Protobuf {
       if (PremiumMult != 0D) {
         output.WriteRawTag(193, 11);
         output.WriteDouble(PremiumMult);
+      }
+      if (SymbolRatio != 0F) {
+        output.WriteRawTag(205, 11);
+        output.WriteFloat(SymbolRatio);
       }
       if (AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) {
         output.WriteRawTag(216, 11);
@@ -1205,6 +1228,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(193, 11);
         output.WriteDouble(PremiumMult);
       }
+      if (SymbolRatio != 0F) {
+        output.WriteRawTag(205, 11);
+        output.WriteFloat(SymbolRatio);
+      }
       if (AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) {
         output.WriteRawTag(216, 11);
         output.WriteEnum((int) AdjConvention);
@@ -1349,6 +1376,9 @@ namespace Spiderrock.Protobuf {
       }
       if (PremiumMult != 0D) {
         size += 2 + 8;
+      }
+      if (SymbolRatio != 0F) {
+        size += 2 + 4;
       }
       if (AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AdjConvention);
@@ -1504,6 +1534,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.PremiumMult != 0D) {
         PremiumMult = other.PremiumMult;
+      }
+      if (other.SymbolRatio != 0F) {
+        SymbolRatio = other.SymbolRatio;
       }
       if (other.AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) {
         AdjConvention = other.AdjConvention;
@@ -1700,6 +1733,10 @@ namespace Spiderrock.Protobuf {
             PremiumMult = input.ReadDouble();
             break;
           }
+          case 1485: {
+            SymbolRatio = input.ReadFloat();
+            break;
+          }
           case 1496: {
             AdjConvention = (global::Spiderrock.Protobuf.AdjConvention) input.ReadEnum();
             break;
@@ -1746,7 +1783,7 @@ namespace Spiderrock.Protobuf {
             RicRoot = input.ReadString();
             break;
           }
-          case 1762: {
+          case 1754: {
             exchange_.AddEntriesFrom(input, _repeated_exchange_codec);
             break;
           }
@@ -1911,6 +1948,10 @@ namespace Spiderrock.Protobuf {
             PremiumMult = input.ReadDouble();
             break;
           }
+          case 1485: {
+            SymbolRatio = input.ReadFloat();
+            break;
+          }
           case 1496: {
             AdjConvention = (global::Spiderrock.Protobuf.AdjConvention) input.ReadEnum();
             break;
@@ -1957,7 +1998,7 @@ namespace Spiderrock.Protobuf {
             RicRoot = input.ReadString();
             break;
           }
-          case 1762: {
+          case 1754: {
             exchange_.AddEntriesFrom(ref input, _repeated_exchange_codec);
             break;
           }
@@ -2219,7 +2260,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "opt_exch" field.</summary>
-        public const int OptExchFieldNumber = 223;
+        public const int OptExchFieldNumber = 220;
         private global::Spiderrock.Protobuf.OptExch optExch_ = global::Spiderrock.Protobuf.OptExch.Unspecified;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2231,7 +2272,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "native_root" field.</summary>
-        public const int NativeRootFieldNumber = 226;
+        public const int NativeRootFieldNumber = 221;
         private string nativeRoot_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2287,11 +2328,11 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
-            output.WriteRawTag(248, 13);
+            output.WriteRawTag(224, 13);
             output.WriteEnum((int) OptExch);
           }
           if (NativeRoot.Length != 0) {
-            output.WriteRawTag(146, 14);
+            output.WriteRawTag(234, 13);
             output.WriteString(NativeRoot);
           }
           if (_unknownFields != null) {
@@ -2305,11 +2346,11 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
-            output.WriteRawTag(248, 13);
+            output.WriteRawTag(224, 13);
             output.WriteEnum((int) OptExch);
           }
           if (NativeRoot.Length != 0) {
-            output.WriteRawTag(146, 14);
+            output.WriteRawTag(234, 13);
             output.WriteString(NativeRoot);
           }
           if (_unknownFields != null) {
@@ -2361,11 +2402,11 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 1784: {
+              case 1760: {
                 OptExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
                 break;
               }
-              case 1810: {
+              case 1770: {
                 NativeRoot = input.ReadString();
                 break;
               }
@@ -2384,11 +2425,11 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 1784: {
+              case 1760: {
                 OptExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
                 break;
               }
-              case 1810: {
+              case 1770: {
                 NativeRoot = input.ReadString();
                 break;
               }

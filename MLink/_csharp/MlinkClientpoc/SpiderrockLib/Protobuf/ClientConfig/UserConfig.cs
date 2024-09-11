@@ -49,14 +49,14 @@ namespace Spiderrock.Protobuf {
             "dF9jb25maWdfYWNjZXNzGKABIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "Q29uZmlnQWNjZXNzEkYKFGFjY291bnRfdHlwZV9jb250cm9sGKMBIAEoDjIn",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuQWNjb3VudFR5cGVDb250cm9sEjwKEXBy",
-            "b2Rfb3JkZXJfYWNjZXNzGIYDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "T3JkZXJBY2Nlc3MSPAoRdGVzdF9vcmRlcl9hY2Nlc3MYhwMgASgOMiAuc3Bp",
+            "b2Rfb3JkZXJfYWNjZXNzGIIDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "T3JkZXJBY2Nlc3MSPAoRdGVzdF9vcmRlcl9hY2Nlc3MYgwMgASgOMiAuc3Bp",
             "ZGVycm9jay5wcm90b2J1Zi5PcmRlckFjY2VzcxI7ChZjYW5fY2FuY2VsX3By",
-            "b2Rfb3JkZXJzGIgDIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
-            "OwoWY2FuX2NhbmNlbF90ZXN0X29yZGVycxiJAyABKA4yGi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29rX3Byb2RfZXhlY3V0aW9ucxiK",
+            "b2Rfb3JkZXJzGIQDIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
+            "OwoWY2FuX2NhbmNlbF90ZXN0X29yZGVycxiFAyABKA4yGi5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29rX3Byb2RfZXhlY3V0aW9ucxiG",
             "AyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29r",
-            "X3Rlc3RfZXhlY3V0aW9ucxiLAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "X3Rlc3RfZXhlY3V0aW9ucxiHAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
             "Llllc05vEjYKEWNhbl9lZGl0X21hcl9yaXNrGK8BIAEoDjIaLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuWWVzTm8SPgoZY2FuX2VkaXRfc3VwZXJ2aXNvcnlfcmlz",
             "axi1ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj8KGmNhbl9l",
@@ -65,8 +65,8 @@ namespace Spiderrock.Protobuf {
             "X2VtYWlsGL4BIAEoCRIWCg1jb250YWN0X3Bob25lGMEBIAEoCRIWCg1jb250",
             "YWN0X3NsYWNrGMQBIAEoCRIZChBjb250YWN0X2ljZV9jaGF0GMcBIAEoCRId",
             "ChRjb250YWN0X2JCZXJnX2hhbmRsZRjKASABKAkSGAoPaWNlX2NsaWVudF9m",
-            "aXJtGMgBIAEoCRIXCg5pY2VfcHJvZF9hY2NudBjLASABKAkSFwoOaWNlX3Rl",
-            "c3RfYWNjbnQYzAEgASgJEjEKCWF1dGhfdHlwZRjNASABKA4yHS5zcGlkZXJy",
+            "aXJtGIgDIAEoCRIXCg5pY2VfcHJvZF9hY2NudBiJAyABKAkSFwoOaWNlX3Rl",
+            "c3RfYWNjbnQYigMgASgJEjEKCWF1dGhfdHlwZRjNASABKA4yHS5zcGlkZXJy",
             "b2NrLnByb3RvYnVmLkF1dGhUeXBlEhkKEGF1dGhfZXh0ZXJuX25hbWUY0AEg",
             "ASgJEhsKEmF1dGhfZXh0ZXJuX3BhcmFtcxjTASABKAkSFgoNZGVmYXVsdF9h",
             "Y2NudBjWASABKAkSFgoNYWx0X3VzZXJfbmFtZRjZASABKAkSFgoNY21lX3Ry",
@@ -89,8 +89,8 @@ namespace Spiderrock.Protobuf {
             "EnNyc2VfbWF4X3Jvd19jYWNoZRihAiABKAUSHAoTc3JzZV9tYXhfbmV3X29y",
             "ZGVycxikAiABKAUSJAobc3JzZV9tYXhfbmV3X29yZGVyc19wZXJfc2VjGKcC",
             "IAEoBRIqCiFzcnNlX21heF9uZXdfb3JkZXJzX3Blcl9zdGF0ZW1lbnQYqgIg",
-            "ASgFEhIKCW5tc19iYWRnZRiCAyABKAkSEgoJY2ZlX2JhZGdlGIMDIAEoCRIS",
-            "CgljbWVfYmFkZ2UYhAMgASgJEhIKCWljZV9iYWRnZRiFAyABKAkSEAoHYXBp",
+            "ASgFEhIKCW5tc19iYWRnZRiLAyABKAkSEgoJY2ZlX2JhZGdlGIwDIAEoCRIS",
+            "CgljbWVfYmFkZ2UYjQMgASgJEhIKCWljZV9iYWRnZRiOAyABKAkSEAoHYXBp",
             "X2tleRjjAiABKAkSNAoPYXBpX2tleV9leHBpcmVzGOYCIAEoCzIaLmdvb2ds",
             "ZS5wcm90b2J1Zi5UaW1lc3RhbXASFgoNcGFzc3dvcmRfaGFzaBjpAiABKAkS",
             "NQoQcGFzc3dvcmRfZXhwaXJlcxjsAiABKAsyGi5nb29nbGUucHJvdG9idWYu",
@@ -578,7 +578,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prod_order_access" field.</summary>
-    public const int ProdOrderAccessFieldNumber = 390;
+    public const int ProdOrderAccessFieldNumber = 386;
     private global::Spiderrock.Protobuf.OrderAccess prodOrderAccess_ = global::Spiderrock.Protobuf.OrderAccess.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -590,7 +590,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "test_order_access" field.</summary>
-    public const int TestOrderAccessFieldNumber = 391;
+    public const int TestOrderAccessFieldNumber = 387;
     private global::Spiderrock.Protobuf.OrderAccess testOrderAccess_ = global::Spiderrock.Protobuf.OrderAccess.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -602,7 +602,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_cancel_prod_orders" field.</summary>
-    public const int CanCancelProdOrdersFieldNumber = 392;
+    public const int CanCancelProdOrdersFieldNumber = 388;
     private global::Spiderrock.Protobuf.YesNo canCancelProdOrders_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can cancel prod (live) orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
@@ -617,7 +617,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_cancel_test_orders" field.</summary>
-    public const int CanCancelTestOrdersFieldNumber = 393;
+    public const int CanCancelTestOrdersFieldNumber = 389;
     private global::Spiderrock.Protobuf.YesNo canCancelTestOrders_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can cancel test orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
@@ -632,7 +632,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_book_prod_executions" field.</summary>
-    public const int CanBookProdExecutionsFieldNumber = 394;
+    public const int CanBookProdExecutionsFieldNumber = 390;
     private global::Spiderrock.Protobuf.YesNo canBookProdExecutions_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can enter prod (live) away tickets (default false for SRUsers SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
@@ -647,7 +647,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_book_test_executions" field.</summary>
-    public const int CanBookTestExecutionsFieldNumber = 395;
+    public const int CanBookTestExecutionsFieldNumber = 391;
     private global::Spiderrock.Protobuf.YesNo canBookTestExecutions_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can enter test away tickets (default false for SRUsers, SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
@@ -788,7 +788,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_client_firm" field.</summary>
-    public const int IceClientFirmFieldNumber = 200;
+    public const int IceClientFirmFieldNumber = 392;
     private string iceClientFirm_ = "";
     /// <summary>
     /// ICE Gateway (Bot) responder client firm
@@ -803,7 +803,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_prod_accnt" field.</summary>
-    public const int IceProdAccntFieldNumber = 203;
+    public const int IceProdAccntFieldNumber = 393;
     private string iceProdAccnt_ = "";
     /// <summary>
     /// ICE Gateway (Bot) prod responder accnt
@@ -818,7 +818,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_test_accnt" field.</summary>
-    public const int IceTestAccntFieldNumber = 204;
+    public const int IceTestAccntFieldNumber = 394;
     private string iceTestAccnt_ = "";
     /// <summary>
     /// ICE Gateway (Bot) test responder accnt
@@ -866,7 +866,7 @@ namespace Spiderrock.Protobuf {
     public const int AuthExternParamsFieldNumber = 211;
     private string authExternParams_ = "";
     /// <summary>
-    /// eg. 'https://corp.domain.com:xxxx'
+    /// eg. `https://corp.domain.com:xxxx`
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1283,7 +1283,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "nms_badge" field.</summary>
-    public const int NmsBadgeFieldNumber = 386;
+    public const int NmsBadgeFieldNumber = 395;
     private string nmsBadge_ = "";
     /// <summary>
     /// NMS exchange memembership and badge ids
@@ -1298,7 +1298,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cfe_badge" field.</summary>
-    public const int CfeBadgeFieldNumber = 387;
+    public const int CfeBadgeFieldNumber = 396;
     private string cfeBadge_ = "";
     /// <summary>
     /// CFE exchange memembership and badge ids.
@@ -1313,7 +1313,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cme_badge" field.</summary>
-    public const int CmeBadgeFieldNumber = 388;
+    public const int CmeBadgeFieldNumber = 397;
     private string cmeBadge_ = "";
     /// <summary>
     /// CME/CBOT/COMEX/NYMEX exchange memembership and badge ids.
@@ -1328,7 +1328,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_badge" field.</summary>
-    public const int IceBadgeFieldNumber = 389;
+    public const int IceBadgeFieldNumber = 398;
     private string iceBadge_ = "";
     /// <summary>
     /// ICE exchange memembership and badge ids.
@@ -1492,9 +1492,6 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 385;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
-    /// <summary>
-    /// [custom:LastModified] timestamp of last modification
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp Timestamp {
@@ -2238,21 +2235,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 12);
         output.WriteString(ContactIceChat);
       }
-      if (IceClientFirm.Length != 0) {
-        output.WriteRawTag(194, 12);
-        output.WriteString(IceClientFirm);
-      }
       if (ContactBBergHandle.Length != 0) {
         output.WriteRawTag(210, 12);
         output.WriteString(ContactBBergHandle);
-      }
-      if (IceProdAccnt.Length != 0) {
-        output.WriteRawTag(218, 12);
-        output.WriteString(IceProdAccnt);
-      }
-      if (IceTestAccnt.Length != 0) {
-        output.WriteRawTag(226, 12);
-        output.WriteString(IceTestAccnt);
       }
       if (AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) {
         output.WriteRawTag(232, 12);
@@ -2424,45 +2409,57 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(138, 24);
         output.WriteMessage(Timestamp);
       }
-      if (NmsBadge.Length != 0) {
-        output.WriteRawTag(146, 24);
-        output.WriteString(NmsBadge);
-      }
-      if (CfeBadge.Length != 0) {
-        output.WriteRawTag(154, 24);
-        output.WriteString(CfeBadge);
-      }
-      if (CmeBadge.Length != 0) {
-        output.WriteRawTag(162, 24);
-        output.WriteString(CmeBadge);
-      }
-      if (IceBadge.Length != 0) {
-        output.WriteRawTag(170, 24);
-        output.WriteString(IceBadge);
-      }
       if (ProdOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(176, 24);
+        output.WriteRawTag(144, 24);
         output.WriteEnum((int) ProdOrderAccess);
       }
       if (TestOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(184, 24);
+        output.WriteRawTag(152, 24);
         output.WriteEnum((int) TestOrderAccess);
       }
       if (CanCancelProdOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(192, 24);
+        output.WriteRawTag(160, 24);
         output.WriteEnum((int) CanCancelProdOrders);
       }
       if (CanCancelTestOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(200, 24);
+        output.WriteRawTag(168, 24);
         output.WriteEnum((int) CanCancelTestOrders);
       }
       if (CanBookProdExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 24);
+        output.WriteRawTag(176, 24);
         output.WriteEnum((int) CanBookProdExecutions);
       }
       if (CanBookTestExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(216, 24);
+        output.WriteRawTag(184, 24);
         output.WriteEnum((int) CanBookTestExecutions);
+      }
+      if (IceClientFirm.Length != 0) {
+        output.WriteRawTag(194, 24);
+        output.WriteString(IceClientFirm);
+      }
+      if (IceProdAccnt.Length != 0) {
+        output.WriteRawTag(202, 24);
+        output.WriteString(IceProdAccnt);
+      }
+      if (IceTestAccnt.Length != 0) {
+        output.WriteRawTag(210, 24);
+        output.WriteString(IceTestAccnt);
+      }
+      if (NmsBadge.Length != 0) {
+        output.WriteRawTag(218, 24);
+        output.WriteString(NmsBadge);
+      }
+      if (CfeBadge.Length != 0) {
+        output.WriteRawTag(226, 24);
+        output.WriteString(CfeBadge);
+      }
+      if (CmeBadge.Length != 0) {
+        output.WriteRawTag(234, 24);
+        output.WriteString(CmeBadge);
+      }
+      if (IceBadge.Length != 0) {
+        output.WriteRawTag(242, 24);
+        output.WriteString(IceBadge);
       }
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
@@ -2656,21 +2653,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 12);
         output.WriteString(ContactIceChat);
       }
-      if (IceClientFirm.Length != 0) {
-        output.WriteRawTag(194, 12);
-        output.WriteString(IceClientFirm);
-      }
       if (ContactBBergHandle.Length != 0) {
         output.WriteRawTag(210, 12);
         output.WriteString(ContactBBergHandle);
-      }
-      if (IceProdAccnt.Length != 0) {
-        output.WriteRawTag(218, 12);
-        output.WriteString(IceProdAccnt);
-      }
-      if (IceTestAccnt.Length != 0) {
-        output.WriteRawTag(226, 12);
-        output.WriteString(IceTestAccnt);
       }
       if (AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) {
         output.WriteRawTag(232, 12);
@@ -2842,45 +2827,57 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(138, 24);
         output.WriteMessage(Timestamp);
       }
-      if (NmsBadge.Length != 0) {
-        output.WriteRawTag(146, 24);
-        output.WriteString(NmsBadge);
-      }
-      if (CfeBadge.Length != 0) {
-        output.WriteRawTag(154, 24);
-        output.WriteString(CfeBadge);
-      }
-      if (CmeBadge.Length != 0) {
-        output.WriteRawTag(162, 24);
-        output.WriteString(CmeBadge);
-      }
-      if (IceBadge.Length != 0) {
-        output.WriteRawTag(170, 24);
-        output.WriteString(IceBadge);
-      }
       if (ProdOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(176, 24);
+        output.WriteRawTag(144, 24);
         output.WriteEnum((int) ProdOrderAccess);
       }
       if (TestOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(184, 24);
+        output.WriteRawTag(152, 24);
         output.WriteEnum((int) TestOrderAccess);
       }
       if (CanCancelProdOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(192, 24);
+        output.WriteRawTag(160, 24);
         output.WriteEnum((int) CanCancelProdOrders);
       }
       if (CanCancelTestOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(200, 24);
+        output.WriteRawTag(168, 24);
         output.WriteEnum((int) CanCancelTestOrders);
       }
       if (CanBookProdExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 24);
+        output.WriteRawTag(176, 24);
         output.WriteEnum((int) CanBookProdExecutions);
       }
       if (CanBookTestExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(216, 24);
+        output.WriteRawTag(184, 24);
         output.WriteEnum((int) CanBookTestExecutions);
+      }
+      if (IceClientFirm.Length != 0) {
+        output.WriteRawTag(194, 24);
+        output.WriteString(IceClientFirm);
+      }
+      if (IceProdAccnt.Length != 0) {
+        output.WriteRawTag(202, 24);
+        output.WriteString(IceProdAccnt);
+      }
+      if (IceTestAccnt.Length != 0) {
+        output.WriteRawTag(210, 24);
+        output.WriteString(IceTestAccnt);
+      }
+      if (NmsBadge.Length != 0) {
+        output.WriteRawTag(218, 24);
+        output.WriteString(NmsBadge);
+      }
+      if (CfeBadge.Length != 0) {
+        output.WriteRawTag(226, 24);
+        output.WriteString(CfeBadge);
+      }
+      if (CmeBadge.Length != 0) {
+        output.WriteRawTag(234, 24);
+        output.WriteString(CmeBadge);
+      }
+      if (IceBadge.Length != 0) {
+        output.WriteRawTag(242, 24);
+        output.WriteString(IceBadge);
       }
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
@@ -3771,20 +3768,8 @@ namespace Spiderrock.Protobuf {
             ContactIceChat = input.ReadString();
             break;
           }
-          case 1602: {
-            IceClientFirm = input.ReadString();
-            break;
-          }
           case 1618: {
             ContactBBergHandle = input.ReadString();
-            break;
-          }
-          case 1626: {
-            IceProdAccnt = input.ReadString();
-            break;
-          }
-          case 1634: {
-            IceTestAccnt = input.ReadString();
             break;
           }
           case 1640: {
@@ -3990,44 +3975,56 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 3090: {
-            NmsBadge = input.ReadString();
-            break;
-          }
-          case 3098: {
-            CfeBadge = input.ReadString();
-            break;
-          }
-          case 3106: {
-            CmeBadge = input.ReadString();
-            break;
-          }
-          case 3114: {
-            IceBadge = input.ReadString();
-            break;
-          }
-          case 3120: {
+          case 3088: {
             ProdOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3128: {
+          case 3096: {
             TestOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3136: {
+          case 3104: {
             CanCancelProdOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3144: {
+          case 3112: {
             CanCancelTestOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3152: {
+          case 3120: {
             CanBookProdExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3160: {
+          case 3128: {
             CanBookTestExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3138: {
+            IceClientFirm = input.ReadString();
+            break;
+          }
+          case 3146: {
+            IceProdAccnt = input.ReadString();
+            break;
+          }
+          case 3154: {
+            IceTestAccnt = input.ReadString();
+            break;
+          }
+          case 3162: {
+            NmsBadge = input.ReadString();
+            break;
+          }
+          case 3170: {
+            CfeBadge = input.ReadString();
+            break;
+          }
+          case 3178: {
+            CmeBadge = input.ReadString();
+            break;
+          }
+          case 3186: {
+            IceBadge = input.ReadString();
             break;
           }
           case 40002: {
@@ -4251,20 +4248,8 @@ namespace Spiderrock.Protobuf {
             ContactIceChat = input.ReadString();
             break;
           }
-          case 1602: {
-            IceClientFirm = input.ReadString();
-            break;
-          }
           case 1618: {
             ContactBBergHandle = input.ReadString();
-            break;
-          }
-          case 1626: {
-            IceProdAccnt = input.ReadString();
-            break;
-          }
-          case 1634: {
-            IceTestAccnt = input.ReadString();
             break;
           }
           case 1640: {
@@ -4470,44 +4455,56 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 3090: {
-            NmsBadge = input.ReadString();
-            break;
-          }
-          case 3098: {
-            CfeBadge = input.ReadString();
-            break;
-          }
-          case 3106: {
-            CmeBadge = input.ReadString();
-            break;
-          }
-          case 3114: {
-            IceBadge = input.ReadString();
-            break;
-          }
-          case 3120: {
+          case 3088: {
             ProdOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3128: {
+          case 3096: {
             TestOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3136: {
+          case 3104: {
             CanCancelProdOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3144: {
+          case 3112: {
             CanCancelTestOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3152: {
+          case 3120: {
             CanBookProdExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3160: {
+          case 3128: {
             CanBookTestExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3138: {
+            IceClientFirm = input.ReadString();
+            break;
+          }
+          case 3146: {
+            IceProdAccnt = input.ReadString();
+            break;
+          }
+          case 3154: {
+            IceTestAccnt = input.ReadString();
+            break;
+          }
+          case 3162: {
+            NmsBadge = input.ReadString();
+            break;
+          }
+          case 3170: {
+            CfeBadge = input.ReadString();
+            break;
+          }
+          case 3178: {
+            CmeBadge = input.ReadString();
+            break;
+          }
+          case 3186: {
+            IceBadge = input.ReadString();
             break;
           }
           case 40002: {
