@@ -7,9 +7,9 @@ This repo contains documentation, specifications and general information for how
 ## Visit the <a href="https://docs.spiderrockconnect.com/">Official V8 Documentation website</a>
 
 ## Connection Methods
-1. **[MLink API](./MLink/README.md)** - Our newest proprietary connection method, is a server that supports an SQL-like API where a user can connect via REST or WebSocket connection. This method is bi-direction and users can interact and manipulate their orders and related messages as well as consume data. 
+1. **[MLink API](https://docs.spiderrockconnect.com/docs/Documentation/PlatformAPIs/MLink/)** - Our newest proprietary connection method, is a server that supports an SQL-like API where a user can connect via REST or WebSocket connection. This method is bi-direction and users can interact and manipulate their orders and related messages as well as consume data. 
 
-2. **[SRSE](./SRSE/README.md)** - The SpiderRock Storage Engine (SRSE) is a way for users to connect and query messages via SQL. Download your favorite SQL client, connect to our databases and leverage SQL to mine the desired data from our system.
+2. **[SRSE](https://docs.spiderrockconnect.com/docs/Documentation/PlatformAPIs/SRSE/)** - The SpiderRock Storage Engine (SRSE) is a way for users to connect and query messages via SQL. Download your favorite SQL client, connect to our databases and leverage SQL to mine the desired data from our system.
 
 3. **[FIX](https://docs.spiderrockconnect.com/docs/Documentation/PlatformAPIs/FIX/)** - The trading industry's standard protocol for messaging, our current specs are based on FIX 4.4. If you're a liquidity provider that is looking to connect into our ATS, this is the recommended connection method.
 
