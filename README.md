@@ -18,6 +18,6 @@ This repo contains documentation, specifications and general information for how
 ## Connection Environments
 1. **[Sandbox V8](./Env-Sandbox/README.md)** - A mock environment to test your integration with the SpiderRock system, including the SpiderRock Connect ATS. Includes the MLink API, FIX API, and the Trade tool.
 
-2. Platform V7 - Production environment. Please contact the client support desk for connectivity.
+2. **[Platform V7](https://spiderrockplatform.atlassian.net/wiki/spaces/CD/overview)** - Production environment. Please contact the client support desk for connectivity.
 
-3. Platform V8 - Production environment. Please contact the client support desk for connectivity.
+3. **[Platform V8](https://docs.spiderrockconnect.com/)** - Production environment. Please contact the client support desk for connectivity.
