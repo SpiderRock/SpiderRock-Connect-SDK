@@ -16,7 +16,7 @@ This repo contains documentation, specifications and general information for how
 4. **[SpiderStream API](./SpiderStream/README.md)** - A proprietary connection method that allows for a low-latency stream of SpiderRock messages through C#, C++ or Python. This does not provide direct trading functionality. This is the only single-directional connection listed.
 
 ## Connection Environments
-1. **[Sandbox V8](./Env-Sandbox/README.md)** - A mock environment to test your integration with the SpiderRock system, including the SpiderRock Connect ATS. Includes the MLink API, FIX API, and the Trade tool.
+1. **[Sandbox V8](https://docs.spiderrockconnect.com/docs/Documentation/Integration/V8Sandboxes/)** - A mock environment to test your integration with the SpiderRock system, including the SpiderRock Connect ATS. Includes the MLink API, FIX API, and the Trade tool.
 
 2. **[Platform V7](https://spiderrockplatform.atlassian.net/wiki/spaces/CD/overview)** - Production environment. Please contact the client support desk for connectivity.
 
