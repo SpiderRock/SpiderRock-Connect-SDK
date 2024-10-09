@@ -1,15 +1,22 @@
 name: Build C#
 
 on:
-  push:
-    branches: [ "main", "jdugan/add-github-actions" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch to run against'
+        required: true
+        default: 'main'
 
 jobs:
   build:
+    runs-on: ${{ matrix.os }}
 
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v4
