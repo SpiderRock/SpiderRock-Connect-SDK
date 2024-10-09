@@ -2122,7 +2122,7 @@ public partial class LiveSurfaceAtm : IMessage
 		public int counter;
 		public int skewCounter;
 		public int sdivCounter;
-		public MarketSession marketSession;
+		public TradingSession tradingSession;
 		public TradeableStatus tradeableStatus;
 		public SurfaceResult surfaceResult;
 		public DateTimeLayout timestamp;
@@ -2310,8 +2310,8 @@ public partial class LiveSurfaceAtm : IMessage
     public int SkewCounter { get => body.skewCounter; set => body.skewCounter = value; }
      /// <summary>sdiv surface fit counter</summary>
     public int SdivCounter { get => body.sdivCounter; set => body.sdivCounter = value; }
-     /// <summary>market session this surface is from</summary>
-    public MarketSession MarketSession { get => body.marketSession; set => body.marketSession = value; }
+     /// <summary>trading session this surface is from</summary>
+    public TradingSession TradingSession { get => body.tradingSession; set => body.tradingSession = value; }
      /// <summary>indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)</summary>
     public TradeableStatus TradeableStatus { get => body.tradeableStatus; set => body.tradeableStatus = value; }
      
@@ -2512,7 +2512,8 @@ public partial class OptionCloseMark : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public DateKeyLayout tradeDate;
+        public TickerKeyLayout ticker;
+		public DateKeyLayout tradeDate;
 		public ClsMarkState clsMarkState;
 		public double uBid;
 		public double uAsk;
@@ -2551,12 +2552,15 @@ public partial class OptionCloseMark : IMessage
 		public int prtCount;
 		public int prtVolume;
 		public DateTimeLayout srCloseMarkDttm;
+		public DateTimeLayout configNow;
 		public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    
+    /// <summary>SR Ticker that this option rolls up to</summary>
+    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+     
     public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
      /// <summary>Preview or Final</summary>
     public ClsMarkState ClsMarkState { get => body.clsMarkState; set => body.clsMarkState = value; }
@@ -2632,8 +2636,10 @@ public partial class OptionCloseMark : IMessage
     public int PrtCount { get => body.prtCount; set => body.prtCount = value; }
      /// <summary>total printed volume (all prt types)</summary>
     public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
-     /// <summary>from MarketCloseQuote.srCloseMarkDttm</summary>
+     /// <summary>from MarketCloseQuote.srCloseMarkDttm (in trading period local timezone)</summary>
     public DateTime SrCloseMarkDttm { get => body.srCloseMarkDttm; set => body.srCloseMarkDttm = value; }
+     /// <summary>timestamp in the trading period local timezone</summary>
+    public DateTime ConfigNow { get => body.configNow; set => body.configNow = value; }
      /// <summary>record timestamp</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
@@ -5580,7 +5586,7 @@ public partial class RootDefinition : IMessage
                 var src = ExchangeList[i];
                 var dest = target.ExchangeList[i] ?? new ExchangeItem();
 				dest.OptExch = src.OptExch;
- 				dest.NativeRoot = src.NativeRoot;
+ 				dest.Root = src.Root;
 
                 target.ExchangeList[i] = dest;
             }
@@ -5712,19 +5718,18 @@ public partial class RootDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class ExchangeItem
     {
-        public const int Length = 13;
+        public const int Length = 15;
 
         public ExchangeItem() { }
         
-        public ExchangeItem(OptExch optExch, string nativeRoot)
+        public ExchangeItem(OptExch optExch, TickerKey root)
         {
             this.OptExch = optExch;
-			this.NativeRoot = nativeRoot;
+			this.Root = root;
         }
 
         public OptExch OptExch { get; internal set; }
-		private FixedString12Layout _nativeRoot;
-		public string NativeRoot { get { return _nativeRoot; } internal set { _nativeRoot = value; } }
+		public TickerKey Root { get; internal set; }
     }
 
     public ExchangeItem[] ExchangeList { get; set; }
@@ -5767,6 +5772,7 @@ public partial class RootDefinition : IMessage
 		public ExerciseTime exerciseTime;
 		public ExerciseType exerciseType;
 		public TimeMetric timeMetric;
+		public TradingPeriod tradingPeriod;
 		public PricingModel pricingModel;
 		public MoneynessType moneynessType;
 		public PriceQuoteType priceQuoteType;
@@ -5826,6 +5832,8 @@ public partial class RootDefinition : IMessage
     public ExerciseType ExerciseType { get => body.exerciseType; set => body.exerciseType = value; }
      /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
     public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
+     
+    public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
      
     public PricingModel PricingModel { get => body.pricingModel; set => body.pricingModel = value; }
      /// <summary>moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)</summary>
@@ -6075,7 +6083,7 @@ public partial class SpdrAuctionState : IMessage
         public OptionKeyLayout secKey;
          public SpdrKeyType secType;
          public OptExch auctionExch;
-         public FixedString16Layout auctionExDest;
+         public ExDestString auctionExDest;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(PKeyLayout other)
@@ -9897,7 +9905,6 @@ public partial class TickerDefinitionExt : IMessage
 		public YesNo hasOptions;
 		public int numOptions;
 		public long sharesOutstanding;
-		public TimeMetric timeMetric;
 		public OTCPrimaryMarket otcPrimaryMarket;
 		public OTCTier otcTier;
 		public FixedString1Layout otcReportingStatus;
@@ -9905,6 +9912,8 @@ public partial class TickerDefinitionExt : IMessage
 		public int otcFlags;
 		public TkDefSource tkDefSource;
 		public TkStatusFlag statusFlag;
+		public TimeMetric timeMetric;
+		public TradingPeriod tradingPeriod;
 		public DateTimeLayout timestamp;
     }
 
@@ -9984,8 +9993,6 @@ public partial class TickerDefinitionExt : IMessage
     public int NumOptions { get => body.numOptions; set => body.numOptions = value; }
      /// <summary>symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)</summary>
     public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
-     /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
-    public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
      
     public OTCPrimaryMarket OtcPrimaryMarket { get => body.otcPrimaryMarket; set => body.otcPrimaryMarket = value; }
      
@@ -10000,6 +10007,10 @@ public partial class TickerDefinitionExt : IMessage
     public TkDefSource TkDefSource { get => body.tkDefSource; set => body.tkDefSource = value; }
      
     public TkStatusFlag StatusFlag { get => body.statusFlag; set => body.statusFlag = value; }
+     /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
+    public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
+     
+    public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
