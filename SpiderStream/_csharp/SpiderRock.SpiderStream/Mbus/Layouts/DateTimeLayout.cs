@@ -26,7 +26,7 @@ unsafe internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 
     private readonly long _data;
 
-    unsafe public DateTimeLayout(long ticks)
+    public DateTimeLayout(long ticks)
     {
         var dttm = new DateTime(ticks, DateTimeKind.Unspecified);
         _data = *(long*)&dttm;

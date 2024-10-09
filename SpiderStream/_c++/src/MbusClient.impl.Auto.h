@@ -29,6 +29,7 @@ public:
 	vector<shared_ptr<Channel>> channels;
 	IPAddress if_addr;
 
+	MessageEventSource<CurrencyConversion::Key, CurrencyConversion> currencyconversion;
 	MessageEventSource<FutureBookQuote::Key, FutureBookQuote> futurebookquote;
 	MessageEventSource<FuturePrint::Key, FuturePrint> futureprint;
 	MessageEventSource<FuturePrintMarkup::Key, FuturePrintMarkup> futureprintmarkup;
