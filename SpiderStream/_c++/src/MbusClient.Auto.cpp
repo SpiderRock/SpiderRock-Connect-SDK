@@ -15,6 +15,7 @@ using namespace SpiderRock::SpiderStream;
 MbusClient::MbusClient(SysEnvironment environment, in_addr device_address)
 	: impl_{ new impl(environment, device_address) }
 {
+	impl_->frame_handler.RegisterMessageHandler(&impl_->currencyconversion, { MessageType::CurrencyConversion });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futurebookquote, { MessageType::FutureBookQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futureprint, { MessageType::FuturePrint });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futureprintmarkup, { MessageType::FuturePrintMarkup });
@@ -55,6 +56,7 @@ MbusClient::~MbusClient()
 {
 }
 
+void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<CurrencyConversion>> observer) { impl_->currencyconversion.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FutureBookQuote>> observer) { impl_->futurebookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FuturePrint>> observer) { impl_->futureprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
@@ -90,6 +92,7 @@ void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SyntheticExpiry
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SyntheticFutureQuote>> observer) { impl_->syntheticfuturequote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<TickerDefinitionExt>> observer) { impl_->tickerdefinitionext.RegisterObserver(observer); }
 
+void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<CurrencyConversion>> observer) { impl_->currencyconversion.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FutureBookQuote>> observer) { impl_->futurebookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FuturePrint>> observer) { impl_->futureprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
@@ -125,6 +128,7 @@ void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SyntheticExpiry
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SyntheticFutureQuote>> observer) { impl_->syntheticfuturequote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<TickerDefinitionExt>> observer) { impl_->tickerdefinitionext.RegisterObserver(observer); }
 
+void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<CurrencyConversion>> observer) { impl_->currencyconversion.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FutureBookQuote>> observer) { impl_->futurebookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FuturePrint>> observer) { impl_->futureprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }

@@ -750,7 +750,7 @@ internal unsafe partial class Formatter
             {
                 var item = new RootDefinition.ExchangeItem();
                     item.OptExch = *((OptExch*) src); src++;
-                     item.NativeRoot = *((FixedString12Layout*) src); src += sizeof(FixedString12Layout);
+                     item.Root = TickerKey.GetCreateTickerKey(*((TickerKeyLayout*) src)); src += sizeof(TickerKeyLayout);
 
                 dest.ExchangeList[i] = item;
             }
