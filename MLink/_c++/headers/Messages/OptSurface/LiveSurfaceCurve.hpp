@@ -105,15 +105,15 @@ namespace api {
     DECL_STRONG_TYPE(symbol_ratio, float);
     #endif//_symbol_ratio__GUARD__
 
-    #ifndef _ex_type__GUARD__
-    #define _ex_type__GUARD__
-    DECL_STRONG_TYPE(ex_type, spiderrock::protobuf::api::ExerciseType);
-    #endif//_ex_type__GUARD__
+    #ifndef _ex_type__ExerciseType__GUARD__
+    #define _ex_type__ExerciseType__GUARD__
+    DECL_STRONG_TYPE(ex_type__ExerciseType, spiderrock::protobuf::api::ExerciseType);
+    #endif//_ex_type__ExerciseType__GUARD__
 
-    #ifndef _model_type__GUARD__
-    #define _model_type__GUARD__
-    DECL_STRONG_TYPE(model_type, spiderrock::protobuf::api::CalcModelType);
-    #endif//_model_type__GUARD__
+    #ifndef _model_type__CalcModelType__GUARD__
+    #define _model_type__CalcModelType__GUARD__
+    DECL_STRONG_TYPE(model_type__CalcModelType, spiderrock::protobuf::api::CalcModelType);
+    #endif//_model_type__CalcModelType__GUARD__
 
     #ifndef _price_type__CalcPriceType__GUARD__
     #define _price_type__CalcPriceType__GUARD__
@@ -140,15 +140,15 @@ namespace api {
     DECL_STRONG_TYPE(axis_fuprc, float);
     #endif//_axis_fuprc__GUARD__
 
-    #ifndef _syn_spot__GUARD__
-    #define _syn_spot__GUARD__
-    DECL_STRONG_TYPE(syn_spot, double);
-    #endif//_syn_spot__GUARD__
+    #ifndef _syn_spot__double__GUARD__
+    #define _syn_spot__double__GUARD__
+    DECL_STRONG_TYPE(syn_spot__double, double);
+    #endif//_syn_spot__double__GUARD__
 
-    #ifndef _syn_carry__GUARD__
-    #define _syn_carry__GUARD__
-    DECL_STRONG_TYPE(syn_carry, double);
-    #endif//_syn_carry__GUARD__
+    #ifndef _syn_carry__double__GUARD__
+    #define _syn_carry__double__GUARD__
+    DECL_STRONG_TYPE(syn_carry__double, double);
+    #endif//_syn_carry__double__GUARD__
 
     #ifndef _atm_strike__GUARD__
     #define _atm_strike__GUARD__
@@ -600,15 +600,15 @@ namespace api {
     DECL_STRONG_TYPE(vwidth, float);
     #endif//_vwidth__GUARD__
 
-    #ifndef _c_cnt__GUARD__
-    #define _c_cnt__GUARD__
-    DECL_STRONG_TYPE(c_cnt, int32);
-    #endif//_c_cnt__GUARD__
+    #ifndef _c_cnt__int32__GUARD__
+    #define _c_cnt__int32__GUARD__
+    DECL_STRONG_TYPE(c_cnt__int32, int32);
+    #endif//_c_cnt__int32__GUARD__
 
-    #ifndef _p_cnt__GUARD__
-    #define _p_cnt__GUARD__
-    DECL_STRONG_TYPE(p_cnt, int32);
-    #endif//_p_cnt__GUARD__
+    #ifndef _p_cnt__int32__GUARD__
+    #define _p_cnt__int32__GUARD__
+    DECL_STRONG_TYPE(p_cnt__int32, int32);
+    #endif//_p_cnt__int32__GUARD__
 
     #ifndef _c_bid_miss__GUARD__
     #define _c_bid_miss__GUARD__
@@ -705,10 +705,10 @@ namespace api {
     DECL_STRONG_TYPE(sdiv_counter, int32);
     #endif//_sdiv_counter__GUARD__
 
-    #ifndef _market_session__GUARD__
-    #define _market_session__GUARD__
-    DECL_STRONG_TYPE(market_session, spiderrock::protobuf::api::MarketSession);
-    #endif//_market_session__GUARD__
+    #ifndef _trading_session__GUARD__
+    #define _trading_session__GUARD__
+    DECL_STRONG_TYPE(trading_session, spiderrock::protobuf::api::TradingSession);
+    #endif//_trading_session__GUARD__
 
     #ifndef _tradeable_status__GUARD__
     #define _tradeable_status__GUARD__
@@ -868,15 +868,15 @@ namespace api {
         using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using ddiv_source = spiderrock::protobuf::api::ddiv_source;
         using symbol_ratio = spiderrock::protobuf::api::symbol_ratio;
-        using ex_type = spiderrock::protobuf::api::ex_type;
-        using model_type = spiderrock::protobuf::api::model_type;
+        using ex_type = spiderrock::protobuf::api::ex_type__ExerciseType;
+        using model_type = spiderrock::protobuf::api::model_type__CalcModelType;
         using price_type = spiderrock::protobuf::api::price_type__CalcPriceType;
         using earn_cnt = spiderrock::protobuf::api::earn_cnt;
         using earn_cnt_adj = spiderrock::protobuf::api::earn_cnt_adj;
         using axis_vol_rt = spiderrock::protobuf::api::axis_vol_rt;
         using axis_fuprc = spiderrock::protobuf::api::axis_fuprc;
-        using syn_spot = spiderrock::protobuf::api::syn_spot;
-        using syn_carry = spiderrock::protobuf::api::syn_carry;
+        using syn_spot = spiderrock::protobuf::api::syn_spot__double;
+        using syn_carry = spiderrock::protobuf::api::syn_carry__double;
         using atm_strike = spiderrock::protobuf::api::atm_strike;
         using moneyness_type = spiderrock::protobuf::api::moneyness_type;
         using underlier_mode = spiderrock::protobuf::api::underlier_mode;
@@ -967,8 +967,8 @@ namespace api {
         using cp_adj_u04 = spiderrock::protobuf::api::cp_adj_u04;
         using pwidth = spiderrock::protobuf::api::pwidth;
         using vwidth = spiderrock::protobuf::api::vwidth;
-        using c_cnt = spiderrock::protobuf::api::c_cnt;
-        using p_cnt = spiderrock::protobuf::api::p_cnt;
+        using c_cnt = spiderrock::protobuf::api::c_cnt__int32;
+        using p_cnt = spiderrock::protobuf::api::p_cnt__int32;
         using c_bid_miss = spiderrock::protobuf::api::c_bid_miss;
         using c_ask_miss = spiderrock::protobuf::api::c_ask_miss;
         using p_bid_miss = spiderrock::protobuf::api::p_bid_miss;
@@ -988,7 +988,7 @@ namespace api {
         using max_saddle_curvature = spiderrock::protobuf::api::max_saddle_curvature;
         using skew_counter = spiderrock::protobuf::api::skew_counter;
         using sdiv_counter = spiderrock::protobuf::api::sdiv_counter;
-        using market_session = spiderrock::protobuf::api::market_session;
+        using trading_session = spiderrock::protobuf::api::trading_session;
         using tradeable_status = spiderrock::protobuf::api::tradeable_status;
         using surface_result = spiderrock::protobuf::api::surface_result__SurfaceResult;
         using s_timestamp = spiderrock::protobuf::api::s_timestamp;
@@ -1133,7 +1133,7 @@ namespace api {
         max_saddle_curvature m_max_saddle_curvature{};
         skew_counter m_skew_counter{};
         sdiv_counter m_sdiv_counter{};
-        market_session m_market_session{};
+        trading_session m_trading_session{};
         tradeable_status m_tradeable_status{};
         surface_result m_surface_result{};
         s_timestamp m_s_timestamp{};
@@ -1554,8 +1554,8 @@ namespace api {
         sdiv_counter get_sdiv_counter() const {
             return m_sdiv_counter;
         }		
-        market_session get_market_session() const {
-            return m_market_session;
+        trading_session get_trading_session() const {
+            return m_trading_session;
         }		
         tradeable_status get_tradeable_status() const {
             return m_tradeable_status;
@@ -1987,8 +1987,8 @@ namespace api {
         void set_sdiv_counter(const sdiv_counter& value)  {
             m_sdiv_counter = value;
         }
-        void set_market_session(const market_session& value)  {
-            m_market_session = value;
+        void set_trading_session(const trading_session& value)  {
+            m_trading_session = value;
         }
         void set_tradeable_status(const tradeable_status& value)  {
             m_tradeable_status = value;
@@ -2424,8 +2424,8 @@ namespace api {
         void set(const sdiv_counter & value) {
             set_sdiv_counter(value);
         }
-        void set(const market_session & value) {
-            set_market_session(value);
+        void set(const trading_session & value) {
+            set_trading_session(value);
         }
         void set(const tradeable_status & value) {
             set_tradeable_status(value);
@@ -2581,7 +2581,7 @@ namespace api {
             set(value.m_max_saddle_curvature);
             set(value.m_skew_counter);
             set(value.m_sdiv_counter);
-            set(value.m_market_session);
+            set(value.m_trading_session);
             set(value.m_tradeable_status);
             set(value.m_surface_result);
             set(value.m_s_timestamp);
@@ -3424,7 +3424,7 @@ namespace api {
             if ( IncludeSdivCounter()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(496,m_sdiv_counter);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(499,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>(m_market_session)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(515,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingSession>(m_trading_session)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(502,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>(m_tradeable_status)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(505,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceResult>(m_surface_result)));
             if ( IncludeSTimestamp()) {
@@ -3837,7 +3837,7 @@ namespace api {
             if ( IncludeSdivCounter()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,496,m_sdiv_counter);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,499,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>(m_market_session)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,515,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingSession>(m_trading_session)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,502,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>(m_tradeable_status)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,505,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceResult>(m_surface_result)));
             if ( IncludeSTimestamp()) {
@@ -4680,8 +4680,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 499: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_market_session = static_cast<spiderrock::protobuf::api::MarketSession>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 515: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_trading_session = static_cast<spiderrock::protobuf::api::TradingSession>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -4859,7 +4859,7 @@ namespace api {
     template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::max_saddle_curvature>() const { return m_max_saddle_curvature; }
     template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::skew_counter>() const { return m_skew_counter; }
     template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::sdiv_counter>() const { return m_sdiv_counter; }
-    template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::market_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>( m_market_session)); }
+    template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::trading_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingSession>( m_trading_session)); }
     template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::tradeable_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>( m_tradeable_status)); }
     template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::surface_result>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceResult>( m_surface_result)); }
     template<> inline const auto LiveSurfaceCurve::get<LiveSurfaceCurve::s_timestamp>() const { return m_s_timestamp; }
@@ -5014,7 +5014,7 @@ namespace api {
         o << ",\"max_saddle_curvature\":" << m.get<LiveSurfaceCurve::max_saddle_curvature>();
         o << ",\"skew_counter\":" << m.get<LiveSurfaceCurve::skew_counter>();
         o << ",\"sdiv_counter\":" << m.get<LiveSurfaceCurve::sdiv_counter>();
-        o << ",\"market_session\":" << (int64_t)m.get<LiveSurfaceCurve::market_session>();
+        o << ",\"trading_session\":" << (int64_t)m.get<LiveSurfaceCurve::trading_session>();
         o << ",\"tradeable_status\":" << (int64_t)m.get<LiveSurfaceCurve::tradeable_status>();
         o << ",\"surface_result\":" << (int64_t)m.get<LiveSurfaceCurve::surface_result>();
         {

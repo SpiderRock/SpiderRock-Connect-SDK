@@ -205,10 +205,10 @@ namespace api {
     DECL_STRONG_TYPE(min_years, float);
     #endif//_min_years__GUARD__
 
-    #ifndef _max_years__GUARD__
-    #define _max_years__GUARD__
-    DECL_STRONG_TYPE(max_years, float);
-    #endif//_max_years__GUARD__
+    #ifndef _max_years__float__GUARD__
+    #define _max_years__float__GUARD__
+    DECL_STRONG_TYPE(max_years__float, float);
+    #endif//_max_years__float__GUARD__
 
     #ifndef _ref_uprc__float__GUARD__
     #define _ref_uprc__float__GUARD__
@@ -817,7 +817,7 @@ namespace api {
         using min_expiry = spiderrock::protobuf::api::min_expiry;
         using max_expiry = spiderrock::protobuf::api::max_expiry;
         using min_years = spiderrock::protobuf::api::min_years;
-        using max_years = spiderrock::protobuf::api::max_years;
+        using max_years = spiderrock::protobuf::api::max_years__float;
         using ref_uprc = spiderrock::protobuf::api::ref_uprc__float;
         using print_price = spiderrock::protobuf::api::print_price;
         using print_time = spiderrock::protobuf::api::print_time;

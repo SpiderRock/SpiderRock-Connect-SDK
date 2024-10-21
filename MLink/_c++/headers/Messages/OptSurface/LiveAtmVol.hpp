@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(axis_fuprc, float);
     #endif//_axis_fuprc__GUARD__
 
-    #ifndef _syn_spot__GUARD__
-    #define _syn_spot__GUARD__
-    DECL_STRONG_TYPE(syn_spot, double);
-    #endif//_syn_spot__GUARD__
+    #ifndef _syn_spot__double__GUARD__
+    #define _syn_spot__double__GUARD__
+    DECL_STRONG_TYPE(syn_spot__double, double);
+    #endif//_syn_spot__double__GUARD__
 
     #ifndef _v_width__GUARD__
     #define _v_width__GUARD__
@@ -290,7 +290,7 @@ namespace api {
         using u_prc_driver_type = spiderrock::protobuf::api::u_prc_driver_type;
         using u_prc_driver = spiderrock::protobuf::api::u_prc_driver;
         using axis_fuprc = spiderrock::protobuf::api::axis_fuprc;
-        using syn_spot = spiderrock::protobuf::api::syn_spot;
+        using syn_spot = spiderrock::protobuf::api::syn_spot__double;
         using v_width = spiderrock::protobuf::api::v_width;
         using num_atm_strikes = spiderrock::protobuf::api::num_atm_strikes;
         using tradeable_status = spiderrock::protobuf::api::tradeable_status;

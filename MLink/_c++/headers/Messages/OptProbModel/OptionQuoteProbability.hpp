@@ -110,10 +110,10 @@ namespace api {
     DECL_STRONG_TYPE(ask_tk_im_rv, spiderrock::protobuf::api::PredictResult);
     #endif//_ask_tk_im_rv__GUARD__
 
-    #ifndef _surf_price__GUARD__
-    #define _surf_price__GUARD__
-    DECL_STRONG_TYPE(surf_price, double);
-    #endif//_surf_price__GUARD__
+    #ifndef _surf_price__double__GUARD__
+    #define _surf_price__double__GUARD__
+    DECL_STRONG_TYPE(surf_price__double, double);
+    #endif//_surf_price__double__GUARD__
 
     #ifndef _surf_vol__double__GUARD__
     #define _surf_vol__double__GUARD__
@@ -345,7 +345,7 @@ namespace api {
         using ask_tk_im_prob = spiderrock::protobuf::api::ask_tk_im_prob;
         using bid_tk_im_rv = spiderrock::protobuf::api::bid_tk_im_rv;
         using ask_tk_im_rv = spiderrock::protobuf::api::ask_tk_im_rv;
-        using surf_price = spiderrock::protobuf::api::surf_price;
+        using surf_price = spiderrock::protobuf::api::surf_price__double;
         using surf_vol = spiderrock::protobuf::api::surf_vol__double;
         using sdiv = spiderrock::protobuf::api::sdiv__double;
         using surf_buy_prob = spiderrock::protobuf::api::surf_buy_prob;

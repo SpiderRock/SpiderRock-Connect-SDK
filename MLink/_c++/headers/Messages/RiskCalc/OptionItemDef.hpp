@@ -30,15 +30,20 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _ex_type__GUARD__
-    #define _ex_type__GUARD__
-    DECL_STRONG_TYPE(ex_type, spiderrock::protobuf::api::ExerciseType);
-    #endif//_ex_type__GUARD__
+    #ifndef _ex_type__ExerciseType__GUARD__
+    #define _ex_type__ExerciseType__GUARD__
+    DECL_STRONG_TYPE(ex_type__ExerciseType, spiderrock::protobuf::api::ExerciseType);
+    #endif//_ex_type__ExerciseType__GUARD__
 
     #ifndef _ex_time__GUARD__
     #define _ex_time__GUARD__
     DECL_STRONG_TYPE(ex_time, spiderrock::protobuf::api::ExerciseTime);
     #endif//_ex_time__GUARD__
+
+    #ifndef _holiday_calendar__GUARD__
+    #define _holiday_calendar__GUARD__
+    DECL_STRONG_TYPE(holiday_calendar, spiderrock::protobuf::api::CalendarCode);
+    #endif//_holiday_calendar__GUARD__
 
     #ifndef _time_metric__GUARD__
     #define _time_metric__GUARD__
@@ -50,10 +55,10 @@ namespace api {
     DECL_STRONG_TYPE(price_type__CalcPriceType, spiderrock::protobuf::api::CalcPriceType);
     #endif//_price_type__CalcPriceType__GUARD__
 
-    #ifndef _model_type__GUARD__
-    #define _model_type__GUARD__
-    DECL_STRONG_TYPE(model_type, spiderrock::protobuf::api::CalcModelType);
-    #endif//_model_type__GUARD__
+    #ifndef _model_type__CalcModelType__GUARD__
+    #define _model_type__CalcModelType__GUARD__
+    DECL_STRONG_TYPE(model_type__CalcModelType, spiderrock::protobuf::api::CalcModelType);
+    #endif//_model_type__CalcModelType__GUARD__
 
     #ifndef _inc_greeks__GUARD__
     #define _inc_greeks__GUARD__
@@ -95,6 +100,11 @@ namespace api {
     DECL_STRONG_TYPE(okey, OptionKey);
     #endif//_okey__GUARD__
 
+    #ifndef _okey_number__GUARD__
+    #define _okey_number__GUARD__
+    DECL_STRONG_TYPE(okey_number, int32);
+    #endif//_okey_number__GUARD__
+
     #ifndef _basket_number__GUARD__
     #define _basket_number__GUARD__
     DECL_STRONG_TYPE(basket_number, int64);
@@ -120,17 +130,22 @@ namespace api {
         public:
         //using statements for all types used in this class
         using okey = spiderrock::protobuf::api::okey;
+        using okey_number = spiderrock::protobuf::api::okey_number;
         using basket_number = spiderrock::protobuf::api::basket_number;
         using user_name = spiderrock::protobuf::api::user_name;
 
         private:
         okey m_okey{};
+        okey_number m_okey_number{};
         basket_number m_basket_number{};
         user_name m_user_name{};
 
         public:
 		okey get_okey() const {
             return m_okey;
+        }
+        okey_number get_okey_number() const {
+            return m_okey_number;
         }
         basket_number get_basket_number() const {
             return m_basket_number;
@@ -140,6 +155,9 @@ namespace api {
         }
         void set_okey(const okey& value)  {
             m_okey = value;
+        }
+        void set_okey_number(const okey_number& value)  {
+            m_okey_number = value;
         }
         void set_basket_number(const basket_number& value)  {
             m_basket_number = value;
@@ -156,6 +174,7 @@ namespace api {
         //specializations for set functions for the valid types
         
         void set(const okey & value) { set_okey(value); }
+        void set(const okey_number & value) { set_okey_number(value); }
         void set(const basket_number & value) { set_basket_number(value); }
         void set(const user_name & value) { set_user_name(value); }
 
@@ -177,6 +196,9 @@ namespace api {
         bool IncludeOkey() const {
             return (m_okey.ByteSizeLong() > 0);
         }
+        bool IncludeOkeyNumber() const {
+            return !(m_okey_number == 0);
+        }
         bool IncludeBasketNumber() const {
             return !(m_basket_number == 0);
         }
@@ -192,6 +214,9 @@ namespace api {
                 m_okey.setCodecOptionKey(optionKeyLayout);
                 totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
             }
+            if ( IncludeOkeyNumber()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(13,m_okey_number);
+            }
             if ( IncludeBasketNumber()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(11,m_basket_number);
             }
@@ -206,6 +231,9 @@ namespace api {
                 SRProtobufCPP::OptionKeyLayout optionKeyLayout;
                 m_okey.setCodecOptionKey(optionKeyLayout);
                 dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+            }
+            if ( IncludeOkeyNumber()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,13,m_okey_number);
             }
             if ( IncludeBasketNumber()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,11,m_basket_number);
@@ -231,6 +259,9 @@ namespace api {
                     case 10: {
                         auto optionKey = SRProtobufCPP::FieldCodec::DecodeOptionKey(pos,max);
                         m_okey.setFromCodec(optionKey);
+                        break;
+                    }
+                    case 13: {m_okey_number = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
                     case 11: {m_basket_number = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
@@ -297,14 +328,14 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(136, m_date);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(139,m_amount);
+            totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(112, m_date);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(113,m_amount);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 136, m_date);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,139,m_amount);
+            dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 112, m_date);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,113,m_amount);
             return dest;
         }
 
@@ -321,11 +352,11 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 136: {
+                    case 112: {
                         m_date = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         break;
                     }
-                    case 139: {m_amount = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 113: {m_amount = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
                 }
@@ -341,11 +372,12 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::OptionItemDef_PKey;
-        using ex_type = spiderrock::protobuf::api::ex_type;
+        using ex_type = spiderrock::protobuf::api::ex_type__ExerciseType;
         using ex_time = spiderrock::protobuf::api::ex_time;
+        using holiday_calendar = spiderrock::protobuf::api::holiday_calendar;
         using time_metric = spiderrock::protobuf::api::time_metric;
         using price_type = spiderrock::protobuf::api::price_type__CalcPriceType;
-        using model_type = spiderrock::protobuf::api::model_type;
+        using model_type = spiderrock::protobuf::api::model_type__CalcModelType;
         using inc_greeks = spiderrock::protobuf::api::inc_greeks;
         using vol = spiderrock::protobuf::api::vol;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
@@ -360,6 +392,7 @@ namespace api {
         pkey m_pkey{};
         ex_type m_ex_type{};
         ex_time m_ex_time{};
+        holiday_calendar m_holiday_calendar{};
         time_metric m_time_metric{};
         price_type m_price_type{};
         model_type m_model_type{};
@@ -386,6 +419,9 @@ namespace api {
         }		
         ex_time get_ex_time() const {
             return m_ex_time;
+        }		
+        holiday_calendar get_holiday_calendar() const {
+            return m_holiday_calendar;
         }		
         time_metric get_time_metric() const {
             return m_time_metric;
@@ -438,6 +474,9 @@ namespace api {
         }
         void set_ex_time(const ex_time& value)  {
             m_ex_time = value;
+        }
+        void set_holiday_calendar(const holiday_calendar& value)  {
+            m_holiday_calendar = value;
         }
         void set_time_metric(const time_metric& value)  {
             m_time_metric = value;
@@ -501,6 +540,9 @@ namespace api {
         void set(const ex_time & value) {
             set_ex_time(value);
         }
+        void set(const holiday_calendar & value) {
+            set_holiday_calendar(value);
+        }
         void set(const time_metric & value) {
             set_time_metric(value);
         }
@@ -540,6 +582,7 @@ namespace api {
             set(value.m_pkey);
             set(value.m_ex_type);
             set(value.m_ex_time);
+            set(value.m_holiday_calendar);
             set(value.m_time_metric);
             set(value.m_price_type);
             set(value.m_model_type);
@@ -644,32 +687,33 @@ namespace api {
                 totalSize += pKeyLength;
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalendarCode>(m_holiday_calendar)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
             if ( IncludeVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(118,m_vol);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(106,m_vol);
             }
             if ( IncludeUPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(121,m_u_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(107,m_u_prc);
             }
             if ( IncludeYears()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_years);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(108,m_years);
             }
             if ( IncludeSdiv()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(127,m_sdiv);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(109,m_sdiv);
             }
             if ( IncludeRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(130,m_rate);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(110,m_rate);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(142, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(114, m_timestamp);
             }
             if ( IncludeDiscreteDividend()) {
                 for (auto& item : m_discrete_dividend) {
-					totalSize += SRProtobufCPP::TagCodec::Size(133, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(111, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -689,32 +733,33 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalendarCode>(m_holiday_calendar)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
             if ( IncludeVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,118,m_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,106,m_vol);
             }
             if ( IncludeUPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,121,m_u_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,107,m_u_prc);
             }
             if ( IncludeYears()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_years);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,108,m_years);
             }
             if ( IncludeSdiv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,127,m_sdiv);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,109,m_sdiv);
             }
             if ( IncludeRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,130,m_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,110,m_rate);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 142, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 114, m_timestamp);
             }
             if ( IncludeDiscreteDividend()) {
                 for (auto& item : m_discrete_dividend) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 133, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 111, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -754,68 +799,73 @@ namespace api {
                         }
                         break;
                     }
-                    case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_ex_time = static_cast<spiderrock::protobuf::api::ExerciseTime>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 106: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 115: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_holiday_calendar = static_cast<spiderrock::protobuf::api::CalendarCode>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 102: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_time_metric = static_cast<spiderrock::protobuf::api::TimeMetric>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 109: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_price_type = static_cast<spiderrock::protobuf::api::CalcPriceType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 104: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_model_type = static_cast<spiderrock::protobuf::api::CalcModelType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 115: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 105: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_inc_greeks = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 118: {
+                    case 106: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_vol = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 121: {
+                    case 107: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_u_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 108: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_years = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 127: {
+                    case 109: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_sdiv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 130: {
+                    case 110: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_rate = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 114: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 133: {
+                    case 111: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             discrete_dividend item_discrete_dividend;
@@ -837,6 +887,7 @@ namespace api {
     template<> inline const auto OptionItemDef::get<OptionItemDef::pkey>() const { return OptionItemDef::pkey{ m_pkey}; }
     template<> inline const auto OptionItemDef::get<OptionItemDef::ex_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>( m_ex_type)); }
     template<> inline const auto OptionItemDef::get<OptionItemDef::ex_time>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>( m_ex_time)); }
+    template<> inline const auto OptionItemDef::get<OptionItemDef::holiday_calendar>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalendarCode>( m_holiday_calendar)); }
     template<> inline const auto OptionItemDef::get<OptionItemDef::time_metric>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>( m_time_metric)); }
     template<> inline const auto OptionItemDef::get<OptionItemDef::price_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>( m_price_type)); }
     template<> inline const auto OptionItemDef::get<OptionItemDef::model_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>( m_model_type)); }
@@ -850,6 +901,7 @@ namespace api {
     template<> inline const auto OptionItemDef::get<OptionItemDef::discrete_dividend>(int i) const { return OptionItemDef::discrete_dividend{ get_discrete_dividend(i)}; }
     template<> inline int OptionItemDef::count<OptionItemDef::discrete_dividend>() const { return static_cast<int>( m_discrete_dividend.size()); }
     template<> inline const auto OptionItemDef_PKey::get<OptionItemDef_PKey::okey>() const { return OptionItemDef_PKey::okey{m_okey}; }
+    template<> inline const auto OptionItemDef_PKey::get<OptionItemDef_PKey::okey_number>() const { return m_okey_number; }
     template<> inline const auto OptionItemDef_PKey::get<OptionItemDef_PKey::basket_number>() const { return m_basket_number; }
     template<> inline const auto OptionItemDef_PKey::get<OptionItemDef_PKey::user_name>() const { return m_user_name; }
     
@@ -860,6 +912,7 @@ namespace api {
 
     inline std::ostream& operator<<(std::ostream &o, const OptionItemDef_PKey& m) {
         o << "\"okey\":{" << m.get<OptionItemDef_PKey::okey>() << "}";
+        o << ",\"okey_number\":" << m.get<OptionItemDef_PKey::okey_number>();
         o << ",\"basket_number\":" << m.get<OptionItemDef_PKey::basket_number>();
         o << ",\"user_name\":\"" << m.get<OptionItemDef_PKey::user_name>() << "\"";
         return o;
@@ -881,6 +934,7 @@ namespace api {
         o << ",\"pkey\":{" << m.get<OptionItemDef::pkey>() << "}";
         o << ",\"ex_type\":" << (int64_t)m.get<OptionItemDef::ex_type>();
         o << ",\"ex_time\":" << (int64_t)m.get<OptionItemDef::ex_time>();
+        o << ",\"holiday_calendar\":" << (int64_t)m.get<OptionItemDef::holiday_calendar>();
         o << ",\"time_metric\":" << (int64_t)m.get<OptionItemDef::time_metric>();
         o << ",\"price_type\":" << (int64_t)m.get<OptionItemDef::price_type>();
         o << ",\"model_type\":" << (int64_t)m.get<OptionItemDef::model_type>();

@@ -290,15 +290,40 @@ namespace api {
     DECL_STRONG_TYPE(num_options, int32);
     #endif//_num_options__GUARD__
 
+    #ifndef _basis_key__GUARD__
+    #define _basis_key__GUARD__
+    DECL_STRONG_TYPE(basis_key, TickerKey);
+    #endif//_basis_key__GUARD__
+
+    #ifndef _reverse_skew__GUARD__
+    #define _reverse_skew__GUARD__
+    DECL_STRONG_TYPE(reverse_skew, spiderrock::protobuf::api::YesNo);
+    #endif//_reverse_skew__GUARD__
+
     #ifndef _time_metric__GUARD__
     #define _time_metric__GUARD__
     DECL_STRONG_TYPE(time_metric, spiderrock::protobuf::api::TimeMetric);
     #endif//_time_metric__GUARD__
 
+    #ifndef _trading_period__TradingPeriod__GUARD__
+    #define _trading_period__TradingPeriod__GUARD__
+    DECL_STRONG_TYPE(trading_period__TradingPeriod, spiderrock::protobuf::api::TradingPeriod);
+    #endif//_trading_period__TradingPeriod__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
+
+    #ifndef _ticker__TickerKey__GUARD__
+    #define _ticker__TickerKey__GUARD__
+    DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
+    #endif//_ticker__TickerKey__GUARD__
+
+    #ifndef _stk_exch__StkExch__GUARD__
+    #define _stk_exch__StkExch__GUARD__
+    DECL_STRONG_TYPE(stk_exch__StkExch, spiderrock::protobuf::api::StkExch);
+    #endif//_stk_exch__StkExch__GUARD__
 
     #ifndef _ticker__TickerKey__GUARD__
     #define _ticker__TickerKey__GUARD__
@@ -393,6 +418,100 @@ namespace api {
 
     };
     
+    class TickerDefinition_Exchange {
+        public:
+        //using statements for all types used in this class
+        using stk_exch = spiderrock::protobuf::api::stk_exch__StkExch;
+        using ticker = spiderrock::protobuf::api::ticker__TickerKey;
+
+        private:
+        stk_exch m_stk_exch{};
+        ticker m_ticker{};
+
+        public:
+        stk_exch get_stk_exch() const {
+            return m_stk_exch;
+        }
+		ticker get_ticker() const {
+            return m_ticker;
+        }
+        void set_stk_exch(const stk_exch& value)  {
+            m_stk_exch = value;
+        }
+        void set_ticker(const ticker& value)  {
+            m_ticker = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to TickerDefinition_Exchange::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to TickerDefinition_Exchange::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const stk_exch & value) { set_stk_exch(value); }
+        void set(const ticker & value) { set_ticker(value); }
+
+
+        TickerDefinition_Exchange() {}
+
+        virtual ~TickerDefinition_Exchange() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(261,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkExch>(m_stk_exch)));
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+            m_ticker.setCodecTickerKey(tickerKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(262,tickerKeyLayout);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,261,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkExch>(m_stk_exch)));
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+            m_ticker.setCodecTickerKey(tickerKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 262, tickerKeyLayout);
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 261: {m_stk_exch = static_cast<spiderrock::protobuf::api::StkExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        break;
+                    }
+                    case 262: {
+                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                        m_ticker.setFromCodec(tickerKey);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
+    
 
     class TickerDefinition {
         public:
@@ -452,8 +571,12 @@ namespace api {
         using exch_string = spiderrock::protobuf::api::exch_string;
         using has_options = spiderrock::protobuf::api::has_options;
         using num_options = spiderrock::protobuf::api::num_options;
+        using basis_key = spiderrock::protobuf::api::basis_key;
+        using reverse_skew = spiderrock::protobuf::api::reverse_skew;
         using time_metric = spiderrock::protobuf::api::time_metric;
+        using trading_period = spiderrock::protobuf::api::trading_period__TradingPeriod;
         using timestamp = spiderrock::protobuf::api::timestamp;
+        using exchange = spiderrock::protobuf::api::TickerDefinition_Exchange;
 
         private:
         _meta m__meta{};
@@ -510,8 +633,12 @@ namespace api {
         exch_string m_exch_string{};
         has_options m_has_options{};
         num_options m_num_options{};
+        basis_key m_basis_key{};
+        reverse_skew m_reverse_skew{};
         time_metric m_time_metric{};
+        trading_period m_trading_period{};
         timestamp m_timestamp{};
+        std::vector<exchange> m_exchange{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -678,11 +805,26 @@ namespace api {
         num_options get_num_options() const {
             return m_num_options;
         }		
+        basis_key get_basis_key() const {
+            return m_basis_key;
+        }		
+        reverse_skew get_reverse_skew() const {
+            return m_reverse_skew;
+        }		
         time_metric get_time_metric() const {
             return m_time_metric;
         }		
+        trading_period get_trading_period() const {
+            return m_trading_period;
+        }		
         timestamp get_timestamp() const {
             return m_timestamp;
+        }
+        const std::vector<exchange>& get_exchange_list() const {
+            return m_exchange;
+        }
+        const exchange& get_exchange(const int i) const {
+            return m_exchange.at(i);
         }
         size_t getMLinkHeaderLength() const
         {
@@ -850,17 +992,38 @@ namespace api {
         void set_num_options(const num_options& value)  {
             m_num_options = value;
         }
+        void set_basis_key(const basis_key& value)  {
+            m_basis_key = value;
+        }
+        void set_reverse_skew(const reverse_skew& value)  {
+            m_reverse_skew = value;
+        }
         void set_time_metric(const time_metric& value)  {
             m_time_metric = value;
         }
+        void set_trading_period(const trading_period& value)  {
+            m_trading_period = value;
+        }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
+        }
+        void set_exchange_list(const std::vector<exchange>& list)  {
+            m_exchange = list;
+        }
+        void add_exchange(const exchange& item) {
+            m_exchange.emplace_back(item);
         }
 
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
         const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to TickerDefinition::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        const auto get(int i) const { static_assert(sizeof(T) == -1, "Unexpected type in call to TickerDefinition::get(int)"); return T{};}  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        int count() const { static_assert(sizeof(T) == -1, "Unexpected type in call to TickerDefinition::count()"); return 0;}  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -1026,11 +1189,23 @@ namespace api {
         void set(const num_options & value) {
             set_num_options(value);
         }
+        void set(const basis_key & value) {
+            set_basis_key(value);
+        }
+        void set(const reverse_skew & value) {
+            set_reverse_skew(value);
+        }
         void set(const time_metric & value) {
             set_time_metric(value);
         }
+        void set(const trading_period & value) {
+            set_trading_period(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
+        }
+        void set(const exchange & value) {
+            add_exchange(value);
         }
 
         void set(const TickerDefinition & value) {
@@ -1088,8 +1263,11 @@ namespace api {
             set(value.m_exch_string);
             set(value.m_has_options);
             set(value.m_num_options);
+            set(value.m_basis_key);
+            set(value.m_reverse_skew);
             set(value.m_time_metric);
-            set(value.m_timestamp);
+            set(value.m_trading_period);
+            set(value.m_timestamp);set_exchange_list(value.m_exchange);
         }
 
         TickerDefinition() {
@@ -1268,8 +1446,14 @@ namespace api {
         bool IncludeNumOptions() const {
             return !(m_num_options == 0);
         }
+        bool IncludeBasisKey() const {
+            return (m_basis_key.ByteSizeLong() > 0);
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
+        }
+        bool IncludeExchange() const {
+            return (!m_exchange.empty());
         }
 
         size_t ByteSizeLong() const {
@@ -1324,7 +1508,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(139,m_issue_class);
             }
             if ( IncludeSharesOutstanding()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(142,m_shares_outstanding);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(256,m_shares_outstanding);
             }
             if ( IncludeCusip()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(145,m_cusip);
@@ -1417,9 +1601,23 @@ namespace api {
             if ( IncludeNumOptions()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(247,m_num_options);
             }
+            if ( IncludeBasisKey()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_basis_key.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(257, tickerKeyLayout);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(258,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_reverse_skew)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(259,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(253, m_timestamp);
+            }
+            if ( IncludeExchange()) {
+                for (auto& item : m_exchange) {
+					totalSize += SRProtobufCPP::TagCodec::Size(260, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
             }
             return totalSize;
         }
@@ -1474,7 +1672,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,139,static_cast<string>(m_issue_class));
             }
             if ( IncludeSharesOutstanding()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,142,m_shares_outstanding);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,256,m_shares_outstanding);
             }
             if ( IncludeCusip()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,145,static_cast<string>(m_cusip));
@@ -1567,9 +1765,23 @@ namespace api {
             if ( IncludeNumOptions()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,247,m_num_options);
             }
+            if ( IncludeBasisKey()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_basis_key.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 257, tickerKeyLayout);
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,258,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_reverse_skew)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,259,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 253, m_timestamp);
+            }
+            if ( IncludeExchange()) {
+                for (auto& item : m_exchange) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 260, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
             }
         }
 
@@ -1692,7 +1904,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 142: {
+                    case 256: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_shares_outstanding = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
@@ -1901,14 +2113,40 @@ namespace api {
                         }
                         break;
                     }
+                    case 257: {
+                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
+                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                            m_basis_key.setFromCodec(tickerKey);
+                        }
+                        break;
+                    }
+                    case 258: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_reverse_skew = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 250: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_time_metric = static_cast<spiderrock::protobuf::api::TimeMetric>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 259: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_trading_period = static_cast<spiderrock::protobuf::api::TradingPeriod>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
                     case 253: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        }
+                        break;
+                    }
+                    case 260: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            exchange item_exchange;
+                            item_exchange.Decode(pos, pos+length);  
+                            m_exchange.emplace_back(item_exchange);
                         }
                         break;
                     }
@@ -1975,14 +2213,28 @@ namespace api {
     template<> inline const auto TickerDefinition::get<TickerDefinition::exch_string>() const { return m_exch_string; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::has_options>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_options)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::num_options>() const { return m_num_options; }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::basis_key>() const { return TickerDefinition::basis_key{ m_basis_key}; }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::reverse_skew>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_reverse_skew)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::time_metric>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>( m_time_metric)); }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::trading_period>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>( m_trading_period)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::timestamp>() const { return m_timestamp; }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::exchange>(int i) const { return TickerDefinition::exchange{ get_exchange(i)}; }
+    template<> inline int TickerDefinition::count<TickerDefinition::exchange>() const { return static_cast<int>( m_exchange.size()); }
     template<> inline const auto TickerDefinition_PKey::get<TickerDefinition_PKey::ticker>() const { return TickerDefinition_PKey::ticker{m_ticker}; }
+    
+    template<> inline const auto TickerDefinition_Exchange::get<TickerDefinition_Exchange::stk_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkExch>(m_stk_exch));}
+    template<> inline const auto TickerDefinition_Exchange::get<TickerDefinition_Exchange::ticker>() const { return TickerDefinition_Exchange::ticker{m_ticker}; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
     inline std::ostream& operator<<(std::ostream &o, const TickerDefinition_PKey& m) {
         o << "\"ticker\":{" << m.get<TickerDefinition_PKey::ticker>() << "}";
+        return o;
+    }
+
+    inline std::ostream& operator<<(std::ostream &o, const TickerDefinition_Exchange& m) {
+        o << "\"stk_exch\":" << (int64_t)m.get<TickerDefinition_Exchange::stk_exch>();
+        o << ",\"ticker\":{" << m.get<TickerDefinition_Exchange::ticker>() << "}";
         return o;
     }
 
@@ -2041,13 +2293,25 @@ namespace api {
         o << ",\"exch_string\":\"" << m.get<TickerDefinition::exch_string>() << "\"";
         o << ",\"has_options\":" << (int64_t)m.get<TickerDefinition::has_options>();
         o << ",\"num_options\":" << m.get<TickerDefinition::num_options>();
+        o << ",\"basis_key\":{" << m.get<TickerDefinition::basis_key>() << "}";
+        o << ",\"reverse_skew\":" << (int64_t)m.get<TickerDefinition::reverse_skew>();
         o << ",\"time_metric\":" << (int64_t)m.get<TickerDefinition::time_metric>();
+        o << ",\"trading_period\":" << (int64_t)m.get<TickerDefinition::trading_period>();
         {
             std::time_t tt = m.get<TickerDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"exchange\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<TickerDefinition::exchange>(); ++i) {
+                o << delim << m.get<TickerDefinition::exchange>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
         return o;
     }
 

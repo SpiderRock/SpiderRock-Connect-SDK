@@ -255,10 +255,10 @@ namespace api {
     DECL_STRONG_TYPE(sec_key, OptionKey);
     #endif//_sec_key__GUARD__
 
-    #ifndef _sec_type__GUARD__
-    #define _sec_type__GUARD__
-    DECL_STRONG_TYPE(sec_type, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_sec_type__GUARD__
+    #ifndef _sec_type__SpdrKeyType__GUARD__
+    #define _sec_type__SpdrKeyType__GUARD__
+    DECL_STRONG_TYPE(sec_type__SpdrKeyType, spiderrock::protobuf::api::SpdrKeyType);
+    #endif//_sec_type__SpdrKeyType__GUARD__
 
     #ifndef _leg_id__GUARD__
     #define _leg_id__GUARD__
@@ -270,10 +270,10 @@ namespace api {
     DECL_STRONG_TYPE(sec_key, OptionKey);
     #endif//_sec_key__GUARD__
 
-    #ifndef _sec_type__GUARD__
-    #define _sec_type__GUARD__
-    DECL_STRONG_TYPE(sec_type, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_sec_type__GUARD__
+    #ifndef _sec_type__SpdrKeyType__GUARD__
+    #define _sec_type__SpdrKeyType__GUARD__
+    DECL_STRONG_TYPE(sec_type__SpdrKeyType, spiderrock::protobuf::api::SpdrKeyType);
+    #endif//_sec_type__SpdrKeyType__GUARD__
 
     #ifndef _side__GUARD__
     #define _side__GUARD__
@@ -290,17 +290,17 @@ namespace api {
     DECL_STRONG_TYPE(ref_delta, float);
     #endif//_ref_delta__GUARD__
 
-    #ifndef _ref_prc__GUARD__
-    #define _ref_prc__GUARD__
-    DECL_STRONG_TYPE(ref_prc, double);
-    #endif//_ref_prc__GUARD__
+    #ifndef _ref_prc__double__GUARD__
+    #define _ref_prc__double__GUARD__
+    DECL_STRONG_TYPE(ref_prc__double, double);
+    #endif//_ref_prc__double__GUARD__
 
     
     class ProductDefinitionV2_PKey {
         public:
         //using statements for all types used in this class
         using sec_key = spiderrock::protobuf::api::sec_key;
-        using sec_type = spiderrock::protobuf::api::sec_type;
+        using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
 
         private:
         sec_key m_sec_key{};
@@ -402,11 +402,11 @@ namespace api {
         //using statements for all types used in this class
         using leg_id = spiderrock::protobuf::api::leg_id;
         using sec_key = spiderrock::protobuf::api::sec_key;
-        using sec_type = spiderrock::protobuf::api::sec_type;
+        using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using side = spiderrock::protobuf::api::side;
         using ratio = spiderrock::protobuf::api::ratio__uint32;
         using ref_delta = spiderrock::protobuf::api::ref_delta;
-        using ref_prc = spiderrock::protobuf::api::ref_prc;
+        using ref_prc = spiderrock::protobuf::api::ref_prc__double;
 
         private:
         leg_id m_leg_id{};

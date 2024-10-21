@@ -160,6 +160,11 @@ namespace api {
     DECL_STRONG_TYPE(corp_action, string);
     #endif//_corp_action__GUARD__
 
+    #ifndef _config_now__GUARD__
+    #define _config_now__GUARD__
+    DECL_STRONG_TYPE(config_now, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_config_now__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -291,6 +296,7 @@ namespace api {
         using years = spiderrock::protobuf::api::years__float;
         using error = spiderrock::protobuf::api::error__int32;
         using corp_action = spiderrock::protobuf::api::corp_action;
+        using config_now = spiderrock::protobuf::api::config_now;
         using timestamp = spiderrock::protobuf::api::timestamp;
 
         private:
@@ -322,6 +328,7 @@ namespace api {
         years m_years{};
         error m_error{};
         corp_action m_corp_action{};
+        config_now m_config_now{};
         timestamp m_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -410,6 +417,9 @@ namespace api {
         }		
         corp_action get_corp_action() const {
             return m_corp_action;
+        }		
+        config_now get_config_now() const {
+            return m_config_now;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -501,6 +511,9 @@ namespace api {
         }
         void set_corp_action(const corp_action& value)  {
             m_corp_action = value;
+        }
+        void set_config_now(const config_now& value)  {
+            m_config_now = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -597,6 +610,9 @@ namespace api {
         void set(const corp_action & value) {
             set_corp_action(value);
         }
+        void set(const config_now & value) {
+            set_config_now(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -630,6 +646,7 @@ namespace api {
             set(value.m_years);
             set(value.m_error);
             set(value.m_corp_action);
+            set(value.m_config_now);
             set(value.m_timestamp);
         }
 
@@ -761,6 +778,9 @@ namespace api {
         bool IncludeCorpAction() const {
             return !(m_corp_action.empty());
         }
+        bool IncludeConfigNow() const {
+            return (m_config_now.time_since_epoch().count() != 0);
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -781,7 +801,7 @@ namespace api {
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(191,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
             if ( IncludeUSrCls()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(109,m_u_sr_cls);
             }
@@ -838,7 +858,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(175,m_ddiv);
             }
             if ( IncludeDdivPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(176,m_ddiv_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(192,m_ddiv_pv);
             }
             if ( IncludeRate()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(178,m_rate);
@@ -851,6 +871,9 @@ namespace api {
             }
             if ( IncludeCorpAction()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(187,m_corp_action);
+            }
+            if ( IncludeConfigNow()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(193, m_config_now);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(190, m_timestamp);
@@ -872,7 +895,7 @@ namespace api {
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,191,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
             if ( IncludeUSrCls()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,109,m_u_sr_cls);
             }
@@ -929,7 +952,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,175,m_ddiv);
             }
             if ( IncludeDdivPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,176,m_ddiv_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,192,m_ddiv_pv);
             }
             if ( IncludeRate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,178,m_rate);
@@ -942,6 +965,9 @@ namespace api {
             }
             if ( IncludeCorpAction()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,187,static_cast<string>(m_corp_action));
+            }
+            if ( IncludeConfigNow()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 193, m_config_now);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 190, m_timestamp);
@@ -985,7 +1011,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 191: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_opn_mark_state = static_cast<spiderrock::protobuf::api::OpnMarkState>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
@@ -1103,7 +1129,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 176: {
+                    case 192: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_ddiv_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
@@ -1130,6 +1156,12 @@ namespace api {
                     case 187: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_corp_action = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 193: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_config_now = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
@@ -1176,6 +1208,7 @@ namespace api {
     template<> inline const auto OptionOpenMark::get<OptionOpenMark::years>() const { return m_years; }
     template<> inline const auto OptionOpenMark::get<OptionOpenMark::error>() const { return m_error; }
     template<> inline const auto OptionOpenMark::get<OptionOpenMark::corp_action>() const { return m_corp_action; }
+    template<> inline const auto OptionOpenMark::get<OptionOpenMark::config_now>() const { return m_config_now; }
     template<> inline const auto OptionOpenMark::get<OptionOpenMark::timestamp>() const { return m_timestamp; }
     template<> inline const auto OptionOpenMark_PKey::get<OptionOpenMark_PKey::okey>() const { return OptionOpenMark_PKey::okey{m_okey}; }
     
@@ -1215,6 +1248,12 @@ namespace api {
         o << ",\"years\":" << m.get<OptionOpenMark::years>();
         o << ",\"error\":" << m.get<OptionOpenMark::error>();
         o << ",\"corp_action\":\"" << m.get<OptionOpenMark::corp_action>() << "\"";
+        {
+            std::time_t tt = m.get<OptionOpenMark::config_now>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"config_now\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
         {
             std::time_t tt = m.get<OptionOpenMark::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

@@ -261,13 +261,22 @@ namespace api {
         }
 
         bool SerializeToArray(void* data, size_t size) const  {
-            
-            return false;
+            size_t length = ByteSizeLong();
+            if (size <  _mlinkHeaderLength + length) return false;
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 4400, length);
+            //Encode the message
+            uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
+            auto max = encodePos + length;
+            Encode(encodePos, max);
+            //End of encoding
+            return true;
         }
 
         bool SerializeToString(std::string *s) const {
-            
-            return false;
+            size_t length = ByteSizeLong();
+            s->resize( _mlinkHeaderLength + length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 4400, length);
+            return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 
         bool ParseFromString(const string& data) {
@@ -313,12 +322,12 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
             if ( IncludeIsin()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_isin);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(101,m_isin);
             }
             if ( IncludePrimaryTicker()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
                 m_primary_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(102, tickerKeyLayout);
             }
             return totalSize;
         }
@@ -336,12 +345,12 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_primary_currency)));
             if ( IncludeIsin()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_isin));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,101,static_cast<string>(m_isin));
             }
             if ( IncludePrimaryTicker()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
                 m_primary_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 102, tickerKeyLayout);
             }
         }
 
@@ -378,13 +387,13 @@ namespace api {
                         }
                         break;
                     }
-                    case 103: {
+                    case 101: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_isin = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 106: {
+                    case 102: {
                         if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
                             auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
                             m_primary_ticker.setFromCodec(tickerKey);

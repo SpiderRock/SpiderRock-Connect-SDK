@@ -190,10 +190,10 @@ namespace api {
     DECL_STRONG_TYPE(dn08, float);
     #endif//_dn08__GUARD__
 
-    #ifndef _syn_spot__GUARD__
-    #define _syn_spot__GUARD__
-    DECL_STRONG_TYPE(syn_spot, double);
-    #endif//_syn_spot__GUARD__
+    #ifndef _syn_spot__double__GUARD__
+    #define _syn_spot__double__GUARD__
+    DECL_STRONG_TYPE(syn_spot__double, double);
+    #endif//_syn_spot__double__GUARD__
 
     #ifndef _price_type__CalcPriceType__GUARD__
     #define _price_type__CalcPriceType__GUARD__
@@ -357,7 +357,7 @@ namespace api {
         using dn15 = spiderrock::protobuf::api::dn15;
         using up06 = spiderrock::protobuf::api::up06;
         using dn08 = spiderrock::protobuf::api::dn08;
-        using syn_spot = spiderrock::protobuf::api::syn_spot;
+        using syn_spot = spiderrock::protobuf::api::syn_spot__double;
         using price_type = spiderrock::protobuf::api::price_type__CalcPriceType;
         using calc_err = spiderrock::protobuf::api::calc_err__ImpliedQuoteError;
         using calc_source = spiderrock::protobuf::api::calc_source;

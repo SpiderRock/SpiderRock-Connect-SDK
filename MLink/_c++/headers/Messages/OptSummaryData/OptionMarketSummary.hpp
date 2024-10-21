@@ -30,10 +30,10 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _opn_price__GUARD__
-    #define _opn_price__GUARD__
-    DECL_STRONG_TYPE(opn_price, double);
-    #endif//_opn_price__GUARD__
+    #ifndef _opn_price__double__GUARD__
+    #define _opn_price__double__GUARD__
+    DECL_STRONG_TYPE(opn_price__double, double);
+    #endif//_opn_price__double__GUARD__
 
     #ifndef _opn_volatility__GUARD__
     #define _opn_volatility__GUARD__
@@ -245,7 +245,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::OptionMarketSummary_PKey;
-        using opn_price = spiderrock::protobuf::api::opn_price;
+        using opn_price = spiderrock::protobuf::api::opn_price__double;
         using opn_volatility = spiderrock::protobuf::api::opn_volatility;
         using cls_price = spiderrock::protobuf::api::cls_price__double;
         using cls_volatility = spiderrock::protobuf::api::cls_volatility;

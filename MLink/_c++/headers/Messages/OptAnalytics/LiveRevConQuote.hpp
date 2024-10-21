@@ -908,7 +908,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(111,m_i_days);
             }
             if ( IncludeDdivDisc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_ddiv_disc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(129,m_ddiv_disc);
             }
             if ( IncludeStrikePv()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_strike_pv);
@@ -944,10 +944,10 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(122,m_fair_loan_rate);
             }
             if ( IncludeRcBidPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(123,m_rc_bid_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_rc_bid_prc);
             }
             if ( IncludeRcAskPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_rc_ask_prc);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(131,m_rc_ask_prc);
             }
             if ( IncludeCalcError()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(125,m_calc_error);
@@ -1012,7 +1012,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,111,m_i_days);
             }
             if ( IncludeDdivDisc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_ddiv_disc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,129,m_ddiv_disc);
             }
             if ( IncludeStrikePv()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_strike_pv);
@@ -1048,10 +1048,10 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,122,m_fair_loan_rate);
             }
             if ( IncludeRcBidPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,123,m_rc_bid_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_rc_bid_prc);
             }
             if ( IncludeRcAskPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_rc_ask_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,131,m_rc_ask_prc);
             }
             if ( IncludeCalcError()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,125,static_cast<string>(m_calc_error));
@@ -1167,7 +1167,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 130: {
+                    case 129: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_ddiv_disc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
@@ -1239,13 +1239,13 @@ namespace api {
                         }
                         break;
                     }
-                    case 123: {
+                    case 130: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_rc_bid_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 131: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_rc_ask_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }

@@ -75,10 +75,10 @@ namespace api {
     DECL_STRONG_TYPE(ref_delta, float);
     #endif//_ref_delta__GUARD__
 
-    #ifndef _ref_prc__GUARD__
-    #define _ref_prc__GUARD__
-    DECL_STRONG_TYPE(ref_prc, double);
-    #endif//_ref_prc__GUARD__
+    #ifndef _ref_prc__double__GUARD__
+    #define _ref_prc__double__GUARD__
+    DECL_STRONG_TYPE(ref_prc__double, double);
+    #endif//_ref_prc__double__GUARD__
 
     
     class SpreadExchDefinition_PKey {
@@ -184,7 +184,7 @@ namespace api {
         using leg_side = spiderrock::protobuf::api::leg_side;
         using leg_ratio = spiderrock::protobuf::api::leg_ratio;
         using ref_delta = spiderrock::protobuf::api::ref_delta;
-        using ref_prc = spiderrock::protobuf::api::ref_prc;
+        using ref_prc = spiderrock::protobuf::api::ref_prc__double;
 
         private:
         leg_sec_key m_leg_sec_key{};

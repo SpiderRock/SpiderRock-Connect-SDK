@@ -47,7 +47,7 @@ namespace api {
 
     #ifndef _actions__GUARD__
     #define _actions__GUARD__
-    DECL_STRONG_TYPE(actions, string);
+    DECL_STRONG_TYPE(actions, spiderrock::protobuf::api::MLinkActions);
     #endif//_actions__GUARD__
 
     #ifndef _has_tkey__GUARD__
@@ -75,6 +75,11 @@ namespace api {
     DECL_STRONG_TYPE(m_token, spiderrock::protobuf::api::MLinkToken);
     #endif//_m_token__GUARD__
 
+    #ifndef _data_products__GUARD__
+    #define _data_products__GUARD__
+    DECL_STRONG_TYPE(data_products, spiderrock::protobuf::api::DataProduct);
+    #endif//_data_products__GUARD__
+
     #ifndef _srse_products__GUARD__
     #define _srse_products__GUARD__
     DECL_STRONG_TYPE(srse_products, string);
@@ -84,6 +89,11 @@ namespace api {
     #define _desc__GUARD__
     DECL_STRONG_TYPE(desc, string);
     #endif//_desc__GUARD__
+
+    #ifndef _topic__GUARD__
+    #define _topic__GUARD__
+    DECL_STRONG_TYPE(topic, string);
+    #endif//_topic__GUARD__
 
     #ifndef _pri_time_field__GUARD__
     #define _pri_time_field__GUARD__
@@ -163,14 +173,14 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(141,m_name);
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(142,m_fields);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(142,m_name);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(143,m_fields);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,141,static_cast<string>(m_name));
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,142,static_cast<string>(m_fields));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,142,static_cast<string>(m_name));
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,143,static_cast<string>(m_fields));
             return dest;
         }
 
@@ -187,10 +197,10 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 141: {m_name = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 142: {m_name = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 142: {m_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 143: {m_fields = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -214,8 +224,10 @@ namespace api {
         using has_okey = spiderrock::protobuf::api::has_okey;
         using has_cf = spiderrock::protobuf::api::has_cf;
         using m_token = spiderrock::protobuf::api::m_token;
+        using data_products = spiderrock::protobuf::api::data_products;
         using srse_products = spiderrock::protobuf::api::srse_products;
         using desc = spiderrock::protobuf::api::desc;
+        using topic = spiderrock::protobuf::api::topic;
         using pri_time_field = spiderrock::protobuf::api::pri_time_field;
         using sec_time_field = spiderrock::protobuf::api::sec_time_field;
         using static_filter_fields = spiderrock::protobuf::api::static_filter_fields;
@@ -232,8 +244,10 @@ namespace api {
         has_okey m_has_okey{};
         has_cf m_has_cf{};
         m_token m_m_token{};
+        data_products m_data_products{};
         srse_products m_srse_products{};
         desc m_desc{};
+        topic m_topic{};
         pri_time_field m_pri_time_field{};
         sec_time_field m_sec_time_field{};
         static_filter_fields m_static_filter_fields{};
@@ -272,11 +286,17 @@ namespace api {
         m_token get_m_token() const {
             return m_m_token;
         }		
+        data_products get_data_products() const {
+            return m_data_products;
+        }		
         srse_products get_srse_products() const {
             return m_srse_products;
         }		
         desc get_desc() const {
             return m_desc;
+        }		
+        topic get_topic() const {
+            return m_topic;
         }		
         pri_time_field get_pri_time_field() const {
             return m_pri_time_field;
@@ -327,11 +347,17 @@ namespace api {
         void set_m_token(const m_token& value)  {
             m_m_token = value;
         }
+        void set_data_products(const data_products& value)  {
+            m_data_products = value;
+        }
         void set_srse_products(const srse_products& value)  {
             m_srse_products = value;
         }
         void set_desc(const desc& value)  {
             m_desc = value;
+        }
+        void set_topic(const topic& value)  {
+            m_topic = value;
         }
         void set_pri_time_field(const pri_time_field& value)  {
             m_pri_time_field = value;
@@ -392,11 +418,17 @@ namespace api {
         void set(const m_token & value) {
             set_m_token(value);
         }
+        void set(const data_products & value) {
+            set_data_products(value);
+        }
         void set(const srse_products & value) {
             set_srse_products(value);
         }
         void set(const desc & value) {
             set_desc(value);
+        }
+        void set(const topic & value) {
+            set_topic(value);
         }
         void set(const pri_time_field & value) {
             set_pri_time_field(value);
@@ -422,8 +454,10 @@ namespace api {
             set(value.m_has_okey);
             set(value.m_has_cf);
             set(value.m_m_token);
+            set(value.m_data_products);
             set(value.m_srse_products);
             set(value.m_desc);
+            set(value.m_topic);
             set(value.m_pri_time_field);
             set(value.m_sec_time_field);
             set(value.m_static_filter_fields);set_grid_field_options_list(value.m_grid_field_options);
@@ -491,14 +525,14 @@ namespace api {
         bool IncludeSchemaHash() const {
             return !(m_schema_hash.empty());
         }
-        bool IncludeActions() const {
-            return !(m_actions.empty());
-        }
         bool IncludeSrseProducts() const {
             return !(m_srse_products.empty());
         }
         bool IncludeDesc() const {
             return !(m_desc.empty());
+        }
+        bool IncludeTopic() const {
+            return !(m_topic.empty());
         }
         bool IncludePriTimeField() const {
             return !(m_pri_time_field.empty());
@@ -529,19 +563,21 @@ namespace api {
             if ( IncludeSchemaHash()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_schema_hash);
             }
-            if ( IncludeActions()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_actions);
-            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(144,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkActions>(m_actions)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_tkey)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_ekey)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_okey)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cf)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>(m_m_token)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DataProduct>(m_data_products)));
             if ( IncludeSrseProducts()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(125,m_srse_products);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(140,m_srse_products);
             }
             if ( IncludeDesc()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(127,m_desc);
+            }
+            if ( IncludeTopic()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(146,m_topic);
             }
             if ( IncludePriTimeField()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(130,m_pri_time_field);
@@ -554,7 +590,7 @@ namespace api {
             }
             if ( IncludeGridFieldOptions()) {
                 for (auto& item : m_grid_field_options) {
-					totalSize += SRProtobufCPP::TagCodec::Size(140, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+					totalSize += SRProtobufCPP::TagCodec::Size(141, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -577,19 +613,21 @@ namespace api {
             if ( IncludeSchemaHash()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_schema_hash));
             }
-            if ( IncludeActions()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_actions));
-            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,144,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkActions>(m_actions)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_tkey)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_ekey)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_okey)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cf)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>(m_m_token)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DataProduct>(m_data_products)));
             if ( IncludeSrseProducts()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,125,static_cast<string>(m_srse_products));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,140,static_cast<string>(m_srse_products));
             }
             if ( IncludeDesc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,127,static_cast<string>(m_desc));
+            }
+            if ( IncludeTopic()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,146,static_cast<string>(m_topic));
             }
             if ( IncludePriTimeField()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,130,static_cast<string>(m_pri_time_field));
@@ -602,7 +640,7 @@ namespace api {
             }
             if ( IncludeGridFieldOptions()) {
                 for (auto& item : m_grid_field_options) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 140, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 141, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -648,9 +686,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 109: {
-                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
-                            m_actions = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 144: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_actions = static_cast<spiderrock::protobuf::api::MLinkActions>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -679,7 +716,12 @@ namespace api {
                         }
                         break;
                     }
-                    case 125: {
+                    case 145: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_data_products = static_cast<spiderrock::protobuf::api::DataProduct>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 140: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_srse_products = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
@@ -688,6 +730,12 @@ namespace api {
                     case 127: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 146: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_topic = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -709,7 +757,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 140: {
+                    case 141: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             grid_field_options item_grid_field_options;
@@ -731,14 +779,16 @@ namespace api {
     template<> inline const auto MsgDesc::get<MsgDesc::name>() const { return m_name; }
     template<> inline const auto MsgDesc::get<MsgDesc::m_num>() const { return m_m_num; }
     template<> inline const auto MsgDesc::get<MsgDesc::schema_hash>() const { return m_schema_hash; }
-    template<> inline const auto MsgDesc::get<MsgDesc::actions>() const { return m_actions; }
+    template<> inline const auto MsgDesc::get<MsgDesc::actions>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkActions>( m_actions)); }
     template<> inline const auto MsgDesc::get<MsgDesc::has_tkey>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_tkey)); }
     template<> inline const auto MsgDesc::get<MsgDesc::has_ekey>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_ekey)); }
     template<> inline const auto MsgDesc::get<MsgDesc::has_okey>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_okey)); }
     template<> inline const auto MsgDesc::get<MsgDesc::has_cf>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_cf)); }
     template<> inline const auto MsgDesc::get<MsgDesc::m_token>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MLinkToken>( m_m_token)); }
+    template<> inline const auto MsgDesc::get<MsgDesc::data_products>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DataProduct>( m_data_products)); }
     template<> inline const auto MsgDesc::get<MsgDesc::srse_products>() const { return m_srse_products; }
     template<> inline const auto MsgDesc::get<MsgDesc::desc>() const { return m_desc; }
+    template<> inline const auto MsgDesc::get<MsgDesc::topic>() const { return m_topic; }
     template<> inline const auto MsgDesc::get<MsgDesc::pri_time_field>() const { return m_pri_time_field; }
     template<> inline const auto MsgDesc::get<MsgDesc::sec_time_field>() const { return m_sec_time_field; }
     template<> inline const auto MsgDesc::get<MsgDesc::static_filter_fields>() const { return m_static_filter_fields; }
@@ -760,14 +810,16 @@ namespace api {
         o << ",\"name\":\"" << m.get<MsgDesc::name>() << "\"";
         o << ",\"m_num\":" << m.get<MsgDesc::m_num>();
         o << ",\"schema_hash\":\"" << m.get<MsgDesc::schema_hash>() << "\"";
-        o << ",\"actions\":\"" << m.get<MsgDesc::actions>() << "\"";
+        o << ",\"actions\":" << (int64_t)m.get<MsgDesc::actions>();
         o << ",\"has_tkey\":" << (int64_t)m.get<MsgDesc::has_tkey>();
         o << ",\"has_ekey\":" << (int64_t)m.get<MsgDesc::has_ekey>();
         o << ",\"has_okey\":" << (int64_t)m.get<MsgDesc::has_okey>();
         o << ",\"has_cf\":" << (int64_t)m.get<MsgDesc::has_cf>();
         o << ",\"m_token\":" << (int64_t)m.get<MsgDesc::m_token>();
+        o << ",\"data_products\":" << (int64_t)m.get<MsgDesc::data_products>();
         o << ",\"srse_products\":\"" << m.get<MsgDesc::srse_products>() << "\"";
         o << ",\"desc\":\"" << m.get<MsgDesc::desc>() << "\"";
+        o << ",\"topic\":\"" << m.get<MsgDesc::topic>() << "\"";
         o << ",\"pri_time_field\":\"" << m.get<MsgDesc::pri_time_field>() << "\"";
         o << ",\"sec_time_field\":\"" << m.get<MsgDesc::sec_time_field>() << "\"";
         o << ",\"static_filter_fields\":\"" << m.get<MsgDesc::static_filter_fields>() << "\"";

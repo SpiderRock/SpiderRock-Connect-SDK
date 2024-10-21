@@ -294,7 +294,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(100,m_convert_rate);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(103, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(101, m_timestamp);
             }
             return totalSize;
         }
@@ -314,7 +314,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,100,m_convert_rate);
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 103, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 101, m_timestamp);
             }
         }
 
@@ -352,7 +352,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 103: {
+                    case 101: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }

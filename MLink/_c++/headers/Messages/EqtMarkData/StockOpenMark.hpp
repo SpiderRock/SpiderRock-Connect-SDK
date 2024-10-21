@@ -364,7 +364,7 @@ namespace api {
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(119,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
             if ( IncludeSrClsPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(103,m_sr_cls_prc);
             }
@@ -394,7 +394,7 @@ namespace api {
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,119,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OpnMarkState>(m_opn_mark_state)));
             if ( IncludeSrClsPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,103,m_sr_cls_prc);
             }
@@ -446,7 +446,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 119: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_opn_mark_state = static_cast<spiderrock::protobuf::api::OpnMarkState>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;

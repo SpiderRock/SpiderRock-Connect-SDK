@@ -65,10 +65,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_vwap, double);
     #endif//_prt_vwap__GUARD__
 
-    #ifndef _prt_volume__int32__GUARD__
-    #define _prt_volume__int32__GUARD__
-    DECL_STRONG_TYPE(prt_volume__int32, int32);
-    #endif//_prt_volume__int32__GUARD__
+    #ifndef _prt_volume__GUARD__
+    #define _prt_volume__GUARD__
+    DECL_STRONG_TYPE(prt_volume, int32);
+    #endif//_prt_volume__GUARD__
 
     #ifndef _prt_count__GUARD__
     #define _prt_count__GUARD__
@@ -242,7 +242,7 @@ namespace api {
         using prt_low = spiderrock::protobuf::api::prt_low;
         using prt_last = spiderrock::protobuf::api::prt_last;
         using prt_vwap = spiderrock::protobuf::api::prt_vwap;
-        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
+        using prt_volume = spiderrock::protobuf::api::prt_volume;
         using prt_count = spiderrock::protobuf::api::prt_count;
         using qte_hi_bid = spiderrock::protobuf::api::qte_hi_bid;
         using qte_lo_ask = spiderrock::protobuf::api::qte_lo_ask;

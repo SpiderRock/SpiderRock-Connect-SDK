@@ -692,7 +692,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(109,m_price);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_price_valid)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(113,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(171,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
             if ( IncludeOrigOrderSize()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(115,m_orig_order_size);
             }
@@ -752,7 +752,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,109,m_price);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_price_valid)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,113,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,171,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
             if ( IncludeOrigOrderSize()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,115,m_orig_order_size);
             }
@@ -843,7 +843,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 113: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 171: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_flip_side = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;

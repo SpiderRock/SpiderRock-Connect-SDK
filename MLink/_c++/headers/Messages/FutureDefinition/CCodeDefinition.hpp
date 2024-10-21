@@ -135,6 +135,11 @@ namespace api {
     DECL_STRONG_TYPE(market_center, string);
     #endif//_market_center__GUARD__
 
+    #ifndef _trading_period__TradingPeriod__GUARD__
+    #define _trading_period__TradingPeriod__GUARD__
+    DECL_STRONG_TYPE(trading_period__TradingPeriod, spiderrock::protobuf::api::TradingPeriod);
+    #endif//_trading_period__TradingPeriod__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -266,6 +271,7 @@ namespace api {
         using strike_scaling = spiderrock::protobuf::api::strike_scaling;
         using description = spiderrock::protobuf::api::description;
         using market_center = spiderrock::protobuf::api::market_center;
+        using trading_period = spiderrock::protobuf::api::trading_period__TradingPeriod;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using ric_code__v7 = spiderrock::protobuf::api::ric_code__v7;
 
@@ -293,6 +299,7 @@ namespace api {
         strike_scaling m_strike_scaling{};
         description m_description{};
         market_center m_market_center{};
+        trading_period m_trading_period{};
         timestamp m_timestamp{};
         ric_code__v7 m_ric_code__v7{};
 
@@ -367,6 +374,9 @@ namespace api {
         }		
         market_center get_market_center() const {
             return m_market_center;
+        }		
+        trading_period get_trading_period() const {
+            return m_trading_period;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -446,6 +456,9 @@ namespace api {
         }
         void set_market_center(const market_center& value)  {
             m_market_center = value;
+        }
+        void set_trading_period(const trading_period& value)  {
+            m_trading_period = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -530,6 +543,9 @@ namespace api {
         void set(const market_center & value) {
             set_market_center(value);
         }
+        void set(const trading_period & value) {
+            set_trading_period(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -561,6 +577,7 @@ namespace api {
             set(value.m_strike_scaling);
             set(value.m_description);
             set(value.m_market_center);
+            set(value.m_trading_period);
             set(value.m_timestamp);
             set(value.m_ric_code__v7);
         }
@@ -744,6 +761,7 @@ namespace api {
             if ( IncludeMarketCenter()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(160,m_market_center);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(165,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(163, m_timestamp);
             }
@@ -819,6 +837,7 @@ namespace api {
             if ( IncludeMarketCenter()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,160,static_cast<string>(m_market_center));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,165,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 163, m_timestamp);
             }
@@ -977,6 +996,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 165: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_trading_period = static_cast<spiderrock::protobuf::api::TradingPeriod>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 163: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -1021,6 +1045,7 @@ namespace api {
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::strike_scaling>() const { return m_strike_scaling; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::description>() const { return m_description; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::market_center>() const { return m_market_center; }
+    template<> inline const auto CCodeDefinition::get<CCodeDefinition::trading_period>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>( m_trading_period)); }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto CCodeDefinition::get<CCodeDefinition::ric_code__v7>() const { return m_ric_code__v7; }
     template<> inline const auto CCodeDefinition_PKey::get<CCodeDefinition_PKey::ccode>() const { return CCodeDefinition_PKey::ccode{m_ccode}; }
@@ -1056,6 +1081,7 @@ namespace api {
         o << ",\"strike_scaling\":" << m.get<CCodeDefinition::strike_scaling>();
         o << ",\"description\":\"" << m.get<CCodeDefinition::description>() << "\"";
         o << ",\"market_center\":\"" << m.get<CCodeDefinition::market_center>() << "\"";
+        o << ",\"trading_period\":" << (int64_t)m.get<CCodeDefinition::trading_period>();
         {
             std::time_t tt = m.get<CCodeDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
     #endif//_ticker__TickerKey__GUARD__
 
-    #ifndef _source__GUARD__
-    #define _source__GUARD__
-    DECL_STRONG_TYPE(source, spiderrock::protobuf::api::EventSource);
-    #endif//_source__GUARD__
+    #ifndef _source__EventSource__GUARD__
+    #define _source__EventSource__GUARD__
+    DECL_STRONG_TYPE(source__EventSource, spiderrock::protobuf::api::EventSource);
+    #endif//_source__EventSource__GUARD__
 
     #ifndef _event_date__GUARD__
     #define _event_date__GUARD__
@@ -125,7 +125,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
-        using source = spiderrock::protobuf::api::source;
+        using source = spiderrock::protobuf::api::source__EventSource;
 
         private:
         ticker m_ticker{};

@@ -30,6 +30,11 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
+    #ifndef _ticker__TickerKey__GUARD__
+    #define _ticker__TickerKey__GUARD__
+    DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
+    #endif//_ticker__TickerKey__GUARD__
+
     #ifndef _trade_date__GUARD__
     #define _trade_date__GUARD__
     DECL_STRONG_TYPE(trade_date, DateKey);
@@ -215,15 +220,20 @@ namespace api {
     DECL_STRONG_TYPE(prt_count, int32);
     #endif//_prt_count__GUARD__
 
-    #ifndef _prt_volume__int32__GUARD__
-    #define _prt_volume__int32__GUARD__
-    DECL_STRONG_TYPE(prt_volume__int32, int32);
-    #endif//_prt_volume__int32__GUARD__
+    #ifndef _prt_volume__GUARD__
+    #define _prt_volume__GUARD__
+    DECL_STRONG_TYPE(prt_volume, int32);
+    #endif//_prt_volume__GUARD__
 
     #ifndef _sr_close_mark_dttm__GUARD__
     #define _sr_close_mark_dttm__GUARD__
     DECL_STRONG_TYPE(sr_close_mark_dttm, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_sr_close_mark_dttm__GUARD__
+
+    #ifndef _config_now__GUARD__
+    #define _config_now__GUARD__
+    DECL_STRONG_TYPE(config_now, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_config_now__GUARD__
 
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
@@ -330,6 +340,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::OptionCloseMark_PKey;
+        using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using trade_date = spiderrock::protobuf::api::trade_date;
         using cls_mark_state = spiderrock::protobuf::api::cls_mark_state;
         using u_bid = spiderrock::protobuf::api::u_bid__double;
@@ -367,13 +378,15 @@ namespace api {
         using error = spiderrock::protobuf::api::error__int32;
         using open_interest = spiderrock::protobuf::api::open_interest;
         using prt_count = spiderrock::protobuf::api::prt_count;
-        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
+        using prt_volume = spiderrock::protobuf::api::prt_volume;
         using sr_close_mark_dttm = spiderrock::protobuf::api::sr_close_mark_dttm;
+        using config_now = spiderrock::protobuf::api::config_now;
         using timestamp = spiderrock::protobuf::api::timestamp;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
+        ticker m_ticker{};
         trade_date m_trade_date{};
         cls_mark_state m_cls_mark_state{};
         u_bid m_u_bid{};
@@ -413,6 +426,7 @@ namespace api {
         prt_count m_prt_count{};
         prt_volume m_prt_volume{};
         sr_close_mark_dttm m_sr_close_mark_dttm{};
+        config_now m_config_now{};
         timestamp m_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -423,6 +437,9 @@ namespace api {
         }		
         pkey get_pkey() const {
             return m_pkey;
+        }		
+        ticker get_ticker() const {
+            return m_ticker;
         }		
         trade_date get_trade_date() const {
             return m_trade_date;
@@ -541,6 +558,9 @@ namespace api {
         sr_close_mark_dttm get_sr_close_mark_dttm() const {
             return m_sr_close_mark_dttm;
         }		
+        config_now get_config_now() const {
+            return m_config_now;
+        }		
         timestamp get_timestamp() const {
             return m_timestamp;
         }
@@ -553,6 +573,9 @@ namespace api {
         }
         void set_pkey(const pkey& value)  {
             m_pkey = value;
+        }
+        void set_ticker(const ticker& value)  {
+            m_ticker = value;
         }
         void set_trade_date(const trade_date& value)  {
             m_trade_date = value;
@@ -671,6 +694,9 @@ namespace api {
         void set_sr_close_mark_dttm(const sr_close_mark_dttm& value)  {
             m_sr_close_mark_dttm = value;
         }
+        void set_config_now(const config_now& value)  {
+            m_config_now = value;
+        }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
         }
@@ -687,6 +713,9 @@ namespace api {
         }
         void set(const pkey & value) {
             set_pkey(value);
+        }
+        void set(const ticker & value) {
+            set_ticker(value);
         }
         void set(const trade_date & value) {
             set_trade_date(value);
@@ -805,6 +834,9 @@ namespace api {
         void set(const sr_close_mark_dttm & value) {
             set_sr_close_mark_dttm(value);
         }
+        void set(const config_now & value) {
+            set_config_now(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -812,6 +844,7 @@ namespace api {
         void set(const OptionCloseMark & value) {
             set(value.m__meta);
             set(value.m_pkey);
+            set(value.m_ticker);
             set(value.m_trade_date);
             set(value.m_cls_mark_state);
             set(value.m_u_bid);
@@ -851,6 +884,7 @@ namespace api {
             set(value.m_prt_count);
             set(value.m_prt_volume);
             set(value.m_sr_close_mark_dttm);
+            set(value.m_config_now);
             set(value.m_timestamp);
         }
 
@@ -909,6 +943,9 @@ namespace api {
         }
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
+        }
+        bool IncludeTicker() const {
+            return (m_ticker.ByteSizeLong() > 0);
         }
         bool IncludeTradeDate() const {
             return (m_trade_date.ByteSizeLong() > 0);
@@ -1012,6 +1049,9 @@ namespace api {
         bool IncludeSrCloseMarkDttm() const {
             return (m_sr_close_mark_dttm.time_since_epoch().count() != 0);
         }
+        bool IncludeConfigNow() const {
+            return (m_config_now.time_since_epoch().count() != 0);
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -1028,6 +1068,11 @@ namespace api {
                 totalSize += SRProtobufCPP::TagCodec::Size(2, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
+            }
+            if ( IncludeTicker()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(212, tickerKeyLayout);
             }
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -1059,7 +1104,7 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_srcls_prc)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_close_prc)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(134,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_ucls_prc)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(209,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_ucls_prc)));
             if ( IncludeBidIv()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(136,m_bid_iv);
             }
@@ -1110,13 +1155,13 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(184,m_ddiv);
             }
             if ( IncludeDdivPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(185,m_ddiv_pv);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(210,m_ddiv_pv);
             }
             if ( IncludeRate()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(187,m_rate);
             }
             if ( IncludeIDays()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(180,m_i_days);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(211,m_i_days);
             }
             if ( IncludeYears()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(190,m_years);
@@ -1136,6 +1181,9 @@ namespace api {
             if ( IncludeSrCloseMarkDttm()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(205, m_sr_close_mark_dttm);
             }
+            if ( IncludeConfigNow()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(213, m_config_now);
+            }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
             }
@@ -1152,6 +1200,11 @@ namespace api {
                 dest = SRProtobufCPP::TagCodec::Encode(dest,2, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
+            }
+            if ( IncludeTicker()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 212, tickerKeyLayout);
             }
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,100, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -1183,7 +1236,7 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_srcls_prc)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_close_prc)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,134,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_ucls_prc)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,209,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_ucls_prc)));
             if ( IncludeBidIv()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,136,m_bid_iv);
             }
@@ -1234,13 +1287,13 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,184,m_ddiv);
             }
             if ( IncludeDdivPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,185,m_ddiv_pv);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,210,m_ddiv_pv);
             }
             if ( IncludeRate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,187,m_rate);
             }
             if ( IncludeIDays()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,180,m_i_days);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,211,m_i_days);
             }
             if ( IncludeYears()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,190,m_years);
@@ -1259,6 +1312,9 @@ namespace api {
             }
             if ( IncludeSrCloseMarkDttm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 205, m_sr_close_mark_dttm);
+            }
+            if ( IncludeConfigNow()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 213, m_config_now);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
@@ -1290,6 +1346,13 @@ namespace api {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             m_pkey.Decode(pos, pos + std::min(max - pos, static_cast<std::ptrdiff_t>(length)));
+                        }
+                        break;
+                    }
+                    case 212: {
+                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
+                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                            m_ticker.setFromCodec(tickerKey);
                         }
                         break;
                     }
@@ -1365,7 +1428,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 134: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 209: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_has_ucls_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
@@ -1471,7 +1534,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 185: {
+                    case 210: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_ddiv_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
@@ -1483,7 +1546,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 180: {
+                    case 211: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_i_days = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
@@ -1525,6 +1588,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 213: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_config_now = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        }
+                        break;
+                    }
                     case 208: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -1542,6 +1611,7 @@ namespace api {
 
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::_meta>() const { return OptionCloseMark::_meta{ m__meta}; }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::pkey>() const { return OptionCloseMark::pkey{ m_pkey}; }
+    template<> inline const auto OptionCloseMark::get<OptionCloseMark::ticker>() const { return OptionCloseMark::ticker{ m_ticker}; }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::trade_date>() const { return OptionCloseMark::trade_date{ m_trade_date}; }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::cls_mark_state>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ClsMarkState>( m_cls_mark_state)); }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::u_bid>() const { return m_u_bid; }
@@ -1581,6 +1651,7 @@ namespace api {
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::prt_count>() const { return m_prt_count; }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::prt_volume>() const { return m_prt_volume; }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::sr_close_mark_dttm>() const { return m_sr_close_mark_dttm; }
+    template<> inline const auto OptionCloseMark::get<OptionCloseMark::config_now>() const { return m_config_now; }
     template<> inline const auto OptionCloseMark::get<OptionCloseMark::timestamp>() const { return m_timestamp; }
     template<> inline const auto OptionCloseMark_PKey::get<OptionCloseMark_PKey::okey>() const { return OptionCloseMark_PKey::okey{m_okey}; }
     
@@ -1594,6 +1665,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const OptionCloseMark& m) {
         o << "\"_meta\":{" << m.get<OptionCloseMark::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<OptionCloseMark::pkey>() << "}";
+        o << ",\"ticker\":{" << m.get<OptionCloseMark::ticker>() << "}";
         o << ",\"trade_date\":{" << m.get<OptionCloseMark::trade_date>() << "}";
         o << ",\"cls_mark_state\":" << (int64_t)m.get<OptionCloseMark::cls_mark_state>();
         o << ",\"u_bid\":" << m.get<OptionCloseMark::u_bid>();
@@ -1637,6 +1709,12 @@ namespace api {
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"sr_close_mark_dttm\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
+        {
+            std::time_t tt = m.get<OptionCloseMark::config_now>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"config_now\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
         {
             std::time_t tt = m.get<OptionCloseMark::timestamp>().time_since_epoch().count() / 1'000'000'000;

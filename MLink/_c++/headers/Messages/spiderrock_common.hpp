@@ -696,10 +696,10 @@ namespace api {
     DECL_STRONG_TYPE(expiration__DateKey, DateKey);
     #endif//_expiration__DateKey__GUARD__
 
-    #ifndef _strike__GUARD__
-    #define _strike__GUARD__
-    DECL_STRONG_TYPE(strike, double);
-    #endif//_strike__GUARD__
+    #ifndef _strike__double__GUARD__
+    #define _strike__double__GUARD__
+    DECL_STRONG_TYPE(strike__double, double);
+    #endif//_strike__double__GUARD__
 
     #ifndef _call_put__GUARD__
     #define _call_put__GUARD__
@@ -716,7 +716,7 @@ namespace api {
         using ticker_src = spiderrock::protobuf::api::ticker_src;
         using ticker = spiderrock::protobuf::api::ticker__string;
         using expiration = spiderrock::protobuf::api::expiration__DateKey;
-        using strike = spiderrock::protobuf::api::strike;
+        using strike = spiderrock::protobuf::api::strike__double;
         using call_put = spiderrock::protobuf::api::call_put;
 
         private:

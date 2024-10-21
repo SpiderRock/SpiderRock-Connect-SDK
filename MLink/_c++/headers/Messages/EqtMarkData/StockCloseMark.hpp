@@ -65,10 +65,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_count, int32);
     #endif//_prt_count__GUARD__
 
-    #ifndef _prt_volume__int64__GUARD__
-    #define _prt_volume__int64__GUARD__
-    DECL_STRONG_TYPE(prt_volume__int64, int64);
-    #endif//_prt_volume__int64__GUARD__
+    #ifndef _prt_volume__GUARD__
+    #define _prt_volume__GUARD__
+    DECL_STRONG_TYPE(prt_volume, int32);
+    #endif//_prt_volume__GUARD__
 
     #ifndef _realized_cnt__GUARD__
     #define _realized_cnt__GUARD__
@@ -80,15 +80,15 @@ namespace api {
     DECL_STRONG_TYPE(realized_vol__float, float);
     #endif//_realized_vol__float__GUARD__
 
-    #ifndef _avg_mkt_size__GUARD__
-    #define _avg_mkt_size__GUARD__
-    DECL_STRONG_TYPE(avg_mkt_size, float);
-    #endif//_avg_mkt_size__GUARD__
+    #ifndef _avg_mkt_size__float__GUARD__
+    #define _avg_mkt_size__float__GUARD__
+    DECL_STRONG_TYPE(avg_mkt_size__float, float);
+    #endif//_avg_mkt_size__float__GUARD__
 
-    #ifndef _avg_mkt_width__GUARD__
-    #define _avg_mkt_width__GUARD__
-    DECL_STRONG_TYPE(avg_mkt_width, float);
-    #endif//_avg_mkt_width__GUARD__
+    #ifndef _avg_mkt_width__float__GUARD__
+    #define _avg_mkt_width__float__GUARD__
+    DECL_STRONG_TYPE(avg_mkt_width__float, float);
+    #endif//_avg_mkt_width__float__GUARD__
 
     #ifndef _bid_prc__float__GUARD__
     #define _bid_prc__float__GUARD__
@@ -237,11 +237,11 @@ namespace api {
         using max_prc = spiderrock::protobuf::api::max_prc__float;
         using shares_outstanding = spiderrock::protobuf::api::shares_outstanding;
         using prt_count = spiderrock::protobuf::api::prt_count;
-        using prt_volume = spiderrock::protobuf::api::prt_volume__int64;
+        using prt_volume = spiderrock::protobuf::api::prt_volume;
         using realized_cnt = spiderrock::protobuf::api::realized_cnt;
         using realized_vol = spiderrock::protobuf::api::realized_vol__float;
-        using avg_mkt_size = spiderrock::protobuf::api::avg_mkt_size;
-        using avg_mkt_width = spiderrock::protobuf::api::avg_mkt_width;
+        using avg_mkt_size = spiderrock::protobuf::api::avg_mkt_size__float;
+        using avg_mkt_width = spiderrock::protobuf::api::avg_mkt_width__float;
         using bid_prc = spiderrock::protobuf::api::bid_prc__float;
         using ask_prc = spiderrock::protobuf::api::ask_prc__float;
         using sr_cls_prc = spiderrock::protobuf::api::sr_cls_prc__float;
@@ -649,19 +649,19 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_max_prc);
             }
             if ( IncludeSharesOutstanding()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(115,m_shares_outstanding);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(155,m_shares_outstanding);
             }
             if ( IncludePrtCount()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(118,m_prt_count);
             }
             if ( IncludePrtVolume()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(121,m_prt_volume);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(158,m_prt_volume);
             }
             if ( IncludeRealizedCnt()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(124,m_realized_cnt);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(157,m_realized_cnt);
             }
             if ( IncludeRealizedVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(125,m_realized_vol);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_realized_vol);
             }
             if ( IncludeAvgMktSize()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(127,m_avg_mkt_size);
@@ -717,19 +717,19 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_max_prc);
             }
             if ( IncludeSharesOutstanding()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,115,m_shares_outstanding);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,155,m_shares_outstanding);
             }
             if ( IncludePrtCount()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,118,m_prt_count);
             }
             if ( IncludePrtVolume()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,121,m_prt_volume);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,158,m_prt_volume);
             }
             if ( IncludeRealizedCnt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,124,m_realized_cnt);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,157,m_realized_cnt);
             }
             if ( IncludeRealizedVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,125,m_realized_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_realized_vol);
             }
             if ( IncludeAvgMktSize()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,127,m_avg_mkt_size);
@@ -819,7 +819,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 115: {
+                    case 155: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_shares_outstanding = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
@@ -831,19 +831,19 @@ namespace api {
                         }
                         break;
                     }
-                    case 121: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_prt_volume = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                    case 158: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_prt_volume = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 157: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_realized_cnt = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 125: {
+                    case 124: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_realized_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }

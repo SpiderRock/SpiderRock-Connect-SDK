@@ -30,10 +30,10 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _syn_spot__GUARD__
-    #define _syn_spot__GUARD__
-    DECL_STRONG_TYPE(syn_spot, double);
-    #endif//_syn_spot__GUARD__
+    #ifndef _syn_spot__double__GUARD__
+    #define _syn_spot__double__GUARD__
+    DECL_STRONG_TYPE(syn_spot__double, double);
+    #endif//_syn_spot__double__GUARD__
 
     #ifndef _h_emove__GUARD__
     #define _h_emove__GUARD__
@@ -734,7 +734,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::LiveSurfaceFixedTerm_PKey;
-        using syn_spot = spiderrock::protobuf::api::syn_spot;
+        using syn_spot = spiderrock::protobuf::api::syn_spot__double;
         using h_emove = spiderrock::protobuf::api::h_emove;
         using h_emove_num = spiderrock::protobuf::api::h_emove_num;
         using h_emove_avg = spiderrock::protobuf::api::h_emove_avg;

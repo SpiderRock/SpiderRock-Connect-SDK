@@ -105,6 +105,11 @@ namespace api {
     DECL_STRONG_TYPE(time_metric, spiderrock::protobuf::api::TimeMetric);
     #endif//_time_metric__GUARD__
 
+    #ifndef _trading_period__TradingPeriod__GUARD__
+    #define _trading_period__TradingPeriod__GUARD__
+    DECL_STRONG_TYPE(trading_period__TradingPeriod, spiderrock::protobuf::api::TradingPeriod);
+    #endif//_trading_period__TradingPeriod__GUARD__
+
     #ifndef _pricing_model__GUARD__
     #define _pricing_model__GUARD__
     DECL_STRONG_TYPE(pricing_model, spiderrock::protobuf::api::PricingModel);
@@ -240,10 +245,10 @@ namespace api {
     DECL_STRONG_TYPE(opt_exch, spiderrock::protobuf::api::OptExch);
     #endif//_opt_exch__GUARD__
 
-    #ifndef _native_root__GUARD__
-    #define _native_root__GUARD__
-    DECL_STRONG_TYPE(native_root, string);
-    #endif//_native_root__GUARD__
+    #ifndef _root__GUARD__
+    #define _root__GUARD__
+    DECL_STRONG_TYPE(root, TickerKey);
+    #endif//_root__GUARD__
 
     #ifndef _ticker__TickerKey__GUARD__
     #define _ticker__TickerKey__GUARD__
@@ -347,24 +352,24 @@ namespace api {
         public:
         //using statements for all types used in this class
         using opt_exch = spiderrock::protobuf::api::opt_exch;
-        using native_root = spiderrock::protobuf::api::native_root;
+        using root = spiderrock::protobuf::api::root;
 
         private:
         opt_exch m_opt_exch{};
-        native_root m_native_root{};
+        root m_root{};
 
         public:
         opt_exch get_opt_exch() const {
             return m_opt_exch;
         }
-        native_root get_native_root() const {
-            return m_native_root;
+		root get_root() const {
+            return m_root;
         }
         void set_opt_exch(const opt_exch& value)  {
             m_opt_exch = value;
         }
-        void set_native_root(const native_root& value)  {
-            m_native_root = value;
+        void set_root(const root& value)  {
+            m_root = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -375,7 +380,7 @@ namespace api {
         //specializations for set functions for the valid types
         
         void set(const opt_exch & value) { set_opt_exch(value); }
-        void set(const native_root & value) { set_native_root(value); }
+        void set(const root & value) { set_root(value); }
 
 
         RootDefinition_Exchange() {}
@@ -396,13 +401,17 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(221,m_native_root);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+            m_root.setCodecTickerKey(tickerKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(224,tickerKeyLayout);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,221,static_cast<string>(m_native_root));
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+            m_root.setCodecTickerKey(tickerKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 224, tickerKeyLayout);
             return dest;
         }
 
@@ -422,7 +431,9 @@ namespace api {
                     case 220: {m_opt_exch = static_cast<spiderrock::protobuf::api::OptExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 221: {m_native_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 224: {
+                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                        m_root.setFromCodec(tickerKey);
                         break;
                     }
                 }
@@ -547,6 +558,7 @@ namespace api {
         using exercise_time = spiderrock::protobuf::api::exercise_time;
         using exercise_type = spiderrock::protobuf::api::exercise_type;
         using time_metric = spiderrock::protobuf::api::time_metric;
+        using trading_period = spiderrock::protobuf::api::trading_period__TradingPeriod;
         using pricing_model = spiderrock::protobuf::api::pricing_model;
         using moneyness_type = spiderrock::protobuf::api::moneyness_type;
         using price_quote_type = spiderrock::protobuf::api::price_quote_type;
@@ -593,6 +605,7 @@ namespace api {
         exercise_time m_exercise_time{};
         exercise_type m_exercise_type{};
         time_metric m_time_metric{};
+        trading_period m_trading_period{};
         pricing_model m_pricing_model{};
         moneyness_type m_moneyness_type{};
         price_quote_type m_price_quote_type{};
@@ -674,6 +687,9 @@ namespace api {
         }		
         time_metric get_time_metric() const {
             return m_time_metric;
+        }		
+        trading_period get_trading_period() const {
+            return m_trading_period;
         }		
         pricing_model get_pricing_model() const {
             return m_pricing_model;
@@ -816,6 +832,9 @@ namespace api {
         }
         void set_time_metric(const time_metric& value)  {
             m_time_metric = value;
+        }
+        void set_trading_period(const trading_period& value)  {
+            m_trading_period = value;
         }
         void set_pricing_model(const pricing_model& value)  {
             m_pricing_model = value;
@@ -969,6 +988,9 @@ namespace api {
         void set(const time_metric & value) {
             set_time_metric(value);
         }
+        void set(const trading_period & value) {
+            set_trading_period(value);
+        }
         void set(const pricing_model & value) {
             set_pricing_model(value);
         }
@@ -1069,6 +1091,7 @@ namespace api {
             set(value.m_exercise_time);
             set(value.m_exercise_type);
             set(value.m_time_metric);
+            set(value.m_trading_period);
             set(value.m_pricing_model);
             set(value.m_moneyness_type);
             set(value.m_price_quote_type);
@@ -1259,6 +1282,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_exercise_time)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(139,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_exercise_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingModel>(m_pricing_model)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MoneynessType>(m_moneyness_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceQuoteType>(m_price_quote_type)));
@@ -1292,7 +1316,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(184,m_premium_mult);
             }
             if ( IncludeSymbolRatio()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(185,m_symbol_ratio);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(222,m_symbol_ratio);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
@@ -1373,6 +1397,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_exercise_time)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,139,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_exercise_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingModel>(m_pricing_model)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MoneynessType>(m_moneyness_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceQuoteType>(m_price_quote_type)));
@@ -1406,7 +1431,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,184,m_premium_mult);
             }
             if ( IncludeSymbolRatio()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,185,m_symbol_ratio);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,222,m_symbol_ratio);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
@@ -1554,6 +1579,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 223: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_trading_period = static_cast<spiderrock::protobuf::api::TradingPeriod>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 145: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_pricing_model = static_cast<spiderrock::protobuf::api::PricingModel>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1633,7 +1663,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 185: {
+                    case 222: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_symbol_ratio = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
@@ -1737,6 +1767,7 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::exercise_time>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>( m_exercise_time)); }
     template<> inline const auto RootDefinition::get<RootDefinition::exercise_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>( m_exercise_type)); }
     template<> inline const auto RootDefinition::get<RootDefinition::time_metric>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>( m_time_metric)); }
+    template<> inline const auto RootDefinition::get<RootDefinition::trading_period>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>( m_trading_period)); }
     template<> inline const auto RootDefinition::get<RootDefinition::pricing_model>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingModel>( m_pricing_model)); }
     template<> inline const auto RootDefinition::get<RootDefinition::moneyness_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MoneynessType>( m_moneyness_type)); }
     template<> inline const auto RootDefinition::get<RootDefinition::price_quote_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceQuoteType>( m_price_quote_type)); }
@@ -1769,7 +1800,7 @@ namespace api {
     template<> inline const auto RootDefinition_PKey::get<RootDefinition_PKey::root>() const { return RootDefinition_PKey::root{m_root}; }
     
     template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::opt_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch));}
-    template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::native_root>() const { return m_native_root; }
+    template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::root>() const { return RootDefinition_Exchange::root{m_root}; }
     
     template<> inline const auto RootDefinition_Underlying::get<RootDefinition_Underlying::ticker>() const { return RootDefinition_Underlying::ticker{m_ticker}; }
     template<> inline const auto RootDefinition_Underlying::get<RootDefinition_Underlying::spc>() const { return m_spc; }
@@ -1783,7 +1814,7 @@ namespace api {
 
     inline std::ostream& operator<<(std::ostream &o, const RootDefinition_Exchange& m) {
         o << "\"opt_exch\":" << (int64_t)m.get<RootDefinition_Exchange::opt_exch>();
-        o << ",\"native_root\":\"" << m.get<RootDefinition_Exchange::native_root>() << "\"";
+        o << ",\"root\":{" << m.get<RootDefinition_Exchange::root>() << "}";
         return o;
     }
 
@@ -1811,6 +1842,7 @@ namespace api {
         o << ",\"exercise_time\":" << (int64_t)m.get<RootDefinition::exercise_time>();
         o << ",\"exercise_type\":" << (int64_t)m.get<RootDefinition::exercise_type>();
         o << ",\"time_metric\":" << (int64_t)m.get<RootDefinition::time_metric>();
+        o << ",\"trading_period\":" << (int64_t)m.get<RootDefinition::trading_period>();
         o << ",\"pricing_model\":" << (int64_t)m.get<RootDefinition::pricing_model>();
         o << ",\"moneyness_type\":" << (int64_t)m.get<RootDefinition::moneyness_type>();
         o << ",\"price_quote_type\":" << (int64_t)m.get<RootDefinition::price_quote_type>();

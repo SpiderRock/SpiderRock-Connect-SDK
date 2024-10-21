@@ -35,10 +35,10 @@ namespace api {
     DECL_STRONG_TYPE(trade_date, DateKey);
     #endif//_trade_date__GUARD__
 
-    #ifndef _opn_price__GUARD__
-    #define _opn_price__GUARD__
-    DECL_STRONG_TYPE(opn_price, double);
-    #endif//_opn_price__GUARD__
+    #ifndef _opn_price__double__GUARD__
+    #define _opn_price__double__GUARD__
+    DECL_STRONG_TYPE(opn_price__double, double);
+    #endif//_opn_price__double__GUARD__
 
     #ifndef _mrk_price__double__GUARD__
     #define _mrk_price__double__GUARD__
@@ -100,10 +100,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_count, int32);
     #endif//_prt_count__GUARD__
 
-    #ifndef _prt_volume__int32__GUARD__
-    #define _prt_volume__int32__GUARD__
-    DECL_STRONG_TYPE(prt_volume__int32, int32);
-    #endif//_prt_volume__int32__GUARD__
+    #ifndef _prt_volume__GUARD__
+    #define _prt_volume__GUARD__
+    DECL_STRONG_TYPE(prt_volume, int32);
+    #endif//_prt_volume__GUARD__
 
     #ifndef _last_prt_price__GUARD__
     #define _last_prt_price__GUARD__
@@ -240,7 +240,7 @@ namespace api {
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::FutureMarketSummary_PKey;
         using trade_date = spiderrock::protobuf::api::trade_date;
-        using opn_price = spiderrock::protobuf::api::opn_price;
+        using opn_price = spiderrock::protobuf::api::opn_price__double;
         using mrk_price = spiderrock::protobuf::api::mrk_price__double;
         using cls_price = spiderrock::protobuf::api::cls_price__double;
         using min_price = spiderrock::protobuf::api::min_price;
@@ -253,7 +253,7 @@ namespace api {
         using mid_count = spiderrock::protobuf::api::mid_count;
         using mid_volume = spiderrock::protobuf::api::mid_volume;
         using prt_count = spiderrock::protobuf::api::prt_count;
-        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
+        using prt_volume = spiderrock::protobuf::api::prt_volume;
         using last_prt_price = spiderrock::protobuf::api::last_prt_price;
         using last_prt_dttm = spiderrock::protobuf::api::last_prt_dttm;
         using exp_count = spiderrock::protobuf::api::exp_count;
@@ -684,7 +684,7 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTradeDate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(158, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeOpnPrice()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(100,m_opn_price);
@@ -726,13 +726,13 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(136,m_prt_count);
             }
             if ( IncludePrtVolume()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(137,m_prt_volume);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(159,m_prt_volume);
             }
             if ( IncludeLastPrtPrice()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_last_prt_price);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(160,m_last_prt_price);
             }
             if ( IncludeLastPrtDttm()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(140, m_last_prt_dttm);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(161, m_last_prt_dttm);
             }
             if ( IncludeExpCount()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(142,m_exp_count);
@@ -764,7 +764,7 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTradeDate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,158, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeOpnPrice()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,100,m_opn_price);
@@ -806,13 +806,13 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,136,m_prt_count);
             }
             if ( IncludePrtVolume()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,137,m_prt_volume);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,159,m_prt_volume);
             }
             if ( IncludeLastPrtPrice()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_last_prt_price);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,160,m_last_prt_price);
             }
             if ( IncludeLastPrtDttm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 140, m_last_prt_dttm);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 161, m_last_prt_dttm);
             }
             if ( IncludeExpCount()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,142,m_exp_count);
@@ -859,7 +859,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {
+                    case 158: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
                             m_trade_date.set_year(dateKey.year());
@@ -946,19 +946,19 @@ namespace api {
                         }
                         break;
                     }
-                    case 137: {
+                    case 159: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_prt_volume = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 139: {
+                    case 160: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_last_prt_price = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 140: {
+                    case 161: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_last_prt_dttm = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }

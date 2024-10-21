@@ -80,10 +80,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_cluster_size, int32);
     #endif//_prt_cluster_size__GUARD__
 
-    #ifndef _prt_volume__int32__GUARD__
-    #define _prt_volume__int32__GUARD__
-    DECL_STRONG_TYPE(prt_volume__int32, int32);
-    #endif//_prt_volume__int32__GUARD__
+    #ifndef _prt_volume__GUARD__
+    #define _prt_volume__GUARD__
+    DECL_STRONG_TYPE(prt_volume, int32);
+    #endif//_prt_volume__GUARD__
 
     #ifndef _cxl_volume__GUARD__
     #define _cxl_volume__GUARD__
@@ -671,7 +671,7 @@ namespace api {
         using prt_orders = spiderrock::protobuf::api::prt_orders;
         using prt_cluster_num = spiderrock::protobuf::api::prt_cluster_num;
         using prt_cluster_size = spiderrock::protobuf::api::prt_cluster_size;
-        using prt_volume = spiderrock::protobuf::api::prt_volume__int32;
+        using prt_volume = spiderrock::protobuf::api::prt_volume;
         using cxl_volume = spiderrock::protobuf::api::cxl_volume;
         using bid_count = spiderrock::protobuf::api::bid_count__uint32;
         using ask_count = spiderrock::protobuf::api::ask_count__uint32;
@@ -2257,7 +2257,7 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>(m_update_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(368,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>(m_update_type)));
             if ( IncludeFkey()) {
                 SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
                 m_fkey.setCodecExpiryKey(expiryKeyLayout);
@@ -2556,7 +2556,7 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>(m_update_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,368,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>(m_update_type)));
             if ( IncludeFkey()) {
                 SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
                 m_fkey.setCodecExpiryKey(expiryKeyLayout);
@@ -2871,7 +2871,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 368: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_update_type = static_cast<spiderrock::protobuf::api::PrtUpdateType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;

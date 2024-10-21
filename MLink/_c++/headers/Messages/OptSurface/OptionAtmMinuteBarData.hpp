@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(start_time_minute, string);
     #endif//_start_time_minute__GUARD__
 
-    #ifndef _end_time__GUARD__
-    #define _end_time__GUARD__
-    DECL_STRONG_TYPE(end_time, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_end_time__GUARD__
+    #ifndef _end_time__timestamp__GUARD__
+    #define _end_time__timestamp__GUARD__
+    DECL_STRONG_TYPE(end_time__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_end_time__timestamp__GUARD__
 
     #ifndef _end_time_minute__GUARD__
     #define _end_time_minute__GUARD__
@@ -220,10 +220,10 @@ namespace api {
     DECL_STRONG_TYPE(ekey, ExpiryKey);
     #endif//_ekey__GUARD__
 
-    #ifndef _trading_date__GUARD__
-    #define _trading_date__GUARD__
-    DECL_STRONG_TYPE(trading_date, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_trading_date__GUARD__
+    #ifndef _trading_date__timestamp__GUARD__
+    #define _trading_date__timestamp__GUARD__
+    DECL_STRONG_TYPE(trading_date__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_trading_date__timestamp__GUARD__
 
     #ifndef _minute__GUARD__
     #define _minute__GUARD__
@@ -235,7 +235,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using ekey = spiderrock::protobuf::api::ekey;
-        using trading_date = spiderrock::protobuf::api::trading_date;
+        using trading_date = spiderrock::protobuf::api::trading_date__timestamp;
         using minute = spiderrock::protobuf::api::minute;
 
         private:
@@ -370,7 +370,7 @@ namespace api {
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using start_time = spiderrock::protobuf::api::start_time;
         using start_time_minute = spiderrock::protobuf::api::start_time_minute;
-        using end_time = spiderrock::protobuf::api::end_time;
+        using end_time = spiderrock::protobuf::api::end_time__timestamp;
         using end_time_minute = spiderrock::protobuf::api::end_time_minute;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
         using years = spiderrock::protobuf::api::years__float;
