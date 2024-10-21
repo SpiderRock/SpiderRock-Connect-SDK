@@ -30,10 +30,10 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _end_time__timestamp__GUARD__
-    #define _end_time__timestamp__GUARD__
-    DECL_STRONG_TYPE(end_time__timestamp, std::chrono::nanoseconds);
-    #endif//_end_time__timestamp__GUARD__
+    #ifndef _end_time__duration__GUARD__
+    #define _end_time__duration__GUARD__
+    DECL_STRONG_TYPE(end_time__duration, std::chrono::nanoseconds);
+    #endif//_end_time__duration__GUARD__
 
     #ifndef _now_dttm__GUARD__
     #define _now_dttm__GUARD__
@@ -270,7 +270,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::VolTimeCalculator_PKey;
-        using end_time = spiderrock::protobuf::api::end_time__timestamp;
+        using end_time = spiderrock::protobuf::api::end_time__duration;
         using now_dttm = spiderrock::protobuf::api::now_dttm;
         using now_src = spiderrock::protobuf::api::now_src;
         using holiday_calendar = spiderrock::protobuf::api::holiday_calendar;
