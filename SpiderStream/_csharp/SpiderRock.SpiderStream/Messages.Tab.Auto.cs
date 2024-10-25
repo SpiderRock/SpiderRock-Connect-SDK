@@ -1642,7 +1642,7 @@ public partial class RootDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\ttimestamp\tpricingSource_V7\tExchange\tUnderlying";
+    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tExchange\tUnderlying";
 
     public string TabRecord
     {
@@ -1732,6 +1732,8 @@ public partial class RootDefinition
             recordBuilder.Append(DefaultSurfaceRoot);
             recordBuilder.Append('\t');
             recordBuilder.Append(RicRoot);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(RegionalCompositeRoot);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
             recordBuilder.Append('\t');
