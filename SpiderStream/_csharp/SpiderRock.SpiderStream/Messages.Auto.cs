@@ -5796,6 +5796,7 @@ public partial class RootDefinition : IMessage
 		public Currency strikeCurr;
 		public TickerKeyLayout defaultSurfaceRoot;
 		public FixedString6Layout ricRoot;
+		public TickerKeyLayout regionalCompositeRoot;
 		public DateTimeLayout timestamp;
 		public PricingSource_V7 pricingSource_V7;
     }
@@ -5880,6 +5881,8 @@ public partial class RootDefinition : IMessage
     public TickerKey DefaultSurfaceRoot { get => TickerKey.GetCreateTickerKey(body.defaultSurfaceRoot); set => body.defaultSurfaceRoot = value.Layout; }
      /// <summary>RIC Root</summary>
     public string RicRoot { get => body.ricRoot; set => body.ricRoot = value; }
+     /// <summary>regional composite ticker - set on European contributor products only</summary>
+    public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
