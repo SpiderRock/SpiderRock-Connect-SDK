@@ -350,6 +350,81 @@ namespace api {
     DECL_STRONG_TYPE(cum_fit_score, float);
     #endif//_cum_fit_score__GUARD__
 
+    #ifndef _num_prints_dd__GUARD__
+    #define _num_prints_dd__GUARD__
+    DECL_STRONG_TYPE(num_prints_dd, int32);
+    #endif//_num_prints_dd__GUARD__
+
+    #ifndef _avg_prt_err_dd__GUARD__
+    #define _avg_prt_err_dd__GUARD__
+    DECL_STRONG_TYPE(avg_prt_err_dd, float);
+    #endif//_avg_prt_err_dd__GUARD__
+
+    #ifndef _std_prt_err_dd__GUARD__
+    #define _std_prt_err_dd__GUARD__
+    DECL_STRONG_TYPE(std_prt_err_dd, float);
+    #endif//_std_prt_err_dd__GUARD__
+
+    #ifndef _num_prints_dn__GUARD__
+    #define _num_prints_dn__GUARD__
+    DECL_STRONG_TYPE(num_prints_dn, int32);
+    #endif//_num_prints_dn__GUARD__
+
+    #ifndef _avg_prt_err_dn__GUARD__
+    #define _avg_prt_err_dn__GUARD__
+    DECL_STRONG_TYPE(avg_prt_err_dn, float);
+    #endif//_avg_prt_err_dn__GUARD__
+
+    #ifndef _std_prt_err_dn__GUARD__
+    #define _std_prt_err_dn__GUARD__
+    DECL_STRONG_TYPE(std_prt_err_dn, float);
+    #endif//_std_prt_err_dn__GUARD__
+
+    #ifndef _num_prints_at__GUARD__
+    #define _num_prints_at__GUARD__
+    DECL_STRONG_TYPE(num_prints_at, int32);
+    #endif//_num_prints_at__GUARD__
+
+    #ifndef _avg_prt_err_at__GUARD__
+    #define _avg_prt_err_at__GUARD__
+    DECL_STRONG_TYPE(avg_prt_err_at, float);
+    #endif//_avg_prt_err_at__GUARD__
+
+    #ifndef _std_prt_err_at__GUARD__
+    #define _std_prt_err_at__GUARD__
+    DECL_STRONG_TYPE(std_prt_err_at, float);
+    #endif//_std_prt_err_at__GUARD__
+
+    #ifndef _num_prints_up__GUARD__
+    #define _num_prints_up__GUARD__
+    DECL_STRONG_TYPE(num_prints_up, int32);
+    #endif//_num_prints_up__GUARD__
+
+    #ifndef _avg_prt_err_up__GUARD__
+    #define _avg_prt_err_up__GUARD__
+    DECL_STRONG_TYPE(avg_prt_err_up, float);
+    #endif//_avg_prt_err_up__GUARD__
+
+    #ifndef _std_prt_err_up__GUARD__
+    #define _std_prt_err_up__GUARD__
+    DECL_STRONG_TYPE(std_prt_err_up, float);
+    #endif//_std_prt_err_up__GUARD__
+
+    #ifndef _num_prints_du__GUARD__
+    #define _num_prints_du__GUARD__
+    DECL_STRONG_TYPE(num_prints_du, int32);
+    #endif//_num_prints_du__GUARD__
+
+    #ifndef _avg_prt_err_du__GUARD__
+    #define _avg_prt_err_du__GUARD__
+    DECL_STRONG_TYPE(avg_prt_err_du, float);
+    #endif//_avg_prt_err_du__GUARD__
+
+    #ifndef _std_prt_err_du__GUARD__
+    #define _std_prt_err_du__GUARD__
+    DECL_STRONG_TYPE(std_prt_err_du, float);
+    #endif//_std_prt_err_du__GUARD__
+
     #ifndef _fit_counter__GUARD__
     #define _fit_counter__GUARD__
     DECL_STRONG_TYPE(fit_counter, int32);
@@ -360,10 +435,10 @@ namespace api {
     DECL_STRONG_TYPE(tradeable_status, spiderrock::protobuf::api::TradeableStatus);
     #endif//_tradeable_status__GUARD__
 
-    #ifndef _market_session__GUARD__
-    #define _market_session__GUARD__
-    DECL_STRONG_TYPE(market_session, spiderrock::protobuf::api::MarketSession);
-    #endif//_market_session__GUARD__
+    #ifndef _market_phase__GUARD__
+    #define _market_phase__GUARD__
+    DECL_STRONG_TYPE(market_phase, spiderrock::protobuf::api::MarketPhase);
+    #endif//_market_phase__GUARD__
 
     #ifndef _surface_fit_result__GUARD__
     #define _surface_fit_result__GUARD__
@@ -655,9 +730,24 @@ namespace api {
         using p_ask_miss = spiderrock::protobuf::api::p_ask_miss;
         using fit_score = spiderrock::protobuf::api::fit_score;
         using cum_fit_score = spiderrock::protobuf::api::cum_fit_score;
+        using num_prints_dd = spiderrock::protobuf::api::num_prints_dd;
+        using avg_prt_err_dd = spiderrock::protobuf::api::avg_prt_err_dd;
+        using std_prt_err_dd = spiderrock::protobuf::api::std_prt_err_dd;
+        using num_prints_dn = spiderrock::protobuf::api::num_prints_dn;
+        using avg_prt_err_dn = spiderrock::protobuf::api::avg_prt_err_dn;
+        using std_prt_err_dn = spiderrock::protobuf::api::std_prt_err_dn;
+        using num_prints_at = spiderrock::protobuf::api::num_prints_at;
+        using avg_prt_err_at = spiderrock::protobuf::api::avg_prt_err_at;
+        using std_prt_err_at = spiderrock::protobuf::api::std_prt_err_at;
+        using num_prints_up = spiderrock::protobuf::api::num_prints_up;
+        using avg_prt_err_up = spiderrock::protobuf::api::avg_prt_err_up;
+        using std_prt_err_up = spiderrock::protobuf::api::std_prt_err_up;
+        using num_prints_du = spiderrock::protobuf::api::num_prints_du;
+        using avg_prt_err_du = spiderrock::protobuf::api::avg_prt_err_du;
+        using std_prt_err_du = spiderrock::protobuf::api::std_prt_err_du;
         using fit_counter = spiderrock::protobuf::api::fit_counter;
         using tradeable_status = spiderrock::protobuf::api::tradeable_status;
-        using market_session = spiderrock::protobuf::api::market_session;
+        using market_phase = spiderrock::protobuf::api::market_phase;
         using surface_fit_result = spiderrock::protobuf::api::surface_fit_result;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using residual = spiderrock::protobuf::api::LiveExpirySurface_Residual;
@@ -729,9 +819,24 @@ namespace api {
         p_ask_miss m_p_ask_miss{};
         fit_score m_fit_score{};
         cum_fit_score m_cum_fit_score{};
+        num_prints_dd m_num_prints_dd{};
+        avg_prt_err_dd m_avg_prt_err_dd{};
+        std_prt_err_dd m_std_prt_err_dd{};
+        num_prints_dn m_num_prints_dn{};
+        avg_prt_err_dn m_avg_prt_err_dn{};
+        std_prt_err_dn m_std_prt_err_dn{};
+        num_prints_at m_num_prints_at{};
+        avg_prt_err_at m_avg_prt_err_at{};
+        std_prt_err_at m_std_prt_err_at{};
+        num_prints_up m_num_prints_up{};
+        avg_prt_err_up m_avg_prt_err_up{};
+        std_prt_err_up m_std_prt_err_up{};
+        num_prints_du m_num_prints_du{};
+        avg_prt_err_du m_avg_prt_err_du{};
+        std_prt_err_du m_std_prt_err_du{};
         fit_counter m_fit_counter{};
         tradeable_status m_tradeable_status{};
-        market_session m_market_session{};
+        market_phase m_market_phase{};
         surface_fit_result m_surface_fit_result{};
         timestamp m_timestamp{};
         std::vector<residual> m_residual{};
@@ -937,14 +1042,59 @@ namespace api {
         cum_fit_score get_cum_fit_score() const {
             return m_cum_fit_score;
         }		
+        num_prints_dd get_num_prints_dd() const {
+            return m_num_prints_dd;
+        }		
+        avg_prt_err_dd get_avg_prt_err_dd() const {
+            return m_avg_prt_err_dd;
+        }		
+        std_prt_err_dd get_std_prt_err_dd() const {
+            return m_std_prt_err_dd;
+        }		
+        num_prints_dn get_num_prints_dn() const {
+            return m_num_prints_dn;
+        }		
+        avg_prt_err_dn get_avg_prt_err_dn() const {
+            return m_avg_prt_err_dn;
+        }		
+        std_prt_err_dn get_std_prt_err_dn() const {
+            return m_std_prt_err_dn;
+        }		
+        num_prints_at get_num_prints_at() const {
+            return m_num_prints_at;
+        }		
+        avg_prt_err_at get_avg_prt_err_at() const {
+            return m_avg_prt_err_at;
+        }		
+        std_prt_err_at get_std_prt_err_at() const {
+            return m_std_prt_err_at;
+        }		
+        num_prints_up get_num_prints_up() const {
+            return m_num_prints_up;
+        }		
+        avg_prt_err_up get_avg_prt_err_up() const {
+            return m_avg_prt_err_up;
+        }		
+        std_prt_err_up get_std_prt_err_up() const {
+            return m_std_prt_err_up;
+        }		
+        num_prints_du get_num_prints_du() const {
+            return m_num_prints_du;
+        }		
+        avg_prt_err_du get_avg_prt_err_du() const {
+            return m_avg_prt_err_du;
+        }		
+        std_prt_err_du get_std_prt_err_du() const {
+            return m_std_prt_err_du;
+        }		
         fit_counter get_fit_counter() const {
             return m_fit_counter;
         }		
         tradeable_status get_tradeable_status() const {
             return m_tradeable_status;
         }		
-        market_session get_market_session() const {
-            return m_market_session;
+        market_phase get_market_phase() const {
+            return m_market_phase;
         }		
         surface_fit_result get_surface_fit_result() const {
             return m_surface_fit_result;
@@ -1160,14 +1310,59 @@ namespace api {
         void set_cum_fit_score(const cum_fit_score& value)  {
             m_cum_fit_score = value;
         }
+        void set_num_prints_dd(const num_prints_dd& value)  {
+            m_num_prints_dd = value;
+        }
+        void set_avg_prt_err_dd(const avg_prt_err_dd& value)  {
+            m_avg_prt_err_dd = value;
+        }
+        void set_std_prt_err_dd(const std_prt_err_dd& value)  {
+            m_std_prt_err_dd = value;
+        }
+        void set_num_prints_dn(const num_prints_dn& value)  {
+            m_num_prints_dn = value;
+        }
+        void set_avg_prt_err_dn(const avg_prt_err_dn& value)  {
+            m_avg_prt_err_dn = value;
+        }
+        void set_std_prt_err_dn(const std_prt_err_dn& value)  {
+            m_std_prt_err_dn = value;
+        }
+        void set_num_prints_at(const num_prints_at& value)  {
+            m_num_prints_at = value;
+        }
+        void set_avg_prt_err_at(const avg_prt_err_at& value)  {
+            m_avg_prt_err_at = value;
+        }
+        void set_std_prt_err_at(const std_prt_err_at& value)  {
+            m_std_prt_err_at = value;
+        }
+        void set_num_prints_up(const num_prints_up& value)  {
+            m_num_prints_up = value;
+        }
+        void set_avg_prt_err_up(const avg_prt_err_up& value)  {
+            m_avg_prt_err_up = value;
+        }
+        void set_std_prt_err_up(const std_prt_err_up& value)  {
+            m_std_prt_err_up = value;
+        }
+        void set_num_prints_du(const num_prints_du& value)  {
+            m_num_prints_du = value;
+        }
+        void set_avg_prt_err_du(const avg_prt_err_du& value)  {
+            m_avg_prt_err_du = value;
+        }
+        void set_std_prt_err_du(const std_prt_err_du& value)  {
+            m_std_prt_err_du = value;
+        }
         void set_fit_counter(const fit_counter& value)  {
             m_fit_counter = value;
         }
         void set_tradeable_status(const tradeable_status& value)  {
             m_tradeable_status = value;
         }
-        void set_market_session(const market_session& value)  {
-            m_market_session = value;
+        void set_market_phase(const market_phase& value)  {
+            m_market_phase = value;
         }
         void set_surface_fit_result(const surface_fit_result& value)  {
             m_surface_fit_result = value;
@@ -1393,14 +1588,59 @@ namespace api {
         void set(const cum_fit_score & value) {
             set_cum_fit_score(value);
         }
+        void set(const num_prints_dd & value) {
+            set_num_prints_dd(value);
+        }
+        void set(const avg_prt_err_dd & value) {
+            set_avg_prt_err_dd(value);
+        }
+        void set(const std_prt_err_dd & value) {
+            set_std_prt_err_dd(value);
+        }
+        void set(const num_prints_dn & value) {
+            set_num_prints_dn(value);
+        }
+        void set(const avg_prt_err_dn & value) {
+            set_avg_prt_err_dn(value);
+        }
+        void set(const std_prt_err_dn & value) {
+            set_std_prt_err_dn(value);
+        }
+        void set(const num_prints_at & value) {
+            set_num_prints_at(value);
+        }
+        void set(const avg_prt_err_at & value) {
+            set_avg_prt_err_at(value);
+        }
+        void set(const std_prt_err_at & value) {
+            set_std_prt_err_at(value);
+        }
+        void set(const num_prints_up & value) {
+            set_num_prints_up(value);
+        }
+        void set(const avg_prt_err_up & value) {
+            set_avg_prt_err_up(value);
+        }
+        void set(const std_prt_err_up & value) {
+            set_std_prt_err_up(value);
+        }
+        void set(const num_prints_du & value) {
+            set_num_prints_du(value);
+        }
+        void set(const avg_prt_err_du & value) {
+            set_avg_prt_err_du(value);
+        }
+        void set(const std_prt_err_du & value) {
+            set_std_prt_err_du(value);
+        }
         void set(const fit_counter & value) {
             set_fit_counter(value);
         }
         void set(const tradeable_status & value) {
             set_tradeable_status(value);
         }
-        void set(const market_session & value) {
-            set_market_session(value);
+        void set(const market_phase & value) {
+            set_market_phase(value);
         }
         void set(const surface_fit_result & value) {
             set_surface_fit_result(value);
@@ -1479,9 +1719,24 @@ namespace api {
             set(value.m_p_ask_miss);
             set(value.m_fit_score);
             set(value.m_cum_fit_score);
+            set(value.m_num_prints_dd);
+            set(value.m_avg_prt_err_dd);
+            set(value.m_std_prt_err_dd);
+            set(value.m_num_prints_dn);
+            set(value.m_avg_prt_err_dn);
+            set(value.m_std_prt_err_dn);
+            set(value.m_num_prints_at);
+            set(value.m_avg_prt_err_at);
+            set(value.m_std_prt_err_at);
+            set(value.m_num_prints_up);
+            set(value.m_avg_prt_err_up);
+            set(value.m_std_prt_err_up);
+            set(value.m_num_prints_du);
+            set(value.m_avg_prt_err_du);
+            set(value.m_std_prt_err_du);
             set(value.m_fit_counter);
             set(value.m_tradeable_status);
-            set(value.m_market_session);
+            set(value.m_market_phase);
             set(value.m_surface_fit_result);
             set(value.m_timestamp);set_residual_list(value.m_residual);
         }
@@ -1701,6 +1956,51 @@ namespace api {
         bool IncludeCumFitScore() const {
             return !(m_cum_fit_score == 0.0);
         }
+        bool IncludeNumPrintsDd() const {
+            return !(m_num_prints_dd == 0);
+        }
+        bool IncludeAvgPrtErrDd() const {
+            return !(m_avg_prt_err_dd == 0.0);
+        }
+        bool IncludeStdPrtErrDd() const {
+            return !(m_std_prt_err_dd == 0.0);
+        }
+        bool IncludeNumPrintsDn() const {
+            return !(m_num_prints_dn == 0);
+        }
+        bool IncludeAvgPrtErrDn() const {
+            return !(m_avg_prt_err_dn == 0.0);
+        }
+        bool IncludeStdPrtErrDn() const {
+            return !(m_std_prt_err_dn == 0.0);
+        }
+        bool IncludeNumPrintsAt() const {
+            return !(m_num_prints_at == 0);
+        }
+        bool IncludeAvgPrtErrAt() const {
+            return !(m_avg_prt_err_at == 0.0);
+        }
+        bool IncludeStdPrtErrAt() const {
+            return !(m_std_prt_err_at == 0.0);
+        }
+        bool IncludeNumPrintsUp() const {
+            return !(m_num_prints_up == 0);
+        }
+        bool IncludeAvgPrtErrUp() const {
+            return !(m_avg_prt_err_up == 0.0);
+        }
+        bool IncludeStdPrtErrUp() const {
+            return !(m_std_prt_err_up == 0.0);
+        }
+        bool IncludeNumPrintsDu() const {
+            return !(m_num_prints_du == 0);
+        }
+        bool IncludeAvgPrtErrDu() const {
+            return !(m_avg_prt_err_du == 0.0);
+        }
+        bool IncludeStdPrtErrDu() const {
+            return !(m_std_prt_err_du == 0.0);
+        }
         bool IncludeFitCounter() const {
             return !(m_fit_counter == 0);
         }
@@ -1902,11 +2202,56 @@ namespace api {
             if ( IncludeCumFitScore()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(209,m_cum_fit_score);
             }
+            if ( IncludeNumPrintsDd()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(212,m_num_prints_dd);
+            }
+            if ( IncludeAvgPrtErrDd()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(213,m_avg_prt_err_dd);
+            }
+            if ( IncludeStdPrtErrDd()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(214,m_std_prt_err_dd);
+            }
+            if ( IncludeNumPrintsDn()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(215,m_num_prints_dn);
+            }
+            if ( IncludeAvgPrtErrDn()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(216,m_avg_prt_err_dn);
+            }
+            if ( IncludeStdPrtErrDn()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(217,m_std_prt_err_dn);
+            }
+            if ( IncludeNumPrintsAt()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(218,m_num_prints_at);
+            }
+            if ( IncludeAvgPrtErrAt()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(219,m_avg_prt_err_at);
+            }
+            if ( IncludeStdPrtErrAt()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(220,m_std_prt_err_at);
+            }
+            if ( IncludeNumPrintsUp()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(221,m_num_prints_up);
+            }
+            if ( IncludeAvgPrtErrUp()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(222,m_avg_prt_err_up);
+            }
+            if ( IncludeStdPrtErrUp()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(223,m_std_prt_err_up);
+            }
+            if ( IncludeNumPrintsDu()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(224,m_num_prints_du);
+            }
+            if ( IncludeAvgPrtErrDu()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(225,m_avg_prt_err_du);
+            }
+            if ( IncludeStdPrtErrDu()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(226,m_std_prt_err_du);
+            }
             if ( IncludeFitCounter()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(210,m_fit_counter);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(150,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>(m_tradeable_status)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(152,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>(m_market_session)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(227,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketPhase>(m_market_phase)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(211,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceFitResult>(m_surface_fit_result)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(153, m_timestamp);
@@ -2110,11 +2455,56 @@ namespace api {
             if ( IncludeCumFitScore()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,209,m_cum_fit_score);
             }
+            if ( IncludeNumPrintsDd()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,212,m_num_prints_dd);
+            }
+            if ( IncludeAvgPrtErrDd()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,213,m_avg_prt_err_dd);
+            }
+            if ( IncludeStdPrtErrDd()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,214,m_std_prt_err_dd);
+            }
+            if ( IncludeNumPrintsDn()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,215,m_num_prints_dn);
+            }
+            if ( IncludeAvgPrtErrDn()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,216,m_avg_prt_err_dn);
+            }
+            if ( IncludeStdPrtErrDn()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,217,m_std_prt_err_dn);
+            }
+            if ( IncludeNumPrintsAt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,218,m_num_prints_at);
+            }
+            if ( IncludeAvgPrtErrAt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,219,m_avg_prt_err_at);
+            }
+            if ( IncludeStdPrtErrAt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,220,m_std_prt_err_at);
+            }
+            if ( IncludeNumPrintsUp()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,221,m_num_prints_up);
+            }
+            if ( IncludeAvgPrtErrUp()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,222,m_avg_prt_err_up);
+            }
+            if ( IncludeStdPrtErrUp()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,223,m_std_prt_err_up);
+            }
+            if ( IncludeNumPrintsDu()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,224,m_num_prints_du);
+            }
+            if ( IncludeAvgPrtErrDu()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,225,m_avg_prt_err_du);
+            }
+            if ( IncludeStdPrtErrDu()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,226,m_std_prt_err_du);
+            }
             if ( IncludeFitCounter()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,210,m_fit_counter);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,150,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>(m_tradeable_status)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,152,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>(m_market_session)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,227,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketPhase>(m_market_phase)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,211,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceFitResult>(m_surface_fit_result)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 153, m_timestamp);
@@ -2533,6 +2923,96 @@ namespace api {
                         }
                         break;
                     }
+                    case 212: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_prints_dd = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 213: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_avg_prt_err_dd = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 214: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_std_prt_err_dd = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 215: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_prints_dn = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 216: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_avg_prt_err_dn = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 217: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_std_prt_err_dn = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 218: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_prints_at = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 219: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_avg_prt_err_at = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 220: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_std_prt_err_at = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 221: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_prints_up = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 222: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_avg_prt_err_up = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 223: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_std_prt_err_up = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 224: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_prints_du = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 225: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_avg_prt_err_du = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 226: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_std_prt_err_du = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 210: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_fit_counter = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
@@ -2544,8 +3024,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 152: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_market_session = static_cast<spiderrock::protobuf::api::MarketSession>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 227: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_market_phase = static_cast<spiderrock::protobuf::api::MarketPhase>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2644,9 +3124,24 @@ namespace api {
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::p_ask_miss>() const { return m_p_ask_miss; }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::fit_score>() const { return m_fit_score; }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::cum_fit_score>() const { return m_cum_fit_score; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::num_prints_dd>() const { return m_num_prints_dd; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::avg_prt_err_dd>() const { return m_avg_prt_err_dd; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::std_prt_err_dd>() const { return m_std_prt_err_dd; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::num_prints_dn>() const { return m_num_prints_dn; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::avg_prt_err_dn>() const { return m_avg_prt_err_dn; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::std_prt_err_dn>() const { return m_std_prt_err_dn; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::num_prints_at>() const { return m_num_prints_at; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::avg_prt_err_at>() const { return m_avg_prt_err_at; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::std_prt_err_at>() const { return m_std_prt_err_at; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::num_prints_up>() const { return m_num_prints_up; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::avg_prt_err_up>() const { return m_avg_prt_err_up; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::std_prt_err_up>() const { return m_std_prt_err_up; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::num_prints_du>() const { return m_num_prints_du; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::avg_prt_err_du>() const { return m_avg_prt_err_du; }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::std_prt_err_du>() const { return m_std_prt_err_du; }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::fit_counter>() const { return m_fit_counter; }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::tradeable_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeableStatus>( m_tradeable_status)); }
-    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::market_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>( m_market_session)); }
+    template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::market_phase>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketPhase>( m_market_phase)); }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::surface_fit_result>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceFitResult>( m_surface_fit_result)); }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::timestamp>() const { return m_timestamp; }
     template<> inline const auto LiveExpirySurface::get<LiveExpirySurface::residual>(int i) const { return LiveExpirySurface::residual{ get_residual(i)}; }
@@ -2743,9 +3238,24 @@ namespace api {
         o << ",\"p_ask_miss\":" << m.get<LiveExpirySurface::p_ask_miss>();
         o << ",\"fit_score\":" << m.get<LiveExpirySurface::fit_score>();
         o << ",\"cum_fit_score\":" << m.get<LiveExpirySurface::cum_fit_score>();
+        o << ",\"num_prints_dd\":" << m.get<LiveExpirySurface::num_prints_dd>();
+        o << ",\"avg_prt_err_dd\":" << m.get<LiveExpirySurface::avg_prt_err_dd>();
+        o << ",\"std_prt_err_dd\":" << m.get<LiveExpirySurface::std_prt_err_dd>();
+        o << ",\"num_prints_dn\":" << m.get<LiveExpirySurface::num_prints_dn>();
+        o << ",\"avg_prt_err_dn\":" << m.get<LiveExpirySurface::avg_prt_err_dn>();
+        o << ",\"std_prt_err_dn\":" << m.get<LiveExpirySurface::std_prt_err_dn>();
+        o << ",\"num_prints_at\":" << m.get<LiveExpirySurface::num_prints_at>();
+        o << ",\"avg_prt_err_at\":" << m.get<LiveExpirySurface::avg_prt_err_at>();
+        o << ",\"std_prt_err_at\":" << m.get<LiveExpirySurface::std_prt_err_at>();
+        o << ",\"num_prints_up\":" << m.get<LiveExpirySurface::num_prints_up>();
+        o << ",\"avg_prt_err_up\":" << m.get<LiveExpirySurface::avg_prt_err_up>();
+        o << ",\"std_prt_err_up\":" << m.get<LiveExpirySurface::std_prt_err_up>();
+        o << ",\"num_prints_du\":" << m.get<LiveExpirySurface::num_prints_du>();
+        o << ",\"avg_prt_err_du\":" << m.get<LiveExpirySurface::avg_prt_err_du>();
+        o << ",\"std_prt_err_du\":" << m.get<LiveExpirySurface::std_prt_err_du>();
         o << ",\"fit_counter\":" << m.get<LiveExpirySurface::fit_counter>();
         o << ",\"tradeable_status\":" << (int64_t)m.get<LiveExpirySurface::tradeable_status>();
-        o << ",\"market_session\":" << (int64_t)m.get<LiveExpirySurface::market_session>();
+        o << ",\"market_phase\":" << (int64_t)m.get<LiveExpirySurface::market_phase>();
         o << ",\"surface_fit_result\":" << (int64_t)m.get<LiveExpirySurface::surface_fit_result>();
         {
             std::time_t tt = m.get<LiveExpirySurface::timestamp>().time_since_epoch().count() / 1'000'000'000;

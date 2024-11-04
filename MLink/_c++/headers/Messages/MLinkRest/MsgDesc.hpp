@@ -95,6 +95,11 @@ namespace api {
     DECL_STRONG_TYPE(topic, string);
     #endif//_topic__GUARD__
 
+    #ifndef _auto_assigned_pkey__GUARD__
+    #define _auto_assigned_pkey__GUARD__
+    DECL_STRONG_TYPE(auto_assigned_pkey, spiderrock::protobuf::api::YesNo);
+    #endif//_auto_assigned_pkey__GUARD__
+
     #ifndef _pri_time_field__GUARD__
     #define _pri_time_field__GUARD__
     DECL_STRONG_TYPE(pri_time_field, string);
@@ -228,6 +233,7 @@ namespace api {
         using srse_products = spiderrock::protobuf::api::srse_products;
         using desc = spiderrock::protobuf::api::desc;
         using topic = spiderrock::protobuf::api::topic;
+        using auto_assigned_pkey = spiderrock::protobuf::api::auto_assigned_pkey;
         using pri_time_field = spiderrock::protobuf::api::pri_time_field;
         using sec_time_field = spiderrock::protobuf::api::sec_time_field;
         using static_filter_fields = spiderrock::protobuf::api::static_filter_fields;
@@ -248,6 +254,7 @@ namespace api {
         srse_products m_srse_products{};
         desc m_desc{};
         topic m_topic{};
+        auto_assigned_pkey m_auto_assigned_pkey{};
         pri_time_field m_pri_time_field{};
         sec_time_field m_sec_time_field{};
         static_filter_fields m_static_filter_fields{};
@@ -297,6 +304,9 @@ namespace api {
         }		
         topic get_topic() const {
             return m_topic;
+        }		
+        auto_assigned_pkey get_auto_assigned_pkey() const {
+            return m_auto_assigned_pkey;
         }		
         pri_time_field get_pri_time_field() const {
             return m_pri_time_field;
@@ -358,6 +368,9 @@ namespace api {
         }
         void set_topic(const topic& value)  {
             m_topic = value;
+        }
+        void set_auto_assigned_pkey(const auto_assigned_pkey& value)  {
+            m_auto_assigned_pkey = value;
         }
         void set_pri_time_field(const pri_time_field& value)  {
             m_pri_time_field = value;
@@ -430,6 +443,9 @@ namespace api {
         void set(const topic & value) {
             set_topic(value);
         }
+        void set(const auto_assigned_pkey & value) {
+            set_auto_assigned_pkey(value);
+        }
         void set(const pri_time_field & value) {
             set_pri_time_field(value);
         }
@@ -458,6 +474,7 @@ namespace api {
             set(value.m_srse_products);
             set(value.m_desc);
             set(value.m_topic);
+            set(value.m_auto_assigned_pkey);
             set(value.m_pri_time_field);
             set(value.m_sec_time_field);
             set(value.m_static_filter_fields);set_grid_field_options_list(value.m_grid_field_options);
@@ -579,6 +596,7 @@ namespace api {
             if ( IncludeTopic()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(146,m_topic);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(147,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_auto_assigned_pkey)));
             if ( IncludePriTimeField()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(130,m_pri_time_field);
             }
@@ -629,6 +647,7 @@ namespace api {
             if ( IncludeTopic()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,146,static_cast<string>(m_topic));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,147,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_auto_assigned_pkey)));
             if ( IncludePriTimeField()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,130,static_cast<string>(m_pri_time_field));
             }
@@ -739,6 +758,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 147: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_auto_assigned_pkey = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 130: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_pri_time_field = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -789,6 +813,7 @@ namespace api {
     template<> inline const auto MsgDesc::get<MsgDesc::srse_products>() const { return m_srse_products; }
     template<> inline const auto MsgDesc::get<MsgDesc::desc>() const { return m_desc; }
     template<> inline const auto MsgDesc::get<MsgDesc::topic>() const { return m_topic; }
+    template<> inline const auto MsgDesc::get<MsgDesc::auto_assigned_pkey>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_auto_assigned_pkey)); }
     template<> inline const auto MsgDesc::get<MsgDesc::pri_time_field>() const { return m_pri_time_field; }
     template<> inline const auto MsgDesc::get<MsgDesc::sec_time_field>() const { return m_sec_time_field; }
     template<> inline const auto MsgDesc::get<MsgDesc::static_filter_fields>() const { return m_static_filter_fields; }
@@ -820,6 +845,7 @@ namespace api {
         o << ",\"srse_products\":\"" << m.get<MsgDesc::srse_products>() << "\"";
         o << ",\"desc\":\"" << m.get<MsgDesc::desc>() << "\"";
         o << ",\"topic\":\"" << m.get<MsgDesc::topic>() << "\"";
+        o << ",\"auto_assigned_pkey\":" << (int64_t)m.get<MsgDesc::auto_assigned_pkey>();
         o << ",\"pri_time_field\":\"" << m.get<MsgDesc::pri_time_field>() << "\"";
         o << ",\"sec_time_field\":\"" << m.get<MsgDesc::sec_time_field>() << "\"";
         o << ",\"static_filter_fields\":\"" << m.get<MsgDesc::static_filter_fields>() << "\"";

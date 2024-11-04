@@ -225,6 +225,11 @@ namespace api {
     DECL_STRONG_TYPE(ric_root, string);
     #endif//_ric_root__GUARD__
 
+    #ifndef _regional_composite_root__GUARD__
+    #define _regional_composite_root__GUARD__
+    DECL_STRONG_TYPE(regional_composite_root, TickerKey);
+    #endif//_regional_composite_root__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -582,6 +587,7 @@ namespace api {
         using strike_curr = spiderrock::protobuf::api::strike_curr;
         using default_surface_root = spiderrock::protobuf::api::default_surface_root;
         using ric_root = spiderrock::protobuf::api::ric_root;
+        using regional_composite_root = spiderrock::protobuf::api::regional_composite_root;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using pricing_source__v7 = spiderrock::protobuf::api::pricing_source__v7;
         using exchange = spiderrock::protobuf::api::RootDefinition_Exchange;
@@ -629,6 +635,7 @@ namespace api {
         strike_curr m_strike_curr{};
         default_surface_root m_default_surface_root{};
         ric_root m_ric_root{};
+        regional_composite_root m_regional_composite_root{};
         timestamp m_timestamp{};
         pricing_source__v7 m_pricing_source__v7{};
         std::vector<exchange> m_exchange{};
@@ -759,6 +766,9 @@ namespace api {
         }		
         ric_root get_ric_root() const {
             return m_ric_root;
+        }		
+        regional_composite_root get_regional_composite_root() const {
+            return m_regional_composite_root;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -904,6 +914,9 @@ namespace api {
         }
         void set_ric_root(const ric_root& value)  {
             m_ric_root = value;
+        }
+        void set_regional_composite_root(const regional_composite_root& value)  {
+            m_regional_composite_root = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -1060,6 +1073,9 @@ namespace api {
         void set(const ric_root & value) {
             set_ric_root(value);
         }
+        void set(const regional_composite_root & value) {
+            set_regional_composite_root(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -1115,6 +1131,7 @@ namespace api {
             set(value.m_strike_curr);
             set(value.m_default_surface_root);
             set(value.m_ric_root);
+            set(value.m_regional_composite_root);
             set(value.m_timestamp);
             set(value.m_pricing_source__v7);set_exchange_list(value.m_exchange);set_underlying_list(value.m_underlying);
         }
@@ -1226,6 +1243,9 @@ namespace api {
         bool IncludeRicRoot() const {
             return !(m_ric_root.empty());
         }
+        bool IncludeRegionalCompositeRoot() const {
+            return (m_regional_composite_root.ByteSizeLong() > 0);
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -1331,6 +1351,11 @@ namespace api {
             }
             if ( IncludeRicRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(218,m_ric_root);
+            }
+            if ( IncludeRegionalCompositeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(225, tickerKeyLayout);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
@@ -1446,6 +1471,11 @@ namespace api {
             }
             if ( IncludeRicRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,218,static_cast<string>(m_ric_root));
+            }
+            if ( IncludeRegionalCompositeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 225, tickerKeyLayout);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
@@ -1712,6 +1742,13 @@ namespace api {
                         }
                         break;
                     }
+                    case 225: {
+                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
+                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                            m_regional_composite_root.setFromCodec(tickerKey);
+                        }
+                        break;
+                    }
                     case 208: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -1791,6 +1828,7 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::strike_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_strike_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::default_surface_root>() const { return RootDefinition::default_surface_root{ m_default_surface_root}; }
     template<> inline const auto RootDefinition::get<RootDefinition::ric_root>() const { return m_ric_root; }
+    template<> inline const auto RootDefinition::get<RootDefinition::regional_composite_root>() const { return RootDefinition::regional_composite_root{ m_regional_composite_root}; }
     template<> inline const auto RootDefinition::get<RootDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto RootDefinition::get<RootDefinition::pricing_source__v7>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>( m_pricing_source__v7)); }
     template<> inline const auto RootDefinition::get<RootDefinition::exchange>(int i) const { return RootDefinition::exchange{ get_exchange(i)}; }
@@ -1866,6 +1904,7 @@ namespace api {
         o << ",\"strike_curr\":" << (int64_t)m.get<RootDefinition::strike_curr>();
         o << ",\"default_surface_root\":{" << m.get<RootDefinition::default_surface_root>() << "}";
         o << ",\"ric_root\":\"" << m.get<RootDefinition::ric_root>() << "\"";
+        o << ",\"regional_composite_root\":{" << m.get<RootDefinition::regional_composite_root>() << "}";
         {
             std::time_t tt = m.get<RootDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

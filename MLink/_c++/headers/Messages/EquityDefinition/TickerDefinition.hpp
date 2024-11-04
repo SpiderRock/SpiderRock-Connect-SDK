@@ -310,6 +310,11 @@ namespace api {
     DECL_STRONG_TYPE(trading_period__TradingPeriod, spiderrock::protobuf::api::TradingPeriod);
     #endif//_trading_period__TradingPeriod__GUARD__
 
+    #ifndef _regional_composite_ticker__GUARD__
+    #define _regional_composite_ticker__GUARD__
+    DECL_STRONG_TYPE(regional_composite_ticker, TickerKey);
+    #endif//_regional_composite_ticker__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -575,6 +580,7 @@ namespace api {
         using reverse_skew = spiderrock::protobuf::api::reverse_skew;
         using time_metric = spiderrock::protobuf::api::time_metric;
         using trading_period = spiderrock::protobuf::api::trading_period__TradingPeriod;
+        using regional_composite_ticker = spiderrock::protobuf::api::regional_composite_ticker;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using exchange = spiderrock::protobuf::api::TickerDefinition_Exchange;
 
@@ -637,6 +643,7 @@ namespace api {
         reverse_skew m_reverse_skew{};
         time_metric m_time_metric{};
         trading_period m_trading_period{};
+        regional_composite_ticker m_regional_composite_ticker{};
         timestamp m_timestamp{};
         std::vector<exchange> m_exchange{};
 
@@ -816,6 +823,9 @@ namespace api {
         }		
         trading_period get_trading_period() const {
             return m_trading_period;
+        }		
+        regional_composite_ticker get_regional_composite_ticker() const {
+            return m_regional_composite_ticker;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -1003,6 +1013,9 @@ namespace api {
         }
         void set_trading_period(const trading_period& value)  {
             m_trading_period = value;
+        }
+        void set_regional_composite_ticker(const regional_composite_ticker& value)  {
+            m_regional_composite_ticker = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -1201,6 +1214,9 @@ namespace api {
         void set(const trading_period & value) {
             set_trading_period(value);
         }
+        void set(const regional_composite_ticker & value) {
+            set_regional_composite_ticker(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -1267,6 +1283,7 @@ namespace api {
             set(value.m_reverse_skew);
             set(value.m_time_metric);
             set(value.m_trading_period);
+            set(value.m_regional_composite_ticker);
             set(value.m_timestamp);set_exchange_list(value.m_exchange);
         }
 
@@ -1449,6 +1466,9 @@ namespace api {
         bool IncludeBasisKey() const {
             return (m_basis_key.ByteSizeLong() > 0);
         }
+        bool IncludeRegionalCompositeTicker() const {
+            return (m_regional_composite_ticker.ByteSizeLong() > 0);
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -1609,6 +1629,11 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(258,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_reverse_skew)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(259,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
+            if ( IncludeRegionalCompositeTicker()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_regional_composite_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(263, tickerKeyLayout);
+            }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(253, m_timestamp);
             }
@@ -1773,6 +1798,11 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,258,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_reverse_skew)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,259,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
+            if ( IncludeRegionalCompositeTicker()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_regional_composite_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 263, tickerKeyLayout);
+            }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 253, m_timestamp);
             }
@@ -2135,6 +2165,13 @@ namespace api {
                         }
                         break;
                     }
+                    case 263: {
+                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
+                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                            m_regional_composite_ticker.setFromCodec(tickerKey);
+                        }
+                        break;
+                    }
                     case 253: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -2217,6 +2254,7 @@ namespace api {
     template<> inline const auto TickerDefinition::get<TickerDefinition::reverse_skew>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_reverse_skew)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::time_metric>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>( m_time_metric)); }
     template<> inline const auto TickerDefinition::get<TickerDefinition::trading_period>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>( m_trading_period)); }
+    template<> inline const auto TickerDefinition::get<TickerDefinition::regional_composite_ticker>() const { return TickerDefinition::regional_composite_ticker{ m_regional_composite_ticker}; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto TickerDefinition::get<TickerDefinition::exchange>(int i) const { return TickerDefinition::exchange{ get_exchange(i)}; }
     template<> inline int TickerDefinition::count<TickerDefinition::exchange>() const { return static_cast<int>( m_exchange.size()); }
@@ -2297,6 +2335,7 @@ namespace api {
         o << ",\"reverse_skew\":" << (int64_t)m.get<TickerDefinition::reverse_skew>();
         o << ",\"time_metric\":" << (int64_t)m.get<TickerDefinition::time_metric>();
         o << ",\"trading_period\":" << (int64_t)m.get<TickerDefinition::trading_period>();
+        o << ",\"regional_composite_ticker\":{" << m.get<TickerDefinition::regional_composite_ticker>() << "}";
         {
             std::time_t tt = m.get<TickerDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
