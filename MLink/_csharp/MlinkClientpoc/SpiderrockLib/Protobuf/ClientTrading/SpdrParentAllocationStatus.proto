@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrParentAllocationStatus {
+    message PKey {
+        
+        int64 base_parent_number = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey sec_key = 100; // security key (stock, future, or option)
+    SpdrKeyType sec_type = 103; // security type
+    AllocStatus alloc_status = 106;
+    string alloc_detail = 109;
+    string modified_by = 112; // user who last modified this record
+    SysEnvironment modified_in = 115;
+    google.protobuf.Timestamp timestamp = 118; // timestamp of last modification
+}
+
+

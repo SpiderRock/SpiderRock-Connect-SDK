@@ -60,7 +60,7 @@ namespace Spiderrock.Protobuf {
             "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjIKCHNlY190",
             "eXBlGAsgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyS2V5VHlwZRIy",
             "CgxhdWN0aW9uX2V4Y2gYDCABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9w",
-            "dEV4Y2gSFwoPYXVjdGlvbl9leF9kZXN0GA0gASgJGroBCgRMZWdzEjQKC2xl",
+            "dEV4Y2gSFwoPYXVjdGlvbl9leF9kZXN0GA4gASgJGroBCgRMZWdzEjQKC2xl",
             "Z19zZWNfa2V5GMoBIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9u",
             "S2V5EjcKDGxlZ19zZWNfdHlwZRjNASABKA4yIC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLlNwZHJLZXlUeXBlEi8KCGxlZ19zaWRlGNABIAEoDjIcLnNwaWRlcnJv",
@@ -1736,7 +1736,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "auction_ex_dest" field.</summary>
-        public const int AuctionExDestFieldNumber = 13;
+        public const int AuctionExDestFieldNumber = 14;
         private string auctionExDest_ = "";
         /// <summary>
         /// external exDest of auction (usually means auction is off-exchange)
@@ -1811,7 +1811,7 @@ namespace Spiderrock.Protobuf {
             output.WriteEnum((int) AuctionExch);
           }
           if (AuctionExDest.Length != 0) {
-            output.WriteRawTag(106);
+            output.WriteRawTag(114);
             output.WriteString(AuctionExDest);
           }
           if (_unknownFields != null) {
@@ -1837,7 +1837,7 @@ namespace Spiderrock.Protobuf {
             output.WriteEnum((int) AuctionExch);
           }
           if (AuctionExDest.Length != 0) {
-            output.WriteRawTag(106);
+            output.WriteRawTag(114);
             output.WriteString(AuctionExDest);
           }
           if (_unknownFields != null) {
@@ -1919,7 +1919,7 @@ namespace Spiderrock.Protobuf {
                 AuctionExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
                 break;
               }
-              case 106: {
+              case 114: {
                 AuctionExDest = input.ReadString();
                 break;
               }
@@ -1953,7 +1953,7 @@ namespace Spiderrock.Protobuf {
                 AuctionExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
                 break;
               }
-              case 106: {
+              case 114: {
                 AuctionExDest = input.ReadString();
                 break;
               }

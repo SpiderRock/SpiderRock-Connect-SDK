@@ -1,0 +1,198 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ProductRiskSummary records contain live risk aggregation of FutureRiskSummaryV5 records.
+    Records are published if/when positions change and about once per minute otherwise.
+*/    
+message ProductRiskSummaryV5 {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11;
+        DateKey trade_date = 12;
+        RiskSession risk_session = 13;
+        string client_firm = 14; // SR assigned client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double ln_dDelta = 106; // long net position delta value (today; SR marks )
+    double sh_dDelta = 109; // short net position delta value (today; SR marks )
+    double fut_mkt_value_mid = 112; // future position market value (today; SR mid marks)
+    double opt_mkt_value_mid = 115; // option position market value (SR mid marks); =sum[opCurPosM * opr.optVolMark]
+    double opt_mkt_value_vol = 118; // option position market value (SR vol marks); =sum[opCurPosM * opr.optMidMark]
+    int32 fc_abs_cur_pos = 121; // abs number of future contracts (position + fills);=sum[abs(fpr.cnCurPos)]
+    int32 fc_abs_opn_clr = 124; // abs number of start of period future contracts (CLR view);=sum[abs(fpr.cnOpnClr)]
+    int32 fc_abs_opn_prv = 127; // abs number of start of period future contracts (SR view);=sum[abs(fpr.cnOpnPrv)]
+    int32 fc_abs_opn_pos = 130; // abs number of start of period future contracts (effective);=sum[abs(fpr.cnOpnPos)]
+    int32 fc_abs_opn_brk = 133; // abs number of future contract start of period breaks (CLR - PRV);=sum[abs(fpr.cnOpnClr - fpr.cnOpnPrv)]
+    int32 fc_net_cur_pos = 136; // net future contract position;=sum[fpr.cnOpnClr + fpr.cnBot - fpr.cnSld]
+    int32 fc_bot = 139; // number of futures contracts bot today;=sum(frr.cnBot)
+    int32 fc_sld = 142; // number of futures contracts sld today;=sum(frr.cnSld)
+    int32 fc_bot_hdg = 145; // number of contracts bot today from hedging (spdrSource=HedgeTool)
+    int32 fc_sld_hdg = 148; // number of contracts sld today from hedging (spdrSource=HedgeTool)
+    int32 fc_bot_trh = 151; // number of contracts bot today from hedging (spdrSource=TradeHedge)
+    int32 fc_sld_trh = 154; // number of contracts sld today from hedging (spdrSource=TradeHedge)
+    int32 fc_bot_opn = 157; // number of contracts bot today from hedging (spdrSource=OpenHedge)
+    int32 fc_sld_opn = 160; // number of contracts sld today from hedging (spdrSource=OpenHedge)
+    int32 fc_bot_trd = 163; // number of contracts bot today from a trade hedging source (AutoHedge or Trades loop)
+    int32 fc_sld_trd = 166; // number of contracts sld today from a trade hedging source (AutoHedge or Trades loop)
+    double fc_mny_bot = 169; // futures money bot today
+    double fc_mny_sld = 172; // futures money sld today
+    google.protobuf.Timestamp max_fut_dttm = 175; // DateTime of most recent SpdrFuturenExecution (if any)
+    float fc_pnl_mid = 178; // Futures Open Pnl (SR marks); =sum[fpr.cnOpnClr * fpr.unitsPerCn * (fpr.futMark - fpr.futOpnMidMark]
+    float fc_pnl_clr = 181; // Futures Open Pnl (CLR marks); =sum[fpr.cnOpnClr * fpr.unitsPerCn * (fpr.futMark - fpr.futOpnClrMark]
+    float fc_pnl_day = 184; // Futures Day Pnl;=sum(fpr.dayPnl)
+    int32 op_cn_abs_cur_pos = 187; // abs number of option contracts (position + fills);=sum[abs(opr.cnCurPos)]
+    int32 op_cn_abs_opn_clr = 190; // abs number of start of period option contracts (CLR view); =sum[abs(opr.cnOpnClr)]
+    int32 op_cn_abs_opn_prv = 193; // abs number of start of period option contracts (SR view); =sum[abs(opr.cnOpnPrv)]
+    int32 op_cn_abs_opn_pos = 196; // abs number of start of period option contracts; =sum[abs(opr.cnOpnPos)]
+    int32 op_cn_abs_opn_brk = 199; // abs number of option contract start of period breaks (CLR - PRV);=sum[abs(opr.cnOpnClr - opr.cnOpnPrv)]
+    int32 op_cn_pos_call = 202; // net number of call contracts;=sum[opr.cnOpnClr + opr.cnBot - opr.cnSld] (if call)
+    int32 op_cn_pos_put = 205; // net number of call contracts;=sum[opr.cnOpnClr + opr.cnBot - opr.cnSld] (if put)
+    int32 op_cn_abs_pair = 208; // abs number of option contracts with CP reversals removed; =sum[abs(opr.cnOpnClr + opr.cnBot - opr.cnSld) - abs(opr.cnNetPos)]
+    float op_cn_abs_atm_equiv = 211; // abs atm equivalent contracts; = sum[abs(opr.cnOpnPos + opr.cnBot - opr.cnSld) * opr.ve / opr.atmVega]
+    int32 op_cn_bot = 214; // number of option contracts bot today;=sum[opr.cnBot]
+    int32 op_cn_sld = 217; // number of option contracts sld today;=sum[opr.cnSld]
+    double op_mny_bot = 220; // option money bot
+    double op_mny_sld = 223; // option money sld
+    float op_prem_bot = 226; // option premium bot today;=sum[(max(0, opr.optVolMark - opr.loBound) * opr.pointValue) * opr.cnBot]
+    float op_prem_sld = 229; // option premium sld today;=sum[(max(0, opr.optVolMark - opr.loBound) * opr.pointValue) * opr.cnSld]
+    google.protobuf.Timestamp max_opt_dttm = 232; // DateTime of most recent SpdrOptionExecution (if any)
+    double op_pnl_vol = 235; // Option Open Pnl (SR vol marks); =sum[opr.opnPnlVolMark]
+    double op_pnl_mid = 238; // Option Open Pnl (SR mid marks); =sum[opr.opnPnlMidMark]
+    double op_pnl_clr = 241; // Option Open Pnl (CLR marks); =sum[opr.opnPnlClrMark]
+    float op_pnl_brk = 244; // Option Mark Break (catch-up) Pnl (SR vol marks to CLR marks);=sum[(opr.cnOpnClr * opr.pointValue) * (opr.optVolMark - opr.optClrMark)]
+    float op_pnl_day = 247; // Option Day Pnl;=sum[opr.dayPnl]
+    float op_dn_pnl_day = 250; // Option DN Day Pnl (delta neutral);=sum[opr.dnDayPnl]
+    float op_day_vega = 253; // option vega traded today
+    float op_day_wVega = 256; // option (vol weighted) vega traded today
+    float op_day_tVega = 259; // option (time weighted) vega traded today
+    float op_day_wt_vega = 262; // option (vol time weighted) vega traded today
+    float op_day_theta = 265; // Option Day Theta;=sum[opr.th * ((opr.cnBot - opr.cnSld) * opr.pointValue)]
+    float op_day_delta = 268; // Option Day Delta;=sum[opr.de * ((opr.cnBot - opr.cnSld) * opr.underliersPerCn)]
+    float op_trd_delta = 271; // Option Trade Delta (delta fixed at time of trade);=sum[opr.trdDelta]
+    float cont_hedge_pnl = 274; // Estimated continuous hedging pnl (open positions only) [~1 minute intervals]
+    float cont_hedge_pnl1 = 277; // Estimated continuous hedging pnl (open positions only) [~10 minute intervals]
+    float op_edge_opened = 280; // Option Edge Opened (new risk);=sum[opr.edgeOpened]
+    float op_edge_closed = 283; // Option Edge Closed (new risk);=sum[opr.edgeClosed]
+    float pnl_dn = 286; // Option Pnl Attr: delta neutral pnl: =sum[volPnl - shClrM * dUPrc * opr.dePr]
+    float pnl_de = 289; // Option Pnl Attr: delta pnl;=sum[shClrM * dUPrc * opr.dePr]
+    float pnl_sl = 292; // Option Pnl Attr: slope pnl;=sum[shClrM * dUPrc * opr.vePr * opr.slPr]
+    float pnl_ga = 295; // Option Pnl Attr: gamma pnl;=sum[shClrM * 0.5 * dUPrc * dUPrc * (opr.ga + opr.gaPr)/2]
+    float pnl_th = 298; // Option Pnl Attr: theta pnl;=sum[shClrM * dTime * -opr.thPr]
+    float pnl_ve = 301; // Option Pnl Attr: vega pnl;=sum[shClrM * 100 * dVol * opr.vePr]
+    float pnl_vo = 304; // Option Pnl Attr: volga pnl;=sum[shClrM * 0.5 * 100 * 100 * dVol * dVol * opr.voPr]
+    float pnl_va = 307; // Option Pnl Attr: vanna pnl;=sum[shClrM * 100 * dVol * dUPrc * opr.vaPr]
+    float pnl_err = 310; // Option Pnl Attr: error (unexplained) pnl;=sum[shClrM * (volPnl - pnlDe - pnlGa - pnlTh - pnlVe)]
+    float pnl_rate = 313; // Option Pnl Attr: rate pnl;=sum[shClrM * 100 * dRate * opr.rhPr]
+    float pnl_sDiv = 316; // Option Pnl Attr: sdiv pnl;=sum[shClrM * 100 * dSDiv * opr.phPr]
+    float pnl_dDiv = 319; // Option Pnl Attr: ddiv pnl;=sum[shClrM * 100 * (opr.ddiv - opr.ddivPr) / opr.uPrc * opr.phPr]
+    float pnl_te = 322; // Option Pnl Attr: theo edge pnl;=sum[shClrM * ((opr.tOpx - opr.optVolMark) - (opr.tOpxPr - opr.optOpnVolMark))]
+    float pct_iv_change = 325; // Option Avg IVol Change (Numerator);=sum[abs(shClrM) * opr.ve * log(opr.iVol/opr.iVolPr)]
+    float pct_iv_vega = 328; // Option Avg IVol Change (Denominator);=sum[abs(shClrM) * opr.ve]
+    float pct_tv_change = 331; // Option Avg TVol Change (Numerator);=sum[abs(shClrM) * opr.ve * log(opr.tVol/opr.tVolPr)]
+    float pct_tv_vega = 334; // Option Avg TVol Change (Denominator);=sum[abs(shClrM) * opr.ve]
+    float fut_width_mny = 337; // Future Market Width Value;=sum[0.5 * abs(fcCurPosM) * (fpr.futAsk - fpr.futBid)]
+    float opt_width_mny = 340; // Option Market Width Value;=sum[0.5 * abs(shCurPosM) * (opr.optAsk - opr.optBid)]
+    float day_dDelta = 343; // Day $Delta (bot or sld;all sources) today;
+    float delta = 346; // Aggregate Position Delta;=sum[shCurPos] + sum[fcCurPosM] + sum[shCurPosM * opr.de] + sum[other.delta]
+    float ddelta = 349; // Aggregate Position $Delta (Delta * DDMult)
+    float de_decay = 352; // Aggregate Position DeltaDecay;=sum[shCurPosM * opr.deDecay] + sum[other.deDecay]
+    float dd_decay = 355; // Aggregate Position $DeltaDecay (DeltaDecay * DDMult) [change in $delta when one trading day (1.0/252.0) is taken out of option pricing]
+    float gamma = 358; // Aggregate Position Gamma;=sum[shCurPosM * opr.ga] + sum[other.gamma]
+    float d_gamma = 361; // Aggregate Position $Gamma
+    float theta = 364; // Aggregate Position Theta;=sum[shCurPosM * opr.th] + sum[other.theta]
+    float rho = 367; // Aggregate Position Rho;=sum[shCurPosM * opr.rh] + sum[other.rho]
+    float vega = 370; // Aggregate Position Vega;=sum[shCurPosM * opr.ve] + sum[other.vega]
+    float t_vega = 373; // Aggregate Position Time Weight Vega;=sum[shCurPosM * opr.ve / sqrt(max(0.1, opr.years * 4))]
+    float w_vega = 376; // Aggregate Position Vol Weighted Vega;=sum[shCurPosM * opr.iVol * opr.ve]
+    float wt_vega = 379; // Aggregate Position Vol Time Weighted Vega;=sum[shCurPosM * opr.iVol * opr.ve / sqrt(max(0.1, opr.years * 4))]
+    float ivol_ve = 382; // Aggregate Position Avg Vol Numerator (vega weighted) (avg = ivolVe / avega);=sum[abs(shCurPosM) * opr.iVol * opr.ve]
+    float volga = 385; // Aggregate Position Volga;=sum[shCurPosM * opr.vo] + sum[other.volga]
+    float vanna = 388; // Aggregate Position Vanna;=sum[shCurPosM * opr.va] + sum[other.vanna]
+    float slope = 391; // Aggregate Position VegaDelta (uPrc/Vol correlation factor);=sum[shCurPosM * opr.sl * opr.ve] + sum[other.slope]
+    float avega = 394; // Aggregate Postion Abs Vega;=sum[abs(shCurPosM ) * opr.ve]
+    float atheta = 397; // Aggregate Postion Abs Theta;= sum[abs(shCurPosM) * opr.th]
+    float hedge_gamma = 400; // Aggregate Postion Hedge Gamma (either iVol or tVol based;can go binary);=sum[shCurPos * opr.hedgeGa]
+    float hedge_dGamma = 403; // Aggregate Postion Hedge $Gamma
+    float prem_ov_par = 406; // Aggregate Position Premium Over Parity;=sum[shCurPosM *  max(0, opr.optVolMark - opr.loBound)]
+    float wt_ve_dd = 409; // Aggregate Dd Time Weighted Vega;=sum[wtVega] if opr.xde < -0.30
+    float wt_ve_dn = 412; // Aggregate Dn Time Weighted Vega;=sum[wtVega] if -0.30 <= opr.xde < -0.10
+    float wt_ve_at = 415; // Aggregate At Time Weighted Vega;=sum[wtVega] if abs(opr.xde) <= 0.10
+    float wt_ve_up = 418; // Aggregate Up Time Weighted Vega;=sum[wtVega] if +0.10 < opr.xde <= +0.30
+    float wt_ve_du = 421; // Aggregate Du Time Weighted Vega;=sum[wtVega] if +0.30 < opr.xde
+    float wt_ve_m1 = 424; // Aggregate M1 Time Weighted Vega; =sum[wtVega] if days < 10
+    float wt_ve_m2 = 427; // Aggregate M2 Time Weighted Vega; =sum[wtVega] if 10 < days < 25
+    float wt_ve_m3 = 430; // Aggregate M3 Time Weighted Vega; =sum[wtVega] if 25 < days < 65
+    float wt_ve_m4 = 433; // Aggregate M4 Time Weighted Vega; =sum[wtVega] if 65 < days < 130
+    float wt_ve_m5 = 436; // Aggregate M5 Time Weighted Vega; =sum[wtVega] if 130 < days
+    float opn_delta = 439; // Aggregate Position Open Delta (Open Positions + Open Hedge Trades Only)
+    float opn_dDelta = 442; // Aggregate Position ($) Open Delta (Open Positions + Open Hedge Trades Only)
+    float pos_delta = 445; // Aggregate Position Hedge Delta (Current Position)
+    float pos_dDelta = 448; // Aggregate Position Hedge Delta (Current Position)
+    float pin_xX = 581; // Pin Strike nearest to current uPrc (zero = none) (only exists near expirations)
+    float opn_de_below = 582; // Aggregate Position Open Delta (Open Positions + Open Hedge Trades Only) if liveUPrc < pinXX
+    float opn_de_above = 583; // Aggregate Position Open Delta (Open Positions + Open Hedge Trades Only) if liveUPrc > pinXX
+    float opn_dDe_below = 584; // Aggregate Position ($) Open Delta (Open Positions + Open Hedge Trades Only) if liveUPrc < pinXX
+    float opn_dDe_above = 585; // Aggregate Position ($) Open Delta (Open Positions + Open Hedge Trades Only) if liveUPrc > pinXX
+    float pos_de_below = 586; // Aggregate Position Hedge Delta (Current Position) if liveUPrc < pinXX
+    float pos_de_above = 587; // Aggregate Position Hedge Delta (Current Position) if liveUPrc > pinXX
+    float pos_dDe_below = 588; // Aggregate Position Hedge Delta (Current Position) if liveUPrc < pinXX
+    float pos_dDe_above = 589; // Aggregate Position Hedge Delta (Current Position) if liveUPrc > pinXX
+    float pos_hedge_delta_ex = 451; // Aggregate Position Hedge Delta (Current Position) if exDate != today
+    float pos_hedge_dDelta_ex = 454; // Aggregate Position ($) Hedge Delta (Current Position) if exDate != today
+    float t_edge = 457; // Aggregate $ Theo Edge;=sum[shNetPosM * (opr.tOpx - opr.optVolMark)] if opr.tVol > 0.01 and opr.tOpx > 0.0 and opr.optVolMark > 0.0
+    float t_edge_mult = 460; // Aggregate Abs Net Contracts (Rev/Conv contracts removed);= sum[abs(shNetPosM)]
+    float t_edge_pr = 463; // Prior Day $ Theo Edge
+    float t_edge_mult_pr = 466; // Prior Day Aggregate Abs Net Contracts
+    int32 num_tVol_errors = 469; // number of opr.tErr != 0 or opr.tVol < 0.01
+    float pair_pnl = 472; // Aggregate Dn Pair Pnl;=sum[shNetClrM * (opr.optVolMark - opr.optOpnVolMark - opr.hedgeDePr * (opr.uMark - opr.uOpnMark))]
+    float pos_tEdge_wV = 475; // Aggregate Vol Weighted Vega (wvega) where (opr.tOpx > 0 and (opr.tOpx - opr.optVolMark) >= 0)
+    float neg_tEdge_wV = 478; // Aggregate Vol Weighted Vega (wvega) where (opr.tOpx > 0 and (opr.tOpx - opr.optVolMark) < 0)
+    float bad_tEdge_wV = 481; // Aggregate Vol Weighted Vega (wvega) where (opr.tOpx = 0)
+    float pos_tEdge_pnl = 484; // Aggregate Dn Pair Pnl where (opr.tOpxPr > 0 and (opr.tOpxPr - opr.priorOpxVolMark) >= 0)
+    float neg_tEdge_pnl = 487; // Aggregate Dn Pair Pnl where (opr.tOpxPr > 0 and (opr.tOpxPr - opr.priorOpxVolMark) < 0)
+    float bad_tEdge_pnl = 490; // Aggregate Dn Pair Pnl where (opr.tOpxPr = 0)
+    float span01 = 493; // span1: uPrc=unch, vol=up
+    float span02 = 496; // span2: uPrc=unch, vol=down
+    float span03 = 499; // span3: uPrc=+33.33%, vol=up
+    float span04 = 502; // span4: uPrc=+33.33%, vol=dn
+    float span05 = 505; // span5: uPrc=-33.33%, vol=up
+    float span06 = 508; // span6: uPrc=-33.33%, vol=down
+    float span07 = 511; // span7: uPrc=+66.67%, vol=up
+    float span08 = 514; // span8: uPrc=+66.67%, vol=down
+    float span09 = 517; // span9: uPrc=-66.67%, vol=up
+    float span10 = 520; // span10: uPrc=-66.67%, vol=down
+    float span11 = 523; // span11: uPrc=+100%, vol=up
+    float span12 = 526; // span12: uPrc=+100%, vol=down
+    float span13 = 529; // span13: uPrc=-100%, vol=up
+    float span14 = 532; // span14: uPrc=-100%, vol=down
+    float span15 = 535; // span15: uPrc=+300%; price slide * 0.33
+    float span16 = 538; // span16: uPrc=-300%, price slide * 0.33
+    float fut_liq_risk = 541; // Aggregate Future Liquidation Risk
+    float opt_liq_risk = 544; // Aggregate Option Liquidation Risk
+    int32 fc_bot_c0 = 547; // hypothetical future contracts bot (~ 1 minute intervals)
+    int32 fc_sld_c0 = 550; // hypothetical future contracts sld
+    float fc_mny_c0 = 553; // hypothetical money
+    int32 fc_bot_c1 = 556; // hypothetical future contracts bot (~ 10 minute intervals)
+    int32 fc_sld_c1 = 559; // hypothetical future contracts sld
+    float fc_mny_c1 = 562; // hypothetical money
+    float fut_margin = 565; // Aggregate Future Risk Margin
+    int32 num_fut_errors = 568; // number of futures positions with a computation error (should be zero)
+    int32 num_opt_errors = 571; // number of options positions with a computation error (should be zero)
+    MktErrFlag fut_mark_flag = 574; // Future position error flag
+    MktErrFlag opt_mark_flag = 577; // Option position error flag
+    google.protobuf.Timestamp timestamp = 580;
+}
+
+

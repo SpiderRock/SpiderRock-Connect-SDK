@@ -25,25 +25,29 @@ namespace Spiderrock.Protobuf {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiBQcm90b2J1Zi9NTGlua1Jlc3QvTXNnRGVzYy5wcm90bxITc3BpZGVycm9j",
-            "ay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8i3wQKB01zZ0Rl",
+            "ay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8ihwYKB01zZ0Rl",
             "c2MSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3Nh",
             "Z2VNZXRhZGF0YRIMCgRuYW1lGGQgASgJEg0KBW1fbnVtGGcgASgNEhMKC3Nj",
-            "aGVtYV9oYXNoGGogASgJEg8KB2FjdGlvbnMYbSABKAkSLAoIaGFzX3RLZXkY",
-            "cCABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEiwKCGhhc19lS2V5",
-            "GHMgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIsCghoYXNfb0tl",
-            "eRh2IAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SKgoGaGFzX2NG",
-            "GHkgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIwCgdtX3Rva2Vu",
-            "GHwgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5NTGlua1Rva2VuEhUKDXNy",
-            "c2VfcHJvZHVjdHMYfSABKAkSDAoEZGVzYxh/IAEoCRIXCg5wcmlfdGltZV9m",
-            "aWVsZBiCASABKAkSFwoOc2VjX3RpbWVfZmllbGQYhQEgASgJEh0KFHN0YXRp",
-            "Y19maWx0ZXJfZmllbGRzGIsBIAEoCRJKChJncmlkX2ZpZWxkX29wdGlvbnMY",
-            "jAEgAygLMi0uc3BpZGVycm9jay5wcm90b2J1Zi5Nc2dEZXNjLkdyaWRGaWVs",
-            "ZE9wdGlvbnMaMgoQR3JpZEZpZWxkT3B0aW9ucxINCgRuYW1lGI0BIAEoCRIP",
-            "CgZmaWVsZHMYjgEgASgJYgZwcm90bzM="));
+            "aGVtYV9oYXNoGGogASgJEjMKB2FjdGlvbnMYkAEgASgOMiEuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5NTGlua0FjdGlvbnMSLAoIaGFzX3RLZXkYcCABKA4yGi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vEiwKCGhhc19lS2V5GHMgASgOMhou",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIsCghoYXNfb0tleRh2IAEoDjIa",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SKgoGaGFzX2NGGHkgASgOMhou",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIwCgdtX3Rva2VuGHwgASgOMh8u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5NTGlua1Rva2VuEjgKDWRhdGFfcHJvZHVj",
+            "dHMYkQEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRhUHJvZHVjdBIW",
+            "Cg1zcnNlX3Byb2R1Y3RzGIwBIAEoCRIMCgRkZXNjGH8gASgJEg4KBXRvcGlj",
+            "GJIBIAEoCRI3ChJhdXRvX2Fzc2lnbmVkX3BrZXkYkwEgASgOMhouc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5ZZXNObxIXCg5wcmlfdGltZV9maWVsZBiCASABKAkS",
+            "FwoOc2VjX3RpbWVfZmllbGQYhQEgASgJEh0KFHN0YXRpY19maWx0ZXJfZmll",
+            "bGRzGIsBIAEoCRJKChJncmlkX2ZpZWxkX29wdGlvbnMYjQEgAygLMi0uc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5Nc2dEZXNjLkdyaWRGaWVsZE9wdGlvbnMaMgoQ",
+            "R3JpZEZpZWxkT3B0aW9ucxINCgRuYW1lGI4BIAEoCRIPCgZmaWVsZHMYjwEg",
+            "ASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc), global::Spiderrock.Protobuf.MsgDesc.Parser, new[]{ "Meta", "Name", "MNum", "SchemaHash", "Actions", "HasTKey", "HasEKey", "HasOKey", "HasCF", "MToken", "SrseProducts", "Desc", "PriTimeField", "SecTimeField", "StaticFilterFields", "GridFieldOptions" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions), global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions.Parser, new[]{ "Name", "Fields" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc), global::Spiderrock.Protobuf.MsgDesc.Parser, new[]{ "Meta", "Name", "MNum", "SchemaHash", "Actions", "HasTKey", "HasEKey", "HasOKey", "HasCF", "MToken", "DataProducts", "SrseProducts", "Desc", "Topic", "AutoAssignedPkey", "PriTimeField", "SecTimeField", "StaticFilterFields", "GridFieldOptions" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions), global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions.Parser, new[]{ "Name", "Fields" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -94,8 +98,11 @@ namespace Spiderrock.Protobuf {
       hasOKey_ = other.hasOKey_;
       hasCF_ = other.hasCF_;
       mToken_ = other.mToken_;
+      dataProducts_ = other.dataProducts_;
       srseProducts_ = other.srseProducts_;
       desc_ = other.desc_;
+      topic_ = other.topic_;
+      autoAssignedPkey_ = other.autoAssignedPkey_;
       priTimeField_ = other.priTimeField_;
       secTimeField_ = other.secTimeField_;
       staticFilterFields_ = other.staticFilterFields_;
@@ -167,17 +174,17 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "actions" field.</summary>
-    public const int ActionsFieldNumber = 109;
-    private string actions_ = "";
+    public const int ActionsFieldNumber = 144;
+    private global::Spiderrock.Protobuf.MLinkActions actions_ = global::Spiderrock.Protobuf.MLinkActions.Unspecified;
     /// <summary>
     /// 'SIURD'
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Actions {
+    public global::Spiderrock.Protobuf.MLinkActions Actions {
       get { return actions_; }
       set {
-        actions_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        actions_ = value;
       }
     }
 
@@ -256,8 +263,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "data_products" field.</summary>
+    public const int DataProductsFieldNumber = 145;
+    private global::Spiderrock.Protobuf.DataProduct dataProducts_ = global::Spiderrock.Protobuf.DataProduct.Unspecified;
+    /// <summary>
+    /// flag enum containing all the data products this message is associated with
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.DataProduct DataProducts {
+      get { return dataProducts_; }
+      set {
+        dataProducts_ = value;
+      }
+    }
+
     /// <summary>Field number for the "srse_products" field.</summary>
-    public const int SrseProductsFieldNumber = 125;
+    public const int SrseProductsFieldNumber = 140;
     private string srseProducts_ = "";
     /// <summary>
     /// comma separated list of the SRSE Products this message is associated with
@@ -283,6 +305,36 @@ namespace Spiderrock.Protobuf {
       get { return desc_; }
       set {
         desc_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "topic" field.</summary>
+    public const int TopicFieldNumber = 146;
+    private string topic_ = "";
+    /// <summary>
+    /// message topic
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Topic {
+      get { return topic_; }
+      set {
+        topic_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "auto_assigned_pkey" field.</summary>
+    public const int AutoAssignedPkeyFieldNumber = 147;
+    private global::Spiderrock.Protobuf.YesNo autoAssignedPkey_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// indication that MLink adds its own pkey and the user does not need to specify one.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo AutoAssignedPkey {
+      get { return autoAssignedPkey_; }
+      set {
+        autoAssignedPkey_ = value;
       }
     }
 
@@ -332,9 +384,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "grid_field_options" field.</summary>
-    public const int GridFieldOptionsFieldNumber = 140;
+    public const int GridFieldOptionsFieldNumber = 141;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions> _repeated_gridFieldOptions_codec
-        = pb::FieldCodec.ForMessage(1122, global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions.Parser);
+        = pb::FieldCodec.ForMessage(1130, global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions> gridFieldOptions_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.MsgDesc.Types.GridFieldOptions>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -367,8 +419,11 @@ namespace Spiderrock.Protobuf {
       if (HasOKey != other.HasOKey) return false;
       if (HasCF != other.HasCF) return false;
       if (MToken != other.MToken) return false;
+      if (DataProducts != other.DataProducts) return false;
       if (SrseProducts != other.SrseProducts) return false;
       if (Desc != other.Desc) return false;
+      if (Topic != other.Topic) return false;
+      if (AutoAssignedPkey != other.AutoAssignedPkey) return false;
       if (PriTimeField != other.PriTimeField) return false;
       if (SecTimeField != other.SecTimeField) return false;
       if (StaticFilterFields != other.StaticFilterFields) return false;
@@ -384,14 +439,17 @@ namespace Spiderrock.Protobuf {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (MNum != 0) hash ^= MNum.GetHashCode();
       if (SchemaHash.Length != 0) hash ^= SchemaHash.GetHashCode();
-      if (Actions.Length != 0) hash ^= Actions.GetHashCode();
+      if (Actions != global::Spiderrock.Protobuf.MLinkActions.Unspecified) hash ^= Actions.GetHashCode();
       if (HasTKey != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasTKey.GetHashCode();
       if (HasEKey != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasEKey.GetHashCode();
       if (HasOKey != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasOKey.GetHashCode();
       if (HasCF != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasCF.GetHashCode();
       if (MToken != global::Spiderrock.Protobuf.MLinkToken.Unspecified) hash ^= MToken.GetHashCode();
+      if (DataProducts != global::Spiderrock.Protobuf.DataProduct.Unspecified) hash ^= DataProducts.GetHashCode();
       if (SrseProducts.Length != 0) hash ^= SrseProducts.GetHashCode();
       if (Desc.Length != 0) hash ^= Desc.GetHashCode();
+      if (Topic.Length != 0) hash ^= Topic.GetHashCode();
+      if (AutoAssignedPkey != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= AutoAssignedPkey.GetHashCode();
       if (PriTimeField.Length != 0) hash ^= PriTimeField.GetHashCode();
       if (SecTimeField.Length != 0) hash ^= SecTimeField.GetHashCode();
       if (StaticFilterFields.Length != 0) hash ^= StaticFilterFields.GetHashCode();
@@ -430,10 +488,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 6);
         output.WriteString(SchemaHash);
       }
-      if (Actions.Length != 0) {
-        output.WriteRawTag(234, 6);
-        output.WriteString(Actions);
-      }
       if (HasTKey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(128, 7);
         output.WriteEnum((int) HasTKey);
@@ -454,10 +508,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 7);
         output.WriteEnum((int) MToken);
       }
-      if (SrseProducts.Length != 0) {
-        output.WriteRawTag(234, 7);
-        output.WriteString(SrseProducts);
-      }
       if (Desc.Length != 0) {
         output.WriteRawTag(250, 7);
         output.WriteString(Desc);
@@ -474,7 +524,27 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(218, 8);
         output.WriteString(StaticFilterFields);
       }
+      if (SrseProducts.Length != 0) {
+        output.WriteRawTag(226, 8);
+        output.WriteString(SrseProducts);
+      }
       gridFieldOptions_.WriteTo(output, _repeated_gridFieldOptions_codec);
+      if (Actions != global::Spiderrock.Protobuf.MLinkActions.Unspecified) {
+        output.WriteRawTag(128, 9);
+        output.WriteEnum((int) Actions);
+      }
+      if (DataProducts != global::Spiderrock.Protobuf.DataProduct.Unspecified) {
+        output.WriteRawTag(136, 9);
+        output.WriteEnum((int) DataProducts);
+      }
+      if (Topic.Length != 0) {
+        output.WriteRawTag(146, 9);
+        output.WriteString(Topic);
+      }
+      if (AutoAssignedPkey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(152, 9);
+        output.WriteEnum((int) AutoAssignedPkey);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -501,10 +571,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 6);
         output.WriteString(SchemaHash);
       }
-      if (Actions.Length != 0) {
-        output.WriteRawTag(234, 6);
-        output.WriteString(Actions);
-      }
       if (HasTKey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(128, 7);
         output.WriteEnum((int) HasTKey);
@@ -525,10 +591,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 7);
         output.WriteEnum((int) MToken);
       }
-      if (SrseProducts.Length != 0) {
-        output.WriteRawTag(234, 7);
-        output.WriteString(SrseProducts);
-      }
       if (Desc.Length != 0) {
         output.WriteRawTag(250, 7);
         output.WriteString(Desc);
@@ -545,7 +607,27 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(218, 8);
         output.WriteString(StaticFilterFields);
       }
+      if (SrseProducts.Length != 0) {
+        output.WriteRawTag(226, 8);
+        output.WriteString(SrseProducts);
+      }
       gridFieldOptions_.WriteTo(ref output, _repeated_gridFieldOptions_codec);
+      if (Actions != global::Spiderrock.Protobuf.MLinkActions.Unspecified) {
+        output.WriteRawTag(128, 9);
+        output.WriteEnum((int) Actions);
+      }
+      if (DataProducts != global::Spiderrock.Protobuf.DataProduct.Unspecified) {
+        output.WriteRawTag(136, 9);
+        output.WriteEnum((int) DataProducts);
+      }
+      if (Topic.Length != 0) {
+        output.WriteRawTag(146, 9);
+        output.WriteString(Topic);
+      }
+      if (AutoAssignedPkey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(152, 9);
+        output.WriteEnum((int) AutoAssignedPkey);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -568,8 +650,8 @@ namespace Spiderrock.Protobuf {
       if (SchemaHash.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(SchemaHash);
       }
-      if (Actions.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Actions);
+      if (Actions != global::Spiderrock.Protobuf.MLinkActions.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Actions);
       }
       if (HasTKey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HasTKey);
@@ -586,11 +668,20 @@ namespace Spiderrock.Protobuf {
       if (MToken != global::Spiderrock.Protobuf.MLinkToken.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) MToken);
       }
+      if (DataProducts != global::Spiderrock.Protobuf.DataProduct.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) DataProducts);
+      }
       if (SrseProducts.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(SrseProducts);
       }
       if (Desc.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Desc);
+      }
+      if (Topic.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Topic);
+      }
+      if (AutoAssignedPkey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AutoAssignedPkey);
       }
       if (PriTimeField.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(PriTimeField);
@@ -629,7 +720,7 @@ namespace Spiderrock.Protobuf {
       if (other.SchemaHash.Length != 0) {
         SchemaHash = other.SchemaHash;
       }
-      if (other.Actions.Length != 0) {
+      if (other.Actions != global::Spiderrock.Protobuf.MLinkActions.Unspecified) {
         Actions = other.Actions;
       }
       if (other.HasTKey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -647,11 +738,20 @@ namespace Spiderrock.Protobuf {
       if (other.MToken != global::Spiderrock.Protobuf.MLinkToken.Unspecified) {
         MToken = other.MToken;
       }
+      if (other.DataProducts != global::Spiderrock.Protobuf.DataProduct.Unspecified) {
+        DataProducts = other.DataProducts;
+      }
       if (other.SrseProducts.Length != 0) {
         SrseProducts = other.SrseProducts;
       }
       if (other.Desc.Length != 0) {
         Desc = other.Desc;
+      }
+      if (other.Topic.Length != 0) {
+        Topic = other.Topic;
+      }
+      if (other.AutoAssignedPkey != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        AutoAssignedPkey = other.AutoAssignedPkey;
       }
       if (other.PriTimeField.Length != 0) {
         PriTimeField = other.PriTimeField;
@@ -697,10 +797,6 @@ namespace Spiderrock.Protobuf {
             SchemaHash = input.ReadString();
             break;
           }
-          case 874: {
-            Actions = input.ReadString();
-            break;
-          }
           case 896: {
             HasTKey = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
@@ -721,10 +817,6 @@ namespace Spiderrock.Protobuf {
             MToken = (global::Spiderrock.Protobuf.MLinkToken) input.ReadEnum();
             break;
           }
-          case 1002: {
-            SrseProducts = input.ReadString();
-            break;
-          }
           case 1018: {
             Desc = input.ReadString();
             break;
@@ -742,7 +834,27 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1122: {
+            SrseProducts = input.ReadString();
+            break;
+          }
+          case 1130: {
             gridFieldOptions_.AddEntriesFrom(input, _repeated_gridFieldOptions_codec);
+            break;
+          }
+          case 1152: {
+            Actions = (global::Spiderrock.Protobuf.MLinkActions) input.ReadEnum();
+            break;
+          }
+          case 1160: {
+            DataProducts = (global::Spiderrock.Protobuf.DataProduct) input.ReadEnum();
+            break;
+          }
+          case 1170: {
+            Topic = input.ReadString();
+            break;
+          }
+          case 1176: {
+            AutoAssignedPkey = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }
@@ -779,10 +891,6 @@ namespace Spiderrock.Protobuf {
             SchemaHash = input.ReadString();
             break;
           }
-          case 874: {
-            Actions = input.ReadString();
-            break;
-          }
           case 896: {
             HasTKey = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
@@ -803,10 +911,6 @@ namespace Spiderrock.Protobuf {
             MToken = (global::Spiderrock.Protobuf.MLinkToken) input.ReadEnum();
             break;
           }
-          case 1002: {
-            SrseProducts = input.ReadString();
-            break;
-          }
           case 1018: {
             Desc = input.ReadString();
             break;
@@ -824,7 +928,27 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1122: {
+            SrseProducts = input.ReadString();
+            break;
+          }
+          case 1130: {
             gridFieldOptions_.AddEntriesFrom(ref input, _repeated_gridFieldOptions_codec);
+            break;
+          }
+          case 1152: {
+            Actions = (global::Spiderrock.Protobuf.MLinkActions) input.ReadEnum();
+            break;
+          }
+          case 1160: {
+            DataProducts = (global::Spiderrock.Protobuf.DataProduct) input.ReadEnum();
+            break;
+          }
+          case 1170: {
+            Topic = input.ReadString();
+            break;
+          }
+          case 1176: {
+            AutoAssignedPkey = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }
@@ -883,7 +1007,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "name" field.</summary>
-        public const int NameFieldNumber = 141;
+        public const int NameFieldNumber = 142;
         private string name_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -895,7 +1019,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "fields" field.</summary>
-        public const int FieldsFieldNumber = 142;
+        public const int FieldsFieldNumber = 143;
         private string fields_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -951,11 +1075,11 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (Name.Length != 0) {
-            output.WriteRawTag(234, 8);
+            output.WriteRawTag(242, 8);
             output.WriteString(Name);
           }
           if (Fields.Length != 0) {
-            output.WriteRawTag(242, 8);
+            output.WriteRawTag(250, 8);
             output.WriteString(Fields);
           }
           if (_unknownFields != null) {
@@ -969,11 +1093,11 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (Name.Length != 0) {
-            output.WriteRawTag(234, 8);
+            output.WriteRawTag(242, 8);
             output.WriteString(Name);
           }
           if (Fields.Length != 0) {
-            output.WriteRawTag(242, 8);
+            output.WriteRawTag(250, 8);
             output.WriteString(Fields);
           }
           if (_unknownFields != null) {
@@ -1025,11 +1149,11 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 1130: {
+              case 1138: {
                 Name = input.ReadString();
                 break;
               }
-              case 1138: {
+              case 1146: {
                 Fields = input.ReadString();
                 break;
               }
@@ -1048,11 +1172,11 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 1130: {
+              case 1138: {
                 Name = input.ReadString();
                 break;
               }
-              case 1138: {
+              case 1146: {
                 Fields = input.ReadString();
                 break;
               }

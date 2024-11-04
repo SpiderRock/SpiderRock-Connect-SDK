@@ -7,7 +7,7 @@ package spiderrock.protobuf;
 
 
 /*
-    RegionalOptionComposite (internal only) records exist per composite option (aka per ISIN). Eg for BMW optioins there would be BMW-ESX-EQT composite for all standard options and then perhaps a BMW1-ESX-EQT for post corp action contracts with alternate multiplers etc
+    RegionalOptionComposite (internal only) records exist per composite option (aka per ISIN). Eg for BMW optioins there would be BMW-EUX-EQT composite for all standard options and then perhaps a BMW1-EUX-EQT for post corp action contracts with alternate multiplers etc
 */    
 message RegionalOptionComposite {
     message PKey {
@@ -25,9 +25,9 @@ message RegionalOptionComposite {
 
     message MultihedgeUnderlying {
         
-        float shares_per_contract = 140; // note: _root basket = sum(spc * ticker) / 100
-        string native_exch_symbol = 143; // note: raw exchange symbol for contributor to this basket (if basket option)
-        string activ_symbology = 146;
+        float shares_per_contract = 114; // note: _root basket = sum(spc * ticker) / 100
+        string native_exch_symbol = 115; // note: raw exchange symbol for contributor to this basket (if basket option)
+        string activ_symbology = 116;
     }
 
 
@@ -44,7 +44,7 @@ message RegionalOptionComposite {
     YesNo has_adjustment = 107; // has adjusment affected contracts?
     Multihedge multihedge_type = 108; // The type of underlying attribute that this composite represents
     repeated Contributors contributors = 109;
-    repeated MultihedgeUnderlying multihedge_underlying = 137;
+    repeated MultihedgeUnderlying multihedge_underlying = 113;
 }
 
 

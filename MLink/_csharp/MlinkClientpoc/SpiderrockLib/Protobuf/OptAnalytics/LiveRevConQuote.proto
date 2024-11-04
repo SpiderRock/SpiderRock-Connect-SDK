@@ -31,7 +31,7 @@ message LiveRevConQuote {
     float ddiv_pv = 109; // present value of estimated discrete dividend stream to expiry date
     DDivSource ddiv_source = 110; // present value of estimated discrete dividend stream to expiry date
     int32 i_days = 111; // number of interest (calendar) days to expiry
-    float ddiv_disc = 130; // dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry
+    float ddiv_disc = 129; // dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry
     float strike_pv = 112; // strike * EXP(-globalRate * iDays / 365)
     float fair_sVol = 113; // call/put surface volatility value
     float fair_sDiv = 114; // call/put surface alignment sdiv value
@@ -43,8 +43,8 @@ message LiveRevConQuote {
     float rc_eEx_prem = 120; // (fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
     float fair_loan_pv = 121; // fairCallPrc - fairPutPrc - uPrc + strike + strikePv + ddivPv  (total present value of letting out shares) (term to expiry) (per share)
     float fair_loan_rate = 122; // fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)
-    float rc_bid_prc = 123; // callBid - putAsk - uPrc + strike (best way) (join markets)
-    float rc_ask_prc = 124; // callAsk - putBid - uPrc + strike (worst way) (cross markets)
+    float rc_bid_prc = 130; // callBid - putAsk - uPrc + strike (best way) (join markets)
+    float rc_ask_prc = 131; // callAsk - putBid - uPrc + strike (worst way) (cross markets)
     string calc_error = 125;
     int32 cp_oI = 126; // c/p open interest (market) [upper bound]
     int32 cp_vlm = 127; // c/p print volume (this exchange) [upper bound]

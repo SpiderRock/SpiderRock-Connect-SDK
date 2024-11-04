@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CipQcm90b2J1Zi9GdXRNYXJrRGF0YS9GdXR1cmVDbG9zZU1hcmsucHJvdG8S",
             "E3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3Rv",
-            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIosGCg9GdXR1cmVD",
+            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIo0GCg9GdXR1cmVD",
             "bG9zZU1hcmsSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVm",
             "Lk1lc3NhZ2VNZXRhZGF0YRI3CgRwa2V5GAIgASgLMikuc3BpZGVycm9jay5w",
             "cm90b2J1Zi5GdXR1cmVDbG9zZU1hcmsuUEtleRIwCgp0cmFkZV9kYXRlGGQg",
@@ -35,16 +35,16 @@ namespace Spiderrock.Protobuf {
             "dGUSDwoHb3BuX3ByYxhqIAEoARIPCgdtaW5fcHJjGG0gASgBEg8KB21heF9w",
             "cmMYcCABKAESFQoNb3Blbl9pbnRlcmVzdBhzIAEoBRIRCglwcnRfY291bnQY",
             "diABKAUSEgoKcHJ0X3ZvbHVtZRh5IAEoBRIUCgxyZWFsaXplZF9jbnQYfCAB",
-            "KAUSFAoMcmVhbGl6ZWRfdm9sGH0gASgBEhQKDGF2Z19ta3Rfc2l6ZRh/IAEo",
-            "AhIWCg1hdmdfbWt0X3dpZHRoGIIBIAEoAhIQCgdiaWRfcHJjGIUBIAEoARIQ",
-            "Cgdhc2tfcHJjGIgBIAEoARITCgpzcl9jbHNfcHJjGIsBIAEoARISCgljbG9z",
-            "ZV9wcmMYjgEgASgBEjIKDWhhc19zUkNsc19wcmMYkQEgASgOMhouc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5ZZXNObxIyCg1oYXNfY2xvc2VfcHJjGJQBIAEoDjIa",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNwoSc3JfY2xvc2VfbWFya19k",
-            "dHRtGJcBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoJdGlt",
-            "ZXN0YW1wGJoBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaNAoE",
-            "UEtleRIsCgRma2V5GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5FeHBp",
-            "cnlLZXliBnByb3RvMw=="));
+            "KAUSFQoMcmVhbGl6ZWRfdm9sGJ4BIAEoARIVCgxhdmdfbWt0X3NpemUYggEg",
+            "ASgCEhYKDWF2Z19ta3Rfd2lkdGgYhQEgASgCEhAKB2JpZF9wcmMYiAEgASgB",
+            "EhAKB2Fza19wcmMYiwEgASgBEhMKCnNyX2Nsc19wcmMYjgEgASgBEhIKCWNs",
+            "b3NlX3ByYxiRASABKAESMgoNaGFzX3NSQ2xzX3ByYxiUASABKA4yGi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlllc05vEjIKDWhhc19jbG9zZV9wcmMYlwEgASgO",
+            "Mhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI3ChJzcl9jbG9zZV9tYXJr",
+            "X2R0dG0YmgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgl0",
+            "aW1lc3RhbXAYnQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo0",
+            "CgRQS2V5EiwKBGZrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4",
+            "cGlyeUtleWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -282,7 +282,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "realized_vol" field.</summary>
-    public const int RealizedVolFieldNumber = 125;
+    public const int RealizedVolFieldNumber = 158;
     private double realizedVol_;
     /// <summary>
     /// realizedVar = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
@@ -297,7 +297,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "avg_mkt_size" field.</summary>
-    public const int AvgMktSizeFieldNumber = 127;
+    public const int AvgMktSizeFieldNumber = 130;
     private float avgMktSize_;
     /// <summary>
     /// Average market size
@@ -312,7 +312,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "avg_mkt_width" field.</summary>
-    public const int AvgMktWidthFieldNumber = 130;
+    public const int AvgMktWidthFieldNumber = 133;
     private float avgMktWidth_;
     /// <summary>
     /// Average market width
@@ -327,7 +327,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "bid_prc" field.</summary>
-    public const int BidPrcFieldNumber = 133;
+    public const int BidPrcFieldNumber = 136;
     private double bidPrc_;
     /// <summary>
     /// bid price (close - 5 min)
@@ -342,7 +342,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ask_prc" field.</summary>
-    public const int AskPrcFieldNumber = 136;
+    public const int AskPrcFieldNumber = 139;
     private double askPrc_;
     /// <summary>
     /// ask price (close - 5 min)
@@ -357,7 +357,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sr_cls_prc" field.</summary>
-    public const int SrClsPrcFieldNumber = 139;
+    public const int SrClsPrcFieldNumber = 142;
     private double srClsPrc_;
     /// <summary>
     /// SR close mark (close - 5 min)
@@ -372,7 +372,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "close_prc" field.</summary>
-    public const int ClosePrcFieldNumber = 142;
+    public const int ClosePrcFieldNumber = 145;
     private double closePrc_;
     /// <summary>
     /// official exchange closing mark (or last print)
@@ -387,7 +387,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "has_sRCls_prc" field.</summary>
-    public const int HasSRClsPrcFieldNumber = 145;
+    public const int HasSRClsPrcFieldNumber = 148;
     private global::Spiderrock.Protobuf.YesNo hasSRClsPrc_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// srClsPrc is valid
@@ -402,7 +402,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "has_close_prc" field.</summary>
-    public const int HasClosePrcFieldNumber = 148;
+    public const int HasClosePrcFieldNumber = 151;
     private global::Spiderrock.Protobuf.YesNo hasClosePrc_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// closePrc is valid; otherwise is last print
@@ -417,7 +417,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sr_close_mark_dttm" field.</summary>
-    public const int SrCloseMarkDttmFieldNumber = 151;
+    public const int SrCloseMarkDttmFieldNumber = 154;
     private global::Google.Protobuf.WellKnownTypes.Timestamp srCloseMarkDttm_;
     /// <summary>
     /// (close - 5 min) date/time
@@ -432,7 +432,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 154;
+    public const int TimestampFieldNumber = 157;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     /// <summary>
     /// record publish/update timestamp
@@ -574,49 +574,49 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 7);
         output.WriteInt32(RealizedCnt);
       }
-      if (RealizedVol != 0D) {
-        output.WriteRawTag(233, 7);
-        output.WriteDouble(RealizedVol);
-      }
       if (AvgMktSize != 0F) {
-        output.WriteRawTag(253, 7);
+        output.WriteRawTag(149, 8);
         output.WriteFloat(AvgMktSize);
       }
       if (AvgMktWidth != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(173, 8);
         output.WriteFloat(AvgMktWidth);
       }
       if (BidPrc != 0D) {
-        output.WriteRawTag(169, 8);
+        output.WriteRawTag(193, 8);
         output.WriteDouble(BidPrc);
       }
       if (AskPrc != 0D) {
-        output.WriteRawTag(193, 8);
+        output.WriteRawTag(217, 8);
         output.WriteDouble(AskPrc);
       }
       if (SrClsPrc != 0D) {
-        output.WriteRawTag(217, 8);
+        output.WriteRawTag(241, 8);
         output.WriteDouble(SrClsPrc);
       }
       if (ClosePrc != 0D) {
-        output.WriteRawTag(241, 8);
+        output.WriteRawTag(137, 9);
         output.WriteDouble(ClosePrc);
       }
       if (HasSRClsPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(160, 9);
         output.WriteEnum((int) HasSRClsPrc);
       }
       if (HasClosePrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(160, 9);
+        output.WriteRawTag(184, 9);
         output.WriteEnum((int) HasClosePrc);
       }
       if (srCloseMarkDttm_ != null) {
-        output.WriteRawTag(186, 9);
+        output.WriteRawTag(210, 9);
         output.WriteMessage(SrCloseMarkDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(210, 9);
+        output.WriteRawTag(234, 9);
         output.WriteMessage(Timestamp);
+      }
+      if (RealizedVol != 0D) {
+        output.WriteRawTag(241, 9);
+        output.WriteDouble(RealizedVol);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -672,49 +672,49 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 7);
         output.WriteInt32(RealizedCnt);
       }
-      if (RealizedVol != 0D) {
-        output.WriteRawTag(233, 7);
-        output.WriteDouble(RealizedVol);
-      }
       if (AvgMktSize != 0F) {
-        output.WriteRawTag(253, 7);
+        output.WriteRawTag(149, 8);
         output.WriteFloat(AvgMktSize);
       }
       if (AvgMktWidth != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(173, 8);
         output.WriteFloat(AvgMktWidth);
       }
       if (BidPrc != 0D) {
-        output.WriteRawTag(169, 8);
+        output.WriteRawTag(193, 8);
         output.WriteDouble(BidPrc);
       }
       if (AskPrc != 0D) {
-        output.WriteRawTag(193, 8);
+        output.WriteRawTag(217, 8);
         output.WriteDouble(AskPrc);
       }
       if (SrClsPrc != 0D) {
-        output.WriteRawTag(217, 8);
+        output.WriteRawTag(241, 8);
         output.WriteDouble(SrClsPrc);
       }
       if (ClosePrc != 0D) {
-        output.WriteRawTag(241, 8);
+        output.WriteRawTag(137, 9);
         output.WriteDouble(ClosePrc);
       }
       if (HasSRClsPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(136, 9);
+        output.WriteRawTag(160, 9);
         output.WriteEnum((int) HasSRClsPrc);
       }
       if (HasClosePrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(160, 9);
+        output.WriteRawTag(184, 9);
         output.WriteEnum((int) HasClosePrc);
       }
       if (srCloseMarkDttm_ != null) {
-        output.WriteRawTag(186, 9);
+        output.WriteRawTag(210, 9);
         output.WriteMessage(SrCloseMarkDttm);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(210, 9);
+        output.WriteRawTag(234, 9);
         output.WriteMessage(Timestamp);
+      }
+      if (RealizedVol != 0D) {
+        output.WriteRawTag(241, 9);
+        output.WriteDouble(RealizedVol);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -953,54 +953,54 @@ namespace Spiderrock.Protobuf {
             RealizedCnt = input.ReadInt32();
             break;
           }
-          case 1001: {
-            RealizedVol = input.ReadDouble();
-            break;
-          }
-          case 1021: {
+          case 1045: {
             AvgMktSize = input.ReadFloat();
             break;
           }
-          case 1045: {
+          case 1069: {
             AvgMktWidth = input.ReadFloat();
             break;
           }
-          case 1065: {
+          case 1089: {
             BidPrc = input.ReadDouble();
             break;
           }
-          case 1089: {
+          case 1113: {
             AskPrc = input.ReadDouble();
             break;
           }
-          case 1113: {
+          case 1137: {
             SrClsPrc = input.ReadDouble();
             break;
           }
-          case 1137: {
+          case 1161: {
             ClosePrc = input.ReadDouble();
             break;
           }
-          case 1160: {
+          case 1184: {
             HasSRClsPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1184: {
+          case 1208: {
             HasClosePrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1210: {
+          case 1234: {
             if (srCloseMarkDttm_ == null) {
               SrCloseMarkDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(SrCloseMarkDttm);
             break;
           }
-          case 1234: {
+          case 1258: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1265: {
+            RealizedVol = input.ReadDouble();
             break;
           }
         }
@@ -1071,54 +1071,54 @@ namespace Spiderrock.Protobuf {
             RealizedCnt = input.ReadInt32();
             break;
           }
-          case 1001: {
-            RealizedVol = input.ReadDouble();
-            break;
-          }
-          case 1021: {
+          case 1045: {
             AvgMktSize = input.ReadFloat();
             break;
           }
-          case 1045: {
+          case 1069: {
             AvgMktWidth = input.ReadFloat();
             break;
           }
-          case 1065: {
+          case 1089: {
             BidPrc = input.ReadDouble();
             break;
           }
-          case 1089: {
+          case 1113: {
             AskPrc = input.ReadDouble();
             break;
           }
-          case 1113: {
+          case 1137: {
             SrClsPrc = input.ReadDouble();
             break;
           }
-          case 1137: {
+          case 1161: {
             ClosePrc = input.ReadDouble();
             break;
           }
-          case 1160: {
+          case 1184: {
             HasSRClsPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1184: {
+          case 1208: {
             HasClosePrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1210: {
+          case 1234: {
             if (srCloseMarkDttm_ == null) {
               SrCloseMarkDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(SrCloseMarkDttm);
             break;
           }
-          case 1234: {
+          case 1258: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1265: {
+            RealizedVol = input.ReadDouble();
             break;
           }
         }

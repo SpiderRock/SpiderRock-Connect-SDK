@@ -20,7 +20,7 @@ message CurrencyConversion {
     
     PKey pkey = 2;
     double convert_rate = 100;
-    google.protobuf.Timestamp timestamp = 103;
+    google.protobuf.Timestamp timestamp = 101;
 }
 
 

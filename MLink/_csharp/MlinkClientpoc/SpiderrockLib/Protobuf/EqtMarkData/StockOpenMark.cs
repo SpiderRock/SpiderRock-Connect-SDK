@@ -31,7 +31,7 @@ namespace Spiderrock.Protobuf {
             "c2FnZU1ldGFkYXRhEjUKBHBrZXkYAiABKAsyJy5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLlN0b2NrT3Blbk1hcmsuUEtleRIwCgp0cmFkZV9kYXRlGGQgASgLMhwu",
             "c3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjkKDm9wbl9tYXJrX3N0YXRl",
-            "GGUgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5PcG5NYXJrU3RhdGUSEgoK",
+            "GHcgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5PcG5NYXJrU3RhdGUSEgoK",
             "c3JfY2xzX3ByYxhnIAEoAhIRCgljbG9zZV9wcmMYaiABKAISEwoLY29ycF9h",
             "Y3Rpb24YcyABKAkSLQoJdGltZXN0YW1wGHYgASgLMhouZ29vZ2xlLnByb3Rv",
             "YnVmLlRpbWVzdGFtcBo2CgRQS2V5Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRl",
@@ -138,7 +138,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_mark_state" field.</summary>
-    public const int OpnMarkStateFieldNumber = 101;
+    public const int OpnMarkStateFieldNumber = 119;
     private global::Spiderrock.Protobuf.OpnMarkState opnMarkState_ = global::Spiderrock.Protobuf.OpnMarkState.Unspecified;
     /// <summary>
     /// Preview or Final (note: preview is not corp action adjusted)
@@ -274,10 +274,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(TradeDate);
       }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) OpnMarkState);
-      }
       if (SrClsPrc != 0F) {
         output.WriteRawTag(189, 6);
         output.WriteFloat(SrClsPrc);
@@ -293,6 +289,10 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(178, 7);
         output.WriteMessage(Timestamp);
+      }
+      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
+        output.WriteRawTag(184, 7);
+        output.WriteEnum((int) OpnMarkState);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -316,10 +316,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(TradeDate);
       }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) OpnMarkState);
-      }
       if (SrClsPrc != 0F) {
         output.WriteRawTag(189, 6);
         output.WriteFloat(SrClsPrc);
@@ -335,6 +331,10 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(178, 7);
         output.WriteMessage(Timestamp);
+      }
+      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
+        output.WriteRawTag(184, 7);
+        output.WriteEnum((int) OpnMarkState);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -454,10 +454,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(TradeDate);
             break;
           }
-          case 808: {
-            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
-            break;
-          }
           case 829: {
             SrClsPrc = input.ReadFloat();
             break;
@@ -475,6 +471,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 952: {
+            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
             break;
           }
         }
@@ -513,10 +513,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(TradeDate);
             break;
           }
-          case 808: {
-            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
-            break;
-          }
           case 829: {
             SrClsPrc = input.ReadFloat();
             break;
@@ -534,6 +530,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 952: {
+            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
             break;
           }
         }

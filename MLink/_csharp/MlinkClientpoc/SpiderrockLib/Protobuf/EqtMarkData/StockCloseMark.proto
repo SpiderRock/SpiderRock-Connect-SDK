@@ -26,11 +26,11 @@ message StockCloseMark {
     float opn_prc = 106; // Open price (start of regular hours)
     float min_prc = 109; // Low price (during regular hours)
     float max_prc = 112; // High price (during regular hours)
-    int64 shares_outstanding = 115; // Shares outstanding
+    int64 shares_outstanding = 155; // Shares outstanding
     int32 prt_count = 118; // Print count (entire trading period)
-    int64 prt_volume = 121; // Print volume (entire trading period)
-    int32 realized_cnt = 124; // number of minute bar segments used in realizedVar calc
-    float realized_vol = 125; // realizedVol = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
+    int32 prt_volume = 158; // Print volume (entire trading period)
+    int32 realized_cnt = 157; // number of minute bar segments used in realizedVar calc
+    float realized_vol = 124; // realizedVol = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
     float avg_mkt_size = 127; // Average market size
     float avg_mkt_width = 130; // Average market width
     float bid_prc = 133; // bid price (close - 5 min)

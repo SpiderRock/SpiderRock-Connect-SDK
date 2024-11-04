@@ -26,36 +26,39 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CipQcm90b2J1Zi9PcHRNYXJrRGF0YS9PcHRpb25DbG9zZU1hcmsucHJvdG8S",
             "E3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3Rv",
-            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIuUICg9PcHRpb25D",
+            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIscJCg9PcHRpb25D",
             "bG9zZU1hcmsSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVm",
             "Lk1lc3NhZ2VNZXRhZGF0YRI3CgRwa2V5GAIgASgLMikuc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5PcHRpb25DbG9zZU1hcmsuUEtleRIwCgp0cmFkZV9kYXRlGGQg",
-            "ASgLMhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjkKDmNsc19tYXJr",
-            "X3N0YXRlGGcgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5DbHNNYXJrU3Rh",
-            "dGUSDQoFdV9iaWQYaiABKAESDQoFdV9hc2sYbSABKAESEAoIdV9zcl9jbHMY",
-            "cCABKAESDwoHdV9jbG9zZRhzIAEoARIPCgdiaWRfcHJjGHYgASgCEg8KB2Fz",
-            "a19wcmMYeSABKAISEgoKc3JfY2xzX3ByYxh8IAEoARIRCgljbG9zZV9wcmMY",
-            "fyABKAESMgoNaGFzX3NSQ2xzX3ByYxiCASABKA4yGi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlllc05vEjIKDWhhc19jbG9zZV9wcmMYhQEgASgOMhouc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5ZZXNObxIxCgxoYXNfdUNsc19wcmMYhgEgASgOMhou",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIPCgZiaWRfaVYYiAEgASgCEg8K",
-            "BmFza19pVhiLASABKAISDwoGc3JfcHJjGI4BIAEoAhIPCgZzcl92b2wYkQEg",
-            "ASgCEjAKBnNyX3NyYxiUASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLk1h",
-            "cmtTb3VyY2USCwoCZGUYlwEgASgCEgsKAmdhGJoBIAEoAhILCgJ0aBidASAB",
-            "KAISCwoCdmUYoAEgASgCEgsKAnZvGKMBIAEoAhILCgJ2YRimASABKAISCwoC",
-            "cmgYqQEgASgCEgsKAnBoGKwBIAEoAhIRCghzcl9zbG9wZRivASABKAISEQoI",
-            "ZGVfZGVjYXkYsgEgASgCEg0KBHNkaXYYtQEgASgCEg0KBGRkaXYYuAEgASgC",
-            "EhAKB2RkaXZfcHYYuQEgASgCEg0KBHJhdGUYuwEgASgCEg8KBmlfZGF5cxi0",
-            "ASABKAUSDgoFeWVhcnMYvgEgASgCEg4KBWVycm9yGMEBIAEoBRIWCg1vcGVu",
-            "X2ludGVyZXN0GMQBIAEoBRISCglwcnRfY291bnQYxwEgASgFEhMKCnBydF92",
-            "b2x1bWUYygEgASgFEjcKEnNyX2Nsb3NlX21hcmtfZHR0bRjNASABKAsyGi5n",
-            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCXRpbWVzdGFtcBjQASABKAsy",
-            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGjQKBFBLZXkSLAoEb2tleRgK",
-            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5YgZwcm90bzM="));
+            "cm90b2J1Zi5PcHRpb25DbG9zZU1hcmsuUEtleRIvCgZ0aWNrZXIY1AEgASgL",
+            "Mh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSMAoKdHJhZGVfZGF0",
+            "ZRhkIAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0ZUtleRI5Cg5jbHNf",
+            "bWFya19zdGF0ZRhnIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuQ2xzTWFy",
+            "a1N0YXRlEg0KBXVfYmlkGGogASgBEg0KBXVfYXNrGG0gASgBEhAKCHVfc3Jf",
+            "Y2xzGHAgASgBEg8KB3VfY2xvc2UYcyABKAESDwoHYmlkX3ByYxh2IAEoAhIP",
+            "Cgdhc2tfcHJjGHkgASgCEhIKCnNyX2Nsc19wcmMYfCABKAESEQoJY2xvc2Vf",
+            "cHJjGH8gASgBEjIKDWhhc19zUkNsc19wcmMYggEgASgOMhouc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5ZZXNObxIyCg1oYXNfY2xvc2VfcHJjGIUBIAEoDjIaLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuWWVzTm8SMQoMaGFzX3VDbHNfcHJjGNEBIAEo",
+            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SDwoGYmlkX2lWGIgBIAEo",
+            "AhIPCgZhc2tfaVYYiwEgASgCEg8KBnNyX3ByYxiOASABKAISDwoGc3Jfdm9s",
+            "GJEBIAEoAhIwCgZzcl9zcmMYlAEgASgOMh8uc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5NYXJrU291cmNlEgsKAmRlGJcBIAEoAhILCgJnYRiaASABKAISCwoCdGgY",
+            "nQEgASgCEgsKAnZlGKABIAEoAhILCgJ2bxijASABKAISCwoCdmEYpgEgASgC",
+            "EgsKAnJoGKkBIAEoAhILCgJwaBisASABKAISEQoIc3Jfc2xvcGUYrwEgASgC",
+            "EhEKCGRlX2RlY2F5GLIBIAEoAhINCgRzZGl2GLUBIAEoAhINCgRkZGl2GLgB",
+            "IAEoAhIQCgdkZGl2X3B2GNIBIAEoAhINCgRyYXRlGLsBIAEoAhIPCgZpX2Rh",
+            "eXMY0wEgASgFEg4KBXllYXJzGL4BIAEoAhIOCgVlcnJvchjBASABKAUSFgoN",
+            "b3Blbl9pbnRlcmVzdBjEASABKAUSEgoJcHJ0X2NvdW50GMcBIAEoBRITCgpw",
+            "cnRfdm9sdW1lGMoBIAEoBRI3ChJzcl9jbG9zZV9tYXJrX2R0dG0YzQEgASgL",
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIvCgpjb25maWdfbm93GNUB",
+            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoJdGltZXN0YW1w",
+            "GNABIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaNAoEUEtleRIs",
+            "CgRva2V5GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXli",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionCloseMark), global::Spiderrock.Protobuf.OptionCloseMark.Parser, new[]{ "Meta", "Pkey", "TradeDate", "ClsMarkState", "UBid", "UAsk", "USrCls", "UClose", "BidPrc", "AskPrc", "SrClsPrc", "ClosePrc", "HasSRClsPrc", "HasClosePrc", "HasUClsPrc", "BidIV", "AskIV", "SrPrc", "SrVol", "SrSrc", "De", "Ga", "Th", "Ve", "Vo", "Va", "Rh", "Ph", "SrSlope", "DeDecay", "Sdiv", "Ddiv", "DdivPv", "Rate", "IDays", "Years", "Error", "OpenInterest", "PrtCount", "PrtVolume", "SrCloseMarkDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionCloseMark.Types.PKey), global::Spiderrock.Protobuf.OptionCloseMark.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionCloseMark), global::Spiderrock.Protobuf.OptionCloseMark.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "ClsMarkState", "UBid", "UAsk", "USrCls", "UClose", "BidPrc", "AskPrc", "SrClsPrc", "ClosePrc", "HasSRClsPrc", "HasClosePrc", "HasUClsPrc", "BidIV", "AskIV", "SrPrc", "SrVol", "SrSrc", "De", "Ga", "Th", "Ve", "Vo", "Va", "Rh", "Ph", "SrSlope", "DeDecay", "Sdiv", "Ddiv", "DdivPv", "Rate", "IDays", "Years", "Error", "OpenInterest", "PrtCount", "PrtVolume", "SrCloseMarkDttm", "ConfigNow", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionCloseMark.Types.PKey), global::Spiderrock.Protobuf.OptionCloseMark.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -103,6 +106,7 @@ namespace Spiderrock.Protobuf {
     public OptionCloseMark(OptionCloseMark other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
+      ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
       tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
       clsMarkState_ = other.clsMarkState_;
       uBid_ = other.uBid_;
@@ -142,6 +146,7 @@ namespace Spiderrock.Protobuf {
       prtCount_ = other.prtCount_;
       prtVolume_ = other.prtVolume_;
       srCloseMarkDttm_ = other.srCloseMarkDttm_ != null ? other.srCloseMarkDttm_.Clone() : null;
+      configNow_ = other.configNow_ != null ? other.configNow_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -173,6 +178,21 @@ namespace Spiderrock.Protobuf {
       get { return pkey_; }
       set {
         pkey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ticker" field.</summary>
+    public const int TickerFieldNumber = 212;
+    private global::Spiderrock.Protobuf.TickerKey ticker_;
+    /// <summary>
+    /// SR Ticker that this option rolls up to
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TickerKey Ticker {
+      get { return ticker_; }
+      set {
+        ticker_ = value;
       }
     }
 
@@ -348,7 +368,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "has_uCls_prc" field.</summary>
-    public const int HasUClsPrcFieldNumber = 134;
+    public const int HasUClsPrcFieldNumber = 209;
     private global::Spiderrock.Protobuf.YesNo hasUClsPrc_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -615,7 +635,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ddiv_pv" field.</summary>
-    public const int DdivPvFieldNumber = 185;
+    public const int DdivPvFieldNumber = 210;
     private float ddivPv_;
     /// <summary>
     /// ddiv (present value) amount (sum of discrete dividend pv amounts)
@@ -645,7 +665,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "i_days" field.</summary>
-    public const int IDaysFieldNumber = 180;
+    public const int IDaysFieldNumber = 211;
     private int iDays_;
     /// <summary>
     /// interest days (today to expiry) (T+1)
@@ -738,7 +758,7 @@ namespace Spiderrock.Protobuf {
     public const int SrCloseMarkDttmFieldNumber = 205;
     private global::Google.Protobuf.WellKnownTypes.Timestamp srCloseMarkDttm_;
     /// <summary>
-    /// from MarketCloseQuote.srCloseMarkDttm
+    /// from MarketCloseQuote.srCloseMarkDttm (in trading period local timezone)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -746,6 +766,21 @@ namespace Spiderrock.Protobuf {
       get { return srCloseMarkDttm_; }
       set {
         srCloseMarkDttm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "config_now" field.</summary>
+    public const int ConfigNowFieldNumber = 213;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp configNow_;
+    /// <summary>
+    /// timestamp in the trading period local timezone
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp ConfigNow {
+      get { return configNow_; }
+      set {
+        configNow_ = value;
       }
     }
 
@@ -781,6 +816,7 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
+      if (!object.Equals(Ticker, other.Ticker)) return false;
       if (!object.Equals(TradeDate, other.TradeDate)) return false;
       if (ClsMarkState != other.ClsMarkState) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UBid, other.UBid)) return false;
@@ -820,6 +856,7 @@ namespace Spiderrock.Protobuf {
       if (PrtCount != other.PrtCount) return false;
       if (PrtVolume != other.PrtVolume) return false;
       if (!object.Equals(SrCloseMarkDttm, other.SrCloseMarkDttm)) return false;
+      if (!object.Equals(ConfigNow, other.ConfigNow)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -830,6 +867,7 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
+      if (ticker_ != null) hash ^= Ticker.GetHashCode();
       if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
       if (ClsMarkState != global::Spiderrock.Protobuf.ClsMarkState.Unspecified) hash ^= ClsMarkState.GetHashCode();
       if (UBid != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UBid);
@@ -869,6 +907,7 @@ namespace Spiderrock.Protobuf {
       if (PrtCount != 0) hash ^= PrtCount.GetHashCode();
       if (PrtVolume != 0) hash ^= PrtVolume.GetHashCode();
       if (srCloseMarkDttm_ != null) hash ^= SrCloseMarkDttm.GetHashCode();
+      if (configNow_ != null) hash ^= ConfigNow.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -944,10 +983,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(168, 8);
         output.WriteEnum((int) HasClosePrc);
       }
-      if (HasUClsPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(176, 8);
-        output.WriteEnum((int) HasUClsPrc);
-      }
       if (BidIV != 0F) {
         output.WriteRawTag(197, 8);
         output.WriteFloat(BidIV);
@@ -1008,10 +1043,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(149, 11);
         output.WriteFloat(DeDecay);
       }
-      if (IDays != 0) {
-        output.WriteRawTag(160, 11);
-        output.WriteInt32(IDays);
-      }
       if (Sdiv != 0F) {
         output.WriteRawTag(173, 11);
         output.WriteFloat(Sdiv);
@@ -1019,10 +1050,6 @@ namespace Spiderrock.Protobuf {
       if (Ddiv != 0F) {
         output.WriteRawTag(197, 11);
         output.WriteFloat(Ddiv);
-      }
-      if (DdivPv != 0F) {
-        output.WriteRawTag(205, 11);
-        output.WriteFloat(DdivPv);
       }
       if (Rate != 0F) {
         output.WriteRawTag(221, 11);
@@ -1055,6 +1082,26 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(130, 13);
         output.WriteMessage(Timestamp);
+      }
+      if (HasUClsPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(136, 13);
+        output.WriteEnum((int) HasUClsPrc);
+      }
+      if (DdivPv != 0F) {
+        output.WriteRawTag(149, 13);
+        output.WriteFloat(DdivPv);
+      }
+      if (IDays != 0) {
+        output.WriteRawTag(152, 13);
+        output.WriteInt32(IDays);
+      }
+      if (ticker_ != null) {
+        output.WriteRawTag(162, 13);
+        output.WriteMessage(Ticker);
+      }
+      if (configNow_ != null) {
+        output.WriteRawTag(170, 13);
+        output.WriteMessage(ConfigNow);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1122,10 +1169,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(168, 8);
         output.WriteEnum((int) HasClosePrc);
       }
-      if (HasUClsPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(176, 8);
-        output.WriteEnum((int) HasUClsPrc);
-      }
       if (BidIV != 0F) {
         output.WriteRawTag(197, 8);
         output.WriteFloat(BidIV);
@@ -1186,10 +1229,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(149, 11);
         output.WriteFloat(DeDecay);
       }
-      if (IDays != 0) {
-        output.WriteRawTag(160, 11);
-        output.WriteInt32(IDays);
-      }
       if (Sdiv != 0F) {
         output.WriteRawTag(173, 11);
         output.WriteFloat(Sdiv);
@@ -1197,10 +1236,6 @@ namespace Spiderrock.Protobuf {
       if (Ddiv != 0F) {
         output.WriteRawTag(197, 11);
         output.WriteFloat(Ddiv);
-      }
-      if (DdivPv != 0F) {
-        output.WriteRawTag(205, 11);
-        output.WriteFloat(DdivPv);
       }
       if (Rate != 0F) {
         output.WriteRawTag(221, 11);
@@ -1234,6 +1269,26 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(130, 13);
         output.WriteMessage(Timestamp);
       }
+      if (HasUClsPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(136, 13);
+        output.WriteEnum((int) HasUClsPrc);
+      }
+      if (DdivPv != 0F) {
+        output.WriteRawTag(149, 13);
+        output.WriteFloat(DdivPv);
+      }
+      if (IDays != 0) {
+        output.WriteRawTag(152, 13);
+        output.WriteInt32(IDays);
+      }
+      if (ticker_ != null) {
+        output.WriteRawTag(162, 13);
+        output.WriteMessage(Ticker);
+      }
+      if (configNow_ != null) {
+        output.WriteRawTag(170, 13);
+        output.WriteMessage(ConfigNow);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1249,6 +1304,9 @@ namespace Spiderrock.Protobuf {
       }
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
+      }
+      if (ticker_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
       }
       if (tradeDate_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(TradeDate);
@@ -1367,6 +1425,9 @@ namespace Spiderrock.Protobuf {
       if (srCloseMarkDttm_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SrCloseMarkDttm);
       }
+      if (configNow_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ConfigNow);
+      }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
       }
@@ -1393,6 +1454,12 @@ namespace Spiderrock.Protobuf {
           Pkey = new global::Spiderrock.Protobuf.OptionCloseMark.Types.PKey();
         }
         Pkey.MergeFrom(other.Pkey);
+      }
+      if (other.ticker_ != null) {
+        if (ticker_ == null) {
+          Ticker = new global::Spiderrock.Protobuf.TickerKey();
+        }
+        Ticker.MergeFrom(other.Ticker);
       }
       if (other.tradeDate_ != null) {
         if (tradeDate_ == null) {
@@ -1517,6 +1584,12 @@ namespace Spiderrock.Protobuf {
         }
         SrCloseMarkDttm.MergeFrom(other.SrCloseMarkDttm);
       }
+      if (other.configNow_ != null) {
+        if (configNow_ == null) {
+          ConfigNow = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        ConfigNow.MergeFrom(other.ConfigNow);
+      }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
           Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
@@ -1603,10 +1676,6 @@ namespace Spiderrock.Protobuf {
             HasClosePrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1072: {
-            HasUClsPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
           case 1093: {
             BidIV = input.ReadFloat();
             break;
@@ -1667,20 +1736,12 @@ namespace Spiderrock.Protobuf {
             DeDecay = input.ReadFloat();
             break;
           }
-          case 1440: {
-            IDays = input.ReadInt32();
-            break;
-          }
           case 1453: {
             Sdiv = input.ReadFloat();
             break;
           }
           case 1477: {
             Ddiv = input.ReadFloat();
-            break;
-          }
-          case 1485: {
-            DdivPv = input.ReadFloat();
             break;
           }
           case 1501: {
@@ -1719,6 +1780,32 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1672: {
+            HasUClsPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1685: {
+            DdivPv = input.ReadFloat();
+            break;
+          }
+          case 1688: {
+            IDays = input.ReadInt32();
+            break;
+          }
+          case 1698: {
+            if (ticker_ == null) {
+              Ticker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(Ticker);
+            break;
+          }
+          case 1706: {
+            if (configNow_ == null) {
+              ConfigNow = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(ConfigNow);
             break;
           }
         }
@@ -1801,10 +1888,6 @@ namespace Spiderrock.Protobuf {
             HasClosePrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 1072: {
-            HasUClsPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
           case 1093: {
             BidIV = input.ReadFloat();
             break;
@@ -1865,20 +1948,12 @@ namespace Spiderrock.Protobuf {
             DeDecay = input.ReadFloat();
             break;
           }
-          case 1440: {
-            IDays = input.ReadInt32();
-            break;
-          }
           case 1453: {
             Sdiv = input.ReadFloat();
             break;
           }
           case 1477: {
             Ddiv = input.ReadFloat();
-            break;
-          }
-          case 1485: {
-            DdivPv = input.ReadFloat();
             break;
           }
           case 1501: {
@@ -1917,6 +1992,32 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1672: {
+            HasUClsPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1685: {
+            DdivPv = input.ReadFloat();
+            break;
+          }
+          case 1688: {
+            IDays = input.ReadInt32();
+            break;
+          }
+          case 1698: {
+            if (ticker_ == null) {
+              Ticker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(Ticker);
+            break;
+          }
+          case 1706: {
+            if (configNow_ == null) {
+              ConfigNow = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(ConfigNow);
             break;
           }
         }

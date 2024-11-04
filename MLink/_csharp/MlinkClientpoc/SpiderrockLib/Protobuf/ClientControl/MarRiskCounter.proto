@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Values in this table represent current (live) SpiderRock MAR risk counters for a risk group/risk firm combination.
+    A risk group is typically a group of client accounts that have a common beneficial owner.  A risk firm is a firm with control of the corresponding risk settings for the risk group.
+*/    
+message MarRiskCounter {
+    message PKey {
+        
+        TickerKey ticker = 10; // '*-ANY-ANY' represents the entire control group
+        string risk_group = 11;
+        string risk_firm = 12; // client firm that can view/edit this record
+        YesNo is_test_accnt = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 101; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 102; // EE engine name
+    float live_margin_acc = 103; // live net (per symbol) total portfolio (start-of-day positions + day trades) margin (can include external sources)
+    float live_margin_day = 104; // live net (per symbol) day portfolio (day trades only) margin (can include external sources)
+    float live_open_exposure = 105; // live abs open child order $Delta (no netting) (open child orders only)
+    int32 day_fut_cn_bot = 116; // day future contracts bot
+    int32 day_fut_cn_sld = 117; // day future contracts sld
+    int32 acc_fut_cn_net = 118; // accnt future contracts (net) [can be +/-] (start-of-day positions + day trades)
+    float day_margin_uDn_vDn = 106; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 107; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 108; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 109; // day margin (UPrcUp/VolUp)
+    float acc_margin_uDn_vDn = 110; // acc margin (UPrcDn/VolDn)
+    float acc_margin_uDn_vUp = 111; // acc margin (UPrcDn/VolUp)
+    float acc_margin_uUp_vDn = 112; // acc margin (UPrcUp/VolDn)
+    float acc_margin_uUp_vUp = 113; // acc margin (UPrcUp/VolUp)
+    int32 counter = 114;
+    google.protobuf.Timestamp timestamp = 115; // timestamp of latest change
+}
+
+

@@ -26,31 +26,31 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci1Qcm90b2J1Zi9TcHJlYWRFeGNoRGF0YS9TcHJlYWRFeGNoT3JkZXIucHJv",
             "dG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnBy",
-            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrIICg9TcHJl",
+            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrMICg9TcHJl",
             "YWRFeGNoT3JkZXISMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI3CgRwa2V5GAIgASgLMikuc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5TcHJlYWRFeGNoT3JkZXIuUEtleRIuCgZ0aWNrZXIYZCAB",
             "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIQCghvcmRlcl9p",
             "RBhnIAEoCRIMCgRzaXplGGogASgFEg0KBXByaWNlGG0gASgBEjIKDmlzX3By",
-            "aWNlX3ZhbGlkGHAgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIt",
-            "CglmbGlwX3NpZGUYcSABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05v",
-            "EhcKD29yaWdfb3JkZXJfc2l6ZRhzIAEoBRI2CgpvcmRlcl90eXBlGHYgASgO",
-            "MiIuc3BpZGVycm9jay5wcm90b2J1Zi5FeGNoT3JkZXJUeXBlEjoKDG9yZGVy",
-            "X3N0YXR1cxh5IAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuRXhjaE9yZGVy",
-            "U3RhdHVzEj4KEG1hcmtldF9xdWFsaWZpZXIYfCABKA4yJC5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLk1hcmtldFF1YWxpZmllchI6Cg5leGVjX3F1YWxpZmllchh/",
-            "IAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuRXhlY1F1YWxpZmllchI4Cg10",
-            "aW1lX2luX2ZvcmNlGIIBIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuVGlt",
-            "ZUluRm9yY2USMQoJZmlybV90eXBlGIUBIAEoDjIdLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuRmlybVR5cGUSFgoNY2xlYXJpbmdfZmlybRiIASABKAkSFwoOY2xl",
-            "YXJpbmdfYWNjbnQYiwEgASgJEhYKDXNyY190aW1lc3RhbXAYjgEgASgDEhYK",
-            "DW5ldF90aW1lc3RhbXAYkQEgASgDEhYKDWRnd190aW1lc3RhbXAYlAEgASgD",
-            "Ei4KCXRpbWVzdGFtcBiXASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wEhQKC2V4Y2hfc3ByX2lEGKoBIAEoCRq5AQoEUEtleRIsCgRza2V5GAog",
-            "ASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSKgoEZXhjaBgL",
-            "IAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhjaBIqCgRzaWRlGAwg",
-            "ASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEisKB2lzX3Rlc3QY",
-            "DSABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vYgZwcm90bzM="));
+            "aWNlX3ZhbGlkGHAgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIu",
+            "CglmbGlwX3NpZGUYqwEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNO",
+            "bxIXCg9vcmlnX29yZGVyX3NpemUYcyABKAUSNgoKb3JkZXJfdHlwZRh2IAEo",
+            "DjIiLnNwaWRlcnJvY2sucHJvdG9idWYuRXhjaE9yZGVyVHlwZRI6CgxvcmRl",
+            "cl9zdGF0dXMYeSABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLkV4Y2hPcmRl",
+            "clN0YXR1cxI+ChBtYXJrZXRfcXVhbGlmaWVyGHwgASgOMiQuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5NYXJrZXRRdWFsaWZpZXISOgoOZXhlY19xdWFsaWZpZXIY",
+            "fyABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4ZWNRdWFsaWZpZXISOAoN",
+            "dGltZV9pbl9mb3JjZRiCASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlRp",
+            "bWVJbkZvcmNlEjEKCWZpcm1fdHlwZRiFASABKA4yHS5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLkZpcm1UeXBlEhYKDWNsZWFyaW5nX2Zpcm0YiAEgASgJEhcKDmNs",
+            "ZWFyaW5nX2FjY250GIsBIAEoCRIWCg1zcmNfdGltZXN0YW1wGI4BIAEoAxIW",
+            "Cg1uZXRfdGltZXN0YW1wGJEBIAEoAxIWCg1kZ3dfdGltZXN0YW1wGJQBIAEo",
+            "AxIuCgl0aW1lc3RhbXAYlwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcBIUCgtleGNoX3Nwcl9pRBiqASABKAkauQEKBFBLZXkSLAoEc2tleRgK",
+            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EioKBGV4Y2gY",
+            "CyABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSKgoEc2lkZRgM",
+            "IAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuQnV5U2VsbBIrCgdpc190ZXN0",
+            "GA0gASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNOb2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -224,7 +224,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "flip_side" field.</summary>
-    public const int FlipSideFieldNumber = 113;
+    public const int FlipSideFieldNumber = 171;
     private global::Spiderrock.Protobuf.YesNo flipSide_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// if the side and price have been flipped
@@ -533,10 +533,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(128, 7);
         output.WriteEnum((int) IsPriceValid);
       }
-      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(136, 7);
-        output.WriteEnum((int) FlipSide);
-      }
       if (OrigOrderSize != 0) {
         output.WriteRawTag(152, 7);
         output.WriteInt32(OrigOrderSize);
@@ -592,6 +588,10 @@ namespace Spiderrock.Protobuf {
       if (ExchSprID.Length != 0) {
         output.WriteRawTag(210, 10);
         output.WriteString(ExchSprID);
+      }
+      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(216, 10);
+        output.WriteEnum((int) FlipSide);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -631,10 +631,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(128, 7);
         output.WriteEnum((int) IsPriceValid);
       }
-      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(136, 7);
-        output.WriteEnum((int) FlipSide);
-      }
       if (OrigOrderSize != 0) {
         output.WriteRawTag(152, 7);
         output.WriteInt32(OrigOrderSize);
@@ -690,6 +686,10 @@ namespace Spiderrock.Protobuf {
       if (ExchSprID.Length != 0) {
         output.WriteRawTag(210, 10);
         output.WriteString(ExchSprID);
+      }
+      if (FlipSide != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(216, 10);
+        output.WriteEnum((int) FlipSide);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -909,10 +909,6 @@ namespace Spiderrock.Protobuf {
             IsPriceValid = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 904: {
-            FlipSide = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
           case 920: {
             OrigOrderSize = input.ReadInt32();
             break;
@@ -970,6 +966,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1362: {
             ExchSprID = input.ReadString();
+            break;
+          }
+          case 1368: {
+            FlipSide = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }
@@ -1024,10 +1024,6 @@ namespace Spiderrock.Protobuf {
             IsPriceValid = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 904: {
-            FlipSide = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
           case 920: {
             OrigOrderSize = input.ReadInt32();
             break;
@@ -1085,6 +1081,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1362: {
             ExchSprID = input.ReadString();
+            break;
+          }
+          case 1368: {
+            FlipSide = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }

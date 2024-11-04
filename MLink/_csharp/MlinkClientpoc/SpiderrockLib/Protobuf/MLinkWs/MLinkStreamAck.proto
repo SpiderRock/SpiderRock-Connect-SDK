@@ -19,7 +19,7 @@ message MLinkStreamAck {
     YesNo unsubscribe = 112; // from MLinkStream.unsubscribe
     string msg_name = 115; // (required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
     AckResult result = 118;
-    string detail = 121;
+    string detail = 122;
 }
 
 

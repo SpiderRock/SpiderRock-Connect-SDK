@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionOpenAuctionSummary {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OpenAuctionType auction_type = 100; // Opening auction type
+    float prc = 103; // Auction price
+    int32 qty = 106; // Auction total quantity
+    int64 src_timestamp = 109; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 112; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with f
+    google.protobuf.Timestamp timestamp = 115;
+}
+
+

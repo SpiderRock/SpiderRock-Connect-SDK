@@ -26,24 +26,24 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjFQcm90b2J1Zi9GdXRTdW1tYXJ5RGF0YS9GdXR1cmVNYXJrZXRTdW1tYXJ5",
             "LnByb3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1v",
-            "bi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLTBQoT",
+            "bi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLUBQoT",
             "RnV0dXJlTWFya2V0U3VtbWFyeRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEjsKBHBrZXkYAiABKAsyLS5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLkZ1dHVyZU1hcmtldFN1bW1hcnkuUEtleRIw",
-            "Cgp0cmFkZV9kYXRlGGUgASgLMhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRl",
-            "S2V5EhEKCW9wbl9wcmljZRhkIAEoARIRCgltcmtfcHJpY2UYZyABKAESEQoJ",
-            "Y2xzX3ByaWNlGGogASgBEhEKCW1pbl9wcmljZRhtIAEoARIRCgltYXhfcHJp",
-            "Y2UYcCABKAESEAoIb3Blbl9pbnQYcyABKAUSEQoJYmlkX2NvdW50GHYgASgF",
-            "EhIKCmJpZF92b2x1bWUYeSABKAUSEQoJYXNrX2NvdW50GHwgASgFEhIKCmFz",
-            "a192b2x1bWUYfyABKAUSEgoJbWlkX2NvdW50GIIBIAEoBRITCgptaWRfdm9s",
-            "dW1lGIUBIAEoBRISCglwcnRfY291bnQYiAEgASgFEhMKCnBydF92b2x1bWUY",
-            "iQEgASgFEhcKDmxhc3RfcHJ0X3ByaWNlGIsBIAEoARIyCg1sYXN0X3BydF9k",
-            "dHRtGIwBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEgoJZXhw",
-            "X2NvdW50GI4BIAEoBRISCglleHBfd2lkdGgYkQEgASgBEhUKDGV4cF9iaWRf",
-            "c2l6ZRiUASABKAISFQoMZXhwX2Fza19zaXplGJcBIAEoAhIuCgl0aW1lc3Rh",
-            "bXAYnQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo0CgRQS2V5",
-            "EiwKBGZrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtl",
-            "eWIGcHJvdG8z"));
+            "cGlkZXJyb2NrLnByb3RvYnVmLkZ1dHVyZU1hcmtldFN1bW1hcnkuUEtleRIx",
+            "Cgp0cmFkZV9kYXRlGJ4BIAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYuRGF0",
+            "ZUtleRIRCglvcG5fcHJpY2UYZCABKAESEQoJbXJrX3ByaWNlGGcgASgBEhEK",
+            "CWNsc19wcmljZRhqIAEoARIRCgltaW5fcHJpY2UYbSABKAESEQoJbWF4X3By",
+            "aWNlGHAgASgBEhAKCG9wZW5faW50GHMgASgFEhEKCWJpZF9jb3VudBh2IAEo",
+            "BRISCgpiaWRfdm9sdW1lGHkgASgFEhEKCWFza19jb3VudBh8IAEoBRISCgph",
+            "c2tfdm9sdW1lGH8gASgFEhIKCW1pZF9jb3VudBiCASABKAUSEwoKbWlkX3Zv",
+            "bHVtZRiFASABKAUSEgoJcHJ0X2NvdW50GIgBIAEoBRITCgpwcnRfdm9sdW1l",
+            "GJ8BIAEoBRIXCg5sYXN0X3BydF9wcmljZRigASABKAESMgoNbGFzdF9wcnRf",
+            "ZHR0bRihASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhIKCWV4",
+            "cF9jb3VudBiOASABKAUSEgoJZXhwX3dpZHRoGJEBIAEoARIVCgxleHBfYmlk",
+            "X3NpemUYlAEgASgCEhUKDGV4cF9hc2tfc2l6ZRiXASABKAISLgoJdGltZXN0",
+            "YW1wGJ0BIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaNAoEUEtl",
+            "eRIsCgRma2V5GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5FeHBpcnlL",
+            "ZXliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -150,7 +150,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "trade_date" field.</summary>
-    public const int TradeDateFieldNumber = 101;
+    public const int TradeDateFieldNumber = 158;
     private global::Spiderrock.Protobuf.DateKey tradeDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -357,7 +357,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_volume" field.</summary>
-    public const int PrtVolumeFieldNumber = 137;
+    public const int PrtVolumeFieldNumber = 159;
     private int prtVolume_;
     /// <summary>
     /// total print volume (all print types)
@@ -372,7 +372,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "last_prt_price" field.</summary>
-    public const int LastPrtPriceFieldNumber = 139;
+    public const int LastPrtPriceFieldNumber = 160;
     private double lastPrtPrice_;
     /// <summary>
     /// last print price
@@ -387,7 +387,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "last_prt_dttm" field.</summary>
-    public const int LastPrtDttmFieldNumber = 140;
+    public const int LastPrtDttmFieldNumber = 161;
     private global::Google.Protobuf.WellKnownTypes.Timestamp lastPrtDttm_;
     /// <summary>
     /// last print time
@@ -573,10 +573,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(161, 6);
         output.WriteDouble(OpnPrice);
       }
-      if (tradeDate_ != null) {
-        output.WriteRawTag(170, 6);
-        output.WriteMessage(TradeDate);
-      }
       if (MrkPrice != 0D) {
         output.WriteRawTag(185, 6);
         output.WriteDouble(MrkPrice);
@@ -625,18 +621,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(192, 8);
         output.WriteInt32(PrtCount);
       }
-      if (PrtVolume != 0) {
-        output.WriteRawTag(200, 8);
-        output.WriteInt32(PrtVolume);
-      }
-      if (LastPrtPrice != 0D) {
-        output.WriteRawTag(217, 8);
-        output.WriteDouble(LastPrtPrice);
-      }
-      if (lastPrtDttm_ != null) {
-        output.WriteRawTag(226, 8);
-        output.WriteMessage(LastPrtDttm);
-      }
       if (ExpCount != 0) {
         output.WriteRawTag(240, 8);
         output.WriteInt32(ExpCount);
@@ -656,6 +640,22 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(234, 9);
         output.WriteMessage(Timestamp);
+      }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(242, 9);
+        output.WriteMessage(TradeDate);
+      }
+      if (PrtVolume != 0) {
+        output.WriteRawTag(248, 9);
+        output.WriteInt32(PrtVolume);
+      }
+      if (LastPrtPrice != 0D) {
+        output.WriteRawTag(129, 10);
+        output.WriteDouble(LastPrtPrice);
+      }
+      if (lastPrtDttm_ != null) {
+        output.WriteRawTag(138, 10);
+        output.WriteMessage(LastPrtDttm);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -679,10 +679,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(161, 6);
         output.WriteDouble(OpnPrice);
       }
-      if (tradeDate_ != null) {
-        output.WriteRawTag(170, 6);
-        output.WriteMessage(TradeDate);
-      }
       if (MrkPrice != 0D) {
         output.WriteRawTag(185, 6);
         output.WriteDouble(MrkPrice);
@@ -731,18 +727,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(192, 8);
         output.WriteInt32(PrtCount);
       }
-      if (PrtVolume != 0) {
-        output.WriteRawTag(200, 8);
-        output.WriteInt32(PrtVolume);
-      }
-      if (LastPrtPrice != 0D) {
-        output.WriteRawTag(217, 8);
-        output.WriteDouble(LastPrtPrice);
-      }
-      if (lastPrtDttm_ != null) {
-        output.WriteRawTag(226, 8);
-        output.WriteMessage(LastPrtDttm);
-      }
       if (ExpCount != 0) {
         output.WriteRawTag(240, 8);
         output.WriteInt32(ExpCount);
@@ -762,6 +746,22 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(234, 9);
         output.WriteMessage(Timestamp);
+      }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(242, 9);
+        output.WriteMessage(TradeDate);
+      }
+      if (PrtVolume != 0) {
+        output.WriteRawTag(248, 9);
+        output.WriteInt32(PrtVolume);
+      }
+      if (LastPrtPrice != 0D) {
+        output.WriteRawTag(129, 10);
+        output.WriteDouble(LastPrtPrice);
+      }
+      if (lastPrtDttm_ != null) {
+        output.WriteRawTag(138, 10);
+        output.WriteMessage(LastPrtDttm);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -977,13 +977,6 @@ namespace Spiderrock.Protobuf {
             OpnPrice = input.ReadDouble();
             break;
           }
-          case 810: {
-            if (tradeDate_ == null) {
-              TradeDate = new global::Spiderrock.Protobuf.DateKey();
-            }
-            input.ReadMessage(TradeDate);
-            break;
-          }
           case 825: {
             MrkPrice = input.ReadDouble();
             break;
@@ -1032,21 +1025,6 @@ namespace Spiderrock.Protobuf {
             PrtCount = input.ReadInt32();
             break;
           }
-          case 1096: {
-            PrtVolume = input.ReadInt32();
-            break;
-          }
-          case 1113: {
-            LastPrtPrice = input.ReadDouble();
-            break;
-          }
-          case 1122: {
-            if (lastPrtDttm_ == null) {
-              LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LastPrtDttm);
-            break;
-          }
           case 1136: {
             ExpCount = input.ReadInt32();
             break;
@@ -1068,6 +1046,28 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1266: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
+          case 1272: {
+            PrtVolume = input.ReadInt32();
+            break;
+          }
+          case 1281: {
+            LastPrtPrice = input.ReadDouble();
+            break;
+          }
+          case 1290: {
+            if (lastPrtDttm_ == null) {
+              LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(LastPrtDttm);
             break;
           }
         }
@@ -1103,13 +1103,6 @@ namespace Spiderrock.Protobuf {
             OpnPrice = input.ReadDouble();
             break;
           }
-          case 810: {
-            if (tradeDate_ == null) {
-              TradeDate = new global::Spiderrock.Protobuf.DateKey();
-            }
-            input.ReadMessage(TradeDate);
-            break;
-          }
           case 825: {
             MrkPrice = input.ReadDouble();
             break;
@@ -1158,21 +1151,6 @@ namespace Spiderrock.Protobuf {
             PrtCount = input.ReadInt32();
             break;
           }
-          case 1096: {
-            PrtVolume = input.ReadInt32();
-            break;
-          }
-          case 1113: {
-            LastPrtPrice = input.ReadDouble();
-            break;
-          }
-          case 1122: {
-            if (lastPrtDttm_ == null) {
-              LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LastPrtDttm);
-            break;
-          }
           case 1136: {
             ExpCount = input.ReadInt32();
             break;
@@ -1194,6 +1172,28 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1266: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
+          case 1272: {
+            PrtVolume = input.ReadInt32();
+            break;
+          }
+          case 1281: {
+            LastPrtPrice = input.ReadDouble();
+            break;
+          }
+          case 1290: {
+            if (lastPrtDttm_ == null) {
+              LastPrtDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(LastPrtDttm);
             break;
           }
         }

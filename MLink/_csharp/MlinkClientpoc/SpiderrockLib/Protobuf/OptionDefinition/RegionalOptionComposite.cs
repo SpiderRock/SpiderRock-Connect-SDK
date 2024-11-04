@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjdQcm90b2J1Zi9PcHRpb25EZWZpbml0aW9uL1JlZ2lvbmFsT3B0aW9uQ29t",
             "cG9zaXRlLnByb3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2Nr",
-            "X2NvbW1vbi5wcm90byLyBwoXUmVnaW9uYWxPcHRpb25Db21wb3NpdGUSMwoF",
+            "X2NvbW1vbi5wcm90byLuBwoXUmVnaW9uYWxPcHRpb25Db21wb3NpdGUSMwoF",
             "X21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3NhZ2VNZXRh",
             "ZGF0YRI/CgRwa2V5GAIgASgLMjEuc3BpZGVycm9jay5wcm90b2J1Zi5SZWdp",
             "b25hbE9wdGlvbkNvbXBvc2l0ZS5QS2V5Ei8KCGN1cnJlbmN5GGQgASgOMh0u",
@@ -39,16 +39,16 @@ namespace Spiderrock.Protobuf {
             "ayABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjgKD211bHRpaGVk",
             "Z2VfdHlwZRhsIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuTXVsdGloZWRn",
             "ZRJPCgxjb250cmlidXRvcnMYbSADKAsyOS5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlJlZ2lvbmFsT3B0aW9uQ29tcG9zaXRlLkNvbnRyaWJ1dG9ycxJhChVtdWx0",
-            "aWhlZGdlX3VuZGVybHlpbmcYiQEgAygLMkEuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5SZWdpb25hbE9wdGlvbkNvbXBvc2l0ZS5NdWx0aWhlZGdlVW5kZXJseWlu",
-            "ZxpQCgRQS2V5EhAKCHVuZF9pc2luGAogASgJEjYKDmNvbXBvc2l0ZV90S2V5",
-            "GAsgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkacAoMQ29u",
-            "dHJpYnV0b3JzEi4KCGV4Y2hhbmdlGG4gASgOMhwuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5PcHRFeGNoEhoKEm5hdGl2ZV9leGNoX3N5bWJvbBhvIAEoCRIUCgxw",
-            "cm9kdWN0X2lTSU4YcCABKAkaawoUTXVsdGloZWRnZVVuZGVybHlpbmcSHAoT",
-            "c2hhcmVzX3Blcl9jb250cmFjdBiMASABKAISGwoSbmF0aXZlX2V4Y2hfc3lt",
-            "Ym9sGI8BIAEoCRIYCg9hY3Rpdl9zeW1ib2xvZ3kYkgEgASgJYgZwcm90bzM="));
+            "LlJlZ2lvbmFsT3B0aW9uQ29tcG9zaXRlLkNvbnRyaWJ1dG9ycxJgChVtdWx0",
+            "aWhlZGdlX3VuZGVybHlpbmcYcSADKAsyQS5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlJlZ2lvbmFsT3B0aW9uQ29tcG9zaXRlLk11bHRpaGVkZ2VVbmRlcmx5aW5n",
+            "GlAKBFBLZXkSEAoIdW5kX2lzaW4YCiABKAkSNgoOY29tcG9zaXRlX3RLZXkY",
+            "CyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRpwCgxDb250",
+            "cmlidXRvcnMSLgoIZXhjaGFuZ2UYbiABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLk9wdEV4Y2gSGgoSbmF0aXZlX2V4Y2hfc3ltYm9sGG8gASgJEhQKDHBy",
+            "b2R1Y3RfaVNJThhwIAEoCRpoChRNdWx0aWhlZGdlVW5kZXJseWluZxIbChNz",
+            "aGFyZXNfcGVyX2NvbnRyYWN0GHIgASgCEhoKEm5hdGl2ZV9leGNoX3N5bWJv",
+            "bBhzIAEoCRIXCg9hY3Rpdl9zeW1ib2xvZ3kYdCABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -63,7 +63,7 @@ namespace Spiderrock.Protobuf {
   #region Messages
   /// <summary>
   ///
-  ///RegionalOptionComposite (internal only) records exist per composite option (aka per ISIN). Eg for BMW optioins there would be BMW-ESX-EQT composite for all standard options and then perhaps a BMW1-ESX-EQT for post corp action contracts with alternate multiplers etc
+  ///RegionalOptionComposite (internal only) records exist per composite option (aka per ISIN). Eg for BMW optioins there would be BMW-EUX-EQT composite for all standard options and then perhaps a BMW1-EUX-EQT for post corp action contracts with alternate multiplers etc
   /// </summary>
   public sealed partial class RegionalOptionComposite : pb::IMessage<RegionalOptionComposite>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -292,9 +292,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "multihedge_underlying" field.</summary>
-    public const int MultihedgeUnderlyingFieldNumber = 137;
+    public const int MultihedgeUnderlyingFieldNumber = 113;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.RegionalOptionComposite.Types.MultihedgeUnderlying> _repeated_multihedgeUnderlying_codec
-        = pb::FieldCodec.ForMessage(1098, global::Spiderrock.Protobuf.RegionalOptionComposite.Types.MultihedgeUnderlying.Parser);
+        = pb::FieldCodec.ForMessage(906, global::Spiderrock.Protobuf.RegionalOptionComposite.Types.MultihedgeUnderlying.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.RegionalOptionComposite.Types.MultihedgeUnderlying> multihedgeUnderlying_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.RegionalOptionComposite.Types.MultihedgeUnderlying>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -637,7 +637,7 @@ namespace Spiderrock.Protobuf {
             contributors_.AddEntriesFrom(input, _repeated_contributors_codec);
             break;
           }
-          case 1098: {
+          case 906: {
             multihedgeUnderlying_.AddEntriesFrom(input, _repeated_multihedgeUnderlying_codec);
             break;
           }
@@ -710,7 +710,7 @@ namespace Spiderrock.Protobuf {
             contributors_.AddEntriesFrom(ref input, _repeated_contributors_codec);
             break;
           }
-          case 1098: {
+          case 906: {
             multihedgeUnderlying_.AddEntriesFrom(ref input, _repeated_multihedgeUnderlying_codec);
             break;
           }
@@ -1275,7 +1275,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "shares_per_contract" field.</summary>
-        public const int SharesPerContractFieldNumber = 140;
+        public const int SharesPerContractFieldNumber = 114;
         private float sharesPerContract_;
         /// <summary>
         /// note: _root basket = sum(spc * ticker) / 100
@@ -1290,7 +1290,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "native_exch_symbol" field.</summary>
-        public const int NativeExchSymbolFieldNumber = 143;
+        public const int NativeExchSymbolFieldNumber = 115;
         private string nativeExchSymbol_ = "";
         /// <summary>
         /// note: raw exchange symbol for contributor to this basket (if basket option)
@@ -1305,7 +1305,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "activ_symbology" field.</summary>
-        public const int ActivSymbologyFieldNumber = 146;
+        public const int ActivSymbologyFieldNumber = 116;
         private string activSymbology_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1363,15 +1363,15 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (SharesPerContract != 0F) {
-            output.WriteRawTag(229, 8);
+            output.WriteRawTag(149, 7);
             output.WriteFloat(SharesPerContract);
           }
           if (NativeExchSymbol.Length != 0) {
-            output.WriteRawTag(250, 8);
+            output.WriteRawTag(154, 7);
             output.WriteString(NativeExchSymbol);
           }
           if (ActivSymbology.Length != 0) {
-            output.WriteRawTag(146, 9);
+            output.WriteRawTag(162, 7);
             output.WriteString(ActivSymbology);
           }
           if (_unknownFields != null) {
@@ -1385,15 +1385,15 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (SharesPerContract != 0F) {
-            output.WriteRawTag(229, 8);
+            output.WriteRawTag(149, 7);
             output.WriteFloat(SharesPerContract);
           }
           if (NativeExchSymbol.Length != 0) {
-            output.WriteRawTag(250, 8);
+            output.WriteRawTag(154, 7);
             output.WriteString(NativeExchSymbol);
           }
           if (ActivSymbology.Length != 0) {
-            output.WriteRawTag(146, 9);
+            output.WriteRawTag(162, 7);
             output.WriteString(ActivSymbology);
           }
           if (_unknownFields != null) {
@@ -1451,15 +1451,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 1125: {
+              case 917: {
                 SharesPerContract = input.ReadFloat();
                 break;
               }
-              case 1146: {
+              case 922: {
                 NativeExchSymbol = input.ReadString();
                 break;
               }
-              case 1170: {
+              case 930: {
                 ActivSymbology = input.ReadString();
                 break;
               }
@@ -1478,15 +1478,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 1125: {
+              case 917: {
                 SharesPerContract = input.ReadFloat();
                 break;
               }
-              case 1146: {
+              case 922: {
                 NativeExchSymbol = input.ReadString();
                 break;
               }
-              case 1170: {
+              case 930: {
                 ActivSymbology = input.ReadString();
                 break;
               }

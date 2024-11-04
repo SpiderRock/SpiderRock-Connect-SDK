@@ -2090,7 +2090,7 @@ namespace Spiderrock.Protobuf {
     public const int SimpPremOvParFieldNumber = 439;
     private float simpPremOvPar_;
     /// <summary>
-    /// Aggregate Position Premium Over Parity Simple;=sum[shCurPosM * max(0,  opr.opxMidMark - max(0, ±(strike - uprc)))]
+    /// Aggregate Position Premium Over Parity Simple;=sum[shCurPosM * max(0,  opr.opxMidMark - max(0, Â±(strike - uprc)))]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

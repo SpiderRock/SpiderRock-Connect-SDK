@@ -20,13 +20,13 @@ message StockMarketSummary {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    DateKey trade_date = 101;
+    DateKey trade_date = 159;
     double opn_price = 100; // first print price of the day during regular market hours
     double mrk_price = 103; // last print handled during regular market hours
     double cls_price = 106; // official exchange closing price
     double min_price = 109; // minimum print price within market hours
     double max_price = 112; // maximum print price within market hours
-    int64 shares_outstanding = 115; // shares outstanding
+    int64 shares_outstanding = 158; // shares outstanding
     int32 bid_count = 118; // num prints <= quote.bid
     int32 bid_volume = 121; // volume when prtPrice <= quote.bid
     int32 ask_count = 124; // num prints >= quote.ask
@@ -34,9 +34,9 @@ message StockMarketSummary {
     int32 mid_count = 130; // num prints inside quote.bid / quote.ask
     int32 mid_volume = 133; // volume inside quote.bid / quote.ask
     int32 prt_count = 136; // number of distinct print reports
-    int32 prt_volume = 137; // total print volume (all print types)
-    double last_prt_price = 139; // last print price
-    google.protobuf.Timestamp last_prt_dttm = 140; // last print time
+    int32 prt_volume = 160; // total print volume (all print types)
+    double last_prt_price = 161; // last print price
+    google.protobuf.Timestamp last_prt_dttm = 162; // last print time
     int32 exp_count = 142; // number of updates included in exponential average
     double exp_width = 145; // exponential average market width (10 minute 1/2 life)
     float exp_bid_size = 148; // exponential average bid size (10 minute 1/2 life)

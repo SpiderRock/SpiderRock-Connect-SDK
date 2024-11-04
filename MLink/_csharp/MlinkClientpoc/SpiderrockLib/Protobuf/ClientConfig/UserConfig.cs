@@ -27,7 +27,7 @@ namespace Spiderrock.Protobuf {
             "CiZQcm90b2J1Zi9DbGllbnRDb25maWcvVXNlckNvbmZpZy5wcm90bxITc3Bp",
             "ZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aHmdv",
             "b2dsZS9wcm90b2J1Zi9kdXJhdGlvbi5wcm90bxofZ29vZ2xlL3Byb3RvYnVm",
-            "L3RpbWVzdGFtcC5wcm90byKOLQoKVXNlckNvbmZpZxIzCgVfbWV0YRgBIAEo",
+            "L3RpbWVzdGFtcC5wcm90byKXLwoKVXNlckNvbmZpZxIzCgVfbWV0YRgBIAEo",
             "CzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEjIKBHBr",
             "ZXkYAiABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuUEtl",
             "eRITCgtjbGllbnRfZmlybRhkIAEoCRIwCgl1c2VyX3R5cGUYZyABKA4yHS5z",
@@ -74,7 +74,7 @@ namespace Spiderrock.Protobuf {
             "dHJhZGVyX2lkGOIBIAEoCRIfChZjZmVfZnJlcXVlbnRfdHJhZGVyX2lkGOUB",
             "IAEoCRIVCgxjZmVfbG9jYXRpb24Y6AEgASgJEhYKDWljZV90cmFkZXJfaWQY",
             "6wEgASgJEhUKDGljZV9wYXNzd29yZBjuASABKAkSFwoOaWNlX2NvbXBhbnlf",
-            "aWQY8QEgASgJEhUKDGljZV9zdWJfcm9vbRjyASABKAkSFwoOY2JvZV90cmFk",
+            "aWQY8QEgASgJEhUKDGljZV9zdWJfcm9vbRiPAyABKAkSFwoOY2JvZV90cmFk",
             "ZXJfaWQY9AEgASgJEjgKE2Zpcm1fcG9zX3Zpc2liaWxpdHkY9wEgASgOMhou",
             "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI6ChVhbGxvd19yYW5kb21fc3Ry",
             "YXRlZ3kY+gEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI+ChB0",
@@ -92,75 +92,82 @@ namespace Spiderrock.Protobuf {
             "ASgFEhIKCW5tc19iYWRnZRiLAyABKAkSEgoJY2ZlX2JhZGdlGIwDIAEoCRIS",
             "CgljbWVfYmFkZ2UYjQMgASgJEhIKCWljZV9iYWRnZRiOAyABKAkSEAoHYXBp",
             "X2tleRjjAiABKAkSNAoPYXBpX2tleV9leHBpcmVzGOYCIAEoCzIaLmdvb2ds",
-            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASFgoNcGFzc3dvcmRfaGFzaBjpAiABKAkS",
-            "NQoQcGFzc3dvcmRfZXhwaXJlcxjsAiABKAsyGi5nb29nbGUucHJvdG9idWYu",
-            "VGltZXN0YW1wEhsKEnRlbXBfcGFzc3dvcmRfaGFzaBjvAiABKAkSOgoVdGVt",
-            "cF9wYXNzd29yZF9leHBpcmVzGPICIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXASHgoVdGVtcF9wYXNzd29yZF9jb3VudGVyGPUCIAEoBRITCgpt",
-            "ZmFfc2VjcmV0GPgCIAEoCRIUCgttb2RpZmllZF9ieRj7AiABKAkSOQoLbW9k",
-            "aWZpZWRfaW4Y/gIgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNFbnZp",
-            "cm9ubWVudBIuCgl0aW1lc3RhbXAYgQMgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBIdChRjbGllbnRfZmlybV9saXN0X192NxiIJyABKAkSGQoQ",
-            "YmlsbGluZ19maXJtX192NxiJJyABKAkSFwoOZmlyc3RfbmFtZV9fdjcYiicg",
-            "ASgJEhYKDWxhc3RfbmFtZV9fdjcYiycgASgJEhYKDXRyYWRlcl9pZF9fdjcY",
-            "jCcgASgJEhoKEWljZV90cmFkZXJfaWRfX3Y3GI0nIAEoCRIZChBpY2VfcGFz",
-            "c3dvcmRfX3Y3GI4nIAEoCRIbChJpY2VfY29tcGFueV9pZF9fdjcYjycgASgJ",
-            "EhsKEnNyX2FjY2Vzc19oYXNoX192NxiQJyABKAkSGgoRZXhlY191c2VybmFt",
-            "ZV9fdjcYkScgASgJEhcKDnVzZXJfZ3JvdXBfX3Y3GJInIAEoCRIXCg5hY2Nu",
-            "dF9saXN0X192NxiTJyABKAkSNgoRdmlld19pbmFjdGl2ZV9fdjcYlCcgASgO",
-            "Mhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIdChR0b29sX3Byb2R1Y3Rf",
-            "YWNsX192NxiVJyABKAkSIAoXZWxhc3RpY19wcm9kdWN0X2FjbF9fdjcYlicg",
-            "ASgJEhwKE21hcmtldF9kYXRhX2FjbF9fdjcYlycgASgJEh0KFHNyc2VfcHJv",
-            "ZHVjdF9hY2xfX3Y3GJgnIAEoCRIgChdzcnNlX2hpc3RvcmljYWxfYWNsX192",
-            "NxiZJyABKAkSFwoOY29udGFjdF9pTV9fdjcYmicgASgJElUKFmFjY291bnRf",
-            "YWNjZXNzX2NvbnRyb2wYlwEgAygLMjQuc3BpZGVycm9jay5wcm90b2J1Zi5V",
-            "c2VyQ29uZmlnLkFjY291bnRBY2Nlc3NDb250cm9sElUKFmNpdHJpeF9wcm9k",
-            "dWN0X2NvbnRyb2wY+wEgAygLMjQuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2Vy",
-            "Q29uZmlnLkNpdHJpeFByb2R1Y3RDb250cm9sEl0KG2NsaWVudF9maXJtX3Zp",
-            "ZXdfYWNjZXNzX192NxibJyADKAsyNy5zcGlkZXJyb2NrLnByb3RvYnVmLlVz",
-            "ZXJDb25maWcuQ2xpZW50RmlybVZpZXdBY2Nlc3NfVjcSRQoObV9saW5rX2Nv",
-            "bnRyb2wYvAIgAygLMiwuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmln",
-            "Lk1MaW5rQ29udHJvbBJPChNtYXJrZXRfZGF0YV9jb250cm9sGM4CIAMoCzIx",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZpZy5NYXJrZXREYXRhQ29u",
-            "dHJvbBJXChdzcnNlX2hpc3RvcmljYWxfY29udHJvbBiVAiADKAsyNS5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuU3JzZUhpc3RvcmljYWxDb250",
-            "cm9sElEKFHNyc2VfcHJvZHVjdF9jb250cm9sGJICIAMoCzIyLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuVXNlckNvbmZpZy5TcnNlUHJvZHVjdENvbnRyb2wSTwoT",
-            "d2ViX3Byb2R1Y3RfY29udHJvbBiwAiADKAsyMS5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlVzZXJDb25maWcuV2ViUHJvZHVjdENvbnRyb2waGQoEUEtleRIRCgl1",
-            "c2VyX25hbWUYCiABKAkaZAoUQWNjb3VudEFjY2Vzc0NvbnRyb2wSDgoFYWNj",
-            "bnQYmgEgASgJEjwKC2FjY2Vzc190eXBlGJ0BIAEoDjImLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuQWNjb3VudEFjY2Vzc1R5cGUagwEKFENpdHJpeFByb2R1Y3RD",
-            "b250cm9sEj0KDHByb2R1Y3RfY29kZRj8ASABKA4yJi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLkNpdHJpeFByb2R1Y3RDb2RlEiwKB2V4cGlyZXMY/QEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBplChdDbGllbnRGaXJtVmlld0Fj",
-            "Y2Vzc19WNxIYCg9jbGllbnRfZmlybV9fdjcYnCcgASgJEjAKC2V4cGlyZXNf",
-            "X3Y3GJ0nIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAagAIKDE1M",
-            "aW5rQ29udHJvbBIvCgV0b2tlbhi/AiABKA4yHy5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLk1MaW5rVG9rZW4SLAoHZXhwaXJlcxjCAiABKAsyGi5nb29nbGUucHJv",
-            "dG9idWYuVGltZXN0YW1wEi8KCHN0a19leGNoGMUCIAEoDjIcLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuU3RrRXhjaBIvCghmdXRfZXhjaBjIAiABKA4yHC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLkZ1dEV4Y2gSLwoIb3B0X2V4Y2gYywIgASgOMhwu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNoGukBChFNYXJrZXREYXRhQ29u",
-            "dHJvbBI0CgV0b2tlbhjRAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1h",
-            "cmtldERhdGFUb2tlbhI0CgVzY29wZRjUAiABKA4yJC5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLk1hcmtldERhdGFTY29wZRI6Cg5jbGFzc2lmaWNhdGlvbhjXAiAB",
-            "KA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLk1rdERhdGFDbGFzcxIsCgdleHBp",
-            "cmVzGNoCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaggEKFVNy",
-            "c2VIaXN0b3JpY2FsQ29udHJvbBI7Cgxwcm9kdWN0X2NvZGUYlgIgASgOMiQu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5TcnNlUHJvZHVjdENvZGUSLAoHZXhwaXJl",
-            "cxiXAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGn8KElNyc2VQ",
-            "cm9kdWN0Q29udHJvbBI7Cgxwcm9kdWN0X2NvZGUYkwIgASgOMiQuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5TcnNlUHJvZHVjdENvZGUSLAoHZXhwaXJlcxiUAiAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGocBChFXZWJQcm9kdWN0",
-            "Q29udHJvbBI0CgV0b2tlbhizAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LldlYlByb2R1Y3RUb2tlbhIsCgdleHBpcmVzGLYCIAEoCzIaLmdvb2dsZS5w",
-            "cm90b2J1Zi5UaW1lc3RhbXASDgoFdmFsdWUYuQIgASgJYgZwcm90bzM="));
+            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASNwoSaGFzX2FwaV9rZXlfYWNjZXNzGJAD",
+            "IAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SFgoNcGFzc3dvcmRf",
+            "aGFzaBjpAiABKAkSNQoQcGFzc3dvcmRfZXhwaXJlcxjsAiABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wEhsKEnRlbXBfcGFzc3dvcmRfaGFzaBjv",
+            "AiABKAkSOgoVdGVtcF9wYXNzd29yZF9leHBpcmVzGPICIAEoCzIaLmdvb2ds",
+            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASHgoVdGVtcF9wYXNzd29yZF9jb3VudGVy",
+            "GPUCIAEoBRITCgptZmFfc2VjcmV0GPgCIAEoCRIUCgttb2RpZmllZF9ieRj7",
+            "AiABKAkSOQoLbW9kaWZpZWRfaW4Y/gIgASgOMiMuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5TeXNFbnZpcm9ubWVudBIuCgl0aW1lc3RhbXAYgQMgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBIdChRjbGllbnRfZmlybV9saXN0X192",
+            "NxiIJyABKAkSGQoQYmlsbGluZ19maXJtX192NxiJJyABKAkSFwoOZmlyc3Rf",
+            "bmFtZV9fdjcYiicgASgJEhYKDWxhc3RfbmFtZV9fdjcYiycgASgJEhYKDXRy",
+            "YWRlcl9pZF9fdjcYjCcgASgJEhoKEWljZV90cmFkZXJfaWRfX3Y3GI0nIAEo",
+            "CRIZChBpY2VfcGFzc3dvcmRfX3Y3GI4nIAEoCRIbChJpY2VfY29tcGFueV9p",
+            "ZF9fdjcYjycgASgJEhsKEnNyX2FjY2Vzc19oYXNoX192NxiQJyABKAkSGgoR",
+            "ZXhlY191c2VybmFtZV9fdjcYkScgASgJEhcKDnVzZXJfZ3JvdXBfX3Y3GJIn",
+            "IAEoCRIXCg5hY2NudF9saXN0X192NxiTJyABKAkSNgoRdmlld19pbmFjdGl2",
+            "ZV9fdjcYlCcgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIdChR0",
+            "b29sX3Byb2R1Y3RfYWNsX192NxiVJyABKAkSIAoXZWxhc3RpY19wcm9kdWN0",
+            "X2FjbF9fdjcYlicgASgJEhwKE21hcmtldF9kYXRhX2FjbF9fdjcYlycgASgJ",
+            "Eh0KFHNyc2VfcHJvZHVjdF9hY2xfX3Y3GJgnIAEoCRIgChdzcnNlX2hpc3Rv",
+            "cmljYWxfYWNsX192NxiZJyABKAkSFwoOY29udGFjdF9pTV9fdjcYmicgASgJ",
+            "ElUKFmFjY291bnRfYWNjZXNzX2NvbnRyb2wYlwEgAygLMjQuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5Vc2VyQ29uZmlnLkFjY291bnRBY2Nlc3NDb250cm9sEjoK",
+            "CGFwaV9rZXlzGJEDIAMoCzInLnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNv",
+            "bmZpZy5BcGlLZXlzElUKFmNpdHJpeF9wcm9kdWN0X2NvbnRyb2wY+wEgAygL",
+            "MjQuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLkNpdHJpeFByb2R1",
+            "Y3RDb250cm9sEl0KG2NsaWVudF9maXJtX3ZpZXdfYWNjZXNzX192NxibJyAD",
+            "KAsyNy5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuQ2xpZW50Rmly",
+            "bVZpZXdBY2Nlc3NfVjcSRQoObV9saW5rX2NvbnRyb2wYvAIgAygLMiwuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLk1MaW5rQ29udHJvbBJPChNt",
+            "YXJrZXRfZGF0YV9jb250cm9sGM4CIAMoCzIxLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuVXNlckNvbmZpZy5NYXJrZXREYXRhQ29udHJvbBJXChdzcnNlX2hpc3Rv",
+            "cmljYWxfY29udHJvbBiVAiADKAsyNS5zcGlkZXJyb2NrLnByb3RvYnVmLlVz",
+            "ZXJDb25maWcuU3JzZUhpc3RvcmljYWxDb250cm9sElEKFHNyc2VfcHJvZHVj",
+            "dF9jb250cm9sGJICIAMoCzIyLnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNv",
+            "bmZpZy5TcnNlUHJvZHVjdENvbnRyb2wSTwoTd2ViX3Byb2R1Y3RfY29udHJv",
+            "bBiwAiADKAsyMS5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuV2Vi",
+            "UHJvZHVjdENvbnRyb2waGQoEUEtleRIRCgl1c2VyX25hbWUYCiABKAkaZAoU",
+            "QWNjb3VudEFjY2Vzc0NvbnRyb2wSDgoFYWNjbnQYmgEgASgJEjwKC2FjY2Vz",
+            "c190eXBlGJ0BIAEoDjImLnNwaWRlcnJvY2sucHJvdG9idWYuQWNjb3VudEFj",
+            "Y2Vzc1R5cGUakQEKB0FwaUtleXMSCwoCaWQYkgMgASgFEg0KBGhhc2gYkwMg",
+            "ASgJEiwKB2V4cGlyZXMYlAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcBIsCgdjcmVhdGVkGJUDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASDgoFbGFiZWwYlgMgASgJGoMBChRDaXRyaXhQcm9kdWN0Q29udHJv",
+            "bBI9Cgxwcm9kdWN0X2NvZGUY/AEgASgOMiYuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5DaXRyaXhQcm9kdWN0Q29kZRIsCgdleHBpcmVzGP0BIAEoCzIaLmdvb2ds",
+            "ZS5wcm90b2J1Zi5UaW1lc3RhbXAaZQoXQ2xpZW50RmlybVZpZXdBY2Nlc3Nf",
+            "VjcSGAoPY2xpZW50X2Zpcm1fX3Y3GJwnIAEoCRIwCgtleHBpcmVzX192Nxid",
+            "JyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGoACCgxNTGlua0Nv",
+            "bnRyb2wSLwoFdG9rZW4YvwIgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5N",
+            "TGlua1Rva2VuEiwKB2V4cGlyZXMYwgIgASgLMhouZ29vZ2xlLnByb3RvYnVm",
+            "LlRpbWVzdGFtcBIvCghzdGtfZXhjaBjFAiABKA4yHC5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlN0a0V4Y2gSLwoIZnV0X2V4Y2gYyAIgASgOMhwuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5GdXRFeGNoEi8KCG9wdF9leGNoGMsCIAEoDjIcLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuT3B0RXhjaBrpAQoRTWFya2V0RGF0YUNvbnRyb2wS",
+            "NAoFdG9rZW4Y0QIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NYXJrZXRE",
+            "YXRhVG9rZW4SNAoFc2NvcGUY1AIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5NYXJrZXREYXRhU2NvcGUSOgoOY2xhc3NpZmljYXRpb24Y1wIgASgOMiEu",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5Na3REYXRhQ2xhc3MSLAoHZXhwaXJlcxja",
+            "AiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGoIBChVTcnNlSGlz",
+            "dG9yaWNhbENvbnRyb2wSOwoMcHJvZHVjdF9jb2RlGJYCIAEoDjIkLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuU3JzZVByb2R1Y3RDb2RlEiwKB2V4cGlyZXMYlwIg",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBp/ChJTcnNlUHJvZHVj",
+            "dENvbnRyb2wSOwoMcHJvZHVjdF9jb2RlGJMCIAEoDjIkLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuU3JzZVByb2R1Y3RDb2RlEiwKB2V4cGlyZXMYlAIgASgLMhou",
+            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBqHAQoRV2ViUHJvZHVjdENvbnRy",
+            "b2wSNAoFdG9rZW4YswIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5XZWJQ",
+            "cm9kdWN0VG9rZW4SLAoHZXhwaXJlcxi2AiABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wEg4KBXZhbHVlGLkCIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig), global::Spiderrock.Protobuf.UserConfig.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "UserType", "UserStatus", "UserStatusDttm", "UserToBeFrozen", "UserToBeFrozenDttm", "UserAuthAction", "UserAuthState", "UserAuthError", "LastInviteTimestamp", "LastAcceptTimestamp", "Description", "DisplayTimeZone", "MlinkActivityLogging", "ClientConfigAccess", "AccountTypeControl", "ProdOrderAccess", "TestOrderAccess", "CanCancelProdOrders", "CanCancelTestOrders", "CanBookProdExecutions", "CanBookTestExecutions", "CanEditMarRisk", "CanEditSupervisoryRisk", "CanEditStockLocateList", "DisplayName", "ContactEmail", "ContactPhone", "ContactSlack", "ContactIceChat", "ContactBBergHandle", "IceClientFirm", "IceProdAccnt", "IceTestAccnt", "AuthType", "AuthExternName", "AuthExternParams", "DefaultAccnt", "AltUserName", "CmeTraderId", "CmeLocation", "CfeTraderId", "CfeFrequentTraderId", "CfeLocation", "IceTraderId", "IcePassword", "IceCompanyId", "IceSubRoom", "CboeTraderId", "FirmPosVisibility", "AllowRandomStrategy", "ToolServerCode", "ToolServerHost", "ToolServerPort", "ToolsAutoShutdown", "ToolsAutoShutdownTime", "SrsePwdHash", "SrseNumCores", "SrseMaxConnectsPerDay", "SrseMaxConcurrentConnects", "SrseMaxRowCache", "SrseMaxNewOrders", "SrseMaxNewOrdersPerSec", "SrseMaxNewOrdersPerStatement", "NmsBadge", "CfeBadge", "CmeBadge", "IceBadge", "ApiKey", "ApiKeyExpires", "PasswordHash", "PasswordExpires", "TempPasswordHash", "TempPasswordExpires", "TempPasswordCounter", "MfaSecret", "ModifiedBy", "ModifiedIn", "Timestamp", "ClientFirmListV7", "BillingFirmV7", "FirstNameV7", "LastNameV7", "TraderIdV7", "IceTraderIdV7", "IcePasswordV7", "IceCompanyIdV7", "SrAccessHashV7", "ExecUsernameV7", "UserGroupV7", "AccntListV7", "ViewInactiveV7", "ToolProductAclV7", "ElasticProductAclV7", "MarketDataAclV7", "SrseProductAclV7", "SrseHistoricalAclV7", "ContactIMV7", "AccountAccessControl", "CitrixProductControl", "ClientFirmViewAccessV7", "MLinkControl", "MarketDataControl", "SrseHistoricalControl", "SrseProductControl", "WebProductControl" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.PKey), global::Spiderrock.Protobuf.UserConfig.Types.PKey.Parser, new[]{ "UserName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig), global::Spiderrock.Protobuf.UserConfig.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "UserType", "UserStatus", "UserStatusDttm", "UserToBeFrozen", "UserToBeFrozenDttm", "UserAuthAction", "UserAuthState", "UserAuthError", "LastInviteTimestamp", "LastAcceptTimestamp", "Description", "DisplayTimeZone", "MlinkActivityLogging", "ClientConfigAccess", "AccountTypeControl", "ProdOrderAccess", "TestOrderAccess", "CanCancelProdOrders", "CanCancelTestOrders", "CanBookProdExecutions", "CanBookTestExecutions", "CanEditMarRisk", "CanEditSupervisoryRisk", "CanEditStockLocateList", "DisplayName", "ContactEmail", "ContactPhone", "ContactSlack", "ContactIceChat", "ContactBBergHandle", "IceClientFirm", "IceProdAccnt", "IceTestAccnt", "AuthType", "AuthExternName", "AuthExternParams", "DefaultAccnt", "AltUserName", "CmeTraderId", "CmeLocation", "CfeTraderId", "CfeFrequentTraderId", "CfeLocation", "IceTraderId", "IcePassword", "IceCompanyId", "IceSubRoom", "CboeTraderId", "FirmPosVisibility", "AllowRandomStrategy", "ToolServerCode", "ToolServerHost", "ToolServerPort", "ToolsAutoShutdown", "ToolsAutoShutdownTime", "SrsePwdHash", "SrseNumCores", "SrseMaxConnectsPerDay", "SrseMaxConcurrentConnects", "SrseMaxRowCache", "SrseMaxNewOrders", "SrseMaxNewOrdersPerSec", "SrseMaxNewOrdersPerStatement", "NmsBadge", "CfeBadge", "CmeBadge", "IceBadge", "ApiKey", "ApiKeyExpires", "HasApiKeyAccess", "PasswordHash", "PasswordExpires", "TempPasswordHash", "TempPasswordExpires", "TempPasswordCounter", "MfaSecret", "ModifiedBy", "ModifiedIn", "Timestamp", "ClientFirmListV7", "BillingFirmV7", "FirstNameV7", "LastNameV7", "TraderIdV7", "IceTraderIdV7", "IcePasswordV7", "IceCompanyIdV7", "SrAccessHashV7", "ExecUsernameV7", "UserGroupV7", "AccntListV7", "ViewInactiveV7", "ToolProductAclV7", "ElasticProductAclV7", "MarketDataAclV7", "SrseProductAclV7", "SrseHistoricalAclV7", "ContactIMV7", "AccountAccessControl", "ApiKeys", "CitrixProductControl", "ClientFirmViewAccessV7", "MLinkControl", "MarketDataControl", "SrseHistoricalControl", "SrseProductControl", "WebProductControl" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.PKey), global::Spiderrock.Protobuf.UserConfig.Types.PKey.Parser, new[]{ "UserName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.AccountAccessControl), global::Spiderrock.Protobuf.UserConfig.Types.AccountAccessControl.Parser, new[]{ "Accnt", "AccessType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys), global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys.Parser, new[]{ "Id", "Hash", "Expires", "Created", "Label" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl), global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl.Parser, new[]{ "ProductCode", "Expires" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.ClientFirmViewAccess_V7), global::Spiderrock.Protobuf.UserConfig.Types.ClientFirmViewAccess_V7.Parser, new[]{ "ClientFirmV7", "ExpiresV7" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.MLinkControl), global::Spiderrock.Protobuf.UserConfig.Types.MLinkControl.Parser, new[]{ "Token", "Expires", "StkExch", "FutExch", "OptExch" }, null, null, null, null),
@@ -280,6 +287,7 @@ namespace Spiderrock.Protobuf {
       iceBadge_ = other.iceBadge_;
       apiKey_ = other.apiKey_;
       apiKeyExpires_ = other.apiKeyExpires_ != null ? other.apiKeyExpires_.Clone() : null;
+      hasApiKeyAccess_ = other.hasApiKeyAccess_;
       passwordHash_ = other.passwordHash_;
       passwordExpires_ = other.passwordExpires_ != null ? other.passwordExpires_.Clone() : null;
       tempPasswordHash_ = other.tempPasswordHash_;
@@ -309,6 +317,7 @@ namespace Spiderrock.Protobuf {
       srseHistoricalAclV7_ = other.srseHistoricalAclV7_;
       contactIMV7_ = other.contactIMV7_;
       accountAccessControl_ = other.accountAccessControl_.Clone();
+      apiKeys_ = other.apiKeys_.Clone();
       citrixProductControl_ = other.citrixProductControl_.Clone();
       clientFirmViewAccessV7_ = other.clientFirmViewAccessV7_.Clone();
       mLinkControl_ = other.mLinkControl_.Clone();
@@ -1028,7 +1037,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_sub_room" field.</summary>
-    public const int IceSubRoomFieldNumber = 242;
+    public const int IceSubRoomFieldNumber = 399;
     private string iceSubRoom_ = "";
     /// <summary>
     /// User designated Sub-Chatroom in ICE Chat
@@ -1346,7 +1355,7 @@ namespace Spiderrock.Protobuf {
     public const int ApiKeyFieldNumber = 355;
     private string apiKey_ = "";
     /// <summary>
-    /// API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
+    /// (Deprecated, use repeater) API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1361,7 +1370,7 @@ namespace Spiderrock.Protobuf {
     public const int ApiKeyExpiresFieldNumber = 358;
     private global::Google.Protobuf.WellKnownTypes.Timestamp apiKeyExpires_;
     /// <summary>
-    /// API access key expiration
+    /// (Deprecated, use repeater) API access key expiration
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1369,6 +1378,21 @@ namespace Spiderrock.Protobuf {
       get { return apiKeyExpires_; }
       set {
         apiKeyExpires_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "has_api_key_access" field.</summary>
+    public const int HasApiKeyAccessFieldNumber = 400;
+    private global::Spiderrock.Protobuf.YesNo hasApiKeyAccess_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// User is allowd to insert, update and delete API keys
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo HasApiKeyAccess {
+      get { return hasApiKeyAccess_; }
+      set {
+        hasApiKeyAccess_ = value;
       }
     }
 
@@ -1797,6 +1821,17 @@ namespace Spiderrock.Protobuf {
       get { return accountAccessControl_; }
     }
 
+    /// <summary>Field number for the "api_keys" field.</summary>
+    public const int ApiKeysFieldNumber = 401;
+    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys> _repeated_apiKeys_codec
+        = pb::FieldCodec.ForMessage(3210, global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys.Parser);
+    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys> apiKeys_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys> ApiKeys {
+      get { return apiKeys_; }
+    }
+
     /// <summary>Field number for the "citrix_product_control" field.</summary>
     public const int CitrixProductControlFieldNumber = 251;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl> _repeated_citrixProductControl_codec
@@ -1961,6 +1996,7 @@ namespace Spiderrock.Protobuf {
       if (IceBadge != other.IceBadge) return false;
       if (ApiKey != other.ApiKey) return false;
       if (!object.Equals(ApiKeyExpires, other.ApiKeyExpires)) return false;
+      if (HasApiKeyAccess != other.HasApiKeyAccess) return false;
       if (PasswordHash != other.PasswordHash) return false;
       if (!object.Equals(PasswordExpires, other.PasswordExpires)) return false;
       if (TempPasswordHash != other.TempPasswordHash) return false;
@@ -1990,6 +2026,7 @@ namespace Spiderrock.Protobuf {
       if (SrseHistoricalAclV7 != other.SrseHistoricalAclV7) return false;
       if (ContactIMV7 != other.ContactIMV7) return false;
       if(!accountAccessControl_.Equals(other.accountAccessControl_)) return false;
+      if(!apiKeys_.Equals(other.apiKeys_)) return false;
       if(!citrixProductControl_.Equals(other.citrixProductControl_)) return false;
       if(!clientFirmViewAccessV7_.Equals(other.clientFirmViewAccessV7_)) return false;
       if(!mLinkControl_.Equals(other.mLinkControl_)) return false;
@@ -2076,6 +2113,7 @@ namespace Spiderrock.Protobuf {
       if (IceBadge.Length != 0) hash ^= IceBadge.GetHashCode();
       if (ApiKey.Length != 0) hash ^= ApiKey.GetHashCode();
       if (apiKeyExpires_ != null) hash ^= ApiKeyExpires.GetHashCode();
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasApiKeyAccess.GetHashCode();
       if (PasswordHash.Length != 0) hash ^= PasswordHash.GetHashCode();
       if (passwordExpires_ != null) hash ^= PasswordExpires.GetHashCode();
       if (TempPasswordHash.Length != 0) hash ^= TempPasswordHash.GetHashCode();
@@ -2105,6 +2143,7 @@ namespace Spiderrock.Protobuf {
       if (SrseHistoricalAclV7.Length != 0) hash ^= SrseHistoricalAclV7.GetHashCode();
       if (ContactIMV7.Length != 0) hash ^= ContactIMV7.GetHashCode();
       hash ^= accountAccessControl_.GetHashCode();
+      hash ^= apiKeys_.GetHashCode();
       hash ^= citrixProductControl_.GetHashCode();
       hash ^= clientFirmViewAccessV7_.GetHashCode();
       hash ^= mLinkControl_.GetHashCode();
@@ -2291,10 +2330,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(138, 15);
         output.WriteString(IceCompanyId);
       }
-      if (IceSubRoom.Length != 0) {
-        output.WriteRawTag(146, 15);
-        output.WriteString(IceSubRoom);
-      }
       if (CboeTraderId.Length != 0) {
         output.WriteRawTag(162, 15);
         output.WriteString(CboeTraderId);
@@ -2461,6 +2496,15 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(242, 24);
         output.WriteString(IceBadge);
       }
+      if (IceSubRoom.Length != 0) {
+        output.WriteRawTag(250, 24);
+        output.WriteString(IceSubRoom);
+      }
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(128, 25);
+        output.WriteEnum((int) HasApiKeyAccess);
+      }
+      apiKeys_.WriteTo(output, _repeated_apiKeys_codec);
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(ClientFirmListV7);
@@ -2709,10 +2753,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(138, 15);
         output.WriteString(IceCompanyId);
       }
-      if (IceSubRoom.Length != 0) {
-        output.WriteRawTag(146, 15);
-        output.WriteString(IceSubRoom);
-      }
       if (CboeTraderId.Length != 0) {
         output.WriteRawTag(162, 15);
         output.WriteString(CboeTraderId);
@@ -2879,6 +2919,15 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(242, 24);
         output.WriteString(IceBadge);
       }
+      if (IceSubRoom.Length != 0) {
+        output.WriteRawTag(250, 24);
+        output.WriteString(IceSubRoom);
+      }
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(128, 25);
+        output.WriteEnum((int) HasApiKeyAccess);
+      }
+      apiKeys_.WriteTo(ref output, _repeated_apiKeys_codec);
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(ClientFirmListV7);
@@ -3182,6 +3231,9 @@ namespace Spiderrock.Protobuf {
       if (apiKeyExpires_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ApiKeyExpires);
       }
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HasApiKeyAccess);
+      }
       if (PasswordHash.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(PasswordHash);
       }
@@ -3267,6 +3319,7 @@ namespace Spiderrock.Protobuf {
         size += 3 + pb::CodedOutputStream.ComputeStringSize(ContactIMV7);
       }
       size += accountAccessControl_.CalculateSize(_repeated_accountAccessControl_codec);
+      size += apiKeys_.CalculateSize(_repeated_apiKeys_codec);
       size += citrixProductControl_.CalculateSize(_repeated_citrixProductControl_codec);
       size += clientFirmViewAccessV7_.CalculateSize(_repeated_clientFirmViewAccessV7_codec);
       size += mLinkControl_.CalculateSize(_repeated_mLinkControl_codec);
@@ -3526,6 +3579,9 @@ namespace Spiderrock.Protobuf {
         }
         ApiKeyExpires.MergeFrom(other.ApiKeyExpires);
       }
+      if (other.HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        HasApiKeyAccess = other.HasApiKeyAccess;
+      }
       if (other.PasswordHash.Length != 0) {
         PasswordHash = other.PasswordHash;
       }
@@ -3620,6 +3676,7 @@ namespace Spiderrock.Protobuf {
         ContactIMV7 = other.ContactIMV7;
       }
       accountAccessControl_.Add(other.accountAccessControl_);
+      apiKeys_.Add(other.apiKeys_);
       citrixProductControl_.Add(other.citrixProductControl_);
       clientFirmViewAccessV7_.Add(other.clientFirmViewAccessV7_);
       mLinkControl_.Add(other.mLinkControl_);
@@ -3824,10 +3881,6 @@ namespace Spiderrock.Protobuf {
             IceCompanyId = input.ReadString();
             break;
           }
-          case 1938: {
-            IceSubRoom = input.ReadString();
-            break;
-          }
           case 1954: {
             CboeTraderId = input.ReadString();
             break;
@@ -4025,6 +4078,18 @@ namespace Spiderrock.Protobuf {
           }
           case 3186: {
             IceBadge = input.ReadString();
+            break;
+          }
+          case 3194: {
+            IceSubRoom = input.ReadString();
+            break;
+          }
+          case 3200: {
+            HasApiKeyAccess = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3210: {
+            apiKeys_.AddEntriesFrom(input, _repeated_apiKeys_codec);
             break;
           }
           case 40002: {
@@ -4304,10 +4369,6 @@ namespace Spiderrock.Protobuf {
             IceCompanyId = input.ReadString();
             break;
           }
-          case 1938: {
-            IceSubRoom = input.ReadString();
-            break;
-          }
           case 1954: {
             CboeTraderId = input.ReadString();
             break;
@@ -4505,6 +4566,18 @@ namespace Spiderrock.Protobuf {
           }
           case 3186: {
             IceBadge = input.ReadString();
+            break;
+          }
+          case 3194: {
+            IceSubRoom = input.ReadString();
+            break;
+          }
+          case 3200: {
+            HasApiKeyAccess = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3210: {
+            apiKeys_.AddEntriesFrom(ref input, _repeated_apiKeys_codec);
             break;
           }
           case 40002: {
@@ -5015,6 +5088,376 @@ namespace Spiderrock.Protobuf {
 
       }
 
+      public sealed partial class ApiKeys : pb::IMessage<ApiKeys>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<ApiKeys> _parser = new pb::MessageParser<ApiKeys>(() => new ApiKeys());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<ApiKeys> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[2]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public ApiKeys() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public ApiKeys(ApiKeys other) : this() {
+          id_ = other.id_;
+          hash_ = other.hash_;
+          expires_ = other.expires_ != null ? other.expires_.Clone() : null;
+          created_ = other.created_ != null ? other.created_.Clone() : null;
+          label_ = other.label_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public ApiKeys Clone() {
+          return new ApiKeys(this);
+        }
+
+        /// <summary>Field number for the "id" field.</summary>
+        public const int IdFieldNumber = 402;
+        private int id_;
+        /// <summary>
+        /// API key serial number which identifies this key
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int Id {
+          get { return id_; }
+          set {
+            id_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "hash" field.</summary>
+        public const int HashFieldNumber = 403;
+        private string hash_ = "";
+        /// <summary>
+        /// API key hash (generated guid hash; SHA-256)
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Hash {
+          get { return hash_; }
+          set {
+            hash_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "expires" field.</summary>
+        public const int ExpiresFieldNumber = 404;
+        private global::Google.Protobuf.WellKnownTypes.Timestamp expires_;
+        /// <summary>
+        /// API key expiration date, defaults to never 2100-01-01
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Google.Protobuf.WellKnownTypes.Timestamp Expires {
+          get { return expires_; }
+          set {
+            expires_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "created" field.</summary>
+        public const int CreatedFieldNumber = 405;
+        private global::Google.Protobuf.WellKnownTypes.Timestamp created_;
+        /// <summary>
+        /// API key creation date
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Google.Protobuf.WellKnownTypes.Timestamp Created {
+          get { return created_; }
+          set {
+            created_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "label" field.</summary>
+        public const int LabelFieldNumber = 406;
+        private string label_ = "";
+        /// <summary>
+        /// API key name/description (if any; may be client supplied)
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Label {
+          get { return label_; }
+          set {
+            label_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as ApiKeys);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(ApiKeys other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Id != other.Id) return false;
+          if (Hash != other.Hash) return false;
+          if (!object.Equals(Expires, other.Expires)) return false;
+          if (!object.Equals(Created, other.Created)) return false;
+          if (Label != other.Label) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Id != 0) hash ^= Id.GetHashCode();
+          if (Hash.Length != 0) hash ^= Hash.GetHashCode();
+          if (expires_ != null) hash ^= Expires.GetHashCode();
+          if (created_ != null) hash ^= Created.GetHashCode();
+          if (Label.Length != 0) hash ^= Label.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (Id != 0) {
+            output.WriteRawTag(144, 25);
+            output.WriteInt32(Id);
+          }
+          if (Hash.Length != 0) {
+            output.WriteRawTag(154, 25);
+            output.WriteString(Hash);
+          }
+          if (expires_ != null) {
+            output.WriteRawTag(162, 25);
+            output.WriteMessage(Expires);
+          }
+          if (created_ != null) {
+            output.WriteRawTag(170, 25);
+            output.WriteMessage(Created);
+          }
+          if (Label.Length != 0) {
+            output.WriteRawTag(178, 25);
+            output.WriteString(Label);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Id != 0) {
+            output.WriteRawTag(144, 25);
+            output.WriteInt32(Id);
+          }
+          if (Hash.Length != 0) {
+            output.WriteRawTag(154, 25);
+            output.WriteString(Hash);
+          }
+          if (expires_ != null) {
+            output.WriteRawTag(162, 25);
+            output.WriteMessage(Expires);
+          }
+          if (created_ != null) {
+            output.WriteRawTag(170, 25);
+            output.WriteMessage(Created);
+          }
+          if (Label.Length != 0) {
+            output.WriteRawTag(178, 25);
+            output.WriteString(Label);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (Id != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeInt32Size(Id);
+          }
+          if (Hash.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(Hash);
+          }
+          if (expires_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Expires);
+          }
+          if (created_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Created);
+          }
+          if (Label.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(Label);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(ApiKeys other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Id != 0) {
+            Id = other.Id;
+          }
+          if (other.Hash.Length != 0) {
+            Hash = other.Hash;
+          }
+          if (other.expires_ != null) {
+            if (expires_ == null) {
+              Expires = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            Expires.MergeFrom(other.Expires);
+          }
+          if (other.created_ != null) {
+            if (created_ == null) {
+              Created = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            Created.MergeFrom(other.Created);
+          }
+          if (other.Label.Length != 0) {
+            Label = other.Label;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 3216: {
+                Id = input.ReadInt32();
+                break;
+              }
+              case 3226: {
+                Hash = input.ReadString();
+                break;
+              }
+              case 3234: {
+                if (expires_ == null) {
+                  Expires = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Expires);
+                break;
+              }
+              case 3242: {
+                if (created_ == null) {
+                  Created = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Created);
+                break;
+              }
+              case 3250: {
+                Label = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 3216: {
+                Id = input.ReadInt32();
+                break;
+              }
+              case 3226: {
+                Hash = input.ReadString();
+                break;
+              }
+              case 3234: {
+                if (expires_ == null) {
+                  Expires = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Expires);
+                break;
+              }
+              case 3242: {
+                if (created_ == null) {
+                  Created = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Created);
+                break;
+              }
+              case 3250: {
+                Label = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
       public sealed partial class CitrixProductControl : pb::IMessage<CitrixProductControl>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -5029,7 +5472,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[2]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[3]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5267,7 +5710,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[3]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[4]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5508,7 +5951,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[4]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[5]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5866,7 +6309,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[5]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[6]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6184,7 +6627,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[6]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[7]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6422,7 +6865,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[7]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[8]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6660,7 +7103,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[8]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[9]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

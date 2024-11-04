@@ -26,25 +26,25 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CilQcm90b2J1Zi9FcXRNYXJrRGF0YS9TdG9ja0Nsb3NlTWFyay5wcm90bxIT",
             "c3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8a",
-            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ikAYKDlN0b2NrQ2xv",
+            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ikwYKDlN0b2NrQ2xv",
             "c2VNYXJrEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5N",
             "ZXNzYWdlTWV0YWRhdGESNgoEcGtleRgCIAEoCzIoLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuU3RvY2tDbG9zZU1hcmsuUEtleRIwCgp0cmFkZV9kYXRlGGQgASgL",
             "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjkKDmNsc19tYXJrX3N0",
             "YXRlGGcgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5DbHNNYXJrU3RhdGUS",
             "DwoHb3BuX3ByYxhqIAEoAhIPCgdtaW5fcHJjGG0gASgCEg8KB21heF9wcmMY",
-            "cCABKAISGgoSc2hhcmVzX291dHN0YW5kaW5nGHMgASgDEhEKCXBydF9jb3Vu",
-            "dBh2IAEoBRISCgpwcnRfdm9sdW1lGHkgASgDEhQKDHJlYWxpemVkX2NudBh8",
-            "IAEoBRIUCgxyZWFsaXplZF92b2wYfSABKAISFAoMYXZnX21rdF9zaXplGH8g",
-            "ASgCEhYKDWF2Z19ta3Rfd2lkdGgYggEgASgCEhAKB2JpZF9wcmMYhQEgASgC",
-            "EhAKB2Fza19wcmMYiAEgASgCEhMKCnNyX2Nsc19wcmMYiwEgASgCEhIKCWNs",
-            "b3NlX3ByYxiOASABKAISMgoNaGFzX3NSQ2xzX3ByYxiRASABKA4yGi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlllc05vEjIKDWhhc19jbG9zZV9wcmMYlAEgASgO",
-            "Mhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI3ChJzcl9jbG9zZV9tYXJr",
-            "X2R0dG0YlwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgl0",
-            "aW1lc3RhbXAYmgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo2",
-            "CgRQS2V5Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "VGlja2VyS2V5YgZwcm90bzM="));
+            "cCABKAISGwoSc2hhcmVzX291dHN0YW5kaW5nGJsBIAEoAxIRCglwcnRfY291",
+            "bnQYdiABKAUSEwoKcHJ0X3ZvbHVtZRieASABKAUSFQoMcmVhbGl6ZWRfY250",
+            "GJ0BIAEoBRIUCgxyZWFsaXplZF92b2wYfCABKAISFAoMYXZnX21rdF9zaXpl",
+            "GH8gASgCEhYKDWF2Z19ta3Rfd2lkdGgYggEgASgCEhAKB2JpZF9wcmMYhQEg",
+            "ASgCEhAKB2Fza19wcmMYiAEgASgCEhMKCnNyX2Nsc19wcmMYiwEgASgCEhIK",
+            "CWNsb3NlX3ByYxiOASABKAISMgoNaGFzX3NSQ2xzX3ByYxiRASABKA4yGi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjIKDWhhc19jbG9zZV9wcmMYlAEg",
+            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI3ChJzcl9jbG9zZV9t",
+            "YXJrX2R0dG0YlwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIu",
+            "Cgl0aW1lc3RhbXAYmgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
+            "cBo2CgRQS2V5Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuVGlja2VyS2V5YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -222,7 +222,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "shares_outstanding" field.</summary>
-    public const int SharesOutstandingFieldNumber = 115;
+    public const int SharesOutstandingFieldNumber = 155;
     private long sharesOutstanding_;
     /// <summary>
     /// Shares outstanding
@@ -252,14 +252,14 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prt_volume" field.</summary>
-    public const int PrtVolumeFieldNumber = 121;
-    private long prtVolume_;
+    public const int PrtVolumeFieldNumber = 158;
+    private int prtVolume_;
     /// <summary>
     /// Print volume (entire trading period)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long PrtVolume {
+    public int PrtVolume {
       get { return prtVolume_; }
       set {
         prtVolume_ = value;
@@ -267,7 +267,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "realized_cnt" field.</summary>
-    public const int RealizedCntFieldNumber = 124;
+    public const int RealizedCntFieldNumber = 157;
     private int realizedCnt_;
     /// <summary>
     /// number of minute bar segments used in realizedVar calc
@@ -282,7 +282,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "realized_vol" field.</summary>
-    public const int RealizedVolFieldNumber = 125;
+    public const int RealizedVolFieldNumber = 124;
     private float realizedVol_;
     /// <summary>
     /// realizedVol = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
@@ -499,7 +499,7 @@ namespace Spiderrock.Protobuf {
       if (MaxPrc != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxPrc);
       if (SharesOutstanding != 0L) hash ^= SharesOutstanding.GetHashCode();
       if (PrtCount != 0) hash ^= PrtCount.GetHashCode();
-      if (PrtVolume != 0L) hash ^= PrtVolume.GetHashCode();
+      if (PrtVolume != 0) hash ^= PrtVolume.GetHashCode();
       if (RealizedCnt != 0) hash ^= RealizedCnt.GetHashCode();
       if (RealizedVol != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RealizedVol);
       if (AvgMktSize != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AvgMktSize);
@@ -558,24 +558,12 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(133, 7);
         output.WriteFloat(MaxPrc);
       }
-      if (SharesOutstanding != 0L) {
-        output.WriteRawTag(152, 7);
-        output.WriteInt64(SharesOutstanding);
-      }
       if (PrtCount != 0) {
         output.WriteRawTag(176, 7);
         output.WriteInt32(PrtCount);
       }
-      if (PrtVolume != 0L) {
-        output.WriteRawTag(200, 7);
-        output.WriteInt64(PrtVolume);
-      }
-      if (RealizedCnt != 0) {
-        output.WriteRawTag(224, 7);
-        output.WriteInt32(RealizedCnt);
-      }
       if (RealizedVol != 0F) {
-        output.WriteRawTag(237, 7);
+        output.WriteRawTag(229, 7);
         output.WriteFloat(RealizedVol);
       }
       if (AvgMktSize != 0F) {
@@ -617,6 +605,18 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(210, 9);
         output.WriteMessage(Timestamp);
+      }
+      if (SharesOutstanding != 0L) {
+        output.WriteRawTag(216, 9);
+        output.WriteInt64(SharesOutstanding);
+      }
+      if (RealizedCnt != 0) {
+        output.WriteRawTag(232, 9);
+        output.WriteInt32(RealizedCnt);
+      }
+      if (PrtVolume != 0) {
+        output.WriteRawTag(240, 9);
+        output.WriteInt32(PrtVolume);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -656,24 +656,12 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(133, 7);
         output.WriteFloat(MaxPrc);
       }
-      if (SharesOutstanding != 0L) {
-        output.WriteRawTag(152, 7);
-        output.WriteInt64(SharesOutstanding);
-      }
       if (PrtCount != 0) {
         output.WriteRawTag(176, 7);
         output.WriteInt32(PrtCount);
       }
-      if (PrtVolume != 0L) {
-        output.WriteRawTag(200, 7);
-        output.WriteInt64(PrtVolume);
-      }
-      if (RealizedCnt != 0) {
-        output.WriteRawTag(224, 7);
-        output.WriteInt32(RealizedCnt);
-      }
       if (RealizedVol != 0F) {
-        output.WriteRawTag(237, 7);
+        output.WriteRawTag(229, 7);
         output.WriteFloat(RealizedVol);
       }
       if (AvgMktSize != 0F) {
@@ -716,6 +704,18 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 9);
         output.WriteMessage(Timestamp);
       }
+      if (SharesOutstanding != 0L) {
+        output.WriteRawTag(216, 9);
+        output.WriteInt64(SharesOutstanding);
+      }
+      if (RealizedCnt != 0) {
+        output.WriteRawTag(232, 9);
+        output.WriteInt32(RealizedCnt);
+      }
+      if (PrtVolume != 0) {
+        output.WriteRawTag(240, 9);
+        output.WriteInt32(PrtVolume);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -753,8 +753,8 @@ namespace Spiderrock.Protobuf {
       if (PrtCount != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(PrtCount);
       }
-      if (PrtVolume != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(PrtVolume);
+      if (PrtVolume != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(PrtVolume);
       }
       if (RealizedCnt != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(RealizedCnt);
@@ -840,7 +840,7 @@ namespace Spiderrock.Protobuf {
       if (other.PrtCount != 0) {
         PrtCount = other.PrtCount;
       }
-      if (other.PrtVolume != 0L) {
+      if (other.PrtVolume != 0) {
         PrtVolume = other.PrtVolume;
       }
       if (other.RealizedCnt != 0) {
@@ -937,23 +937,11 @@ namespace Spiderrock.Protobuf {
             MaxPrc = input.ReadFloat();
             break;
           }
-          case 920: {
-            SharesOutstanding = input.ReadInt64();
-            break;
-          }
           case 944: {
             PrtCount = input.ReadInt32();
             break;
           }
-          case 968: {
-            PrtVolume = input.ReadInt64();
-            break;
-          }
-          case 992: {
-            RealizedCnt = input.ReadInt32();
-            break;
-          }
-          case 1005: {
+          case 997: {
             RealizedVol = input.ReadFloat();
             break;
           }
@@ -1001,6 +989,18 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1240: {
+            SharesOutstanding = input.ReadInt64();
+            break;
+          }
+          case 1256: {
+            RealizedCnt = input.ReadInt32();
+            break;
+          }
+          case 1264: {
+            PrtVolume = input.ReadInt32();
             break;
           }
         }
@@ -1055,23 +1055,11 @@ namespace Spiderrock.Protobuf {
             MaxPrc = input.ReadFloat();
             break;
           }
-          case 920: {
-            SharesOutstanding = input.ReadInt64();
-            break;
-          }
           case 944: {
             PrtCount = input.ReadInt32();
             break;
           }
-          case 968: {
-            PrtVolume = input.ReadInt64();
-            break;
-          }
-          case 992: {
-            RealizedCnt = input.ReadInt32();
-            break;
-          }
-          case 1005: {
+          case 997: {
             RealizedVol = input.ReadFloat();
             break;
           }
@@ -1119,6 +1107,18 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1240: {
+            SharesOutstanding = input.ReadInt64();
+            break;
+          }
+          case 1256: {
+            RealizedCnt = input.ReadInt32();
+            break;
+          }
+          case 1264: {
+            PrtVolume = input.ReadInt32();
             break;
           }
         }

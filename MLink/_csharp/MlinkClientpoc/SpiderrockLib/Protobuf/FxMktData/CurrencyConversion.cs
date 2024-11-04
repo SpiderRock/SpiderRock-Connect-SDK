@@ -30,7 +30,7 @@ namespace Spiderrock.Protobuf {
             "Y3lDb252ZXJzaW9uEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90",
             "b2J1Zi5NZXNzYWdlTWV0YWRhdGESOgoEcGtleRgCIAEoCzIsLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuQ3VycmVuY3lDb252ZXJzaW9uLlBLZXkSFAoMY29udmVy",
-            "dF9yYXRlGGQgASgBEi0KCXRpbWVzdGFtcBhnIAEoCzIaLmdvb2dsZS5wcm90",
+            "dF9yYXRlGGQgASgBEi0KCXRpbWVzdGFtcBhlIAEoCzIaLmdvb2dsZS5wcm90",
             "b2J1Zi5UaW1lc3RhbXAacAoEUEtleRIzCgxzcmNfY3VycmVuY3kYCiABKA4y",
             "HS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EjMKDHRndF9jdXJyZW5j",
             "eRgLIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3liBnByb3Rv",
@@ -129,7 +129,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 103;
+    public const int TimestampFieldNumber = 101;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -201,7 +201,7 @@ namespace Spiderrock.Protobuf {
         output.WriteDouble(ConvertRate);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -227,7 +227,7 @@ namespace Spiderrock.Protobuf {
         output.WriteDouble(ConvertRate);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -318,7 +318,7 @@ namespace Spiderrock.Protobuf {
             ConvertRate = input.ReadDouble();
             break;
           }
-          case 826: {
+          case 810: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -358,7 +358,7 @@ namespace Spiderrock.Protobuf {
             ConvertRate = input.ReadDouble();
             break;
           }
-          case 826: {
+          case 810: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

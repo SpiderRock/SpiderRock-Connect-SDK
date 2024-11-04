@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9FcXVpdHlEZWZpbml0aW9uL1RpY2tlckRlZmluaXRpb24u",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIuENChBU",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvoQChBU",
             "aWNrZXJEZWZpbml0aW9uEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5w",
             "cm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOAoEcGtleRgCIAEoCzIqLnNwaWRl",
             "cnJvY2sucHJvdG9idWYuVGlja2VyRGVmaW5pdGlvbi5QS2V5EhMKC3NlY3Vy",
@@ -41,7 +41,7 @@ namespace Spiderrock.Protobuf {
             "ZXJyb2NrLnByb3RvYnVmLlByaW1hcnlFeGNoYW5nZRIOCgZhbHRfaUQYfyAB",
             "KAUSDAoDbWljGIIBIAEoCRIQCgdtaWNfc2VnGIUBIAEoCRIPCgZzeW1ib2wY",
             "iAEgASgJEhQKC2lzc3VlX2NsYXNzGIsBIAEoCRIbChJzaGFyZXNfb3V0c3Rh",
-            "bmRpbmcYjgEgASgDEg4KBWN1c2lwGJEBIAEoCRIQCgdpbmRfbnVtGJQBIAEo",
+            "bmRpbmcYgAIgASgDEg4KBWN1c2lwGJEBIAEoCRIQCgdpbmRfbnVtGJQBIAEo",
             "BRIQCgdzdWJfbnVtGJcBIAEoBRIQCgdncnBfbnVtGJoBIAEoBRIQCgduYnJf",
             "bnVtGJ0BIAEoBRIMCgNzaWMYoAEgASgJEgwKA2NpaxijASABKAkSDQoEZ2lj",
             "cximASABKAkSDAoDbGVpGKkBIAEoCRIOCgVuYWljcxisASABKAkSDAoDY2Zp",
@@ -62,15 +62,25 @@ namespace Spiderrock.Protobuf {
             "ZGUSEwoKc3RrX3ZvbHVtZRjoASABKAISEwoKZnV0X3ZvbHVtZRjrASABKAIS",
             "EwoKb3B0X3ZvbHVtZRjuASABKAISFAoLZXhjaF9zdHJpbmcY8QEgASgJEjAK",
             "C2hhc19vcHRpb25zGPQBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVz",
-            "Tm8SFAoLbnVtX29wdGlvbnMY9wEgASgFEjUKC3RpbWVfbWV0cmljGPoBIAEo",
-            "DjIfLnNwaWRlcnJvY2sucHJvdG9idWYuVGltZU1ldHJpYxIuCgl0aW1lc3Rh",
-            "bXAY/QEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo2CgRQS2V5",
-            "Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2Vy",
-            "S2V5YgZwcm90bzM="));
+            "Tm8SFAoLbnVtX29wdGlvbnMY9wEgASgFEjIKCWJhc2lzX2tleRiBAiABKAsy",
+            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIxCgxyZXZlcnNlX3Nr",
+            "ZXcYggIgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI1Cgt0aW1l",
+            "X21ldHJpYxj6ASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlRpbWVNZXRy",
+            "aWMSOwoOdHJhZGluZ19wZXJpb2QYgwIgASgOMiIuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5UcmFkaW5nUGVyaW9kEkIKGXJlZ2lvbmFsX2NvbXBvc2l0ZV90aWNr",
+            "ZXIYhwIgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSLgoJ",
+            "dGltZXN0YW1wGP0BIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "QQoIZXhjaGFuZ2UYhAIgAygLMi4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNr",
+            "ZXJEZWZpbml0aW9uLkV4Y2hhbmdlGjYKBFBLZXkSLgoGdGlja2VyGAogASgL",
+            "Mh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkabAoIRXhjaGFuZ2US",
+            "LwoIc3RrX2V4Y2gYhQIgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5TdGtF",
+            "eGNoEi8KBnRpY2tlchiGAiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRp",
+            "Y2tlcktleWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition), global::Spiderrock.Protobuf.TickerDefinition.Parser, new[]{ "Meta", "Pkey", "SecurityID", "SymbolType", "Name", "Country", "PrimaryCurrency", "RateCurve", "ParValue", "ParValueCurrency", "PointValue", "PointCurrency", "PrimaryExch", "AltID", "Mic", "MicSeg", "Symbol", "IssueClass", "SharesOutstanding", "Cusip", "IndNum", "SubNum", "GrpNum", "NbrNum", "Sic", "Cik", "Gics", "Lei", "Naics", "Cfi", "Cic", "Fisn", "Isin", "Figi", "BbgCompositeTicker", "BbgExchangeTicker", "BbgCompositeGlobalID", "BbgGlobalID", "BbgCurrency", "OtcPrimaryMarket", "OtcTier", "OtcReportingStatus", "OtcDisclosureStatus", "OtcFlags", "StkPriceInc", "TkDefSource", "StatusFlag", "TapeCode", "StkVolume", "FutVolume", "OptVolume", "ExchString", "HasOptions", "NumOptions", "TimeMetric", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition.Types.PKey), global::Spiderrock.Protobuf.TickerDefinition.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition), global::Spiderrock.Protobuf.TickerDefinition.Parser, new[]{ "Meta", "Pkey", "SecurityID", "SymbolType", "Name", "Country", "PrimaryCurrency", "RateCurve", "ParValue", "ParValueCurrency", "PointValue", "PointCurrency", "PrimaryExch", "AltID", "Mic", "MicSeg", "Symbol", "IssueClass", "SharesOutstanding", "Cusip", "IndNum", "SubNum", "GrpNum", "NbrNum", "Sic", "Cik", "Gics", "Lei", "Naics", "Cfi", "Cic", "Fisn", "Isin", "Figi", "BbgCompositeTicker", "BbgExchangeTicker", "BbgCompositeGlobalID", "BbgGlobalID", "BbgCurrency", "OtcPrimaryMarket", "OtcTier", "OtcReportingStatus", "OtcDisclosureStatus", "OtcFlags", "StkPriceInc", "TkDefSource", "StatusFlag", "TapeCode", "StkVolume", "FutVolume", "OptVolume", "ExchString", "HasOptions", "NumOptions", "BasisKey", "ReverseSkew", "TimeMetric", "TradingPeriod", "RegionalCompositeTicker", "Timestamp", "Exchange" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition.Types.PKey), global::Spiderrock.Protobuf.TickerDefinition.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange), global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange.Parser, new[]{ "StkExch", "Ticker" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -169,8 +179,13 @@ namespace Spiderrock.Protobuf {
       exchString_ = other.exchString_;
       hasOptions_ = other.hasOptions_;
       numOptions_ = other.numOptions_;
+      basisKey_ = other.basisKey_ != null ? other.basisKey_.Clone() : null;
+      reverseSkew_ = other.reverseSkew_;
       timeMetric_ = other.timeMetric_;
+      tradingPeriod_ = other.tradingPeriod_;
+      regionalCompositeTicker_ = other.regionalCompositeTicker_ != null ? other.regionalCompositeTicker_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
+      exchange_ = other.exchange_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -427,7 +442,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "shares_outstanding" field.</summary>
-    public const int SharesOutstandingFieldNumber = 142;
+    public const int SharesOutstandingFieldNumber = 256;
     private long sharesOutstanding_;
     /// <summary>
     /// symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)
@@ -948,6 +963,36 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "basis_key" field.</summary>
+    public const int BasisKeyFieldNumber = 257;
+    private global::Spiderrock.Protobuf.TickerKey basisKey_;
+    /// <summary>
+    /// skew basis fn key
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TickerKey BasisKey {
+      get { return basisKey_; }
+      set {
+        basisKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reverse_skew" field.</summary>
+    public const int ReverseSkewFieldNumber = 258;
+    private global::Spiderrock.Protobuf.YesNo reverseSkew_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// if Yes/No, force skew curve norma/reverse (left/right) orientation,  if None, auto-determine from data
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ReverseSkew {
+      get { return reverseSkew_; }
+      set {
+        reverseSkew_ = value;
+      }
+    }
+
     /// <summary>Field number for the "time_metric" field.</summary>
     public const int TimeMetricFieldNumber = 250;
     private global::Spiderrock.Protobuf.TimeMetric timeMetric_ = global::Spiderrock.Protobuf.TimeMetric.Unspecified;
@@ -963,6 +1008,36 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "trading_period" field.</summary>
+    public const int TradingPeriodFieldNumber = 259;
+    private global::Spiderrock.Protobuf.TradingPeriod tradingPeriod_ = global::Spiderrock.Protobuf.TradingPeriod.Unspecified;
+    /// <summary>
+    /// trading period code (defines 24-hour trading period start/stop)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TradingPeriod TradingPeriod {
+      get { return tradingPeriod_; }
+      set {
+        tradingPeriod_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "regional_composite_ticker" field.</summary>
+    public const int RegionalCompositeTickerFieldNumber = 263;
+    private global::Spiderrock.Protobuf.TickerKey regionalCompositeTicker_;
+    /// <summary>
+    /// regional composite ticker - set on European contributor products only
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TickerKey RegionalCompositeTicker {
+      get { return regionalCompositeTicker_; }
+      set {
+        regionalCompositeTicker_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 253;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -973,6 +1048,17 @@ namespace Spiderrock.Protobuf {
       set {
         timestamp_ = value;
       }
+    }
+
+    /// <summary>Field number for the "exchange" field.</summary>
+    public const int ExchangeFieldNumber = 260;
+    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange> _repeated_exchange_codec
+        = pb::FieldCodec.ForMessage(2082, global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange.Parser);
+    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange> exchange_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Spiderrock.Protobuf.TickerDefinition.Types.Exchange> Exchange {
+      get { return exchange_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1044,8 +1130,13 @@ namespace Spiderrock.Protobuf {
       if (ExchString != other.ExchString) return false;
       if (HasOptions != other.HasOptions) return false;
       if (NumOptions != other.NumOptions) return false;
+      if (!object.Equals(BasisKey, other.BasisKey)) return false;
+      if (ReverseSkew != other.ReverseSkew) return false;
       if (TimeMetric != other.TimeMetric) return false;
+      if (TradingPeriod != other.TradingPeriod) return false;
+      if (!object.Equals(RegionalCompositeTicker, other.RegionalCompositeTicker)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
+      if(!exchange_.Equals(other.exchange_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1107,8 +1198,13 @@ namespace Spiderrock.Protobuf {
       if (ExchString.Length != 0) hash ^= ExchString.GetHashCode();
       if (HasOptions != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasOptions.GetHashCode();
       if (NumOptions != 0) hash ^= NumOptions.GetHashCode();
+      if (basisKey_ != null) hash ^= BasisKey.GetHashCode();
+      if (ReverseSkew != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ReverseSkew.GetHashCode();
       if (TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) hash ^= TimeMetric.GetHashCode();
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) hash ^= TradingPeriod.GetHashCode();
+      if (regionalCompositeTicker_ != null) hash ^= RegionalCompositeTicker.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
+      hash ^= exchange_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1191,10 +1287,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(218, 8);
         output.WriteString(IssueClass);
       }
-      if (SharesOutstanding != 0L) {
-        output.WriteRawTag(240, 8);
-        output.WriteInt64(SharesOutstanding);
-      }
       if (Cusip.Length != 0) {
         output.WriteRawTag(138, 9);
         output.WriteString(Cusip);
@@ -1350,6 +1442,27 @@ namespace Spiderrock.Protobuf {
       if (RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) {
         output.WriteRawTag(248, 15);
         output.WriteEnum((int) RateCurve);
+      }
+      if (SharesOutstanding != 0L) {
+        output.WriteRawTag(128, 16);
+        output.WriteInt64(SharesOutstanding);
+      }
+      if (basisKey_ != null) {
+        output.WriteRawTag(138, 16);
+        output.WriteMessage(BasisKey);
+      }
+      if (ReverseSkew != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(144, 16);
+        output.WriteEnum((int) ReverseSkew);
+      }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        output.WriteRawTag(152, 16);
+        output.WriteEnum((int) TradingPeriod);
+      }
+      exchange_.WriteTo(output, _repeated_exchange_codec);
+      if (regionalCompositeTicker_ != null) {
+        output.WriteRawTag(186, 16);
+        output.WriteMessage(RegionalCompositeTicker);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1425,10 +1538,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(218, 8);
         output.WriteString(IssueClass);
       }
-      if (SharesOutstanding != 0L) {
-        output.WriteRawTag(240, 8);
-        output.WriteInt64(SharesOutstanding);
-      }
       if (Cusip.Length != 0) {
         output.WriteRawTag(138, 9);
         output.WriteString(Cusip);
@@ -1584,6 +1693,27 @@ namespace Spiderrock.Protobuf {
       if (RateCurve != global::Spiderrock.Protobuf.RateCurve.Unspecified) {
         output.WriteRawTag(248, 15);
         output.WriteEnum((int) RateCurve);
+      }
+      if (SharesOutstanding != 0L) {
+        output.WriteRawTag(128, 16);
+        output.WriteInt64(SharesOutstanding);
+      }
+      if (basisKey_ != null) {
+        output.WriteRawTag(138, 16);
+        output.WriteMessage(BasisKey);
+      }
+      if (ReverseSkew != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(144, 16);
+        output.WriteEnum((int) ReverseSkew);
+      }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        output.WriteRawTag(152, 16);
+        output.WriteEnum((int) TradingPeriod);
+      }
+      exchange_.WriteTo(ref output, _repeated_exchange_codec);
+      if (regionalCompositeTicker_ != null) {
+        output.WriteRawTag(186, 16);
+        output.WriteMessage(RegionalCompositeTicker);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1757,12 +1887,25 @@ namespace Spiderrock.Protobuf {
       if (NumOptions != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(NumOptions);
       }
+      if (basisKey_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(BasisKey);
+      }
+      if (ReverseSkew != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ReverseSkew);
+      }
       if (TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TimeMetric);
+      }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TradingPeriod);
+      }
+      if (regionalCompositeTicker_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RegionalCompositeTicker);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
       }
+      size += exchange_.CalculateSize(_repeated_exchange_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1943,8 +2086,26 @@ namespace Spiderrock.Protobuf {
       if (other.NumOptions != 0) {
         NumOptions = other.NumOptions;
       }
+      if (other.basisKey_ != null) {
+        if (basisKey_ == null) {
+          BasisKey = new global::Spiderrock.Protobuf.TickerKey();
+        }
+        BasisKey.MergeFrom(other.BasisKey);
+      }
+      if (other.ReverseSkew != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ReverseSkew = other.ReverseSkew;
+      }
       if (other.TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) {
         TimeMetric = other.TimeMetric;
+      }
+      if (other.TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        TradingPeriod = other.TradingPeriod;
+      }
+      if (other.regionalCompositeTicker_ != null) {
+        if (regionalCompositeTicker_ == null) {
+          RegionalCompositeTicker = new global::Spiderrock.Protobuf.TickerKey();
+        }
+        RegionalCompositeTicker.MergeFrom(other.RegionalCompositeTicker);
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -1952,6 +2113,7 @@ namespace Spiderrock.Protobuf {
         }
         Timestamp.MergeFrom(other.Timestamp);
       }
+      exchange_.Add(other.exchange_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2035,10 +2197,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1114: {
             IssueClass = input.ReadString();
-            break;
-          }
-          case 1136: {
-            SharesOutstanding = input.ReadInt64();
             break;
           }
           case 1162: {
@@ -2198,6 +2356,36 @@ namespace Spiderrock.Protobuf {
           }
           case 2040: {
             RateCurve = (global::Spiderrock.Protobuf.RateCurve) input.ReadEnum();
+            break;
+          }
+          case 2048: {
+            SharesOutstanding = input.ReadInt64();
+            break;
+          }
+          case 2058: {
+            if (basisKey_ == null) {
+              BasisKey = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(BasisKey);
+            break;
+          }
+          case 2064: {
+            ReverseSkew = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 2072: {
+            TradingPeriod = (global::Spiderrock.Protobuf.TradingPeriod) input.ReadEnum();
+            break;
+          }
+          case 2082: {
+            exchange_.AddEntriesFrom(input, _repeated_exchange_codec);
+            break;
+          }
+          case 2106: {
+            if (regionalCompositeTicker_ == null) {
+              RegionalCompositeTicker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(RegionalCompositeTicker);
             break;
           }
         }
@@ -2285,10 +2473,6 @@ namespace Spiderrock.Protobuf {
             IssueClass = input.ReadString();
             break;
           }
-          case 1136: {
-            SharesOutstanding = input.ReadInt64();
-            break;
-          }
           case 1162: {
             Cusip = input.ReadString();
             break;
@@ -2446,6 +2630,36 @@ namespace Spiderrock.Protobuf {
           }
           case 2040: {
             RateCurve = (global::Spiderrock.Protobuf.RateCurve) input.ReadEnum();
+            break;
+          }
+          case 2048: {
+            SharesOutstanding = input.ReadInt64();
+            break;
+          }
+          case 2058: {
+            if (basisKey_ == null) {
+              BasisKey = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(BasisKey);
+            break;
+          }
+          case 2064: {
+            ReverseSkew = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 2072: {
+            TradingPeriod = (global::Spiderrock.Protobuf.TradingPeriod) input.ReadEnum();
+            break;
+          }
+          case 2082: {
+            exchange_.AddEntriesFrom(ref input, _repeated_exchange_codec);
+            break;
+          }
+          case 2106: {
+            if (regionalCompositeTicker_ == null) {
+              RegionalCompositeTicker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(RegionalCompositeTicker);
             break;
           }
         }
@@ -2643,6 +2857,241 @@ namespace Spiderrock.Protobuf {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
               case 82: {
+                if (ticker_ == null) {
+                  Ticker = new global::Spiderrock.Protobuf.TickerKey();
+                }
+                input.ReadMessage(Ticker);
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+      public sealed partial class Exchange : pb::IMessage<Exchange>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<Exchange> _parser = new pb::MessageParser<Exchange>(() => new Exchange());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<Exchange> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Spiderrock.Protobuf.TickerDefinition.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public Exchange() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public Exchange(Exchange other) : this() {
+          stkExch_ = other.stkExch_;
+          ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public Exchange Clone() {
+          return new Exchange(this);
+        }
+
+        /// <summary>Field number for the "stk_exch" field.</summary>
+        public const int StkExchFieldNumber = 261;
+        private global::Spiderrock.Protobuf.StkExch stkExch_ = global::Spiderrock.Protobuf.StkExch.Unspecified;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Spiderrock.Protobuf.StkExch StkExch {
+          get { return stkExch_; }
+          set {
+            stkExch_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "ticker" field.</summary>
+        public const int TickerFieldNumber = 262;
+        private global::Spiderrock.Protobuf.TickerKey ticker_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Spiderrock.Protobuf.TickerKey Ticker {
+          get { return ticker_; }
+          set {
+            ticker_ = value;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as Exchange);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(Exchange other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (StkExch != other.StkExch) return false;
+          if (!object.Equals(Ticker, other.Ticker)) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (StkExch != global::Spiderrock.Protobuf.StkExch.Unspecified) hash ^= StkExch.GetHashCode();
+          if (ticker_ != null) hash ^= Ticker.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (StkExch != global::Spiderrock.Protobuf.StkExch.Unspecified) {
+            output.WriteRawTag(168, 16);
+            output.WriteEnum((int) StkExch);
+          }
+          if (ticker_ != null) {
+            output.WriteRawTag(178, 16);
+            output.WriteMessage(Ticker);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (StkExch != global::Spiderrock.Protobuf.StkExch.Unspecified) {
+            output.WriteRawTag(168, 16);
+            output.WriteEnum((int) StkExch);
+          }
+          if (ticker_ != null) {
+            output.WriteRawTag(178, 16);
+            output.WriteMessage(Ticker);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (StkExch != global::Spiderrock.Protobuf.StkExch.Unspecified) {
+            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) StkExch);
+          }
+          if (ticker_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(Exchange other) {
+          if (other == null) {
+            return;
+          }
+          if (other.StkExch != global::Spiderrock.Protobuf.StkExch.Unspecified) {
+            StkExch = other.StkExch;
+          }
+          if (other.ticker_ != null) {
+            if (ticker_ == null) {
+              Ticker = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            Ticker.MergeFrom(other.Ticker);
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 2088: {
+                StkExch = (global::Spiderrock.Protobuf.StkExch) input.ReadEnum();
+                break;
+              }
+              case 2098: {
+                if (ticker_ == null) {
+                  Ticker = new global::Spiderrock.Protobuf.TickerKey();
+                }
+                input.ReadMessage(Ticker);
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 2088: {
+                StkExch = (global::Spiderrock.Protobuf.StkExch) input.ReadEnum();
+                break;
+              }
+              case 2098: {
                 if (ticker_ == null) {
                   Ticker = new global::Spiderrock.Protobuf.TickerKey();
                 }

@@ -43,6 +43,7 @@ message CCodeDefinition {
     float strike_scaling = 154; // internal strike price scale factor override
     string description = 157; // product description
     string market_center = 160; // market center, eg "ICE Market Type", "CME MarketGroup"
+    TradingPeriod trading_period = 165;
     google.protobuf.Timestamp timestamp = 163;
     string ric_code__v7 = 5000; // only V7
 }

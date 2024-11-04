@@ -12,14 +12,15 @@ message OptionItemDef {
     message PKey {
         
         OptionKey okey = 10; // can be listed or FLEX
+        int32 okey_number = 13;
         int64 basket_number = 11;
         string user_name = 12;
     }
 
     message DiscreteDividend {
         
-        google.protobuf.Timestamp date = 136;
-        float amount = 139;
+        google.protobuf.Timestamp date = 112;
+        float amount = 113;
     }
 
 
@@ -27,18 +28,19 @@ message OptionItemDef {
     
     PKey pkey = 2;
     ExerciseType ex_type = 100; // exercise type of the option (American or European) (default: root definition)
-    ExerciseTime ex_time = 103; // exercise time (AM or PM) (default: root definition)
-    TimeMetric time_metric = 106; // time metric (D252, D365, etc.) (default: root definition)
-    CalcPriceType price_type = 109; // Equity (spot price) or Future (fwd price) conventions (default: root definition)
-    CalcModelType model_type = 112; // (default: root definition)
-    YesNo inc_greeks = 115; // default (No)
-    double vol = 118; // volatility (default: SR surface volatility)
-    double u_prc = 121; // underlying price (default: SR live uPrc)
-    double years = 124; // years-to-expiration (default: SR volatility time value)
-    double sdiv = 127; // continuous stock dividend using for pricing
-    double rate = 130; // discount rate used for pricing
-    google.protobuf.Timestamp timestamp = 142;
-    repeated DiscreteDividend discrete_dividend = 133;
+    ExerciseTime ex_time = 101; // exercise time (AM or PM) (default: root definition)
+    CalendarCode holiday_calendar = 115; // holiday calendar code (eg. NYSE)
+    TimeMetric time_metric = 102; // time metric (VT70, Y252, Y365, etc.) (default: root definition)
+    CalcPriceType price_type = 103; // Equity (spot price) or Future (fwd price) conventions (default: root definition)
+    CalcModelType model_type = 104; // (default: root definition)
+    YesNo inc_greeks = 105; // default (No)
+    double vol = 106; // volatility (default: SR surface volatility)
+    double u_prc = 107; // underlying price (default: SR live uPrc)
+    double years = 108; // years-to-expiration (default: SR volatility time value)
+    double sdiv = 109; // continuous stock dividend using for pricing
+    double rate = 110; // discount rate used for pricing
+    google.protobuf.Timestamp timestamp = 114;
+    repeated DiscreteDividend discrete_dividend = 111;
 }
 
 

@@ -51,7 +51,7 @@ namespace Spiderrock.Protobuf {
   #region Messages
   /// <summary>
   ///
-  ///RegionalUnderlierComposite (internal only) records exist per composite underlier (aka per ISIN). Eg for BMW there would be BMW-ESX-EQT which is the composite, but could have several contributing exchanges across the region
+  ///RegionalUnderlierComposite (internal only) records exist per composite underlier (aka per ISIN). Eg for BMW there would be BMW-EUX-EQT which is the composite, but could have several contributing exchanges across the region
   /// </summary>
   public sealed partial class RegionalUnderlierComposite : pb::IMessage<RegionalUnderlierComposite>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE

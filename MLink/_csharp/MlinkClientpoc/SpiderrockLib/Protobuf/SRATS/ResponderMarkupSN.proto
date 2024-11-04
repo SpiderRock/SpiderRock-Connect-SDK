@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ResponderMarkupSN {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11;
+        TickerKey root = 12;
+        DateKey expiry = 13;
+        BuySell resp_side = 14; // auction responder side (your side); Buy = Buy Synthetic (European/Flex)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    YesNo is_disabled = 101; // if Yes, this auto-responder record is disabled
+    int32 expiry_qty_avail = 102; // synthetics (contracts) available for responding (day total; this ticker/expiry; all strikes) [note: 1 contract = undPerCn underlier units]
+    int32 ticker_qty_avail = 103; // synthetics (contracts) available for responding (day total; this ticker; all strikes) [note: 1 contract = undPerCn underlier units]
+    RefUPrcType ref_uPrc_type = 104; // mid or cross (bid/ask)
+    double transact_fee = 105; // (+ = you pay) / (- = you receive)
+    double stock_rate = 106; // 0.00 = no effective lend/borrow value  (360 day convention)
+    double money_rate = 107; // effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365]
+    double ddiv_pv = 108; // present value of any expected dividends to expiry
+    DivControl div_control = 109; // disable this auto-responder record if SR Dividends exist or are estimates
+    YesNo inc_fees_in_resp = 110; // include all estimated responder fees in final response price
+    RoundRule round_rule = 111;
+    int32 open_expiry_qty = 112; // remaining synthetics (100 share units) available for responding (day total; this ticker/expiry; all strikes)
+    int32 open_ticker_qty = 113; // remaining synthetics (100 share units) available for responding (day total; this ticker; all strikes)
+    int32 cum_expiry_qty = 114; // synthetics (100 share units) traded (day total; this expiry; all strikes)
+    double cum_expiry_money = 115; // cumulative fill money (credit/debit) (this expiry)
+    double avg_expiry_price = 116; // avg fill effective price (this expiry) [compare to live uPrc]
+    YesNo is_div_control_disabled = 117; // yes if dividend control above is triggered
+    double u_bid = 118; // live stock price [nbbo bid]
+    double u_ask = 119; // live stock price [nbbo ask]
+    double i_days = 120; // iDays = effective interest days [SR supplied]
+    double i_years = 121; // iYears = iDays / 360.0
+    double strike = 122; // SR selected strike
+    double strike_pv = 123; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double stock_lend_pv = 124; // stockLendPv = uPrc * stockRate * iYears [stockRate supplied above]
+    double synthetic_prem = 125; // syntheticPrem = stockLendPv + strikePv + ddivPv + rcEExPrem (if any) [uPrc + pRv.price - cRv.price] [ddivPv supplied above]
+    double eff_synthetic_limit = 126; // effSyntheticLimit = syntheticPrem +/- transactFee [buy/sell]
+    double limit_price = 127; // limitPrice = ROUND(effSyntheticLimit) [this is your response limit price]
+    string modified_by = 128; // user who last modified this record
+    SysEnvironment modified_in = 129;
+    google.protobuf.Timestamp timestamp = 130; // timestamp of last modification
+}
+
+

@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    OptionTheoVol records contain client supplied theoretical volatility surface information resolved at the level if individual strikes.  Strike volatilities, prices, greeks and SpiderRock surface volatilites and prices are all available.  Values are computed on the fly using fast/accurate calculation methods as records are returned.
+*/    
+message OptionTheoVol {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string theo_model = 100; // required in where clause (theo model must be associated with an accnt that is visible)
+    string client_firm_out = 103;
+    float years = 106; // volatility years to expiration (variable time metric; SR holiday calendar)
+    TickerKey ticker = 109; // underlier ticker
+    float uprc = 112; // underlier price
+    float ubid = 115; // underlier bid
+    float uask = 118; // underlier ask
+    float obid = 121; // option market bid
+    float oask = 124; // option market ask
+    float tvol = 127; // theo vol
+    float tvol_bOpn = 130; // theo buy/open vol
+    float tvol_sOpn = 133; // theo sell/open vol
+    float tprc = 136; // theo vol price
+    float tb_prc = 139; // theo buy (open) price
+    float ts_prc = 142; // theo sell (open) price
+    float tb_cls_prc = 145; // theo buy (close) price
+    float ts_cls_prc = 148; // theo sell (close) price
+    float ve_slope = 151; // veSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant);hedgeDelta = (de + ve * 100 * veSlope) if hedging with this assumption
+    float de = 154; // implied greeks (from theo surface)
+    float ga = 157;
+    float th = 160;
+    float ve = 163;
+    float vo = 166;
+    float va = 169;
+    float de_decay = 172;
+    float ro = 175;
+    float ph = 178;
+    float sdiv_b = 181; // normalized sdiv when buying
+    float sdiv_s = 184; // normalized sdiv when selling
+    float x_axis = 187; // xAxis value (depends on xAxis definition in TheoExpSurface record)
+    float tvol_atm = 190; // theo model volatility (atm)
+    float ivol_atm = 193; // SR Surface Volatility (atm)
+    float svol = 196; // SR Surface Volatility
+    float sprc = 199; // SR Surface Price
+    float s_de = 202; // SR Surface Delta
+    float s_ve = 205; // SR Surface Vega
+    float rate = 208; // SR Rate (average interest rate to expiration)
+    float sdiv = 211; // SR SDiv (continuous dividend;accretive with discrete dividends)
+    float ddiv = 214; // SR DDiv (sum of discrete dividend amounts prior to expiration)
+    int32 err = 217;
+    string theo_err = 220;
+    string calc_err = 223;
+    TheoStatus theo_status = 226;
+    google.protobuf.Timestamp timestamp = 229;
+}
+
+

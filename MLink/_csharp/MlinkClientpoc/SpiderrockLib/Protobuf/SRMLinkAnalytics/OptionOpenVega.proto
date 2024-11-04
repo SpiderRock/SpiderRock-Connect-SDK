@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table contains cumulative open interest, day trading volume in terms of both contracts and vega.
+*/    
+message OptionOpenVega {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trading_date = 100;
+    TickerKey ticker = 103; // ticker
+    int32 open_int = 106; // open interest
+    int32 volume = 109; // option volume
+    float open_vega = 112; // open vega (sum of vega * open interest)
+    float vega_volume = 115; // sum of vega * volume
+    int32 num_options = 118; // number of strikes in this expiration month
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

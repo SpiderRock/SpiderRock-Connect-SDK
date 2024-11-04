@@ -163,7 +163,7 @@ namespace Spiderrock.Protobuf {
             "ZWNfdHlwZRj3BCABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlU",
             "eXBlEhkKEGhlZGdlX2JldGFfcmF0aW8Y+gQgASgCEjUKC2hlZGdlX3Njb3Bl",
             "GP0EIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuSGVkZ2VTY29wZRIdChRl",
-            "eHRlcm5faGVkZ2VfZXhfZGVzdBiABSABKAkSHAoTZXh0ZXJuX2hlZGdlX3Bh",
+            "eHRlcm5faGVkZ2VfZXhfZGVzdBifCCABKAkSHAoTZXh0ZXJuX2hlZGdlX3Bh",
             "cmFtcxiDBSABKAkSFQoMYmVzdF93YXlfcHJjGIYFIAEoAhIVCgx3cnN0X3dh",
             "eV9wcmMYiQUgASgCEhQKC2Jlc3Rfd2F5X3N6GIwFIAEoBRIUCgt3cnN0X3dh",
             "eV9zehiPBSABKAUSFAoLc3VyZmFjZV9wcmMYkgUgASgCEhQKC3N1cmZhY2Vf",
@@ -216,7 +216,7 @@ namespace Spiderrock.Protobuf {
             "IAEoAhIdChRvcmRlcl9yZWZfZXZlbnRfbXVsdBi0BiABKAISOQoUb3JkZXJf",
             "cmVmX2V2ZW50X2R0dG0YtwYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
             "dGFtcBIYCg9tbGVnX3Byb2JfbGltaXQYugYgASgCEhkKEG1sZWdfc3VyZl9v",
-            "ZmZzZXQYvQYgASgCEhcKDmV4dGVybl9leF9kZXN0GMAGIAEoCRIvCgpvcmRl",
+            "ZmZzZXQYvQYgASgCEhcKDmV4dGVybl9leF9kZXN0GKAIIAEoCRIvCgpvcmRl",
             "cl9kdHRtGMMGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASFQoM",
             "bWluX3N1cmZfdm9sGMYGIAEoAhIVCgxtYXhfc3VyZl92b2wYyQYgASgCEhUK",
             "DG1pbl9zdXJmX3ByYxjMBiABKAISFQoMbWF4X3N1cmZfcHJjGM8GIAEoAhIW",
@@ -3185,7 +3185,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_hedge_ex_dest" field.</summary>
-    public const int ExternHedgeExDestFieldNumber = 640;
+    public const int ExternHedgeExDestFieldNumber = 1055;
     private string externHedgeExDest_ = "";
     /// <summary>
     /// external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
@@ -4136,7 +4136,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_ex_dest" field.</summary>
-    public const int ExternExDestFieldNumber = 832;
+    public const int ExternExDestFieldNumber = 1056;
     private string externExDest_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6183,10 +6183,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(232, 39);
         output.WriteEnum((int) HedgeScope);
       }
-      if (ExternHedgeExDest.Length != 0) {
-        output.WriteRawTag(130, 40);
-        output.WriteString(ExternHedgeExDest);
-      }
       if (ExternHedgeParams.Length != 0) {
         output.WriteRawTag(154, 40);
         output.WriteString(ExternHedgeParams);
@@ -6431,10 +6427,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(237, 51);
         output.WriteFloat(MlegSurfOffset);
       }
-      if (ExternExDest.Length != 0) {
-        output.WriteRawTag(130, 52);
-        output.WriteString(ExternExDest);
-      }
       if (orderDttm_ != null) {
         output.WriteRawTag(154, 52);
         output.WriteMessage(OrderDttm);
@@ -6670,6 +6662,14 @@ namespace Spiderrock.Protobuf {
       if (ExecBrkrCode.Length != 0) {
         output.WriteRawTag(242, 65);
         output.WriteString(ExecBrkrCode);
+      }
+      if (ExternHedgeExDest.Length != 0) {
+        output.WriteRawTag(250, 65);
+        output.WriteString(ExternHedgeExDest);
+      }
+      if (ExternExDest.Length != 0) {
+        output.WriteRawTag(130, 66);
+        output.WriteString(ExternExDest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -7397,10 +7397,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(232, 39);
         output.WriteEnum((int) HedgeScope);
       }
-      if (ExternHedgeExDest.Length != 0) {
-        output.WriteRawTag(130, 40);
-        output.WriteString(ExternHedgeExDest);
-      }
       if (ExternHedgeParams.Length != 0) {
         output.WriteRawTag(154, 40);
         output.WriteString(ExternHedgeParams);
@@ -7645,10 +7641,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(237, 51);
         output.WriteFloat(MlegSurfOffset);
       }
-      if (ExternExDest.Length != 0) {
-        output.WriteRawTag(130, 52);
-        output.WriteString(ExternExDest);
-      }
       if (orderDttm_ != null) {
         output.WriteRawTag(154, 52);
         output.WriteMessage(OrderDttm);
@@ -7884,6 +7876,14 @@ namespace Spiderrock.Protobuf {
       if (ExecBrkrCode.Length != 0) {
         output.WriteRawTag(242, 65);
         output.WriteString(ExecBrkrCode);
+      }
+      if (ExternHedgeExDest.Length != 0) {
+        output.WriteRawTag(250, 65);
+        output.WriteString(ExternHedgeExDest);
+      }
+      if (ExternExDest.Length != 0) {
+        output.WriteRawTag(130, 66);
+        output.WriteString(ExternExDest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -10534,10 +10534,6 @@ namespace Spiderrock.Protobuf {
             HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
             break;
           }
-          case 5122: {
-            ExternHedgeExDest = input.ReadString();
-            break;
-          }
           case 5146: {
             ExternHedgeParams = input.ReadString();
             break;
@@ -10791,10 +10787,6 @@ namespace Spiderrock.Protobuf {
             MlegSurfOffset = input.ReadFloat();
             break;
           }
-          case 6658: {
-            ExternExDest = input.ReadString();
-            break;
-          }
           case 6682: {
             if (orderDttm_ == null) {
               OrderDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
@@ -11038,6 +11030,14 @@ namespace Spiderrock.Protobuf {
           }
           case 8434: {
             ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 8442: {
+            ExternHedgeExDest = input.ReadString();
+            break;
+          }
+          case 8450: {
+            ExternExDest = input.ReadString();
             break;
           }
         }
@@ -11807,10 +11807,6 @@ namespace Spiderrock.Protobuf {
             HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
             break;
           }
-          case 5122: {
-            ExternHedgeExDest = input.ReadString();
-            break;
-          }
           case 5146: {
             ExternHedgeParams = input.ReadString();
             break;
@@ -12064,10 +12060,6 @@ namespace Spiderrock.Protobuf {
             MlegSurfOffset = input.ReadFloat();
             break;
           }
-          case 6658: {
-            ExternExDest = input.ReadString();
-            break;
-          }
           case 6682: {
             if (orderDttm_ == null) {
               OrderDttm = new global::Google.Protobuf.WellKnownTypes.Timestamp();
@@ -12311,6 +12303,14 @@ namespace Spiderrock.Protobuf {
           }
           case 8434: {
             ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 8442: {
+            ExternHedgeExDest = input.ReadString();
+            break;
+          }
+          case 8450: {
+            ExternExDest = input.ReadString();
             break;
           }
         }

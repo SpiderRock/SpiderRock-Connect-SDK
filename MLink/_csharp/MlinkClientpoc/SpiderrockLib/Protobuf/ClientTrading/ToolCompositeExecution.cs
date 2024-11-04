@@ -77,7 +77,7 @@ namespace Spiderrock.Protobuf {
             "YnVmLlRpbWVzdGFtcBIYCg9jaGlsZF9jbF9vcmRfaWQYgwIgASgJEhsKEmNo",
             "aWxkX3JvdXRpbmdfY29kZRiGAiABKAkSEwoKY2hpbGRfc2l6ZRiJAiABKAUS",
             "FAoLY2hpbGRfcHJpY2UYjAIgASgBEhMKCmNoaWxkX2V4Y2gYjwIgASgJEhYK",
-            "DWNoaWxkX2V4X2Rlc3QYkgIgASgJEhMKCmNoaWxkX3VQcmMYlQIgASgBEhIK",
+            "DWNoaWxkX2V4X2Rlc3QY2AQgASgJEhMKCmNoaWxkX3VQcmMYlQIgASgBEhIK",
             "CWNoaWxkX2JpZBiYAiABKAESEgoJY2hpbGRfYXNrGJsCIAEoARIXCg5jaGls",
             "ZF9mYWlyX3ByYxieAiABKAISGQoQY2hpbGRfZmFpcl93aWR0aBihAiABKAIS",
             "EgoJY2hpbGRfdm9sGKQCIAEoAhITCgpjaGlsZF9wcm9iGKcCIAEoAhIYCg9j",
@@ -1252,7 +1252,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "child_ex_dest" field.</summary>
-    public const int ChildExDestFieldNumber = 274;
+    public const int ChildExDestFieldNumber = 600;
     private string childExDest_ = "";
     /// <summary>
     /// child order exchange code (downstream)
@@ -3410,10 +3410,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(250, 16);
         output.WriteString(ChildExch);
       }
-      if (ChildExDest.Length != 0) {
-        output.WriteRawTag(146, 17);
-        output.WriteString(ChildExDest);
-      }
       if (ChildUPrc != 0D) {
         output.WriteRawTag(169, 17);
         output.WriteDouble(ChildUPrc);
@@ -3825,6 +3821,10 @@ namespace Spiderrock.Protobuf {
       if (ExecBrkrCode.Length != 0) {
         output.WriteRawTag(186, 37);
         output.WriteString(ExecBrkrCode);
+      }
+      if (ChildExDest.Length != 0) {
+        output.WriteRawTag(194, 37);
+        output.WriteString(ChildExDest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4076,10 +4076,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(250, 16);
         output.WriteString(ChildExch);
       }
-      if (ChildExDest.Length != 0) {
-        output.WriteRawTag(146, 17);
-        output.WriteString(ChildExDest);
-      }
       if (ChildUPrc != 0D) {
         output.WriteRawTag(169, 17);
         output.WriteDouble(ChildUPrc);
@@ -4491,6 +4487,10 @@ namespace Spiderrock.Protobuf {
       if (ExecBrkrCode.Length != 0) {
         output.WriteRawTag(186, 37);
         output.WriteString(ExecBrkrCode);
+      }
+      if (ChildExDest.Length != 0) {
+        output.WriteRawTag(194, 37);
+        output.WriteString(ChildExDest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -5804,10 +5804,6 @@ namespace Spiderrock.Protobuf {
             ChildExch = input.ReadString();
             break;
           }
-          case 2194: {
-            ChildExDest = input.ReadString();
-            break;
-          }
           case 2217: {
             ChildUPrc = input.ReadDouble();
             break;
@@ -6227,6 +6223,10 @@ namespace Spiderrock.Protobuf {
           }
           case 4794: {
             ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 4802: {
+            ChildExDest = input.ReadString();
             break;
           }
         }
@@ -6505,10 +6505,6 @@ namespace Spiderrock.Protobuf {
             ChildExch = input.ReadString();
             break;
           }
-          case 2194: {
-            ChildExDest = input.ReadString();
-            break;
-          }
           case 2217: {
             ChildUPrc = input.ReadDouble();
             break;
@@ -6928,6 +6924,10 @@ namespace Spiderrock.Protobuf {
           }
           case 4794: {
             ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 4802: {
+            ChildExDest = input.ReadString();
             break;
           }
         }

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    OptionLookback records are published by the SurfaceModelServer and represent a stable frame lookback window on the option market (typically about 10 minutes)
+*/    
+message OptionLookback {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trade_date = 100;
+    double u_prc = 103;
+    float de = 106; // from SR surface volatility
+    float ve = 109;
+    float ema_bid_prc = 112;
+    float ema_ask_prc = 115;
+    float ema_bid_size = 118;
+    float ema_ask_size = 121;
+    float ema_sPrc = 124;
+    float ema_sVol = 127;
+    float ema_sDiv = 130;
+    float ema_atm_vol = 133;
+    google.protobuf.Timestamp timestamp = 136; // last record update time
+}
+
+

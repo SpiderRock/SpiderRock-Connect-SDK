@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CitQcm90b2J1Zi9PcHRBbmFseXRpY3MvTGl2ZVJldkNvblF1b3RlLnByb3Rv",
             "EhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90",
-            "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byL6BgoPTGl2ZVJl",
+            "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byL8BgoPTGl2ZVJl",
             "dkNvblF1b3RlEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1",
             "Zi5NZXNzYWdlTWV0YWRhdGESNwoEcGtleRgCIAEoCzIpLnNwaWRlcnJvY2su",
             "cHJvdG9idWYuTGl2ZVJldkNvblF1b3RlLlBLZXkSLgoGdGlja2VyGGQgASgL",
@@ -35,18 +35,18 @@ namespace Spiderrock.Protobuf {
             "ARIPCgdhdG1fdm9sGGkgASgCEg0KBXllYXJzGGogASgCEhMKC2dsb2JhbF9y",
             "YXRlGGsgASgCEgwKBGRkaXYYbCABKAISDwoHZGRpdl9wdhhtIAEoAhI0Cgtk",
             "ZGl2X3NvdXJjZRhuIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuRERpdlNv",
-            "dXJjZRIOCgZpX2RheXMYbyABKAUSEgoJZGRpdl9kaXNjGIIBIAEoAhIRCglz",
+            "dXJjZRIOCgZpX2RheXMYbyABKAUSEgoJZGRpdl9kaXNjGIEBIAEoAhIRCglz",
             "dHJpa2VfcHYYcCABKAISEQoJZmFpcl9zVm9sGHEgASgCEhEKCWZhaXJfc0Rp",
             "dhhyIAEoAhIVCg1mYWlyX2NhbGxfcHJjGHMgASgCEhcKD2ZhaXJfY2FsbF9w",
             "cmNfZRh0IAEoAhIUCgxmYWlyX3B1dF9wcmMYdSABKAISFgoOZmFpcl9wdXRf",
             "cHJjX2UYdiABKAISEwoLcmNfZmFpcl9wcmMYdyABKAISEwoLcmNfZUV4X3By",
             "ZW0YeCABKAISFAoMZmFpcl9sb2FuX3B2GHkgASgCEhYKDmZhaXJfbG9hbl9y",
-            "YXRlGHogASgCEhIKCnJjX2JpZF9wcmMYeyABKAISEgoKcmNfYXNrX3ByYxh8",
-            "IAEoAhISCgpjYWxjX2Vycm9yGH0gASgJEg0KBWNwX29JGH4gASgFEg4KBmNw",
-            "X3ZsbRh/IAEoBRIuCgl0aW1lc3RhbXAYgAEgASgLMhouZ29vZ2xlLnByb3Rv",
-            "YnVmLlRpbWVzdGFtcBpmCgRQS2V5EiwKBG9rZXkYCiABKAsyHi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLk9wdGlvbktleRIwCgp0cmFkZV9kYXRlGAsgASgLMhwu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5YgZwcm90bzM="));
+            "YXRlGHogASgCEhMKCnJjX2JpZF9wcmMYggEgASgCEhMKCnJjX2Fza19wcmMY",
+            "gwEgASgCEhIKCmNhbGNfZXJyb3IYfSABKAkSDQoFY3Bfb0kYfiABKAUSDgoG",
+            "Y3BfdmxtGH8gASgFEi4KCXRpbWVzdGFtcBiAASABKAsyGi5nb29nbGUucHJv",
+            "dG9idWYuVGltZXN0YW1wGmYKBFBLZXkSLAoEb2tleRgKIAEoCzIeLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjAKCnRyYWRlX2RhdGUYCyABKAsy",
+            "HC5zcGlkZXJyb2NrLnByb3RvYnVmLkRhdGVLZXliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -334,7 +334,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ddiv_disc" field.</summary>
-    public const int DdivDiscFieldNumber = 130;
+    public const int DdivDiscFieldNumber = 129;
     private float ddivDisc_;
     /// <summary>
     /// dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry
@@ -514,7 +514,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "rc_bid_prc" field.</summary>
-    public const int RcBidPrcFieldNumber = 123;
+    public const int RcBidPrcFieldNumber = 130;
     private float rcBidPrc_;
     /// <summary>
     /// callBid - putAsk - uPrc + strike (best way) (join markets)
@@ -529,7 +529,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "rc_ask_prc" field.</summary>
-    public const int RcAskPrcFieldNumber = 124;
+    public const int RcAskPrcFieldNumber = 131;
     private float rcAskPrc_;
     /// <summary>
     /// callAsk - putBid - uPrc + strike (worst way) (cross markets)
@@ -804,14 +804,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(213, 7);
         output.WriteFloat(FairLoanRate);
       }
-      if (RcBidPrc != 0F) {
-        output.WriteRawTag(221, 7);
-        output.WriteFloat(RcBidPrc);
-      }
-      if (RcAskPrc != 0F) {
-        output.WriteRawTag(229, 7);
-        output.WriteFloat(RcAskPrc);
-      }
       if (CalcError.Length != 0) {
         output.WriteRawTag(234, 7);
         output.WriteString(CalcError);
@@ -829,8 +821,16 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Timestamp);
       }
       if (DdivDisc != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(141, 8);
         output.WriteFloat(DdivDisc);
+      }
+      if (RcBidPrc != 0F) {
+        output.WriteRawTag(149, 8);
+        output.WriteFloat(RcBidPrc);
+      }
+      if (RcAskPrc != 0F) {
+        output.WriteRawTag(157, 8);
+        output.WriteFloat(RcAskPrc);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -942,14 +942,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(213, 7);
         output.WriteFloat(FairLoanRate);
       }
-      if (RcBidPrc != 0F) {
-        output.WriteRawTag(221, 7);
-        output.WriteFloat(RcBidPrc);
-      }
-      if (RcAskPrc != 0F) {
-        output.WriteRawTag(229, 7);
-        output.WriteFloat(RcAskPrc);
-      }
       if (CalcError.Length != 0) {
         output.WriteRawTag(234, 7);
         output.WriteString(CalcError);
@@ -967,8 +959,16 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Timestamp);
       }
       if (DdivDisc != 0F) {
-        output.WriteRawTag(149, 8);
+        output.WriteRawTag(141, 8);
         output.WriteFloat(DdivDisc);
+      }
+      if (RcBidPrc != 0F) {
+        output.WriteRawTag(149, 8);
+        output.WriteFloat(RcBidPrc);
+      }
+      if (RcAskPrc != 0F) {
+        output.WriteRawTag(157, 8);
+        output.WriteFloat(RcAskPrc);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1320,14 +1320,6 @@ namespace Spiderrock.Protobuf {
             FairLoanRate = input.ReadFloat();
             break;
           }
-          case 989: {
-            RcBidPrc = input.ReadFloat();
-            break;
-          }
-          case 997: {
-            RcAskPrc = input.ReadFloat();
-            break;
-          }
           case 1002: {
             CalcError = input.ReadString();
             break;
@@ -1347,8 +1339,16 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 1045: {
+          case 1037: {
             DdivDisc = input.ReadFloat();
+            break;
+          }
+          case 1045: {
+            RcBidPrc = input.ReadFloat();
+            break;
+          }
+          case 1053: {
+            RcAskPrc = input.ReadFloat();
             break;
           }
         }
@@ -1475,14 +1475,6 @@ namespace Spiderrock.Protobuf {
             FairLoanRate = input.ReadFloat();
             break;
           }
-          case 989: {
-            RcBidPrc = input.ReadFloat();
-            break;
-          }
-          case 997: {
-            RcAskPrc = input.ReadFloat();
-            break;
-          }
           case 1002: {
             CalcError = input.ReadString();
             break;
@@ -1502,8 +1494,16 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 1045: {
+          case 1037: {
             DdivDisc = input.ReadFloat();
+            break;
+          }
+          case 1045: {
+            RcBidPrc = input.ReadFloat();
+            break;
+          }
+          case 1053: {
+            RcAskPrc = input.ReadFloat();
             break;
           }
         }

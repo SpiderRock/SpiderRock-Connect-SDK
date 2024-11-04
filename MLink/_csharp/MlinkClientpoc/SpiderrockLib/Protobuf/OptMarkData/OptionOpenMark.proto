@@ -21,7 +21,7 @@ message OptionOpenMark {
     
     PKey pkey = 2;
     DateKey trade_date = 100;
-    OpnMarkState opn_mark_state = 101; // Preview or Final (note: preview is not corp action adjusted)
+    OpnMarkState opn_mark_state = 191; // Preview or Final (note: preview is not corp action adjusted)
     double u_sr_cls = 109; // SR open uMark; [SR close uMark (C - 5m) overnight adjusted]
     double u_close = 112; // exchange open uMark; [exchange close uMark overnight adjusted]
     double sr_cls_prc = 121; // SR open mark; [SR close mark (close - 5m) overnight adjusted]
@@ -41,11 +41,12 @@ message OptionOpenMark {
     float de_decay = 169;
     float sdiv = 172; // term sdiv (stock dividend) rate
     float ddiv = 175; // sum of discrete dividends
-    float ddiv_pv = 176; // sum of present value of discrete dividends
+    float ddiv_pv = 192; // sum of present value of discrete dividends
     float rate = 178; // term discount rate
     float years = 181; // years to expiration
     int32 error = 184; // pricing calc error (0 = none)
     string corp_action = 187;
+    google.protobuf.Timestamp config_now = 193; // timestamp in the trading period local timezone
     google.protobuf.Timestamp timestamp = 190;
 }
 

@@ -18,10 +18,7 @@ message GetOptionVolatility {
 
     MessageMetadata _meta = 1;
     
-    TickerKey root = 100;
-    DateKey expiry = 103;
-    double strike = 106;
-    CallPut call_put = 109;
+    OptionKey okey = 197; // can be listed or FLEX
     double price = 112; // option price (premium)
     double u_prc = 115; // underlying price
     double years = 118; // years-to-expiration (default uses SR volatility time value)
@@ -29,7 +26,8 @@ message GetOptionVolatility {
     double rate = 124; // discount rate used for pricing
     ExerciseType ex_type = 127; // exercise type of the option (American or European)
     ExerciseTime ex_time = 130; // exercise time (AM or PM)
-    TimeMetric time_metric = 133; // time metric (D252, D365, etc.)
+    CalendarCode holiday_calendar = 198; // holiday calendar code (eg. NYSE)
+    TimeMetric time_metric = 133; // time metric (VT70, Y252, Y365, etc.)
     CalcModelType model_type = 145;
     CalcEngine calc_engine = 148; // underlying calc engine:  FastHybrid (listed strikes + SR discrtete dividends only).  NumericX works for any strike/expiry + discrete dividend set but is significantly slower.
     YesNo inc_greeks = 151; // default (No)

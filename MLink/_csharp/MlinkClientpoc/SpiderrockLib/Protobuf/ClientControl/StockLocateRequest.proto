@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    StockLocateRequest records represent a client locate request.  These originate either from the SRSE AwayStockLocateGateway or from other SR Tools or APIs.
+*/    
+message StockLocateRequest {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string core_client_firm = 11; // coreClientFirm
+        string locate_firm = 12;
+        string locate_pool = 13; // locate pool @ firm granting the locate
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 request_quan = 100; // should be the cumulative request quantity for this ticker for this trading period
+    RequestOrigin request_origin = 103;
+    string request_machine = 106;
+    SysEnvironment modified_in = 112;
+    google.protobuf.Timestamp timestamp = 115;
+}
+
+

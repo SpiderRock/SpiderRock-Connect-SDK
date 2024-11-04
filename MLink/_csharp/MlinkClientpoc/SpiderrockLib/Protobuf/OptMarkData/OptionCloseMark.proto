@@ -21,6 +21,7 @@ message OptionCloseMark {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
+    TickerKey ticker = 212; // SR Ticker that this option rolls up to
     DateKey trade_date = 100;
     ClsMarkState cls_mark_state = 103; // Preview or Final
     double u_bid = 106; // SpiderRock closing underlier bid (C - 5m)
@@ -33,7 +34,7 @@ message OptionCloseMark {
     double close_prc = 127; // official exchange closing mark (last print;then official close)
     YesNo has_sRCls_prc = 130;
     YesNo has_close_prc = 133;
-    YesNo has_uCls_prc = 134;
+    YesNo has_uCls_prc = 209;
     float bid_iV = 136; // implied vol of SpiderRock closing bid price (C - 5m)
     float ask_iV = 139; // implied vol of SpiderRock closing ask price (C - 5m)
     float sr_prc = 142; // sr close mark price (always within bidPx/askPx) (C - 5m)
@@ -51,15 +52,16 @@ message OptionCloseMark {
     float de_decay = 178; // delta decay
     float sdiv = 181; // sdiv rate
     float ddiv = 184; // ddiv amount (sum of discrete dividend amounts)
-    float ddiv_pv = 185; // ddiv (present value) amount (sum of discrete dividend pv amounts)
+    float ddiv_pv = 210; // ddiv (present value) amount (sum of discrete dividend pv amounts)
     float rate = 187; // discount rate
-    int32 i_days = 180; // interest days (today to expiry) (T+1)
+    int32 i_days = 211; // interest days (today to expiry) (T+1)
     float years = 190; // years to expiration
     int32 error = 193; // calculation error code
     int32 open_interest = 196; // option open Interest
     int32 prt_count = 199; // print count
     int32 prt_volume = 202; // total printed volume (all prt types)
-    google.protobuf.Timestamp sr_close_mark_dttm = 205; // from MarketCloseQuote.srCloseMarkDttm
+    google.protobuf.Timestamp sr_close_mark_dttm = 205; // from MarketCloseQuote.srCloseMarkDttm (in trading period local timezone)
+    google.protobuf.Timestamp config_now = 213; // timestamp in the trading period local timezone
     google.protobuf.Timestamp timestamp = 208; // record timestamp
 }
 

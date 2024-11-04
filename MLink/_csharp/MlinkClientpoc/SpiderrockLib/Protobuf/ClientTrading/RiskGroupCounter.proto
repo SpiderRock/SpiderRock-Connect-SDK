@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RiskGroupCounter {
+    message PKey {
+        
+        int64 risk_group_id = 13;
+        string accnt = 11;
+        string risk_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 101; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 102; // EE engine name
+    ChangeReason change_reason = 103;
+    float opt_qty_bot_ioc_filled = 104; // fills + IOC leaves
+    float opt_qty_sld_ioc_filled = 105; // fills + IOC leaves
+    float dd_bot_ioc_filled = 106; // fills + IOC leaves
+    float dd_sld_ioc_filled = 107; // fills + IOC leaves
+    float ve_bot_ioc_filled = 108; // fills + IOC leaves
+    float ve_sld_ioc_filled = 109; // fills + IOC leaves
+    float wt_ve_bot_ioc_filled = 110; // fills + IOC leaves
+    float wt_ve_sld_ioc_filled = 111; // fills + IOC leaves
+    float nv_bot_ioc_filled = 112; // fills + IOC leaves (notional value)
+    float nv_sld_ioc_filled = 113; // fills + IOC leaves (notional value)
+    float rm1_bot_ioc_filled = 114; // fills + IOC leaves
+    float rm1_sld_ioc_filled = 115; // fills + IOC leaves
+    float rm2_bot_ioc_filled = 116; // fills + IOC leaves
+    float rm2_sld_ioc_filled = 117; // fills + IOC leaves
+    float rm3_bot_ioc_filled = 118; // fills + IOC leaves
+    float rm3_sld_ioc_filled = 119; // fills + IOC leaves
+    float rm4_bot_ioc_filled = 120; // fills + IOC leaves
+    float rm4_sld_ioc_filled = 121; // fills + IOC leaves
+    float rm5_bot_ioc_filled = 122; // fills + IOC leaves
+    float rm5_sld_ioc_filled = 123; // fills + IOC leaves
+    float rm6_bot_ioc_filled = 124; // fills + IOC leaves
+    float rm6_sld_ioc_filled = 125; // fills + IOC leaves
+    float rm7_bot_ioc_filled = 126; // fills + IOC leaves
+    float rm7_sld_ioc_filled = 127; // fills + IOC leaves
+    int32 counter = 128;
+    google.protobuf.Timestamp timestamp = 129;
+}
+
+

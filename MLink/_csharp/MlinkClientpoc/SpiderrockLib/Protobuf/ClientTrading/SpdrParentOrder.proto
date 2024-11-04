@@ -132,7 +132,7 @@ message SpdrParentOrder {
     SpdrSource spdr_source = 154;
     int64 grouping_code = 157; // unique broker code;broker.pkey = (key + accnt + spdrSource + groupingCode)
     string exec_brkr_code = 1039; // overrides the default executing broker for this parent order
-    string extern_ex_dest = 163; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
+    string extern_ex_dest = 1040; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
     string extern_params = 166; // external algo names/parameters (usually just an algo name)
     string strategy = 169; // client-supplied strategy string;visible on SpiderRock GUI tools and other order reports.
     string user_name = 172; // name of the user entering the order
@@ -215,7 +215,7 @@ message SpdrParentOrder {
     float hedge_beta_ratio = 403; // portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0]
     HedgeScope hedge_scope = 406; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 1034; // market session for the autohedge order [defaults to pOrder.marketSession]
-    string extern_hedge_ex_dest = 412; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_ex_dest = 1041; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 415; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     FirmType firm_type = 418; // used to override firmType in account config
     OrderCapacity order_capacity = 421;

@@ -29,7 +29,7 @@ namespace Spiderrock.Protobuf {
             "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpwBCg9HZXRPcHRpb25C",
             "YXNrZXQSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1l",
             "c3NhZ2VNZXRhZGF0YRIVCg1iYXNrZXRfbnVtYmVyGGQgASgDEg4KBnJlc3Vs",
-            "dBhnIAEoCRItCgl0aW1lc3RhbXAYaiABKAsyGi5nb29nbGUucHJvdG9idWYu",
+            "dBhlIAEoCRItCgl0aW1lc3RhbXAYZiABKAsyGi5nb29nbGUucHJvdG9idWYu",
             "VGltZXN0YW1wYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
@@ -113,7 +113,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 103;
+    public const int ResultFieldNumber = 101;
     private string result_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -125,7 +125,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 106;
+    public const int TimestampFieldNumber = 102;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -193,11 +193,11 @@ namespace Spiderrock.Protobuf {
         output.WriteInt64(BasketNumber);
       }
       if (Result.Length != 0) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteString(Result);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(210, 6);
+        output.WriteRawTag(178, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -219,11 +219,11 @@ namespace Spiderrock.Protobuf {
         output.WriteInt64(BasketNumber);
       }
       if (Result.Length != 0) {
-        output.WriteRawTag(186, 6);
+        output.WriteRawTag(170, 6);
         output.WriteString(Result);
       }
       if (timestamp_ != null) {
-        output.WriteRawTag(210, 6);
+        output.WriteRawTag(178, 6);
         output.WriteMessage(Timestamp);
       }
       if (_unknownFields != null) {
@@ -304,11 +304,11 @@ namespace Spiderrock.Protobuf {
             BasketNumber = input.ReadInt64();
             break;
           }
-          case 826: {
+          case 810: {
             Result = input.ReadString();
             break;
           }
-          case 850: {
+          case 818: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
@@ -341,11 +341,11 @@ namespace Spiderrock.Protobuf {
             BasketNumber = input.ReadInt64();
             break;
           }
-          case 826: {
+          case 810: {
             Result = input.ReadString();
             break;
           }
-          case 850: {
+          case 818: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

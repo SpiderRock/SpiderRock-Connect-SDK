@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Root/Expiration trading summaries.  Includes contracts and vega trade in total and on the public bid or offer.  Records update live as public trades occur.
+*/    
+message OptionPrintSummary {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        PrtSummaryType prt_summary_type = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    int32 cn_prt = 103; // total contracts printed
+    int32 cn_bot = 106; // total contracts bot (print price closer to bid)
+    int32 cn_sld = 109; // total contracts sld (print price closer to ask)
+    float ve_prt = 112; // sum(abs(cn * upc * ve))
+    float ve_bot = 115; // sum(abs(cn * upc * ve)) | side > 0
+    float ve_sld = 118; // sum(abs(cn * upc * ve)) | side < 0
+    float ve_dd_prt = 121; // sum(abs(cn * upc * ve)) & fuzzy bucket
+    float ve_dn_prt = 124; // sum(abs(cn * upc * ve)) & fuzzy bucket
+    float ve_at_prt = 127; // sum(abs(cn * upc * ve)) & fuzzy bucket
+    float ve_up_prt = 130; // sum(abs(cn * upc * ve)) & fuzzy bucket
+    float ve_du_prt = 133; // sum(abs(cn * upc * ve)) & fuzzy bucket
+    float ve_dd_bot = 136; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_dn_bot = 139; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_at_bot = 142; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_up_bot = 145; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_du_bot = 148; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_dd_sld = 151; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_dn_sld = 154; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_at_sld = 157; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_up_sld = 160; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    float ve_du_sld = 163; // sum(abs(cn * upc * ve)) | side > 0 & fuzzy bucket
+    int32 rec_cnt = 166; // number of print reports included in totals
+    int64 net_timestamp = 169; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    google.protobuf.Timestamp timestamp = 170;
+}
+
+

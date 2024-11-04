@@ -26,36 +26,34 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CitQcm90b2J1Zi9SaXNrQ2FsYy9HZXRPcHRpb25Wb2xhdGlsaXR5LnByb3Rv",
             "EhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90",
-            "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byK5CAoTR2V0T3B0",
+            "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKKCAoTR2V0T3B0",
             "aW9uVm9sYXRpbGl0eRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuTWVzc2FnZU1ldGFkYXRhEiwKBHJvb3QYZCABKAsyHi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlRpY2tlcktleRIsCgZleHBpcnkYZyABKAsyHC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLkRhdGVLZXkSDgoGc3RyaWtlGGogASgBEi4KCGNh",
-            "bGxfcHV0GG0gASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5DYWxsUHV0Eg0K",
-            "BXByaWNlGHAgASgBEg0KBXVfcHJjGHMgASgBEg0KBXllYXJzGHYgASgBEgwK",
-            "BHNkaXYYeSABKAESDAoEcmF0ZRh8IAEoARIyCgdleF90eXBlGH8gASgOMiEu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5FeGVyY2lzZVR5cGUSMwoHZXhfdGltZRiC",
-            "ASABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLkV4ZXJjaXNlVGltZRI1Cgt0",
-            "aW1lX21ldHJpYxiFASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlRpbWVN",
-            "ZXRyaWMSNwoKbW9kZWxfdHlwZRiRASABKA4yIi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkNhbGNNb2RlbFR5cGUSNQoLY2FsY19lbmdpbmUYlAEgASgOMh8uc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5DYWxjRW5naW5lEi8KCmluY19ncmVla3MYlwEg",
-            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIMCgN2b2wYmgEgASgB",
-            "EhMKCmVmZl9zdHJpa2UYnQEgASgBEhgKD2RpdmlkZW5kX2Ftb3VudBigASAB",
-            "KAISDgoFZGVsdGEYowEgASgCEg4KBWdhbW1hGKYBIAEoAhIOCgV0aGV0YRip",
-            "ASABKAISDQoEdmVnYRisASABKAISDgoFdm9sZ2EYrwEgASgCEg4KBXZhbm5h",
-            "GLIBIAEoAhIRCghkZV9kZWNheRi1ASABKAISDAoDcmhvGLgBIAEoAhIMCgNw",
-            "aGkYuwEgASgCEg4KBWVycm9yGL4BIAEoCRIVCgxwcmljZXJfbW9kZWwYwQEg",
-            "ASgJEi4KCXRpbWVzdGFtcBjEASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wElUKEWRpc2NyZXRlX2RpdmlkZW5kGIgBIAMoCzI5LnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuR2V0T3B0aW9uVm9sYXRpbGl0eS5EaXNjcmV0ZURpdmlk",
-            "ZW5kGk4KEERpc2NyZXRlRGl2aWRlbmQSKQoEZGF0ZRiLASABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wEg8KBmFtb3VudBiOASABKAJiBnByb3Rv",
-            "Mw=="));
+            "dG9idWYuTWVzc2FnZU1ldGFkYXRhEi0KBG9rZXkYxQEgASgLMh4uc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5PcHRpb25LZXkSDQoFcHJpY2UYcCABKAESDQoFdV9w",
+            "cmMYcyABKAESDQoFeWVhcnMYdiABKAESDAoEc2Rpdhh5IAEoARIMCgRyYXRl",
+            "GHwgASgBEjIKB2V4X3R5cGUYfyABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LkV4ZXJjaXNlVHlwZRIzCgdleF90aW1lGIIBIAEoDjIhLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuRXhlcmNpc2VUaW1lEjwKEGhvbGlkYXlfY2FsZW5kYXIYxgEg",
+            "ASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5DYWxlbmRhckNvZGUSNQoLdGlt",
+            "ZV9tZXRyaWMYhQEgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5UaW1lTWV0",
+            "cmljEjcKCm1vZGVsX3R5cGUYkQEgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5DYWxjTW9kZWxUeXBlEjUKC2NhbGNfZW5naW5lGJQBIAEoDjIfLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuQ2FsY0VuZ2luZRIvCgppbmNfZ3JlZWtzGJcBIAEo",
+            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SDAoDdm9sGJoBIAEoARIT",
+            "CgplZmZfc3RyaWtlGJ0BIAEoARIYCg9kaXZpZGVuZF9hbW91bnQYoAEgASgC",
+            "Eg4KBWRlbHRhGKMBIAEoAhIOCgVnYW1tYRimASABKAISDgoFdGhldGEYqQEg",
+            "ASgCEg0KBHZlZ2EYrAEgASgCEg4KBXZvbGdhGK8BIAEoAhIOCgV2YW5uYRiy",
+            "ASABKAISEQoIZGVfZGVjYXkYtQEgASgCEgwKA3Jobxi4ASABKAISDAoDcGhp",
+            "GLsBIAEoAhIOCgVlcnJvchi+ASABKAkSFQoMcHJpY2VyX21vZGVsGMEBIAEo",
+            "CRIuCgl0aW1lc3RhbXAYxAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcBJVChFkaXNjcmV0ZV9kaXZpZGVuZBiIASADKAsyOS5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkdldE9wdGlvblZvbGF0aWxpdHkuRGlzY3JldGVEaXZpZGVu",
+            "ZBpOChBEaXNjcmV0ZURpdmlkZW5kEikKBGRhdGUYiwEgASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcBIPCgZhbW91bnQYjgEgASgCYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionVolatility), global::Spiderrock.Protobuf.GetOptionVolatility.Parser, new[]{ "Meta", "Root", "Expiry", "Strike", "CallPut", "Price", "UPrc", "Years", "Sdiv", "Rate", "ExType", "ExTime", "TimeMetric", "ModelType", "CalcEngine", "IncGreeks", "Vol", "EffStrike", "DividendAmount", "Delta", "Gamma", "Theta", "Vega", "Volga", "Vanna", "DeDecay", "Rho", "Phi", "Error", "PricerModel", "Timestamp", "DiscreteDividend" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionVolatility.Types.DiscreteDividend), global::Spiderrock.Protobuf.GetOptionVolatility.Types.DiscreteDividend.Parser, new[]{ "Date", "Amount" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionVolatility), global::Spiderrock.Protobuf.GetOptionVolatility.Parser, new[]{ "Meta", "Okey", "Price", "UPrc", "Years", "Sdiv", "Rate", "ExType", "ExTime", "HolidayCalendar", "TimeMetric", "ModelType", "CalcEngine", "IncGreeks", "Vol", "EffStrike", "DividendAmount", "Delta", "Gamma", "Theta", "Vega", "Volga", "Vanna", "DeDecay", "Rho", "Phi", "Error", "PricerModel", "Timestamp", "DiscreteDividend" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.GetOptionVolatility.Types.DiscreteDividend), global::Spiderrock.Protobuf.GetOptionVolatility.Types.DiscreteDividend.Parser, new[]{ "Date", "Amount" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -97,10 +95,7 @@ namespace Spiderrock.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetOptionVolatility(GetOptionVolatility other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
-      root_ = other.root_ != null ? other.root_.Clone() : null;
-      expiry_ = other.expiry_ != null ? other.expiry_.Clone() : null;
-      strike_ = other.strike_;
-      callPut_ = other.callPut_;
+      okey_ = other.okey_ != null ? other.okey_.Clone() : null;
       price_ = other.price_;
       uPrc_ = other.uPrc_;
       years_ = other.years_;
@@ -108,6 +103,7 @@ namespace Spiderrock.Protobuf {
       rate_ = other.rate_;
       exType_ = other.exType_;
       exTime_ = other.exTime_;
+      holidayCalendar_ = other.holidayCalendar_;
       timeMetric_ = other.timeMetric_;
       modelType_ = other.modelType_;
       calcEngine_ = other.calcEngine_;
@@ -149,51 +145,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "root" field.</summary>
-    public const int RootFieldNumber = 100;
-    private global::Spiderrock.Protobuf.TickerKey root_;
+    /// <summary>Field number for the "okey" field.</summary>
+    public const int OkeyFieldNumber = 197;
+    private global::Spiderrock.Protobuf.OptionKey okey_;
+    /// <summary>
+    /// can be listed or FLEX
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.TickerKey Root {
-      get { return root_; }
+    public global::Spiderrock.Protobuf.OptionKey Okey {
+      get { return okey_; }
       set {
-        root_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "expiry" field.</summary>
-    public const int ExpiryFieldNumber = 103;
-    private global::Spiderrock.Protobuf.DateKey expiry_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.DateKey Expiry {
-      get { return expiry_; }
-      set {
-        expiry_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "strike" field.</summary>
-    public const int StrikeFieldNumber = 106;
-    private double strike_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public double Strike {
-      get { return strike_; }
-      set {
-        strike_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "call_put" field.</summary>
-    public const int CallPutFieldNumber = 109;
-    private global::Spiderrock.Protobuf.CallPut callPut_ = global::Spiderrock.Protobuf.CallPut.Unspecified;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.CallPut CallPut {
-      get { return callPut_; }
-      set {
-        callPut_ = value;
+        okey_ = value;
       }
     }
 
@@ -302,11 +265,26 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "holiday_calendar" field.</summary>
+    public const int HolidayCalendarFieldNumber = 198;
+    private global::Spiderrock.Protobuf.CalendarCode holidayCalendar_ = global::Spiderrock.Protobuf.CalendarCode.Unspecified;
+    /// <summary>
+    /// holiday calendar code (eg. NYSE)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.CalendarCode HolidayCalendar {
+      get { return holidayCalendar_; }
+      set {
+        holidayCalendar_ = value;
+      }
+    }
+
     /// <summary>Field number for the "time_metric" field.</summary>
     public const int TimeMetricFieldNumber = 133;
     private global::Spiderrock.Protobuf.TimeMetric timeMetric_ = global::Spiderrock.Protobuf.TimeMetric.Unspecified;
     /// <summary>
-    /// time metric (D252, D365, etc.)
+    /// time metric (VT70, Y252, Y365, etc.)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -602,10 +580,7 @@ namespace Spiderrock.Protobuf {
         return true;
       }
       if (!object.Equals(Meta, other.Meta)) return false;
-      if (!object.Equals(Root, other.Root)) return false;
-      if (!object.Equals(Expiry, other.Expiry)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Strike, other.Strike)) return false;
-      if (CallPut != other.CallPut) return false;
+      if (!object.Equals(Okey, other.Okey)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(UPrc, other.UPrc)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Years, other.Years)) return false;
@@ -613,6 +588,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Rate, other.Rate)) return false;
       if (ExType != other.ExType) return false;
       if (ExTime != other.ExTime) return false;
+      if (HolidayCalendar != other.HolidayCalendar) return false;
       if (TimeMetric != other.TimeMetric) return false;
       if (ModelType != other.ModelType) return false;
       if (CalcEngine != other.CalcEngine) return false;
@@ -641,10 +617,7 @@ namespace Spiderrock.Protobuf {
     public override int GetHashCode() {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
-      if (root_ != null) hash ^= Root.GetHashCode();
-      if (expiry_ != null) hash ^= Expiry.GetHashCode();
-      if (Strike != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Strike);
-      if (CallPut != global::Spiderrock.Protobuf.CallPut.Unspecified) hash ^= CallPut.GetHashCode();
+      if (okey_ != null) hash ^= Okey.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
       if (UPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(UPrc);
       if (Years != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Years);
@@ -652,6 +625,7 @@ namespace Spiderrock.Protobuf {
       if (Rate != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Rate);
       if (ExType != global::Spiderrock.Protobuf.ExerciseType.Unspecified) hash ^= ExType.GetHashCode();
       if (ExTime != global::Spiderrock.Protobuf.ExerciseTime.Unspecified) hash ^= ExTime.GetHashCode();
+      if (HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) hash ^= HolidayCalendar.GetHashCode();
       if (TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) hash ^= TimeMetric.GetHashCode();
       if (ModelType != global::Spiderrock.Protobuf.CalcModelType.Unspecified) hash ^= ModelType.GetHashCode();
       if (CalcEngine != global::Spiderrock.Protobuf.CalcEngine.Unspecified) hash ^= CalcEngine.GetHashCode();
@@ -693,22 +667,6 @@ namespace Spiderrock.Protobuf {
       if (Meta_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Meta);
-      }
-      if (root_ != null) {
-        output.WriteRawTag(162, 6);
-        output.WriteMessage(Root);
-      }
-      if (expiry_ != null) {
-        output.WriteRawTag(186, 6);
-        output.WriteMessage(Expiry);
-      }
-      if (Strike != 0D) {
-        output.WriteRawTag(209, 6);
-        output.WriteDouble(Strike);
-      }
-      if (CallPut != global::Spiderrock.Protobuf.CallPut.Unspecified) {
-        output.WriteRawTag(232, 6);
-        output.WriteEnum((int) CallPut);
       }
       if (Price != 0D) {
         output.WriteRawTag(129, 7);
@@ -815,6 +773,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 12);
         output.WriteMessage(Timestamp);
       }
+      if (okey_ != null) {
+        output.WriteRawTag(170, 12);
+        output.WriteMessage(Okey);
+      }
+      if (HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) {
+        output.WriteRawTag(176, 12);
+        output.WriteEnum((int) HolidayCalendar);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -828,22 +794,6 @@ namespace Spiderrock.Protobuf {
       if (Meta_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Meta);
-      }
-      if (root_ != null) {
-        output.WriteRawTag(162, 6);
-        output.WriteMessage(Root);
-      }
-      if (expiry_ != null) {
-        output.WriteRawTag(186, 6);
-        output.WriteMessage(Expiry);
-      }
-      if (Strike != 0D) {
-        output.WriteRawTag(209, 6);
-        output.WriteDouble(Strike);
-      }
-      if (CallPut != global::Spiderrock.Protobuf.CallPut.Unspecified) {
-        output.WriteRawTag(232, 6);
-        output.WriteEnum((int) CallPut);
       }
       if (Price != 0D) {
         output.WriteRawTag(129, 7);
@@ -950,6 +900,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 12);
         output.WriteMessage(Timestamp);
       }
+      if (okey_ != null) {
+        output.WriteRawTag(170, 12);
+        output.WriteMessage(Okey);
+      }
+      if (HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) {
+        output.WriteRawTag(176, 12);
+        output.WriteEnum((int) HolidayCalendar);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -963,17 +921,8 @@ namespace Spiderrock.Protobuf {
       if (Meta_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Meta);
       }
-      if (root_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Root);
-      }
-      if (expiry_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Expiry);
-      }
-      if (Strike != 0D) {
-        size += 2 + 8;
-      }
-      if (CallPut != global::Spiderrock.Protobuf.CallPut.Unspecified) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) CallPut);
+      if (okey_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Okey);
       }
       if (Price != 0D) {
         size += 2 + 8;
@@ -995,6 +944,9 @@ namespace Spiderrock.Protobuf {
       }
       if (ExTime != global::Spiderrock.Protobuf.ExerciseTime.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ExTime);
+      }
+      if (HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HolidayCalendar);
       }
       if (TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TimeMetric);
@@ -1072,23 +1024,11 @@ namespace Spiderrock.Protobuf {
         }
         Meta.MergeFrom(other.Meta);
       }
-      if (other.root_ != null) {
-        if (root_ == null) {
-          Root = new global::Spiderrock.Protobuf.TickerKey();
+      if (other.okey_ != null) {
+        if (okey_ == null) {
+          Okey = new global::Spiderrock.Protobuf.OptionKey();
         }
-        Root.MergeFrom(other.Root);
-      }
-      if (other.expiry_ != null) {
-        if (expiry_ == null) {
-          Expiry = new global::Spiderrock.Protobuf.DateKey();
-        }
-        Expiry.MergeFrom(other.Expiry);
-      }
-      if (other.Strike != 0D) {
-        Strike = other.Strike;
-      }
-      if (other.CallPut != global::Spiderrock.Protobuf.CallPut.Unspecified) {
-        CallPut = other.CallPut;
+        Okey.MergeFrom(other.Okey);
       }
       if (other.Price != 0D) {
         Price = other.Price;
@@ -1110,6 +1050,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.ExTime != global::Spiderrock.Protobuf.ExerciseTime.Unspecified) {
         ExTime = other.ExTime;
+      }
+      if (other.HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) {
+        HolidayCalendar = other.HolidayCalendar;
       }
       if (other.TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) {
         TimeMetric = other.TimeMetric;
@@ -1192,28 +1135,6 @@ namespace Spiderrock.Protobuf {
               Meta = new global::Spiderrock.Protobuf.MessageMetadata();
             }
             input.ReadMessage(Meta);
-            break;
-          }
-          case 802: {
-            if (root_ == null) {
-              Root = new global::Spiderrock.Protobuf.TickerKey();
-            }
-            input.ReadMessage(Root);
-            break;
-          }
-          case 826: {
-            if (expiry_ == null) {
-              Expiry = new global::Spiderrock.Protobuf.DateKey();
-            }
-            input.ReadMessage(Expiry);
-            break;
-          }
-          case 849: {
-            Strike = input.ReadDouble();
-            break;
-          }
-          case 872: {
-            CallPut = (global::Spiderrock.Protobuf.CallPut) input.ReadEnum();
             break;
           }
           case 897: {
@@ -1327,6 +1248,17 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 1578: {
+            if (okey_ == null) {
+              Okey = new global::Spiderrock.Protobuf.OptionKey();
+            }
+            input.ReadMessage(Okey);
+            break;
+          }
+          case 1584: {
+            HolidayCalendar = (global::Spiderrock.Protobuf.CalendarCode) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -1347,28 +1279,6 @@ namespace Spiderrock.Protobuf {
               Meta = new global::Spiderrock.Protobuf.MessageMetadata();
             }
             input.ReadMessage(Meta);
-            break;
-          }
-          case 802: {
-            if (root_ == null) {
-              Root = new global::Spiderrock.Protobuf.TickerKey();
-            }
-            input.ReadMessage(Root);
-            break;
-          }
-          case 826: {
-            if (expiry_ == null) {
-              Expiry = new global::Spiderrock.Protobuf.DateKey();
-            }
-            input.ReadMessage(Expiry);
-            break;
-          }
-          case 849: {
-            Strike = input.ReadDouble();
-            break;
-          }
-          case 872: {
-            CallPut = (global::Spiderrock.Protobuf.CallPut) input.ReadEnum();
             break;
           }
           case 897: {
@@ -1480,6 +1390,17 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1578: {
+            if (okey_ == null) {
+              Okey = new global::Spiderrock.Protobuf.OptionKey();
+            }
+            input.ReadMessage(Okey);
+            break;
+          }
+          case 1584: {
+            HolidayCalendar = (global::Spiderrock.Protobuf.CalendarCode) input.ReadEnum();
             break;
           }
         }

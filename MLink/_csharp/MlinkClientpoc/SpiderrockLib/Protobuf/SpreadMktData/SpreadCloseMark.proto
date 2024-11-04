@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpreadCloseMark records are created immediately after the market close (clsMarkState=SRClose), when exchanges publish official marks (clsMarkState=ExchClose), and again during top of day rotation (clsMarkState=Final).  These records contain closing quotes and prices as well as markup details for all exchange spreads
+    SpreadCloseMark records are published to the SpiderRock elastic cluster when clsMarkState=Final
+    BaseObj:Spread
+*/    
+message SpreadCloseMark {
+    message PKey {
+        
+        TickerKey skey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ClsMarkState cls_mark_state = 100; // Close mark state. None; LastPrt; SRClose; ExchClose; Final
+    double opn_prc = 103; // Open price
+    double min_prc = 106; // Low price
+    double max_prc = 109; // High price
+    int32 prt_count = 112; // Print count
+    int32 prt_volume = 115; // Print volume
+    double avg_mkt_size = 118; // Average market size
+    double avg_mkt_width = 121; // Average market width
+    double bid_prc = 124; // bid price (close - 1min)
+    double ask_prc = 127; // ask price (close - 1min)
+    double sr_cls_prc = 130; // SR close mark (close - 1min)
+    double close_prc = 133; // official exchange closing mark (last print;then official close)
+    google.protobuf.Timestamp timestamp = 136;
+}
+
+

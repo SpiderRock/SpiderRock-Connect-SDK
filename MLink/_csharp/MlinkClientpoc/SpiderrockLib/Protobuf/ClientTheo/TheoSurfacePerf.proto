@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    TheoSurfacePerf records are published throughout he day for each active client theoretical model in the SpiderRock system.  They are suitable for tracking performance of a theoretical model surface whether or not it is being traded.
+    TheoSurfacePerf records are published to the SpiderRock elastic cluster at the end of each day.
+*/    
+message TheoSurfacePerf {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        string theo_model = 11; // theo model
+        string client_firm = 12; // client firm this theo model is associated with (controls visibility)
+        PerfSurfaceType perf_surf_type = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string date = 100;
+    string time = 103;
+    TickerKey ticker = 106; // SpiderRock underlier stock key
+    float strike = 109; // atm strike (fwd uPrc);from LiveSurfacePerf record
+    float t_eMove = 112; // theoretical event move (if any)
+    float c_tVol = 115; // theo call volatility (from theoModel @ strike = strike)
+    float p_tVol = 118; // theo put volatility (from theoModel @ strike = strike)
+    float c_tOpx = 121; // theo call price @ (cTVol, uMark, years, sdiv, rate, ddiv)
+    float p_tOpx = 124; // theo put price @ (pTVol, uMark, years, sdiv, rate, ddiv)
+    float fix_cTVol = 127; // fixed strike theo call volatility (from theoModel @ strike = prvStrike)
+    float fix_pTVol = 130; // fixed strike theo put volatility (from theoModel @ strike = prvStrike)
+    float fix_cTOpx = 133; // fixed strike theo call price @ (fixTVol, uMark, years, sdiv, rate, ddiv);strike = prvStrike
+    float fix_pTOpx = 136; // fixed strike theo put price @ (fixTVol, uMark, years, sdiv, rate, ddiv);strike = prvStrike
+    float prv_strike = 139; // prior period atm strike
+    float prv_tEMove = 142; // prior period theoretical event move (if any)
+    float prv_cTVol = 145; // prior period theo call volatility @ strike = prvStrike
+    float prv_pTVol = 148; // prior period theo put volatility @ strike = prvStrike
+    float prv_cTOpx = 151; // prior period theo call price @ strike = prvStrike
+    float prv_pTOpx = 154; // prior period theo call price @ strike = prvStrike
+    google.protobuf.Timestamp timestamp = 157;
+}
+
+

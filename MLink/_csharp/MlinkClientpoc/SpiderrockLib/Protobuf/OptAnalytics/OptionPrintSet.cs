@@ -26,64 +26,64 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CipQcm90b2J1Zi9PcHRBbmFseXRpY3MvT3B0aW9uUHJpbnRTZXQucHJvdG8S",
             "E3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3Rv",
-            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvcTCg5PcHRpb25Q",
+            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvgTCg5PcHRpb25Q",
             "cmludFNldBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "TWVzc2FnZU1ldGFkYXRhEjYKBHBrZXkYAiABKAsyKC5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLk9wdGlvblByaW50U2V0LlBLZXkSNwoLdXBkYXRlX3R5cGUYZSAB",
-            "KA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlBydFVwZGF0ZVR5cGUSLAoEZmtl",
-            "eRhkIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuRXhwaXJ5S2V5Ei4KBnRp",
-            "Y2tlchhnIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5Ei4K",
-            "CHBydF9leGNoGGogASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNo",
-            "EhAKCHBydF9zaXplGG0gASgFEhEKCXBydF9wcmljZRhwIAEoAhIuCghwcnRf",
-            "dHlwZRhzIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuUHJ0VHlwZRISCgpw",
-            "cnRfb3JkZXJzGHYgASgNEhcKD3BydF9jbHVzdGVyX251bRh5IAEoBRIYChBw",
-            "cnRfY2x1c3Rlcl9zaXplGHwgASgFEhIKCnBydF92b2x1bWUYfyABKAUSEwoK",
-            "Y3hsX3ZvbHVtZRiCASABKAUSEgoJYmlkX2NvdW50GIUBIAEoDRISCglhc2tf",
-            "Y291bnQYiAEgASgNEhMKCmJpZF92b2x1bWUYiwEgASgFEhMKCmFza192b2x1",
-            "bWUYjgEgASgFEg0KBGViaWQYkQEgASgCEg0KBGVhc2sYlAEgASgCEg0KBGVi",
-            "c3oYlwEgASgFEg0KBGVhc3oYmgEgASgFEg0KBGVhZ2UYnQEgASgCEi8KCHBy",
-            "dF9zaWRlGKABIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuUHJ0U2lkZRIW",
-            "Cg1wcnRfdGltZXN0YW1wGKMBIAEoAxIWCg1uZXRfdGltZXN0YW1wGKYBIAEo",
-            "AxIuCgl0aW1lc3RhbXAYqQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBIOCgVvX2JpZBisASABKAISDgoFb19hc2sYrwEgASgCEhEKCG9fYmlk",
-            "X3N6GLIBIAEoBRIRCghvX2Fza19zehi1ASABKAUSLwoIb19iaWRfZXgYuAEg",
-            "ASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNoEi8KCG9fYXNrX2V4",
-            "GLsBIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhjaBIUCgtvX2Jp",
-            "ZF9leF9zehi+ASABKAUSFAoLb19hc2tfZXhfc3oYwQEgASgFEhIKCW9fYmlk",
-            "X2NudBjEASABKAUSEgoJb19hc2tfY250GMcBIAEoBRIPCgZvX2JpZDIYygEg",
-            "ASgCEg8KBm9fYXNrMhjNASABKAISEgoJb19iaWRfc3oyGNABIAEoBRISCglv",
-            "X2Fza19zejIY0wEgASgFEhEKCG9fYmlkX2l2GOECIAEoARIRCghvX2Fza19p",
-            "dhjiAiABKAESDgoFdV9iaWQY1gEgASgBEg4KBXVfYXNrGNkBIAEoARIOCgV1",
-            "X3ByYxjcASABKAESDAoDeXJzGN8BIAEoAhINCgRyYXRlGOIBIAEoAhINCgRz",
-            "ZGl2GOUBIAEoAhINCgRkZGl2GOgBIAEoAhINCgR4X2RlGOsBIAEoAhIPCgZ4",
-            "X2F4aXMY7gEgASgCEjQKCm11bHRpaGVkZ2UY8QEgASgOMh8uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5NdWx0aWhlZGdlEjEKCWZsZXhfdHlwZRj0ASABKA4yHS5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLkZsZXhUeXBlEhIKCWZsZXhfcm9vdBj3ASAB",
-            "KAkSDwoGcHJ0X2l2GPoBIAEoAhIPCgZwcnRfZGUY/QEgASgCEg8KBnBydF9n",
-            "YRiAAiABKAISDwoGcHJ0X3RoGIMCIAEoAhIPCgZwcnRfdmUYhgIgASgCEg8K",
-            "BnBydF9ybxiJAiABKAISEQoIY2FsY19lcnIYjAIgASgJEhEKCHN1cmZfdm9s",
-            "GI8CIAEoAhIRCghzdXJmX29weBiSAiABKAISEQoIc3VyZl9hdG0YlQIgASgC",
-            "EhgKD3BydF9wcm9iYWJpbGl0eRiYAiABKAISGwoScHJ0X3Byb2JhYmlsaXR5",
-            "X20yGJsCIAEoAhIbChJwcnRfcHJvYmFiaWxpdHlfbTMYngIgASgCEhEKCG9f",
-            "YmlkX20xGKECIAEoAhIRCghvX2Fza19tMRikAiABKAISEQoIdV9iaWRfbTEY",
-            "pwIgASgBEhEKCHVfYXNrX20xGKoCIAEoARIRCgh1X3ByY19tMRitAiABKAES",
-            "EQoIc192b2xfbTEYsAIgASgCEhEKCHNfb3B4X20xGLMCIAEoAhIRCghzX2Rp",
-            "dl9tMRi2AiABKAISEQoIc19lcnJfbTEYuQIgASgJEg8KBnBubF9tMRi8AiAB",
-            "KAISLwoKcG5sX20xX2Vychi/AiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "Llllc05vEhIKCW9fYmlkX20xMBjCAiABKAISEgoJb19hc2tfbTEwGMUCIAEo",
-            "AhISCgl1X2JpZF9tMTAYyAIgASgBEhIKCXVfYXNrX20xMBjLAiABKAESEgoJ",
-            "dV9wcmNfbTEwGM4CIAEoARISCglzX3ZvbF9tMTAY0QIgASgCEhIKCXNfb3B4",
-            "X20xMBjUAiABKAISEgoJc19kaXZfbTEwGNcCIAEoAhISCglzX2Vycl9tMTAY",
-            "2gIgASgJEhAKB3BubF9tMTAY3QIgASgCEjAKC3BubF9tMTBfZXJyGOACIAEo",
-            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEQoIb19iaWRfczEY4wIg",
-            "ASgCEhEKCG9fYXNrX3MxGOQCIAEoAhIRCgh1X2JpZF9zMRjlAiABKAESEQoI",
-            "dV9hc2tfczEY5gIgASgBEhEKCHVfcHJjX3MxGOcCIAEoARIRCghzX3ZvbF9z",
-            "MRjoAiABKAISEQoIc19vcHhfczEY6QIgASgCEhEKCHNfZGl2X3MxGOoCIAEo",
-            "AhIRCghzX2Vycl9zMRjrAiABKAkSDwoGcG5sX3MxGOwCIAEoAhIvCgpwbmxf",
-            "czFfZXJyGO0CIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEwoK",
-            "b19iaWRfbmV4dBjuAiABKAISEwoKb19hc2tfbmV4dBjvAiABKAIaSAoEUEtl",
-            "eRIsCgRva2V5GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25L",
-            "ZXkSEgoKcHJ0X251bWJlchgLIAEoA2IGcHJvdG8z"));
+            "b3RvYnVmLk9wdGlvblByaW50U2V0LlBLZXkSOAoLdXBkYXRlX3R5cGUY8AIg",
+            "ASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5QcnRVcGRhdGVUeXBlEiwKBGZr",
+            "ZXkYZCABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRIuCgZ0",
+            "aWNrZXIYZyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIu",
+            "CghwcnRfZXhjaBhqIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhj",
+            "aBIQCghwcnRfc2l6ZRhtIAEoBRIRCglwcnRfcHJpY2UYcCABKAISLgoIcHJ0",
+            "X3R5cGUYcyABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLlBydFR5cGUSEgoK",
+            "cHJ0X29yZGVycxh2IAEoDRIXCg9wcnRfY2x1c3Rlcl9udW0YeSABKAUSGAoQ",
+            "cHJ0X2NsdXN0ZXJfc2l6ZRh8IAEoBRISCgpwcnRfdm9sdW1lGH8gASgFEhMK",
+            "CmN4bF92b2x1bWUYggEgASgFEhIKCWJpZF9jb3VudBiFASABKA0SEgoJYXNr",
+            "X2NvdW50GIgBIAEoDRITCgpiaWRfdm9sdW1lGIsBIAEoBRITCgphc2tfdm9s",
+            "dW1lGI4BIAEoBRINCgRlYmlkGJEBIAEoAhINCgRlYXNrGJQBIAEoAhINCgRl",
+            "YnN6GJcBIAEoBRINCgRlYXN6GJoBIAEoBRINCgRlYWdlGJ0BIAEoAhIvCghw",
+            "cnRfc2lkZRigASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLlBydFNpZGUS",
+            "FgoNcHJ0X3RpbWVzdGFtcBijASABKAMSFgoNbmV0X3RpbWVzdGFtcBimASAB",
+            "KAMSLgoJdGltZXN0YW1wGKkBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASDgoFb19iaWQYrAEgASgCEg4KBW9fYXNrGK8BIAEoAhIRCghvX2Jp",
+            "ZF9zehiyASABKAUSEQoIb19hc2tfc3oYtQEgASgFEi8KCG9fYmlkX2V4GLgB",
+            "IAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhjaBIvCghvX2Fza19l",
+            "eBi7ASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSFAoLb19i",
+            "aWRfZXhfc3oYvgEgASgFEhQKC29fYXNrX2V4X3N6GMEBIAEoBRISCglvX2Jp",
+            "ZF9jbnQYxAEgASgFEhIKCW9fYXNrX2NudBjHASABKAUSDwoGb19iaWQyGMoB",
+            "IAEoAhIPCgZvX2FzazIYzQEgASgCEhIKCW9fYmlkX3N6MhjQASABKAUSEgoJ",
+            "b19hc2tfc3oyGNMBIAEoBRIRCghvX2JpZF9pdhjhAiABKAESEQoIb19hc2tf",
+            "aXYY4gIgASgBEg4KBXVfYmlkGNYBIAEoARIOCgV1X2FzaxjZASABKAESDgoF",
+            "dV9wcmMY3AEgASgBEgwKA3lycxjfASABKAISDQoEcmF0ZRjiASABKAISDQoE",
+            "c2RpdhjlASABKAISDQoEZGRpdhjoASABKAISDQoEeF9kZRjrASABKAISDwoG",
+            "eF9heGlzGO4BIAEoAhI0CgptdWx0aWhlZGdlGPEBIAEoDjIfLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuTXVsdGloZWRnZRIxCglmbGV4X3R5cGUY9AEgASgOMh0u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5GbGV4VHlwZRISCglmbGV4X3Jvb3QY9wEg",
+            "ASgJEg8KBnBydF9pdhj6ASABKAISDwoGcHJ0X2RlGP0BIAEoAhIPCgZwcnRf",
+            "Z2EYgAIgASgCEg8KBnBydF90aBiDAiABKAISDwoGcHJ0X3ZlGIYCIAEoAhIP",
+            "CgZwcnRfcm8YiQIgASgCEhEKCGNhbGNfZXJyGIwCIAEoCRIRCghzdXJmX3Zv",
+            "bBiPAiABKAISEQoIc3VyZl9vcHgYkgIgASgCEhEKCHN1cmZfYXRtGJUCIAEo",
+            "AhIYCg9wcnRfcHJvYmFiaWxpdHkYmAIgASgCEhsKEnBydF9wcm9iYWJpbGl0",
+            "eV9tMhibAiABKAISGwoScHJ0X3Byb2JhYmlsaXR5X20zGJ4CIAEoAhIRCghv",
+            "X2JpZF9tMRihAiABKAISEQoIb19hc2tfbTEYpAIgASgCEhEKCHVfYmlkX20x",
+            "GKcCIAEoARIRCgh1X2Fza19tMRiqAiABKAESEQoIdV9wcmNfbTEYrQIgASgB",
+            "EhEKCHNfdm9sX20xGLACIAEoAhIRCghzX29weF9tMRizAiABKAISEQoIc19k",
+            "aXZfbTEYtgIgASgCEhEKCHNfZXJyX20xGLkCIAEoCRIPCgZwbmxfbTEYvAIg",
+            "ASgCEi8KCnBubF9tMV9lcnIYvwIgASgOMhouc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5ZZXNObxISCglvX2JpZF9tMTAYwgIgASgCEhIKCW9fYXNrX20xMBjFAiAB",
+            "KAISEgoJdV9iaWRfbTEwGMgCIAEoARISCgl1X2Fza19tMTAYywIgASgBEhIK",
+            "CXVfcHJjX20xMBjOAiABKAESEgoJc192b2xfbTEwGNECIAEoAhISCglzX29w",
+            "eF9tMTAY1AIgASgCEhIKCXNfZGl2X20xMBjXAiABKAISEgoJc19lcnJfbTEw",
+            "GNoCIAEoCRIQCgdwbmxfbTEwGN0CIAEoAhIwCgtwbmxfbTEwX2VychjgAiAB",
+            "KA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhEKCG9fYmlkX3MxGOMC",
+            "IAEoAhIRCghvX2Fza19zMRjkAiABKAISEQoIdV9iaWRfczEY5QIgASgBEhEK",
+            "CHVfYXNrX3MxGOYCIAEoARIRCgh1X3ByY19zMRjnAiABKAESEQoIc192b2xf",
+            "czEY6AIgASgCEhEKCHNfb3B4X3MxGOkCIAEoAhIRCghzX2Rpdl9zMRjqAiAB",
+            "KAISEQoIc19lcnJfczEY6wIgASgJEg8KBnBubF9zMRjsAiABKAISLwoKcG5s",
+            "X3MxX2VychjtAiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhMK",
+            "Cm9fYmlkX25leHQY7gIgASgCEhMKCm9fYXNrX25leHQY7wIgASgCGkgKBFBL",
+            "ZXkSLAoEb2tleRgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9u",
+            "S2V5EhIKCnBydF9udW1iZXIYCyABKANiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -269,7 +269,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "update_type" field.</summary>
-    public const int UpdateTypeFieldNumber = 101;
+    public const int UpdateTypeFieldNumber = 368;
     private global::Spiderrock.Protobuf.PrtUpdateType updateType_ = global::Spiderrock.Protobuf.PrtUpdateType.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2026,10 +2026,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Fkey);
       }
-      if (UpdateType != global::Spiderrock.Protobuf.PrtUpdateType.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) UpdateType);
-      }
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
@@ -2425,6 +2421,10 @@ namespace Spiderrock.Protobuf {
       if (OAskNext != 0F) {
         output.WriteRawTag(253, 22);
         output.WriteFloat(OAskNext);
+      }
+      if (UpdateType != global::Spiderrock.Protobuf.PrtUpdateType.Unspecified) {
+        output.WriteRawTag(128, 23);
+        output.WriteEnum((int) UpdateType);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2448,10 +2448,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Fkey);
       }
-      if (UpdateType != global::Spiderrock.Protobuf.PrtUpdateType.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) UpdateType);
-      }
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
@@ -2847,6 +2843,10 @@ namespace Spiderrock.Protobuf {
       if (OAskNext != 0F) {
         output.WriteRawTag(253, 22);
         output.WriteFloat(OAskNext);
+      }
+      if (UpdateType != global::Spiderrock.Protobuf.PrtUpdateType.Unspecified) {
+        output.WriteRawTag(128, 23);
+        output.WriteEnum((int) UpdateType);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3539,10 +3539,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Fkey);
             break;
           }
-          case 808: {
-            UpdateType = (global::Spiderrock.Protobuf.PrtUpdateType) input.ReadEnum();
-            break;
-          }
           case 826: {
             if (ticker_ == null) {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
@@ -3943,6 +3939,10 @@ namespace Spiderrock.Protobuf {
           }
           case 2941: {
             OAskNext = input.ReadFloat();
+            break;
+          }
+          case 2944: {
+            UpdateType = (global::Spiderrock.Protobuf.PrtUpdateType) input.ReadEnum();
             break;
           }
         }
@@ -3981,10 +3981,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Fkey);
             break;
           }
-          case 808: {
-            UpdateType = (global::Spiderrock.Protobuf.PrtUpdateType) input.ReadEnum();
-            break;
-          }
           case 826: {
             if (ticker_ == null) {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
@@ -4385,6 +4381,10 @@ namespace Spiderrock.Protobuf {
           }
           case 2941: {
             OAskNext = input.ReadFloat();
+            break;
+          }
+          case 2944: {
+            UpdateType = (global::Spiderrock.Protobuf.PrtUpdateType) input.ReadEnum();
             break;
           }
         }

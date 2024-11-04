@@ -26,28 +26,29 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CilQcm90b2J1Zi9PcHRNYXJrRGF0YS9PcHRpb25PcGVuTWFyay5wcm90bxIT",
             "c3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8a",
-            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i8QUKDk9wdGlvbk9w",
+            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iowYKDk9wdGlvbk9w",
             "ZW5NYXJrEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5N",
             "ZXNzYWdlTWV0YWRhdGESNgoEcGtleRgCIAEoCzIoLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuT3B0aW9uT3Blbk1hcmsuUEtleRIwCgp0cmFkZV9kYXRlGGQgASgL",
-            "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjkKDm9wbl9tYXJrX3N0",
-            "YXRlGGUgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5PcG5NYXJrU3RhdGUS",
-            "EAoIdV9zcl9jbHMYbSABKAESDwoHdV9jbG9zZRhwIAEoARISCgpzcl9jbHNf",
-            "cHJjGHkgASgBEhEKCWNsb3NlX3ByYxh8IAEoARIPCgZzcl9wcmMYhQEgASgC",
-            "Eg8KBnNyX3ZvbBiIASABKAISMAoGc3Jfc3JjGIsBIAEoDjIfLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuTWFya1NvdXJjZRILCgJkZRiOASABKAISCwoCZ2EYkQEg",
-            "ASgCEgsKAnRoGJQBIAEoAhILCgJ2ZRiXASABKAISCwoCdm8YmgEgASgCEgsK",
-            "AnZhGJ0BIAEoAhILCgJyaBigASABKAISCwoCcGgYowEgASgCEhEKCHNyX3Ns",
-            "b3BlGKYBIAEoAhIRCghkZV9kZWNheRipASABKAISDQoEc2RpdhisASABKAIS",
-            "DQoEZGRpdhivASABKAISEAoHZGRpdl9wdhiwASABKAISDQoEcmF0ZRiyASAB",
-            "KAISDgoFeWVhcnMYtQEgASgCEg4KBWVycm9yGLgBIAEoBRIUCgtjb3JwX2Fj",
-            "dGlvbhi7ASABKAkSLgoJdGltZXN0YW1wGL4BIAEoCzIaLmdvb2dsZS5wcm90",
-            "b2J1Zi5UaW1lc3RhbXAaNAoEUEtleRIsCgRva2V5GAogASgLMh4uc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5PcHRpb25LZXliBnByb3RvMw=="));
+            "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjoKDm9wbl9tYXJrX3N0",
+            "YXRlGL8BIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuT3BuTWFya1N0YXRl",
+            "EhAKCHVfc3JfY2xzGG0gASgBEg8KB3VfY2xvc2UYcCABKAESEgoKc3JfY2xz",
+            "X3ByYxh5IAEoARIRCgljbG9zZV9wcmMYfCABKAESDwoGc3JfcHJjGIUBIAEo",
+            "AhIPCgZzcl92b2wYiAEgASgCEjAKBnNyX3NyYxiLASABKA4yHy5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLk1hcmtTb3VyY2USCwoCZGUYjgEgASgCEgsKAmdhGJEB",
+            "IAEoAhILCgJ0aBiUASABKAISCwoCdmUYlwEgASgCEgsKAnZvGJoBIAEoAhIL",
+            "CgJ2YRidASABKAISCwoCcmgYoAEgASgCEgsKAnBoGKMBIAEoAhIRCghzcl9z",
+            "bG9wZRimASABKAISEQoIZGVfZGVjYXkYqQEgASgCEg0KBHNkaXYYrAEgASgC",
+            "Eg0KBGRkaXYYrwEgASgCEhAKB2RkaXZfcHYYwAEgASgCEg0KBHJhdGUYsgEg",
+            "ASgCEg4KBXllYXJzGLUBIAEoAhIOCgVlcnJvchi4ASABKAUSFAoLY29ycF9h",
+            "Y3Rpb24YuwEgASgJEi8KCmNvbmZpZ19ub3cYwQEgASgLMhouZ29vZ2xlLnBy",
+            "b3RvYnVmLlRpbWVzdGFtcBIuCgl0aW1lc3RhbXAYvgEgASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcBo0CgRQS2V5EiwKBG9rZXkYCiABKAsyHi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionOpenMark), global::Spiderrock.Protobuf.OptionOpenMark.Parser, new[]{ "Meta", "Pkey", "TradeDate", "OpnMarkState", "USrCls", "UClose", "SrClsPrc", "ClosePrc", "SrPrc", "SrVol", "SrSrc", "De", "Ga", "Th", "Ve", "Vo", "Va", "Rh", "Ph", "SrSlope", "DeDecay", "Sdiv", "Ddiv", "DdivPv", "Rate", "Years", "Error", "CorpAction", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionOpenMark.Types.PKey), global::Spiderrock.Protobuf.OptionOpenMark.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionOpenMark), global::Spiderrock.Protobuf.OptionOpenMark.Parser, new[]{ "Meta", "Pkey", "TradeDate", "OpnMarkState", "USrCls", "UClose", "SrClsPrc", "ClosePrc", "SrPrc", "SrVol", "SrSrc", "De", "Ga", "Th", "Ve", "Vo", "Va", "Rh", "Ph", "SrSlope", "DeDecay", "Sdiv", "Ddiv", "DdivPv", "Rate", "Years", "Error", "CorpAction", "ConfigNow", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionOpenMark.Types.PKey), global::Spiderrock.Protobuf.OptionOpenMark.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -120,6 +121,7 @@ namespace Spiderrock.Protobuf {
       years_ = other.years_;
       error_ = other.error_;
       corpAction_ = other.corpAction_;
+      configNow_ = other.configNow_ != null ? other.configNow_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -167,7 +169,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "opn_mark_state" field.</summary>
-    public const int OpnMarkStateFieldNumber = 101;
+    public const int OpnMarkStateFieldNumber = 191;
     private global::Spiderrock.Protobuf.OpnMarkState opnMarkState_ = global::Spiderrock.Protobuf.OpnMarkState.Unspecified;
     /// <summary>
     /// Preview or Final (note: preview is not corp action adjusted)
@@ -446,7 +448,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ddiv_pv" field.</summary>
-    public const int DdivPvFieldNumber = 176;
+    public const int DdivPvFieldNumber = 192;
     private float ddivPv_;
     /// <summary>
     /// sum of present value of discrete dividends
@@ -517,6 +519,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "config_now" field.</summary>
+    public const int ConfigNowFieldNumber = 193;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp configNow_;
+    /// <summary>
+    /// timestamp in the trading period local timezone
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp ConfigNow {
+      get { return configNow_; }
+      set {
+        configNow_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 190;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -572,6 +589,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Years, other.Years)) return false;
       if (Error != other.Error) return false;
       if (CorpAction != other.CorpAction) return false;
+      if (!object.Equals(ConfigNow, other.ConfigNow)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -608,6 +626,7 @@ namespace Spiderrock.Protobuf {
       if (Years != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Years);
       if (Error != 0) hash ^= Error.GetHashCode();
       if (CorpAction.Length != 0) hash ^= CorpAction.GetHashCode();
+      if (configNow_ != null) hash ^= ConfigNow.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -639,10 +658,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(TradeDate);
       }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) OpnMarkState);
-      }
       if (USrCls != 0D) {
         output.WriteRawTag(233, 6);
         output.WriteDouble(USrCls);
@@ -719,10 +734,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(253, 10);
         output.WriteFloat(Ddiv);
       }
-      if (DdivPv != 0F) {
-        output.WriteRawTag(133, 11);
-        output.WriteFloat(DdivPv);
-      }
       if (Rate != 0F) {
         output.WriteRawTag(149, 11);
         output.WriteFloat(Rate);
@@ -742,6 +753,18 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(242, 11);
         output.WriteMessage(Timestamp);
+      }
+      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
+        output.WriteRawTag(248, 11);
+        output.WriteEnum((int) OpnMarkState);
+      }
+      if (DdivPv != 0F) {
+        output.WriteRawTag(133, 12);
+        output.WriteFloat(DdivPv);
+      }
+      if (configNow_ != null) {
+        output.WriteRawTag(138, 12);
+        output.WriteMessage(ConfigNow);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -765,10 +788,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(TradeDate);
       }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) OpnMarkState);
-      }
       if (USrCls != 0D) {
         output.WriteRawTag(233, 6);
         output.WriteDouble(USrCls);
@@ -845,10 +864,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(253, 10);
         output.WriteFloat(Ddiv);
       }
-      if (DdivPv != 0F) {
-        output.WriteRawTag(133, 11);
-        output.WriteFloat(DdivPv);
-      }
       if (Rate != 0F) {
         output.WriteRawTag(149, 11);
         output.WriteFloat(Rate);
@@ -868,6 +883,18 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(242, 11);
         output.WriteMessage(Timestamp);
+      }
+      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
+        output.WriteRawTag(248, 11);
+        output.WriteEnum((int) OpnMarkState);
+      }
+      if (DdivPv != 0F) {
+        output.WriteRawTag(133, 12);
+        output.WriteFloat(DdivPv);
+      }
+      if (configNow_ != null) {
+        output.WriteRawTag(138, 12);
+        output.WriteMessage(ConfigNow);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -962,6 +989,9 @@ namespace Spiderrock.Protobuf {
       }
       if (CorpAction.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(CorpAction);
+      }
+      if (configNow_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ConfigNow);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -1071,6 +1101,12 @@ namespace Spiderrock.Protobuf {
       if (other.CorpAction.Length != 0) {
         CorpAction = other.CorpAction;
       }
+      if (other.configNow_ != null) {
+        if (configNow_ == null) {
+          ConfigNow = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        ConfigNow.MergeFrom(other.ConfigNow);
+      }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
           Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
@@ -1113,10 +1149,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(TradeDate);
             break;
           }
-          case 808: {
-            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
-            break;
-          }
           case 873: {
             USrCls = input.ReadDouble();
             break;
@@ -1193,10 +1225,6 @@ namespace Spiderrock.Protobuf {
             Ddiv = input.ReadFloat();
             break;
           }
-          case 1413: {
-            DdivPv = input.ReadFloat();
-            break;
-          }
           case 1429: {
             Rate = input.ReadFloat();
             break;
@@ -1218,6 +1246,21 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1528: {
+            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
+            break;
+          }
+          case 1541: {
+            DdivPv = input.ReadFloat();
+            break;
+          }
+          case 1546: {
+            if (configNow_ == null) {
+              ConfigNow = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(ConfigNow);
             break;
           }
         }
@@ -1256,10 +1299,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(TradeDate);
             break;
           }
-          case 808: {
-            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
-            break;
-          }
           case 873: {
             USrCls = input.ReadDouble();
             break;
@@ -1336,10 +1375,6 @@ namespace Spiderrock.Protobuf {
             Ddiv = input.ReadFloat();
             break;
           }
-          case 1413: {
-            DdivPv = input.ReadFloat();
-            break;
-          }
           case 1429: {
             Rate = input.ReadFloat();
             break;
@@ -1361,6 +1396,21 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1528: {
+            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
+            break;
+          }
+          case 1541: {
+            DdivPv = input.ReadFloat();
+            break;
+          }
+          case 1546: {
+            if (configNow_ == null) {
+              ConfigNow = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(ConfigNow);
             break;
           }
         }
