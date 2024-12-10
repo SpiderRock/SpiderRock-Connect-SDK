@@ -6,8 +6,6 @@
 |----------------------|------------------|-------------------------------------------------------------------|-------------------------------------------------|----------------------------------------------|
 | **pkey**              | **Parent**       | Copied from parent.                                              | None                                           | Unique identifier for the object.            |
 | **ticker**            | **Parent**       | Copied from parent.                                              | None                                           | Stock or option ticker.                      |
-| **SeqNum**            | **Parent**       | Copied from parent.                                              | None                                           | Sequence number for message ordering.       |
-| **TimeRcvd**          | **Parent**       | Copied from parent.                                              | None                                           | Timestamp when data was received.           |
 | **uprc**              | **Adjusted**     | Updated to the new uPrc if available.                            | Bounded by limits, price change threshold.      | If adjustment fails, original price is retained. |
 | **uPrcAdjResult**     | **Adjusted**     | See "Possible Values of `uPrcAdjResult`" below.  | See "Possible Values of `uPrcAdjResult`" below. | Indicates if uPrc was successfully adjusted. |
 | **years**             | **Parent**       | Copied from parent.                                              | None                                           | Represents time to expiration.              |
