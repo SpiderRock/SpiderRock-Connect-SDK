@@ -19,10 +19,10 @@
 | **obiv**              | **Adjusted**     | Adjusted for underlying price change.                          | Bounded to min and max volatility limits.       | IV bounded to avoid out-of-range values.     |
 | **oaiv**              | **Adjusted**     | Adjusted for underlying price change.                          | Bounded to min and max volatility limits.       | IV bounded to avoid out-of-range values.     |
 | **svol**              | **Parent**       | Copied from parent.                                              | None.                                           | surface vol                     |
-| **sprc**              | **Adjusted**     | \( \text{sprc} = \text{parent sprc} + \Delta \cdot dUprc + \frac{1}{2} \cdot \Gamma \cdot dUprc^2 \) | Bounded to be non-negative.                     | Represents surface price.     |
+| **sprc**              | **Adjusted**     | sprc=parent sprc+Δ⋅dUprc+⋅Γ⋅dUprc2 | Bounded to be non-negative.                     | Represents surface price.     |
 | **smrk**              | **Adjusted**     | Same adjustment as **sprc**, but clamped to bid/ask.            | Clamped within bid/ask if applicable.           | Surface mark price bounded by market data.|
 | **veSlope**           | **Parent**       | Copied from parent.                                              | None.                                           | Volatility slope     |
-| **de**                | **Adjusted**     | \( \Delta + \Gamma \cdot dUprc \)                                | Clamped to [-1, +1] range.                       | Adjustment depends on the change in uPrc.   |
+| **de**                | **Adjusted**     | Delta + Gamma x Uprc)                                | Clamped to [-1, +1] range.                       | Adjustment depends on the change in uPrc.   |
 | **ve**                | **Parent**       | Copied from parent.                                              | Must be non-NaN.                                | Vega    |
 | **vo**                | **Parent**       | Copied from parent.                                              | None.                                           |   |
 | **va**                | **Parent**       | Copied from parent.                                              | None.                                           | . |
