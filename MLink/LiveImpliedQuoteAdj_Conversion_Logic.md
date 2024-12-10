@@ -47,7 +47,7 @@
 
 ---
 
-## **uPrcAdjResult — Possible Values and Meanings**
+## **uPrcAdjResult — Enum definitions**
 
 | **Value**            | **Meaning**                      | **Cause**                                     |
 |---------------------|-----------------------------------|----------------------------------------------|
