@@ -39,9 +39,9 @@
 | **dn15**              | **Parent**       | Copied from parent.                                              | None                                           |             |
 | **up06**              | **Parent**       | Copied from parent.                                              | None                                           |                |
 | **dn08**              | **Parent**       | Copied from parent.                                              | None                                           |              |
-| **timestamp**         | **Adjusted**     | Updated to current system time.                                 | None                                           | Reflects when the quote was adjusted.     |
+| **timestamp**         | **Adjusted**     | Updated to current system time.                                  | None                                           | Reflects when the quote was adjusted.     |
 | **priceType**         | **Parent**       | Copied from parent.                                              | None                                           | Source or type of price of underlier                 |
-| **synSpot**           | **Parent**       | Copied from parent.                                              | None                                           | Synthetic spot price        |
+| **synSpot**           | **Adjusted**       | synSpot = LIQAdj.uPrc * LIQ.synSpot / LIQ.uPrc                 | None                                           | Synthetic spot price        |
 
 ---
 
