@@ -17,7 +17,7 @@
 | **obiv**              | **Adjusted**     | Adjusted for underlying price change.                          | Bounded to min and max volatility limits.       | IV bounded to avoid out-of-range values.     |
 | **oaiv**              | **Adjusted**     | Adjusted for underlying price change.                          | Bounded to min and max volatility limits.       | IV bounded to avoid out-of-range values.     |
 | **svol**              | **Parent**       | Copied from parent.                                              | None                                           | surface vol                     |
-| **sprc**              | **Adjusted**     | sprc=parent sprc+Δ⋅dUprc+⋅Γ⋅dUprc2 | Bounded to be non-negative.                     | Represents surface price.     |
+| **sprc**              | **Adjusted**     | sprc=parent sprc+Δ⋅dUprc+⋅Γ⋅dUprc^2 | Bounded to be non-negative.                     | Represents surface price.     |
 | **smrk**              | **Adjusted**     | Same adjustment as **sprc**, but bounded to bid/ask.            | bounded within bid/ask if applicable.           | Surface mark price bounded.|
 | **veSlope**           | **Parent**       | Copied from parent.                                              | None                                           | Volatility slope     |
 | **de**                | **Adjusted**     | Delta + Gamma⋅dUprc                                | bounded to [-1, +1] range.                       | Adjustment depends on the change in uPrc.   |
