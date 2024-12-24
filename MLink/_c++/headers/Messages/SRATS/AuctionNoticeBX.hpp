@@ -70,6 +70,11 @@ namespace api {
     DECL_STRONG_TYPE(is_test_auction, spiderrock::protobuf::api::YesNo);
     #endif//_is_test_auction__GUARD__
 
+    #ifndef _contains_flex__GUARD__
+    #define _contains_flex__GUARD__
+    DECL_STRONG_TYPE(contains_flex, spiderrock::protobuf::api::YesNo);
+    #endif//_contains_flex__GUARD__
+
     #ifndef _short_code__GUARD__
     #define _short_code__GUARD__
     DECL_STRONG_TYPE(short_code, string);
@@ -434,6 +439,7 @@ namespace api {
         using src_auction_type = spiderrock::protobuf::api::src_auction_type;
         using auction_source = spiderrock::protobuf::api::auction_source;
         using is_test_auction = spiderrock::protobuf::api::is_test_auction;
+        using contains_flex = spiderrock::protobuf::api::contains_flex;
         using short_code = spiderrock::protobuf::api::short_code;
         using industry = spiderrock::protobuf::api::industry;
         using symbol_type = spiderrock::protobuf::api::symbol_type;
@@ -476,6 +482,7 @@ namespace api {
         src_auction_type m_src_auction_type{};
         auction_source m_auction_source{};
         is_test_auction m_is_test_auction{};
+        contains_flex m_contains_flex{};
         short_code m_short_code{};
         industry m_industry{};
         symbol_type m_symbol_type{};
@@ -539,6 +546,9 @@ namespace api {
         }		
         is_test_auction get_is_test_auction() const {
             return m_is_test_auction;
+        }		
+        contains_flex get_contains_flex() const {
+            return m_contains_flex;
         }		
         short_code get_short_code() const {
             return m_short_code;
@@ -666,6 +676,9 @@ namespace api {
         }
         void set_is_test_auction(const is_test_auction& value)  {
             m_is_test_auction = value;
+        }
+        void set_contains_flex(const contains_flex& value)  {
+            m_contains_flex = value;
         }
         void set_short_code(const short_code& value)  {
             m_short_code = value;
@@ -804,6 +817,9 @@ namespace api {
         void set(const is_test_auction & value) {
             set_is_test_auction(value);
         }
+        void set(const contains_flex & value) {
+            set_contains_flex(value);
+        }
         void set(const short_code & value) {
             set_short_code(value);
         }
@@ -906,6 +922,7 @@ namespace api {
             set(value.m_src_auction_type);
             set(value.m_auction_source);
             set(value.m_is_test_auction);
+            set(value.m_contains_flex);
             set(value.m_short_code);
             set(value.m_industry);
             set(value.m_symbol_type);
@@ -1103,8 +1120,9 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>(m_auction_source)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
             if ( IncludeShortCode()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(108,m_short_code);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(141,m_short_code);
             }
             if ( IncludeIndustry()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(137,m_industry);
@@ -1215,8 +1233,9 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>(m_auction_source)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
             if ( IncludeShortCode()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,108,static_cast<string>(m_short_code));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,141,static_cast<string>(m_short_code));
             }
             if ( IncludeIndustry()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,137,static_cast<string>(m_industry));
@@ -1373,7 +1392,12 @@ namespace api {
                         }
                         break;
                     }
-                    case 108: {
+                    case 142: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_contains_flex = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 141: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_short_code = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
@@ -1571,6 +1595,7 @@ namespace api {
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::src_auction_type>() const { return m_src_auction_type; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::auction_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AuctionSource>( m_auction_source)); }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::is_test_auction>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_test_auction)); }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::contains_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_flex)); }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::short_code>() const { return m_short_code; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::industry>() const { return m_industry; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::symbol_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SymbolType>( m_symbol_type)); }
@@ -1633,6 +1658,7 @@ namespace api {
         o << ",\"src_auction_type\":\"" << m.get<AuctionNoticeBX::src_auction_type>() << "\"";
         o << ",\"auction_source\":" << (int64_t)m.get<AuctionNoticeBX::auction_source>();
         o << ",\"is_test_auction\":" << (int64_t)m.get<AuctionNoticeBX::is_test_auction>();
+        o << ",\"contains_flex\":" << (int64_t)m.get<AuctionNoticeBX::contains_flex>();
         o << ",\"short_code\":\"" << m.get<AuctionNoticeBX::short_code>() << "\"";
         o << ",\"industry\":\"" << m.get<AuctionNoticeBX::industry>() << "\"";
         o << ",\"symbol_type\":" << (int64_t)m.get<AuctionNoticeBX::symbol_type>();

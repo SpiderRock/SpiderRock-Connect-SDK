@@ -13,6 +13,7 @@
 #include "ClientControl/BookControl.hpp"
 #include "ClientControl/ClientAccntStrategyMap.hpp"
 #include "ClientControl/ClientAccountConfig.hpp"
+#include "ClientControl/ClientStockLocate.hpp"
 #include "ClientControl/CustomControl.hpp"
 #include "ClientControl/ExpirationControl.hpp"
 #include "ClientControl/FutureControl.hpp"
@@ -104,6 +105,7 @@
 #include "MLinkRest/MsgTickerKey.hpp"
 #include "MLinkRest/PostAck.hpp"
 #include "MLinkRest/QueryResult.hpp"
+#include "MLinkRest/UserMetaData.hpp"
 #include "MLinkWs/MLinkAdmin.hpp"
 #include "MLinkWs/MLinkDataAck.hpp"
 #include "MLinkWs/MLinkHeartbeat.hpp"
@@ -176,6 +178,7 @@
 #include "SRATS/ResponderMarkupSN.hpp"
 #include "SRATS/ResponderMarkupVegaDir.hpp"
 #include "SRATS/UserAuctionFilter.hpp"
+#include "SRATS/UserAuctionTickerFilter.hpp"
 #include "SRMLinkAnalytics/IndustryDefinition.hpp"
 #include "SRMLinkAnalytics/LiveBasisCurve.hpp"
 #include "SRMLinkAnalytics/LiveExpiryAtm.hpp"
@@ -209,6 +212,7 @@ class Observer {
     BookControl msgBookControl{};
     ClientAccntStrategyMap msgClientAccntStrategyMap{};
     ClientAccountConfig msgClientAccountConfig{};
+    ClientStockLocate msgClientStockLocate{};
     CustomControl msgCustomControl{};
     ExpirationControl msgExpirationControl{};
     FutureControl msgFutureControl{};
@@ -300,6 +304,7 @@ class Observer {
     MsgTickerKey msgMsgTickerKey{};
     PostAck msgPostAck{};
     QueryResult msgQueryResult{};
+    UserMetaData msgUserMetaData{};
     MLinkAdmin msgMLinkAdmin{};
     MLinkDataAck msgMLinkDataAck{};
     MLinkHeartbeat msgMLinkHeartbeat{};
@@ -372,6 +377,7 @@ class Observer {
     ResponderMarkupSN msgResponderMarkupSN{};
     ResponderMarkupVegaDir msgResponderMarkupVegaDir{};
     UserAuctionFilter msgUserAuctionFilter{};
+    UserAuctionTickerFilter msgUserAuctionTickerFilter{};
     IndustryDefinition msgIndustryDefinition{};
     LiveBasisCurve msgLiveBasisCurve{};
     LiveExpiryAtm msgLiveExpiryAtm{};
@@ -482,6 +488,12 @@ class Observer {
 			    msgClientAccountConfig.Clear();
                 msgClientAccountConfig.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const ClientAccountConfig &)msgClientAccountConfig);
+                break;
+            }
+            case 1731: {  // ClientStockLocate
+			    msgClientStockLocate.Clear();
+                msgClientStockLocate.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ClientStockLocate &)msgClientStockLocate);
                 break;
             }
             case 1640: {  // CustomControl
@@ -1030,6 +1042,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const QueryResult &)msgQueryResult);
                 break;
             }
+            case 3470: {  // UserMetaData
+			    msgUserMetaData.Clear();
+                msgUserMetaData.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserMetaData &)msgUserMetaData);
+                break;
+            }
             case 3345: {  // MLinkAdmin
 			    msgMLinkAdmin.Clear();
                 msgMLinkAdmin.ParseFromArray(buf, len);
@@ -1462,13 +1480,19 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const UserAuctionFilter &)msgUserAuctionFilter);
                 break;
             }
+            case 1916: {  // UserAuctionTickerFilter
+			    msgUserAuctionTickerFilter.Clear();
+                msgUserAuctionTickerFilter.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserAuctionTickerFilter &)msgUserAuctionTickerFilter);
+                break;
+            }
             case 4350: {  // IndustryDefinition
 			    msgIndustryDefinition.Clear();
                 msgIndustryDefinition.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const IndustryDefinition &)msgIndustryDefinition);
                 break;
             }
-            case 1130: {  // LiveBasisCurve
+            case 1131: {  // LiveBasisCurve
 			    msgLiveBasisCurve.Clear();
                 msgLiveBasisCurve.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const LiveBasisCurve &)msgLiveBasisCurve);

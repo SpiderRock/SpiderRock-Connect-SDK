@@ -65,6 +65,16 @@ namespace api {
     DECL_STRONG_TYPE(child_data, string);
     #endif//_child_data__GUARD__
 
+    #ifndef _ticket_locate_firm__GUARD__
+    #define _ticket_locate_firm__GUARD__
+    DECL_STRONG_TYPE(ticket_locate_firm, string);
+    #endif//_ticket_locate_firm__GUARD__
+
+    #ifndef _ticket_locate_pool__GUARD__
+    #define _ticket_locate_pool__GUARD__
+    DECL_STRONG_TYPE(ticket_locate_pool, string);
+    #endif//_ticket_locate_pool__GUARD__
+
     #ifndef _stk_exec_brkr_code__GUARD__
     #define _stk_exec_brkr_code__GUARD__
     DECL_STRONG_TYPE(stk_exec_brkr_code, string);
@@ -528,6 +538,8 @@ namespace api {
         using user_data1 = spiderrock::protobuf::api::user_data1;
         using user_data2 = spiderrock::protobuf::api::user_data2;
         using child_data = spiderrock::protobuf::api::child_data;
+        using ticket_locate_firm = spiderrock::protobuf::api::ticket_locate_firm;
+        using ticket_locate_pool = spiderrock::protobuf::api::ticket_locate_pool;
         using stk_exec_brkr_code = spiderrock::protobuf::api::stk_exec_brkr_code;
         using fut_exec_brkr_code = spiderrock::protobuf::api::fut_exec_brkr_code;
         using eqt_opt_exec_brkr_code = spiderrock::protobuf::api::eqt_opt_exec_brkr_code;
@@ -547,6 +559,8 @@ namespace api {
         user_data1 m_user_data1{};
         user_data2 m_user_data2{};
         child_data m_child_data{};
+        ticket_locate_firm m_ticket_locate_firm{};
+        ticket_locate_pool m_ticket_locate_pool{};
         stk_exec_brkr_code m_stk_exec_brkr_code{};
         fut_exec_brkr_code m_fut_exec_brkr_code{};
         eqt_opt_exec_brkr_code m_eqt_opt_exec_brkr_code{};
@@ -585,6 +599,12 @@ namespace api {
         }		
         child_data get_child_data() const {
             return m_child_data;
+        }		
+        ticket_locate_firm get_ticket_locate_firm() const {
+            return m_ticket_locate_firm;
+        }		
+        ticket_locate_pool get_ticket_locate_pool() const {
+            return m_ticket_locate_pool;
         }		
         stk_exec_brkr_code get_stk_exec_brkr_code() const {
             return m_stk_exec_brkr_code;
@@ -643,6 +663,12 @@ namespace api {
         }
         void set_child_data(const child_data& value)  {
             m_child_data = value;
+        }
+        void set_ticket_locate_firm(const ticket_locate_firm& value)  {
+            m_ticket_locate_firm = value;
+        }
+        void set_ticket_locate_pool(const ticket_locate_pool& value)  {
+            m_ticket_locate_pool = value;
         }
         void set_stk_exec_brkr_code(const stk_exec_brkr_code& value)  {
             m_stk_exec_brkr_code = value;
@@ -712,6 +738,12 @@ namespace api {
         void set(const child_data & value) {
             set_child_data(value);
         }
+        void set(const ticket_locate_firm & value) {
+            set_ticket_locate_firm(value);
+        }
+        void set(const ticket_locate_pool & value) {
+            set_ticket_locate_pool(value);
+        }
         void set(const stk_exec_brkr_code & value) {
             set_stk_exec_brkr_code(value);
         }
@@ -747,6 +779,8 @@ namespace api {
             set(value.m_user_data1);
             set(value.m_user_data2);
             set(value.m_child_data);
+            set(value.m_ticket_locate_firm);
+            set(value.m_ticket_locate_pool);
             set(value.m_stk_exec_brkr_code);
             set(value.m_fut_exec_brkr_code);
             set(value.m_eqt_opt_exec_brkr_code);
@@ -833,6 +867,12 @@ namespace api {
         bool IncludeChildData() const {
             return !(m_child_data.empty());
         }
+        bool IncludeTicketLocateFirm() const {
+            return !(m_ticket_locate_firm.empty());
+        }
+        bool IncludeTicketLocatePool() const {
+            return !(m_ticket_locate_pool.empty());
+        }
         bool IncludeStkExecBrkrCode() const {
             return !(m_stk_exec_brkr_code.empty());
         }
@@ -888,6 +928,12 @@ namespace api {
             }
             if ( IncludeChildData()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(118,m_child_data);
+            }
+            if ( IncludeTicketLocateFirm()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(157,m_ticket_locate_firm);
+            }
+            if ( IncludeTicketLocatePool()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(158,m_ticket_locate_pool);
             }
             if ( IncludeStkExecBrkrCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(141,m_stk_exec_brkr_code);
@@ -949,6 +995,12 @@ namespace api {
             }
             if ( IncludeChildData()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,118,static_cast<string>(m_child_data));
+            }
+            if ( IncludeTicketLocateFirm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,157,static_cast<string>(m_ticket_locate_firm));
+            }
+            if ( IncludeTicketLocatePool()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,158,static_cast<string>(m_ticket_locate_pool));
             }
             if ( IncludeStkExecBrkrCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,141,static_cast<string>(m_stk_exec_brkr_code));
@@ -1048,6 +1100,18 @@ namespace api {
                         }
                         break;
                     }
+                    case 157: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_ticket_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 158: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_ticket_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
                     case 141: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_stk_exec_brkr_code = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -1116,6 +1180,8 @@ namespace api {
     template<> inline const auto AltSymbolMap::get<AltSymbolMap::user_data1>() const { return m_user_data1; }
     template<> inline const auto AltSymbolMap::get<AltSymbolMap::user_data2>() const { return m_user_data2; }
     template<> inline const auto AltSymbolMap::get<AltSymbolMap::child_data>() const { return m_child_data; }
+    template<> inline const auto AltSymbolMap::get<AltSymbolMap::ticket_locate_firm>() const { return m_ticket_locate_firm; }
+    template<> inline const auto AltSymbolMap::get<AltSymbolMap::ticket_locate_pool>() const { return m_ticket_locate_pool; }
     template<> inline const auto AltSymbolMap::get<AltSymbolMap::stk_exec_brkr_code>() const { return m_stk_exec_brkr_code; }
     template<> inline const auto AltSymbolMap::get<AltSymbolMap::fut_exec_brkr_code>() const { return m_fut_exec_brkr_code; }
     template<> inline const auto AltSymbolMap::get<AltSymbolMap::eqt_opt_exec_brkr_code>() const { return m_eqt_opt_exec_brkr_code; }
@@ -1175,6 +1241,8 @@ namespace api {
         o << ",\"user_data1\":\"" << m.get<AltSymbolMap::user_data1>() << "\"";
         o << ",\"user_data2\":\"" << m.get<AltSymbolMap::user_data2>() << "\"";
         o << ",\"child_data\":\"" << m.get<AltSymbolMap::child_data>() << "\"";
+        o << ",\"ticket_locate_firm\":\"" << m.get<AltSymbolMap::ticket_locate_firm>() << "\"";
+        o << ",\"ticket_locate_pool\":\"" << m.get<AltSymbolMap::ticket_locate_pool>() << "\"";
         o << ",\"stk_exec_brkr_code\":\"" << m.get<AltSymbolMap::stk_exec_brkr_code>() << "\"";
         o << ",\"fut_exec_brkr_code\":\"" << m.get<AltSymbolMap::fut_exec_brkr_code>() << "\"";
         o << ",\"eqt_opt_exec_brkr_code\":\"" << m.get<AltSymbolMap::eqt_opt_exec_brkr_code>() << "\"";

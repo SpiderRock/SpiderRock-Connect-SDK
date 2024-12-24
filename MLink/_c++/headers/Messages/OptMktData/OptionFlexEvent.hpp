@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_root, string);
     #endif//_prt_root__GUARD__
 
-    #ifndef _request_id__GUARD__
-    #define _request_id__GUARD__
-    DECL_STRONG_TYPE(request_id, int32);
-    #endif//_request_id__GUARD__
+    #ifndef _request_id__int32__GUARD__
+    #define _request_id__int32__GUARD__
+    DECL_STRONG_TYPE(request_id__int32, int32);
+    #endif//_request_id__int32__GUARD__
 
     #ifndef _event_type__GUARD__
     #define _event_type__GUARD__
@@ -523,7 +523,7 @@ namespace api {
         using event_id = spiderrock::protobuf::api::event_id;
         using prt_exch = spiderrock::protobuf::api::prt_exch__OptExch;
         using prt_root = spiderrock::protobuf::api::prt_root;
-        using request_id = spiderrock::protobuf::api::request_id;
+        using request_id = spiderrock::protobuf::api::request_id__int32;
         using event_type = spiderrock::protobuf::api::event_type;
         using total_quantity = spiderrock::protobuf::api::total_quantity;
         using package_price = spiderrock::protobuf::api::package_price;
