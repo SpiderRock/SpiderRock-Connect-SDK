@@ -40,10 +40,10 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _exch__GUARD__
-    #define _exch__GUARD__
-    DECL_STRONG_TYPE(exch, spiderrock::protobuf::api::OptExch);
-    #endif//_exch__GUARD__
+    #ifndef _exch__OptExch__GUARD__
+    #define _exch__OptExch__GUARD__
+    DECL_STRONG_TYPE(exch__OptExch, spiderrock::protobuf::api::OptExch);
+    #endif//_exch__OptExch__GUARD__
 
     #ifndef _exch_spr_id__GUARD__
     #define _exch_spr_id__GUARD__
@@ -84,7 +84,7 @@ namespace api {
     class SpreadExchDefinition_PKey {
         public:
         //using statements for all types used in this class
-        using exch = spiderrock::protobuf::api::exch;
+        using exch = spiderrock::protobuf::api::exch__OptExch;
         using exch_spr_id = spiderrock::protobuf::api::exch_spr_id;
 
         private:
@@ -264,9 +264,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(101,optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(101,optionKeyLayout_leg_sec_key);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
             totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(104,m_leg_ratio);
@@ -276,9 +276,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 101, optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 101, optionKeyLayout_leg_sec_key);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,104,m_leg_ratio);

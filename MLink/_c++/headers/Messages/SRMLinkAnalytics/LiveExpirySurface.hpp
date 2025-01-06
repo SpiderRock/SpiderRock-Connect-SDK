@@ -265,10 +265,10 @@ namespace api {
     DECL_STRONG_TYPE(syn_carry__float, float);
     #endif//_syn_carry__float__GUARD__
 
-    #ifndef _u_prc_ratio__GUARD__
-    #define _u_prc_ratio__GUARD__
-    DECL_STRONG_TYPE(u_prc_ratio, double);
-    #endif//_u_prc_ratio__GUARD__
+    #ifndef _u_prc_ratio__double__GUARD__
+    #define _u_prc_ratio__double__GUARD__
+    DECL_STRONG_TYPE(u_prc_ratio__double, double);
+    #endif//_u_prc_ratio__double__GUARD__
 
     #ifndef _p_width__GUARD__
     #define _p_width__GUARD__
@@ -528,9 +528,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
             return totalSize;
@@ -538,9 +538,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
         }
@@ -713,7 +713,7 @@ namespace api {
         using max_xaxis = spiderrock::protobuf::api::max_xaxis;
         using syn_spot = spiderrock::protobuf::api::syn_spot__float;
         using syn_carry = spiderrock::protobuf::api::syn_carry__float;
-        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio;
+        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio__double;
         using p_width = spiderrock::protobuf::api::p_width;
         using v_width = spiderrock::protobuf::api::v_width;
         using c_cnt = spiderrock::protobuf::api::c_cnt__uint32;
@@ -2058,9 +2058,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(158,m_atm_sdiv);
             }
             if ( IncludeBasisEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_basis_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(159, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_basis_ekey{};
+                m_basis_ekey.setCodecExpiryKey(expiryKeyLayout_basis_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(159, expiryKeyLayout_basis_ekey);
             }
             if ( IncludeBasisTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(160, m_basis_timestamp);
@@ -2096,19 +2096,19 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(168,m_cp_adj_ref_vol);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(169, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(169, tickerKeyLayout_ticker);
             }
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(170, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey{};
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(170, expiryKeyLayout_fkey);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(171, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(171, expiryKeyLayout_u_prc_driver_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(172,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeDdiv()) {
@@ -2311,9 +2311,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,158,m_atm_sdiv);
             }
             if ( IncludeBasisEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_basis_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 159, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_basis_ekey{};
+                m_basis_ekey.setCodecExpiryKey(expiryKeyLayout_basis_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 159, expiryKeyLayout_basis_ekey);
             }
             if ( IncludeBasisTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 160, m_basis_timestamp);
@@ -2349,19 +2349,19 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,168,m_cp_adj_ref_vol);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 169, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 169, tickerKeyLayout_ticker);
             }
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 170, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey{};
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 170, expiryKeyLayout_fkey);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 171, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 171, expiryKeyLayout_u_prc_driver_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,172,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeDdiv()) {

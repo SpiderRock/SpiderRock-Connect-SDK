@@ -384,18 +384,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
             }
         }
 
@@ -484,9 +484,9 @@ namespace api {
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,261,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StkExch>(m_stk_exch)));
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-            m_ticker.setCodecTickerKey(tickerKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 262, tickerKeyLayout);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+            m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 262, tickerKeyLayout_ticker);
             return dest;
         }
 
@@ -1622,17 +1622,17 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(247,m_num_options);
             }
             if ( IncludeBasisKey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_basis_key.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(257, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_basis_key{};
+                m_basis_key.setCodecTickerKey(tickerKeyLayout_basis_key);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(257, tickerKeyLayout_basis_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(258,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_reverse_skew)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(259,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             if ( IncludeRegionalCompositeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_regional_composite_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(263, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_ticker{};
+                m_regional_composite_ticker.setCodecTickerKey(tickerKeyLayout_regional_composite_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(263, tickerKeyLayout_regional_composite_ticker);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(253, m_timestamp);
@@ -1791,17 +1791,17 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,247,m_num_options);
             }
             if ( IncludeBasisKey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_basis_key.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 257, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_basis_key{};
+                m_basis_key.setCodecTickerKey(tickerKeyLayout_basis_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 257, tickerKeyLayout_basis_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,258,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_reverse_skew)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,250,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,259,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             if ( IncludeRegionalCompositeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_regional_composite_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 263, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_ticker{};
+                m_regional_composite_ticker.setCodecTickerKey(tickerKeyLayout_regional_composite_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 263, tickerKeyLayout_regional_composite_ticker);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 253, m_timestamp);

@@ -335,9 +335,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_client_firm);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(12,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(12,tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(13,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
             if ( IncludeExpiryGroup()) {
@@ -354,9 +354,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_client_firm));
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 12, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 12, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,13,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
             if ( IncludeExpiryGroup()) {
@@ -1082,9 +1082,9 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(122,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(123, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key{};
+                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(123, expiryKeyLayout_hedge_sec_key);
             }
             if ( IncludeHedgeBetaRatio()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_hedge_beta_ratio);
@@ -1184,9 +1184,9 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,122,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 123, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key{};
+                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 123, expiryKeyLayout_hedge_sec_key);
             }
             if ( IncludeHedgeBetaRatio()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_hedge_beta_ratio);

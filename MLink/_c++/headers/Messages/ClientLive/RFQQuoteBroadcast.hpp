@@ -683,9 +683,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(226,optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_key;
+            m_leg_key.setCodecOptionKey(optionKeyLayout_leg_key);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(226,optionKeyLayout_leg_key);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(229,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::LegKeyType>(m_leg_key_type)));
             totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(232,m_leg_security_id);
             totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(235,m_leg_parent_sec_id);
@@ -711,9 +711,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 226, optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_key;
+            m_leg_key.setCodecOptionKey(optionKeyLayout_leg_key);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 226, optionKeyLayout_leg_key);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,229,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::LegKeyType>(m_leg_key_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,232,m_leg_security_id);
             dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,235,m_leg_parent_sec_id);
@@ -1570,9 +1570,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeSecurityDesc()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_security_desc);
@@ -1704,9 +1704,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeSecurityDesc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_security_desc));

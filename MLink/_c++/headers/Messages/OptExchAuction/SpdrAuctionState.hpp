@@ -195,10 +195,10 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _sec_key__GUARD__
-    #define _sec_key__GUARD__
-    DECL_STRONG_TYPE(sec_key, OptionKey);
-    #endif//_sec_key__GUARD__
+    #ifndef _sec_key__OptionKey__GUARD__
+    #define _sec_key__OptionKey__GUARD__
+    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
+    #endif//_sec_key__OptionKey__GUARD__
 
     #ifndef _sec_type__SpdrKeyType__GUARD__
     #define _sec_type__SpdrKeyType__GUARD__
@@ -239,7 +239,7 @@ namespace api {
     class SpdrAuctionState_PKey {
         public:
         //using statements for all types used in this class
-        using sec_key = spiderrock::protobuf::api::sec_key;
+        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
         using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using auction_exch = spiderrock::protobuf::api::auction_exch;
         using auction_ex_dest = spiderrock::protobuf::api::auction_ex_dest;
@@ -314,9 +314,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_sec_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_auction_exch)));
@@ -328,9 +328,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_sec_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_auction_exch)));
@@ -442,9 +442,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(202,optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(202,optionKeyLayout_leg_sec_key);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(208,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
             totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(211,m_leg_ratio);
@@ -452,9 +452,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 202, optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 202, optionKeyLayout_leg_sec_key);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,208,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,211,m_leg_ratio);

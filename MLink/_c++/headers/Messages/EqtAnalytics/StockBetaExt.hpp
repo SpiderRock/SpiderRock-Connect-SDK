@@ -214,18 +214,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
             }
         }
 
@@ -805,9 +805,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(142,m_beta_efa__r2);
             }
             if ( IncludeBetaTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_beta_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(145, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_beta_ticker{};
+                m_beta_ticker.setCodecTickerKey(tickerKeyLayout_beta_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(145, tickerKeyLayout_beta_ticker);
             }
             if ( IncludeBetaValue()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(148,m_beta_value);
@@ -816,14 +816,14 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_beta_r2);
             }
             if ( IncludeBetaTickerA()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_beta_ticker_a.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(154, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_beta_ticker_a{};
+                m_beta_ticker_a.setCodecTickerKey(tickerKeyLayout_beta_ticker_a);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(154, tickerKeyLayout_beta_ticker_a);
             }
             if ( IncludeBetaTickerB()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_beta_ticker_b.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(157, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_beta_ticker_b{};
+                m_beta_ticker_b.setCodecTickerKey(tickerKeyLayout_beta_ticker_b);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(157, tickerKeyLayout_beta_ticker_b);
             }
             if ( IncludeBetaValueA()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(160,m_beta_value_a);
@@ -901,9 +901,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,142,m_beta_efa__r2);
             }
             if ( IncludeBetaTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_beta_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 145, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_beta_ticker{};
+                m_beta_ticker.setCodecTickerKey(tickerKeyLayout_beta_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 145, tickerKeyLayout_beta_ticker);
             }
             if ( IncludeBetaValue()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,148,m_beta_value);
@@ -912,14 +912,14 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_beta_r2);
             }
             if ( IncludeBetaTickerA()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_beta_ticker_a.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 154, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_beta_ticker_a{};
+                m_beta_ticker_a.setCodecTickerKey(tickerKeyLayout_beta_ticker_a);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 154, tickerKeyLayout_beta_ticker_a);
             }
             if ( IncludeBetaTickerB()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_beta_ticker_b.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 157, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_beta_ticker_b{};
+                m_beta_ticker_b.setCodecTickerKey(tickerKeyLayout_beta_ticker_b);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 157, tickerKeyLayout_beta_ticker_b);
             }
             if ( IncludeBetaValueA()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,160,m_beta_value_a);

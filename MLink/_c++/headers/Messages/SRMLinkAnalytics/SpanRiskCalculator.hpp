@@ -160,20 +160,20 @@ namespace api {
     DECL_STRONG_TYPE(prc_span_dn, float);
     #endif//_prc_span_dn__GUARD__
 
-    #ifndef _prc_span_type__GUARD__
-    #define _prc_span_type__GUARD__
-    DECL_STRONG_TYPE(prc_span_type, spiderrock::protobuf::api::PrcSpanType);
-    #endif//_prc_span_type__GUARD__
+    #ifndef _prc_span_type__PrcSpanType__GUARD__
+    #define _prc_span_type__PrcSpanType__GUARD__
+    DECL_STRONG_TYPE(prc_span_type__PrcSpanType, spiderrock::protobuf::api::PrcSpanType);
+    #endif//_prc_span_type__PrcSpanType__GUARD__
 
     #ifndef _vol_span__GUARD__
     #define _vol_span__GUARD__
     DECL_STRONG_TYPE(vol_span, float);
     #endif//_vol_span__GUARD__
 
-    #ifndef _vol_span_type__GUARD__
-    #define _vol_span_type__GUARD__
-    DECL_STRONG_TYPE(vol_span_type, spiderrock::protobuf::api::VolSpanType);
-    #endif//_vol_span_type__GUARD__
+    #ifndef _vol_span_type__VolSpanType__GUARD__
+    #define _vol_span_type__VolSpanType__GUARD__
+    DECL_STRONG_TYPE(vol_span_type__VolSpanType, spiderrock::protobuf::api::VolSpanType);
+    #endif//_vol_span_type__VolSpanType__GUARD__
 
     #ifndef _span_calc_type__GUARD__
     #define _span_calc_type__GUARD__
@@ -285,10 +285,10 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _sec_key__GUARD__
-    #define _sec_key__GUARD__
-    DECL_STRONG_TYPE(sec_key, OptionKey);
-    #endif//_sec_key__GUARD__
+    #ifndef _sec_key__OptionKey__GUARD__
+    #define _sec_key__OptionKey__GUARD__
+    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
+    #endif//_sec_key__OptionKey__GUARD__
 
     #ifndef _sec_type__SpdrKeyType__GUARD__
     #define _sec_type__SpdrKeyType__GUARD__
@@ -304,7 +304,7 @@ namespace api {
     class SpanRiskCalculator_PKey {
         public:
         //using statements for all types used in this class
-        using sec_key = spiderrock::protobuf::api::sec_key;
+        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
         using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using user_name = spiderrock::protobuf::api::user_name;
 
@@ -370,9 +370,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_sec_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             if ( IncludeUserName()) {
@@ -383,9 +383,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_sec_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             if ( IncludeUserName()) {
@@ -456,9 +456,9 @@ namespace api {
         using point_value_src = spiderrock::protobuf::api::point_value_src;
         using prc_span_up = spiderrock::protobuf::api::prc_span_up;
         using prc_span_dn = spiderrock::protobuf::api::prc_span_dn;
-        using prc_span_type = spiderrock::protobuf::api::prc_span_type;
+        using prc_span_type = spiderrock::protobuf::api::prc_span_type__PrcSpanType;
         using vol_span = spiderrock::protobuf::api::vol_span;
-        using vol_span_type = spiderrock::protobuf::api::vol_span_type;
+        using vol_span_type = spiderrock::protobuf::api::vol_span_type__VolSpanType;
         using span_calc_type = spiderrock::protobuf::api::span_calc_type;
         using hedge_delta_neutral = spiderrock::protobuf::api::hedge_delta_neutral;
         using adj_years = spiderrock::protobuf::api::adj_years;

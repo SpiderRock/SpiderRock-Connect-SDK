@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(skey, TickerKey);
     #endif//_skey__GUARD__
 
-    #ifndef _exch__GUARD__
-    #define _exch__GUARD__
-    DECL_STRONG_TYPE(exch, spiderrock::protobuf::api::OptExch);
-    #endif//_exch__GUARD__
+    #ifndef _exch__OptExch__GUARD__
+    #define _exch__OptExch__GUARD__
+    DECL_STRONG_TYPE(exch__OptExch, spiderrock::protobuf::api::OptExch);
+    #endif//_exch__OptExch__GUARD__
 
     #ifndef _side__GUARD__
     #define _side__GUARD__
@@ -155,7 +155,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using skey = spiderrock::protobuf::api::skey;
-        using exch = spiderrock::protobuf::api::exch;
+        using exch = spiderrock::protobuf::api::exch__OptExch;
         using side = spiderrock::protobuf::api::side;
         using is_test = spiderrock::protobuf::api::is_test;
 
@@ -226,9 +226,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_skey.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
+                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_skey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_exch)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
@@ -238,9 +238,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_skey.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
+                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_skey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_exch)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
@@ -678,9 +678,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeOrderId()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_order_id);
@@ -738,9 +738,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeOrderId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_order_id));

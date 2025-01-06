@@ -751,9 +751,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::MessageMetadataFieldSize(1, messageMetadata);
             }
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout{};
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(100, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey{};
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(100, optionKeyLayout_okey);
             }
             if ( IncludeOkeyNumber()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(131,m_okey_number);
@@ -844,9 +844,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeMessageMetadata(dest,1, messageMetadata);
             }
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout{};
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 100, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey{};
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 100, optionKeyLayout_okey);
             }
             if ( IncludeOkeyNumber()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,131,m_okey_number);
