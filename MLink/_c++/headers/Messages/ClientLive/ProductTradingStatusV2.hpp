@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _sec_key__GUARD__
-    #define _sec_key__GUARD__
-    DECL_STRONG_TYPE(sec_key, OptionKey);
-    #endif//_sec_key__GUARD__
+    #ifndef _sec_key__OptionKey__GUARD__
+    #define _sec_key__OptionKey__GUARD__
+    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
+    #endif//_sec_key__OptionKey__GUARD__
 
     #ifndef _sec_type__SpdrKeyType__GUARD__
     #define _sec_type__SpdrKeyType__GUARD__
@@ -64,7 +64,7 @@ namespace api {
     class ProductTradingStatusV2_PKey {
         public:
         //using statements for all types used in this class
-        using sec_key = spiderrock::protobuf::api::sec_key;
+        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
         using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using trading_status_type = spiderrock::protobuf::api::trading_status_type;
 
@@ -127,9 +127,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_sec_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingStatusType>(m_trading_status_type)));
@@ -138,9 +138,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_sec_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingStatusType>(m_trading_status_type)));

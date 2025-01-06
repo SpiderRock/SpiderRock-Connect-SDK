@@ -205,10 +205,10 @@ namespace api {
     DECL_STRONG_TYPE(e_move_hist, float);
     #endif//_e_move_hist__GUARD__
 
-    #ifndef _u_prc_ratio__GUARD__
-    #define _u_prc_ratio__GUARD__
-    DECL_STRONG_TYPE(u_prc_ratio, double);
-    #endif//_u_prc_ratio__GUARD__
+    #ifndef _u_prc_ratio__double__GUARD__
+    #define _u_prc_ratio__double__GUARD__
+    DECL_STRONG_TYPE(u_prc_ratio__double, double);
+    #endif//_u_prc_ratio__double__GUARD__
 
     #ifndef _min_atm_vol__GUARD__
     #define _min_atm_vol__GUARD__
@@ -803,9 +803,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
             return totalSize;
@@ -813,9 +813,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
         }
@@ -888,7 +888,7 @@ namespace api {
         using atm_cen_hist = spiderrock::protobuf::api::atm_cen_hist;
         using e_move = spiderrock::protobuf::api::e_move;
         using e_move_hist = spiderrock::protobuf::api::e_move_hist;
-        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio;
+        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio__double;
         using min_atm_vol = spiderrock::protobuf::api::min_atm_vol;
         using max_atm_vol = spiderrock::protobuf::api::max_atm_vol;
         using min_cpadj_val = spiderrock::protobuf::api::min_cpadj_val;
@@ -3038,19 +3038,19 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(103, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey{};
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(103, expiryKeyLayout_fkey);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(106, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(106, expiryKeyLayout_u_prc_driver_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriver()) {
@@ -3451,19 +3451,19 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 103, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey{};
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 103, expiryKeyLayout_fkey);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 106, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 106, expiryKeyLayout_u_prc_driver_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriver()) {

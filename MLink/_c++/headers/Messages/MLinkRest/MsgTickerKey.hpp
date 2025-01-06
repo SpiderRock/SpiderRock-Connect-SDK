@@ -152,9 +152,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::MessageMetadataFieldSize(1, messageMetadata);
             }
             if ( IncludeTickerKey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker_key.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker_key{};
+                m_ticker_key.setCodecTickerKey(tickerKeyLayout_ticker_key);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker_key);
             }
             return totalSize;
         }
@@ -166,9 +166,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeMessageMetadata(dest,1, messageMetadata);
             }
             if ( IncludeTickerKey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker_key.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker_key{};
+                m_ticker_key.setCodecTickerKey(tickerKeyLayout_ticker_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker_key);
             }
         }
 

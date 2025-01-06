@@ -55,10 +55,10 @@ namespace api {
     DECL_STRONG_TYPE(model_type__CalcModelType, spiderrock::protobuf::api::CalcModelType);
     #endif//_model_type__CalcModelType__GUARD__
 
-    #ifndef _u_mark__GUARD__
-    #define _u_mark__GUARD__
-    DECL_STRONG_TYPE(u_mark, float);
-    #endif//_u_mark__GUARD__
+    #ifndef _u_mark__float__GUARD__
+    #define _u_mark__float__GUARD__
+    DECL_STRONG_TYPE(u_mark__float, float);
+    #endif//_u_mark__float__GUARD__
 
     #ifndef _years__float__GUARD__
     #define _years__float__GUARD__
@@ -468,9 +468,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PerfSurfaceType>(m_perf_surf_type)));
             return totalSize;
@@ -478,9 +478,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PerfSurfaceType>(m_perf_surf_type)));
         }
@@ -523,7 +523,7 @@ namespace api {
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using ex_type = spiderrock::protobuf::api::ex_type__ExerciseType;
         using model_type = spiderrock::protobuf::api::model_type__CalcModelType;
-        using u_mark = spiderrock::protobuf::api::u_mark;
+        using u_mark = spiderrock::protobuf::api::u_mark__float;
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
@@ -1743,9 +1743,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_time);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
@@ -1977,9 +1977,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_time));
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));

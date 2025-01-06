@@ -90,15 +90,15 @@ namespace api {
     DECL_STRONG_TYPE(u_ask__float, float);
     #endif//_u_ask__float__GUARD__
 
-    #ifndef _nbbo_bid__GUARD__
-    #define _nbbo_bid__GUARD__
-    DECL_STRONG_TYPE(nbbo_bid, float);
-    #endif//_nbbo_bid__GUARD__
+    #ifndef _nbbo_bid__float__GUARD__
+    #define _nbbo_bid__float__GUARD__
+    DECL_STRONG_TYPE(nbbo_bid__float, float);
+    #endif//_nbbo_bid__float__GUARD__
 
-    #ifndef _nbbo_ask__GUARD__
-    #define _nbbo_ask__GUARD__
-    DECL_STRONG_TYPE(nbbo_ask, float);
-    #endif//_nbbo_ask__GUARD__
+    #ifndef _nbbo_ask__float__GUARD__
+    #define _nbbo_ask__float__GUARD__
+    DECL_STRONG_TYPE(nbbo_ask__float, float);
+    #endif//_nbbo_ask__float__GUARD__
 
     #ifndef _nbbo_bid_sz__GUARD__
     #define _nbbo_bid_sz__GUARD__
@@ -465,8 +465,8 @@ namespace api {
         using has_cust_prc = spiderrock::protobuf::api::has_cust_prc;
         using u_bid = spiderrock::protobuf::api::u_bid__float;
         using u_ask = spiderrock::protobuf::api::u_ask__float;
-        using nbbo_bid = spiderrock::protobuf::api::nbbo_bid;
-        using nbbo_ask = spiderrock::protobuf::api::nbbo_ask;
+        using nbbo_bid = spiderrock::protobuf::api::nbbo_bid__float;
+        using nbbo_ask = spiderrock::protobuf::api::nbbo_ask__float;
         using nbbo_bid_sz = spiderrock::protobuf::api::nbbo_bid_sz;
         using nbbo_ask_sz = spiderrock::protobuf::api::nbbo_ask_sz;
         using surface_prc = spiderrock::protobuf::api::surface_prc;
@@ -884,9 +884,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -961,9 +961,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());

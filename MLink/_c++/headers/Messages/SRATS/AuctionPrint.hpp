@@ -60,10 +60,10 @@ namespace api {
     DECL_STRONG_TYPE(auction_source, spiderrock::protobuf::api::AuctionSource);
     #endif//_auction_source__GUARD__
 
-    #ifndef _industry__GUARD__
-    #define _industry__GUARD__
-    DECL_STRONG_TYPE(industry, string);
-    #endif//_industry__GUARD__
+    #ifndef _industry__string__GUARD__
+    #define _industry__string__GUARD__
+    DECL_STRONG_TYPE(industry__string, string);
+    #endif//_industry__string__GUARD__
 
     #ifndef _symbol_type__GUARD__
     #define _symbol_type__GUARD__
@@ -350,10 +350,10 @@ namespace api {
     DECL_STRONG_TYPE(notice_number, int64);
     #endif//_notice_number__GUARD__
 
-    #ifndef _sec_key__GUARD__
-    #define _sec_key__GUARD__
-    DECL_STRONG_TYPE(sec_key, OptionKey);
-    #endif//_sec_key__GUARD__
+    #ifndef _sec_key__OptionKey__GUARD__
+    #define _sec_key__OptionKey__GUARD__
+    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
+    #endif//_sec_key__OptionKey__GUARD__
 
     #ifndef _sec_type__SpdrKeyType__GUARD__
     #define _sec_type__SpdrKeyType__GUARD__
@@ -570,7 +570,7 @@ namespace api {
     class AuctionPrint_OrderLegs {
         public:
         //using statements for all types used in this class
-        using sec_key = spiderrock::protobuf::api::sec_key;
+        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
         using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using side = spiderrock::protobuf::api::side;
         using ratio = spiderrock::protobuf::api::ratio__uint32;
@@ -844,9 +844,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(165,optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+            m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(165,optionKeyLayout_sec_key);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(166,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(167,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
             totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(168,m_ratio);
@@ -877,9 +877,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 165, optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+            m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 165, optionKeyLayout_sec_key);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,166,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,167,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,168,m_ratio);
@@ -1024,7 +1024,7 @@ namespace api {
         using notice_time = spiderrock::protobuf::api::notice_time;
         using auction_type = spiderrock::protobuf::api::auction_type__AuctionType;
         using auction_source = spiderrock::protobuf::api::auction_source;
-        using industry = spiderrock::protobuf::api::industry;
+        using industry = spiderrock::protobuf::api::industry__string;
         using symbol_type = spiderrock::protobuf::api::symbol_type;
         using u_avg_daily_vlm = spiderrock::protobuf::api::u_avg_daily_vlm;
         using cust_side = spiderrock::protobuf::api::cust_side;
@@ -2065,9 +2065,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -2251,9 +2251,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());

@@ -6,6 +6,11 @@
 #include "spiderrock_protobuf_base.hpp"
 
 #include "spiderrock_common.hpp"
+#include "ClientConfig/ClientFirmConfig.hpp"
+#include "ClientConfig/ClientPrivateSRSE.hpp"
+#include "ClientConfig/UserAuthentication.hpp"
+#include "ClientConfig/UserConfig.hpp"
+#include "ClientConfig/UserMessage.hpp"
 #include "ClientControl/AccountRouteConfig.hpp"
 #include "ClientControl/AltSymbolMap.hpp"
 #include "ClientControl/AssetAccountControl.hpp"
@@ -13,6 +18,7 @@
 #include "ClientControl/BookControl.hpp"
 #include "ClientControl/ClientAccntStrategyMap.hpp"
 #include "ClientControl/ClientAccountConfig.hpp"
+#include "ClientControl/ClientStockLocate.hpp"
 #include "ClientControl/CustomControl.hpp"
 #include "ClientControl/ExpirationControl.hpp"
 #include "ClientControl/FutureControl.hpp"
@@ -54,11 +60,81 @@
 #include "ClientLive/StockRegSHOStatus.hpp"
 #include "ClientLive/SyntheticExpiryQuote.hpp"
 #include "ClientLive/SyntheticFutureQuote.hpp"
+#include "ClientRisk/AccountRiskRecordV5.hpp"
+#include "ClientRisk/ClientBeta.hpp"
+#include "ClientRisk/CurrencyPositionRecordV5.hpp"
+#include "ClientRisk/CurrencyTransaction.hpp"
+#include "ClientRisk/EquityCorpActionRecordV5.hpp"
+#include "ClientRisk/ExpirationRiskRecordV5.hpp"
+#include "ClientRisk/FuturePositionRecordV5.hpp"
+#include "ClientRisk/FutureRiskDetailV5.hpp"
+#include "ClientRisk/FutureRiskSummaryV5.hpp"
+#include "ClientRisk/IndustryRiskRecordV5.hpp"
+#include "ClientRisk/OptionCorpActionRecordV5.hpp"
+#include "ClientRisk/OptionExAsRecordV5.hpp"
+#include "ClientRisk/OptionPositionRecordV5.hpp"
+#include "ClientRisk/ProductRiskDetailV5.hpp"
+#include "ClientRisk/ProductRiskSummaryV5.hpp"
+#include "ClientRisk/RiskAggGroupStateV5.hpp"
+#include "ClientRisk/RiskCubeDetailV5.hpp"
+#include "ClientRisk/SodCashRecordV5.hpp"
+#include "ClientRisk/SodClearingRecordV5.hpp"
+#include "ClientRisk/StockPositionRecordV5.hpp"
+#include "ClientRisk/SymbolMarginSummaryV5.hpp"
+#include "ClientRisk/SymbolRiskDetailV5.hpp"
+#include "ClientRisk/SymbolRiskSummaryV5.hpp"
+#include "ClientRisk/TradeCubeDetailV5.hpp"
 #include "ClientTheo/OptionTheoVol.hpp"
 #include "ClientTheo/SpdrOptTheoRecord.hpp"
 #include "ClientTheo/SpdrTheoExp2PtCurve.hpp"
 #include "ClientTheo/SpdrTheoExpSurface.hpp"
 #include "ClientTheo/TheoSurfacePerf.hpp"
+#include "ClientTrading/AutoHedgeSymbol.hpp"
+#include "ClientTrading/ExternAggGroupReport.hpp"
+#include "ClientTrading/RiskGroupCounter.hpp"
+#include "ClientTrading/SpdrAccntCancel.hpp"
+#include "ClientTrading/SpdrAllocationNotice.hpp"
+#include "ClientTrading/SpdrAllocationNoticeStatus.hpp"
+#include "ClientTrading/SpdrAutoHedgeControl.hpp"
+#include "ClientTrading/SpdrAutoHedgeState.hpp"
+#include "ClientTrading/SpdrAvailExecAllocation.hpp"
+#include "ClientTrading/SpdrAwayExecution.hpp"
+#include "ClientTrading/SpdrBrokerCancel.hpp"
+#include "ClientTrading/SpdrClientFirmRiskMgmt.hpp"
+#include "ClientTrading/SpdrDropExecution.hpp"
+#include "ClientTrading/SpdrDropExecutionAck.hpp"
+#include "ClientTrading/SpdrExchRiskDrop.hpp"
+#include "ClientTrading/SpdrExchRiskMgmt.hpp"
+#include "ClientTrading/SpdrExchRiskReset.hpp"
+#include "ClientTrading/SpdrExecutionAllocation.hpp"
+#include "ClientTrading/SpdrExecutionAllocationStatus.hpp"
+#include "ClientTrading/SpdrMLegBrkrEvent.hpp"
+#include "ClientTrading/SpdrMLegBrkrState.hpp"
+#include "ClientTrading/SpdrOmniOrder.hpp"
+#include "ClientTrading/SpdrParentAllocation.hpp"
+#include "ClientTrading/SpdrParentAllocationStatus.hpp"
+#include "ClientTrading/SpdrParentBrkrEvent.hpp"
+#include "ClientTrading/SpdrParentBrkrState.hpp"
+#include "ClientTrading/SpdrParentBrokerSummary.hpp"
+#include "ClientTrading/SpdrParentCancel.hpp"
+#include "ClientTrading/SpdrParentExecution.hpp"
+#include "ClientTrading/SpdrParentLimit.hpp"
+#include "ClientTrading/SpdrParentOrder.hpp"
+#include "ClientTrading/SpdrParentReport.hpp"
+#include "ClientTrading/SpdrParentReviewRequest.hpp"
+#include "ClientTrading/SpdrParentReviewResponse.hpp"
+#include "ClientTrading/SpdrReleaseWaitTrigger.hpp"
+#include "ClientTrading/SpdrRiskExecution.hpp"
+#include "ClientTrading/SpdrRiskGroupCancel.hpp"
+#include "ClientTrading/SpdrRiskGroupControl.hpp"
+#include "ClientTrading/SpdrRouteCancel.hpp"
+#include "ClientTrading/SpdrSecKeyCancel.hpp"
+#include "ClientTrading/SpdrSetActiveSize.hpp"
+#include "ClientTrading/SpdrStripeTrigger.hpp"
+#include "ClientTrading/SpdrSweepDetail.hpp"
+#include "ClientTrading/SpdrSweepExchDetail.hpp"
+#include "ClientTrading/SpdrUserCancel.hpp"
+#include "ClientTrading/ToolCompositeExecution.hpp"
 #include "EqtAnalytics/StockBetaExt.hpp"
 #include "EqtAnalytics/StockEarningsCalendar.hpp"
 #include "EqtAnalytics/StockPrintMarkup.hpp"
@@ -104,6 +180,7 @@
 #include "MLinkRest/MsgTickerKey.hpp"
 #include "MLinkRest/PostAck.hpp"
 #include "MLinkRest/QueryResult.hpp"
+#include "MLinkRest/UserMetaData.hpp"
 #include "MLinkWs/MLinkAdmin.hpp"
 #include "MLinkWs/MLinkDataAck.hpp"
 #include "MLinkWs/MLinkHeartbeat.hpp"
@@ -176,6 +253,7 @@
 #include "SRATS/ResponderMarkupSN.hpp"
 #include "SRATS/ResponderMarkupVegaDir.hpp"
 #include "SRATS/UserAuctionFilter.hpp"
+#include "SRATS/UserAuctionTickerFilter.hpp"
 #include "SRMLinkAnalytics/IndustryDefinition.hpp"
 #include "SRMLinkAnalytics/LiveBasisCurve.hpp"
 #include "SRMLinkAnalytics/LiveExpiryAtm.hpp"
@@ -202,6 +280,11 @@ namespace api {
 
 template <typename Derived>
 class Observer {
+    ClientFirmConfig msgClientFirmConfig{};
+    ClientPrivateSRSE msgClientPrivateSRSE{};
+    UserAuthentication msgUserAuthentication{};
+    UserConfig msgUserConfig{};
+    UserMessage msgUserMessage{};
     AccountRouteConfig msgAccountRouteConfig{};
     AltSymbolMap msgAltSymbolMap{};
     AssetAccountControl msgAssetAccountControl{};
@@ -209,6 +292,7 @@ class Observer {
     BookControl msgBookControl{};
     ClientAccntStrategyMap msgClientAccntStrategyMap{};
     ClientAccountConfig msgClientAccountConfig{};
+    ClientStockLocate msgClientStockLocate{};
     CustomControl msgCustomControl{};
     ExpirationControl msgExpirationControl{};
     FutureControl msgFutureControl{};
@@ -250,11 +334,81 @@ class Observer {
     StockRegSHOStatus msgStockRegSHOStatus{};
     SyntheticExpiryQuote msgSyntheticExpiryQuote{};
     SyntheticFutureQuote msgSyntheticFutureQuote{};
+    AccountRiskRecordV5 msgAccountRiskRecordV5{};
+    ClientBeta msgClientBeta{};
+    CurrencyPositionRecordV5 msgCurrencyPositionRecordV5{};
+    CurrencyTransaction msgCurrencyTransaction{};
+    EquityCorpActionRecordV5 msgEquityCorpActionRecordV5{};
+    ExpirationRiskRecordV5 msgExpirationRiskRecordV5{};
+    FuturePositionRecordV5 msgFuturePositionRecordV5{};
+    FutureRiskDetailV5 msgFutureRiskDetailV5{};
+    FutureRiskSummaryV5 msgFutureRiskSummaryV5{};
+    IndustryRiskRecordV5 msgIndustryRiskRecordV5{};
+    OptionCorpActionRecordV5 msgOptionCorpActionRecordV5{};
+    OptionExAsRecordV5 msgOptionExAsRecordV5{};
+    OptionPositionRecordV5 msgOptionPositionRecordV5{};
+    ProductRiskDetailV5 msgProductRiskDetailV5{};
+    ProductRiskSummaryV5 msgProductRiskSummaryV5{};
+    RiskAggGroupStateV5 msgRiskAggGroupStateV5{};
+    RiskCubeDetailV5 msgRiskCubeDetailV5{};
+    SodCashRecordV5 msgSodCashRecordV5{};
+    SodClearingRecordV5 msgSodClearingRecordV5{};
+    StockPositionRecordV5 msgStockPositionRecordV5{};
+    SymbolMarginSummaryV5 msgSymbolMarginSummaryV5{};
+    SymbolRiskDetailV5 msgSymbolRiskDetailV5{};
+    SymbolRiskSummaryV5 msgSymbolRiskSummaryV5{};
+    TradeCubeDetailV5 msgTradeCubeDetailV5{};
     OptionTheoVol msgOptionTheoVol{};
     SpdrOptTheoRecord msgSpdrOptTheoRecord{};
     SpdrTheoExp2PtCurve msgSpdrTheoExp2PtCurve{};
     SpdrTheoExpSurface msgSpdrTheoExpSurface{};
     TheoSurfacePerf msgTheoSurfacePerf{};
+    AutoHedgeSymbol msgAutoHedgeSymbol{};
+    ExternAggGroupReport msgExternAggGroupReport{};
+    RiskGroupCounter msgRiskGroupCounter{};
+    SpdrAccntCancel msgSpdrAccntCancel{};
+    SpdrAllocationNotice msgSpdrAllocationNotice{};
+    SpdrAllocationNoticeStatus msgSpdrAllocationNoticeStatus{};
+    SpdrAutoHedgeControl msgSpdrAutoHedgeControl{};
+    SpdrAutoHedgeState msgSpdrAutoHedgeState{};
+    SpdrAvailExecAllocation msgSpdrAvailExecAllocation{};
+    SpdrAwayExecution msgSpdrAwayExecution{};
+    SpdrBrokerCancel msgSpdrBrokerCancel{};
+    SpdrClientFirmRiskMgmt msgSpdrClientFirmRiskMgmt{};
+    SpdrDropExecution msgSpdrDropExecution{};
+    SpdrDropExecutionAck msgSpdrDropExecutionAck{};
+    SpdrExchRiskDrop msgSpdrExchRiskDrop{};
+    SpdrExchRiskMgmt msgSpdrExchRiskMgmt{};
+    SpdrExchRiskReset msgSpdrExchRiskReset{};
+    SpdrExecutionAllocation msgSpdrExecutionAllocation{};
+    SpdrExecutionAllocationStatus msgSpdrExecutionAllocationStatus{};
+    SpdrMLegBrkrEvent msgSpdrMLegBrkrEvent{};
+    SpdrMLegBrkrState msgSpdrMLegBrkrState{};
+    SpdrOmniOrder msgSpdrOmniOrder{};
+    SpdrParentAllocation msgSpdrParentAllocation{};
+    SpdrParentAllocationStatus msgSpdrParentAllocationStatus{};
+    SpdrParentBrkrEvent msgSpdrParentBrkrEvent{};
+    SpdrParentBrkrState msgSpdrParentBrkrState{};
+    SpdrParentBrokerSummary msgSpdrParentBrokerSummary{};
+    SpdrParentCancel msgSpdrParentCancel{};
+    SpdrParentExecution msgSpdrParentExecution{};
+    SpdrParentLimit msgSpdrParentLimit{};
+    SpdrParentOrder msgSpdrParentOrder{};
+    SpdrParentReport msgSpdrParentReport{};
+    SpdrParentReviewRequest msgSpdrParentReviewRequest{};
+    SpdrParentReviewResponse msgSpdrParentReviewResponse{};
+    SpdrReleaseWaitTrigger msgSpdrReleaseWaitTrigger{};
+    SpdrRiskExecution msgSpdrRiskExecution{};
+    SpdrRiskGroupCancel msgSpdrRiskGroupCancel{};
+    SpdrRiskGroupControl msgSpdrRiskGroupControl{};
+    SpdrRouteCancel msgSpdrRouteCancel{};
+    SpdrSecKeyCancel msgSpdrSecKeyCancel{};
+    SpdrSetActiveSize msgSpdrSetActiveSize{};
+    SpdrStripeTrigger msgSpdrStripeTrigger{};
+    SpdrSweepDetail msgSpdrSweepDetail{};
+    SpdrSweepExchDetail msgSpdrSweepExchDetail{};
+    SpdrUserCancel msgSpdrUserCancel{};
+    ToolCompositeExecution msgToolCompositeExecution{};
     StockBetaExt msgStockBetaExt{};
     StockEarningsCalendar msgStockEarningsCalendar{};
     StockPrintMarkup msgStockPrintMarkup{};
@@ -300,6 +454,7 @@ class Observer {
     MsgTickerKey msgMsgTickerKey{};
     PostAck msgPostAck{};
     QueryResult msgQueryResult{};
+    UserMetaData msgUserMetaData{};
     MLinkAdmin msgMLinkAdmin{};
     MLinkDataAck msgMLinkDataAck{};
     MLinkHeartbeat msgMLinkHeartbeat{};
@@ -372,6 +527,7 @@ class Observer {
     ResponderMarkupSN msgResponderMarkupSN{};
     ResponderMarkupVegaDir msgResponderMarkupVegaDir{};
     UserAuctionFilter msgUserAuctionFilter{};
+    UserAuctionTickerFilter msgUserAuctionTickerFilter{};
     IndustryDefinition msgIndustryDefinition{};
     LiveBasisCurve msgLiveBasisCurve{};
     LiveExpiryAtm msgLiveExpiryAtm{};
@@ -442,6 +598,36 @@ class Observer {
 
     void dispatch_message(int message_number, const char *buf, int len) {
         switch (message_number) {
+            case 1850: {  // ClientFirmConfig
+			    msgClientFirmConfig.Clear();
+                msgClientFirmConfig.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ClientFirmConfig &)msgClientFirmConfig);
+                break;
+            }
+            case 1910: {  // ClientPrivateSRSE
+			    msgClientPrivateSRSE.Clear();
+                msgClientPrivateSRSE.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ClientPrivateSRSE &)msgClientPrivateSRSE);
+                break;
+            }
+            case 1905: {  // UserAuthentication
+			    msgUserAuthentication.Clear();
+                msgUserAuthentication.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserAuthentication &)msgUserAuthentication);
+                break;
+            }
+            case 1875: {  // UserConfig
+			    msgUserConfig.Clear();
+                msgUserConfig.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserConfig &)msgUserConfig);
+                break;
+            }
+            case 1900: {  // UserMessage
+			    msgUserMessage.Clear();
+                msgUserMessage.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserMessage &)msgUserMessage);
+                break;
+            }
             case 1810: {  // AccountRouteConfig
 			    msgAccountRouteConfig.Clear();
                 msgAccountRouteConfig.ParseFromArray(buf, len);
@@ -482,6 +668,12 @@ class Observer {
 			    msgClientAccountConfig.Clear();
                 msgClientAccountConfig.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const ClientAccountConfig &)msgClientAccountConfig);
+                break;
+            }
+            case 1731: {  // ClientStockLocate
+			    msgClientStockLocate.Clear();
+                msgClientStockLocate.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ClientStockLocate &)msgClientStockLocate);
                 break;
             }
             case 1640: {  // CustomControl
@@ -730,6 +922,150 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const SyntheticFutureQuote &)msgSyntheticFutureQuote);
                 break;
             }
+            case 4745: {  // AccountRiskRecordV5
+			    msgAccountRiskRecordV5.Clear();
+                msgAccountRiskRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AccountRiskRecordV5 &)msgAccountRiskRecordV5);
+                break;
+            }
+            case 1945: {  // ClientBeta
+			    msgClientBeta.Clear();
+                msgClientBeta.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ClientBeta &)msgClientBeta);
+                break;
+            }
+            case 4750: {  // CurrencyPositionRecordV5
+			    msgCurrencyPositionRecordV5.Clear();
+                msgCurrencyPositionRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const CurrencyPositionRecordV5 &)msgCurrencyPositionRecordV5);
+                break;
+            }
+            case 4755: {  // CurrencyTransaction
+			    msgCurrencyTransaction.Clear();
+                msgCurrencyTransaction.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const CurrencyTransaction &)msgCurrencyTransaction);
+                break;
+            }
+            case 4760: {  // EquityCorpActionRecordV5
+			    msgEquityCorpActionRecordV5.Clear();
+                msgEquityCorpActionRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const EquityCorpActionRecordV5 &)msgEquityCorpActionRecordV5);
+                break;
+            }
+            case 4765: {  // ExpirationRiskRecordV5
+			    msgExpirationRiskRecordV5.Clear();
+                msgExpirationRiskRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ExpirationRiskRecordV5 &)msgExpirationRiskRecordV5);
+                break;
+            }
+            case 4775: {  // FuturePositionRecordV5
+			    msgFuturePositionRecordV5.Clear();
+                msgFuturePositionRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const FuturePositionRecordV5 &)msgFuturePositionRecordV5);
+                break;
+            }
+            case 4780: {  // FutureRiskDetailV5
+			    msgFutureRiskDetailV5.Clear();
+                msgFutureRiskDetailV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const FutureRiskDetailV5 &)msgFutureRiskDetailV5);
+                break;
+            }
+            case 4785: {  // FutureRiskSummaryV5
+			    msgFutureRiskSummaryV5.Clear();
+                msgFutureRiskSummaryV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const FutureRiskSummaryV5 &)msgFutureRiskSummaryV5);
+                break;
+            }
+            case 4790: {  // IndustryRiskRecordV5
+			    msgIndustryRiskRecordV5.Clear();
+                msgIndustryRiskRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const IndustryRiskRecordV5 &)msgIndustryRiskRecordV5);
+                break;
+            }
+            case 4795: {  // OptionCorpActionRecordV5
+			    msgOptionCorpActionRecordV5.Clear();
+                msgOptionCorpActionRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const OptionCorpActionRecordV5 &)msgOptionCorpActionRecordV5);
+                break;
+            }
+            case 4800: {  // OptionExAsRecordV5
+			    msgOptionExAsRecordV5.Clear();
+                msgOptionExAsRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const OptionExAsRecordV5 &)msgOptionExAsRecordV5);
+                break;
+            }
+            case 4805: {  // OptionPositionRecordV5
+			    msgOptionPositionRecordV5.Clear();
+                msgOptionPositionRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const OptionPositionRecordV5 &)msgOptionPositionRecordV5);
+                break;
+            }
+            case 4810: {  // ProductRiskDetailV5
+			    msgProductRiskDetailV5.Clear();
+                msgProductRiskDetailV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ProductRiskDetailV5 &)msgProductRiskDetailV5);
+                break;
+            }
+            case 4815: {  // ProductRiskSummaryV5
+			    msgProductRiskSummaryV5.Clear();
+                msgProductRiskSummaryV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ProductRiskSummaryV5 &)msgProductRiskSummaryV5);
+                break;
+            }
+            case 4820: {  // RiskAggGroupStateV5
+			    msgRiskAggGroupStateV5.Clear();
+                msgRiskAggGroupStateV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const RiskAggGroupStateV5 &)msgRiskAggGroupStateV5);
+                break;
+            }
+            case 4825: {  // RiskCubeDetailV5
+			    msgRiskCubeDetailV5.Clear();
+                msgRiskCubeDetailV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const RiskCubeDetailV5 &)msgRiskCubeDetailV5);
+                break;
+            }
+            case 4830: {  // SodCashRecordV5
+			    msgSodCashRecordV5.Clear();
+                msgSodCashRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SodCashRecordV5 &)msgSodCashRecordV5);
+                break;
+            }
+            case 4835: {  // SodClearingRecordV5
+			    msgSodClearingRecordV5.Clear();
+                msgSodClearingRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SodClearingRecordV5 &)msgSodClearingRecordV5);
+                break;
+            }
+            case 4850: {  // StockPositionRecordV5
+			    msgStockPositionRecordV5.Clear();
+                msgStockPositionRecordV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const StockPositionRecordV5 &)msgStockPositionRecordV5);
+                break;
+            }
+            case 4855: {  // SymbolMarginSummaryV5
+			    msgSymbolMarginSummaryV5.Clear();
+                msgSymbolMarginSummaryV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SymbolMarginSummaryV5 &)msgSymbolMarginSummaryV5);
+                break;
+            }
+            case 4860: {  // SymbolRiskDetailV5
+			    msgSymbolRiskDetailV5.Clear();
+                msgSymbolRiskDetailV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SymbolRiskDetailV5 &)msgSymbolRiskDetailV5);
+                break;
+            }
+            case 4865: {  // SymbolRiskSummaryV5
+			    msgSymbolRiskSummaryV5.Clear();
+                msgSymbolRiskSummaryV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SymbolRiskSummaryV5 &)msgSymbolRiskSummaryV5);
+                break;
+            }
+            case 4870: {  // TradeCubeDetailV5
+			    msgTradeCubeDetailV5.Clear();
+                msgTradeCubeDetailV5.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const TradeCubeDetailV5 &)msgTradeCubeDetailV5);
+                break;
+            }
             case 5055: {  // OptionTheoVol
 			    msgOptionTheoVol.Clear();
                 msgOptionTheoVol.ParseFromArray(buf, len);
@@ -758,6 +1094,282 @@ class Observer {
 			    msgTheoSurfacePerf.Clear();
                 msgTheoSurfacePerf.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const TheoSurfacePerf &)msgTheoSurfacePerf);
+                break;
+            }
+            case 5290: {  // AutoHedgeSymbol
+			    msgAutoHedgeSymbol.Clear();
+                msgAutoHedgeSymbol.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AutoHedgeSymbol &)msgAutoHedgeSymbol);
+                break;
+            }
+            case 2270: {  // ExternAggGroupReport
+			    msgExternAggGroupReport.Clear();
+                msgExternAggGroupReport.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ExternAggGroupReport &)msgExternAggGroupReport);
+                break;
+            }
+            case 4655: {  // RiskGroupCounter
+			    msgRiskGroupCounter.Clear();
+                msgRiskGroupCounter.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const RiskGroupCounter &)msgRiskGroupCounter);
+                break;
+            }
+            case 3985: {  // SpdrAccntCancel
+			    msgSpdrAccntCancel.Clear();
+                msgSpdrAccntCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAccntCancel &)msgSpdrAccntCancel);
+                break;
+            }
+            case 3695: {  // SpdrAllocationNotice
+			    msgSpdrAllocationNotice.Clear();
+                msgSpdrAllocationNotice.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAllocationNotice &)msgSpdrAllocationNotice);
+                break;
+            }
+            case 3700: {  // SpdrAllocationNoticeStatus
+			    msgSpdrAllocationNoticeStatus.Clear();
+                msgSpdrAllocationNoticeStatus.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAllocationNoticeStatus &)msgSpdrAllocationNoticeStatus);
+                break;
+            }
+            case 5295: {  // SpdrAutoHedgeControl
+			    msgSpdrAutoHedgeControl.Clear();
+                msgSpdrAutoHedgeControl.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAutoHedgeControl &)msgSpdrAutoHedgeControl);
+                break;
+            }
+            case 5300: {  // SpdrAutoHedgeState
+			    msgSpdrAutoHedgeState.Clear();
+                msgSpdrAutoHedgeState.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAutoHedgeState &)msgSpdrAutoHedgeState);
+                break;
+            }
+            case 3705: {  // SpdrAvailExecAllocation
+			    msgSpdrAvailExecAllocation.Clear();
+                msgSpdrAvailExecAllocation.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAvailExecAllocation &)msgSpdrAvailExecAllocation);
+                break;
+            }
+            case 1450: {  // SpdrAwayExecution
+			    msgSpdrAwayExecution.Clear();
+                msgSpdrAwayExecution.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrAwayExecution &)msgSpdrAwayExecution);
+                break;
+            }
+            case 3990: {  // SpdrBrokerCancel
+			    msgSpdrBrokerCancel.Clear();
+                msgSpdrBrokerCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrBrokerCancel &)msgSpdrBrokerCancel);
+                break;
+            }
+            case 3920: {  // SpdrClientFirmRiskMgmt
+			    msgSpdrClientFirmRiskMgmt.Clear();
+                msgSpdrClientFirmRiskMgmt.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrClientFirmRiskMgmt &)msgSpdrClientFirmRiskMgmt);
+                break;
+            }
+            case 1460: {  // SpdrDropExecution
+			    msgSpdrDropExecution.Clear();
+                msgSpdrDropExecution.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrDropExecution &)msgSpdrDropExecution);
+                break;
+            }
+            case 1465: {  // SpdrDropExecutionAck
+			    msgSpdrDropExecutionAck.Clear();
+                msgSpdrDropExecutionAck.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrDropExecutionAck &)msgSpdrDropExecutionAck);
+                break;
+            }
+            case 1470: {  // SpdrExchRiskDrop
+			    msgSpdrExchRiskDrop.Clear();
+                msgSpdrExchRiskDrop.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrExchRiskDrop &)msgSpdrExchRiskDrop);
+                break;
+            }
+            case 3925: {  // SpdrExchRiskMgmt
+			    msgSpdrExchRiskMgmt.Clear();
+                msgSpdrExchRiskMgmt.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrExchRiskMgmt &)msgSpdrExchRiskMgmt);
+                break;
+            }
+            case 3835: {  // SpdrExchRiskReset
+			    msgSpdrExchRiskReset.Clear();
+                msgSpdrExchRiskReset.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrExchRiskReset &)msgSpdrExchRiskReset);
+                break;
+            }
+            case 3710: {  // SpdrExecutionAllocation
+			    msgSpdrExecutionAllocation.Clear();
+                msgSpdrExecutionAllocation.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrExecutionAllocation &)msgSpdrExecutionAllocation);
+                break;
+            }
+            case 3715: {  // SpdrExecutionAllocationStatus
+			    msgSpdrExecutionAllocationStatus.Clear();
+                msgSpdrExecutionAllocationStatus.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrExecutionAllocationStatus &)msgSpdrExecutionAllocationStatus);
+                break;
+            }
+            case 4025: {  // SpdrMLegBrkrEvent
+			    msgSpdrMLegBrkrEvent.Clear();
+                msgSpdrMLegBrkrEvent.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrMLegBrkrEvent &)msgSpdrMLegBrkrEvent);
+                break;
+            }
+            case 4030: {  // SpdrMLegBrkrState
+			    msgSpdrMLegBrkrState.Clear();
+                msgSpdrMLegBrkrState.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrMLegBrkrState &)msgSpdrMLegBrkrState);
+                break;
+            }
+            case 3720: {  // SpdrOmniOrder
+			    msgSpdrOmniOrder.Clear();
+                msgSpdrOmniOrder.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrOmniOrder &)msgSpdrOmniOrder);
+                break;
+            }
+            case 3725: {  // SpdrParentAllocation
+			    msgSpdrParentAllocation.Clear();
+                msgSpdrParentAllocation.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentAllocation &)msgSpdrParentAllocation);
+                break;
+            }
+            case 3730: {  // SpdrParentAllocationStatus
+			    msgSpdrParentAllocationStatus.Clear();
+                msgSpdrParentAllocationStatus.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentAllocationStatus &)msgSpdrParentAllocationStatus);
+                break;
+            }
+            case 4065: {  // SpdrParentBrkrEvent
+			    msgSpdrParentBrkrEvent.Clear();
+                msgSpdrParentBrkrEvent.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentBrkrEvent &)msgSpdrParentBrkrEvent);
+                break;
+            }
+            case 4070: {  // SpdrParentBrkrState
+			    msgSpdrParentBrkrState.Clear();
+                msgSpdrParentBrkrState.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentBrkrState &)msgSpdrParentBrkrState);
+                break;
+            }
+            case 4075: {  // SpdrParentBrokerSummary
+			    msgSpdrParentBrokerSummary.Clear();
+                msgSpdrParentBrokerSummary.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentBrokerSummary &)msgSpdrParentBrokerSummary);
+                break;
+            }
+            case 4080: {  // SpdrParentCancel
+			    msgSpdrParentCancel.Clear();
+                msgSpdrParentCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentCancel &)msgSpdrParentCancel);
+                break;
+            }
+            case 4085: {  // SpdrParentExecution
+			    msgSpdrParentExecution.Clear();
+                msgSpdrParentExecution.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentExecution &)msgSpdrParentExecution);
+                break;
+            }
+            case 4090: {  // SpdrParentLimit
+			    msgSpdrParentLimit.Clear();
+                msgSpdrParentLimit.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentLimit &)msgSpdrParentLimit);
+                break;
+            }
+            case 4095: {  // SpdrParentOrder
+			    msgSpdrParentOrder.Clear();
+                msgSpdrParentOrder.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentOrder &)msgSpdrParentOrder);
+                break;
+            }
+            case 4100: {  // SpdrParentReport
+			    msgSpdrParentReport.Clear();
+                msgSpdrParentReport.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentReport &)msgSpdrParentReport);
+                break;
+            }
+            case 4195: {  // SpdrParentReviewRequest
+			    msgSpdrParentReviewRequest.Clear();
+                msgSpdrParentReviewRequest.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentReviewRequest &)msgSpdrParentReviewRequest);
+                break;
+            }
+            case 4200: {  // SpdrParentReviewResponse
+			    msgSpdrParentReviewResponse.Clear();
+                msgSpdrParentReviewResponse.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrParentReviewResponse &)msgSpdrParentReviewResponse);
+                break;
+            }
+            case 4105: {  // SpdrReleaseWaitTrigger
+			    msgSpdrReleaseWaitTrigger.Clear();
+                msgSpdrReleaseWaitTrigger.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrReleaseWaitTrigger &)msgSpdrReleaseWaitTrigger);
+                break;
+            }
+            case 2325: {  // SpdrRiskExecution
+			    msgSpdrRiskExecution.Clear();
+                msgSpdrRiskExecution.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrRiskExecution &)msgSpdrRiskExecution);
+                break;
+            }
+            case 1467: {  // SpdrRiskGroupCancel
+			    msgSpdrRiskGroupCancel.Clear();
+                msgSpdrRiskGroupCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrRiskGroupCancel &)msgSpdrRiskGroupCancel);
+                break;
+            }
+            case 4570: {  // SpdrRiskGroupControl
+			    msgSpdrRiskGroupControl.Clear();
+                msgSpdrRiskGroupControl.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrRiskGroupControl &)msgSpdrRiskGroupControl);
+                break;
+            }
+            case 4110: {  // SpdrRouteCancel
+			    msgSpdrRouteCancel.Clear();
+                msgSpdrRouteCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrRouteCancel &)msgSpdrRouteCancel);
+                break;
+            }
+            case 4115: {  // SpdrSecKeyCancel
+			    msgSpdrSecKeyCancel.Clear();
+                msgSpdrSecKeyCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrSecKeyCancel &)msgSpdrSecKeyCancel);
+                break;
+            }
+            case 4120: {  // SpdrSetActiveSize
+			    msgSpdrSetActiveSize.Clear();
+                msgSpdrSetActiveSize.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrSetActiveSize &)msgSpdrSetActiveSize);
+                break;
+            }
+            case 4135: {  // SpdrStripeTrigger
+			    msgSpdrStripeTrigger.Clear();
+                msgSpdrStripeTrigger.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrStripeTrigger &)msgSpdrStripeTrigger);
+                break;
+            }
+            case 2330: {  // SpdrSweepDetail
+			    msgSpdrSweepDetail.Clear();
+                msgSpdrSweepDetail.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrSweepDetail &)msgSpdrSweepDetail);
+                break;
+            }
+            case 2335: {  // SpdrSweepExchDetail
+			    msgSpdrSweepExchDetail.Clear();
+                msgSpdrSweepExchDetail.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrSweepExchDetail &)msgSpdrSweepExchDetail);
+                break;
+            }
+            case 4140: {  // SpdrUserCancel
+			    msgSpdrUserCancel.Clear();
+                msgSpdrUserCancel.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrUserCancel &)msgSpdrUserCancel);
+                break;
+            }
+            case 3480: {  // ToolCompositeExecution
+			    msgToolCompositeExecution.Clear();
+                msgToolCompositeExecution.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const ToolCompositeExecution &)msgToolCompositeExecution);
                 break;
             }
             case 3245: {  // StockBetaExt
@@ -1028,6 +1640,12 @@ class Observer {
 			    msgQueryResult.Clear();
                 msgQueryResult.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const QueryResult &)msgQueryResult);
+                break;
+            }
+            case 3470: {  // UserMetaData
+			    msgUserMetaData.Clear();
+                msgUserMetaData.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserMetaData &)msgUserMetaData);
                 break;
             }
             case 3345: {  // MLinkAdmin
@@ -1462,13 +2080,19 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const UserAuctionFilter &)msgUserAuctionFilter);
                 break;
             }
+            case 1916: {  // UserAuctionTickerFilter
+			    msgUserAuctionTickerFilter.Clear();
+                msgUserAuctionTickerFilter.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserAuctionTickerFilter &)msgUserAuctionTickerFilter);
+                break;
+            }
             case 4350: {  // IndustryDefinition
 			    msgIndustryDefinition.Clear();
                 msgIndustryDefinition.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const IndustryDefinition &)msgIndustryDefinition);
                 break;
             }
-            case 1130: {  // LiveBasisCurve
+            case 1131: {  // LiveBasisCurve
 			    msgLiveBasisCurve.Clear();
                 msgLiveBasisCurve.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const LiveBasisCurve &)msgLiveBasisCurve);

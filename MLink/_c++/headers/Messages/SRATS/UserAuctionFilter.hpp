@@ -270,10 +270,10 @@ namespace api {
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
     #endif//_ticker__TickerKey__GUARD__
 
-    #ifndef _industry__GUARD__
-    #define _industry__GUARD__
-    DECL_STRONG_TYPE(industry, string);
-    #endif//_industry__GUARD__
+    #ifndef _industry__string__GUARD__
+    #define _industry__string__GUARD__
+    DECL_STRONG_TYPE(industry__string, string);
+    #endif//_industry__string__GUARD__
 
     #ifndef _spread_class__GUARD__
     #define _spread_class__GUARD__
@@ -581,9 +581,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-            m_ticker.setCodecTickerKey(tickerKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 107, tickerKeyLayout);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+            m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 107, tickerKeyLayout_ticker);
             return dest;
         }
 
@@ -661,9 +661,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-            m_ticker.setCodecTickerKey(tickerKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 105, tickerKeyLayout);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+            m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 105, tickerKeyLayout_ticker);
             return dest;
         }
 
@@ -694,7 +694,7 @@ namespace api {
     class UserAuctionFilter_Industry {
         public:
         //using statements for all types used in this class
-        using industry = spiderrock::protobuf::api::industry;
+        using industry = spiderrock::protobuf::api::industry__string;
 
         private:
         industry m_industry{};

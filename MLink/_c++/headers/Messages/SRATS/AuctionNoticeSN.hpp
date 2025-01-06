@@ -80,10 +80,10 @@ namespace api {
     DECL_STRONG_TYPE(short_code, string);
     #endif//_short_code__GUARD__
 
-    #ifndef _industry__GUARD__
-    #define _industry__GUARD__
-    DECL_STRONG_TYPE(industry, string);
-    #endif//_industry__GUARD__
+    #ifndef _industry__string__GUARD__
+    #define _industry__string__GUARD__
+    DECL_STRONG_TYPE(industry__string, string);
+    #endif//_industry__string__GUARD__
 
     #ifndef _symbol_type__GUARD__
     #define _symbol_type__GUARD__
@@ -456,7 +456,7 @@ namespace api {
         using is_test_auction = spiderrock::protobuf::api::is_test_auction;
         using contains_flex = spiderrock::protobuf::api::contains_flex;
         using short_code = spiderrock::protobuf::api::short_code;
-        using industry = spiderrock::protobuf::api::industry;
+        using industry = spiderrock::protobuf::api::industry__string;
         using symbol_type = spiderrock::protobuf::api::symbol_type;
         using u_avg_daily_vlm = spiderrock::protobuf::api::u_avg_daily_vlm;
         using root = spiderrock::protobuf::api::root;
@@ -1163,9 +1163,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -1182,7 +1182,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
             if ( IncludeShortCode()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_short_code);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(145,m_short_code);
             }
             if ( IncludeIndustry()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(110,m_industry);
@@ -1192,9 +1192,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_u_avg_daily_vlm);
             }
             if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_root.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(113, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root{};
+                m_root.setCodecTickerKey(tickerKeyLayout_root);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(113, tickerKeyLayout_root);
             }
             if ( IncludeExpiry()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(114, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
@@ -1285,9 +1285,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,101, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -1304,7 +1304,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test_auction)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
             if ( IncludeShortCode()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_short_code));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,145,static_cast<string>(m_short_code));
             }
             if ( IncludeIndustry()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,110,static_cast<string>(m_industry));
@@ -1314,9 +1314,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_u_avg_daily_vlm);
             }
             if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_root.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 113, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root{};
+                m_root.setCodecTickerKey(tickerKeyLayout_root);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 113, tickerKeyLayout_root);
             }
             if ( IncludeExpiry()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,114, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
@@ -1475,7 +1475,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 109: {
+                    case 145: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_short_code = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }

@@ -80,10 +80,10 @@ namespace api {
     DECL_STRONG_TYPE(ddiv__float, float);
     #endif//_ddiv__float__GUARD__
 
-    #ifndef _u_prc_ratio__GUARD__
-    #define _u_prc_ratio__GUARD__
-    DECL_STRONG_TYPE(u_prc_ratio, double);
-    #endif//_u_prc_ratio__GUARD__
+    #ifndef _u_prc_ratio__double__GUARD__
+    #define _u_prc_ratio__double__GUARD__
+    DECL_STRONG_TYPE(u_prc_ratio__double, double);
+    #endif//_u_prc_ratio__double__GUARD__
 
     #ifndef _ivol__GUARD__
     #define _ivol__GUARD__
@@ -303,9 +303,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
             }
             if ( IncludeTradingDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(11, m_trading_date);
@@ -318,9 +318,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
             }
             if ( IncludeTradingDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 11, m_trading_date);
@@ -377,7 +377,7 @@ namespace api {
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
         using ddiv = spiderrock::protobuf::api::ddiv__float;
-        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio;
+        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio__double;
         using ivol = spiderrock::protobuf::api::ivol;
         using ivxx = spiderrock::protobuf::api::ivxx;
         using iv_cen = spiderrock::protobuf::api::iv_cen;
@@ -1034,9 +1034,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeStartTime()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(103, m_start_time);
@@ -1159,9 +1159,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeStartTime()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 103, m_start_time);

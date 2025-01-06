@@ -314,18 +314,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_root.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
+                m_root.setCodecTickerKey(tickerKeyLayout_root);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_root);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_root.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
+                m_root.setCodecTickerKey(tickerKeyLayout_root);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_root);
             }
         }
 
@@ -414,9 +414,9 @@ namespace api {
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-            m_root.setCodecTickerKey(tickerKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 224, tickerKeyLayout);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
+            m_root.setCodecTickerKey(tickerKeyLayout_root);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 224, tickerKeyLayout_root);
             return dest;
         }
 
@@ -507,9 +507,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-            m_ticker.setCodecTickerKey(tickerKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 214, tickerKeyLayout);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+            m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 214, tickerKeyLayout_ticker);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,217,m_spc);
             return dest;
         }
@@ -1270,28 +1270,28 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeOsiRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_osi_root);
             }
             if ( IncludeCcode()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ccode.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ccode{};
+                m_ccode.setCodecTickerKey(tickerKeyLayout_ccode);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout_ccode);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(109, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(109, expiryKeyLayout_u_prc_driver_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriverKey2()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(115, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key2{};
+                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key2);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(115, expiryKeyLayout_u_prc_driver_key2);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type2)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_u_prc_bound_ccode)));
@@ -1345,17 +1345,17 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_settle_curr)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_strike_curr)));
             if ( IncludeDefaultSurfaceRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_default_surface_root.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(205, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_default_surface_root{};
+                m_default_surface_root.setCodecTickerKey(tickerKeyLayout_default_surface_root);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(205, tickerKeyLayout_default_surface_root);
             }
             if ( IncludeRicRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(218,m_ric_root);
             }
             if ( IncludeRegionalCompositeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(225, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_root{};
+                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout_regional_composite_root);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(225, tickerKeyLayout_regional_composite_root);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
@@ -1390,28 +1390,28 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeOsiRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_osi_root));
             }
             if ( IncludeCcode()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ccode.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ccode{};
+                m_ccode.setCodecTickerKey(tickerKeyLayout_ccode);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout_ccode);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 109, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 109, expiryKeyLayout_u_prc_driver_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriverKey2()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 115, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key2{};
+                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key2);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 115, expiryKeyLayout_u_prc_driver_key2);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type2)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_u_prc_bound_ccode)));
@@ -1465,17 +1465,17 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_settle_curr)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_strike_curr)));
             if ( IncludeDefaultSurfaceRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_default_surface_root.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 205, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_default_surface_root{};
+                m_default_surface_root.setCodecTickerKey(tickerKeyLayout_default_surface_root);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 205, tickerKeyLayout_default_surface_root);
             }
             if ( IncludeRicRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,218,static_cast<string>(m_ric_root));
             }
             if ( IncludeRegionalCompositeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 225, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_root{};
+                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout_regional_composite_root);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 225, tickerKeyLayout_regional_composite_root);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);

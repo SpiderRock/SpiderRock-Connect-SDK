@@ -120,10 +120,10 @@ namespace api {
     DECL_STRONG_TYPE(date__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_date__timestamp__GUARD__
 
-    #ifndef _amount__GUARD__
-    #define _amount__GUARD__
-    DECL_STRONG_TYPE(amount, float);
-    #endif//_amount__GUARD__
+    #ifndef _amount__float__GUARD__
+    #define _amount__float__GUARD__
+    DECL_STRONG_TYPE(amount__float, float);
+    #endif//_amount__float__GUARD__
 
     
     class OptionItemDef_PKey {
@@ -210,9 +210,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_okey);
             }
             if ( IncludeOkeyNumber()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(13,m_okey_number);
@@ -228,9 +228,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_okey);
             }
             if ( IncludeOkeyNumber()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,13,m_okey_number);
@@ -280,7 +280,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using date = spiderrock::protobuf::api::date__timestamp;
-        using amount = spiderrock::protobuf::api::amount;
+        using amount = spiderrock::protobuf::api::amount__float;
 
         private:
         date m_date{};

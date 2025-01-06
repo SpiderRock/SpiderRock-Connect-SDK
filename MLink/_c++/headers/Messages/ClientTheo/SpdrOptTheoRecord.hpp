@@ -168,9 +168,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_okey);
             }
             if ( IncludeTheoModel()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_theo_model);
@@ -183,9 +183,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_okey);
             }
             if ( IncludeTheoModel()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_theo_model));

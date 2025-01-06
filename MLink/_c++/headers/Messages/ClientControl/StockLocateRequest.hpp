@@ -30,6 +30,16 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
+    #ifndef _locate_firm__GUARD__
+    #define _locate_firm__GUARD__
+    DECL_STRONG_TYPE(locate_firm, string);
+    #endif//_locate_firm__GUARD__
+
+    #ifndef _locate_pool__GUARD__
+    #define _locate_pool__GUARD__
+    DECL_STRONG_TYPE(locate_pool, string);
+    #endif//_locate_pool__GUARD__
+
     #ifndef _request_quan__GUARD__
     #define _request_quan__GUARD__
     DECL_STRONG_TYPE(request_quan, int32);
@@ -44,6 +54,11 @@ namespace api {
     #define _request_machine__GUARD__
     DECL_STRONG_TYPE(request_machine, string);
     #endif//_request_machine__GUARD__
+
+    #ifndef _modified_by__GUARD__
+    #define _modified_by__GUARD__
+    DECL_STRONG_TYPE(modified_by, string);
+    #endif//_modified_by__GUARD__
 
     #ifndef _modified_in__GUARD__
     #define _modified_in__GUARD__
@@ -65,15 +80,10 @@ namespace api {
     DECL_STRONG_TYPE(core_client_firm, string);
     #endif//_core_client_firm__GUARD__
 
-    #ifndef _locate_firm__GUARD__
-    #define _locate_firm__GUARD__
-    DECL_STRONG_TYPE(locate_firm, string);
-    #endif//_locate_firm__GUARD__
-
-    #ifndef _locate_pool__GUARD__
-    #define _locate_pool__GUARD__
-    DECL_STRONG_TYPE(locate_pool, string);
-    #endif//_locate_pool__GUARD__
+    #ifndef _request_id__int64__GUARD__
+    #define _request_id__int64__GUARD__
+    DECL_STRONG_TYPE(request_id__int64, int64);
+    #endif//_request_id__int64__GUARD__
 
     
     class StockLocateRequest_PKey {
@@ -81,14 +91,12 @@ namespace api {
         //using statements for all types used in this class
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using core_client_firm = spiderrock::protobuf::api::core_client_firm;
-        using locate_firm = spiderrock::protobuf::api::locate_firm;
-        using locate_pool = spiderrock::protobuf::api::locate_pool;
+        using request_id = spiderrock::protobuf::api::request_id__int64;
 
         private:
         ticker m_ticker{};
         core_client_firm m_core_client_firm{};
-        locate_firm m_locate_firm{};
-        locate_pool m_locate_pool{};
+        request_id m_request_id{};
 
         public:
 		ticker get_ticker() const {
@@ -97,11 +105,8 @@ namespace api {
         core_client_firm get_core_client_firm() const {
             return m_core_client_firm;
         }
-        locate_firm get_locate_firm() const {
-            return m_locate_firm;
-        }
-        locate_pool get_locate_pool() const {
-            return m_locate_pool;
+        request_id get_request_id() const {
+            return m_request_id;
         }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
@@ -109,11 +114,8 @@ namespace api {
         void set_core_client_firm(const core_client_firm& value)  {
             m_core_client_firm = value;
         }
-        void set_locate_firm(const locate_firm& value)  {
-            m_locate_firm = value;
-        }
-        void set_locate_pool(const locate_pool& value)  {
-            m_locate_pool = value;
+        void set_request_id(const request_id& value)  {
+            m_request_id = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -125,8 +127,7 @@ namespace api {
         
         void set(const ticker & value) { set_ticker(value); }
         void set(const core_client_firm & value) { set_core_client_firm(value); }
-        void set(const locate_firm & value) { set_locate_firm(value); }
-        void set(const locate_pool & value) { set_locate_pool(value); }
+        void set(const request_id & value) { set_request_id(value); }
 
 
         StockLocateRequest_PKey() {}
@@ -149,47 +150,38 @@ namespace api {
         bool IncludeCoreClientFirm() const {
             return !(m_core_client_firm.empty());
         }
-        bool IncludeLocateFirm() const {
-            return !(m_locate_firm.empty());
-        }
-        bool IncludeLocatePool() const {
-            return !(m_locate_pool.empty());
+        bool IncludeRequestId() const {
+            return !(m_request_id == 0);
         }
 
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
             }
             if ( IncludeCoreClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_core_client_firm);
             }
-            if ( IncludeLocateFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(12,m_locate_firm);
-            }
-            if ( IncludeLocatePool()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(13,m_locate_pool);
+            if ( IncludeRequestId()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(14,m_request_id);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
             }
             if ( IncludeCoreClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_core_client_firm));
             }
-            if ( IncludeLocateFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,12,static_cast<string>(m_locate_firm));
-            }
-            if ( IncludeLocatePool()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,13,static_cast<string>(m_locate_pool));
+            if ( IncludeRequestId()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,14,m_request_id);
             }
         }
 
@@ -214,10 +206,7 @@ namespace api {
                     case 11: {m_core_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 12: {m_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        break;
-                    }
-                    case 13: {m_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 14: {m_request_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         break;
                     }
                 }
@@ -233,18 +222,24 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::StockLocateRequest_PKey;
+        using locate_firm = spiderrock::protobuf::api::locate_firm;
+        using locate_pool = spiderrock::protobuf::api::locate_pool;
         using request_quan = spiderrock::protobuf::api::request_quan;
         using request_origin = spiderrock::protobuf::api::request_origin;
         using request_machine = spiderrock::protobuf::api::request_machine;
+        using modified_by = spiderrock::protobuf::api::modified_by;
         using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
 
         private:
         _meta m__meta{};
         pkey m_pkey{};
+        locate_firm m_locate_firm{};
+        locate_pool m_locate_pool{};
         request_quan m_request_quan{};
         request_origin m_request_origin{};
         request_machine m_request_machine{};
+        modified_by m_modified_by{};
         modified_in m_modified_in{};
         timestamp m_timestamp{};
 
@@ -257,6 +252,12 @@ namespace api {
         pkey get_pkey() const {
             return m_pkey;
         }		
+        locate_firm get_locate_firm() const {
+            return m_locate_firm;
+        }		
+        locate_pool get_locate_pool() const {
+            return m_locate_pool;
+        }		
         request_quan get_request_quan() const {
             return m_request_quan;
         }		
@@ -265,6 +266,9 @@ namespace api {
         }		
         request_machine get_request_machine() const {
             return m_request_machine;
+        }		
+        modified_by get_modified_by() const {
+            return m_modified_by;
         }		
         modified_in get_modified_in() const {
             return m_modified_in;
@@ -282,6 +286,12 @@ namespace api {
         void set_pkey(const pkey& value)  {
             m_pkey = value;
         }
+        void set_locate_firm(const locate_firm& value)  {
+            m_locate_firm = value;
+        }
+        void set_locate_pool(const locate_pool& value)  {
+            m_locate_pool = value;
+        }
         void set_request_quan(const request_quan& value)  {
             m_request_quan = value;
         }
@@ -290,6 +300,9 @@ namespace api {
         }
         void set_request_machine(const request_machine& value)  {
             m_request_machine = value;
+        }
+        void set_modified_by(const modified_by& value)  {
+            m_modified_by = value;
         }
         void set_modified_in(const modified_in& value)  {
             m_modified_in = value;
@@ -311,6 +324,12 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
+        void set(const locate_firm & value) {
+            set_locate_firm(value);
+        }
+        void set(const locate_pool & value) {
+            set_locate_pool(value);
+        }
         void set(const request_quan & value) {
             set_request_quan(value);
         }
@@ -319,6 +338,9 @@ namespace api {
         }
         void set(const request_machine & value) {
             set_request_machine(value);
+        }
+        void set(const modified_by & value) {
+            set_modified_by(value);
         }
         void set(const modified_in & value) {
             set_modified_in(value);
@@ -330,9 +352,12 @@ namespace api {
         void set(const StockLocateRequest & value) {
             set(value.m__meta);
             set(value.m_pkey);
+            set(value.m_locate_firm);
+            set(value.m_locate_pool);
             set(value.m_request_quan);
             set(value.m_request_origin);
             set(value.m_request_machine);
+            set(value.m_modified_by);
             set(value.m_modified_in);
             set(value.m_timestamp);
         }
@@ -393,11 +418,20 @@ namespace api {
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
         }
+        bool IncludeLocateFirm() const {
+            return !(m_locate_firm.empty());
+        }
+        bool IncludeLocatePool() const {
+            return !(m_locate_pool.empty());
+        }
         bool IncludeRequestQuan() const {
             return !(m_request_quan == 0);
         }
         bool IncludeRequestMachine() const {
             return !(m_request_machine.empty());
+        }
+        bool IncludeModifiedBy() const {
+            return !(m_modified_by.empty());
         }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
@@ -416,12 +450,21 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
+            if ( IncludeLocateFirm()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(116,m_locate_firm);
+            }
+            if ( IncludeLocatePool()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(117,m_locate_pool);
+            }
             if ( IncludeRequestQuan()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(100,m_request_quan);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RequestOrigin>(m_request_origin)));
             if ( IncludeRequestMachine()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_request_machine);
+            }
+            if ( IncludeModifiedBy()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(118,m_modified_by);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
@@ -441,12 +484,21 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
+            if ( IncludeLocateFirm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,116,static_cast<string>(m_locate_firm));
+            }
+            if ( IncludeLocatePool()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,117,static_cast<string>(m_locate_pool));
+            }
             if ( IncludeRequestQuan()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,100,m_request_quan);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RequestOrigin>(m_request_origin)));
             if ( IncludeRequestMachine()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_request_machine));
+            }
+            if ( IncludeModifiedBy()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,118,static_cast<string>(m_modified_by));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
@@ -482,6 +534,18 @@ namespace api {
                         }
                         break;
                     }
+                    case 116: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 117: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
                     case 100: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_request_quan = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
@@ -496,6 +560,12 @@ namespace api {
                     case 106: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_request_machine = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 118: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_modified_by = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -521,32 +591,36 @@ namespace api {
 
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::_meta>() const { return StockLocateRequest::_meta{ m__meta}; }
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::pkey>() const { return StockLocateRequest::pkey{ m_pkey}; }
+    template<> inline const auto StockLocateRequest::get<StockLocateRequest::locate_firm>() const { return m_locate_firm; }
+    template<> inline const auto StockLocateRequest::get<StockLocateRequest::locate_pool>() const { return m_locate_pool; }
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::request_quan>() const { return m_request_quan; }
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::request_origin>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RequestOrigin>( m_request_origin)); }
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::request_machine>() const { return m_request_machine; }
+    template<> inline const auto StockLocateRequest::get<StockLocateRequest::modified_by>() const { return m_modified_by; }
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
     template<> inline const auto StockLocateRequest::get<StockLocateRequest::timestamp>() const { return m_timestamp; }
     template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::ticker>() const { return StockLocateRequest_PKey::ticker{m_ticker}; }
     template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::core_client_firm>() const { return m_core_client_firm; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::locate_firm>() const { return m_locate_firm; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::locate_pool>() const { return m_locate_pool; }
+    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::request_id>() const { return m_request_id; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
     inline std::ostream& operator<<(std::ostream &o, const StockLocateRequest_PKey& m) {
         o << "\"ticker\":{" << m.get<StockLocateRequest_PKey::ticker>() << "}";
         o << ",\"core_client_firm\":\"" << m.get<StockLocateRequest_PKey::core_client_firm>() << "\"";
-        o << ",\"locate_firm\":\"" << m.get<StockLocateRequest_PKey::locate_firm>() << "\"";
-        o << ",\"locate_pool\":\"" << m.get<StockLocateRequest_PKey::locate_pool>() << "\"";
+        o << ",\"request_id\":" << m.get<StockLocateRequest_PKey::request_id>();
         return o;
     }
 
     inline std::ostream& operator<<(std::ostream &o, const StockLocateRequest& m) {
         o << "\"_meta\":{" << m.get<StockLocateRequest::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<StockLocateRequest::pkey>() << "}";
+        o << ",\"locate_firm\":\"" << m.get<StockLocateRequest::locate_firm>() << "\"";
+        o << ",\"locate_pool\":\"" << m.get<StockLocateRequest::locate_pool>() << "\"";
         o << ",\"request_quan\":" << m.get<StockLocateRequest::request_quan>();
         o << ",\"request_origin\":" << (int64_t)m.get<StockLocateRequest::request_origin>();
         o << ",\"request_machine\":\"" << m.get<StockLocateRequest::request_machine>() << "\"";
+        o << ",\"modified_by\":\"" << m.get<StockLocateRequest::modified_by>() << "\"";
         o << ",\"modified_in\":" << (int64_t)m.get<StockLocateRequest::modified_in>();
         {
             std::time_t tt = m.get<StockLocateRequest::timestamp>().time_since_epoch().count() / 1'000'000'000;

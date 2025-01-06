@@ -683,9 +683,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
             return totalSize;
@@ -693,9 +693,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
         }
@@ -2653,9 +2653,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(151,m_e_move_years1);
             }
             if ( IncludeEMoveEkey1()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_e_move_ekey1.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(154, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_e_move_ekey1{};
+                m_e_move_ekey1.setCodecExpiryKey(expiryKeyLayout_e_move_ekey1);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(154, expiryKeyLayout_e_move_ekey1);
             }
             if ( IncludeEMoveExpAdj2()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(157,m_e_move_exp_adj2);
@@ -2667,9 +2667,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(163,m_e_move_years2);
             }
             if ( IncludeEMoveEkey2()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_e_move_ekey2.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(166, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_e_move_ekey2{};
+                m_e_move_ekey2.setCodecExpiryKey(expiryKeyLayout_e_move_ekey2);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(166, expiryKeyLayout_e_move_ekey2);
             }
             if ( IncludeAtmCenISt()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(169,m_atm_cen_i_st);
@@ -3018,9 +3018,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,151,m_e_move_years1);
             }
             if ( IncludeEMoveEkey1()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_e_move_ekey1.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 154, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_e_move_ekey1{};
+                m_e_move_ekey1.setCodecExpiryKey(expiryKeyLayout_e_move_ekey1);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 154, expiryKeyLayout_e_move_ekey1);
             }
             if ( IncludeEMoveExpAdj2()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,157,m_e_move_exp_adj2);
@@ -3032,9 +3032,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,163,m_e_move_years2);
             }
             if ( IncludeEMoveEkey2()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_e_move_ekey2.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 166, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_e_move_ekey2{};
+                m_e_move_ekey2.setCodecExpiryKey(expiryKeyLayout_e_move_ekey2);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 166, expiryKeyLayout_e_move_ekey2);
             }
             if ( IncludeAtmCenISt()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,169,m_atm_cen_i_st);

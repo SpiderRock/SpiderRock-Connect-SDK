@@ -158,9 +158,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
             return totalSize;
@@ -168,9 +168,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SurfaceCurveType>(m_surface_type)));
         }
@@ -502,7 +502,7 @@ namespace api {
         bool SerializeToArray(void* data, size_t size) const  {
             size_t length = ByteSizeLong();
             if (size <  _mlinkHeaderLength + length) return false;
-            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 1130, length);
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 1131, length);
             //Encode the message
             uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
             auto max = encodePos + length;
@@ -514,7 +514,7 @@ namespace api {
         bool SerializeToString(std::string *s) const {
             size_t length = ByteSizeLong();
             s->resize( _mlinkHeaderLength + length);
-            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 1130, length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 1131, length);
             return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 

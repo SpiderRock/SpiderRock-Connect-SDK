@@ -175,17 +175,17 @@ namespace api {
     DECL_STRONG_TYPE(date__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_date__timestamp__GUARD__
 
-    #ifndef _amount__GUARD__
-    #define _amount__GUARD__
-    DECL_STRONG_TYPE(amount, float);
-    #endif//_amount__GUARD__
+    #ifndef _amount__float__GUARD__
+    #define _amount__float__GUARD__
+    DECL_STRONG_TYPE(amount__float, float);
+    #endif//_amount__float__GUARD__
 
     
     class GetOptionVolatility_DiscreteDividend {
         public:
         //using statements for all types used in this class
         using date = spiderrock::protobuf::api::date__timestamp;
-        using amount = spiderrock::protobuf::api::amount;
+        using amount = spiderrock::protobuf::api::amount__float;
 
         private:
         date m_date{};
@@ -796,9 +796,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::MessageMetadataFieldSize(1, messageMetadata);
             }
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout{};
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(197, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey{};
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(197, optionKeyLayout_okey);
             }
             if ( IncludePrice()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(112,m_price);
@@ -884,9 +884,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeMessageMetadata(dest,1, messageMetadata);
             }
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout{};
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 197, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey{};
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 197, optionKeyLayout_okey);
             }
             if ( IncludePrice()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,112,m_price);

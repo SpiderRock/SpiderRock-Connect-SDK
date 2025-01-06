@@ -45,16 +45,16 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _code__GUARD__
-    #define _code__GUARD__
-    DECL_STRONG_TYPE(code, int32);
-    #endif//_code__GUARD__
+    #ifndef _code__int32__GUARD__
+    #define _code__int32__GUARD__
+    DECL_STRONG_TYPE(code__int32, int32);
+    #endif//_code__int32__GUARD__
 
     
     class IndustryDefinition_PKey {
         public:
         //using statements for all types used in this class
-        using code = spiderrock::protobuf::api::code;
+        using code = spiderrock::protobuf::api::code__int32;
 
         private:
         code m_code{};

@@ -133,9 +133,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeCcode()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ccode.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ccode;
+                m_ccode.setCodecTickerKey(tickerKeyLayout_ccode);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ccode);
             }
             if ( IncludeAssetCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_asset_code);
@@ -148,9 +148,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeCcode()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ccode.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ccode;
+                m_ccode.setCodecTickerKey(tickerKeyLayout_ccode);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ccode);
             }
             if ( IncludeAssetCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_asset_code));
