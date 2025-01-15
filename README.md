@@ -7,16 +7,16 @@ This repo contains documentation, specifications and general information for how
 ## Visit the <a href="https://docs.spiderrockconnect.com/">Official V8 Documentation website</a>
 
 ## Connection Methods
-1. **[MLink API](https://docs.spiderrockconnect.com/docs/Documentation/PlatformAPIs/MLink/)** - Our newest proprietary connection method, is a server that supports an SQL-like API where a user can connect via REST or WebSocket connection. This method is bi-direction and users can interact and manipulate their orders and related messages as well as consume data. 
+1. **[MLink API](https://docs.spiderrockconnect.com/docs/next/Documentation/PlatformAPIs/MLink/)** - Our newest proprietary connection method, is a server that supports an SQL-like API where a user can connect via REST or WebSocket connection. This method is bi-direction and users can interact and manipulate their orders and related messages as well as consume data. 
 
-2. **[SRSE](https://docs.spiderrockconnect.com/docs/Documentation/PlatformAPIs/SRSE/)** - The SpiderRock Storage Engine (SRSE) is a way for users to connect and query messages via SQL. Download your favorite SQL client, connect to our databases and leverage SQL to mine the desired data from our system.
+2. **[SRSE](https://docs.spiderrockconnect.com/docs/next/Documentation/PlatformAPIs/SRSE/)** - The SpiderRock Storage Engine (SRSE) is a way for users to connect and query messages via SQL. Download your favorite SQL client, connect to our databases and leverage SQL to mine the desired data from our system.
 
-3. **[FIX](https://docs.spiderrockconnect.com/docs/Documentation/PlatformAPIs/FIX/)** - The trading industry's standard protocol for messaging, our current specs are based on FIX 4.4. If you're a liquidity provider that is looking to connect into our ATS, this is the recommended connection method.
+3. **[FIX](https://docs.spiderrockconnect.com/docs/next/Documentation/PlatformAPIs/FIX/)** - The trading industry's standard protocol for messaging, our current specs are based on FIX 4.4. If you're a liquidity provider that is looking to connect into our ATS, this is the recommended connection method.
 
 4. **[SpiderStream API](./SpiderStream/README.md)** - A proprietary connection method that allows for a low-latency stream of SpiderRock messages through C#, C++ or Python. This does not provide direct trading functionality. This is the only single-directional connection listed.
 
 ## Connection Environments
-1. **[Sandbox V8](https://docs.spiderrockconnect.com/docs/Documentation/Integration/V8Sandboxes/)** - A mock environment to test your integration with the SpiderRock system, including the SpiderRock Connect ATS. Includes the MLink API, FIX API, and the Trade tool.
+1. **[Sandbox V8](https://docs.spiderrockconnect.com/docs/next/Documentation/Integration/V8Sandboxes/)** - A mock environment to test your integration with the SpiderRock system, including the SpiderRock Connect ATS. Includes the MLink API, FIX API, and the Trade tool.
 
 2. **[Platform V7](https://spiderrockplatform.atlassian.net/wiki/spaces/CD/overview)** - Production environment. Please contact the client support desk for connectivity.
 
