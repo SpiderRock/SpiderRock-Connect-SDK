@@ -132,7 +132,7 @@ msg = {
 
 ```python
 async with websockets.connect(uriJson, 
-extra_headers={"Authorization": "Bearer {apikey}"}, ping_timeout=None) as websocket:
+additional_headers={"Authorization": "Bearer {apikey}"}, ping_timeout=None) as websocket:
 ```
 
 
@@ -649,7 +649,7 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
         try:
           async with websockets.connect(
             uriJson,
-            extra_headers={"Authorization": f"Bearer {api_key_token}"},
+            additional_headers={"Authorization": f"Bearer {api_key_token}"},
             ping_timeout=None
           ) as websocket:
             msg = {
@@ -688,7 +688,7 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
         try:
           async with websockets.connect(
             uriJson, 
-            extra_headers={"Authorization": f"Bearer {api_key_token}"},
+            additional_headers={"Authorization": f"Bearer {api_key_token}"},
             ping_timeout=None
           ) as websocket:
             msg = {

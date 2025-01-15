@@ -1,8 +1,7 @@
 import asyncio
 import json
 import time
-from pycognito import Cognito
-from pycognito.exceptions import SoftwareTokenMFAChallengeException
+
 import websockets
 import nest_asyncio
 import threading
@@ -41,7 +40,7 @@ async def query_mlink(authentication_key):
     while retry:
         try:
             async with websockets.connect(uriJson,
-                                          extra_headers={"Authorization": f"Bearer {authentication_key}"}, ping_timeout=None) as websocket:
+                                          additional_headers={"Authorization": f"Bearer {authentication_key}"}, ping_timeout=None) as websocket:
                 # send the first message (msg)
                 msg = {
                     "header": {
