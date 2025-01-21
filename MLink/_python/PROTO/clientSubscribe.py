@@ -13,7 +13,7 @@ uri = 'wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/proto'
 authentication_key = 'Your API KEY' 
 
 async def query_mlinkstream(uri, authentication_key):
-    async with websockets.connect(uri, extra_headers={"Authorization": f"Bearer {authentication_key}"}) as websocket:
+    async with websockets.connect(uri, additional_headers={"Authorization": f"Bearer {authentication_key}"}) as websocket:
         full_admin_response = await websocket.recv()
         admin_proto_message = full_admin_response[14:]
         admin_response = MLinkAdmin_pb2.MLinkAdmin()
