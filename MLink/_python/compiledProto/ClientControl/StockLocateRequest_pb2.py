@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&ClientControl/StockLocateRequest.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd5\x03\n\x12StockLocateRequest\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12:\n\x04pkey\x18\x02 \x01(\x0b\x32,.spiderrock.protobuf.StockLocateRequest.PKey\x12\x14\n\x0crequest_quan\x18\x64 \x01(\x05\x12:\n\x0erequest_origin\x18g \x01(\x0e\x32\".spiderrock.protobuf.RequestOrigin\x12\x17\n\x0frequest_machine\x18j \x01(\t\x12\x38\n\x0bmodified_in\x18p \x01(\x0e\x32#.spiderrock.protobuf.SysEnvironment\x12-\n\ttimestamp\x18s \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1az\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x18\n\x10\x63ore_client_firm\x18\x0b \x01(\t\x12\x13\n\x0blocate_firm\x18\x0c \x01(\t\x12\x13\n\x0blocate_pool\x18\r \x01(\tb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&ClientControl/StockLocateRequest.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x03\n\x12StockLocateRequest\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12:\n\x04pkey\x18\x02 \x01(\x0b\x32,.spiderrock.protobuf.StockLocateRequest.PKey\x12\x13\n\x0blocate_firm\x18t \x01(\t\x12\x13\n\x0blocate_pool\x18u \x01(\t\x12\x14\n\x0crequest_quan\x18\x64 \x01(\x05\x12:\n\x0erequest_origin\x18g \x01(\x0e\x32\".spiderrock.protobuf.RequestOrigin\x12\x17\n\x0frequest_machine\x18j \x01(\t\x12\x13\n\x0bmodified_by\x18v \x01(\t\x12\x38\n\x0bmodified_in\x18p \x01(\x0e\x32#.spiderrock.protobuf.SysEnvironment\x12-\n\ttimestamp\x18s \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x64\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x18\n\x10\x63ore_client_firm\x18\x0b \x01(\t\x12\x12\n\nrequest_iD\x18\x0e \x01(\x03\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,7 +24,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_STOCKLOCATEREQUEST']._serialized_start=122
-  _globals['_STOCKLOCATEREQUEST']._serialized_end=591
-  _globals['_STOCKLOCATEREQUEST_PKEY']._serialized_start=469
-  _globals['_STOCKLOCATEREQUEST_PKEY']._serialized_end=591
+  _globals['_STOCKLOCATEREQUEST']._serialized_end=632
+  _globals['_STOCKLOCATEREQUEST_PKEY']._serialized_start=532
+  _globals['_STOCKLOCATEREQUEST_PKEY']._serialized_end=632
 # @@protoc_insertion_point(module_scope)

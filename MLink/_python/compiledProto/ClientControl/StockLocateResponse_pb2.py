@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'ClientControl/StockLocateResponse.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\x06\n\x13StockLocateResponse\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12;\n\x04pkey\x18\x02 \x01(\x0b\x32-.spiderrock.protobuf.StockLocateResponse.PKey\x12\x11\n\tlocate_iD\x18\x64 \x01(\t\x12\x14\n\x0crequest_quan\x18g \x01(\x05\x12\x13\n\x0blocate_quan\x18j \x01(\x05\x12\x38\n\rlocate_status\x18m \x01(\x0e\x32!.spiderrock.protobuf.LocateStatus\x12\x34\n\x10is_locate_exempt\x18s \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x17\n\x0f\x61lt_security_id\x18v \x01(\t\x12:\n\x0erequest_origin\x18y \x01(\x0e\x32\".spiderrock.protobuf.RequestOrigin\x12\x35\n\x11request_timestamp\x18| \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x39\n\x0bmodified_in\x18\x82\x01 \x01(\x0e\x32#.spiderrock.protobuf.SysEnvironment\x12.\n\ttimestamp\x18\x85\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\xe6\x01\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x18\n\x10\x63ore_client_firm\x18\x0b \x01(\t\x12\x13\n\x0blocate_firm\x18\x0c \x01(\t\x12\x13\n\x0blocate_pool\x18\r \x01(\t\x12\x38\n\rlocate_source\x18\x10 \x01(\x0e\x32!.spiderrock.protobuf.LocateSource\x12\x30\n\ntrade_date\x18\x0f \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKeyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'ClientControl/StockLocateResponse.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa5\x05\n\x13StockLocateResponse\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12;\n\x04pkey\x18\x02 \x01(\x0b\x32-.spiderrock.protobuf.StockLocateResponse.PKey\x12\x31\n\ntrade_date\x18\x86\x01 \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKey\x12\x14\n\x0blocate_firm\x18\x87\x01 \x01(\t\x12\x14\n\x0blocate_pool\x18\x88\x01 \x01(\t\x12\x14\n\x0crequest_quan\x18g \x01(\x05\x12\x13\n\x0blocate_quan\x18j \x01(\x05\x12\x38\n\rlocate_status\x18m \x01(\x0e\x32!.spiderrock.protobuf.LocateStatus\x12:\n\x0erequest_origin\x18y \x01(\x0e\x32\".spiderrock.protobuf.RequestOrigin\x12\x35\n\x11request_timestamp\x18| \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0bmodified_by\x18\x89\x01 \x01(\t\x12\x39\n\x0bmodified_in\x18\x82\x01 \x01(\x0e\x32#.spiderrock.protobuf.SysEnvironment\x12.\n\ttimestamp\x18\x85\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x64\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x18\n\x10\x63ore_client_firm\x18\x0b \x01(\t\x12\x12\n\nrequest_iD\x18\x11 \x01(\x03\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,7 +24,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_STOCKLOCATERESPONSE']._serialized_start=123
-  _globals['_STOCKLOCATERESPONSE']._serialized_end=912
-  _globals['_STOCKLOCATERESPONSE_PKEY']._serialized_start=682
-  _globals['_STOCKLOCATERESPONSE_PKEY']._serialized_end=912
+  _globals['_STOCKLOCATERESPONSE']._serialized_end=800
+  _globals['_STOCKLOCATERESPONSE_PKEY']._serialized_start=700
+  _globals['_STOCKLOCATERESPONSE_PKEY']._serialized_end=800
 # @@protoc_insertion_point(module_scope)

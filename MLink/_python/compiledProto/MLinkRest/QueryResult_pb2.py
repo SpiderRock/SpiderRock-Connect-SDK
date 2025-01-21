@@ -12,9 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 import spiderrock_common_pb2 as spiderrock__common__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bMLinkRest/QueryResult.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\"\xe8\x01\n\x0bQueryResult\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x16\n\x0enum_bytes_sent\x18\x64 \x01(\x03\x12\x19\n\x11num_messages_sent\x18g \x01(\x03\x12\x1c\n\x14num_messages_scanned\x18j \x01(\x03\x12\x15\n\rquery_elapsed\x18m \x01(\x02\x12,\n\x06result\x18p \x01(\x0e\x32\x1c.spiderrock.protobuf.QResult\x12\x0e\n\x06\x64\x65tail\x18s \x01(\tb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bMLinkRest/QueryResult.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd3\x02\n\x0bQueryResult\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x16\n\x0enum_bytes_sent\x18\x64 \x01(\x03\x12\x19\n\x11num_messages_sent\x18g \x01(\x03\x12\x1c\n\x14num_messages_scanned\x18j \x01(\x03\x12\x15\n\rquery_elapsed\x18m \x01(\x02\x12,\n\x06result\x18p \x01(\x0e\x32\x1c.spiderrock.protobuf.QResult\x12\x0e\n\x06\x64\x65tail\x18s \x01(\t\x12\x35\n\x11receive_timestamp\x18t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0esend_timestamp\x18u \x01(\x0b\x32\x1a.google.protobuf.Timestampb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,6 +23,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'MLinkRest.QueryResult_pb2',
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _globals['_QUERYRESULT']._serialized_start=78
-  _globals['_QUERYRESULT']._serialized_end=310
+  _globals['_QUERYRESULT']._serialized_start=111
+  _globals['_QUERYRESULT']._serialized_end=450
 # @@protoc_insertion_point(module_scope)
