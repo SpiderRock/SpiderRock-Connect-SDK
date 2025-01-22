@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    RiskAggGroupState records are published by AggRiskServer immediately if/when a position update occurs. These records are consumed by execution engines and influence child order position markup.
+*/    
+message RiskAggGroupStateV5 {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11;
+        string client_firm = 12;
+        string agg_group = 13;
+        DateKey trade_date = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AggGroupType agg_group_type = 100;
+    int32 open_position = 103; // start-of-day position (usually from clearing firm)
+    int32 bot_quantity = 106; // quantity bot today (all parent executions)
+    int32 sld_quantity = 109; // quantity sld today (all parent executions)
+    int32 sld_short_qty = 112; // quantity sld short today (all parent executions)
+    int32 extern_opn_pos = 115; // start-of-day position (extern reports)
+    int32 extern_bot_quan = 118; // quantity bot today (extern reports)
+    int32 extern_sld_quan = 121; // quantity sld today (extern reports)
+    string source = 124; // source server
+    google.protobuf.Timestamp timestamp = 127;
+}
+
+

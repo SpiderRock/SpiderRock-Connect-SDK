@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table allows custom span risk calculations based on either user or SR supplied input values.
+*/    
+message SpanRiskCalculator {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11;
+        string user_name = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double vol = 100; // volatility
+    FieldSrc vol_src = 103;
+    double u_prc = 106; // underlying price
+    FieldSrc u_prc_src = 109;
+    double years = 112; // years-to-expiration (default uses SR volatility time value)
+    FieldSrc years_src = 115;
+    double sdiv = 118; // continuous stock dividend using for pricing
+    FieldSrc sdiv_src = 121;
+    double rate = 124; // discount rate used for pricing
+    FieldSrc rate_src = 127;
+    ExerciseType ex_type = 130; // exercise type of the option (American or European)
+    FieldSrc ex_type_src = 133;
+    double eff_strike = 136; // effective strike used for pricing (default is okey.Strike)
+    FieldSrc eff_strike_src = 139;
+    double sym_ratio = 142; // underlying symbol ratio (for non-standard options); discrete dividend will be scaled by this factor
+    FieldSrc sym_ratio_src = 145;
+    string div_string = 148; // discrete dividend string  [ yearsToExpiry, years1:amt1, years2:amt2, ...] or [ -1, date1:amt1, date2:amt2, ... ]
+    FieldSrc div_src = 151;
+    CalcModelType model_type = 154; // LogNormalExact, LogNormalApprox, NormalExact, NormalApprox
+    FieldSrc model_type_src = 157;
+    CalcPrecision calc_precision = 160; // numerical precision (# of steps) if a numerical method is used;  [more steps will be slower to calculate]
+    double point_value = 163; // $ value of a point in the underlying product
+    Currency point_currency = 248;
+    FieldSrc point_value_src = 166;
+    float prc_span_up = 169;
+    float prc_span_dn = 172;
+    PrcSpanType prc_span_type = 175;
+    float vol_span = 178;
+    VolSpanType vol_span_type = 181;
+    SpanCalcType span_calc_type = 184;
+    YesNo hedge_delta_neutral = 187; // all option will be assumed hedged delta neutral, stock and futures will not have slide values
+    double adj_years = 190; // year adjustment: effYears = years + adjYears (-1 = no limit)
+    double max_years = 193; // upper bound for years: effYears = MIN(maxYears, effYears) (-1 = no limit)
+    float span01 = 196; // span1: uPrc=unch, vol=up
+    float span02 = 199; // span2: uPrc=unch, vol=down
+    float span03 = 202; // span3: uPrc=+33%, vol=up
+    float span04 = 205; // span4: uPrc=+33%, vol=dn
+    float span05 = 208; // span5: uPrc=-33%, vol=up
+    float span06 = 211; // span6: uPrc=-33%, vol=down
+    float span07 = 214; // span7: uPrc=+67%, vol=up
+    float span08 = 217; // span8: uPrc=+67%, vol=down
+    float span09 = 220; // span9: uPrc=-67%, vol=up
+    float span10 = 223; // span10: uPrc=-67%, vol=down
+    float span11 = 226; // span11: uPrc=+100%, vol=up
+    float span12 = 229; // span12: uPrc=+100%, vol=down
+    float span13 = 232; // span13: uPrc=-100%, vol=up
+    float span14 = 235; // span14: uPrc=-100%, vol=down
+    float span15 = 238; // span15: uPrc=+300%; price slide * 0.33
+    float span16 = 241; // span16: uPrc=-300%, price slide * 0.33
+    string error = 244; // calculation error
+    google.protobuf.Timestamp timestamp = 247;
+}
+
+

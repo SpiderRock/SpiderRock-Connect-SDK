@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrExchRiskDrop {
+    message PKey {
+        
+        int64 exch_drop_number = 10; // SR Unique ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string routing_code = 100; // drop session routing code
+    int32 routing_seq_num = 103; // drop session routingSeqNum
+    string route_risk_group = 106; // unique code grouping this drop session with 1 or more outbound street sessions
+    OptionKey sec_key = 109;
+    SpdrKeyType sec_type = 112;
+    string account = 115; // FixTag.1
+    string drop_data1 = 118;
+    string drop_data2 = 121;
+    string cl_ord_id = 124; // child order clOrdId
+    int32 fill_version = 127; // cancel/correct version number (initial fill is version=1)
+    ExecStatus fill_exec_status = 130; // SpiderRock execution status (Fill,Bust,Correct,Reject,SysRej)
+    google.protobuf.Timestamp fill_dttm = 133; // fill DateTime (from SRDateTime)
+    int32 fill_quantity = 136; // fill size (from execReport.lastSize)
+    BuySell fill_side = 139; // fill side (from execReport.side)
+    double fill_price = 142; // fill price (from execReport.lastPrice)
+    google.protobuf.Timestamp fill_transact_dttm = 145; // fill DateTime (from execReport.fillDttm)
+    string fill_market = 148; // fill market (from execReport.lastMarket)
+    string fill_exec_id = 151; // fill execution id (from execReport.execId)
+    string fill_ref_exec_id = 154; // fill ref execution id (from execReport.refExecId) [only set on a cancel or correct]
+    int64 fill_leg_ref_id = 157; // fill leg ref id (from execReport.legRefId)
+    string fill_street_text = 160;
+    int64 net_timestamp = 163; // drop gateway arrival timestamp
+    google.protobuf.Timestamp timestamp = 166;
+}
+
+

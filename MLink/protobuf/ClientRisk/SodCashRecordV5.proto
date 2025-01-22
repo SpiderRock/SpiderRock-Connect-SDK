@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SodCashRecords contain a start-of-day currency position that derived from dividend or corporate action being applied to a prior period position.
+    These records are computed and published by SR rotation servers.
+*/    
+message SodCashRecordV5 {
+    message PKey {
+        
+        string accnt = 10;
+        Currency currency = 11;
+        DateKey trade_date = 12;
+        SrcTransaction src_transaction = 13;
+        OptionKey src_sec_key = 14; // prior period sec key that this position record derived from (if any)
+        SpdrKeyType src_sec_type = 15;
+        DateKey src_trade_date = 16; // prior period trade date that this position record derived from
+        string client_firm = 17; // SR assigned client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double sr_cash_amount = 100;
+    double clr_cash_amount = 103;
+    string comment = 106; // source description (if any)
+    google.protobuf.Timestamp timestamp = 109;
+}
+
+

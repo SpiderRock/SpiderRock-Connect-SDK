@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrRiskControl records are used to establish supervisory control of equity, and equity option trading in SpiderRock execution engines.  These records are only viewable and editable by RiskAdmin users with access to the control record ClientFirm
+*/    
+message SpdrRiskControl {
+    message PKey {
+        
+        TickerKey ticker = 12; // '*-ANY-ANY' default (if a more precise ticker control does not exist)
+        string risk_control_key = 13; // must be an SRClientAccnt if riskControlLevel=Accnt; must be an SRUser if riskControlLevel=User; ignored if riskControlLevel=ClientFirm
+        RiskControlLevel risk_control_level = 14;
+        string risk_firm = 15;
+        YesNo is_test_accnt = 16; // if Yes, this control applies only to risk from test accnts
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    MarState stk_enabled = 197;
+    MarState fut_enabled = 198;
+    MarState opt_enabled = 199;
+    float margin_limit_day = 200; // maximum net (per symbol/day) day portfolio (day trades only) margin (can include external sources)
+    float open_exposure_limit = 201; // maximum abs open child order $Delta (no netting) (open child orders only)
+    float max_day_dDelta_ln = 127; // open long $Delta per trading session
+    float max_day_dDelta_sh = 130; // open short $Delta per trading session
+    float max_day_dDelta_abs = 133; // absolute $Delta, |ddBot| + |ddSld| position per trading session
+    float max_day_wt_vega_ln = 145; // open long WtVega per trading session
+    float max_day_wt_vega_sh = 148; // open short WtVega per trading session
+    float max_day_wt_vega_abs = 151; // open absolute WtVega, |WtVeBot| + |WtVeSld| per trading session
+    float max_day_nValue_ln = 202; // open long notional value per trading session
+    float max_day_nValue_sh = 203; // open short notional value per trading session
+    float max_day_nValue_abs = 204; // absolute notional value, |NValueBot| + |NValueSld| per trading session
+    string modified_by = 172;
+    SysEnvironment modified_in = 175;
+    google.protobuf.Timestamp timestamp = 178;
+}
+
+

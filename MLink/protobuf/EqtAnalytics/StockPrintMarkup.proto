@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    StockPrintMarkup records are created/published for all stock prints
+*/    
+message StockPrintMarkup {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 prt_number = 100;
+    StkExch prt_exch = 103; // print exch
+    int32 prt_size = 106; // print size
+    float prt_price = 109; // print price level
+    int32 prt_cluster_num = 112; // incremental print cluster counter (one counter per ticker; used to group prints into clusters)
+    int32 prt_cluster_size = 115; // cumulative size of prints in this sequence (prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    int32 prt_volume = 118; // cumulative print size today
+    float mrk_price = 121; // last regular market print price
+    int32 prt_type = 124; // OPRA message type (from OPRA spec)
+    int32 prt_cond1 = 127; // print condition (from SIP feed)
+    int32 prt_cond2 = 130;
+    int32 prt_cond3 = 133;
+    int32 prt_cond4 = 136;
+    PrtSide prt_side = 139; // Print side: None; Mid; Bid; Ask
+    float bid_price = 142; // nbbo bid @ print arrival time
+    float ask_price = 145; // nbbo ask @ print arrival time
+    int32 bid_size = 148;
+    int32 ask_size = 151;
+    float bid_price2 = 154; // nbbo 2nd best bid @ print arrival time
+    float ask_price2 = 157; // nbbo 2nd best ask @ print arrival time
+    int32 bid_size2 = 160; // nbbo 2nd best bid size
+    int32 ask_size2 = 163; // nbbo 2nd best ask size
+    int64 src_timestamp = 166; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 169; // inbound print packet PTP timestamp from SR gateway switch
+    google.protobuf.Timestamp timestamp = 172;
+}
+
+

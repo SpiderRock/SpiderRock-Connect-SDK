@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table allows custom span risk calculations based on either user or SR supplied input values.
+*/    
+message VolTimeCalculator {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        SpdrKeyType sec_type = 11;
+        DateKey end_date = 12; // period end date (CST)
+        string user_name = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Duration end_time = 100; // period end time (CST)
+    google.protobuf.Timestamp now_dttm = 103; // period start time (CST)
+    FieldSrc now_src = 106; // default is clock time when selecting
+    CalendarCode holiday_calendar = 115;
+    FieldSrc holiday_calendar_src = 118;
+    double years_vT70 = 152; // volatility years from nowDttm to endDttm using TradingCalendar (SR NMS Trading/Volatility Calendar)
+    double years_y252 = 153;
+    double years_y365 = 154;
+    int32 partial_days = 127; // number of partial trading days (half-days) between endpoints.
+    int32 holiday_days = 130; // number of holidays (days that would otherwise be trading days) between endpoints.
+    int32 complete_days = 133; // number of complete trading days between endpoints.
+    string error = 148; // calculation error
+    google.protobuf.Timestamp timestamp = 151;
+}
+
+

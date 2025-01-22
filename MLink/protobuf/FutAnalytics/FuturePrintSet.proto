@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    FuturePrintSet records are created for all future prints (outrights and spreads) and published to the SpiderRock elastic cluster when markup detail is complete (F+10M)
+*/    
+message FuturePrintSet {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+        int64 prt_number = 11; // Unique print set identifier; will increment but not guaranteed to be sequential.
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    PrtUpdateType update_type = 203;
+    TickerKey ticker = 103; // underlying stock key
+    FutExch prt_exch = 106; // print exchange
+    int32 prt_size = 109; // print size [contracts]
+    double prt_price = 112; // print price
+    int32 prt_type = 115; // print type [exchange specific]
+    uint32 prt_orders = 118; // number of orders participating in this print
+    int32 prt_cluster_num = 121; // incremental print cluster counter (one counter per fkey; used to group prints into clusters)
+    int32 prt_cluster_size = 124; // cumulative size of prints in this sequence (prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    int32 prt_volume = 127; // cumulative day (electronic) print volume in contracts
+    PrtSide prt_side = 130; // Print side: None; Mid; Bid; Ask
+    int64 prt_timestamp = 133; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 136; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    google.protobuf.Timestamp timestamp = 139;
+    double bid_price = 142; // exch best bid @ print arrival time
+    double ask_price = 145; // exch best ask @ print arrival time
+    int32 bid_size = 148; // bid size @ print arrival time
+    int32 ask_size = 151; // ask size @ print arrival time
+    double bid_price2 = 154; // exch 2nd best bid @ print arrival time
+    double ask_price2 = 157; // exch 2nd best ask @ print arrival time
+    int32 bid_size2 = 160; // 2nd best bid @ print arrival time
+    int32 ask_size2 = 163; // 2nd best ask @ print arrival time
+    float prt_probability = 166; // [M1] probability that buying prtQuan contracts @ prtPrice will have positive m1 pnl (prtPriceM1 >= prtPrice) [recorded at time of print]
+    double bid_price_m1 = 175; // bid price +1 minute
+    double ask_price_m1 = 178; // ask price +1 minute
+    double prt_price_m1 = 181; // market price +1 minute [mid-quote if not intervening prints;most recent print otherwise]
+    float pnl_m1 = 184; // pnl after 1 minute
+    YesNo pnl_m1_err = 187;
+}
+
+

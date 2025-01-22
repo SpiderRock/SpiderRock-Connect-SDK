@@ -14,7 +14,7 @@ message SpdrAuctionState {
         OptionKey sec_key = 10;
         SpdrKeyType sec_type = 11;
         OptExch auction_exch = 12; // exchange handling the auction
-        string auction_ex_dest = 13; // external exDest of auction (usually means auction is off-exchange)
+        string auction_ex_dest = 14; // external exDest of auction (usually means auction is off-exchange)
     }
 
     message Legs {

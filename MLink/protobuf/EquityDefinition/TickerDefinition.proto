@@ -16,6 +16,12 @@ message TickerDefinition {
         TickerKey ticker = 10;
     }
 
+    message Exchange {
+        
+        StkExch stk_exch = 261;
+        TickerKey ticker = 262;
+    }
+
 
     MessageMetadata _meta = 1;
     
@@ -25,6 +31,7 @@ message TickerDefinition {
     string name = 106; // Symbol name
     string country = 109; // ISO Issuer Country Code
     Currency primary_currency = 254;
+    RateCurve rate_curve = 255;
     float par_value = 112; // Security Parvalue
     string par_value_currency = 115; // Security Parvalue currency
     float point_value = 118;
@@ -35,7 +42,7 @@ message TickerDefinition {
     string mic_seg = 133; // ISO Market Indentification Segment Code
     string symbol = 136; // trading symbol (w/o dot notation)
     string issue_class = 139; // issue class of stock symbol.  if no issue class field will be blank.
-    int32 shares_outstanding = 142; // symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)
+    int64 shares_outstanding = 256; // symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)
     string cusip = 145; // cusip code
     int32 ind_num = 148; // IND (2 digits)
     int32 sub_num = 151; // SUB (4 digits)
@@ -65,14 +72,19 @@ message TickerDefinition {
     TkDefSource tk_def_source = 223; // Ticker definition source: None; Vendor; OTC; SR; Exchange
     TkStatusFlag status_flag = 226;
     TapeCode tape_code = 229; // SIP Tape Code
-    float stk_volume = 232; // trailing average 20D daily stock volume
-    float fut_volume = 235; // trailing average 20D daily future volume
-    float opt_volume = 238; // trailing average 20D daily option volume
+    float stk_volume = 232; // daily stock volume
+    float fut_volume = 235; // daily future volume
+    float opt_volume = 238; // daily option volume
     string exch_string = 241; // exchanges listing any options on this underlying
     YesNo has_options = 244; // Has Options flag
     int32 num_options = 247; // total number of listed options
+    TickerKey basis_key = 257; // skew basis fn key
+    YesNo reverse_skew = 258; // if Yes/No, force skew curve norma/reverse (left/right) orientation,  if None, auto-determine from data
     TimeMetric time_metric = 250; // trading time metric - 252 or 365 trading days or a weekly cycle type
+    TradingPeriod trading_period = 259; // trading period code (defines 24-hour trading period start/stop)
+    TickerKey regional_composite_ticker = 263; // regional composite ticker - set on European contributor products only
     google.protobuf.Timestamp timestamp = 253;
+    repeated Exchange exchange = 260;
 }
 
 

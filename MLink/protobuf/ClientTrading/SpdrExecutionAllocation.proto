@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrExecutionAllocation {
+    message PKey {
+        
+        int64 alloc_number = 10; // unique number for this allocation request
+    }
+
+    message ChildOrders {
+        
+        int64 cl_ord_id = 133;
+    }
+
+    message Fragments {
+        
+        string alloc_accnt = 139; // SR alloc accnt
+        int32 alloc_size = 142; // target alloc size
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 base_parent_number = 100; // Filled only when generated from SpdrParentAllocation. 0 otherwise
+    string omni_accnt = 103; // omnibus accnt (SR accnt)
+    string client_firm = 152; // SR client firm
+    OptionKey sec_key = 106; // security key (stock, future, or option)
+    SpdrKeyType sec_type = 109; // security type
+    string mleg_leg_key = 112; // [secKey.StringKey;legRatio;side;positionEffect, secKey.StringKey;legRatio;side;positionEffect, ...]
+    BuySell order_side = 115; // order side (always buy for MLEG orders)
+    ShortSaleFlag ssale_flag = 118; // ssale flag (None if not stock)
+    PositionType position_type = 121; // positionType (None if not equity option)
+    AllocationRule allocation_rule = 124;
+    YesNo ready_to_send = 127; // indicates that this noticed is ready to forward to a custodian
+    string modified_by = 145; // user who last modified this record
+    SysEnvironment modified_in = 148;
+    google.protobuf.Timestamp timestamp = 151; // timestamp of last modification
+    repeated ChildOrders child_orders = 130;
+    repeated Fragments fragments = 136;
+}
+
+

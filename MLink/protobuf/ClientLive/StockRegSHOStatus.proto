@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockRegSHOStatus {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    RegSHOStatus reg_sHOStatus = 100; // Reg SHO status: None - no short sell restrictions, Restricted - Reg SHO short restrictions in place
+    google.protobuf.Timestamp timestamp = 103; // timestamp of last update
+}
+
+
