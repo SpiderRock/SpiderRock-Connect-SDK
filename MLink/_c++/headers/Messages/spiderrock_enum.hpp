@@ -1138,6 +1138,11 @@ enum class DeliveryState : uint8_t {
     DELIVERYSTATE_DELIVERED = 1,
     DELIVERYSTATE_UNSPECIFIED = 0
     };
+enum class DeltaDirection : uint8_t {
+	DELTADIRECTION_TWO_WAY = 2,
+    DELTADIRECTION_ONE_WAY = 1,
+    DELTADIRECTION_UNSPECIFIED = 0
+    };
 enum class DivControl : uint8_t {
 	DIVCONTROL_DISABLE_ESTIMATES = 2,
     DIVCONTROL_DISABLE_ANY = 1,
@@ -2100,6 +2105,14 @@ enum class Multihedge : uint8_t {
     MULTIHEDGE_SIMPLE = 1,
     MULTIHEDGE_UNSPECIFIED = 0
     };
+enum class NbboCap : uint8_t {
+	NBBOCAP_TEN_PENNIES = 5,
+    NBBOCAP_FIVE_PENNIES = 4,
+    NBBOCAP_PENNY = 3,
+    NBBOCAP_NBBO = 2,
+    NBBOCAP_NO_CAP = 1,
+    NBBOCAP_UNSPECIFIED = 0
+    };
 enum class NoticeResult : uint8_t {
 	NOTICERESULT_PENDING = 7,
     NOTICERESULT_DID_NOT_TRADE = 6,
@@ -2671,7 +2684,8 @@ enum class ProductType : uint8_t {
     PRODUCTTYPE_UNSPECIFIED = 0
     };
 enum class ProgressRule : uint8_t {
-	PROGRESSRULE_IOC = 15,
+	PROGRESSRULE_FLASH_MAKE_TAKE = 16,
+    PROGRESSRULE_IOC = 15,
     PROGRESSRULE_SPDR_PULSE = 14,
     PROGRESSRULE_MANUAL = 13,
     PROGRESSRULE_ALLOW_IMMEDIATE = 12,

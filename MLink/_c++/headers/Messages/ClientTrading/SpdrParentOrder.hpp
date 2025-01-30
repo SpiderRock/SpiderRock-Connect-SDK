@@ -515,6 +515,11 @@ namespace api {
     DECL_STRONG_TYPE(order_ref_event_dttm, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_order_ref_event_dttm__GUARD__
 
+    #ifndef _nbbo_cap__GUARD__
+    #define _nbbo_cap__GUARD__
+    DECL_STRONG_TYPE(nbbo_cap, spiderrock::protobuf::api::NbboCap);
+    #endif//_nbbo_cap__GUARD__
+
     #ifndef _auto_hedge__GUARD__
     #define _auto_hedge__GUARD__
     DECL_STRONG_TYPE(auto_hedge, spiderrock::protobuf::api::AutoHedge);
@@ -2871,6 +2876,7 @@ namespace api {
         using make_surf_width_offset = spiderrock::protobuf::api::make_surf_width_offset;
         using order_ref_event_mult = spiderrock::protobuf::api::order_ref_event_mult;
         using order_ref_event_dttm = spiderrock::protobuf::api::order_ref_event_dttm;
+        using nbbo_cap = spiderrock::protobuf::api::nbbo_cap;
         using auto_hedge = spiderrock::protobuf::api::auto_hedge;
         using hedge_instrument = spiderrock::protobuf::api::hedge_instrument;
         using hedge_sec_key = spiderrock::protobuf::api::hedge_sec_key;
@@ -3063,6 +3069,7 @@ namespace api {
         make_surf_width_offset m_make_surf_width_offset{};
         order_ref_event_mult m_order_ref_event_mult{};
         order_ref_event_dttm m_order_ref_event_dttm{};
+        nbbo_cap m_nbbo_cap{};
         auto_hedge m_auto_hedge{};
         hedge_instrument m_hedge_instrument{};
         hedge_sec_key m_hedge_sec_key{};
@@ -3454,6 +3461,9 @@ namespace api {
         }		
         order_ref_event_dttm get_order_ref_event_dttm() const {
             return m_order_ref_event_dttm;
+        }		
+        nbbo_cap get_nbbo_cap() const {
+            return m_nbbo_cap;
         }		
         auto_hedge get_auto_hedge() const {
             return m_auto_hedge;
@@ -4034,6 +4044,9 @@ namespace api {
         }
         void set_order_ref_event_dttm(const order_ref_event_dttm& value)  {
             m_order_ref_event_dttm = value;
+        }
+        void set_nbbo_cap(const nbbo_cap& value)  {
+            m_nbbo_cap = value;
         }
         void set_auto_hedge(const auto_hedge& value)  {
             m_auto_hedge = value;
@@ -4625,6 +4638,9 @@ namespace api {
         void set(const order_ref_event_dttm & value) {
             set_order_ref_event_dttm(value);
         }
+        void set(const nbbo_cap & value) {
+            set_nbbo_cap(value);
+        }
         void set(const auto_hedge & value) {
             set_auto_hedge(value);
         }
@@ -4999,6 +5015,7 @@ namespace api {
             set(value.m_make_surf_width_offset);
             set(value.m_order_ref_event_mult);
             set(value.m_order_ref_event_dttm);
+            set(value.m_nbbo_cap);
             set(value.m_auto_hedge);
             set(value.m_hedge_instrument);
             set(value.m_hedge_sec_key);
@@ -5793,6 +5810,7 @@ namespace api {
             if ( IncludeOrderRefEventDttm()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(391, m_order_ref_event_dttm);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1044,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>(m_nbbo_cap)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(394,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(397,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
@@ -6279,6 +6297,7 @@ namespace api {
             if ( IncludeOrderRefEventDttm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 391, m_order_ref_event_dttm);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1044,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>(m_nbbo_cap)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,394,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,397,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
@@ -7105,6 +7124,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 1044: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_nbbo_cap = static_cast<spiderrock::protobuf::api::NbboCap>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 394: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_auto_hedge = static_cast<spiderrock::protobuf::api::AutoHedge>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -7748,6 +7772,7 @@ namespace api {
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::make_surf_width_offset>() const { return m_make_surf_width_offset; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::order_ref_event_mult>() const { return m_order_ref_event_mult; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::order_ref_event_dttm>() const { return m_order_ref_event_dttm; }
+    template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::nbbo_cap>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>( m_nbbo_cap)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::auto_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>( m_auto_hedge)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::hedge_instrument>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>( m_hedge_instrument)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::hedge_sec_key>() const { return SpdrParentOrder::hedge_sec_key{ m_hedge_sec_key}; }
@@ -8144,6 +8169,7 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"order_ref_event_dttm\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"nbbo_cap\":" << (int64_t)m.get<SpdrParentOrder::nbbo_cap>();
         o << ",\"auto_hedge\":" << (int64_t)m.get<SpdrParentOrder::auto_hedge>();
         o << ",\"hedge_instrument\":" << (int64_t)m.get<SpdrParentOrder::hedge_instrument>();
         o << ",\"hedge_sec_key\":{" << m.get<SpdrParentOrder::hedge_sec_key>() << "}";

@@ -615,6 +615,11 @@ namespace api {
     DECL_STRONG_TYPE(order_ref_event_dttm, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_order_ref_event_dttm__GUARD__
 
+    #ifndef _nbbo_cap__GUARD__
+    #define _nbbo_cap__GUARD__
+    DECL_STRONG_TYPE(nbbo_cap, spiderrock::protobuf::api::NbboCap);
+    #endif//_nbbo_cap__GUARD__
+
     #ifndef _extern_hedge_ex_dest__GUARD__
     #define _extern_hedge_ex_dest__GUARD__
     DECL_STRONG_TYPE(extern_hedge_ex_dest, string);
@@ -4845,6 +4850,7 @@ namespace api {
         using make_surf_width_offset = spiderrock::protobuf::api::make_surf_width_offset;
         using order_ref_event_mult = spiderrock::protobuf::api::order_ref_event_mult;
         using order_ref_event_dttm = spiderrock::protobuf::api::order_ref_event_dttm;
+        using nbbo_cap = spiderrock::protobuf::api::nbbo_cap;
         using extern_hedge_ex_dest = spiderrock::protobuf::api::extern_hedge_ex_dest;
         using extern_hedge_params = spiderrock::protobuf::api::extern_hedge_params;
         using spdr_order_status = spiderrock::protobuf::api::spdr_order_status;
@@ -5055,6 +5061,7 @@ namespace api {
         make_surf_width_offset m_make_surf_width_offset{};
         order_ref_event_mult m_order_ref_event_mult{};
         order_ref_event_dttm m_order_ref_event_dttm{};
+        nbbo_cap m_nbbo_cap{};
         extern_hedge_ex_dest m_extern_hedge_ex_dest{};
         extern_hedge_params m_extern_hedge_params{};
         spdr_order_status m_spdr_order_status{};
@@ -5504,6 +5511,9 @@ namespace api {
         }		
         order_ref_event_dttm get_order_ref_event_dttm() const {
             return m_order_ref_event_dttm;
+        }		
+        nbbo_cap get_nbbo_cap() const {
+            return m_nbbo_cap;
         }		
         extern_hedge_ex_dest get_extern_hedge_ex_dest() const {
             return m_extern_hedge_ex_dest;
@@ -6144,6 +6154,9 @@ namespace api {
         }
         void set_order_ref_event_dttm(const order_ref_event_dttm& value)  {
             m_order_ref_event_dttm = value;
+        }
+        void set_nbbo_cap(const nbbo_cap& value)  {
+            m_nbbo_cap = value;
         }
         void set_extern_hedge_ex_dest(const extern_hedge_ex_dest& value)  {
             m_extern_hedge_ex_dest = value;
@@ -6795,6 +6808,9 @@ namespace api {
         void set(const order_ref_event_dttm & value) {
             set_order_ref_event_dttm(value);
         }
+        void set(const nbbo_cap & value) {
+            set_nbbo_cap(value);
+        }
         void set(const extern_hedge_ex_dest & value) {
             set_extern_hedge_ex_dest(value);
         }
@@ -7183,6 +7199,7 @@ namespace api {
             set(value.m_make_surf_width_offset);
             set(value.m_order_ref_event_mult);
             set(value.m_order_ref_event_dttm);
+            set(value.m_nbbo_cap);
             set(value.m_extern_hedge_ex_dest);
             set(value.m_extern_hedge_params);
             set(value.m_spdr_order_status);
@@ -8048,6 +8065,7 @@ namespace api {
             if ( IncludeOrderRefEventDttm()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(1089, m_order_ref_event_dttm);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1099,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>(m_nbbo_cap)));
             if ( IncludeExternHedgeExDest()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(1096,m_extern_hedge_ex_dest);
             }
@@ -8578,6 +8596,7 @@ namespace api {
             if ( IncludeOrderRefEventDttm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 1089, m_order_ref_event_dttm);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1099,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>(m_nbbo_cap)));
             if ( IncludeExternHedgeExDest()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,1096,static_cast<string>(m_extern_hedge_ex_dest));
             }
@@ -9511,6 +9530,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 1099: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_nbbo_cap = static_cast<spiderrock::protobuf::api::NbboCap>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 1096: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_extern_hedge_ex_dest = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -10162,6 +10186,7 @@ namespace api {
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::make_surf_width_offset>() const { return m_make_surf_width_offset; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::order_ref_event_mult>() const { return m_order_ref_event_mult; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::order_ref_event_dttm>() const { return m_order_ref_event_dttm; }
+    template<> inline const auto SpdrParentReport::get<SpdrParentReport::nbbo_cap>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>( m_nbbo_cap)); }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::extern_hedge_ex_dest>() const { return m_extern_hedge_ex_dest; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::extern_hedge_params>() const { return m_extern_hedge_params; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::spdr_order_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrOrderStatus>( m_spdr_order_status)); }
@@ -10827,6 +10852,7 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"order_ref_event_dttm\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"nbbo_cap\":" << (int64_t)m.get<SpdrParentReport::nbbo_cap>();
         o << ",\"extern_hedge_ex_dest\":\"" << m.get<SpdrParentReport::extern_hedge_ex_dest>() << "\"";
         o << ",\"extern_hedge_params\":\"" << m.get<SpdrParentReport::extern_hedge_params>() << "\"";
         o << ",\"spdr_order_status\":" << (int64_t)m.get<SpdrParentReport::spdr_order_status>();

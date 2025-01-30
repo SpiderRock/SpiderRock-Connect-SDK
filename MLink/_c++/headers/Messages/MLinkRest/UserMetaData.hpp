@@ -255,10 +255,10 @@ namespace api {
     DECL_STRONG_TYPE(token__MarketDataToken, spiderrock::protobuf::api::MarketDataToken);
     #endif//_token__MarketDataToken__GUARD__
 
-    #ifndef _scope__MarketDataScope__GUARD__
-    #define _scope__MarketDataScope__GUARD__
-    DECL_STRONG_TYPE(scope__MarketDataScope, spiderrock::protobuf::api::MarketDataScope);
-    #endif//_scope__MarketDataScope__GUARD__
+    #ifndef _scope__GUARD__
+    #define _scope__GUARD__
+    DECL_STRONG_TYPE(scope, spiderrock::protobuf::api::MarketDataScope);
+    #endif//_scope__GUARD__
 
     #ifndef _expires__GUARD__
     #define _expires__GUARD__
@@ -580,7 +580,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using token = spiderrock::protobuf::api::token__MarketDataToken;
-        using scope = spiderrock::protobuf::api::scope__MarketDataScope;
+        using scope = spiderrock::protobuf::api::scope;
         using expires = spiderrock::protobuf::api::expires;
 
         private:

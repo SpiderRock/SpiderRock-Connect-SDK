@@ -810,10 +810,10 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(118,m_years);
             }
             if ( IncludeSdiv()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(121,m_sdiv);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(199,m_sdiv);
             }
             if ( IncludeRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_rate);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(200,m_rate);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
@@ -823,7 +823,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcEngine>(m_calc_engine)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
             if ( IncludeVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(154,m_vol);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(201,m_vol);
             }
             if ( IncludeEffStrike()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(157,m_eff_strike);
@@ -898,10 +898,10 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,118,m_years);
             }
             if ( IncludeSdiv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,121,m_sdiv);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,199,m_sdiv);
             }
             if ( IncludeRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,200,m_rate);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
@@ -911,7 +911,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcEngine>(m_calc_engine)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
             if ( IncludeVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,154,m_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,201,m_vol);
             }
             if ( IncludeEffStrike()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,157,m_eff_strike);
@@ -1010,13 +1010,13 @@ namespace api {
                         }
                         break;
                     }
-                    case 121: {
+                    case 199: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_sdiv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 200: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_rate = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
@@ -1057,7 +1057,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 154: {
+                    case 201: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_vol = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }

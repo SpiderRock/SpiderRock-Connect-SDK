@@ -6,11 +6,6 @@
 #include "spiderrock_protobuf_base.hpp"
 
 #include "spiderrock_common.hpp"
-#include "ClientConfig/ClientFirmConfig.hpp"
-#include "ClientConfig/ClientPrivateSRSE.hpp"
-#include "ClientConfig/UserAuthentication.hpp"
-#include "ClientConfig/UserConfig.hpp"
-#include "ClientConfig/UserMessage.hpp"
 #include "ClientControl/AccountRouteConfig.hpp"
 #include "ClientControl/AltSymbolMap.hpp"
 #include "ClientControl/AssetAccountControl.hpp"
@@ -167,7 +162,6 @@
 #include "FxMktData/CurrencyConversion.hpp"
 #include "GlobalDefinition/GlobalDividends.hpp"
 #include "GlobalDefinition/GlobalRates.hpp"
-#include "GlobalDefinition/StockEarningsCalendar_Extern.hpp"
 #include "MLinkRest/AggregateCount.hpp"
 #include "MLinkRest/AggregateNumeric.hpp"
 #include "MLinkRest/AggregateString.hpp"
@@ -195,6 +189,7 @@
 #include "NationsIndex/NationsIndexPrice.hpp"
 #include "OptAnalytics/LiveImpliedQuote.hpp"
 #include "OptAnalytics/LiveImpliedQuoteAdj.hpp"
+#include "OptAnalytics/LiveImpliedQuoteDisp.hpp"
 #include "OptAnalytics/LiveRevConQuote.hpp"
 #include "OptAnalytics/OptionPrintSet.hpp"
 #include "OptAnalytics/OptionRiskFactor.hpp"
@@ -280,11 +275,6 @@ namespace api {
 
 template <typename Derived>
 class Observer {
-    ClientFirmConfig msgClientFirmConfig{};
-    ClientPrivateSRSE msgClientPrivateSRSE{};
-    UserAuthentication msgUserAuthentication{};
-    UserConfig msgUserConfig{};
-    UserMessage msgUserMessage{};
     AccountRouteConfig msgAccountRouteConfig{};
     AltSymbolMap msgAltSymbolMap{};
     AssetAccountControl msgAssetAccountControl{};
@@ -441,7 +431,6 @@ class Observer {
     CurrencyConversion msgCurrencyConversion{};
     GlobalDividends msgGlobalDividends{};
     GlobalRates msgGlobalRates{};
-    StockEarningsCalendar_Extern msgStockEarningsCalendar_Extern{};
     AggregateCount msgAggregateCount{};
     AggregateNumeric msgAggregateNumeric{};
     AggregateString msgAggregateString{};
@@ -469,6 +458,7 @@ class Observer {
     NationsIndexPrice msgNationsIndexPrice{};
     LiveImpliedQuote msgLiveImpliedQuote{};
     LiveImpliedQuoteAdj msgLiveImpliedQuoteAdj{};
+    LiveImpliedQuoteDisp msgLiveImpliedQuoteDisp{};
     LiveRevConQuote msgLiveRevConQuote{};
     OptionPrintSet msgOptionPrintSet{};
     OptionRiskFactor msgOptionRiskFactor{};
@@ -598,36 +588,6 @@ class Observer {
 
     void dispatch_message(int message_number, const char *buf, int len) {
         switch (message_number) {
-            case 1850: {  // ClientFirmConfig
-			    msgClientFirmConfig.Clear();
-                msgClientFirmConfig.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const ClientFirmConfig &)msgClientFirmConfig);
-                break;
-            }
-            case 1910: {  // ClientPrivateSRSE
-			    msgClientPrivateSRSE.Clear();
-                msgClientPrivateSRSE.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const ClientPrivateSRSE &)msgClientPrivateSRSE);
-                break;
-            }
-            case 1905: {  // UserAuthentication
-			    msgUserAuthentication.Clear();
-                msgUserAuthentication.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const UserAuthentication &)msgUserAuthentication);
-                break;
-            }
-            case 1875: {  // UserConfig
-			    msgUserConfig.Clear();
-                msgUserConfig.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const UserConfig &)msgUserConfig);
-                break;
-            }
-            case 1900: {  // UserMessage
-			    msgUserMessage.Clear();
-                msgUserMessage.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const UserMessage &)msgUserMessage);
-                break;
-            }
             case 1810: {  // AccountRouteConfig
 			    msgAccountRouteConfig.Clear();
                 msgAccountRouteConfig.ParseFromArray(buf, len);
@@ -1564,12 +1524,6 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const GlobalRates &)msgGlobalRates);
                 break;
             }
-            case 2150: {  // StockEarningsCalendar_Extern
-			    msgStockEarningsCalendar_Extern.Clear();
-                msgStockEarningsCalendar_Extern.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const StockEarningsCalendar_Extern &)msgStockEarningsCalendar_Extern);
-                break;
-            }
             case 3456: {  // AggregateCount
 			    msgAggregateCount.Clear();
                 msgAggregateCount.ParseFromArray(buf, len);
@@ -1730,6 +1684,12 @@ class Observer {
 			    msgLiveImpliedQuoteAdj.Clear();
                 msgLiveImpliedQuoteAdj.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const LiveImpliedQuoteAdj &)msgLiveImpliedQuoteAdj);
+                break;
+            }
+            case 1017: {  // LiveImpliedQuoteDisp
+			    msgLiveImpliedQuoteDisp.Clear();
+                msgLiveImpliedQuoteDisp.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const LiveImpliedQuoteDisp &)msgLiveImpliedQuoteDisp);
                 break;
             }
             case 1125: {  // LiveRevConQuote

@@ -845,6 +845,26 @@ namespace api {
     DECL_STRONG_TYPE(fut_margin, float);
     #endif//_fut_margin__GUARD__
 
+    #ifndef _margin_udn_vdn__GUARD__
+    #define _margin_udn_vdn__GUARD__
+    DECL_STRONG_TYPE(margin_udn_vdn, float);
+    #endif//_margin_udn_vdn__GUARD__
+
+    #ifndef _margin_udn_vup__GUARD__
+    #define _margin_udn_vup__GUARD__
+    DECL_STRONG_TYPE(margin_udn_vup, float);
+    #endif//_margin_udn_vup__GUARD__
+
+    #ifndef _margin_uup_vdn__GUARD__
+    #define _margin_uup_vdn__GUARD__
+    DECL_STRONG_TYPE(margin_uup_vdn, float);
+    #endif//_margin_uup_vdn__GUARD__
+
+    #ifndef _margin_uup_vup__GUARD__
+    #define _margin_uup_vup__GUARD__
+    DECL_STRONG_TYPE(margin_uup_vup, float);
+    #endif//_margin_uup_vup__GUARD__
+
     #ifndef _num_fut_errors__GUARD__
     #define _num_fut_errors__GUARD__
     DECL_STRONG_TYPE(num_fut_errors, int32);
@@ -1234,6 +1254,10 @@ namespace api {
         using fc_sld_c1 = spiderrock::protobuf::api::fc_sld_c1;
         using fc_mny_c1 = spiderrock::protobuf::api::fc_mny_c1;
         using fut_margin = spiderrock::protobuf::api::fut_margin;
+        using margin_udn_vdn = spiderrock::protobuf::api::margin_udn_vdn;
+        using margin_udn_vup = spiderrock::protobuf::api::margin_udn_vup;
+        using margin_uup_vdn = spiderrock::protobuf::api::margin_uup_vdn;
+        using margin_uup_vup = spiderrock::protobuf::api::margin_uup_vup;
         using num_fut_errors = spiderrock::protobuf::api::num_fut_errors;
         using num_opt_errors = spiderrock::protobuf::api::num_opt_errors;
         using fut_mark_flag = spiderrock::protobuf::api::fut_mark_flag;
@@ -1406,6 +1430,10 @@ namespace api {
         fc_sld_c1 m_fc_sld_c1{};
         fc_mny_c1 m_fc_mny_c1{};
         fut_margin m_fut_margin{};
+        margin_udn_vdn m_margin_udn_vdn{};
+        margin_udn_vup m_margin_udn_vup{};
+        margin_uup_vdn m_margin_uup_vdn{};
+        margin_uup_vup m_margin_uup_vup{};
         num_fut_errors m_num_fut_errors{};
         num_opt_errors m_num_opt_errors{};
         fut_mark_flag m_fut_mark_flag{};
@@ -1909,6 +1937,18 @@ namespace api {
         }		
         fut_margin get_fut_margin() const {
             return m_fut_margin;
+        }		
+        margin_udn_vdn get_margin_udn_vdn() const {
+            return m_margin_udn_vdn;
+        }		
+        margin_udn_vup get_margin_udn_vup() const {
+            return m_margin_udn_vup;
+        }		
+        margin_uup_vdn get_margin_uup_vdn() const {
+            return m_margin_uup_vdn;
+        }		
+        margin_uup_vup get_margin_uup_vup() const {
+            return m_margin_uup_vup;
         }		
         num_fut_errors get_num_fut_errors() const {
             return m_num_fut_errors;
@@ -2423,6 +2463,18 @@ namespace api {
         }
         void set_fut_margin(const fut_margin& value)  {
             m_fut_margin = value;
+        }
+        void set_margin_udn_vdn(const margin_udn_vdn& value)  {
+            m_margin_udn_vdn = value;
+        }
+        void set_margin_udn_vup(const margin_udn_vup& value)  {
+            m_margin_udn_vup = value;
+        }
+        void set_margin_uup_vdn(const margin_uup_vdn& value)  {
+            m_margin_uup_vdn = value;
+        }
+        void set_margin_uup_vup(const margin_uup_vup& value)  {
+            m_margin_uup_vup = value;
         }
         void set_num_fut_errors(const num_fut_errors& value)  {
             m_num_fut_errors = value;
@@ -2942,6 +2994,18 @@ namespace api {
         void set(const fut_margin & value) {
             set_fut_margin(value);
         }
+        void set(const margin_udn_vdn & value) {
+            set_margin_udn_vdn(value);
+        }
+        void set(const margin_udn_vup & value) {
+            set_margin_udn_vup(value);
+        }
+        void set(const margin_uup_vdn & value) {
+            set_margin_uup_vdn(value);
+        }
+        void set(const margin_uup_vup & value) {
+            set_margin_uup_vup(value);
+        }
         void set(const num_fut_errors & value) {
             set_num_fut_errors(value);
         }
@@ -3124,6 +3188,10 @@ namespace api {
             set(value.m_fc_sld_c1);
             set(value.m_fc_mny_c1);
             set(value.m_fut_margin);
+            set(value.m_margin_udn_vdn);
+            set(value.m_margin_udn_vup);
+            set(value.m_margin_uup_vdn);
+            set(value.m_margin_uup_vup);
             set(value.m_num_fut_errors);
             set(value.m_num_opt_errors);
             set(value.m_fut_mark_flag);
@@ -3676,6 +3744,18 @@ namespace api {
         bool IncludeFutMargin() const {
             return !(m_fut_margin == 0.0);
         }
+        bool IncludeMarginUdnVdn() const {
+            return !(m_margin_udn_vdn == 0.0);
+        }
+        bool IncludeMarginUdnVup() const {
+            return !(m_margin_udn_vup == 0.0);
+        }
+        bool IncludeMarginUupVdn() const {
+            return !(m_margin_uup_vdn == 0.0);
+        }
+        bool IncludeMarginUupVup() const {
+            return !(m_margin_uup_vup == 0.0);
+        }
         bool IncludeNumFutErrors() const {
             return !(m_num_fut_errors == 0);
         }
@@ -4187,6 +4267,18 @@ namespace api {
             }
             if ( IncludeFutMargin()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(565,m_fut_margin);
+            }
+            if ( IncludeMarginUdnVdn()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(590,m_margin_udn_vdn);
+            }
+            if ( IncludeMarginUdnVup()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(591,m_margin_udn_vup);
+            }
+            if ( IncludeMarginUupVdn()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(592,m_margin_uup_vdn);
+            }
+            if ( IncludeMarginUupVup()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(593,m_margin_uup_vup);
             }
             if ( IncludeNumFutErrors()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(568,m_num_fut_errors);
@@ -4701,6 +4793,18 @@ namespace api {
             }
             if ( IncludeFutMargin()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,565,m_fut_margin);
+            }
+            if ( IncludeMarginUdnVdn()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,590,m_margin_udn_vdn);
+            }
+            if ( IncludeMarginUdnVup()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,591,m_margin_udn_vup);
+            }
+            if ( IncludeMarginUupVdn()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,592,m_margin_uup_vdn);
+            }
+            if ( IncludeMarginUupVup()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,593,m_margin_uup_vup);
             }
             if ( IncludeNumFutErrors()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,568,m_num_fut_errors);
@@ -5721,6 +5825,30 @@ namespace api {
                         }
                         break;
                     }
+                    case 590: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_margin_udn_vdn = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 591: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_margin_udn_vup = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 592: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_margin_uup_vdn = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 593: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_margin_uup_vup = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 568: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_num_fut_errors = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
@@ -5923,6 +6051,10 @@ namespace api {
     template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::fc_sld_c1>() const { return m_fc_sld_c1; }
     template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::fc_mny_c1>() const { return m_fc_mny_c1; }
     template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::fut_margin>() const { return m_fut_margin; }
+    template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::margin_udn_vdn>() const { return m_margin_udn_vdn; }
+    template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::margin_udn_vup>() const { return m_margin_udn_vup; }
+    template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::margin_uup_vdn>() const { return m_margin_uup_vdn; }
+    template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::margin_uup_vup>() const { return m_margin_uup_vup; }
     template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::num_fut_errors>() const { return m_num_fut_errors; }
     template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::num_opt_errors>() const { return m_num_opt_errors; }
     template<> inline const auto ProductRiskSummaryV5::get<ProductRiskSummaryV5::fut_mark_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MktErrFlag>( m_fut_mark_flag)); }
@@ -6121,6 +6253,10 @@ namespace api {
         o << ",\"fc_sld_c1\":" << m.get<ProductRiskSummaryV5::fc_sld_c1>();
         o << ",\"fc_mny_c1\":" << m.get<ProductRiskSummaryV5::fc_mny_c1>();
         o << ",\"fut_margin\":" << m.get<ProductRiskSummaryV5::fut_margin>();
+        o << ",\"margin_udn_vdn\":" << m.get<ProductRiskSummaryV5::margin_udn_vdn>();
+        o << ",\"margin_udn_vup\":" << m.get<ProductRiskSummaryV5::margin_udn_vup>();
+        o << ",\"margin_uup_vdn\":" << m.get<ProductRiskSummaryV5::margin_uup_vdn>();
+        o << ",\"margin_uup_vup\":" << m.get<ProductRiskSummaryV5::margin_uup_vup>();
         o << ",\"num_fut_errors\":" << m.get<ProductRiskSummaryV5::num_fut_errors>();
         o << ",\"num_opt_errors\":" << m.get<ProductRiskSummaryV5::num_opt_errors>();
         o << ",\"fut_mark_flag\":" << (int64_t)m.get<ProductRiskSummaryV5::fut_mark_flag>();
