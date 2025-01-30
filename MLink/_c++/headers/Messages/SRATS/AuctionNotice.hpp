@@ -110,6 +110,11 @@ namespace api {
     DECL_STRONG_TYPE(has_cust_prc, spiderrock::protobuf::api::YesNo);
     #endif//_has_cust_prc__GUARD__
 
+    #ifndef _cust_nbbo_cap__GUARD__
+    #define _cust_nbbo_cap__GUARD__
+    DECL_STRONG_TYPE(cust_nbbo_cap, spiderrock::protobuf::api::NbboCap);
+    #endif//_cust_nbbo_cap__GUARD__
+
     #ifndef _cust_firm_type__GUARD__
     #define _cust_firm_type__GUARD__
     DECL_STRONG_TYPE(cust_firm_type, spiderrock::protobuf::api::FirmType);
@@ -1052,6 +1057,7 @@ namespace api {
         using cust_qty = spiderrock::protobuf::api::cust_qty;
         using cust_prc = spiderrock::protobuf::api::cust_prc;
         using has_cust_prc = spiderrock::protobuf::api::has_cust_prc;
+        using cust_nbbo_cap = spiderrock::protobuf::api::cust_nbbo_cap;
         using cust_firm_type = spiderrock::protobuf::api::cust_firm_type;
         using cust_agent_mpid = spiderrock::protobuf::api::cust_agent_mpid;
         using cust_client_firm = spiderrock::protobuf::api::cust_client_firm;
@@ -1105,6 +1111,7 @@ namespace api {
         cust_qty m_cust_qty{};
         cust_prc m_cust_prc{};
         has_cust_prc m_has_cust_prc{};
+        cust_nbbo_cap m_cust_nbbo_cap{};
         cust_firm_type m_cust_firm_type{};
         cust_agent_mpid m_cust_agent_mpid{};
         cust_client_firm m_cust_client_firm{};
@@ -1195,6 +1202,9 @@ namespace api {
         }		
         has_cust_prc get_has_cust_prc() const {
             return m_has_cust_prc;
+        }		
+        cust_nbbo_cap get_cust_nbbo_cap() const {
+            return m_cust_nbbo_cap;
         }		
         cust_firm_type get_cust_firm_type() const {
             return m_cust_firm_type;
@@ -1358,6 +1368,9 @@ namespace api {
         }
         void set_has_cust_prc(const has_cust_prc& value)  {
             m_has_cust_prc = value;
+        }
+        void set_cust_nbbo_cap(const cust_nbbo_cap& value)  {
+            m_cust_nbbo_cap = value;
         }
         void set_cust_firm_type(const cust_firm_type& value)  {
             m_cust_firm_type = value;
@@ -1532,6 +1545,9 @@ namespace api {
         void set(const has_cust_prc & value) {
             set_has_cust_prc(value);
         }
+        void set(const cust_nbbo_cap & value) {
+            set_cust_nbbo_cap(value);
+        }
         void set(const cust_firm_type & value) {
             set_cust_firm_type(value);
         }
@@ -1651,6 +1667,7 @@ namespace api {
             set(value.m_cust_qty);
             set(value.m_cust_prc);
             set(value.m_has_cust_prc);
+            set(value.m_cust_nbbo_cap);
             set(value.m_cust_firm_type);
             set(value.m_cust_agent_mpid);
             set(value.m_cust_client_firm);
@@ -1883,6 +1900,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(113,m_cust_prc);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(114,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>(m_cust_nbbo_cap)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(162,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_cust_firm_type)));
             if ( IncludeCustAgentMpid()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(163,m_cust_agent_mpid);
@@ -2018,6 +2036,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,113,m_cust_prc);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,114,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_has_cust_prc)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>(m_cust_nbbo_cap)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,162,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_cust_firm_type)));
             if ( IncludeCustAgentMpid()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,163,static_cast<string>(m_cust_agent_mpid));
@@ -2223,6 +2242,11 @@ namespace api {
                     }
                     case 114: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_has_cust_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 187: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_cust_nbbo_cap = static_cast<spiderrock::protobuf::api::NbboCap>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2446,6 +2470,7 @@ namespace api {
     template<> inline const auto AuctionNotice::get<AuctionNotice::cust_qty>() const { return m_cust_qty; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::cust_prc>() const { return m_cust_prc; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::has_cust_prc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_has_cust_prc)); }
+    template<> inline const auto AuctionNotice::get<AuctionNotice::cust_nbbo_cap>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NbboCap>( m_cust_nbbo_cap)); }
     template<> inline const auto AuctionNotice::get<AuctionNotice::cust_firm_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>( m_cust_firm_type)); }
     template<> inline const auto AuctionNotice::get<AuctionNotice::cust_agent_mpid>() const { return m_cust_agent_mpid; }
     template<> inline const auto AuctionNotice::get<AuctionNotice::cust_client_firm>() const { return m_cust_client_firm; }
@@ -2577,6 +2602,7 @@ namespace api {
         o << ",\"cust_qty\":" << m.get<AuctionNotice::cust_qty>();
         o << ",\"cust_prc\":" << m.get<AuctionNotice::cust_prc>();
         o << ",\"has_cust_prc\":" << (int64_t)m.get<AuctionNotice::has_cust_prc>();
+        o << ",\"cust_nbbo_cap\":" << (int64_t)m.get<AuctionNotice::cust_nbbo_cap>();
         o << ",\"cust_firm_type\":" << (int64_t)m.get<AuctionNotice::cust_firm_type>();
         o << ",\"cust_agent_mpid\":\"" << m.get<AuctionNotice::cust_agent_mpid>() << "\"";
         o << ",\"cust_client_firm\":\"" << m.get<AuctionNotice::cust_client_firm>() << "\"";

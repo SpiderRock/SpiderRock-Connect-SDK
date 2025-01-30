@@ -75,6 +75,11 @@ namespace api {
     DECL_STRONG_TYPE(ref_ga, float);
     #endif//_ref_ga__GUARD__
 
+    #ifndef _delta_adj__GUARD__
+    #define _delta_adj__GUARD__
+    DECL_STRONG_TYPE(delta_adj, spiderrock::protobuf::api::DeltaDirection);
+    #endif//_delta_adj__GUARD__
+
     #ifndef _min_ubid__GUARD__
     #define _min_ubid__GUARD__
     DECL_STRONG_TYPE(min_ubid, float);
@@ -99,6 +104,61 @@ namespace api {
     #define _user_data1__GUARD__
     DECL_STRONG_TYPE(user_data1, string);
     #endif//_user_data1__GUARD__
+
+    #ifndef _locate_firm__GUARD__
+    #define _locate_firm__GUARD__
+    DECL_STRONG_TYPE(locate_firm, string);
+    #endif//_locate_firm__GUARD__
+
+    #ifndef _locate_pool__GUARD__
+    #define _locate_pool__GUARD__
+    DECL_STRONG_TYPE(locate_pool, string);
+    #endif//_locate_pool__GUARD__
+
+    #ifndef _req_aux_risk_group_ctrl__GUARD__
+    #define _req_aux_risk_group_ctrl__GUARD__
+    DECL_STRONG_TYPE(req_aux_risk_group_ctrl, spiderrock::protobuf::api::YesNo);
+    #endif//_req_aux_risk_group_ctrl__GUARD__
+
+    #ifndef _auto_hedge__GUARD__
+    #define _auto_hedge__GUARD__
+    DECL_STRONG_TYPE(auto_hedge, spiderrock::protobuf::api::AutoHedge);
+    #endif//_auto_hedge__GUARD__
+
+    #ifndef _hedge_instrument__GUARD__
+    #define _hedge_instrument__GUARD__
+    DECL_STRONG_TYPE(hedge_instrument, spiderrock::protobuf::api::HedgeInst);
+    #endif//_hedge_instrument__GUARD__
+
+    #ifndef _hedge_sec_key__GUARD__
+    #define _hedge_sec_key__GUARD__
+    DECL_STRONG_TYPE(hedge_sec_key, ExpiryKey);
+    #endif//_hedge_sec_key__GUARD__
+
+    #ifndef _hedge_beta_ratio__GUARD__
+    #define _hedge_beta_ratio__GUARD__
+    DECL_STRONG_TYPE(hedge_beta_ratio, float);
+    #endif//_hedge_beta_ratio__GUARD__
+
+    #ifndef _hedge_scope__GUARD__
+    #define _hedge_scope__GUARD__
+    DECL_STRONG_TYPE(hedge_scope, spiderrock::protobuf::api::HedgeScope);
+    #endif//_hedge_scope__GUARD__
+
+    #ifndef _hedge_session__GUARD__
+    #define _hedge_session__GUARD__
+    DECL_STRONG_TYPE(hedge_session, spiderrock::protobuf::api::MarketSession);
+    #endif//_hedge_session__GUARD__
+
+    #ifndef _modified_by__GUARD__
+    #define _modified_by__GUARD__
+    DECL_STRONG_TYPE(modified_by, string);
+    #endif//_modified_by__GUARD__
+
+    #ifndef _modified_in__GUARD__
+    #define _modified_in__GUARD__
+    DECL_STRONG_TYPE(modified_in, spiderrock::protobuf::api::SysEnvironment);
+    #endif//_modified_in__GUARD__
 
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
@@ -428,11 +488,23 @@ namespace api {
         using ref_uprc = spiderrock::protobuf::api::ref_uprc__double;
         using ref_de = spiderrock::protobuf::api::ref_de;
         using ref_ga = spiderrock::protobuf::api::ref_ga;
+        using delta_adj = spiderrock::protobuf::api::delta_adj;
         using min_ubid = spiderrock::protobuf::api::min_ubid;
         using max_uask = spiderrock::protobuf::api::max_uask;
         using risk_group_id = spiderrock::protobuf::api::risk_group_id;
         using strategy = spiderrock::protobuf::api::strategy;
         using user_data1 = spiderrock::protobuf::api::user_data1;
+        using locate_firm = spiderrock::protobuf::api::locate_firm;
+        using locate_pool = spiderrock::protobuf::api::locate_pool;
+        using req_aux_risk_group_ctrl = spiderrock::protobuf::api::req_aux_risk_group_ctrl;
+        using auto_hedge = spiderrock::protobuf::api::auto_hedge;
+        using hedge_instrument = spiderrock::protobuf::api::hedge_instrument;
+        using hedge_sec_key = spiderrock::protobuf::api::hedge_sec_key;
+        using hedge_beta_ratio = spiderrock::protobuf::api::hedge_beta_ratio;
+        using hedge_scope = spiderrock::protobuf::api::hedge_scope;
+        using hedge_session = spiderrock::protobuf::api::hedge_session;
+        using modified_by = spiderrock::protobuf::api::modified_by;
+        using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using order_legs = spiderrock::protobuf::api::NoticeResponse_OrderLegs;
 
@@ -448,11 +520,23 @@ namespace api {
         ref_uprc m_ref_uprc{};
         ref_de m_ref_de{};
         ref_ga m_ref_ga{};
+        delta_adj m_delta_adj{};
         min_ubid m_min_ubid{};
         max_uask m_max_uask{};
         risk_group_id m_risk_group_id{};
         strategy m_strategy{};
         user_data1 m_user_data1{};
+        locate_firm m_locate_firm{};
+        locate_pool m_locate_pool{};
+        req_aux_risk_group_ctrl m_req_aux_risk_group_ctrl{};
+        auto_hedge m_auto_hedge{};
+        hedge_instrument m_hedge_instrument{};
+        hedge_sec_key m_hedge_sec_key{};
+        hedge_beta_ratio m_hedge_beta_ratio{};
+        hedge_scope m_hedge_scope{};
+        hedge_session m_hedge_session{};
+        modified_by m_modified_by{};
+        modified_in m_modified_in{};
         timestamp m_timestamp{};
         std::vector<order_legs> m_order_legs{};
 
@@ -492,6 +576,9 @@ namespace api {
         ref_ga get_ref_ga() const {
             return m_ref_ga;
         }		
+        delta_adj get_delta_adj() const {
+            return m_delta_adj;
+        }		
         min_ubid get_min_ubid() const {
             return m_min_ubid;
         }		
@@ -506,6 +593,39 @@ namespace api {
         }		
         user_data1 get_user_data1() const {
             return m_user_data1;
+        }		
+        locate_firm get_locate_firm() const {
+            return m_locate_firm;
+        }		
+        locate_pool get_locate_pool() const {
+            return m_locate_pool;
+        }		
+        req_aux_risk_group_ctrl get_req_aux_risk_group_ctrl() const {
+            return m_req_aux_risk_group_ctrl;
+        }		
+        auto_hedge get_auto_hedge() const {
+            return m_auto_hedge;
+        }		
+        hedge_instrument get_hedge_instrument() const {
+            return m_hedge_instrument;
+        }		
+        hedge_sec_key get_hedge_sec_key() const {
+            return m_hedge_sec_key;
+        }		
+        hedge_beta_ratio get_hedge_beta_ratio() const {
+            return m_hedge_beta_ratio;
+        }		
+        hedge_scope get_hedge_scope() const {
+            return m_hedge_scope;
+        }		
+        hedge_session get_hedge_session() const {
+            return m_hedge_session;
+        }		
+        modified_by get_modified_by() const {
+            return m_modified_by;
+        }		
+        modified_in get_modified_in() const {
+            return m_modified_in;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -553,6 +673,9 @@ namespace api {
         void set_ref_ga(const ref_ga& value)  {
             m_ref_ga = value;
         }
+        void set_delta_adj(const delta_adj& value)  {
+            m_delta_adj = value;
+        }
         void set_min_ubid(const min_ubid& value)  {
             m_min_ubid = value;
         }
@@ -567,6 +690,39 @@ namespace api {
         }
         void set_user_data1(const user_data1& value)  {
             m_user_data1 = value;
+        }
+        void set_locate_firm(const locate_firm& value)  {
+            m_locate_firm = value;
+        }
+        void set_locate_pool(const locate_pool& value)  {
+            m_locate_pool = value;
+        }
+        void set_req_aux_risk_group_ctrl(const req_aux_risk_group_ctrl& value)  {
+            m_req_aux_risk_group_ctrl = value;
+        }
+        void set_auto_hedge(const auto_hedge& value)  {
+            m_auto_hedge = value;
+        }
+        void set_hedge_instrument(const hedge_instrument& value)  {
+            m_hedge_instrument = value;
+        }
+        void set_hedge_sec_key(const hedge_sec_key& value)  {
+            m_hedge_sec_key = value;
+        }
+        void set_hedge_beta_ratio(const hedge_beta_ratio& value)  {
+            m_hedge_beta_ratio = value;
+        }
+        void set_hedge_scope(const hedge_scope& value)  {
+            m_hedge_scope = value;
+        }
+        void set_hedge_session(const hedge_session& value)  {
+            m_hedge_session = value;
+        }
+        void set_modified_by(const modified_by& value)  {
+            m_modified_by = value;
+        }
+        void set_modified_in(const modified_in& value)  {
+            m_modified_in = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -624,6 +780,9 @@ namespace api {
         void set(const ref_ga & value) {
             set_ref_ga(value);
         }
+        void set(const delta_adj & value) {
+            set_delta_adj(value);
+        }
         void set(const min_ubid & value) {
             set_min_ubid(value);
         }
@@ -638,6 +797,39 @@ namespace api {
         }
         void set(const user_data1 & value) {
             set_user_data1(value);
+        }
+        void set(const locate_firm & value) {
+            set_locate_firm(value);
+        }
+        void set(const locate_pool & value) {
+            set_locate_pool(value);
+        }
+        void set(const req_aux_risk_group_ctrl & value) {
+            set_req_aux_risk_group_ctrl(value);
+        }
+        void set(const auto_hedge & value) {
+            set_auto_hedge(value);
+        }
+        void set(const hedge_instrument & value) {
+            set_hedge_instrument(value);
+        }
+        void set(const hedge_sec_key & value) {
+            set_hedge_sec_key(value);
+        }
+        void set(const hedge_beta_ratio & value) {
+            set_hedge_beta_ratio(value);
+        }
+        void set(const hedge_scope & value) {
+            set_hedge_scope(value);
+        }
+        void set(const hedge_session & value) {
+            set_hedge_session(value);
+        }
+        void set(const modified_by & value) {
+            set_modified_by(value);
+        }
+        void set(const modified_in & value) {
+            set_modified_in(value);
         }
         void set(const timestamp & value) {
             set_timestamp(value);
@@ -658,11 +850,23 @@ namespace api {
             set(value.m_ref_uprc);
             set(value.m_ref_de);
             set(value.m_ref_ga);
+            set(value.m_delta_adj);
             set(value.m_min_ubid);
             set(value.m_max_uask);
             set(value.m_risk_group_id);
             set(value.m_strategy);
             set(value.m_user_data1);
+            set(value.m_locate_firm);
+            set(value.m_locate_pool);
+            set(value.m_req_aux_risk_group_ctrl);
+            set(value.m_auto_hedge);
+            set(value.m_hedge_instrument);
+            set(value.m_hedge_sec_key);
+            set(value.m_hedge_beta_ratio);
+            set(value.m_hedge_scope);
+            set(value.m_hedge_session);
+            set(value.m_modified_by);
+            set(value.m_modified_in);
             set(value.m_timestamp);set_order_legs_list(value.m_order_legs);
         }
 
@@ -758,6 +962,21 @@ namespace api {
         bool IncludeUserData1() const {
             return !(m_user_data1.empty());
         }
+        bool IncludeLocateFirm() const {
+            return !(m_locate_firm.empty());
+        }
+        bool IncludeLocatePool() const {
+            return !(m_locate_pool.empty());
+        }
+        bool IncludeHedgeSecKey() const {
+            return (m_hedge_sec_key.ByteSizeLong() > 0);
+        }
+        bool IncludeHedgeBetaRatio() const {
+            return !(m_hedge_beta_ratio == 0.0);
+        }
+        bool IncludeModifiedBy() const {
+            return !(m_modified_by.empty());
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -803,6 +1022,7 @@ namespace api {
             if ( IncludeRefGa()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(107,m_ref_ga);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DeltaDirection>(m_delta_adj)));
             if ( IncludeMinUbid()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(108,m_min_ubid);
             }
@@ -818,6 +1038,29 @@ namespace api {
             if ( IncludeUserData1()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(112,m_user_data1);
             }
+            if ( IncludeLocateFirm()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(122,m_locate_firm);
+            }
+            if ( IncludeLocatePool()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(123,m_locate_pool);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_req_aux_risk_group_ctrl)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(125,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(126,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
+            if ( IncludeHedgeSecKey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key{};
+                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(127, expiryKeyLayout_hedge_sec_key);
+            }
+            if ( IncludeHedgeBetaRatio()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(128,m_hedge_beta_ratio);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(129,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeScope>(m_hedge_scope)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>(m_hedge_session)));
+            if ( IncludeModifiedBy()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(131,m_modified_by);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(132,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(118, m_timestamp);
             }
@@ -867,6 +1110,7 @@ namespace api {
             if ( IncludeRefGa()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,107,m_ref_ga);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DeltaDirection>(m_delta_adj)));
             if ( IncludeMinUbid()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,108,m_min_ubid);
             }
@@ -882,6 +1126,29 @@ namespace api {
             if ( IncludeUserData1()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,112,static_cast<string>(m_user_data1));
             }
+            if ( IncludeLocateFirm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,122,static_cast<string>(m_locate_firm));
+            }
+            if ( IncludeLocatePool()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,123,static_cast<string>(m_locate_pool));
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_req_aux_risk_group_ctrl)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,125,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,126,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
+            if ( IncludeHedgeSecKey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key{};
+                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 127, expiryKeyLayout_hedge_sec_key);
+            }
+            if ( IncludeHedgeBetaRatio()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,128,m_hedge_beta_ratio);
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,129,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeScope>(m_hedge_scope)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>(m_hedge_session)));
+            if ( IncludeModifiedBy()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,131,static_cast<string>(m_modified_by));
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,132,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 118, m_timestamp);
             }
@@ -978,6 +1245,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 121: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_delta_adj = static_cast<spiderrock::protobuf::api::DeltaDirection>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 108: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_min_ubid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -1005,6 +1277,67 @@ namespace api {
                     case 112: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_user_data1 = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 122: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 123: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 124: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_req_aux_risk_group_ctrl = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 125: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_auto_hedge = static_cast<spiderrock::protobuf::api::AutoHedge>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 126: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_instrument = static_cast<spiderrock::protobuf::api::HedgeInst>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 127: {
+                        if (tagType == SRProtobufCPP::ExpiryKeyCodec::TagType) {
+                            auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
+                            m_hedge_sec_key.setFromCodec(expiryKey);
+                        }
+                        break;
+                    }
+                    case 128: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_hedge_beta_ratio = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 129: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_scope = static_cast<spiderrock::protobuf::api::HedgeScope>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 130: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_session = static_cast<spiderrock::protobuf::api::MarketSession>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 131: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_modified_by = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 132: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_modified_in = static_cast<spiderrock::protobuf::api::SysEnvironment>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1043,11 +1376,23 @@ namespace api {
     template<> inline const auto NoticeResponse::get<NoticeResponse::ref_uprc>() const { return m_ref_uprc; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::ref_de>() const { return m_ref_de; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::ref_ga>() const { return m_ref_ga; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::delta_adj>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DeltaDirection>( m_delta_adj)); }
     template<> inline const auto NoticeResponse::get<NoticeResponse::min_ubid>() const { return m_min_ubid; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::max_uask>() const { return m_max_uask; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::risk_group_id>() const { return m_risk_group_id; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::strategy>() const { return m_strategy; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::user_data1>() const { return m_user_data1; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::locate_firm>() const { return m_locate_firm; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::locate_pool>() const { return m_locate_pool; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::req_aux_risk_group_ctrl>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_req_aux_risk_group_ctrl)); }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::auto_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>( m_auto_hedge)); }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::hedge_instrument>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>( m_hedge_instrument)); }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::hedge_sec_key>() const { return NoticeResponse::hedge_sec_key{ m_hedge_sec_key}; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::hedge_beta_ratio>() const { return m_hedge_beta_ratio; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::hedge_scope>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeScope>( m_hedge_scope)); }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::hedge_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>( m_hedge_session)); }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::modified_by>() const { return m_modified_by; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
     template<> inline const auto NoticeResponse::get<NoticeResponse::timestamp>() const { return m_timestamp; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::order_legs>(int i) const { return NoticeResponse::order_legs{ get_order_legs(i)}; }
     template<> inline int NoticeResponse::count<NoticeResponse::order_legs>() const { return static_cast<int>( m_order_legs.size()); }
@@ -1091,11 +1436,23 @@ namespace api {
         o << ",\"ref_uprc\":" << m.get<NoticeResponse::ref_uprc>();
         o << ",\"ref_de\":" << m.get<NoticeResponse::ref_de>();
         o << ",\"ref_ga\":" << m.get<NoticeResponse::ref_ga>();
+        o << ",\"delta_adj\":" << (int64_t)m.get<NoticeResponse::delta_adj>();
         o << ",\"min_ubid\":" << m.get<NoticeResponse::min_ubid>();
         o << ",\"max_uask\":" << m.get<NoticeResponse::max_uask>();
         o << ",\"risk_group_id\":" << m.get<NoticeResponse::risk_group_id>();
         o << ",\"strategy\":\"" << m.get<NoticeResponse::strategy>() << "\"";
         o << ",\"user_data1\":\"" << m.get<NoticeResponse::user_data1>() << "\"";
+        o << ",\"locate_firm\":\"" << m.get<NoticeResponse::locate_firm>() << "\"";
+        o << ",\"locate_pool\":\"" << m.get<NoticeResponse::locate_pool>() << "\"";
+        o << ",\"req_aux_risk_group_ctrl\":" << (int64_t)m.get<NoticeResponse::req_aux_risk_group_ctrl>();
+        o << ",\"auto_hedge\":" << (int64_t)m.get<NoticeResponse::auto_hedge>();
+        o << ",\"hedge_instrument\":" << (int64_t)m.get<NoticeResponse::hedge_instrument>();
+        o << ",\"hedge_sec_key\":{" << m.get<NoticeResponse::hedge_sec_key>() << "}";
+        o << ",\"hedge_beta_ratio\":" << m.get<NoticeResponse::hedge_beta_ratio>();
+        o << ",\"hedge_scope\":" << (int64_t)m.get<NoticeResponse::hedge_scope>();
+        o << ",\"hedge_session\":" << (int64_t)m.get<NoticeResponse::hedge_session>();
+        o << ",\"modified_by\":\"" << m.get<NoticeResponse::modified_by>() << "\"";
+        o << ",\"modified_in\":" << (int64_t)m.get<NoticeResponse::modified_in>();
         {
             std::time_t tt = m.get<NoticeResponse::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

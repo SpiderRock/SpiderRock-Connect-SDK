@@ -841,7 +841,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(200, optionKeyLayout_okey);
             }
             if ( IncludeVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(112,m_vol);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(202,m_vol);
             }
             if ( IncludeUPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(115,m_u_prc);
@@ -850,10 +850,10 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(118,m_years);
             }
             if ( IncludeSdiv()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(121,m_sdiv);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(203,m_sdiv);
             }
             if ( IncludeRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_rate);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(204,m_rate);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
@@ -935,7 +935,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 200, optionKeyLayout_okey);
             }
             if ( IncludeVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,112,m_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,202,m_vol);
             }
             if ( IncludeUPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,115,m_u_prc);
@@ -944,10 +944,10 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,118,m_years);
             }
             if ( IncludeSdiv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,121,m_sdiv);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,203,m_sdiv);
             }
             if ( IncludeRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,204,m_rate);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
@@ -1044,7 +1044,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 112: {
+                    case 202: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_vol = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
@@ -1062,13 +1062,13 @@ namespace api {
                         }
                         break;
                     }
-                    case 121: {
+                    case 203: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_sdiv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 204: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_rate = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
