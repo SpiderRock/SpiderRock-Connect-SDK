@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserMetaData {
+    message AccountAccessControl {
+        
+        string accnt = 133;
+        AccountAccessType access_type = 136;
+    }
+
+    message ApiKeys {
+        
+        int32 id = 264;
+        string label = 265;
+        google.protobuf.Timestamp expires = 266; // API key expiration date (if any; may be client supplied)
+        google.protobuf.Timestamp created = 267; // API key creation date
+    }
+
+    message MLinkControl {
+        
+        MLinkToken token = 238;
+        google.protobuf.Timestamp expires = 241; // must exist (can be 2100-01-01)
+    }
+
+    message MarketDataControl {
+        
+        MarketDataToken token = 247; // market data billing authorities (either external or internally controlled for billing purposes)
+        MarketDataScope scope = 250; // controls whether market data access is live or delayed
+        google.protobuf.Timestamp expires = 253; // must exists (can be 2100-01-01)
+    }
+
+    message WebProductControl {
+        
+        WebProductToken token = 226;
+        google.protobuf.Timestamp expires = 229; // must exist (can be 2100-01-01)
+        string value = 232; // billing code/coupon (eg. FREE)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    string user_name = 100; // SR UserName Handle
+    string client_firm = 103;
+    UserType user_type = 106;
+    SRTimeZone display_time_zone = 109; // [custom:UserTimeZone] User timezone (affects date/time display in Tools)
+    ConfigAccess client_config_access = 139; // user can create new (pending approval) or edit existing client configuration records (SRAdmin, SponsorAdmin, ClientAdmin, or SRUser (any sysenv))
+    AccountTypeControl account_type_control = 142;
+    OrderAccess prod_order_access = 257;
+    OrderAccess test_order_access = 258;
+    YesNo can_cancel_prod_orders = 259; // user can cancel prod (live) orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
+    YesNo can_cancel_test_orders = 260; // user can cancel test orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
+    YesNo can_book_prod_executions = 261; // user can enter prod (live) away tickets (default false for SRUsers SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
+    YesNo can_book_test_executions = 262; // user can enter test away tickets (default false for SRUsers, SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
+    YesNo can_edit_mar_risk = 154;
+    YesNo can_edit_supervisory_risk = 160;
+    YesNo can_edit_stock_locate_list = 163;
+    string display_name = 166; // [custom:UserDisplayName] User display name
+    string contact_email = 169; // Contact Email Address (reset password email)
+    string contact_phone = 172; // Contact Phone Number (SMS Text #)
+    string contact_slack = 175; // Contact Slack Handle
+    string contact_ice_chat = 178; // Contact IceChat Handle
+    string contact_bBerg_handle = 181; // Contact Bloomberg Handle (BBGID)
+    AuthType auth_type = 184; // type of user logon allowed
+    string default_accnt = 187; // default account for this user (used as a tool default/setting); ignored if not viewable; if missing then default is the 1st accnt in the viewable list (alpha order)
+    string alt_user_name = 190; // alternate (client supplied) user name (usually for client system integration)
+    string cme_trader_id = 193; // CME assigned trader ID (if any)
+    string cme_location = 196; // For CME. The traders location is required.  Format example:  US,IL
+    string cfe_trader_id = 199; // CFE assigned trader ID (if any)
+    string cfe_frequent_trader_id = 202; // CFE frequent trader ID (if any)
+    string cfe_location = 205; // CFE trader location (required)
+    string ice_trader_id = 208; // ICE assigned trader ID (if any)
+    string ice_password = 211; // ICE assigned password (if any)
+    string ice_company_id = 214; // ICE Company Id of trader (if any)
+    string cboe_trader_id = 217; // Cboe assigned trader ID (if any)
+    string badges = 220; // exchange memembership and badge ids.  CFEFUT:BADGE1,NYSESTK:BADGE2,...
+    YesNo has_api_key_access = 268; // User is allowed to use and manage (insert, update and delete) API keys
+    google.protobuf.Timestamp timestamp = 256; // timestamp of last modification
+    repeated AccountAccessControl account_access_control = 130;
+    repeated ApiKeys api_keys = 263;
+    repeated MLinkControl m_link_control = 235;
+    repeated MarketDataControl market_data_control = 244;
+    repeated WebProductControl web_product_control = 223;
+}
+
+

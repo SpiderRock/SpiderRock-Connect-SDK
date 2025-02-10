@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ClientStockLocate records contain locates quantities that clients have directly sourced.
+    VLanBridge:FieldRename:coreClientFirm:clientFirm
+    BridgeFromV7
+*/    
+message ClientStockLocate {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string core_client_firm = 11;
+        string locate_firm = 12; // typically a clearing firm (or 3rd party locate desk)
+        string locate_pool = 13; // locate pool @ firm granting the locate
+        DateKey trade_date = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 locate_quan = 100;
+    YesNo is_locate_exempt = 101; // Yes = ticker is locate exempt (only allowed for market makers)
+    LocateSource locate_source = 102;
+    string modified_by = 103; // user who last modified this record
+    SysEnvironment modified_in = 104;
+    google.protobuf.Timestamp timestamp = 105; // timestamp of last modification
+}
+
+

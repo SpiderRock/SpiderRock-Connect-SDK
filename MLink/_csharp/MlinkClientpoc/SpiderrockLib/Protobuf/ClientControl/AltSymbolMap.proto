@@ -42,6 +42,8 @@ message AltSymbolMap {
     string user_data1 = 112; // will replace userData1 on parent order (if exists)
     string user_data2 = 115; // will replace userData2 on parent order (if exists)
     string child_data = 118; // will replace childData on parent order (if exists)
+    string ticket_locate_firm = 157; // ticket/chat (default) locate firm
+    string ticket_locate_pool = 158; // ticket/chat (default) locate pool/id @ firm granting the locate
     string stk_exec_brkr_code = 141; // will replace execBrkrCode on stk parent orders (if exists)
     string fut_exec_brkr_code = 142; // will replace execBrkrCode on fut parent orders (if exists)
     string eqt_opt_exec_brkr_code = 143; // will replace execBrkrCode on eqt opt/mleg parent orders (if exists)

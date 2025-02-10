@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiNQcm90b2J1Zi9TUkFUUy9Ob3RpY2VSZXNwb25zZS5wcm90bxITc3BpZGVy",
             "cm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aH2dvb2ds",
-            "ZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iqAcKDk5vdGljZVJlc3BvbnNl",
+            "ZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iywsKDk5vdGljZVJlc3BvbnNl",
             "EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdl",
             "TWV0YWRhdGESNgoEcGtleRgCIAEoCzIoLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "Tm90aWNlUmVzcG9uc2UuUEtleRIuCgZ0aWNrZXIYdyABKAsyHi5zcGlkZXJy",
@@ -35,23 +35,35 @@ namespace Spiderrock.Protobuf {
             "KA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJTdGFnZVR5cGUSLwoJcmVz",
             "cF9zaWRlGGYgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhEK",
             "CXJlc3Bfc2l6ZRhnIAEoBRISCgpyZXNwX3ByaWNlGGggASgBEhAKCHJlZl91",
-            "UHJjGGkgASgBEg4KBnJlZl9kZRhqIAEoAhIOCgZyZWZfZ2EYayABKAISEAoI",
-            "bWluX3VCaWQYbCABKAISEAoIbWF4X3VBc2sYbSABKAISFQoNcmlza19ncm91",
-            "cF9pZBhuIAEoAxIQCghzdHJhdGVneRhvIAEoCRISCgp1c2VyX2RhdGExGHAg",
-            "ASgJEi0KCXRpbWVzdGFtcBh2IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXASQQoKb3JkZXJfbGVncxhxIAMoCzItLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuTm90aWNlUmVzcG9uc2UuT3JkZXJMZWdzGlYKBFBLZXkSFQoNbm90aWNl",
-            "X251bWJlchgNIAEoAxINCgVhY2NudBgLIAEoCRITCgtjbGllbnRfZmlybRgM",
-            "IAEoCRITCgtyZXNwb25zZV9pZBgOIAEoCRrZAQoJT3JkZXJMZWdzEi8KB3Nl",
-            "Y19rZXkYciABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRIy",
-            "CghzZWNfdHlwZRhzIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bkcktl",
-            "eVR5cGUSKgoEc2lkZRh0IAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuQnV5",
-            "U2VsbBI7Cg1wb3NpdGlvbl90eXBlGHUgASgOMiQuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5MZWdQb3NpdGlvblR5cGViBnByb3RvMw=="));
+            "UHJjGGkgASgBEg4KBnJlZl9kZRhqIAEoAhIOCgZyZWZfZ2EYayABKAISNgoJ",
+            "ZGVsdGFfYWRqGHkgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5EZWx0YURp",
+            "cmVjdGlvbhIQCghtaW5fdUJpZBhsIAEoAhIQCghtYXhfdUFzaxhtIAEoAhIV",
+            "Cg1yaXNrX2dyb3VwX2lkGG4gASgDEhAKCHN0cmF0ZWd5GG8gASgJEhIKCnVz",
+            "ZXJfZGF0YTEYcCABKAkSEwoLbG9jYXRlX2Zpcm0YeiABKAkSEwoLbG9jYXRl",
+            "X3Bvb2wYeyABKAkSOwoXcmVxX2F1eF9yaXNrX2dyb3VwX2N0cmwYfCABKA4y",
+            "Gi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjIKCmF1dG9faGVkZ2UYfSAB",
+            "KA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkF1dG9IZWRnZRI4ChBoZWRnZV9p",
+            "bnN0cnVtZW50GH4gASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5IZWRnZUlu",
+            "c3QSNQoNaGVkZ2Vfc2VjX2tleRh/IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuRXhwaXJ5S2V5EhkKEGhlZGdlX2JldGFfcmF0aW8YgAEgASgCEjUKC2hl",
+            "ZGdlX3Njb3BlGIEBIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuSGVkZ2VT",
+            "Y29wZRI6Cg1oZWRnZV9zZXNzaW9uGIIBIAEoDjIiLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuTWFya2V0U2Vzc2lvbhIUCgttb2RpZmllZF9ieRiDASABKAkSOQoL",
+            "bW9kaWZpZWRfaW4YhAEgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNF",
+            "bnZpcm9ubWVudBItCgl0aW1lc3RhbXAYdiABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wEkEKCm9yZGVyX2xlZ3MYcSADKAsyLS5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLk5vdGljZVJlc3BvbnNlLk9yZGVyTGVncxpWCgRQS2V5EhUK",
+            "DW5vdGljZV9udW1iZXIYDSABKAMSDQoFYWNjbnQYCyABKAkSEwoLY2xpZW50",
+            "X2Zpcm0YDCABKAkSEwoLcmVzcG9uc2VfaWQYDiABKAka2QEKCU9yZGVyTGVn",
+            "cxIvCgdzZWNfa2V5GHIgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRp",
+            "b25LZXkSMgoIc2VjX3R5cGUYcyABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlNwZHJLZXlUeXBlEioKBHNpZGUYdCABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLkJ1eVNlbGwSOwoNcG9zaXRpb25fdHlwZRh1IAEoDjIkLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuTGVnUG9zaXRpb25UeXBlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse), global::Spiderrock.Protobuf.NoticeResponse.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "StageType", "RespSide", "RespSize", "RespPrice", "RefUPrc", "RefDe", "RefGa", "MinUBid", "MaxUAsk", "RiskGroupId", "Strategy", "UserData1", "Timestamp", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse.Types.PKey), global::Spiderrock.Protobuf.NoticeResponse.Types.PKey.Parser, new[]{ "NoticeNumber", "Accnt", "ClientFirm", "ResponseId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse), global::Spiderrock.Protobuf.NoticeResponse.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "StageType", "RespSide", "RespSize", "RespPrice", "RefUPrc", "RefDe", "RefGa", "DeltaAdj", "MinUBid", "MaxUAsk", "RiskGroupId", "Strategy", "UserData1", "LocateFirm", "LocatePool", "ReqAuxRiskGroupCtrl", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "ModifiedBy", "ModifiedIn", "Timestamp", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse.Types.PKey), global::Spiderrock.Protobuf.NoticeResponse.Types.PKey.Parser, new[]{ "NoticeNumber", "Accnt", "ClientFirm", "ResponseId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse.Types.OrderLegs), global::Spiderrock.Protobuf.NoticeResponse.Types.OrderLegs.Parser, new[]{ "SecKey", "SecType", "Side", "PositionType" }, null, null, null, null)})
           }));
     }
@@ -104,11 +116,23 @@ namespace Spiderrock.Protobuf {
       refUPrc_ = other.refUPrc_;
       refDe_ = other.refDe_;
       refGa_ = other.refGa_;
+      deltaAdj_ = other.deltaAdj_;
       minUBid_ = other.minUBid_;
       maxUAsk_ = other.maxUAsk_;
       riskGroupId_ = other.riskGroupId_;
       strategy_ = other.strategy_;
       userData1_ = other.userData1_;
+      locateFirm_ = other.locateFirm_;
+      locatePool_ = other.locatePool_;
+      reqAuxRiskGroupCtrl_ = other.reqAuxRiskGroupCtrl_;
+      autoHedge_ = other.autoHedge_;
+      hedgeInstrument_ = other.hedgeInstrument_;
+      hedgeSecKey_ = other.hedgeSecKey_ != null ? other.hedgeSecKey_.Clone() : null;
+      hedgeBetaRatio_ = other.hedgeBetaRatio_;
+      hedgeScope_ = other.hedgeScope_;
+      hedgeSession_ = other.hedgeSession_;
+      modifiedBy_ = other.modifiedBy_;
+      modifiedIn_ = other.modifiedIn_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       orderLegs_ = other.orderLegs_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -261,6 +285,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "delta_adj" field.</summary>
+    public const int DeltaAdjFieldNumber = 121;
+    private global::Spiderrock.Protobuf.DeltaDirection deltaAdj_ = global::Spiderrock.Protobuf.DeltaDirection.Unspecified;
+    /// <summary>
+    /// (optional) Delta Adjusted Limit type. (None = Price Limit)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.DeltaDirection DeltaAdj {
+      get { return deltaAdj_; }
+      set {
+        deltaAdj_ = value;
+      }
+    }
+
     /// <summary>Field number for the "min_uBid" field.</summary>
     public const int MinUBidFieldNumber = 108;
     private float minUBid_;
@@ -330,6 +369,147 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "locate_firm" field.</summary>
+    public const int LocateFirmFieldNumber = 122;
+    private string locateFirm_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string LocateFirm {
+      get { return locateFirm_; }
+      set {
+        locateFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "locate_pool" field.</summary>
+    public const int LocatePoolFieldNumber = 123;
+    private string locatePool_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string LocatePool {
+      get { return locatePool_; }
+      set {
+        locatePool_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "req_aux_risk_group_ctrl" field.</summary>
+    public const int ReqAuxRiskGroupCtrlFieldNumber = 124;
+    private global::Spiderrock.Protobuf.YesNo reqAuxRiskGroupCtrl_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ReqAuxRiskGroupCtrl {
+      get { return reqAuxRiskGroupCtrl_; }
+      set {
+        reqAuxRiskGroupCtrl_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "auto_hedge" field.</summary>
+    public const int AutoHedgeFieldNumber = 125;
+    private global::Spiderrock.Protobuf.AutoHedge autoHedge_ = global::Spiderrock.Protobuf.AutoHedge.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.AutoHedge AutoHedge {
+      get { return autoHedge_; }
+      set {
+        autoHedge_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hedge_instrument" field.</summary>
+    public const int HedgeInstrumentFieldNumber = 126;
+    private global::Spiderrock.Protobuf.HedgeInst hedgeInstrument_ = global::Spiderrock.Protobuf.HedgeInst.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.HedgeInst HedgeInstrument {
+      get { return hedgeInstrument_; }
+      set {
+        hedgeInstrument_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hedge_sec_key" field.</summary>
+    public const int HedgeSecKeyFieldNumber = 127;
+    private global::Spiderrock.Protobuf.ExpiryKey hedgeSecKey_;
+    /// <summary>
+    /// autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.ExpiryKey HedgeSecKey {
+      get { return hedgeSecKey_; }
+      set {
+        hedgeSecKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hedge_beta_ratio" field.</summary>
+    public const int HedgeBetaRatioFieldNumber = 128;
+    private float hedgeBetaRatio_;
+    /// <summary>
+    /// portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float HedgeBetaRatio {
+      get { return hedgeBetaRatio_; }
+      set {
+        hedgeBetaRatio_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hedge_scope" field.</summary>
+    public const int HedgeScopeFieldNumber = 129;
+    private global::Spiderrock.Protobuf.HedgeScope hedgeScope_ = global::Spiderrock.Protobuf.HedgeScope.Unspecified;
+    /// <summary>
+    /// hedge group scope [RiskGroup or Accnt]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.HedgeScope HedgeScope {
+      get { return hedgeScope_; }
+      set {
+        hedgeScope_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hedge_session" field.</summary>
+    public const int HedgeSessionFieldNumber = 130;
+    private global::Spiderrock.Protobuf.MarketSession hedgeSession_ = global::Spiderrock.Protobuf.MarketSession.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.MarketSession HedgeSession {
+      get { return hedgeSession_; }
+      set {
+        hedgeSession_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "modified_by" field.</summary>
+    public const int ModifiedByFieldNumber = 131;
+    private string modifiedBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ModifiedBy {
+      get { return modifiedBy_; }
+      set {
+        modifiedBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "modified_in" field.</summary>
+    public const int ModifiedInFieldNumber = 132;
+    private global::Spiderrock.Protobuf.SysEnvironment modifiedIn_ = global::Spiderrock.Protobuf.SysEnvironment.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.SysEnvironment ModifiedIn {
+      get { return modifiedIn_; }
+      set {
+        modifiedIn_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 118;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -379,11 +559,23 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(RefUPrc, other.RefUPrc)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RefDe, other.RefDe)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RefGa, other.RefGa)) return false;
+      if (DeltaAdj != other.DeltaAdj) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MinUBid, other.MinUBid)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxUAsk, other.MaxUAsk)) return false;
       if (RiskGroupId != other.RiskGroupId) return false;
       if (Strategy != other.Strategy) return false;
       if (UserData1 != other.UserData1) return false;
+      if (LocateFirm != other.LocateFirm) return false;
+      if (LocatePool != other.LocatePool) return false;
+      if (ReqAuxRiskGroupCtrl != other.ReqAuxRiskGroupCtrl) return false;
+      if (AutoHedge != other.AutoHedge) return false;
+      if (HedgeInstrument != other.HedgeInstrument) return false;
+      if (!object.Equals(HedgeSecKey, other.HedgeSecKey)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HedgeBetaRatio, other.HedgeBetaRatio)) return false;
+      if (HedgeScope != other.HedgeScope) return false;
+      if (HedgeSession != other.HedgeSession) return false;
+      if (ModifiedBy != other.ModifiedBy) return false;
+      if (ModifiedIn != other.ModifiedIn) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       if(!orderLegs_.Equals(other.orderLegs_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -404,11 +596,23 @@ namespace Spiderrock.Protobuf {
       if (RefUPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(RefUPrc);
       if (RefDe != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RefDe);
       if (RefGa != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RefGa);
+      if (DeltaAdj != global::Spiderrock.Protobuf.DeltaDirection.Unspecified) hash ^= DeltaAdj.GetHashCode();
       if (MinUBid != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MinUBid);
       if (MaxUAsk != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxUAsk);
       if (RiskGroupId != 0L) hash ^= RiskGroupId.GetHashCode();
       if (Strategy.Length != 0) hash ^= Strategy.GetHashCode();
       if (UserData1.Length != 0) hash ^= UserData1.GetHashCode();
+      if (LocateFirm.Length != 0) hash ^= LocateFirm.GetHashCode();
+      if (LocatePool.Length != 0) hash ^= LocatePool.GetHashCode();
+      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ReqAuxRiskGroupCtrl.GetHashCode();
+      if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) hash ^= AutoHedge.GetHashCode();
+      if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) hash ^= HedgeInstrument.GetHashCode();
+      if (hedgeSecKey_ != null) hash ^= HedgeSecKey.GetHashCode();
+      if (HedgeBetaRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HedgeBetaRatio);
+      if (HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) hash ^= HedgeScope.GetHashCode();
+      if (HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) hash ^= HedgeSession.GetHashCode();
+      if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
+      if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) hash ^= ModifiedIn.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       hash ^= orderLegs_.GetHashCode();
       if (_unknownFields != null) {
@@ -498,6 +702,54 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 7);
         output.WriteMessage(TradeDate);
       }
+      if (DeltaAdj != global::Spiderrock.Protobuf.DeltaDirection.Unspecified) {
+        output.WriteRawTag(200, 7);
+        output.WriteEnum((int) DeltaAdj);
+      }
+      if (LocateFirm.Length != 0) {
+        output.WriteRawTag(210, 7);
+        output.WriteString(LocateFirm);
+      }
+      if (LocatePool.Length != 0) {
+        output.WriteRawTag(218, 7);
+        output.WriteString(LocatePool);
+      }
+      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(224, 7);
+        output.WriteEnum((int) ReqAuxRiskGroupCtrl);
+      }
+      if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
+        output.WriteRawTag(232, 7);
+        output.WriteEnum((int) AutoHedge);
+      }
+      if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) {
+        output.WriteRawTag(240, 7);
+        output.WriteEnum((int) HedgeInstrument);
+      }
+      if (hedgeSecKey_ != null) {
+        output.WriteRawTag(250, 7);
+        output.WriteMessage(HedgeSecKey);
+      }
+      if (HedgeBetaRatio != 0F) {
+        output.WriteRawTag(133, 8);
+        output.WriteFloat(HedgeBetaRatio);
+      }
+      if (HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) {
+        output.WriteRawTag(136, 8);
+        output.WriteEnum((int) HedgeScope);
+      }
+      if (HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        output.WriteRawTag(144, 8);
+        output.WriteEnum((int) HedgeSession);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(154, 8);
+        output.WriteString(ModifiedBy);
+      }
+      if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
+        output.WriteRawTag(160, 8);
+        output.WriteEnum((int) ModifiedIn);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -577,6 +829,54 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 7);
         output.WriteMessage(TradeDate);
       }
+      if (DeltaAdj != global::Spiderrock.Protobuf.DeltaDirection.Unspecified) {
+        output.WriteRawTag(200, 7);
+        output.WriteEnum((int) DeltaAdj);
+      }
+      if (LocateFirm.Length != 0) {
+        output.WriteRawTag(210, 7);
+        output.WriteString(LocateFirm);
+      }
+      if (LocatePool.Length != 0) {
+        output.WriteRawTag(218, 7);
+        output.WriteString(LocatePool);
+      }
+      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(224, 7);
+        output.WriteEnum((int) ReqAuxRiskGroupCtrl);
+      }
+      if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
+        output.WriteRawTag(232, 7);
+        output.WriteEnum((int) AutoHedge);
+      }
+      if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) {
+        output.WriteRawTag(240, 7);
+        output.WriteEnum((int) HedgeInstrument);
+      }
+      if (hedgeSecKey_ != null) {
+        output.WriteRawTag(250, 7);
+        output.WriteMessage(HedgeSecKey);
+      }
+      if (HedgeBetaRatio != 0F) {
+        output.WriteRawTag(133, 8);
+        output.WriteFloat(HedgeBetaRatio);
+      }
+      if (HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) {
+        output.WriteRawTag(136, 8);
+        output.WriteEnum((int) HedgeScope);
+      }
+      if (HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        output.WriteRawTag(144, 8);
+        output.WriteEnum((int) HedgeSession);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(154, 8);
+        output.WriteString(ModifiedBy);
+      }
+      if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
+        output.WriteRawTag(160, 8);
+        output.WriteEnum((int) ModifiedIn);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -620,6 +920,9 @@ namespace Spiderrock.Protobuf {
       if (RefGa != 0F) {
         size += 2 + 4;
       }
+      if (DeltaAdj != global::Spiderrock.Protobuf.DeltaDirection.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) DeltaAdj);
+      }
       if (MinUBid != 0F) {
         size += 2 + 4;
       }
@@ -634,6 +937,39 @@ namespace Spiderrock.Protobuf {
       }
       if (UserData1.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(UserData1);
+      }
+      if (LocateFirm.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocateFirm);
+      }
+      if (LocatePool.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocatePool);
+      }
+      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ReqAuxRiskGroupCtrl);
+      }
+      if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AutoHedge);
+      }
+      if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HedgeInstrument);
+      }
+      if (hedgeSecKey_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HedgeSecKey);
+      }
+      if (HedgeBetaRatio != 0F) {
+        size += 2 + 4;
+      }
+      if (HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HedgeScope);
+      }
+      if (HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HedgeSession);
+      }
+      if (ModifiedBy.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
+      }
+      if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ModifiedIn);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -696,6 +1032,9 @@ namespace Spiderrock.Protobuf {
       if (other.RefGa != 0F) {
         RefGa = other.RefGa;
       }
+      if (other.DeltaAdj != global::Spiderrock.Protobuf.DeltaDirection.Unspecified) {
+        DeltaAdj = other.DeltaAdj;
+      }
       if (other.MinUBid != 0F) {
         MinUBid = other.MinUBid;
       }
@@ -710,6 +1049,42 @@ namespace Spiderrock.Protobuf {
       }
       if (other.UserData1.Length != 0) {
         UserData1 = other.UserData1;
+      }
+      if (other.LocateFirm.Length != 0) {
+        LocateFirm = other.LocateFirm;
+      }
+      if (other.LocatePool.Length != 0) {
+        LocatePool = other.LocatePool;
+      }
+      if (other.ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ReqAuxRiskGroupCtrl = other.ReqAuxRiskGroupCtrl;
+      }
+      if (other.AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
+        AutoHedge = other.AutoHedge;
+      }
+      if (other.HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) {
+        HedgeInstrument = other.HedgeInstrument;
+      }
+      if (other.hedgeSecKey_ != null) {
+        if (hedgeSecKey_ == null) {
+          HedgeSecKey = new global::Spiderrock.Protobuf.ExpiryKey();
+        }
+        HedgeSecKey.MergeFrom(other.HedgeSecKey);
+      }
+      if (other.HedgeBetaRatio != 0F) {
+        HedgeBetaRatio = other.HedgeBetaRatio;
+      }
+      if (other.HedgeScope != global::Spiderrock.Protobuf.HedgeScope.Unspecified) {
+        HedgeScope = other.HedgeScope;
+      }
+      if (other.HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        HedgeSession = other.HedgeSession;
+      }
+      if (other.ModifiedBy.Length != 0) {
+        ModifiedBy = other.ModifiedBy;
+      }
+      if (other.ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
+        ModifiedIn = other.ModifiedIn;
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -820,6 +1195,57 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(TradeDate);
             break;
           }
+          case 968: {
+            DeltaAdj = (global::Spiderrock.Protobuf.DeltaDirection) input.ReadEnum();
+            break;
+          }
+          case 978: {
+            LocateFirm = input.ReadString();
+            break;
+          }
+          case 986: {
+            LocatePool = input.ReadString();
+            break;
+          }
+          case 992: {
+            ReqAuxRiskGroupCtrl = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1000: {
+            AutoHedge = (global::Spiderrock.Protobuf.AutoHedge) input.ReadEnum();
+            break;
+          }
+          case 1008: {
+            HedgeInstrument = (global::Spiderrock.Protobuf.HedgeInst) input.ReadEnum();
+            break;
+          }
+          case 1018: {
+            if (hedgeSecKey_ == null) {
+              HedgeSecKey = new global::Spiderrock.Protobuf.ExpiryKey();
+            }
+            input.ReadMessage(HedgeSecKey);
+            break;
+          }
+          case 1029: {
+            HedgeBetaRatio = input.ReadFloat();
+            break;
+          }
+          case 1032: {
+            HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
+            break;
+          }
+          case 1040: {
+            HedgeSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
+            break;
+          }
+          case 1050: {
+            ModifiedBy = input.ReadString();
+            break;
+          }
+          case 1056: {
+            ModifiedIn = (global::Spiderrock.Protobuf.SysEnvironment) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -920,6 +1346,57 @@ namespace Spiderrock.Protobuf {
               TradeDate = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(TradeDate);
+            break;
+          }
+          case 968: {
+            DeltaAdj = (global::Spiderrock.Protobuf.DeltaDirection) input.ReadEnum();
+            break;
+          }
+          case 978: {
+            LocateFirm = input.ReadString();
+            break;
+          }
+          case 986: {
+            LocatePool = input.ReadString();
+            break;
+          }
+          case 992: {
+            ReqAuxRiskGroupCtrl = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1000: {
+            AutoHedge = (global::Spiderrock.Protobuf.AutoHedge) input.ReadEnum();
+            break;
+          }
+          case 1008: {
+            HedgeInstrument = (global::Spiderrock.Protobuf.HedgeInst) input.ReadEnum();
+            break;
+          }
+          case 1018: {
+            if (hedgeSecKey_ == null) {
+              HedgeSecKey = new global::Spiderrock.Protobuf.ExpiryKey();
+            }
+            input.ReadMessage(HedgeSecKey);
+            break;
+          }
+          case 1029: {
+            HedgeBetaRatio = input.ReadFloat();
+            break;
+          }
+          case 1032: {
+            HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
+            break;
+          }
+          case 1040: {
+            HedgeSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
+            break;
+          }
+          case 1050: {
+            ModifiedBy = input.ReadString();
+            break;
+          }
+          case 1056: {
+            ModifiedIn = (global::Spiderrock.Protobuf.SysEnvironment) input.ReadEnum();
             break;
           }
         }

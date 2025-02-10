@@ -42,6 +42,7 @@ message SpdrParentExecution {
     int64 trigger_timestamp = 163; // WaitTrigger trigger timestamp (nanoseconds since epoch)
     string street_cl_ord_id = 166; // street side clOrdId (clOrdId or equivalent of the street side order) [SR/street gateway generated]
     string street_order_id = 169; // street side orderId (orderId or equivalent of the street side order) [from street side execReport]
+    int64 side_cl_ord_id = 846; // Cross Side ClOrdId.  From ChildOrder.custClOrdId, or ChildOrder.FaceSideList.alloclOrdID
     SpdrOrderShape parent_shape = 178; // shape of originating parent order
     OptionKey sec_key = 181; // execution security key
     SpdrKeyType sec_type = 184; // execution security type [Stock, Future, Option]
@@ -201,6 +202,7 @@ message SpdrParentExecution {
     string spdr_liquidity_tag = 619; // SpiderRock normalized liquidity tag
     string exch_liquidity_tag = 622; // liquidity tag as reported by downstream venue (if any)
     string fill_exch_detail = 625; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    YesNo is_cross_breakup_fill = 847; // cross order was broken up on exchange, and this execution was filled by party not specified on the original cross order
     OrderCapacity last_capacity = 628; // child order capacity
     string exch_firm_type = 631; // used to reflect field from a downstread execution back up to upstream fill report
     string ext_exec_broker = 634; // used to reflect field from a downstream destination back up to and upstream fill report

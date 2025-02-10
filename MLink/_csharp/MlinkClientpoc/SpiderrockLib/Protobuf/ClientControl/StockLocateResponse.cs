@@ -26,35 +26,39 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9DbGllbnRDb250cm9sL1N0b2NrTG9jYXRlUmVzcG9uc2Uu",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpUGChNT",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIqUFChNT",
             "dG9ja0xvY2F0ZVJlc3BvbnNlEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOwoEcGtleRgCIAEoCzItLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuU3RvY2tMb2NhdGVSZXNwb25zZS5QS2V5EhEK",
-            "CWxvY2F0ZV9pRBhkIAEoCRIUCgxyZXF1ZXN0X3F1YW4YZyABKAUSEwoLbG9j",
-            "YXRlX3F1YW4YaiABKAUSOAoNbG9jYXRlX3N0YXR1cxhtIAEoDjIhLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuTG9jYXRlU3RhdHVzEjQKEGlzX2xvY2F0ZV9leGVt",
-            "cHQYcyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhcKD2FsdF9z",
-            "ZWN1cml0eV9pZBh2IAEoCRI6Cg5yZXF1ZXN0X29yaWdpbhh5IAEoDjIiLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuUmVxdWVzdE9yaWdpbhI1ChFyZXF1ZXN0X3Rp",
-            "bWVzdGFtcBh8IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASOQoL",
-            "bW9kaWZpZWRfaW4YggEgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNF",
-            "bnZpcm9ubWVudBIuCgl0aW1lc3RhbXAYhQEgASgLMhouZ29vZ2xlLnByb3Rv",
-            "YnVmLlRpbWVzdGFtcBrmAQoEUEtleRIuCgZ0aWNrZXIYCiABKAsyHi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIYChBjb3JlX2NsaWVudF9maXJt",
-            "GAsgASgJEhMKC2xvY2F0ZV9maXJtGAwgASgJEhMKC2xvY2F0ZV9wb29sGA0g",
-            "ASgJEjgKDWxvY2F0ZV9zb3VyY2UYECABKA4yIS5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkxvY2F0ZVNvdXJjZRIwCgp0cmFkZV9kYXRlGA8gASgLMhwuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5EYXRlS2V5YgZwcm90bzM="));
+            "aWRlcnJvY2sucHJvdG9idWYuU3RvY2tMb2NhdGVSZXNwb25zZS5QS2V5EjEK",
+            "CnRyYWRlX2RhdGUYhgEgASgLMhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRl",
+            "S2V5EhQKC2xvY2F0ZV9maXJtGIcBIAEoCRIUCgtsb2NhdGVfcG9vbBiIASAB",
+            "KAkSFAoMcmVxdWVzdF9xdWFuGGcgASgFEhMKC2xvY2F0ZV9xdWFuGGogASgF",
+            "EjgKDWxvY2F0ZV9zdGF0dXMYbSABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LkxvY2F0ZVN0YXR1cxI6Cg5yZXF1ZXN0X29yaWdpbhh5IAEoDjIiLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuUmVxdWVzdE9yaWdpbhI1ChFyZXF1ZXN0X3RpbWVz",
+            "dGFtcBh8IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASFAoLbW9k",
+            "aWZpZWRfYnkYiQEgASgJEjkKC21vZGlmaWVkX2luGIIBIAEoDjIjLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuU3lzRW52aXJvbm1lbnQSLgoJdGltZXN0YW1wGIUB",
+            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaZAoEUEtleRIuCgZ0",
+            "aWNrZXIYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIY",
+            "ChBjb3JlX2NsaWVudF9maXJtGAsgASgJEhIKCnJlcXVlc3RfaUQYESABKANi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockLocateResponse), global::Spiderrock.Protobuf.StockLocateResponse.Parser, new[]{ "Meta", "Pkey", "LocateID", "RequestQuan", "LocateQuan", "LocateStatus", "IsLocateExempt", "AltSecurityId", "RequestOrigin", "RequestTimestamp", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockLocateResponse.Types.PKey), global::Spiderrock.Protobuf.StockLocateResponse.Types.PKey.Parser, new[]{ "Ticker", "CoreClientFirm", "LocateFirm", "LocatePool", "LocateSource", "TradeDate" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockLocateResponse), global::Spiderrock.Protobuf.StockLocateResponse.Parser, new[]{ "Meta", "Pkey", "TradeDate", "LocateFirm", "LocatePool", "RequestQuan", "LocateQuan", "LocateStatus", "RequestOrigin", "RequestTimestamp", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockLocateResponse.Types.PKey), global::Spiderrock.Protobuf.StockLocateResponse.Types.PKey.Parser, new[]{ "Ticker", "CoreClientFirm", "RequestID" }, null, null, null, null)})
           }));
     }
     #endregion
 
   }
   #region Messages
+  /// <summary>
+  ///
+  ///StockLocateResponse records are either locates or rejections of locate requests.  These records are clientFirm specific and are not shared.  SpiderRock execution engines are aware of the locate quantities in StockLocateResponse records.  Also, these records are shared and depricated accross all SpiderRock production environments.
+  ///VLanBridge:FieldRename:coreClientFirm:clientFirm
+  ///BridgeFromV7
+  /// </summary>
   public sealed partial class StockLocateResponse : pb::IMessage<StockLocateResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -91,14 +95,15 @@ namespace Spiderrock.Protobuf {
     public StockLocateResponse(StockLocateResponse other) : this() {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
-      locateID_ = other.locateID_;
+      tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
+      locateFirm_ = other.locateFirm_;
+      locatePool_ = other.locatePool_;
       requestQuan_ = other.requestQuan_;
       locateQuan_ = other.locateQuan_;
       locateStatus_ = other.locateStatus_;
-      isLocateExempt_ = other.isLocateExempt_;
-      altSecurityId_ = other.altSecurityId_;
       requestOrigin_ = other.requestOrigin_;
       requestTimestamp_ = other.requestTimestamp_ != null ? other.requestTimestamp_.Clone() : null;
+      modifiedBy_ = other.modifiedBy_;
       modifiedIn_ = other.modifiedIn_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -134,18 +139,45 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "locate_iD" field.</summary>
-    public const int LocateIDFieldNumber = 100;
-    private string locateID_ = "";
+    /// <summary>Field number for the "trade_date" field.</summary>
+    public const int TradeDateFieldNumber = 134;
+    private global::Spiderrock.Protobuf.DateKey tradeDate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.DateKey TradeDate {
+      get { return tradeDate_; }
+      set {
+        tradeDate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "locate_firm" field.</summary>
+    public const int LocateFirmFieldNumber = 135;
+    private string locateFirm_ = "";
     /// <summary>
-    /// ID used to make locate requests (SR generated request ID if SR made the locate request; client supplied otherwise)
+    /// typically a clearing firm (or 3rd party locate desk)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string LocateID {
-      get { return locateID_; }
+    public string LocateFirm {
+      get { return locateFirm_; }
       set {
-        locateID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        locateFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "locate_pool" field.</summary>
+    public const int LocatePoolFieldNumber = 136;
+    private string locatePool_ = "";
+    /// <summary>
+    /// locate pool @ firm granting the locate
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string LocatePool {
+      get { return locatePool_; }
+      set {
+        locatePool_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -188,36 +220,6 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "is_locate_exempt" field.</summary>
-    public const int IsLocateExemptFieldNumber = 115;
-    private global::Spiderrock.Protobuf.YesNo isLocateExempt_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
-    /// <summary>
-    /// Yes = ticker is locate exempt (only allowed for market makers)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.YesNo IsLocateExempt {
-      get { return isLocateExempt_; }
-      set {
-        isLocateExempt_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "alt_security_id" field.</summary>
-    public const int AltSecurityIdFieldNumber = 118;
-    private string altSecurityId_ = "";
-    /// <summary>
-    /// An alternative securityID (can be cusip or other)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string AltSecurityId {
-      get { return altSecurityId_; }
-      set {
-        altSecurityId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "request_origin" field.</summary>
     public const int RequestOriginFieldNumber = 121;
     private global::Spiderrock.Protobuf.RequestOrigin requestOrigin_ = global::Spiderrock.Protobuf.RequestOrigin.Unspecified;
@@ -242,6 +244,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "modified_by" field.</summary>
+    public const int ModifiedByFieldNumber = 137;
+    private string modifiedBy_ = "";
+    /// <summary>
+    /// user who last modified this record
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ModifiedBy {
+      get { return modifiedBy_; }
+      set {
+        modifiedBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "modified_in" field.</summary>
     public const int ModifiedInFieldNumber = 130;
     private global::Spiderrock.Protobuf.SysEnvironment modifiedIn_ = global::Spiderrock.Protobuf.SysEnvironment.Unspecified;
@@ -257,6 +274,9 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 133;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
+    /// <summary>
+    /// timestamp of last modification
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp Timestamp {
@@ -283,14 +303,15 @@ namespace Spiderrock.Protobuf {
       }
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
-      if (LocateID != other.LocateID) return false;
+      if (!object.Equals(TradeDate, other.TradeDate)) return false;
+      if (LocateFirm != other.LocateFirm) return false;
+      if (LocatePool != other.LocatePool) return false;
       if (RequestQuan != other.RequestQuan) return false;
       if (LocateQuan != other.LocateQuan) return false;
       if (LocateStatus != other.LocateStatus) return false;
-      if (IsLocateExempt != other.IsLocateExempt) return false;
-      if (AltSecurityId != other.AltSecurityId) return false;
       if (RequestOrigin != other.RequestOrigin) return false;
       if (!object.Equals(RequestTimestamp, other.RequestTimestamp)) return false;
+      if (ModifiedBy != other.ModifiedBy) return false;
       if (ModifiedIn != other.ModifiedIn) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -302,14 +323,15 @@ namespace Spiderrock.Protobuf {
       int hash = 1;
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
-      if (LocateID.Length != 0) hash ^= LocateID.GetHashCode();
+      if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
+      if (LocateFirm.Length != 0) hash ^= LocateFirm.GetHashCode();
+      if (LocatePool.Length != 0) hash ^= LocatePool.GetHashCode();
       if (RequestQuan != 0) hash ^= RequestQuan.GetHashCode();
       if (LocateQuan != 0) hash ^= LocateQuan.GetHashCode();
       if (LocateStatus != global::Spiderrock.Protobuf.LocateStatus.Unspecified) hash ^= LocateStatus.GetHashCode();
-      if (IsLocateExempt != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= IsLocateExempt.GetHashCode();
-      if (AltSecurityId.Length != 0) hash ^= AltSecurityId.GetHashCode();
       if (RequestOrigin != global::Spiderrock.Protobuf.RequestOrigin.Unspecified) hash ^= RequestOrigin.GetHashCode();
       if (requestTimestamp_ != null) hash ^= RequestTimestamp.GetHashCode();
+      if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
       if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) hash ^= ModifiedIn.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
@@ -338,10 +360,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (LocateID.Length != 0) {
-        output.WriteRawTag(162, 6);
-        output.WriteString(LocateID);
-      }
       if (RequestQuan != 0) {
         output.WriteRawTag(184, 6);
         output.WriteInt32(RequestQuan);
@@ -353,14 +371,6 @@ namespace Spiderrock.Protobuf {
       if (LocateStatus != global::Spiderrock.Protobuf.LocateStatus.Unspecified) {
         output.WriteRawTag(232, 6);
         output.WriteEnum((int) LocateStatus);
-      }
-      if (IsLocateExempt != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(152, 7);
-        output.WriteEnum((int) IsLocateExempt);
-      }
-      if (AltSecurityId.Length != 0) {
-        output.WriteRawTag(178, 7);
-        output.WriteString(AltSecurityId);
       }
       if (RequestOrigin != global::Spiderrock.Protobuf.RequestOrigin.Unspecified) {
         output.WriteRawTag(200, 7);
@@ -377,6 +387,22 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(170, 8);
         output.WriteMessage(Timestamp);
+      }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(178, 8);
+        output.WriteMessage(TradeDate);
+      }
+      if (LocateFirm.Length != 0) {
+        output.WriteRawTag(186, 8);
+        output.WriteString(LocateFirm);
+      }
+      if (LocatePool.Length != 0) {
+        output.WriteRawTag(194, 8);
+        output.WriteString(LocatePool);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(202, 8);
+        output.WriteString(ModifiedBy);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -396,10 +422,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(18);
         output.WriteMessage(Pkey);
       }
-      if (LocateID.Length != 0) {
-        output.WriteRawTag(162, 6);
-        output.WriteString(LocateID);
-      }
       if (RequestQuan != 0) {
         output.WriteRawTag(184, 6);
         output.WriteInt32(RequestQuan);
@@ -411,14 +433,6 @@ namespace Spiderrock.Protobuf {
       if (LocateStatus != global::Spiderrock.Protobuf.LocateStatus.Unspecified) {
         output.WriteRawTag(232, 6);
         output.WriteEnum((int) LocateStatus);
-      }
-      if (IsLocateExempt != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(152, 7);
-        output.WriteEnum((int) IsLocateExempt);
-      }
-      if (AltSecurityId.Length != 0) {
-        output.WriteRawTag(178, 7);
-        output.WriteString(AltSecurityId);
       }
       if (RequestOrigin != global::Spiderrock.Protobuf.RequestOrigin.Unspecified) {
         output.WriteRawTag(200, 7);
@@ -436,6 +450,22 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(170, 8);
         output.WriteMessage(Timestamp);
       }
+      if (tradeDate_ != null) {
+        output.WriteRawTag(178, 8);
+        output.WriteMessage(TradeDate);
+      }
+      if (LocateFirm.Length != 0) {
+        output.WriteRawTag(186, 8);
+        output.WriteString(LocateFirm);
+      }
+      if (LocatePool.Length != 0) {
+        output.WriteRawTag(194, 8);
+        output.WriteString(LocatePool);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(202, 8);
+        output.WriteString(ModifiedBy);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -452,8 +482,14 @@ namespace Spiderrock.Protobuf {
       if (pkey_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pkey);
       }
-      if (LocateID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocateID);
+      if (tradeDate_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(TradeDate);
+      }
+      if (LocateFirm.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocateFirm);
+      }
+      if (LocatePool.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocatePool);
       }
       if (RequestQuan != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(RequestQuan);
@@ -464,17 +500,14 @@ namespace Spiderrock.Protobuf {
       if (LocateStatus != global::Spiderrock.Protobuf.LocateStatus.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) LocateStatus);
       }
-      if (IsLocateExempt != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) IsLocateExempt);
-      }
-      if (AltSecurityId.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(AltSecurityId);
-      }
       if (RequestOrigin != global::Spiderrock.Protobuf.RequestOrigin.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RequestOrigin);
       }
       if (requestTimestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RequestTimestamp);
+      }
+      if (ModifiedBy.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
       }
       if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ModifiedIn);
@@ -506,8 +539,17 @@ namespace Spiderrock.Protobuf {
         }
         Pkey.MergeFrom(other.Pkey);
       }
-      if (other.LocateID.Length != 0) {
-        LocateID = other.LocateID;
+      if (other.tradeDate_ != null) {
+        if (tradeDate_ == null) {
+          TradeDate = new global::Spiderrock.Protobuf.DateKey();
+        }
+        TradeDate.MergeFrom(other.TradeDate);
+      }
+      if (other.LocateFirm.Length != 0) {
+        LocateFirm = other.LocateFirm;
+      }
+      if (other.LocatePool.Length != 0) {
+        LocatePool = other.LocatePool;
       }
       if (other.RequestQuan != 0) {
         RequestQuan = other.RequestQuan;
@@ -518,12 +560,6 @@ namespace Spiderrock.Protobuf {
       if (other.LocateStatus != global::Spiderrock.Protobuf.LocateStatus.Unspecified) {
         LocateStatus = other.LocateStatus;
       }
-      if (other.IsLocateExempt != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        IsLocateExempt = other.IsLocateExempt;
-      }
-      if (other.AltSecurityId.Length != 0) {
-        AltSecurityId = other.AltSecurityId;
-      }
       if (other.RequestOrigin != global::Spiderrock.Protobuf.RequestOrigin.Unspecified) {
         RequestOrigin = other.RequestOrigin;
       }
@@ -532,6 +568,9 @@ namespace Spiderrock.Protobuf {
           RequestTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
         }
         RequestTimestamp.MergeFrom(other.RequestTimestamp);
+      }
+      if (other.ModifiedBy.Length != 0) {
+        ModifiedBy = other.ModifiedBy;
       }
       if (other.ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) {
         ModifiedIn = other.ModifiedIn;
@@ -571,10 +610,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 802: {
-            LocateID = input.ReadString();
-            break;
-          }
           case 824: {
             RequestQuan = input.ReadInt32();
             break;
@@ -585,14 +620,6 @@ namespace Spiderrock.Protobuf {
           }
           case 872: {
             LocateStatus = (global::Spiderrock.Protobuf.LocateStatus) input.ReadEnum();
-            break;
-          }
-          case 920: {
-            IsLocateExempt = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 946: {
-            AltSecurityId = input.ReadString();
             break;
           }
           case 968: {
@@ -615,6 +642,25 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1074: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
+          case 1082: {
+            LocateFirm = input.ReadString();
+            break;
+          }
+          case 1090: {
+            LocatePool = input.ReadString();
+            break;
+          }
+          case 1098: {
+            ModifiedBy = input.ReadString();
             break;
           }
         }
@@ -646,10 +692,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Pkey);
             break;
           }
-          case 802: {
-            LocateID = input.ReadString();
-            break;
-          }
           case 824: {
             RequestQuan = input.ReadInt32();
             break;
@@ -660,14 +702,6 @@ namespace Spiderrock.Protobuf {
           }
           case 872: {
             LocateStatus = (global::Spiderrock.Protobuf.LocateStatus) input.ReadEnum();
-            break;
-          }
-          case 920: {
-            IsLocateExempt = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 946: {
-            AltSecurityId = input.ReadString();
             break;
           }
           case 968: {
@@ -690,6 +724,25 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1074: {
+            if (tradeDate_ == null) {
+              TradeDate = new global::Spiderrock.Protobuf.DateKey();
+            }
+            input.ReadMessage(TradeDate);
+            break;
+          }
+          case 1082: {
+            LocateFirm = input.ReadString();
+            break;
+          }
+          case 1090: {
+            LocatePool = input.ReadString();
+            break;
+          }
+          case 1098: {
+            ModifiedBy = input.ReadString();
             break;
           }
         }
@@ -738,10 +791,7 @@ namespace Spiderrock.Protobuf {
         public PKey(PKey other) : this() {
           ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
           coreClientFirm_ = other.coreClientFirm_;
-          locateFirm_ = other.locateFirm_;
-          locatePool_ = other.locatePool_;
-          locateSource_ = other.locateSource_;
-          tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
+          requestID_ = other.requestID_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -775,57 +825,18 @@ namespace Spiderrock.Protobuf {
           }
         }
 
-        /// <summary>Field number for the "locate_firm" field.</summary>
-        public const int LocateFirmFieldNumber = 12;
-        private string locateFirm_ = "";
+        /// <summary>Field number for the "request_iD" field.</summary>
+        public const int RequestIDFieldNumber = 17;
+        private long requestID_;
         /// <summary>
-        /// typically a clearing firm (or 3rd party locate desk)
+        /// ID used to make locate requests (SR generated request ID)
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public string LocateFirm {
-          get { return locateFirm_; }
+        public long RequestID {
+          get { return requestID_; }
           set {
-            locateFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        /// <summary>Field number for the "locate_pool" field.</summary>
-        public const int LocatePoolFieldNumber = 13;
-        private string locatePool_ = "";
-        /// <summary>
-        /// locate pool @ firm granting the locate
-        /// </summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public string LocatePool {
-          get { return locatePool_; }
-          set {
-            locatePool_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        /// <summary>Field number for the "locate_source" field.</summary>
-        public const int LocateSourceFieldNumber = 16;
-        private global::Spiderrock.Protobuf.LocateSource locateSource_ = global::Spiderrock.Protobuf.LocateSource.Unspecified;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.LocateSource LocateSource {
-          get { return locateSource_; }
-          set {
-            locateSource_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "trade_date" field.</summary>
-        public const int TradeDateFieldNumber = 15;
-        private global::Spiderrock.Protobuf.DateKey tradeDate_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.DateKey TradeDate {
-          get { return tradeDate_; }
-          set {
-            tradeDate_ = value;
+            requestID_ = value;
           }
         }
 
@@ -846,10 +857,7 @@ namespace Spiderrock.Protobuf {
           }
           if (!object.Equals(Ticker, other.Ticker)) return false;
           if (CoreClientFirm != other.CoreClientFirm) return false;
-          if (LocateFirm != other.LocateFirm) return false;
-          if (LocatePool != other.LocatePool) return false;
-          if (LocateSource != other.LocateSource) return false;
-          if (!object.Equals(TradeDate, other.TradeDate)) return false;
+          if (RequestID != other.RequestID) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -859,10 +867,7 @@ namespace Spiderrock.Protobuf {
           int hash = 1;
           if (ticker_ != null) hash ^= Ticker.GetHashCode();
           if (CoreClientFirm.Length != 0) hash ^= CoreClientFirm.GetHashCode();
-          if (LocateFirm.Length != 0) hash ^= LocateFirm.GetHashCode();
-          if (LocatePool.Length != 0) hash ^= LocatePool.GetHashCode();
-          if (LocateSource != global::Spiderrock.Protobuf.LocateSource.Unspecified) hash ^= LocateSource.GetHashCode();
-          if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
+          if (RequestID != 0L) hash ^= RequestID.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -889,21 +894,9 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(CoreClientFirm);
           }
-          if (LocateFirm.Length != 0) {
-            output.WriteRawTag(98);
-            output.WriteString(LocateFirm);
-          }
-          if (LocatePool.Length != 0) {
-            output.WriteRawTag(106);
-            output.WriteString(LocatePool);
-          }
-          if (tradeDate_ != null) {
-            output.WriteRawTag(122);
-            output.WriteMessage(TradeDate);
-          }
-          if (LocateSource != global::Spiderrock.Protobuf.LocateSource.Unspecified) {
-            output.WriteRawTag(128, 1);
-            output.WriteEnum((int) LocateSource);
+          if (RequestID != 0L) {
+            output.WriteRawTag(136, 1);
+            output.WriteInt64(RequestID);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -923,21 +916,9 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(CoreClientFirm);
           }
-          if (LocateFirm.Length != 0) {
-            output.WriteRawTag(98);
-            output.WriteString(LocateFirm);
-          }
-          if (LocatePool.Length != 0) {
-            output.WriteRawTag(106);
-            output.WriteString(LocatePool);
-          }
-          if (tradeDate_ != null) {
-            output.WriteRawTag(122);
-            output.WriteMessage(TradeDate);
-          }
-          if (LocateSource != global::Spiderrock.Protobuf.LocateSource.Unspecified) {
-            output.WriteRawTag(128, 1);
-            output.WriteEnum((int) LocateSource);
+          if (RequestID != 0L) {
+            output.WriteRawTag(136, 1);
+            output.WriteInt64(RequestID);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -955,17 +936,8 @@ namespace Spiderrock.Protobuf {
           if (CoreClientFirm.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(CoreClientFirm);
           }
-          if (LocateFirm.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocateFirm);
-          }
-          if (LocatePool.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocatePool);
-          }
-          if (LocateSource != global::Spiderrock.Protobuf.LocateSource.Unspecified) {
-            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) LocateSource);
-          }
-          if (tradeDate_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(TradeDate);
+          if (RequestID != 0L) {
+            size += 2 + pb::CodedOutputStream.ComputeInt64Size(RequestID);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -988,20 +960,8 @@ namespace Spiderrock.Protobuf {
           if (other.CoreClientFirm.Length != 0) {
             CoreClientFirm = other.CoreClientFirm;
           }
-          if (other.LocateFirm.Length != 0) {
-            LocateFirm = other.LocateFirm;
-          }
-          if (other.LocatePool.Length != 0) {
-            LocatePool = other.LocatePool;
-          }
-          if (other.LocateSource != global::Spiderrock.Protobuf.LocateSource.Unspecified) {
-            LocateSource = other.LocateSource;
-          }
-          if (other.tradeDate_ != null) {
-            if (tradeDate_ == null) {
-              TradeDate = new global::Spiderrock.Protobuf.DateKey();
-            }
-            TradeDate.MergeFrom(other.TradeDate);
+          if (other.RequestID != 0L) {
+            RequestID = other.RequestID;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1029,23 +989,8 @@ namespace Spiderrock.Protobuf {
                 CoreClientFirm = input.ReadString();
                 break;
               }
-              case 98: {
-                LocateFirm = input.ReadString();
-                break;
-              }
-              case 106: {
-                LocatePool = input.ReadString();
-                break;
-              }
-              case 122: {
-                if (tradeDate_ == null) {
-                  TradeDate = new global::Spiderrock.Protobuf.DateKey();
-                }
-                input.ReadMessage(TradeDate);
-                break;
-              }
-              case 128: {
-                LocateSource = (global::Spiderrock.Protobuf.LocateSource) input.ReadEnum();
+              case 136: {
+                RequestID = input.ReadInt64();
                 break;
               }
             }
@@ -1074,23 +1019,8 @@ namespace Spiderrock.Protobuf {
                 CoreClientFirm = input.ReadString();
                 break;
               }
-              case 98: {
-                LocateFirm = input.ReadString();
-                break;
-              }
-              case 106: {
-                LocatePool = input.ReadString();
-                break;
-              }
-              case 122: {
-                if (tradeDate_ == null) {
-                  TradeDate = new global::Spiderrock.Protobuf.DateKey();
-                }
-                input.ReadMessage(TradeDate);
-                break;
-              }
-              case 128: {
-                LocateSource = (global::Spiderrock.Protobuf.LocateSource) input.ReadEnum();
+              case 136: {
+                RequestID = input.ReadInt64();
                 break;
               }
             }

@@ -219,6 +219,7 @@ message SpdrParentReport {
     int64 base_parent_number = 124; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
     int64 prev_parent_number = 1037; // SPDR order number (order being cancelled/replaced) (zero if none)
     int64 next_parent_number = 1038; // SPDR order number (next order in cxl/replace sequence) (zero if none)
+    SpdrActionType spdr_action_type = 1098;
     google.protobuf.Timestamp prev_parent_create_dttm = 133; // none/undefined if first order in a sequence
     int32 prev_parent_cum_fill_qty = 136;
     int32 client_seq_num_in = 139; // inbound client seq number (FIX orders only)
@@ -262,6 +263,7 @@ message SpdrParentReport {
     SpdrLimitClass make_limit_class = 244;
     StartType start_type = 247; // WaitTrigger associates this order with a triggerGroupId.  The initial wave of child orders from the TriggerGroup will be simultaneously delivered when a trigger signal is received.
     MarketSession market_session = 1044;
+    int32 active_duration = 1097;
     google.protobuf.Timestamp start_dttm = 253; // [optional] (default: 2000-01-01)
     google.protobuf.Timestamp good_till_dttm = 256; // [optional] (default: 2099-01-01)
     AutoHedge auto_hedge = 259;
@@ -323,6 +325,7 @@ message SpdrParentReport {
     float make_surf_width_offset = 1087; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
     float order_ref_event_mult = 1088;
     google.protobuf.Timestamp order_ref_event_dttm = 1089;
+    NbboCap nbbo_cap = 1099; // indicates if order is capped at NBBO (or 1, 5, 10 pennies through)
     string extern_hedge_ex_dest = 1096; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 1091; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     SpdrOrderStatus spdr_order_status = 304;

@@ -19,7 +19,7 @@ message OptionItemCalc {
     ExerciseType ex_type = 102; // exercise type of the option (American or European) (default: from root definition)
     ExerciseTime ex_time = 103; // exercise time (AM or PM) (default: from root definition)
     CalendarCode holiday_calendar = 132; // holiday calendar code (NYSE, etc)
-    TimeMetric time_metric = 104; // time metric (VT70, Y252, Y365, etc.) (default: from root definition)
+    TimeMetric time_metric = 104; // time metric (D252, D365, etc.) (default: from root definition)
     CalcPriceType price_type = 105; // Equity (spot price) or Future (fwd price) conventions (default: from root definition)
     CalcModelType model_type = 106; // LogNormal, Normal, etc.  (default: from root definition)
     YesNo inc_greeks = 107; // default (No)
@@ -27,7 +27,7 @@ message OptionItemCalc {
     double u_prc = 109; // underlying price (default: SR live uPrc)
     int32 i_days = 110; // interest days to expiration (default: SR interest days)
     double years = 111; // years-to-expiration (default: SR volatility time value)
-    double sdiv = 112; // continuous stock dividend using for pricing
+    double sdiv = 112; // continuous stock dividend used for pricing
     double rate = 113; // discount rate used for pricing
     double ddiv = 114;
     double ddiv_pV = 115;

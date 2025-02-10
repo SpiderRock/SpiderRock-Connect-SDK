@@ -188,6 +188,10 @@ message ProductRiskSummaryV5 {
     int32 fc_sld_c1 = 559; // hypothetical future contracts sld
     float fc_mny_c1 = 562; // hypothetical money
     float fut_margin = 565; // Aggregate Future Risk Margin
+    float margin_uDn_vDn = 590; // Aggregate RiskSlide: uPrc dn, vol dn
+    float margin_uDn_vUp = 591; // Aggregate RiskSlide: uPrc dn, vol up
+    float margin_uUp_vDn = 592; // Aggregate RiskSlide: uPrc up, vol dn
+    float margin_uUp_vUp = 593; // Aggregate RiskSlide: uPrc up, vol up
     int32 num_fut_errors = 568; // number of futures positions with a computation error (should be zero)
     int32 num_opt_errors = 571; // number of options positions with a computation error (should be zero)
     MktErrFlag fut_mark_flag = 574; // Future position error flag

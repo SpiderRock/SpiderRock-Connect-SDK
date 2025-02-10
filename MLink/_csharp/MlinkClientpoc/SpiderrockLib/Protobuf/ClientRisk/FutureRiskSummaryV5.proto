@@ -88,6 +88,7 @@ message FutureRiskSummaryV5 {
     float op_day_delta = 286; // Option Day Delta;=sum[opr.de * ((opr.cnBot - opr.cnSld) * opr.underliersPerCn)]
     float op_trd_delta = 289; // Option Trade Delta (delta fixed at time of trade);=sum[opr.trdDelta]
     float opn_delta = 292;
+    float opn_dDelta = 620; // Aggregate Position ($) Open Delta (Open Positions + Open Hedge Trades Only)
     float cont_hedge_pnl = 295; // Estimated continuous hedging pnl (open positions only) [~1 minute intervals]
     float cont_hedge_pnl1 = 298; // Estimated continuous hedging pnl (open positions only) [~10 minute intervals]
     float op_edge_opened = 301; // Option Edge Opened (new risk);=sum[opr.edgeOpened]
@@ -191,6 +192,10 @@ message FutureRiskSummaryV5 {
     int32 fc_sld_c1 = 595; // hypothetical future contracts sld
     float fc_mny_c1 = 598; // hypothetical money
     float fut_margin = 601; // Aggregate Future Risk Margin
+    float margin_uDn_vDn = 621; // Aggregate RiskSlide: uPrc dn, vol dn
+    float margin_uDn_vUp = 622; // Aggregate RiskSlide: uPrc dn, vol up
+    float margin_uUp_vDn = 623; // Aggregate RiskSlide: uPrc up, vol dn
+    float margin_uUp_vUp = 624; // Aggregate RiskSlide: uPrc up, vol up
     int32 num_fut_errors = 604; // number of futures positions with a computation error (should be zero)
     int32 num_opt_errors = 607; // number of options positions with a computation error (should be zero)
     R5Source update_source = 610;

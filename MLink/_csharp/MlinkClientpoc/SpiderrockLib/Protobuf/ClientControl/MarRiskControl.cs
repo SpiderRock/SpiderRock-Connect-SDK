@@ -412,7 +412,7 @@ namespace Spiderrock.Protobuf {
     public const int StkCollarPctFieldNumber = 171;
     private float stkCollarPct_;
     /// <summary>
-    /// Maximum user limit vs bid/ask price control - percentage in decimals
+    /// Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -427,7 +427,7 @@ namespace Spiderrock.Protobuf {
     public const int FutCollarPctFieldNumber = 172;
     private float futCollarPct_;
     /// <summary>
-    /// Maximum user limit vs bid/ask price control - percentage in decimals
+    /// Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -442,7 +442,7 @@ namespace Spiderrock.Protobuf {
     public const int OptCollarPctFieldNumber = 173;
     private float optCollarPct_;
     /// <summary>
-    /// Maximum user limit vs bid/ask price control - percentage in decimals
+    /// Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

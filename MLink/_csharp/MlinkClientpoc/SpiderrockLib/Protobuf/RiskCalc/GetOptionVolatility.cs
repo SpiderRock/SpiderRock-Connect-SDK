@@ -26,30 +26,31 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CitQcm90b2J1Zi9SaXNrQ2FsYy9HZXRPcHRpb25Wb2xhdGlsaXR5LnByb3Rv",
             "EhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90",
-            "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKKCAoTR2V0T3B0",
+            "bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKMCAoTR2V0T3B0",
             "aW9uVm9sYXRpbGl0eRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuTWVzc2FnZU1ldGFkYXRhEi0KBG9rZXkYxQEgASgLMh4uc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5PcHRpb25LZXkSDQoFcHJpY2UYcCABKAESDQoFdV9w",
-            "cmMYcyABKAESDQoFeWVhcnMYdiABKAESDAoEc2Rpdhh5IAEoARIMCgRyYXRl",
-            "GHwgASgBEjIKB2V4X3R5cGUYfyABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LkV4ZXJjaXNlVHlwZRIzCgdleF90aW1lGIIBIAEoDjIhLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuRXhlcmNpc2VUaW1lEjwKEGhvbGlkYXlfY2FsZW5kYXIYxgEg",
-            "ASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5DYWxlbmRhckNvZGUSNQoLdGlt",
-            "ZV9tZXRyaWMYhQEgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5UaW1lTWV0",
-            "cmljEjcKCm1vZGVsX3R5cGUYkQEgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5DYWxjTW9kZWxUeXBlEjUKC2NhbGNfZW5naW5lGJQBIAEoDjIfLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuQ2FsY0VuZ2luZRIvCgppbmNfZ3JlZWtzGJcBIAEo",
-            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SDAoDdm9sGJoBIAEoARIT",
-            "CgplZmZfc3RyaWtlGJ0BIAEoARIYCg9kaXZpZGVuZF9hbW91bnQYoAEgASgC",
-            "Eg4KBWRlbHRhGKMBIAEoAhIOCgVnYW1tYRimASABKAISDgoFdGhldGEYqQEg",
-            "ASgCEg0KBHZlZ2EYrAEgASgCEg4KBXZvbGdhGK8BIAEoAhIOCgV2YW5uYRiy",
-            "ASABKAISEQoIZGVfZGVjYXkYtQEgASgCEgwKA3Jobxi4ASABKAISDAoDcGhp",
-            "GLsBIAEoAhIOCgVlcnJvchi+ASABKAkSFQoMcHJpY2VyX21vZGVsGMEBIAEo",
-            "CRIuCgl0aW1lc3RhbXAYxAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBJVChFkaXNjcmV0ZV9kaXZpZGVuZBiIASADKAsyOS5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkdldE9wdGlvblZvbGF0aWxpdHkuRGlzY3JldGVEaXZpZGVu",
-            "ZBpOChBEaXNjcmV0ZURpdmlkZW5kEikKBGRhdGUYiwEgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBIPCgZhbW91bnQYjgEgASgCYgZwcm90bzM="));
+            "cmMYcyABKAESDQoFeWVhcnMYdiABKAESDQoEc2RpdhjHASABKAESDQoEcmF0",
+            "ZRjIASABKAESMgoHZXhfdHlwZRh/IAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuRXhlcmNpc2VUeXBlEjMKB2V4X3RpbWUYggEgASgOMiEuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5FeGVyY2lzZVRpbWUSPAoQaG9saWRheV9jYWxlbmRhchjG",
+            "ASABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLkNhbGVuZGFyQ29kZRI1Cgt0",
+            "aW1lX21ldHJpYxiFASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlRpbWVN",
+            "ZXRyaWMSNwoKbW9kZWxfdHlwZRiRASABKA4yIi5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLkNhbGNNb2RlbFR5cGUSNQoLY2FsY19lbmdpbmUYlAEgASgOMh8uc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5DYWxjRW5naW5lEi8KCmluY19ncmVla3MYlwEg",
+            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIMCgN2b2wYyQEgASgB",
+            "EhMKCmVmZl9zdHJpa2UYnQEgASgBEhgKD2RpdmlkZW5kX2Ftb3VudBigASAB",
+            "KAISDgoFZGVsdGEYowEgASgCEg4KBWdhbW1hGKYBIAEoAhIOCgV0aGV0YRip",
+            "ASABKAISDQoEdmVnYRisASABKAISDgoFdm9sZ2EYrwEgASgCEg4KBXZhbm5h",
+            "GLIBIAEoAhIRCghkZV9kZWNheRi1ASABKAISDAoDcmhvGLgBIAEoAhIMCgNw",
+            "aGkYuwEgASgCEg4KBWVycm9yGL4BIAEoCRIVCgxwcmljZXJfbW9kZWwYwQEg",
+            "ASgJEi4KCXRpbWVzdGFtcBjEASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wElUKEWRpc2NyZXRlX2RpdmlkZW5kGIgBIAMoCzI5LnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuR2V0T3B0aW9uVm9sYXRpbGl0eS5EaXNjcmV0ZURpdmlk",
+            "ZW5kGk4KEERpc2NyZXRlRGl2aWRlbmQSKQoEZGF0ZRiLASABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wEg8KBmFtb3VudBiOASABKAJiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -206,10 +207,10 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sdiv" field.</summary>
-    public const int SdivFieldNumber = 121;
+    public const int SdivFieldNumber = 199;
     private double sdiv_;
     /// <summary>
-    /// continuous stock dividend using for pricing
+    /// continuous stock dividend used for pricing
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -221,7 +222,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "rate" field.</summary>
-    public const int RateFieldNumber = 124;
+    public const int RateFieldNumber = 200;
     private double rate_;
     /// <summary>
     /// discount rate used for pricing
@@ -284,7 +285,7 @@ namespace Spiderrock.Protobuf {
     public const int TimeMetricFieldNumber = 133;
     private global::Spiderrock.Protobuf.TimeMetric timeMetric_ = global::Spiderrock.Protobuf.TimeMetric.Unspecified;
     /// <summary>
-    /// time metric (VT70, Y252, Y365, etc.)
+    /// time metric (D252, D365, etc.)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -338,7 +339,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "vol" field.</summary>
-    public const int VolFieldNumber = 154;
+    public const int VolFieldNumber = 201;
     private double vol_;
     /// <summary>
     /// volatility (implied)
@@ -680,14 +681,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(177, 7);
         output.WriteDouble(Years);
       }
-      if (Sdiv != 0D) {
-        output.WriteRawTag(201, 7);
-        output.WriteDouble(Sdiv);
-      }
-      if (Rate != 0D) {
-        output.WriteRawTag(225, 7);
-        output.WriteDouble(Rate);
-      }
       if (ExType != global::Spiderrock.Protobuf.ExerciseType.Unspecified) {
         output.WriteRawTag(248, 7);
         output.WriteEnum((int) ExType);
@@ -712,10 +705,6 @@ namespace Spiderrock.Protobuf {
       if (IncGreeks != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(184, 9);
         output.WriteEnum((int) IncGreeks);
-      }
-      if (Vol != 0D) {
-        output.WriteRawTag(209, 9);
-        output.WriteDouble(Vol);
       }
       if (EffStrike != 0D) {
         output.WriteRawTag(233, 9);
@@ -780,6 +769,18 @@ namespace Spiderrock.Protobuf {
       if (HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) {
         output.WriteRawTag(176, 12);
         output.WriteEnum((int) HolidayCalendar);
+      }
+      if (Sdiv != 0D) {
+        output.WriteRawTag(185, 12);
+        output.WriteDouble(Sdiv);
+      }
+      if (Rate != 0D) {
+        output.WriteRawTag(193, 12);
+        output.WriteDouble(Rate);
+      }
+      if (Vol != 0D) {
+        output.WriteRawTag(201, 12);
+        output.WriteDouble(Vol);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -807,14 +808,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(177, 7);
         output.WriteDouble(Years);
       }
-      if (Sdiv != 0D) {
-        output.WriteRawTag(201, 7);
-        output.WriteDouble(Sdiv);
-      }
-      if (Rate != 0D) {
-        output.WriteRawTag(225, 7);
-        output.WriteDouble(Rate);
-      }
       if (ExType != global::Spiderrock.Protobuf.ExerciseType.Unspecified) {
         output.WriteRawTag(248, 7);
         output.WriteEnum((int) ExType);
@@ -839,10 +832,6 @@ namespace Spiderrock.Protobuf {
       if (IncGreeks != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(184, 9);
         output.WriteEnum((int) IncGreeks);
-      }
-      if (Vol != 0D) {
-        output.WriteRawTag(209, 9);
-        output.WriteDouble(Vol);
       }
       if (EffStrike != 0D) {
         output.WriteRawTag(233, 9);
@@ -907,6 +896,18 @@ namespace Spiderrock.Protobuf {
       if (HolidayCalendar != global::Spiderrock.Protobuf.CalendarCode.Unspecified) {
         output.WriteRawTag(176, 12);
         output.WriteEnum((int) HolidayCalendar);
+      }
+      if (Sdiv != 0D) {
+        output.WriteRawTag(185, 12);
+        output.WriteDouble(Sdiv);
+      }
+      if (Rate != 0D) {
+        output.WriteRawTag(193, 12);
+        output.WriteDouble(Rate);
+      }
+      if (Vol != 0D) {
+        output.WriteRawTag(201, 12);
+        output.WriteDouble(Vol);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1149,14 +1150,6 @@ namespace Spiderrock.Protobuf {
             Years = input.ReadDouble();
             break;
           }
-          case 969: {
-            Sdiv = input.ReadDouble();
-            break;
-          }
-          case 993: {
-            Rate = input.ReadDouble();
-            break;
-          }
           case 1016: {
             ExType = (global::Spiderrock.Protobuf.ExerciseType) input.ReadEnum();
             break;
@@ -1183,10 +1176,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1208: {
             IncGreeks = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 1233: {
-            Vol = input.ReadDouble();
             break;
           }
           case 1257: {
@@ -1257,6 +1246,18 @@ namespace Spiderrock.Protobuf {
           }
           case 1584: {
             HolidayCalendar = (global::Spiderrock.Protobuf.CalendarCode) input.ReadEnum();
+            break;
+          }
+          case 1593: {
+            Sdiv = input.ReadDouble();
+            break;
+          }
+          case 1601: {
+            Rate = input.ReadDouble();
+            break;
+          }
+          case 1609: {
+            Vol = input.ReadDouble();
             break;
           }
         }
@@ -1293,14 +1294,6 @@ namespace Spiderrock.Protobuf {
             Years = input.ReadDouble();
             break;
           }
-          case 969: {
-            Sdiv = input.ReadDouble();
-            break;
-          }
-          case 993: {
-            Rate = input.ReadDouble();
-            break;
-          }
           case 1016: {
             ExType = (global::Spiderrock.Protobuf.ExerciseType) input.ReadEnum();
             break;
@@ -1327,10 +1320,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1208: {
             IncGreeks = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 1233: {
-            Vol = input.ReadDouble();
             break;
           }
           case 1257: {
@@ -1401,6 +1390,18 @@ namespace Spiderrock.Protobuf {
           }
           case 1584: {
             HolidayCalendar = (global::Spiderrock.Protobuf.CalendarCode) input.ReadEnum();
+            break;
+          }
+          case 1593: {
+            Sdiv = input.ReadDouble();
+            break;
+          }
+          case 1601: {
+            Rate = input.ReadDouble();
+            break;
+          }
+          case 1609: {
+            Vol = input.ReadDouble();
             break;
           }
         }
