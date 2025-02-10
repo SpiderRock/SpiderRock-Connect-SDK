@@ -25,17 +25,20 @@ namespace Spiderrock.Protobuf {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiRQcm90b2J1Zi9NTGlua1Jlc3QvUXVlcnlSZXN1bHQucHJvdG8SE3NwaWRl",
-            "cnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3RvIugBCgtR",
-            "dWVyeVJlc3VsdBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuTWVzc2FnZU1ldGFkYXRhEhYKDm51bV9ieXRlc19zZW50GGQgASgDEhkK",
-            "EW51bV9tZXNzYWdlc19zZW50GGcgASgDEhwKFG51bV9tZXNzYWdlc19zY2Fu",
-            "bmVkGGogASgDEhUKDXF1ZXJ5X2VsYXBzZWQYbSABKAISLAoGcmVzdWx0GHAg",
-            "ASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5RUmVzdWx0Eg4KBmRldGFpbBhz",
-            "IAEoCWIGcHJvdG8z"));
+            "cnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3RvGh9nb29n",
+            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItMCCgtRdWVyeVJlc3VsdBIz",
+            "CgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVzc2FnZU1l",
+            "dGFkYXRhEhYKDm51bV9ieXRlc19zZW50GGQgASgDEhkKEW51bV9tZXNzYWdl",
+            "c19zZW50GGcgASgDEhwKFG51bV9tZXNzYWdlc19zY2FubmVkGGogASgDEhUK",
+            "DXF1ZXJ5X2VsYXBzZWQYbSABKAISLAoGcmVzdWx0GHAgASgOMhwuc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5RUmVzdWx0Eg4KBmRldGFpbBhzIAEoCRI1ChFyZWNl",
+            "aXZlX3RpbWVzdGFtcBh0IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
+            "bXASMgoOc2VuZF90aW1lc3RhbXAYdSABKAsyGi5nb29nbGUucHJvdG9idWYu",
+            "VGltZXN0YW1wYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.QueryResult), global::Spiderrock.Protobuf.QueryResult.Parser, new[]{ "Meta", "NumBytesSent", "NumMessagesSent", "NumMessagesScanned", "QueryElapsed", "Result", "Detail" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.QueryResult), global::Spiderrock.Protobuf.QueryResult.Parser, new[]{ "Meta", "NumBytesSent", "NumMessagesSent", "NumMessagesScanned", "QueryElapsed", "Result", "Detail", "ReceiveTimestamp", "SendTimestamp" }, null, null, null, null)
           }));
     }
     #endregion
@@ -83,6 +86,8 @@ namespace Spiderrock.Protobuf {
       queryElapsed_ = other.queryElapsed_;
       result_ = other.result_;
       detail_ = other.detail_;
+      receiveTimestamp_ = other.receiveTimestamp_ != null ? other.receiveTimestamp_.Clone() : null;
+      sendTimestamp_ = other.sendTimestamp_ != null ? other.sendTimestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -194,6 +199,36 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "receive_timestamp" field.</summary>
+    public const int ReceiveTimestampFieldNumber = 116;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp receiveTimestamp_;
+    /// <summary>
+    /// timestamp when MLink server received the request
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp ReceiveTimestamp {
+      get { return receiveTimestamp_; }
+      set {
+        receiveTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "send_timestamp" field.</summary>
+    public const int SendTimestampFieldNumber = 117;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp sendTimestamp_;
+    /// <summary>
+    /// timestamp when MLink server sent this response
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SendTimestamp {
+      get { return sendTimestamp_; }
+      set {
+        sendTimestamp_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -216,6 +251,8 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(QueryElapsed, other.QueryElapsed)) return false;
       if (Result != other.Result) return false;
       if (Detail != other.Detail) return false;
+      if (!object.Equals(ReceiveTimestamp, other.ReceiveTimestamp)) return false;
+      if (!object.Equals(SendTimestamp, other.SendTimestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -230,6 +267,8 @@ namespace Spiderrock.Protobuf {
       if (QueryElapsed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(QueryElapsed);
       if (Result != global::Spiderrock.Protobuf.QResult.Unspecified) hash ^= Result.GetHashCode();
       if (Detail.Length != 0) hash ^= Detail.GetHashCode();
+      if (receiveTimestamp_ != null) hash ^= ReceiveTimestamp.GetHashCode();
+      if (sendTimestamp_ != null) hash ^= SendTimestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -276,6 +315,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(154, 7);
         output.WriteString(Detail);
       }
+      if (receiveTimestamp_ != null) {
+        output.WriteRawTag(162, 7);
+        output.WriteMessage(ReceiveTimestamp);
+      }
+      if (sendTimestamp_ != null) {
+        output.WriteRawTag(170, 7);
+        output.WriteMessage(SendTimestamp);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -314,6 +361,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(154, 7);
         output.WriteString(Detail);
       }
+      if (receiveTimestamp_ != null) {
+        output.WriteRawTag(162, 7);
+        output.WriteMessage(ReceiveTimestamp);
+      }
+      if (sendTimestamp_ != null) {
+        output.WriteRawTag(170, 7);
+        output.WriteMessage(SendTimestamp);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -344,6 +399,12 @@ namespace Spiderrock.Protobuf {
       }
       if (Detail.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Detail);
+      }
+      if (receiveTimestamp_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ReceiveTimestamp);
+      }
+      if (sendTimestamp_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SendTimestamp);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -380,6 +441,18 @@ namespace Spiderrock.Protobuf {
       }
       if (other.Detail.Length != 0) {
         Detail = other.Detail;
+      }
+      if (other.receiveTimestamp_ != null) {
+        if (receiveTimestamp_ == null) {
+          ReceiveTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        ReceiveTimestamp.MergeFrom(other.ReceiveTimestamp);
+      }
+      if (other.sendTimestamp_ != null) {
+        if (sendTimestamp_ == null) {
+          SendTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SendTimestamp.MergeFrom(other.SendTimestamp);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -427,6 +500,20 @@ namespace Spiderrock.Protobuf {
             Detail = input.ReadString();
             break;
           }
+          case 930: {
+            if (receiveTimestamp_ == null) {
+              ReceiveTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(ReceiveTimestamp);
+            break;
+          }
+          case 938: {
+            if (sendTimestamp_ == null) {
+              SendTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SendTimestamp);
+            break;
+          }
         }
       }
     #endif
@@ -471,6 +558,20 @@ namespace Spiderrock.Protobuf {
           }
           case 922: {
             Detail = input.ReadString();
+            break;
+          }
+          case 930: {
+            if (receiveTimestamp_ == null) {
+              ReceiveTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(ReceiveTimestamp);
+            break;
+          }
+          case 938: {
+            if (sendTimestamp_ == null) {
+              SendTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SendTimestamp);
             break;
           }
         }

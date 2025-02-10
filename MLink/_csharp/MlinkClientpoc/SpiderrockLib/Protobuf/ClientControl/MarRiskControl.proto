@@ -38,9 +38,9 @@ message MarRiskControl {
     float order_max_stk_dDelta = 168; // Maximum (abs) mny per stock parent order; ddelta = 0.01 * shares * pointValue * midPrc
     float order_max_fut_dDelta = 169; // Maximum (abs) mny per future parent order; ddelta = 0.01 * contracts * pointValue * midPrc
     float order_max_opt_dDelta = 170; // Maximum (abs) mny per option parent order; ddelta = 0.01 * contracts * pointValue * ABS(de) * uMidPrc
-    float stk_collar_pct = 171; // Maximum user limit vs bid/ask price control - percentage in decimals
-    float fut_collar_pct = 172; // Maximum user limit vs bid/ask price control - percentage in decimals
-    float opt_collar_pct = 173; // Maximum user limit vs bid/ask price control - percentage in decimals
+    float stk_collar_pct = 171; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float fut_collar_pct = 172; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float opt_collar_pct = 173; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     YesNo allow_stk_odd_lots = 174; // Allow parent stock orders with an order size below 100
     YesNo allow_limit_on_close = 109; // Allow limit on close orders - similar to MOC order, with the addition of a price limit
     YesNo allow_market_on_close = 106; // Allow market on close orders - special order type which is executed as close to the close of trading as possible

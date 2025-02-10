@@ -26,33 +26,34 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CilQcm90b2J1Zi9DbGllbnRDb250cm9sL0FsdFN5bWJvbE1hcC5wcm90bxIT",
             "c3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8a",
-            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i0wcKDEFsdFN5bWJv",
+            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ijQgKDEFsdFN5bWJv",
             "bE1hcBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVz",
             "c2FnZU1ldGFkYXRhEjQKBHBrZXkYAiABKAsyJi5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLkFsdFN5bWJvbE1hcC5QS2V5Eg0KBWFjY250GGQgASgJEhEKCWFsdF9h",
             "Y2NudBhnIAEoCRIVCg1hbHRfdXNlcl9uYW1lGGogASgJEhAKCHN0cmF0ZWd5",
             "GG0gASgJEhIKCnVzZXJfZGF0YTEYcCABKAkSEgoKdXNlcl9kYXRhMhhzIAEo",
-            "CRISCgpjaGlsZF9kYXRhGHYgASgJEhsKEnN0a19leGVjX2Jya3JfY29kZRiN",
-            "ASABKAkSGwoSZnV0X2V4ZWNfYnJrcl9jb2RlGI4BIAEoCRIfChZlcXRfb3B0",
-            "X2V4ZWNfYnJrcl9jb2RlGI8BIAEoCRIfChZmdXRfb3B0X2V4ZWNfYnJrcl9j",
-            "b2RlGJABIAEoCRIUCgttb2RpZmllZF9ieRiFASABKAkSOQoLbW9kaWZpZWRf",
-            "aW4YiAEgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNFbnZpcm9ubWVu",
-            "dBIuCgl0aW1lc3RhbXAYiwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBJECgxhbHRfY2xlYXJpbmcYkQEgAygLMi0uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5BbHRTeW1ib2xNYXAuQWx0Q2xlYXJpbmcaXgoEUEtleRIuCgZ0aWNr",
-            "ZXIYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIRCglz",
-            "cmNfYWNjbnQYDSABKAkSEwoLY2xpZW50X2Zpcm0YDCABKAkarQIKC0FsdENs",
-            "ZWFyaW5nEhcKDmV4ZWNfYnJrcl9jb2RlGJIBIAEoCRIQCgdleF9kZXN0GJMB",
-            "IAEoCRI1Cg1jbHJfZmxpcF90eXBlGJQBIAEoDjIdLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuRmxpcFR5cGUSFgoNY2xyX2ZsaXBfZmlybRiVASABKAkSFwoOY2xy",
-            "X2ZsaXBfYWNjbnQYlgEgASgJEhIKCWNscl9hZ2VudBiXASABKAkSEwoKY2xy",
-            "X3RheF9pRBiYASABKAkSGAoPZXhlY19icmtyX2FjY250GJkBIAEoCRIaChFl",
-            "eGVjX2Jya3JfY2xfZmlybRiaASABKAkSHAoTZXhlY19icmtyX3VzZXJfbmFt",
-            "ZRibASABKAkSDgoFYmFkZ2UYnAEgASgJYgZwcm90bzM="));
+            "CRISCgpjaGlsZF9kYXRhGHYgASgJEhsKEnRpY2tldF9sb2NhdGVfZmlybRid",
+            "ASABKAkSGwoSdGlja2V0X2xvY2F0ZV9wb29sGJ4BIAEoCRIbChJzdGtfZXhl",
+            "Y19icmtyX2NvZGUYjQEgASgJEhsKEmZ1dF9leGVjX2Jya3JfY29kZRiOASAB",
+            "KAkSHwoWZXF0X29wdF9leGVjX2Jya3JfY29kZRiPASABKAkSHwoWZnV0X29w",
+            "dF9leGVjX2Jya3JfY29kZRiQASABKAkSFAoLbW9kaWZpZWRfYnkYhQEgASgJ",
+            "EjkKC21vZGlmaWVkX2luGIgBIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "U3lzRW52aXJvbm1lbnQSLgoJdGltZXN0YW1wGIsBIAEoCzIaLmdvb2dsZS5w",
+            "cm90b2J1Zi5UaW1lc3RhbXASRAoMYWx0X2NsZWFyaW5nGJEBIAMoCzItLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuQWx0U3ltYm9sTWFwLkFsdENsZWFyaW5nGl4K",
+            "BFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5U",
+            "aWNrZXJLZXkSEQoJc3JjX2FjY250GA0gASgJEhMKC2NsaWVudF9maXJtGAwg",
+            "ASgJGq0CCgtBbHRDbGVhcmluZxIXCg5leGVjX2Jya3JfY29kZRiSASABKAkS",
+            "EAoHZXhfZGVzdBiTASABKAkSNQoNY2xyX2ZsaXBfdHlwZRiUASABKA4yHS5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLkZsaXBUeXBlEhYKDWNscl9mbGlwX2Zpcm0Y",
+            "lQEgASgJEhcKDmNscl9mbGlwX2FjY250GJYBIAEoCRISCgljbHJfYWdlbnQY",
+            "lwEgASgJEhMKCmNscl90YXhfaUQYmAEgASgJEhgKD2V4ZWNfYnJrcl9hY2Nu",
+            "dBiZASABKAkSGgoRZXhlY19icmtyX2NsX2Zpcm0YmgEgASgJEhwKE2V4ZWNf",
+            "YnJrcl91c2VyX25hbWUYmwEgASgJEg4KBWJhZGdlGJwBIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AltSymbolMap), global::Spiderrock.Protobuf.AltSymbolMap.Parser, new[]{ "Meta", "Pkey", "Accnt", "AltAccnt", "AltUserName", "Strategy", "UserData1", "UserData2", "ChildData", "StkExecBrkrCode", "FutExecBrkrCode", "EqtOptExecBrkrCode", "FutOptExecBrkrCode", "ModifiedBy", "ModifiedIn", "Timestamp", "AltClearing" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AltSymbolMap.Types.PKey), global::Spiderrock.Protobuf.AltSymbolMap.Types.PKey.Parser, new[]{ "Ticker", "SrcAccnt", "ClientFirm" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AltSymbolMap), global::Spiderrock.Protobuf.AltSymbolMap.Parser, new[]{ "Meta", "Pkey", "Accnt", "AltAccnt", "AltUserName", "Strategy", "UserData1", "UserData2", "ChildData", "TicketLocateFirm", "TicketLocatePool", "StkExecBrkrCode", "FutExecBrkrCode", "EqtOptExecBrkrCode", "FutOptExecBrkrCode", "ModifiedBy", "ModifiedIn", "Timestamp", "AltClearing" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AltSymbolMap.Types.PKey), global::Spiderrock.Protobuf.AltSymbolMap.Types.PKey.Parser, new[]{ "Ticker", "SrcAccnt", "ClientFirm" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AltSymbolMap.Types.AltClearing), global::Spiderrock.Protobuf.AltSymbolMap.Types.AltClearing.Parser, new[]{ "ExecBrkrCode", "ExDest", "ClrFlipType", "ClrFlipFirm", "ClrFlipAccnt", "ClrAgent", "ClrTaxID", "ExecBrkrAccnt", "ExecBrkrClFirm", "ExecBrkrUserName", "Badge" }, null, null, null, null)})
           }));
     }
@@ -103,6 +104,8 @@ namespace Spiderrock.Protobuf {
       userData1_ = other.userData1_;
       userData2_ = other.userData2_;
       childData_ = other.childData_;
+      ticketLocateFirm_ = other.ticketLocateFirm_;
+      ticketLocatePool_ = other.ticketLocatePool_;
       stkExecBrkrCode_ = other.stkExecBrkrCode_;
       futExecBrkrCode_ = other.futExecBrkrCode_;
       eqtOptExecBrkrCode_ = other.eqtOptExecBrkrCode_;
@@ -249,6 +252,36 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "ticket_locate_firm" field.</summary>
+    public const int TicketLocateFirmFieldNumber = 157;
+    private string ticketLocateFirm_ = "";
+    /// <summary>
+    /// ticket/chat (default) locate firm
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TicketLocateFirm {
+      get { return ticketLocateFirm_; }
+      set {
+        ticketLocateFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ticket_locate_pool" field.</summary>
+    public const int TicketLocatePoolFieldNumber = 158;
+    private string ticketLocatePool_ = "";
+    /// <summary>
+    /// ticket/chat (default) locate pool/id @ firm granting the locate
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TicketLocatePool {
+      get { return ticketLocatePool_; }
+      set {
+        ticketLocatePool_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "stk_exec_brkr_code" field.</summary>
     public const int StkExecBrkrCodeFieldNumber = 141;
     private string stkExecBrkrCode_ = "";
@@ -386,6 +419,8 @@ namespace Spiderrock.Protobuf {
       if (UserData1 != other.UserData1) return false;
       if (UserData2 != other.UserData2) return false;
       if (ChildData != other.ChildData) return false;
+      if (TicketLocateFirm != other.TicketLocateFirm) return false;
+      if (TicketLocatePool != other.TicketLocatePool) return false;
       if (StkExecBrkrCode != other.StkExecBrkrCode) return false;
       if (FutExecBrkrCode != other.FutExecBrkrCode) return false;
       if (EqtOptExecBrkrCode != other.EqtOptExecBrkrCode) return false;
@@ -410,6 +445,8 @@ namespace Spiderrock.Protobuf {
       if (UserData1.Length != 0) hash ^= UserData1.GetHashCode();
       if (UserData2.Length != 0) hash ^= UserData2.GetHashCode();
       if (ChildData.Length != 0) hash ^= ChildData.GetHashCode();
+      if (TicketLocateFirm.Length != 0) hash ^= TicketLocateFirm.GetHashCode();
+      if (TicketLocatePool.Length != 0) hash ^= TicketLocatePool.GetHashCode();
       if (StkExecBrkrCode.Length != 0) hash ^= StkExecBrkrCode.GetHashCode();
       if (FutExecBrkrCode.Length != 0) hash ^= FutExecBrkrCode.GetHashCode();
       if (EqtOptExecBrkrCode.Length != 0) hash ^= EqtOptExecBrkrCode.GetHashCode();
@@ -501,6 +538,14 @@ namespace Spiderrock.Protobuf {
         output.WriteString(FutOptExecBrkrCode);
       }
       altClearing_.WriteTo(output, _repeated_altClearing_codec);
+      if (TicketLocateFirm.Length != 0) {
+        output.WriteRawTag(234, 9);
+        output.WriteString(TicketLocateFirm);
+      }
+      if (TicketLocatePool.Length != 0) {
+        output.WriteRawTag(242, 9);
+        output.WriteString(TicketLocatePool);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -576,6 +621,14 @@ namespace Spiderrock.Protobuf {
         output.WriteString(FutOptExecBrkrCode);
       }
       altClearing_.WriteTo(ref output, _repeated_altClearing_codec);
+      if (TicketLocateFirm.Length != 0) {
+        output.WriteRawTag(234, 9);
+        output.WriteString(TicketLocateFirm);
+      }
+      if (TicketLocatePool.Length != 0) {
+        output.WriteRawTag(242, 9);
+        output.WriteString(TicketLocatePool);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -612,6 +665,12 @@ namespace Spiderrock.Protobuf {
       }
       if (ChildData.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ChildData);
+      }
+      if (TicketLocateFirm.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(TicketLocateFirm);
+      }
+      if (TicketLocatePool.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(TicketLocatePool);
       }
       if (StkExecBrkrCode.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(StkExecBrkrCode);
@@ -679,6 +738,12 @@ namespace Spiderrock.Protobuf {
       }
       if (other.ChildData.Length != 0) {
         ChildData = other.ChildData;
+      }
+      if (other.TicketLocateFirm.Length != 0) {
+        TicketLocateFirm = other.TicketLocateFirm;
+      }
+      if (other.TicketLocatePool.Length != 0) {
+        TicketLocatePool = other.TicketLocatePool;
       }
       if (other.StkExecBrkrCode.Length != 0) {
         StkExecBrkrCode = other.StkExecBrkrCode;
@@ -797,6 +862,14 @@ namespace Spiderrock.Protobuf {
             altClearing_.AddEntriesFrom(input, _repeated_altClearing_codec);
             break;
           }
+          case 1258: {
+            TicketLocateFirm = input.ReadString();
+            break;
+          }
+          case 1266: {
+            TicketLocatePool = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -887,6 +960,14 @@ namespace Spiderrock.Protobuf {
           }
           case 1162: {
             altClearing_.AddEntriesFrom(ref input, _repeated_altClearing_codec);
+            break;
+          }
+          case 1258: {
+            TicketLocateFirm = input.ReadString();
+            break;
+          }
+          case 1266: {
+            TicketLocatePool = input.ReadString();
             break;
           }
         }

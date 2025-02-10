@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserAuctionTickerFilter {
+    message PKey {
+        
+        string user_name = 10;
+        string filter_name = 11;
+        TickerKey ticker = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100; // client firm of the user this filter belongs to
+    IncludeExclude include = 101; // include or exclude this ticker
+    google.protobuf.Timestamp timestamp = 102;
+}
+
+

@@ -58,7 +58,7 @@ message AuctionNotice {
     TickerKey ticker = 107; // underlier ticker
     DateKey trade_date = 106;
     YesNo is_test_auction = 104; // if yes, auction is a test auction (not a prod/live auction)
-    string short_code = 105; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    string short_code = 186; // auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
     AuctionType auction_type = 100;
     AuctionEvent auction_event = 101;
     string src_auction_iD = 169; // auction ID as known by the auction source (empty for SRC)
@@ -71,6 +71,7 @@ message AuctionNotice {
     int32 cust_qty = 112;
     double cust_prc = 113; // public cust price
     YesNo has_cust_prc = 114;
+    NbboCap cust_nbbo_cap = 187; // indicates if cust price is capped at NBBO (or 1, 5, 10 pennies through)
     FirmType cust_firm_type = 162; // cust firm type (if disclosed)
     string cust_agent_mPID = 163; // cust agent exchange member initiating the auction (if disclosed)
     string cust_client_firm = 115; // cust client firm (if disclosed)

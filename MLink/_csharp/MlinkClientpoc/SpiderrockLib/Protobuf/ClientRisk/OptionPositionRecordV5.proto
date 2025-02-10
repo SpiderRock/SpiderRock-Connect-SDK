@@ -95,6 +95,7 @@ message OptionPositionRecordV5 {
     float dadj = 298; // dadj frational dividend value; 1.0 except for some multihedge roots
     float atm_vol = 301; // live surface atm volatility
     float atm_vega = 304; // live surface atm vega
+    float smny = 606; // option moneyness
     float i_vol = 307; // surface volatility
     MarkSource i_vol_src = 310;
     float de = 313; // delta;(dOpx / dUPrc)

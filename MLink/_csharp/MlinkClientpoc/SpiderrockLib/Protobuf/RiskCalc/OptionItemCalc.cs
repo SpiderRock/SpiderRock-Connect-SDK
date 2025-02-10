@@ -234,7 +234,7 @@ namespace Spiderrock.Protobuf {
     public const int TimeMetricFieldNumber = 104;
     private global::Spiderrock.Protobuf.TimeMetric timeMetric_ = global::Spiderrock.Protobuf.TimeMetric.Unspecified;
     /// <summary>
-    /// time metric (VT70, Y252, Y365, etc.) (default: from root definition)
+    /// time metric (D252, D365, etc.) (default: from root definition)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -354,7 +354,7 @@ namespace Spiderrock.Protobuf {
     public const int SdivFieldNumber = 112;
     private double sdiv_;
     /// <summary>
-    /// continuous stock dividend using for pricing
+    /// continuous stock dividend used for pricing
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

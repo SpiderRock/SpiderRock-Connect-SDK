@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiRQcm90b2J1Zi9TUkFUUy9BdWN0aW9uTm90aWNlQlgucHJvdG8SE3NwaWRl",
             "cnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3RvGh9nb29n",
-            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItsNCg9BdWN0aW9uTm90aWNl",
+            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpAOCg9BdWN0aW9uTm90aWNl",
             "QlgSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3Nh",
             "Z2VNZXRhZGF0YRI3CgRwa2V5GAIgASgLMikuc3BpZGVycm9jay5wcm90b2J1",
             "Zi5BdWN0aW9uTm90aWNlQlguUEtleRIuCgZ0aWNrZXIYZCABKAsyHi5zcGlk",
@@ -37,39 +37,41 @@ namespace Spiderrock.Protobuf {
             "dGlvbkV2ZW50EhYKDnNyY19hdWN0aW9uX2lEGGggASgJEhgKEHNyY19hdWN0",
             "aW9uX3R5cGUYaSABKAkSOgoOYXVjdGlvbl9zb3VyY2UYaiABKA4yIi5zcGlk",
             "ZXJyb2NrLnByb3RvYnVmLkF1Y3Rpb25Tb3VyY2USMwoPaXNfdGVzdF9hdWN0",
-            "aW9uGGsgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxISCgpzaG9y",
-            "dF9jb2RlGGwgASgJEhEKCGluZHVzdHJ5GIkBIAEoCRI1CgtzeW1ib2xfdHlw",
-            "ZRiKASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5bWJvbFR5cGUSGAoP",
-            "dV9hdmdfZGFpbHlfdmxtGIsBIAEoAhIsCgRyb290GG0gASgLMh4uc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSLAoGZXhwaXJ5GG4gASgLMhwuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EhEKCWxvX3N0cmlrZRhvIAEoARIR",
-            "CgloaV9zdHJpa2UYcCABKAESLwoJY3VzdF9zaWRlGHEgASgOMhwuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5CdXlTZWxsEhAKCGN1c3RfcXR5GHIgASgFEhAKCGN1",
-            "c3RfcHJjGHMgASgBEjAKDGhhc19jdXN0X3ByYxh0IAEoDjIaLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuWWVzTm8SNQoOY3VzdF9maXJtX3R5cGUYdSABKA4yHS5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLkZpcm1UeXBlEhcKD2N1c3RfYWdlbnRfbVBJ",
-            "RBh2IAEoCRIYChBjdXN0X2NsaWVudF9maXJtGHcgASgJEhgKEGNvbW1fZW5o",
-            "YW5jZW1lbnQYeCABKAISNAoQY3VzdF9jb21tX3BheWluZxh5IAEoDjIaLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNwoNY3VzdF9xdHlfY29uZBh6IAEo",
-            "DjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VzdFF0eUNvbmQSGAoQYXVjdGlv",
-            "bl9kdXJhdGlvbhh7IAEoBRIOCgZpX2RheXMYfCABKAESDwoHaV95ZWFycxh9",
-            "IAEoARITCgtwb2ludF92YWx1ZRh+IAEoARI2Cg5wb2ludF9jdXJyZW5jeRiM",
-            "ASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EhEKCXN0cmlr",
-            "ZV9wdhh/IAEoARIXCg5lZmZfbW9uZXlfcmF0ZRiAASABKAESFgoNc3JjX3Rp",
-            "bWVzdGFtcBiBASABKAMSFgoNbmV0X3RpbWVzdGFtcBiCASABKAMSLgoJdGlt",
-            "ZXN0YW1wGIMBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASQQoR",
-            "aW5jbHVkZV9zUk5ldHdvcmsYhAEgASgOMiUuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5JbmNsRXhjbERpc2Nsb3NlEloKFmRpcmVjdGVkX2NvdW50ZXJfcGFydHkY",
-            "hQEgAygLMjkuc3BpZGVycm9jay5wcm90b2J1Zi5BdWN0aW9uTm90aWNlQlgu",
-            "RGlyZWN0ZWRDb3VudGVyUGFydHkaHQoEUEtleRIVCg1ub3RpY2VfbnVtYmVy",
-            "GAogASgDGpwBChREaXJlY3RlZENvdW50ZXJQYXJ0eRIUCgtjbGllbnRfZmly",
-            "bRiGASABKAkSOQoJaW5jbF9leGNsGIcBIAEoDjIlLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuSW5jbEV4Y2xEaXNjbG9zZRIzCg5pc19jb21tX3BheWluZxiIASAB",
-            "KA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vYgZwcm90bzM="));
+            "aW9uGGsgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIyCg1jb250",
+            "YWluc19mbGV4GI4BIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
+            "EwoKc2hvcnRfY29kZRiNASABKAkSEQoIaW5kdXN0cnkYiQEgASgJEjUKC3N5",
+            "bWJvbF90eXBlGIoBIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuU3ltYm9s",
+            "VHlwZRIYCg91X2F2Z19kYWlseV92bG0YiwEgASgCEiwKBHJvb3QYbSABKAsy",
+            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIsCgZleHBpcnkYbiAB",
+            "KAsyHC5zcGlkZXJyb2NrLnByb3RvYnVmLkRhdGVLZXkSEQoJbG9fc3RyaWtl",
+            "GG8gASgBEhEKCWhpX3N0cmlrZRhwIAEoARIvCgljdXN0X3NpZGUYcSABKA4y",
+            "HC5zcGlkZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSEAoIY3VzdF9xdHkYciAB",
+            "KAUSEAoIY3VzdF9wcmMYcyABKAESMAoMaGFzX2N1c3RfcHJjGHQgASgOMhou",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI1Cg5jdXN0X2Zpcm1fdHlwZRh1",
+            "IAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuRmlybVR5cGUSFwoPY3VzdF9h",
+            "Z2VudF9tUElEGHYgASgJEhgKEGN1c3RfY2xpZW50X2Zpcm0YdyABKAkSGAoQ",
+            "Y29tbV9lbmhhbmNlbWVudBh4IAEoAhI0ChBjdXN0X2NvbW1fcGF5aW5nGHkg",
+            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI3Cg1jdXN0X3F0eV9j",
+            "b25kGHogASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5DdXN0UXR5Q29uZBIY",
+            "ChBhdWN0aW9uX2R1cmF0aW9uGHsgASgFEg4KBmlfZGF5cxh8IAEoARIPCgdp",
+            "X3llYXJzGH0gASgBEhMKC3BvaW50X3ZhbHVlGH4gASgBEjYKDnBvaW50X2N1",
+            "cnJlbmN5GIwBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kS",
+            "EQoJc3RyaWtlX3B2GH8gASgBEhcKDmVmZl9tb25leV9yYXRlGIABIAEoARIW",
+            "Cg1zcmNfdGltZXN0YW1wGIEBIAEoAxIWCg1uZXRfdGltZXN0YW1wGIIBIAEo",
+            "AxIuCgl0aW1lc3RhbXAYgwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcBJBChFpbmNsdWRlX3NSTmV0d29yaxiEASABKA4yJS5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkluY2xFeGNsRGlzY2xvc2USWgoWZGlyZWN0ZWRfY291bnRl",
+            "cl9wYXJ0eRiFASADKAsyOS5zcGlkZXJyb2NrLnByb3RvYnVmLkF1Y3Rpb25O",
+            "b3RpY2VCWC5EaXJlY3RlZENvdW50ZXJQYXJ0eRodCgRQS2V5EhUKDW5vdGlj",
+            "ZV9udW1iZXIYCiABKAManAEKFERpcmVjdGVkQ291bnRlclBhcnR5EhQKC2Ns",
+            "aWVudF9maXJtGIYBIAEoCRI5CglpbmNsX2V4Y2wYhwEgASgOMiUuc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5JbmNsRXhjbERpc2Nsb3NlEjMKDmlzX2NvbW1fcGF5",
+            "aW5nGIgBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AuctionNoticeBX), global::Spiderrock.Protobuf.AuctionNoticeBX.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "AuctionType", "AuctionEvent", "SrcAuctionID", "SrcAuctionType", "AuctionSource", "IsTestAuction", "ShortCode", "Industry", "SymbolType", "UAvgDailyVlm", "Root", "Expiry", "LoStrike", "HiStrike", "CustSide", "CustQty", "CustPrc", "HasCustPrc", "CustFirmType", "CustAgentMPID", "CustClientFirm", "CommEnhancement", "CustCommPaying", "CustQtyCond", "AuctionDuration", "IDays", "IYears", "PointValue", "PointCurrency", "StrikePv", "EffMoneyRate", "SrcTimestamp", "NetTimestamp", "Timestamp", "IncludeSRNetwork", "DirectedCounterParty" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AuctionNoticeBX.Types.PKey), global::Spiderrock.Protobuf.AuctionNoticeBX.Types.PKey.Parser, new[]{ "NoticeNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AuctionNoticeBX), global::Spiderrock.Protobuf.AuctionNoticeBX.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "AuctionType", "AuctionEvent", "SrcAuctionID", "SrcAuctionType", "AuctionSource", "IsTestAuction", "ContainsFlex", "ShortCode", "Industry", "SymbolType", "UAvgDailyVlm", "Root", "Expiry", "LoStrike", "HiStrike", "CustSide", "CustQty", "CustPrc", "HasCustPrc", "CustFirmType", "CustAgentMPID", "CustClientFirm", "CommEnhancement", "CustCommPaying", "CustQtyCond", "AuctionDuration", "IDays", "IYears", "PointValue", "PointCurrency", "StrikePv", "EffMoneyRate", "SrcTimestamp", "NetTimestamp", "Timestamp", "IncludeSRNetwork", "DirectedCounterParty" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AuctionNoticeBX.Types.PKey), global::Spiderrock.Protobuf.AuctionNoticeBX.Types.PKey.Parser, new[]{ "NoticeNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AuctionNoticeBX.Types.DirectedCounterParty), global::Spiderrock.Protobuf.AuctionNoticeBX.Types.DirectedCounterParty.Parser, new[]{ "ClientFirm", "InclExcl", "IsCommPaying" }, null, null, null, null)})
           }));
     }
@@ -121,6 +123,7 @@ namespace Spiderrock.Protobuf {
       srcAuctionType_ = other.srcAuctionType_;
       auctionSource_ = other.auctionSource_;
       isTestAuction_ = other.isTestAuction_;
+      containsFlex_ = other.containsFlex_;
       shortCode_ = other.shortCode_;
       industry_ = other.industry_;
       symbolType_ = other.symbolType_;
@@ -292,11 +295,23 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "contains_flex" field.</summary>
+    public const int ContainsFlexFieldNumber = 142;
+    private global::Spiderrock.Protobuf.YesNo containsFlex_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ContainsFlex {
+      get { return containsFlex_; }
+      set {
+        containsFlex_ = value;
+      }
+    }
+
     /// <summary>Field number for the "short_code" field.</summary>
-    public const int ShortCodeFieldNumber = 108;
+    public const int ShortCodeFieldNumber = 141;
     private string shortCode_ = "";
     /// <summary>
-    /// 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    /// auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -739,6 +754,7 @@ namespace Spiderrock.Protobuf {
       if (SrcAuctionType != other.SrcAuctionType) return false;
       if (AuctionSource != other.AuctionSource) return false;
       if (IsTestAuction != other.IsTestAuction) return false;
+      if (ContainsFlex != other.ContainsFlex) return false;
       if (ShortCode != other.ShortCode) return false;
       if (Industry != other.Industry) return false;
       if (SymbolType != other.SymbolType) return false;
@@ -786,6 +802,7 @@ namespace Spiderrock.Protobuf {
       if (SrcAuctionType.Length != 0) hash ^= SrcAuctionType.GetHashCode();
       if (AuctionSource != global::Spiderrock.Protobuf.AuctionSource.Unspecified) hash ^= AuctionSource.GetHashCode();
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= IsTestAuction.GetHashCode();
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ContainsFlex.GetHashCode();
       if (ShortCode.Length != 0) hash ^= ShortCode.GetHashCode();
       if (Industry.Length != 0) hash ^= Industry.GetHashCode();
       if (SymbolType != global::Spiderrock.Protobuf.SymbolType.Unspecified) hash ^= SymbolType.GetHashCode();
@@ -873,10 +890,6 @@ namespace Spiderrock.Protobuf {
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(216, 6);
         output.WriteEnum((int) IsTestAuction);
-      }
-      if (ShortCode.Length != 0) {
-        output.WriteRawTag(226, 6);
-        output.WriteString(ShortCode);
       }
       if (root_ != null) {
         output.WriteRawTag(234, 6);
@@ -991,6 +1004,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 8);
         output.WriteEnum((int) PointCurrency);
       }
+      if (ShortCode.Length != 0) {
+        output.WriteRawTag(234, 8);
+        output.WriteString(ShortCode);
+      }
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(240, 8);
+        output.WriteEnum((int) ContainsFlex);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1040,10 +1061,6 @@ namespace Spiderrock.Protobuf {
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(216, 6);
         output.WriteEnum((int) IsTestAuction);
-      }
-      if (ShortCode.Length != 0) {
-        output.WriteRawTag(226, 6);
-        output.WriteString(ShortCode);
       }
       if (root_ != null) {
         output.WriteRawTag(234, 6);
@@ -1158,6 +1175,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 8);
         output.WriteEnum((int) PointCurrency);
       }
+      if (ShortCode.Length != 0) {
+        output.WriteRawTag(234, 8);
+        output.WriteString(ShortCode);
+      }
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(240, 8);
+        output.WriteEnum((int) ContainsFlex);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1197,6 +1222,9 @@ namespace Spiderrock.Protobuf {
       }
       if (IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) IsTestAuction);
+      }
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ContainsFlex);
       }
       if (ShortCode.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ShortCode);
@@ -1339,6 +1367,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.IsTestAuction != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         IsTestAuction = other.IsTestAuction;
+      }
+      if (other.ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ContainsFlex = other.ContainsFlex;
       }
       if (other.ShortCode.Length != 0) {
         ShortCode = other.ShortCode;
@@ -1504,10 +1535,6 @@ namespace Spiderrock.Protobuf {
             IsTestAuction = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 866: {
-            ShortCode = input.ReadString();
-            break;
-          }
           case 874: {
             if (root_ == null) {
               Root = new global::Spiderrock.Protobuf.TickerKey();
@@ -1633,6 +1660,14 @@ namespace Spiderrock.Protobuf {
             PointCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
             break;
           }
+          case 1130: {
+            ShortCode = input.ReadString();
+            break;
+          }
+          case 1136: {
+            ContainsFlex = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -1698,10 +1733,6 @@ namespace Spiderrock.Protobuf {
           }
           case 856: {
             IsTestAuction = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 866: {
-            ShortCode = input.ReadString();
             break;
           }
           case 874: {
@@ -1827,6 +1858,14 @@ namespace Spiderrock.Protobuf {
           }
           case 1120: {
             PointCurrency = (global::Spiderrock.Protobuf.Currency) input.ReadEnum();
+            break;
+          }
+          case 1130: {
+            ShortCode = input.ReadString();
+            break;
+          }
+          case 1136: {
+            ContainsFlex = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }

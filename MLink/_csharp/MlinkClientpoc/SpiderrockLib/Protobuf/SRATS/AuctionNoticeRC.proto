@@ -34,7 +34,7 @@ message AuctionNoticeRC {
     AuctionSource auction_source = 106; // source of the auction notice (eg. SRC, MIAX, etc.)
     YesNo is_test_auction = 107; // if yes, auction is a test auction (not a prod/live auction)
     YesNo contains_flex = 108; // Flex = European
-    string short_code = 109; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    string short_code = 147; // auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
     string industry = 110; // industry string
     SymbolType symbol_type = 111;
     float u_avg_daily_vlm = 112; // underlier average daily trading volume

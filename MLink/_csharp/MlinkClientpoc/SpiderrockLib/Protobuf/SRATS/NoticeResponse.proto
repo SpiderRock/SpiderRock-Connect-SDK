@@ -38,11 +38,23 @@ message NoticeResponse {
     double ref_uPrc = 105;
     float ref_de = 106;
     float ref_ga = 107;
+    DeltaDirection delta_adj = 121; // (optional) Delta Adjusted Limit type. (None = Price Limit)
     float min_uBid = 108;
     float max_uAsk = 109;
     int64 risk_group_id = 110; // (optional) any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
     string strategy = 111; // (optional) user strategy field (visible on SR tools)
     string user_data1 = 112; // (optional) user data field (free text) (reflected on NoticeResponse)
+    string locate_firm = 122;
+    string locate_pool = 123;
+    YesNo req_aux_risk_group_ctrl = 124;
+    AutoHedge auto_hedge = 125;
+    HedgeInst hedge_instrument = 126;
+    ExpiryKey hedge_sec_key = 127; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
+    float hedge_beta_ratio = 128; // portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0]
+    HedgeScope hedge_scope = 129; // hedge group scope [RiskGroup or Accnt]
+    MarketSession hedge_session = 130;
+    string modified_by = 131;
+    SysEnvironment modified_in = 132;
     google.protobuf.Timestamp timestamp = 118;
     repeated OrderLegs order_legs = 113;
 }
