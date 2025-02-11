@@ -27,7 +27,7 @@ namespace Spiderrock.Protobuf {
             "CiZQcm90b2J1Zi9DbGllbnRDb25maWcvVXNlckNvbmZpZy5wcm90bxITc3Bp",
             "ZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aHmdv",
             "b2dsZS9wcm90b2J1Zi9kdXJhdGlvbi5wcm90bxofZ29vZ2xlL3Byb3RvYnVm",
-            "L3RpbWVzdGFtcC5wcm90byKOLQoKVXNlckNvbmZpZxIzCgVfbWV0YRgBIAEo",
+            "L3RpbWVzdGFtcC5wcm90byKIMAoKVXNlckNvbmZpZxIzCgVfbWV0YRgBIAEo",
             "CzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEjIKBHBr",
             "ZXkYAiABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuUEtl",
             "eRITCgtjbGllbnRfZmlybRhkIAEoCRIwCgl1c2VyX3R5cGUYZyABKA4yHS5z",
@@ -49,14 +49,14 @@ namespace Spiderrock.Protobuf {
             "dF9jb25maWdfYWNjZXNzGKABIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "Q29uZmlnQWNjZXNzEkYKFGFjY291bnRfdHlwZV9jb250cm9sGKMBIAEoDjIn",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuQWNjb3VudFR5cGVDb250cm9sEjwKEXBy",
-            "b2Rfb3JkZXJfYWNjZXNzGIYDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "T3JkZXJBY2Nlc3MSPAoRdGVzdF9vcmRlcl9hY2Nlc3MYhwMgASgOMiAuc3Bp",
+            "b2Rfb3JkZXJfYWNjZXNzGIIDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "T3JkZXJBY2Nlc3MSPAoRdGVzdF9vcmRlcl9hY2Nlc3MYgwMgASgOMiAuc3Bp",
             "ZGVycm9jay5wcm90b2J1Zi5PcmRlckFjY2VzcxI7ChZjYW5fY2FuY2VsX3By",
-            "b2Rfb3JkZXJzGIgDIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
-            "OwoWY2FuX2NhbmNlbF90ZXN0X29yZGVycxiJAyABKA4yGi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29rX3Byb2RfZXhlY3V0aW9ucxiK",
+            "b2Rfb3JkZXJzGIQDIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
+            "OwoWY2FuX2NhbmNlbF90ZXN0X29yZGVycxiFAyABKA4yGi5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29rX3Byb2RfZXhlY3V0aW9ucxiG",
             "AyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29r",
-            "X3Rlc3RfZXhlY3V0aW9ucxiLAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "X3Rlc3RfZXhlY3V0aW9ucxiHAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
             "Llllc05vEjYKEWNhbl9lZGl0X21hcl9yaXNrGK8BIAEoDjIaLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuWWVzTm8SPgoZY2FuX2VkaXRfc3VwZXJ2aXNvcnlfcmlz",
             "axi1ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj8KGmNhbl9l",
@@ -64,103 +64,113 @@ namespace Spiderrock.Protobuf {
             "dG9idWYuWWVzTm8SFQoMZGlzcGxheV9uYW1lGLsBIAEoCRIWCg1jb250YWN0",
             "X2VtYWlsGL4BIAEoCRIWCg1jb250YWN0X3Bob25lGMEBIAEoCRIWCg1jb250",
             "YWN0X3NsYWNrGMQBIAEoCRIZChBjb250YWN0X2ljZV9jaGF0GMcBIAEoCRId",
-            "ChRjb250YWN0X2JCZXJnX2hhbmRsZRjKASABKAkSGAoPaWNlX2NsaWVudF9m",
-            "aXJtGMgBIAEoCRIXCg5pY2VfcHJvZF9hY2NudBjLASABKAkSFwoOaWNlX3Rl",
-            "c3RfYWNjbnQYzAEgASgJEjEKCWF1dGhfdHlwZRjNASABKA4yHS5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLkF1dGhUeXBlEhkKEGF1dGhfZXh0ZXJuX25hbWUY0AEg",
-            "ASgJEhsKEmF1dGhfZXh0ZXJuX3BhcmFtcxjTASABKAkSFgoNZGVmYXVsdF9h",
-            "Y2NudBjWASABKAkSFgoNYWx0X3VzZXJfbmFtZRjZASABKAkSFgoNY21lX3Ry",
-            "YWRlcl9pZBjcASABKAkSFQoMY21lX2xvY2F0aW9uGN8BIAEoCRIWCg1jZmVf",
-            "dHJhZGVyX2lkGOIBIAEoCRIfChZjZmVfZnJlcXVlbnRfdHJhZGVyX2lkGOUB",
-            "IAEoCRIVCgxjZmVfbG9jYXRpb24Y6AEgASgJEhYKDWljZV90cmFkZXJfaWQY",
-            "6wEgASgJEhUKDGljZV9wYXNzd29yZBjuASABKAkSFwoOaWNlX2NvbXBhbnlf",
-            "aWQY8QEgASgJEhUKDGljZV9zdWJfcm9vbRjyASABKAkSFwoOY2JvZV90cmFk",
-            "ZXJfaWQY9AEgASgJEjgKE2Zpcm1fcG9zX3Zpc2liaWxpdHkY9wEgASgOMhou",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI6ChVhbGxvd19yYW5kb21fc3Ry",
-            "YXRlZ3kY+gEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI+ChB0",
-            "b29sX3NlcnZlcl9jb2RlGIACIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "VG9vbFNlcnZlckNvZGUSGQoQdG9vbF9zZXJ2ZXJfaG9zdBiDAiABKAkSGQoQ",
-            "dG9vbF9zZXJ2ZXJfcG9ydBiGAiABKAUSOAoTdG9vbHNfYXV0b19zaHV0ZG93",
-            "bhiJAiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjwKGHRvb2xz",
-            "X2F1dG9fc2h1dGRvd25fdGltZRiMAiABKAsyGS5nb29nbGUucHJvdG9idWYu",
-            "RHVyYXRpb24SFgoNc3JzZV9wd2RfaGFzaBiPAiABKAkSFwoOc3JzZV9udW1f",
-            "Y29yZXMYmAIgASgFEiIKGXNyc2VfbWF4X2Nvbm5lY3RzX3Blcl9kYXkYmwIg",
-            "ASgFEiUKHHNyc2VfbWF4X2NvbmN1cnJlbnRfY29ubmVjdHMYngIgASgFEhsK",
-            "EnNyc2VfbWF4X3Jvd19jYWNoZRihAiABKAUSHAoTc3JzZV9tYXhfbmV3X29y",
-            "ZGVycxikAiABKAUSJAobc3JzZV9tYXhfbmV3X29yZGVyc19wZXJfc2VjGKcC",
-            "IAEoBRIqCiFzcnNlX21heF9uZXdfb3JkZXJzX3Blcl9zdGF0ZW1lbnQYqgIg",
-            "ASgFEhIKCW5tc19iYWRnZRiCAyABKAkSEgoJY2ZlX2JhZGdlGIMDIAEoCRIS",
-            "CgljbWVfYmFkZ2UYhAMgASgJEhIKCWljZV9iYWRnZRiFAyABKAkSEAoHYXBp",
-            "X2tleRjjAiABKAkSNAoPYXBpX2tleV9leHBpcmVzGOYCIAEoCzIaLmdvb2ds",
-            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASFgoNcGFzc3dvcmRfaGFzaBjpAiABKAkS",
-            "NQoQcGFzc3dvcmRfZXhwaXJlcxjsAiABKAsyGi5nb29nbGUucHJvdG9idWYu",
-            "VGltZXN0YW1wEhsKEnRlbXBfcGFzc3dvcmRfaGFzaBjvAiABKAkSOgoVdGVt",
-            "cF9wYXNzd29yZF9leHBpcmVzGPICIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXASHgoVdGVtcF9wYXNzd29yZF9jb3VudGVyGPUCIAEoBRITCgpt",
-            "ZmFfc2VjcmV0GPgCIAEoCRIUCgttb2RpZmllZF9ieRj7AiABKAkSOQoLbW9k",
-            "aWZpZWRfaW4Y/gIgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNFbnZp",
-            "cm9ubWVudBIuCgl0aW1lc3RhbXAYgQMgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBIdChRjbGllbnRfZmlybV9saXN0X192NxiIJyABKAkSGQoQ",
-            "YmlsbGluZ19maXJtX192NxiJJyABKAkSFwoOZmlyc3RfbmFtZV9fdjcYiicg",
-            "ASgJEhYKDWxhc3RfbmFtZV9fdjcYiycgASgJEhYKDXRyYWRlcl9pZF9fdjcY",
-            "jCcgASgJEhoKEWljZV90cmFkZXJfaWRfX3Y3GI0nIAEoCRIZChBpY2VfcGFz",
-            "c3dvcmRfX3Y3GI4nIAEoCRIbChJpY2VfY29tcGFueV9pZF9fdjcYjycgASgJ",
-            "EhsKEnNyX2FjY2Vzc19oYXNoX192NxiQJyABKAkSGgoRZXhlY191c2VybmFt",
-            "ZV9fdjcYkScgASgJEhcKDnVzZXJfZ3JvdXBfX3Y3GJInIAEoCRIXCg5hY2Nu",
-            "dF9saXN0X192NxiTJyABKAkSNgoRdmlld19pbmFjdGl2ZV9fdjcYlCcgASgO",
-            "Mhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIdChR0b29sX3Byb2R1Y3Rf",
-            "YWNsX192NxiVJyABKAkSIAoXZWxhc3RpY19wcm9kdWN0X2FjbF9fdjcYlicg",
-            "ASgJEhwKE21hcmtldF9kYXRhX2FjbF9fdjcYlycgASgJEh0KFHNyc2VfcHJv",
-            "ZHVjdF9hY2xfX3Y3GJgnIAEoCRIgChdzcnNlX2hpc3RvcmljYWxfYWNsX192",
-            "NxiZJyABKAkSFwoOY29udGFjdF9pTV9fdjcYmicgASgJElUKFmFjY291bnRf",
-            "YWNjZXNzX2NvbnRyb2wYlwEgAygLMjQuc3BpZGVycm9jay5wcm90b2J1Zi5V",
-            "c2VyQ29uZmlnLkFjY291bnRBY2Nlc3NDb250cm9sElUKFmNpdHJpeF9wcm9k",
-            "dWN0X2NvbnRyb2wY+wEgAygLMjQuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2Vy",
-            "Q29uZmlnLkNpdHJpeFByb2R1Y3RDb250cm9sEl0KG2NsaWVudF9maXJtX3Zp",
-            "ZXdfYWNjZXNzX192NxibJyADKAsyNy5zcGlkZXJyb2NrLnByb3RvYnVmLlVz",
-            "ZXJDb25maWcuQ2xpZW50RmlybVZpZXdBY2Nlc3NfVjcSRQoObV9saW5rX2Nv",
-            "bnRyb2wYvAIgAygLMiwuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmln",
-            "Lk1MaW5rQ29udHJvbBJPChNtYXJrZXRfZGF0YV9jb250cm9sGM4CIAMoCzIx",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZpZy5NYXJrZXREYXRhQ29u",
-            "dHJvbBJXChdzcnNlX2hpc3RvcmljYWxfY29udHJvbBiVAiADKAsyNS5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuU3JzZUhpc3RvcmljYWxDb250",
-            "cm9sElEKFHNyc2VfcHJvZHVjdF9jb250cm9sGJICIAMoCzIyLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuVXNlckNvbmZpZy5TcnNlUHJvZHVjdENvbnRyb2wSTwoT",
-            "d2ViX3Byb2R1Y3RfY29udHJvbBiwAiADKAsyMS5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlVzZXJDb25maWcuV2ViUHJvZHVjdENvbnRyb2waGQoEUEtleRIRCgl1",
-            "c2VyX25hbWUYCiABKAkaZAoUQWNjb3VudEFjY2Vzc0NvbnRyb2wSDgoFYWNj",
-            "bnQYmgEgASgJEjwKC2FjY2Vzc190eXBlGJ0BIAEoDjImLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuQWNjb3VudEFjY2Vzc1R5cGUagwEKFENpdHJpeFByb2R1Y3RD",
-            "b250cm9sEj0KDHByb2R1Y3RfY29kZRj8ASABKA4yJi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLkNpdHJpeFByb2R1Y3RDb2RlEiwKB2V4cGlyZXMY/QEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBplChdDbGllbnRGaXJtVmlld0Fj",
-            "Y2Vzc19WNxIYCg9jbGllbnRfZmlybV9fdjcYnCcgASgJEjAKC2V4cGlyZXNf",
-            "X3Y3GJ0nIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAagAIKDE1M",
-            "aW5rQ29udHJvbBIvCgV0b2tlbhi/AiABKA4yHy5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLk1MaW5rVG9rZW4SLAoHZXhwaXJlcxjCAiABKAsyGi5nb29nbGUucHJv",
-            "dG9idWYuVGltZXN0YW1wEi8KCHN0a19leGNoGMUCIAEoDjIcLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuU3RrRXhjaBIvCghmdXRfZXhjaBjIAiABKA4yHC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLkZ1dEV4Y2gSLwoIb3B0X2V4Y2gYywIgASgOMhwu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNoGukBChFNYXJrZXREYXRhQ29u",
-            "dHJvbBI0CgV0b2tlbhjRAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1h",
-            "cmtldERhdGFUb2tlbhI0CgVzY29wZRjUAiABKA4yJC5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLk1hcmtldERhdGFTY29wZRI6Cg5jbGFzc2lmaWNhdGlvbhjXAiAB",
-            "KA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLk1rdERhdGFDbGFzcxIsCgdleHBp",
-            "cmVzGNoCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaggEKFVNy",
-            "c2VIaXN0b3JpY2FsQ29udHJvbBI7Cgxwcm9kdWN0X2NvZGUYlgIgASgOMiQu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5TcnNlUHJvZHVjdENvZGUSLAoHZXhwaXJl",
-            "cxiXAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGn8KElNyc2VQ",
-            "cm9kdWN0Q29udHJvbBI7Cgxwcm9kdWN0X2NvZGUYkwIgASgOMiQuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5TcnNlUHJvZHVjdENvZGUSLAoHZXhwaXJlcxiUAiAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGocBChFXZWJQcm9kdWN0",
-            "Q29udHJvbBI0CgV0b2tlbhizAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LldlYlByb2R1Y3RUb2tlbhIsCgdleHBpcmVzGLYCIAEoCzIaLmdvb2dsZS5w",
-            "cm90b2J1Zi5UaW1lc3RhbXASDgoFdmFsdWUYuQIgASgJYgZwcm90bzM="));
+            "ChRjb250YWN0X2JCZXJnX2hhbmRsZRjKASABKAkSGQoQY2hhdF9jbGllbnRf",
+            "ZmlybRiXAyABKAkSGAoPY2hhdF9wcm9kX2FjY250GJgDIAEoCRIYCg9jaGF0",
+            "X3Rlc3RfYWNjbnQYmQMgASgJEjMKDmNoYXRfc2hvd19yaXNrGJoDIAEoDjIa",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNwoMYXVjdGlvbl92aWV3GJsD",
+            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQXVjdGlvblZpZXcSMQoJYXV0",
+            "aF90eXBlGM0BIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQXV0aFR5cGUS",
+            "GQoQYXV0aF9leHRlcm5fbmFtZRjQASABKAkSGwoSYXV0aF9leHRlcm5fcGFy",
+            "YW1zGNMBIAEoCRIWCg1kZWZhdWx0X2FjY250GNYBIAEoCRIWCg1hbHRfdXNl",
+            "cl9uYW1lGNkBIAEoCRIWCg1jbWVfdHJhZGVyX2lkGNwBIAEoCRIVCgxjbWVf",
+            "bG9jYXRpb24Y3wEgASgJEhYKDWNmZV90cmFkZXJfaWQY4gEgASgJEh8KFmNm",
+            "ZV9mcmVxdWVudF90cmFkZXJfaWQY5QEgASgJEhUKDGNmZV9sb2NhdGlvbhjo",
+            "ASABKAkSFgoNaWNlX3RyYWRlcl9pZBjrASABKAkSFQoMaWNlX3Bhc3N3b3Jk",
+            "GO4BIAEoCRIXCg5pY2VfY29tcGFueV9pZBjxASABKAkSFQoMaWNlX3N1Yl9y",
+            "b29tGI8DIAEoCRIXCg5jYm9lX3RyYWRlcl9pZBj0ASABKAkSOAoTZmlybV9w",
+            "b3NfdmlzaWJpbGl0eRj3ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlll",
+            "c05vEjoKFWFsbG93X3JhbmRvbV9zdHJhdGVneRj6ASABKA4yGi5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlllc05vEj4KEHRvb2xfc2VydmVyX2NvZGUYgAIgASgO",
+            "MiMuc3BpZGVycm9jay5wcm90b2J1Zi5Ub29sU2VydmVyQ29kZRIZChB0b29s",
+            "X3NlcnZlcl9ob3N0GIMCIAEoCRIZChB0b29sX3NlcnZlcl9wb3J0GIYCIAEo",
+            "BRI4ChN0b29sc19hdXRvX3NodXRkb3duGIkCIAEoDjIaLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuWWVzTm8SPAoYdG9vbHNfYXV0b19zaHV0ZG93bl90aW1lGIwC",
+            "IAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbhIWCg1zcnNlX3B3ZF9o",
+            "YXNoGI8CIAEoCRIXCg5zcnNlX251bV9jb3JlcxiYAiABKAUSIgoZc3JzZV9t",
+            "YXhfY29ubmVjdHNfcGVyX2RheRibAiABKAUSJQocc3JzZV9tYXhfY29uY3Vy",
+            "cmVudF9jb25uZWN0cxieAiABKAUSGwoSc3JzZV9tYXhfcm93X2NhY2hlGKEC",
+            "IAEoBRIcChNzcnNlX21heF9uZXdfb3JkZXJzGKQCIAEoBRIkChtzcnNlX21h",
+            "eF9uZXdfb3JkZXJzX3Blcl9zZWMYpwIgASgFEioKIXNyc2VfbWF4X25ld19v",
+            "cmRlcnNfcGVyX3N0YXRlbWVudBiqAiABKAUSEgoJbm1zX2JhZGdlGIsDIAEo",
+            "CRISCgljZmVfYmFkZ2UYjAMgASgJEhIKCWNtZV9iYWRnZRiNAyABKAkSEgoJ",
+            "aWNlX2JhZGdlGI4DIAEoCRIQCgdhcGlfa2V5GOMCIAEoCRI0Cg9hcGlfa2V5",
+            "X2V4cGlyZXMY5gIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI3",
+            "ChJoYXNfYXBpX2tleV9hY2Nlc3MYkAMgASgOMhouc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5ZZXNObxIWCg1wYXNzd29yZF9oYXNoGOkCIAEoCRI1ChBwYXNzd29y",
+            "ZF9leHBpcmVzGOwCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "GwoSdGVtcF9wYXNzd29yZF9oYXNoGO8CIAEoCRI6ChV0ZW1wX3Bhc3N3b3Jk",
+            "X2V4cGlyZXMY8gIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIe",
+            "ChV0ZW1wX3Bhc3N3b3JkX2NvdW50ZXIY9QIgASgFEhMKCm1mYV9zZWNyZXQY",
+            "+AIgASgJEhQKC21vZGlmaWVkX2J5GPsCIAEoCRI5Cgttb2RpZmllZF9pbhj+",
+            "AiABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vudmlyb25tZW50Ei4K",
+            "CXRpbWVzdGFtcBiBAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "Eh0KFGNsaWVudF9maXJtX2xpc3RfX3Y3GIgnIAEoCRIZChBiaWxsaW5nX2Zp",
+            "cm1fX3Y3GIknIAEoCRIXCg5maXJzdF9uYW1lX192NxiKJyABKAkSFgoNbGFz",
+            "dF9uYW1lX192NxiLJyABKAkSFgoNdHJhZGVyX2lkX192NxiMJyABKAkSGgoR",
+            "aWNlX3RyYWRlcl9pZF9fdjcYjScgASgJEhkKEGljZV9wYXNzd29yZF9fdjcY",
+            "jicgASgJEhsKEmljZV9jb21wYW55X2lkX192NxiPJyABKAkSGwoSc3JfYWNj",
+            "ZXNzX2hhc2hfX3Y3GJAnIAEoCRIaChFleGVjX3VzZXJuYW1lX192NxiRJyAB",
+            "KAkSFwoOdXNlcl9ncm91cF9fdjcYkicgASgJEhcKDmFjY250X2xpc3RfX3Y3",
+            "GJMnIAEoCRI2ChF2aWV3X2luYWN0aXZlX192NxiUJyABKA4yGi5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlllc05vEh0KFHRvb2xfcHJvZHVjdF9hY2xfX3Y3GJUn",
+            "IAEoCRIgChdlbGFzdGljX3Byb2R1Y3RfYWNsX192NxiWJyABKAkSHAoTbWFy",
+            "a2V0X2RhdGFfYWNsX192NxiXJyABKAkSHQoUc3JzZV9wcm9kdWN0X2FjbF9f",
+            "djcYmCcgASgJEiAKF3Nyc2VfaGlzdG9yaWNhbF9hY2xfX3Y3GJknIAEoCRIX",
+            "Cg5jb250YWN0X2lNX192NxiaJyABKAkSVQoWYWNjb3VudF9hY2Nlc3NfY29u",
+            "dHJvbBiXASADKAsyNC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcu",
+            "QWNjb3VudEFjY2Vzc0NvbnRyb2wSOgoIYXBpX2tleXMYkQMgAygLMicuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLkFwaUtleXMSVQoWY2l0cml4",
+            "X3Byb2R1Y3RfY29udHJvbBj7ASADKAsyNC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlVzZXJDb25maWcuQ2l0cml4UHJvZHVjdENvbnRyb2wSXQobY2xpZW50X2Zp",
+            "cm1fdmlld19hY2Nlc3NfX3Y3GJsnIAMoCzI3LnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuVXNlckNvbmZpZy5DbGllbnRGaXJtVmlld0FjY2Vzc19WNxJFCg5tX2xp",
+            "bmtfY29udHJvbBi8AiADKAsyLC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJD",
+            "b25maWcuTUxpbmtDb250cm9sEk8KE21hcmtldF9kYXRhX2NvbnRyb2wYzgIg",
+            "AygLMjEuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLk1hcmtldERh",
+            "dGFDb250cm9sElcKF3Nyc2VfaGlzdG9yaWNhbF9jb250cm9sGJUCIAMoCzI1",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZpZy5TcnNlSGlzdG9yaWNh",
+            "bENvbnRyb2wSUQoUc3JzZV9wcm9kdWN0X2NvbnRyb2wYkgIgAygLMjIuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLlNyc2VQcm9kdWN0Q29udHJv",
+            "bBJPChN3ZWJfcHJvZHVjdF9jb250cm9sGLACIAMoCzIxLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuVXNlckNvbmZpZy5XZWJQcm9kdWN0Q29udHJvbBoZCgRQS2V5",
+            "EhEKCXVzZXJfbmFtZRgKIAEoCRpkChRBY2NvdW50QWNjZXNzQ29udHJvbBIO",
+            "CgVhY2NudBiaASABKAkSPAoLYWNjZXNzX3R5cGUYnQEgASgOMiYuc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5BY2NvdW50QWNjZXNzVHlwZRqRAQoHQXBpS2V5cxIL",
+            "CgJpZBiSAyABKAUSDQoEaGFzaBiTAyABKAkSLAoHZXhwaXJlcxiUAyABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiwKB2NyZWF0ZWQYlQMgASgL",
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIOCgVsYWJlbBiWAyABKAka",
+            "gwEKFENpdHJpeFByb2R1Y3RDb250cm9sEj0KDHByb2R1Y3RfY29kZRj8ASAB",
+            "KA4yJi5zcGlkZXJyb2NrLnByb3RvYnVmLkNpdHJpeFByb2R1Y3RDb2RlEiwK",
+            "B2V4cGlyZXMY/QEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpl",
+            "ChdDbGllbnRGaXJtVmlld0FjY2Vzc19WNxIYCg9jbGllbnRfZmlybV9fdjcY",
+            "nCcgASgJEjAKC2V4cGlyZXNfX3Y3GJ0nIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXAagAIKDE1MaW5rQ29udHJvbBIvCgV0b2tlbhi/AiABKA4y",
+            "Hy5zcGlkZXJyb2NrLnByb3RvYnVmLk1MaW5rVG9rZW4SLAoHZXhwaXJlcxjC",
+            "AiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8KCHN0a19leGNo",
+            "GMUCIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuU3RrRXhjaBIvCghmdXRf",
+            "ZXhjaBjIAiABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLkZ1dEV4Y2gSLwoI",
+            "b3B0X2V4Y2gYywIgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNo",
+            "GukBChFNYXJrZXREYXRhQ29udHJvbBI0CgV0b2tlbhjRAiABKA4yJC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLk1hcmtldERhdGFUb2tlbhI0CgVzY29wZRjUAiAB",
+            "KA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtldERhdGFTY29wZRI6Cg5j",
+            "bGFzc2lmaWNhdGlvbhjXAiABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLk1r",
+            "dERhdGFDbGFzcxIsCgdleHBpcmVzGNoCIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXAaggEKFVNyc2VIaXN0b3JpY2FsQ29udHJvbBI7Cgxwcm9k",
+            "dWN0X2NvZGUYlgIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5TcnNlUHJv",
+            "ZHVjdENvZGUSLAoHZXhwaXJlcxiXAiABKAsyGi5nb29nbGUucHJvdG9idWYu",
+            "VGltZXN0YW1wGn8KElNyc2VQcm9kdWN0Q29udHJvbBI7Cgxwcm9kdWN0X2Nv",
+            "ZGUYkwIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5TcnNlUHJvZHVjdENv",
+            "ZGUSLAoHZXhwaXJlcxiUAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wGocBChFXZWJQcm9kdWN0Q29udHJvbBI0CgV0b2tlbhizAiABKA4yJC5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLldlYlByb2R1Y3RUb2tlbhIsCgdleHBpcmVz",
+            "GLYCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDgoFdmFsdWUY",
+            "uQIgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig), global::Spiderrock.Protobuf.UserConfig.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "UserType", "UserStatus", "UserStatusDttm", "UserToBeFrozen", "UserToBeFrozenDttm", "UserAuthAction", "UserAuthState", "UserAuthError", "LastInviteTimestamp", "LastAcceptTimestamp", "Description", "DisplayTimeZone", "MlinkActivityLogging", "ClientConfigAccess", "AccountTypeControl", "ProdOrderAccess", "TestOrderAccess", "CanCancelProdOrders", "CanCancelTestOrders", "CanBookProdExecutions", "CanBookTestExecutions", "CanEditMarRisk", "CanEditSupervisoryRisk", "CanEditStockLocateList", "DisplayName", "ContactEmail", "ContactPhone", "ContactSlack", "ContactIceChat", "ContactBBergHandle", "IceClientFirm", "IceProdAccnt", "IceTestAccnt", "AuthType", "AuthExternName", "AuthExternParams", "DefaultAccnt", "AltUserName", "CmeTraderId", "CmeLocation", "CfeTraderId", "CfeFrequentTraderId", "CfeLocation", "IceTraderId", "IcePassword", "IceCompanyId", "IceSubRoom", "CboeTraderId", "FirmPosVisibility", "AllowRandomStrategy", "ToolServerCode", "ToolServerHost", "ToolServerPort", "ToolsAutoShutdown", "ToolsAutoShutdownTime", "SrsePwdHash", "SrseNumCores", "SrseMaxConnectsPerDay", "SrseMaxConcurrentConnects", "SrseMaxRowCache", "SrseMaxNewOrders", "SrseMaxNewOrdersPerSec", "SrseMaxNewOrdersPerStatement", "NmsBadge", "CfeBadge", "CmeBadge", "IceBadge", "ApiKey", "ApiKeyExpires", "PasswordHash", "PasswordExpires", "TempPasswordHash", "TempPasswordExpires", "TempPasswordCounter", "MfaSecret", "ModifiedBy", "ModifiedIn", "Timestamp", "ClientFirmListV7", "BillingFirmV7", "FirstNameV7", "LastNameV7", "TraderIdV7", "IceTraderIdV7", "IcePasswordV7", "IceCompanyIdV7", "SrAccessHashV7", "ExecUsernameV7", "UserGroupV7", "AccntListV7", "ViewInactiveV7", "ToolProductAclV7", "ElasticProductAclV7", "MarketDataAclV7", "SrseProductAclV7", "SrseHistoricalAclV7", "ContactIMV7", "AccountAccessControl", "CitrixProductControl", "ClientFirmViewAccessV7", "MLinkControl", "MarketDataControl", "SrseHistoricalControl", "SrseProductControl", "WebProductControl" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.PKey), global::Spiderrock.Protobuf.UserConfig.Types.PKey.Parser, new[]{ "UserName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig), global::Spiderrock.Protobuf.UserConfig.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "UserType", "UserStatus", "UserStatusDttm", "UserToBeFrozen", "UserToBeFrozenDttm", "UserAuthAction", "UserAuthState", "UserAuthError", "LastInviteTimestamp", "LastAcceptTimestamp", "Description", "DisplayTimeZone", "MlinkActivityLogging", "ClientConfigAccess", "AccountTypeControl", "ProdOrderAccess", "TestOrderAccess", "CanCancelProdOrders", "CanCancelTestOrders", "CanBookProdExecutions", "CanBookTestExecutions", "CanEditMarRisk", "CanEditSupervisoryRisk", "CanEditStockLocateList", "DisplayName", "ContactEmail", "ContactPhone", "ContactSlack", "ContactIceChat", "ContactBBergHandle", "ChatClientFirm", "ChatProdAccnt", "ChatTestAccnt", "ChatShowRisk", "AuctionView", "AuthType", "AuthExternName", "AuthExternParams", "DefaultAccnt", "AltUserName", "CmeTraderId", "CmeLocation", "CfeTraderId", "CfeFrequentTraderId", "CfeLocation", "IceTraderId", "IcePassword", "IceCompanyId", "IceSubRoom", "CboeTraderId", "FirmPosVisibility", "AllowRandomStrategy", "ToolServerCode", "ToolServerHost", "ToolServerPort", "ToolsAutoShutdown", "ToolsAutoShutdownTime", "SrsePwdHash", "SrseNumCores", "SrseMaxConnectsPerDay", "SrseMaxConcurrentConnects", "SrseMaxRowCache", "SrseMaxNewOrders", "SrseMaxNewOrdersPerSec", "SrseMaxNewOrdersPerStatement", "NmsBadge", "CfeBadge", "CmeBadge", "IceBadge", "ApiKey", "ApiKeyExpires", "HasApiKeyAccess", "PasswordHash", "PasswordExpires", "TempPasswordHash", "TempPasswordExpires", "TempPasswordCounter", "MfaSecret", "ModifiedBy", "ModifiedIn", "Timestamp", "ClientFirmListV7", "BillingFirmV7", "FirstNameV7", "LastNameV7", "TraderIdV7", "IceTraderIdV7", "IcePasswordV7", "IceCompanyIdV7", "SrAccessHashV7", "ExecUsernameV7", "UserGroupV7", "AccntListV7", "ViewInactiveV7", "ToolProductAclV7", "ElasticProductAclV7", "MarketDataAclV7", "SrseProductAclV7", "SrseHistoricalAclV7", "ContactIMV7", "AccountAccessControl", "ApiKeys", "CitrixProductControl", "ClientFirmViewAccessV7", "MLinkControl", "MarketDataControl", "SrseHistoricalControl", "SrseProductControl", "WebProductControl" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.PKey), global::Spiderrock.Protobuf.UserConfig.Types.PKey.Parser, new[]{ "UserName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.AccountAccessControl), global::Spiderrock.Protobuf.UserConfig.Types.AccountAccessControl.Parser, new[]{ "Accnt", "AccessType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys), global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys.Parser, new[]{ "Id", "Hash", "Expires", "Created", "Label" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl), global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl.Parser, new[]{ "ProductCode", "Expires" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.ClientFirmViewAccess_V7), global::Spiderrock.Protobuf.UserConfig.Types.ClientFirmViewAccess_V7.Parser, new[]{ "ClientFirmV7", "ExpiresV7" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.MLinkControl), global::Spiderrock.Protobuf.UserConfig.Types.MLinkControl.Parser, new[]{ "Token", "Expires", "StkExch", "FutExch", "OptExch" }, null, null, null, null),
@@ -241,9 +251,11 @@ namespace Spiderrock.Protobuf {
       contactSlack_ = other.contactSlack_;
       contactIceChat_ = other.contactIceChat_;
       contactBBergHandle_ = other.contactBBergHandle_;
-      iceClientFirm_ = other.iceClientFirm_;
-      iceProdAccnt_ = other.iceProdAccnt_;
-      iceTestAccnt_ = other.iceTestAccnt_;
+      chatClientFirm_ = other.chatClientFirm_;
+      chatProdAccnt_ = other.chatProdAccnt_;
+      chatTestAccnt_ = other.chatTestAccnt_;
+      chatShowRisk_ = other.chatShowRisk_;
+      auctionView_ = other.auctionView_;
       authType_ = other.authType_;
       authExternName_ = other.authExternName_;
       authExternParams_ = other.authExternParams_;
@@ -280,6 +292,7 @@ namespace Spiderrock.Protobuf {
       iceBadge_ = other.iceBadge_;
       apiKey_ = other.apiKey_;
       apiKeyExpires_ = other.apiKeyExpires_ != null ? other.apiKeyExpires_.Clone() : null;
+      hasApiKeyAccess_ = other.hasApiKeyAccess_;
       passwordHash_ = other.passwordHash_;
       passwordExpires_ = other.passwordExpires_ != null ? other.passwordExpires_.Clone() : null;
       tempPasswordHash_ = other.tempPasswordHash_;
@@ -309,6 +322,7 @@ namespace Spiderrock.Protobuf {
       srseHistoricalAclV7_ = other.srseHistoricalAclV7_;
       contactIMV7_ = other.contactIMV7_;
       accountAccessControl_ = other.accountAccessControl_.Clone();
+      apiKeys_ = other.apiKeys_.Clone();
       citrixProductControl_ = other.citrixProductControl_.Clone();
       clientFirmViewAccessV7_ = other.clientFirmViewAccessV7_.Clone();
       mLinkControl_ = other.mLinkControl_.Clone();
@@ -578,7 +592,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "prod_order_access" field.</summary>
-    public const int ProdOrderAccessFieldNumber = 390;
+    public const int ProdOrderAccessFieldNumber = 386;
     private global::Spiderrock.Protobuf.OrderAccess prodOrderAccess_ = global::Spiderrock.Protobuf.OrderAccess.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -590,7 +604,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "test_order_access" field.</summary>
-    public const int TestOrderAccessFieldNumber = 391;
+    public const int TestOrderAccessFieldNumber = 387;
     private global::Spiderrock.Protobuf.OrderAccess testOrderAccess_ = global::Spiderrock.Protobuf.OrderAccess.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -602,7 +616,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_cancel_prod_orders" field.</summary>
-    public const int CanCancelProdOrdersFieldNumber = 392;
+    public const int CanCancelProdOrdersFieldNumber = 388;
     private global::Spiderrock.Protobuf.YesNo canCancelProdOrders_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can cancel prod (live) orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
@@ -617,7 +631,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_cancel_test_orders" field.</summary>
-    public const int CanCancelTestOrdersFieldNumber = 393;
+    public const int CanCancelTestOrdersFieldNumber = 389;
     private global::Spiderrock.Protobuf.YesNo canCancelTestOrders_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can cancel test orders (implied false for SRUsers, implied true for SRAdmin, SponsorAdmin, ClientAdmin, and users that can enter live orders)
@@ -632,7 +646,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_book_prod_executions" field.</summary>
-    public const int CanBookProdExecutionsFieldNumber = 394;
+    public const int CanBookProdExecutionsFieldNumber = 390;
     private global::Spiderrock.Protobuf.YesNo canBookProdExecutions_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can enter prod (live) away tickets (default false for SRUsers SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
@@ -647,7 +661,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "can_book_test_executions" field.</summary>
-    public const int CanBookTestExecutionsFieldNumber = 395;
+    public const int CanBookTestExecutionsFieldNumber = 391;
     private global::Spiderrock.Protobuf.YesNo canBookTestExecutions_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     /// <summary>
     /// user can enter test away tickets (default false for SRUsers, SRAdmin, SponsorAdmin, and ClientAdmin, default true for users that can enter live orders)
@@ -787,48 +801,78 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "ice_client_firm" field.</summary>
-    public const int IceClientFirmFieldNumber = 200;
-    private string iceClientFirm_ = "";
+    /// <summary>Field number for the "chat_client_firm" field.</summary>
+    public const int ChatClientFirmFieldNumber = 407;
+    private string chatClientFirm_ = "";
     /// <summary>
     /// ICE Gateway (Bot) responder client firm
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string IceClientFirm {
-      get { return iceClientFirm_; }
+    public string ChatClientFirm {
+      get { return chatClientFirm_; }
       set {
-        iceClientFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        chatClientFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "ice_prod_accnt" field.</summary>
-    public const int IceProdAccntFieldNumber = 203;
-    private string iceProdAccnt_ = "";
+    /// <summary>Field number for the "chat_prod_accnt" field.</summary>
+    public const int ChatProdAccntFieldNumber = 408;
+    private string chatProdAccnt_ = "";
     /// <summary>
     /// ICE Gateway (Bot) prod responder accnt
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string IceProdAccnt {
-      get { return iceProdAccnt_; }
+    public string ChatProdAccnt {
+      get { return chatProdAccnt_; }
       set {
-        iceProdAccnt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        chatProdAccnt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "ice_test_accnt" field.</summary>
-    public const int IceTestAccntFieldNumber = 204;
-    private string iceTestAccnt_ = "";
+    /// <summary>Field number for the "chat_test_accnt" field.</summary>
+    public const int ChatTestAccntFieldNumber = 409;
+    private string chatTestAccnt_ = "";
     /// <summary>
     /// ICE Gateway (Bot) test responder accnt
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string IceTestAccnt {
-      get { return iceTestAccnt_; }
+    public string ChatTestAccnt {
+      get { return chatTestAccnt_; }
       set {
-        iceTestAccnt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        chatTestAccnt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "chat_show_risk" field.</summary>
+    public const int ChatShowRiskFieldNumber = 410;
+    private global::Spiderrock.Protobuf.YesNo chatShowRisk_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// ICE Gateway (Bot) show extra auction notice details
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ChatShowRisk {
+      get { return chatShowRisk_; }
+      set {
+        chatShowRisk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "auction_view" field.</summary>
+    public const int AuctionViewFieldNumber = 411;
+    private global::Spiderrock.Protobuf.AuctionView auctionView_ = global::Spiderrock.Protobuf.AuctionView.Unspecified;
+    /// <summary>
+    /// Which type of auctions are enabled (None implies both test and prod)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.AuctionView AuctionView {
+      get { return auctionView_; }
+      set {
+        auctionView_ = value;
       }
     }
 
@@ -866,7 +910,7 @@ namespace Spiderrock.Protobuf {
     public const int AuthExternParamsFieldNumber = 211;
     private string authExternParams_ = "";
     /// <summary>
-    /// eg. 'https://corp.domain.com:xxxx'
+    /// eg. `https://corp.domain.com:xxxx`
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1028,7 +1072,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_sub_room" field.</summary>
-    public const int IceSubRoomFieldNumber = 242;
+    public const int IceSubRoomFieldNumber = 399;
     private string iceSubRoom_ = "";
     /// <summary>
     /// User designated Sub-Chatroom in ICE Chat
@@ -1196,7 +1240,7 @@ namespace Spiderrock.Protobuf {
     public const int SrseMaxConnectsPerDayFieldNumber = 283;
     private int srseMaxConnectsPerDay_;
     /// <summary>
-    /// maximum number of user SRSE connections per day [default=500]
+    /// maximum number of user SRSE connections per day [default=10]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1241,7 +1285,7 @@ namespace Spiderrock.Protobuf {
     public const int SrseMaxNewOrdersFieldNumber = 292;
     private int srseMaxNewOrders_;
     /// <summary>
-    /// maximum number of new parent orders (per day) that can be inserted via SRSE (0=NONE) [default = 500,000]
+    /// maximum number of new parent orders (per day) that can be inserted via SRSE (0=NONE) [default = 10,000]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1283,7 +1327,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "nms_badge" field.</summary>
-    public const int NmsBadgeFieldNumber = 386;
+    public const int NmsBadgeFieldNumber = 395;
     private string nmsBadge_ = "";
     /// <summary>
     /// NMS exchange memembership and badge ids
@@ -1298,7 +1342,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cfe_badge" field.</summary>
-    public const int CfeBadgeFieldNumber = 387;
+    public const int CfeBadgeFieldNumber = 396;
     private string cfeBadge_ = "";
     /// <summary>
     /// CFE exchange memembership and badge ids.
@@ -1313,7 +1357,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cme_badge" field.</summary>
-    public const int CmeBadgeFieldNumber = 388;
+    public const int CmeBadgeFieldNumber = 397;
     private string cmeBadge_ = "";
     /// <summary>
     /// CME/CBOT/COMEX/NYMEX exchange memembership and badge ids.
@@ -1328,7 +1372,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ice_badge" field.</summary>
-    public const int IceBadgeFieldNumber = 389;
+    public const int IceBadgeFieldNumber = 398;
     private string iceBadge_ = "";
     /// <summary>
     /// ICE exchange memembership and badge ids.
@@ -1346,7 +1390,7 @@ namespace Spiderrock.Protobuf {
     public const int ApiKeyFieldNumber = 355;
     private string apiKey_ = "";
     /// <summary>
-    /// API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
+    /// (Deprecated, use repeater) API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (can be reset/regenerated as needed)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1361,7 +1405,7 @@ namespace Spiderrock.Protobuf {
     public const int ApiKeyExpiresFieldNumber = 358;
     private global::Google.Protobuf.WellKnownTypes.Timestamp apiKeyExpires_;
     /// <summary>
-    /// API access key expiration
+    /// (Deprecated, use repeater) API access key expiration
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1369,6 +1413,21 @@ namespace Spiderrock.Protobuf {
       get { return apiKeyExpires_; }
       set {
         apiKeyExpires_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "has_api_key_access" field.</summary>
+    public const int HasApiKeyAccessFieldNumber = 400;
+    private global::Spiderrock.Protobuf.YesNo hasApiKeyAccess_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// User is allowed to use and manage (insert, update and delete) API keys
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo HasApiKeyAccess {
+      get { return hasApiKeyAccess_; }
+      set {
+        hasApiKeyAccess_ = value;
       }
     }
 
@@ -1492,9 +1551,6 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 385;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
-    /// <summary>
-    /// [custom:LastModified] timestamp of last modification
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp Timestamp {
@@ -1800,6 +1856,17 @@ namespace Spiderrock.Protobuf {
       get { return accountAccessControl_; }
     }
 
+    /// <summary>Field number for the "api_keys" field.</summary>
+    public const int ApiKeysFieldNumber = 401;
+    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys> _repeated_apiKeys_codec
+        = pb::FieldCodec.ForMessage(3210, global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys.Parser);
+    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys> apiKeys_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys> ApiKeys {
+      get { return apiKeys_; }
+    }
+
     /// <summary>Field number for the "citrix_product_control" field.</summary>
     public const int CitrixProductControlFieldNumber = 251;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl> _repeated_citrixProductControl_codec
@@ -1925,9 +1992,11 @@ namespace Spiderrock.Protobuf {
       if (ContactSlack != other.ContactSlack) return false;
       if (ContactIceChat != other.ContactIceChat) return false;
       if (ContactBBergHandle != other.ContactBBergHandle) return false;
-      if (IceClientFirm != other.IceClientFirm) return false;
-      if (IceProdAccnt != other.IceProdAccnt) return false;
-      if (IceTestAccnt != other.IceTestAccnt) return false;
+      if (ChatClientFirm != other.ChatClientFirm) return false;
+      if (ChatProdAccnt != other.ChatProdAccnt) return false;
+      if (ChatTestAccnt != other.ChatTestAccnt) return false;
+      if (ChatShowRisk != other.ChatShowRisk) return false;
+      if (AuctionView != other.AuctionView) return false;
       if (AuthType != other.AuthType) return false;
       if (AuthExternName != other.AuthExternName) return false;
       if (AuthExternParams != other.AuthExternParams) return false;
@@ -1964,6 +2033,7 @@ namespace Spiderrock.Protobuf {
       if (IceBadge != other.IceBadge) return false;
       if (ApiKey != other.ApiKey) return false;
       if (!object.Equals(ApiKeyExpires, other.ApiKeyExpires)) return false;
+      if (HasApiKeyAccess != other.HasApiKeyAccess) return false;
       if (PasswordHash != other.PasswordHash) return false;
       if (!object.Equals(PasswordExpires, other.PasswordExpires)) return false;
       if (TempPasswordHash != other.TempPasswordHash) return false;
@@ -1993,6 +2063,7 @@ namespace Spiderrock.Protobuf {
       if (SrseHistoricalAclV7 != other.SrseHistoricalAclV7) return false;
       if (ContactIMV7 != other.ContactIMV7) return false;
       if(!accountAccessControl_.Equals(other.accountAccessControl_)) return false;
+      if(!apiKeys_.Equals(other.apiKeys_)) return false;
       if(!citrixProductControl_.Equals(other.citrixProductControl_)) return false;
       if(!clientFirmViewAccessV7_.Equals(other.clientFirmViewAccessV7_)) return false;
       if(!mLinkControl_.Equals(other.mLinkControl_)) return false;
@@ -2040,9 +2111,11 @@ namespace Spiderrock.Protobuf {
       if (ContactSlack.Length != 0) hash ^= ContactSlack.GetHashCode();
       if (ContactIceChat.Length != 0) hash ^= ContactIceChat.GetHashCode();
       if (ContactBBergHandle.Length != 0) hash ^= ContactBBergHandle.GetHashCode();
-      if (IceClientFirm.Length != 0) hash ^= IceClientFirm.GetHashCode();
-      if (IceProdAccnt.Length != 0) hash ^= IceProdAccnt.GetHashCode();
-      if (IceTestAccnt.Length != 0) hash ^= IceTestAccnt.GetHashCode();
+      if (ChatClientFirm.Length != 0) hash ^= ChatClientFirm.GetHashCode();
+      if (ChatProdAccnt.Length != 0) hash ^= ChatProdAccnt.GetHashCode();
+      if (ChatTestAccnt.Length != 0) hash ^= ChatTestAccnt.GetHashCode();
+      if (ChatShowRisk != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ChatShowRisk.GetHashCode();
+      if (AuctionView != global::Spiderrock.Protobuf.AuctionView.Unspecified) hash ^= AuctionView.GetHashCode();
       if (AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) hash ^= AuthType.GetHashCode();
       if (AuthExternName.Length != 0) hash ^= AuthExternName.GetHashCode();
       if (AuthExternParams.Length != 0) hash ^= AuthExternParams.GetHashCode();
@@ -2079,6 +2152,7 @@ namespace Spiderrock.Protobuf {
       if (IceBadge.Length != 0) hash ^= IceBadge.GetHashCode();
       if (ApiKey.Length != 0) hash ^= ApiKey.GetHashCode();
       if (apiKeyExpires_ != null) hash ^= ApiKeyExpires.GetHashCode();
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HasApiKeyAccess.GetHashCode();
       if (PasswordHash.Length != 0) hash ^= PasswordHash.GetHashCode();
       if (passwordExpires_ != null) hash ^= PasswordExpires.GetHashCode();
       if (TempPasswordHash.Length != 0) hash ^= TempPasswordHash.GetHashCode();
@@ -2108,6 +2182,7 @@ namespace Spiderrock.Protobuf {
       if (SrseHistoricalAclV7.Length != 0) hash ^= SrseHistoricalAclV7.GetHashCode();
       if (ContactIMV7.Length != 0) hash ^= ContactIMV7.GetHashCode();
       hash ^= accountAccessControl_.GetHashCode();
+      hash ^= apiKeys_.GetHashCode();
       hash ^= citrixProductControl_.GetHashCode();
       hash ^= clientFirmViewAccessV7_.GetHashCode();
       hash ^= mLinkControl_.GetHashCode();
@@ -2238,21 +2313,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 12);
         output.WriteString(ContactIceChat);
       }
-      if (IceClientFirm.Length != 0) {
-        output.WriteRawTag(194, 12);
-        output.WriteString(IceClientFirm);
-      }
       if (ContactBBergHandle.Length != 0) {
         output.WriteRawTag(210, 12);
         output.WriteString(ContactBBergHandle);
-      }
-      if (IceProdAccnt.Length != 0) {
-        output.WriteRawTag(218, 12);
-        output.WriteString(IceProdAccnt);
-      }
-      if (IceTestAccnt.Length != 0) {
-        output.WriteRawTag(226, 12);
-        output.WriteString(IceTestAccnt);
       }
       if (AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) {
         output.WriteRawTag(232, 12);
@@ -2305,10 +2368,6 @@ namespace Spiderrock.Protobuf {
       if (IceCompanyId.Length != 0) {
         output.WriteRawTag(138, 15);
         output.WriteString(IceCompanyId);
-      }
-      if (IceSubRoom.Length != 0) {
-        output.WriteRawTag(146, 15);
-        output.WriteString(IceSubRoom);
       }
       if (CboeTraderId.Length != 0) {
         output.WriteRawTag(162, 15);
@@ -2424,45 +2483,74 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(138, 24);
         output.WriteMessage(Timestamp);
       }
-      if (NmsBadge.Length != 0) {
-        output.WriteRawTag(146, 24);
-        output.WriteString(NmsBadge);
-      }
-      if (CfeBadge.Length != 0) {
-        output.WriteRawTag(154, 24);
-        output.WriteString(CfeBadge);
-      }
-      if (CmeBadge.Length != 0) {
-        output.WriteRawTag(162, 24);
-        output.WriteString(CmeBadge);
-      }
-      if (IceBadge.Length != 0) {
-        output.WriteRawTag(170, 24);
-        output.WriteString(IceBadge);
-      }
       if (ProdOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(176, 24);
+        output.WriteRawTag(144, 24);
         output.WriteEnum((int) ProdOrderAccess);
       }
       if (TestOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(184, 24);
+        output.WriteRawTag(152, 24);
         output.WriteEnum((int) TestOrderAccess);
       }
       if (CanCancelProdOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(192, 24);
+        output.WriteRawTag(160, 24);
         output.WriteEnum((int) CanCancelProdOrders);
       }
       if (CanCancelTestOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(200, 24);
+        output.WriteRawTag(168, 24);
         output.WriteEnum((int) CanCancelTestOrders);
       }
       if (CanBookProdExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 24);
+        output.WriteRawTag(176, 24);
         output.WriteEnum((int) CanBookProdExecutions);
       }
       if (CanBookTestExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(216, 24);
+        output.WriteRawTag(184, 24);
         output.WriteEnum((int) CanBookTestExecutions);
+      }
+      if (NmsBadge.Length != 0) {
+        output.WriteRawTag(218, 24);
+        output.WriteString(NmsBadge);
+      }
+      if (CfeBadge.Length != 0) {
+        output.WriteRawTag(226, 24);
+        output.WriteString(CfeBadge);
+      }
+      if (CmeBadge.Length != 0) {
+        output.WriteRawTag(234, 24);
+        output.WriteString(CmeBadge);
+      }
+      if (IceBadge.Length != 0) {
+        output.WriteRawTag(242, 24);
+        output.WriteString(IceBadge);
+      }
+      if (IceSubRoom.Length != 0) {
+        output.WriteRawTag(250, 24);
+        output.WriteString(IceSubRoom);
+      }
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(128, 25);
+        output.WriteEnum((int) HasApiKeyAccess);
+      }
+      apiKeys_.WriteTo(output, _repeated_apiKeys_codec);
+      if (ChatClientFirm.Length != 0) {
+        output.WriteRawTag(186, 25);
+        output.WriteString(ChatClientFirm);
+      }
+      if (ChatProdAccnt.Length != 0) {
+        output.WriteRawTag(194, 25);
+        output.WriteString(ChatProdAccnt);
+      }
+      if (ChatTestAccnt.Length != 0) {
+        output.WriteRawTag(202, 25);
+        output.WriteString(ChatTestAccnt);
+      }
+      if (ChatShowRisk != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(208, 25);
+        output.WriteEnum((int) ChatShowRisk);
+      }
+      if (AuctionView != global::Spiderrock.Protobuf.AuctionView.Unspecified) {
+        output.WriteRawTag(216, 25);
+        output.WriteEnum((int) AuctionView);
       }
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
@@ -2656,21 +2744,9 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 12);
         output.WriteString(ContactIceChat);
       }
-      if (IceClientFirm.Length != 0) {
-        output.WriteRawTag(194, 12);
-        output.WriteString(IceClientFirm);
-      }
       if (ContactBBergHandle.Length != 0) {
         output.WriteRawTag(210, 12);
         output.WriteString(ContactBBergHandle);
-      }
-      if (IceProdAccnt.Length != 0) {
-        output.WriteRawTag(218, 12);
-        output.WriteString(IceProdAccnt);
-      }
-      if (IceTestAccnt.Length != 0) {
-        output.WriteRawTag(226, 12);
-        output.WriteString(IceTestAccnt);
       }
       if (AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) {
         output.WriteRawTag(232, 12);
@@ -2723,10 +2799,6 @@ namespace Spiderrock.Protobuf {
       if (IceCompanyId.Length != 0) {
         output.WriteRawTag(138, 15);
         output.WriteString(IceCompanyId);
-      }
-      if (IceSubRoom.Length != 0) {
-        output.WriteRawTag(146, 15);
-        output.WriteString(IceSubRoom);
       }
       if (CboeTraderId.Length != 0) {
         output.WriteRawTag(162, 15);
@@ -2842,45 +2914,74 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(138, 24);
         output.WriteMessage(Timestamp);
       }
-      if (NmsBadge.Length != 0) {
-        output.WriteRawTag(146, 24);
-        output.WriteString(NmsBadge);
-      }
-      if (CfeBadge.Length != 0) {
-        output.WriteRawTag(154, 24);
-        output.WriteString(CfeBadge);
-      }
-      if (CmeBadge.Length != 0) {
-        output.WriteRawTag(162, 24);
-        output.WriteString(CmeBadge);
-      }
-      if (IceBadge.Length != 0) {
-        output.WriteRawTag(170, 24);
-        output.WriteString(IceBadge);
-      }
       if (ProdOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(176, 24);
+        output.WriteRawTag(144, 24);
         output.WriteEnum((int) ProdOrderAccess);
       }
       if (TestOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) {
-        output.WriteRawTag(184, 24);
+        output.WriteRawTag(152, 24);
         output.WriteEnum((int) TestOrderAccess);
       }
       if (CanCancelProdOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(192, 24);
+        output.WriteRawTag(160, 24);
         output.WriteEnum((int) CanCancelProdOrders);
       }
       if (CanCancelTestOrders != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(200, 24);
+        output.WriteRawTag(168, 24);
         output.WriteEnum((int) CanCancelTestOrders);
       }
       if (CanBookProdExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(208, 24);
+        output.WriteRawTag(176, 24);
         output.WriteEnum((int) CanBookProdExecutions);
       }
       if (CanBookTestExecutions != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(216, 24);
+        output.WriteRawTag(184, 24);
         output.WriteEnum((int) CanBookTestExecutions);
+      }
+      if (NmsBadge.Length != 0) {
+        output.WriteRawTag(218, 24);
+        output.WriteString(NmsBadge);
+      }
+      if (CfeBadge.Length != 0) {
+        output.WriteRawTag(226, 24);
+        output.WriteString(CfeBadge);
+      }
+      if (CmeBadge.Length != 0) {
+        output.WriteRawTag(234, 24);
+        output.WriteString(CmeBadge);
+      }
+      if (IceBadge.Length != 0) {
+        output.WriteRawTag(242, 24);
+        output.WriteString(IceBadge);
+      }
+      if (IceSubRoom.Length != 0) {
+        output.WriteRawTag(250, 24);
+        output.WriteString(IceSubRoom);
+      }
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(128, 25);
+        output.WriteEnum((int) HasApiKeyAccess);
+      }
+      apiKeys_.WriteTo(ref output, _repeated_apiKeys_codec);
+      if (ChatClientFirm.Length != 0) {
+        output.WriteRawTag(186, 25);
+        output.WriteString(ChatClientFirm);
+      }
+      if (ChatProdAccnt.Length != 0) {
+        output.WriteRawTag(194, 25);
+        output.WriteString(ChatProdAccnt);
+      }
+      if (ChatTestAccnt.Length != 0) {
+        output.WriteRawTag(202, 25);
+        output.WriteString(ChatTestAccnt);
+      }
+      if (ChatShowRisk != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(208, 25);
+        output.WriteEnum((int) ChatShowRisk);
+      }
+      if (AuctionView != global::Spiderrock.Protobuf.AuctionView.Unspecified) {
+        output.WriteRawTag(216, 25);
+        output.WriteEnum((int) AuctionView);
       }
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
@@ -3068,14 +3169,20 @@ namespace Spiderrock.Protobuf {
       if (ContactBBergHandle.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ContactBBergHandle);
       }
-      if (IceClientFirm.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(IceClientFirm);
+      if (ChatClientFirm.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ChatClientFirm);
       }
-      if (IceProdAccnt.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(IceProdAccnt);
+      if (ChatProdAccnt.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ChatProdAccnt);
       }
-      if (IceTestAccnt.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(IceTestAccnt);
+      if (ChatTestAccnt.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ChatTestAccnt);
+      }
+      if (ChatShowRisk != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ChatShowRisk);
+      }
+      if (AuctionView != global::Spiderrock.Protobuf.AuctionView.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AuctionView);
       }
       if (AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AuthType);
@@ -3185,6 +3292,9 @@ namespace Spiderrock.Protobuf {
       if (apiKeyExpires_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ApiKeyExpires);
       }
+      if (HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HasApiKeyAccess);
+      }
       if (PasswordHash.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(PasswordHash);
       }
@@ -3270,6 +3380,7 @@ namespace Spiderrock.Protobuf {
         size += 3 + pb::CodedOutputStream.ComputeStringSize(ContactIMV7);
       }
       size += accountAccessControl_.CalculateSize(_repeated_accountAccessControl_codec);
+      size += apiKeys_.CalculateSize(_repeated_apiKeys_codec);
       size += citrixProductControl_.CalculateSize(_repeated_citrixProductControl_codec);
       size += clientFirmViewAccessV7_.CalculateSize(_repeated_clientFirmViewAccessV7_codec);
       size += mLinkControl_.CalculateSize(_repeated_mLinkControl_codec);
@@ -3406,14 +3517,20 @@ namespace Spiderrock.Protobuf {
       if (other.ContactBBergHandle.Length != 0) {
         ContactBBergHandle = other.ContactBBergHandle;
       }
-      if (other.IceClientFirm.Length != 0) {
-        IceClientFirm = other.IceClientFirm;
+      if (other.ChatClientFirm.Length != 0) {
+        ChatClientFirm = other.ChatClientFirm;
       }
-      if (other.IceProdAccnt.Length != 0) {
-        IceProdAccnt = other.IceProdAccnt;
+      if (other.ChatProdAccnt.Length != 0) {
+        ChatProdAccnt = other.ChatProdAccnt;
       }
-      if (other.IceTestAccnt.Length != 0) {
-        IceTestAccnt = other.IceTestAccnt;
+      if (other.ChatTestAccnt.Length != 0) {
+        ChatTestAccnt = other.ChatTestAccnt;
+      }
+      if (other.ChatShowRisk != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ChatShowRisk = other.ChatShowRisk;
+      }
+      if (other.AuctionView != global::Spiderrock.Protobuf.AuctionView.Unspecified) {
+        AuctionView = other.AuctionView;
       }
       if (other.AuthType != global::Spiderrock.Protobuf.AuthType.Unspecified) {
         AuthType = other.AuthType;
@@ -3529,6 +3646,9 @@ namespace Spiderrock.Protobuf {
         }
         ApiKeyExpires.MergeFrom(other.ApiKeyExpires);
       }
+      if (other.HasApiKeyAccess != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        HasApiKeyAccess = other.HasApiKeyAccess;
+      }
       if (other.PasswordHash.Length != 0) {
         PasswordHash = other.PasswordHash;
       }
@@ -3623,6 +3743,7 @@ namespace Spiderrock.Protobuf {
         ContactIMV7 = other.ContactIMV7;
       }
       accountAccessControl_.Add(other.accountAccessControl_);
+      apiKeys_.Add(other.apiKeys_);
       citrixProductControl_.Add(other.citrixProductControl_);
       clientFirmViewAccessV7_.Add(other.clientFirmViewAccessV7_);
       mLinkControl_.Add(other.mLinkControl_);
@@ -3771,20 +3892,8 @@ namespace Spiderrock.Protobuf {
             ContactIceChat = input.ReadString();
             break;
           }
-          case 1602: {
-            IceClientFirm = input.ReadString();
-            break;
-          }
           case 1618: {
             ContactBBergHandle = input.ReadString();
-            break;
-          }
-          case 1626: {
-            IceProdAccnt = input.ReadString();
-            break;
-          }
-          case 1634: {
-            IceTestAccnt = input.ReadString();
             break;
           }
           case 1640: {
@@ -3837,10 +3946,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1930: {
             IceCompanyId = input.ReadString();
-            break;
-          }
-          case 1938: {
-            IceSubRoom = input.ReadString();
             break;
           }
           case 1954: {
@@ -3990,44 +4095,76 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 3090: {
-            NmsBadge = input.ReadString();
-            break;
-          }
-          case 3098: {
-            CfeBadge = input.ReadString();
-            break;
-          }
-          case 3106: {
-            CmeBadge = input.ReadString();
-            break;
-          }
-          case 3114: {
-            IceBadge = input.ReadString();
-            break;
-          }
-          case 3120: {
+          case 3088: {
             ProdOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3128: {
+          case 3096: {
             TestOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3136: {
+          case 3104: {
             CanCancelProdOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3144: {
+          case 3112: {
             CanCancelTestOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3152: {
+          case 3120: {
             CanBookProdExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3160: {
+          case 3128: {
             CanBookTestExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3162: {
+            NmsBadge = input.ReadString();
+            break;
+          }
+          case 3170: {
+            CfeBadge = input.ReadString();
+            break;
+          }
+          case 3178: {
+            CmeBadge = input.ReadString();
+            break;
+          }
+          case 3186: {
+            IceBadge = input.ReadString();
+            break;
+          }
+          case 3194: {
+            IceSubRoom = input.ReadString();
+            break;
+          }
+          case 3200: {
+            HasApiKeyAccess = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3210: {
+            apiKeys_.AddEntriesFrom(input, _repeated_apiKeys_codec);
+            break;
+          }
+          case 3258: {
+            ChatClientFirm = input.ReadString();
+            break;
+          }
+          case 3266: {
+            ChatProdAccnt = input.ReadString();
+            break;
+          }
+          case 3274: {
+            ChatTestAccnt = input.ReadString();
+            break;
+          }
+          case 3280: {
+            ChatShowRisk = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3288: {
+            AuctionView = (global::Spiderrock.Protobuf.AuctionView) input.ReadEnum();
             break;
           }
           case 40002: {
@@ -4251,20 +4388,8 @@ namespace Spiderrock.Protobuf {
             ContactIceChat = input.ReadString();
             break;
           }
-          case 1602: {
-            IceClientFirm = input.ReadString();
-            break;
-          }
           case 1618: {
             ContactBBergHandle = input.ReadString();
-            break;
-          }
-          case 1626: {
-            IceProdAccnt = input.ReadString();
-            break;
-          }
-          case 1634: {
-            IceTestAccnt = input.ReadString();
             break;
           }
           case 1640: {
@@ -4317,10 +4442,6 @@ namespace Spiderrock.Protobuf {
           }
           case 1930: {
             IceCompanyId = input.ReadString();
-            break;
-          }
-          case 1938: {
-            IceSubRoom = input.ReadString();
             break;
           }
           case 1954: {
@@ -4470,44 +4591,76 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 3090: {
-            NmsBadge = input.ReadString();
-            break;
-          }
-          case 3098: {
-            CfeBadge = input.ReadString();
-            break;
-          }
-          case 3106: {
-            CmeBadge = input.ReadString();
-            break;
-          }
-          case 3114: {
-            IceBadge = input.ReadString();
-            break;
-          }
-          case 3120: {
+          case 3088: {
             ProdOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3128: {
+          case 3096: {
             TestOrderAccess = (global::Spiderrock.Protobuf.OrderAccess) input.ReadEnum();
             break;
           }
-          case 3136: {
+          case 3104: {
             CanCancelProdOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3144: {
+          case 3112: {
             CanCancelTestOrders = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3152: {
+          case 3120: {
             CanBookProdExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 3160: {
+          case 3128: {
             CanBookTestExecutions = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3162: {
+            NmsBadge = input.ReadString();
+            break;
+          }
+          case 3170: {
+            CfeBadge = input.ReadString();
+            break;
+          }
+          case 3178: {
+            CmeBadge = input.ReadString();
+            break;
+          }
+          case 3186: {
+            IceBadge = input.ReadString();
+            break;
+          }
+          case 3194: {
+            IceSubRoom = input.ReadString();
+            break;
+          }
+          case 3200: {
+            HasApiKeyAccess = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3210: {
+            apiKeys_.AddEntriesFrom(ref input, _repeated_apiKeys_codec);
+            break;
+          }
+          case 3258: {
+            ChatClientFirm = input.ReadString();
+            break;
+          }
+          case 3266: {
+            ChatProdAccnt = input.ReadString();
+            break;
+          }
+          case 3274: {
+            ChatTestAccnt = input.ReadString();
+            break;
+          }
+          case 3280: {
+            ChatShowRisk = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 3288: {
+            AuctionView = (global::Spiderrock.Protobuf.AuctionView) input.ReadEnum();
             break;
           }
           case 40002: {
@@ -5018,6 +5171,376 @@ namespace Spiderrock.Protobuf {
 
       }
 
+      public sealed partial class ApiKeys : pb::IMessage<ApiKeys>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<ApiKeys> _parser = new pb::MessageParser<ApiKeys>(() => new ApiKeys());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<ApiKeys> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[2]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public ApiKeys() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public ApiKeys(ApiKeys other) : this() {
+          id_ = other.id_;
+          hash_ = other.hash_;
+          expires_ = other.expires_ != null ? other.expires_.Clone() : null;
+          created_ = other.created_ != null ? other.created_.Clone() : null;
+          label_ = other.label_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public ApiKeys Clone() {
+          return new ApiKeys(this);
+        }
+
+        /// <summary>Field number for the "id" field.</summary>
+        public const int IdFieldNumber = 402;
+        private int id_;
+        /// <summary>
+        /// API key serial number which identifies this key
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int Id {
+          get { return id_; }
+          set {
+            id_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "hash" field.</summary>
+        public const int HashFieldNumber = 403;
+        private string hash_ = "";
+        /// <summary>
+        /// API key hash (generated guid hash; SHA-256)
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Hash {
+          get { return hash_; }
+          set {
+            hash_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "expires" field.</summary>
+        public const int ExpiresFieldNumber = 404;
+        private global::Google.Protobuf.WellKnownTypes.Timestamp expires_;
+        /// <summary>
+        /// API key expiration date, defaults to never 2100-01-01
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Google.Protobuf.WellKnownTypes.Timestamp Expires {
+          get { return expires_; }
+          set {
+            expires_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "created" field.</summary>
+        public const int CreatedFieldNumber = 405;
+        private global::Google.Protobuf.WellKnownTypes.Timestamp created_;
+        /// <summary>
+        /// API key creation date
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::Google.Protobuf.WellKnownTypes.Timestamp Created {
+          get { return created_; }
+          set {
+            created_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "label" field.</summary>
+        public const int LabelFieldNumber = 406;
+        private string label_ = "";
+        /// <summary>
+        /// API key name/description (if any; may be client supplied)
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string Label {
+          get { return label_; }
+          set {
+            label_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as ApiKeys);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(ApiKeys other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Id != other.Id) return false;
+          if (Hash != other.Hash) return false;
+          if (!object.Equals(Expires, other.Expires)) return false;
+          if (!object.Equals(Created, other.Created)) return false;
+          if (Label != other.Label) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Id != 0) hash ^= Id.GetHashCode();
+          if (Hash.Length != 0) hash ^= Hash.GetHashCode();
+          if (expires_ != null) hash ^= Expires.GetHashCode();
+          if (created_ != null) hash ^= Created.GetHashCode();
+          if (Label.Length != 0) hash ^= Label.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (Id != 0) {
+            output.WriteRawTag(144, 25);
+            output.WriteInt32(Id);
+          }
+          if (Hash.Length != 0) {
+            output.WriteRawTag(154, 25);
+            output.WriteString(Hash);
+          }
+          if (expires_ != null) {
+            output.WriteRawTag(162, 25);
+            output.WriteMessage(Expires);
+          }
+          if (created_ != null) {
+            output.WriteRawTag(170, 25);
+            output.WriteMessage(Created);
+          }
+          if (Label.Length != 0) {
+            output.WriteRawTag(178, 25);
+            output.WriteString(Label);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Id != 0) {
+            output.WriteRawTag(144, 25);
+            output.WriteInt32(Id);
+          }
+          if (Hash.Length != 0) {
+            output.WriteRawTag(154, 25);
+            output.WriteString(Hash);
+          }
+          if (expires_ != null) {
+            output.WriteRawTag(162, 25);
+            output.WriteMessage(Expires);
+          }
+          if (created_ != null) {
+            output.WriteRawTag(170, 25);
+            output.WriteMessage(Created);
+          }
+          if (Label.Length != 0) {
+            output.WriteRawTag(178, 25);
+            output.WriteString(Label);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (Id != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeInt32Size(Id);
+          }
+          if (Hash.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(Hash);
+          }
+          if (expires_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Expires);
+          }
+          if (created_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Created);
+          }
+          if (Label.Length != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeStringSize(Label);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(ApiKeys other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Id != 0) {
+            Id = other.Id;
+          }
+          if (other.Hash.Length != 0) {
+            Hash = other.Hash;
+          }
+          if (other.expires_ != null) {
+            if (expires_ == null) {
+              Expires = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            Expires.MergeFrom(other.Expires);
+          }
+          if (other.created_ != null) {
+            if (created_ == null) {
+              Created = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            Created.MergeFrom(other.Created);
+          }
+          if (other.Label.Length != 0) {
+            Label = other.Label;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 3216: {
+                Id = input.ReadInt32();
+                break;
+              }
+              case 3226: {
+                Hash = input.ReadString();
+                break;
+              }
+              case 3234: {
+                if (expires_ == null) {
+                  Expires = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Expires);
+                break;
+              }
+              case 3242: {
+                if (created_ == null) {
+                  Created = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Created);
+                break;
+              }
+              case 3250: {
+                Label = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 3216: {
+                Id = input.ReadInt32();
+                break;
+              }
+              case 3226: {
+                Hash = input.ReadString();
+                break;
+              }
+              case 3234: {
+                if (expires_ == null) {
+                  Expires = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Expires);
+                break;
+              }
+              case 3242: {
+                if (created_ == null) {
+                  Created = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+                }
+                input.ReadMessage(Created);
+                break;
+              }
+              case 3250: {
+                Label = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
       public sealed partial class CitrixProductControl : pb::IMessage<CitrixProductControl>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -5032,7 +5555,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[2]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[3]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5270,7 +5793,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[3]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[4]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5511,7 +6034,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[4]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[5]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5869,7 +6392,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[5]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[6]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6187,7 +6710,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[6]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[7]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6425,7 +6948,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[7]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[8]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6663,7 +7186,7 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[8]; }
+          get { return global::Spiderrock.Protobuf.UserConfig.Descriptor.NestedTypes[9]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

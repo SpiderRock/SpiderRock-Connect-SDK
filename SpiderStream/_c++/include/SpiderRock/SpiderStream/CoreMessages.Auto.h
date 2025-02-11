@@ -24,7 +24,72 @@ namespace SpiderRock {
 
 namespace SpiderStream {
 
-class FutureBookQuote
+class CurrencyConversion
+{
+public:
+	class Key
+	{
+		Currency srcCurrency_;
+		Currency tgtCurrency_;
+		
+	public:
+		inline Currency srcCurrency() const { return srcCurrency_; }
+		inline Currency tgtCurrency() const { return tgtCurrency_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = std::hash<Byte>()(static_cast<Byte>(k.srcCurrency_));
+			hash_code = (hash_code * 397) ^ std::hash<Byte>()(static_cast<Byte>(k.tgtCurrency_));
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.srcCurrency_ == b.srcCurrency_
+				&& a.tgtCurrency_ == b.tgtCurrency_;
+		}
+	};
+	
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		Double convertRate;
+		DateTime timestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline Double convertRate() const { return layout_.convertRate; }
+	inline DateTime timestamp() const { return layout_.timestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<CurrencyConversion::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+
+	}
+
+};
+
+ class FutureBookQuote
 {
 public:
 	class Key
@@ -582,6 +647,7 @@ private:
 		Float ddivPv;
 		DDivSource ddivSource;
 		Int iDays;
+		Float ddivDisc;
 		Float strikePv;
 		Float fairSVol;
 		Float fairSDiv;
@@ -593,8 +659,8 @@ private:
 		Float rcEExPrem;
 		Float fairLoanPv;
 		Float fairLoanRate;
-		Float rcBidLoanPv;
-		Float rcAskLoanPv;
+		Float rcBidPrc;
+		Float rcAskPrc;
 		String<16> calcError;
 		Int cpOI;
 		Int cpVlm;
@@ -625,6 +691,7 @@ public:
 	inline Float ddivPv() const { return layout_.ddivPv; }
 	inline DDivSource ddivSource() const { return layout_.ddivSource; }
 	inline Int iDays() const { return layout_.iDays; }
+	inline Float ddivDisc() const { return layout_.ddivDisc; }
 	inline Float strikePv() const { return layout_.strikePv; }
 	inline Float fairSVol() const { return layout_.fairSVol; }
 	inline Float fairSDiv() const { return layout_.fairSDiv; }
@@ -636,8 +703,8 @@ public:
 	inline Float rcEExPrem() const { return layout_.rcEExPrem; }
 	inline Float fairLoanPv() const { return layout_.fairLoanPv; }
 	inline Float fairLoanRate() const { return layout_.fairLoanRate; }
-	inline Float rcBidLoanPv() const { return layout_.rcBidLoanPv; }
-	inline Float rcAskLoanPv() const { return layout_.rcAskLoanPv; }
+	inline Float rcBidPrc() const { return layout_.rcBidPrc; }
+	inline Float rcAskPrc() const { return layout_.rcAskPrc; }
 	inline const String<16>& calcError() const { return layout_.calcError; }
 	inline Int cpOI() const { return layout_.cpOI; }
 	inline Int cpVlm() const { return layout_.cpVlm; }
@@ -775,7 +842,7 @@ private:
 		Int counter;
 		Int skewCounter;
 		Int sdivCounter;
-		MarketSession marketSession;
+		TradingSession tradingSession;
 		TradeableStatus tradeableStatus;
 		SurfaceResult surfaceResult;
 		DateTime timestamp;
@@ -883,7 +950,7 @@ public:
 	inline Int counter() const { return layout_.counter; }
 	inline Int skewCounter() const { return layout_.skewCounter; }
 	inline Int sdivCounter() const { return layout_.sdivCounter; }
-	inline MarketSession marketSession() const { return layout_.marketSession; }
+	inline TradingSession tradingSession() const { return layout_.tradingSession; }
 	inline TradeableStatus tradeableStatus() const { return layout_.tradeableStatus; }
 	inline SurfaceResult surfaceResult() const { return layout_.surfaceResult; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
@@ -930,6 +997,7 @@ private:
 	struct Layout
 	{
 		Key pkey;
+		TickerKey ticker;
 		DateKey tradeDate;
 		ClsMarkState clsMarkState;
 		Double uBid;
@@ -942,6 +1010,7 @@ private:
 		Double closePrc;
 		YesNo hasSRClsPrc;
 		YesNo hasClosePrc;
+		YesNo hasUClsPrc;
 		Float bidIV;
 		Float askIV;
 		Float srPrc;
@@ -959,13 +1028,16 @@ private:
 		Float deDecay;
 		Float sdiv;
 		Float ddiv;
+		Float ddivPv;
 		Float rate;
+		Int iDays;
 		Float years;
 		Byte error;
 		Int openInterest;
 		Int prtCount;
 		Int prtVolume;
 		DateTime srCloseMarkDttm;
+		DateTime configNow;
 		DateTime timestamp;
 	};
 	
@@ -981,6 +1053,7 @@ public:
 	inline void time_received(uint64_t value) { time_received_ = value; }
 	inline uint64_t time_received() const { return time_received_; }
 	
+	inline const TickerKey& ticker() const { return layout_.ticker; }
 	inline DateKey tradeDate() const { return layout_.tradeDate; }
 	inline ClsMarkState clsMarkState() const { return layout_.clsMarkState; }
 	inline Double uBid() const { return layout_.uBid; }
@@ -993,6 +1066,7 @@ public:
 	inline Double closePrc() const { return layout_.closePrc; }
 	inline YesNo hasSRClsPrc() const { return layout_.hasSRClsPrc; }
 	inline YesNo hasClosePrc() const { return layout_.hasClosePrc; }
+	inline YesNo hasUClsPrc() const { return layout_.hasUClsPrc; }
 	inline Float bidIV() const { return layout_.bidIV; }
 	inline Float askIV() const { return layout_.askIV; }
 	inline Float srPrc() const { return layout_.srPrc; }
@@ -1010,13 +1084,16 @@ public:
 	inline Float deDecay() const { return layout_.deDecay; }
 	inline Float sdiv() const { return layout_.sdiv; }
 	inline Float ddiv() const { return layout_.ddiv; }
+	inline Float ddivPv() const { return layout_.ddivPv; }
 	inline Float rate() const { return layout_.rate; }
+	inline Int iDays() const { return layout_.iDays; }
 	inline Float years() const { return layout_.years; }
 	inline Byte error() const { return layout_.error; }
 	inline Int openInterest() const { return layout_.openInterest; }
 	inline Int prtCount() const { return layout_.prtCount; }
 	inline Int prtVolume() const { return layout_.prtVolume; }
 	inline DateTime srCloseMarkDttm() const { return layout_.srCloseMarkDttm; }
+	inline DateTime configNow() const { return layout_.configNow; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 
@@ -2204,13 +2281,13 @@ public:
 	class Exchange
 	{
 		OptExch optExch_;
-		String<12> nativeRoot_;
+		TickerKey root_;
 		
 	public:
 		inline OptExch optExch() const { return optExch_; }
-		inline const String<12>& nativeRoot() const { return nativeRoot_; }
+		inline const TickerKey& root() const { return root_; }
 		inline void optExch(OptExch value) { optExch_ = value; }
-		inline void nativeRoot(const String<12>& value) { nativeRoot_ = value; }
+		inline void root(const TickerKey& value) { root_ = value; }
 	};
 
 	class Underlying
@@ -2244,6 +2321,7 @@ private:
 		ExerciseTime exerciseTime;
 		ExerciseType exerciseType;
 		TimeMetric timeMetric;
+		TradingPeriod tradingPeriod;
 		PricingModel pricingModel;
 		MoneynessType moneynessType;
 		PriceQuoteType priceQuoteType;
@@ -2267,6 +2345,7 @@ private:
 		Currency strikeCurr;
 		TickerKey defaultSurfaceRoot;
 		String<6> ricRoot;
+		TickerKey regionalCompositeRoot;
 		DateTime timestamp;
 		PricingSource_V7 pricingSource_V7;
 	};
@@ -2299,6 +2378,7 @@ public:
 	inline ExerciseTime exerciseTime() const { return layout_.exerciseTime; }
 	inline ExerciseType exerciseType() const { return layout_.exerciseType; }
 	inline TimeMetric timeMetric() const { return layout_.timeMetric; }
+	inline TradingPeriod tradingPeriod() const { return layout_.tradingPeriod; }
 	inline PricingModel pricingModel() const { return layout_.pricingModel; }
 	inline MoneynessType moneynessType() const { return layout_.moneynessType; }
 	inline PriceQuoteType priceQuoteType() const { return layout_.priceQuoteType; }
@@ -2322,6 +2402,7 @@ public:
 	inline Currency strikeCurr() const { return layout_.strikeCurr; }
 	inline const TickerKey& defaultSurfaceRoot() const { return layout_.defaultSurfaceRoot; }
 	inline const String<6>& ricRoot() const { return layout_.ricRoot; }
+	inline const TickerKey& regionalCompositeRoot() const { return layout_.regionalCompositeRoot; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	inline PricingSource_V7 pricingSource_V7() const { return layout_.pricingSource_V7; }
 	
@@ -2810,6 +2891,7 @@ private:
 	struct Layout
 	{
 		Key pkey;
+		YesNo flipSide;
 		DateTime timestamp;
 	};
 	
@@ -2825,6 +2907,7 @@ public:
 	inline void time_received(uint64_t value) { time_received_ = value; }
 	inline uint64_t time_received() const { return time_received_; }
 	
+	inline YesNo flipSide() const { return layout_.flipSide; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 
@@ -2897,6 +2980,7 @@ private:
 		Int size;
 		Double price;
 		YesNo isPriceValid;
+		YesNo flipSide;
 		Int origOrderSize;
 		ExchOrderType orderType;
 		ExchOrderStatus orderStatus;
@@ -2930,6 +3014,7 @@ public:
 	inline Int size() const { return layout_.size; }
 	inline Double price() const { return layout_.price; }
 	inline YesNo isPriceValid() const { return layout_.isPriceValid; }
+	inline YesNo flipSide() const { return layout_.flipSide; }
 	inline Int origOrderSize() const { return layout_.origOrderSize; }
 	inline ExchOrderType orderType() const { return layout_.orderType; }
 	inline ExchOrderStatus orderStatus() const { return layout_.orderStatus; }
@@ -3400,6 +3485,7 @@ private:
 	struct Layout
 	{
 		Key pkey;
+		DateKey tradeDate;
 		Double opnPrice;
 		Double mrkPrice;
 		Double clsPrice;
@@ -3413,12 +3499,13 @@ private:
 		Int midCount;
 		Int midVolume;
 		Int prtCount;
-		Double prtPrice;
+		Int prtVolume;
+		Double lastPrtPrice;
+		DateTime lastPrtDttm;
 		Int expCount;
 		Double expWidth;
 		Float expBidSize;
 		Float expAskSize;
-		DateTime lastPrint;
 		DateTime timestamp;
 	};
 	
@@ -3434,6 +3521,7 @@ public:
 	inline void time_received(uint64_t value) { time_received_ = value; }
 	inline uint64_t time_received() const { return time_received_; }
 	
+	inline DateKey tradeDate() const { return layout_.tradeDate; }
 	inline Double opnPrice() const { return layout_.opnPrice; }
 	inline Double mrkPrice() const { return layout_.mrkPrice; }
 	inline Double clsPrice() const { return layout_.clsPrice; }
@@ -3447,12 +3535,13 @@ public:
 	inline Int midCount() const { return layout_.midCount; }
 	inline Int midVolume() const { return layout_.midVolume; }
 	inline Int prtCount() const { return layout_.prtCount; }
-	inline Double prtPrice() const { return layout_.prtPrice; }
+	inline Int prtVolume() const { return layout_.prtVolume; }
+	inline Double lastPrtPrice() const { return layout_.lastPrtPrice; }
+	inline DateTime lastPrtDttm() const { return layout_.lastPrtDttm; }
 	inline Int expCount() const { return layout_.expCount; }
 	inline Double expWidth() const { return layout_.expWidth; }
 	inline Float expBidSize() const { return layout_.expBidSize; }
 	inline Float expAskSize() const { return layout_.expAskSize; }
-	inline DateTime lastPrint() const { return layout_.lastPrint; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 
@@ -3892,7 +3981,6 @@ private:
 		YesNo hasOptions;
 		Int numOptions;
 		Long sharesOutstanding;
-		TimeMetric timeMetric;
 		OTCPrimaryMarket otcPrimaryMarket;
 		OTCTier otcTier;
 		String<1> otcReportingStatus;
@@ -3900,6 +3988,8 @@ private:
 		Int otcFlags;
 		TkDefSource tkDefSource;
 		TkStatusFlag statusFlag;
+		TimeMetric timeMetric;
+		TradingPeriod tradingPeriod;
 		DateTime timestamp;
 	};
 	
@@ -3952,7 +4042,6 @@ public:
 	inline YesNo hasOptions() const { return layout_.hasOptions; }
 	inline Int numOptions() const { return layout_.numOptions; }
 	inline Long sharesOutstanding() const { return layout_.sharesOutstanding; }
-	inline TimeMetric timeMetric() const { return layout_.timeMetric; }
 	inline OTCPrimaryMarket otcPrimaryMarket() const { return layout_.otcPrimaryMarket; }
 	inline OTCTier otcTier() const { return layout_.otcTier; }
 	inline const String<1>& otcReportingStatus() const { return layout_.otcReportingStatus; }
@@ -3960,6 +4049,8 @@ public:
 	inline Int otcFlags() const { return layout_.otcFlags; }
 	inline TkDefSource tkDefSource() const { return layout_.tkDefSource; }
 	inline TkStatusFlag statusFlag() const { return layout_.statusFlag; }
+	inline TimeMetric timeMetric() const { return layout_.timeMetric; }
+	inline TradingPeriod tradingPeriod() const { return layout_.tradingPeriod; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 

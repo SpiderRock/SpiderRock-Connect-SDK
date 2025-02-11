@@ -8,7 +8,7 @@ package spiderrock.protobuf;
 import "google/protobuf/timestamp.proto";
 
 /*
-    FutureCloseMark records are created immediately after the market close (clsMarkState=SRClose), when exchanges publish official marks (clsMarkState=ExchClose), and again during top of day rotation (clsMarkState=Final).  These records contain closing quotes and prices as well as markup details for all outright futures.
+    FutureCloseMark records are published immediately after the market close - 5 min and again when exchanges publish official marks.
     FutureCloseMark records are published to the SpiderRock elastic cluster when clsMarkState=Final
 */    
 message FutureCloseMark {
@@ -22,25 +22,25 @@ message FutureCloseMark {
     
     PKey pkey = 2;
     DateKey trade_date = 100;
-    ClsMarkState cls_mark_state = 103; // Close mark state: None; LastPrt; SRClose; ExchClose; Final
-    double opn_prc = 106; // Opening price
-    double min_prc = 109; // Low price
-    double max_prc = 112; // High Price
+    ClsMarkState cls_mark_state = 103; // Preview or Final
+    double opn_prc = 106; // Open price (start of regular hours)
+    double min_prc = 109; // Low price (during regular hours)
+    double max_prc = 112; // High price (during regular hours)
     int32 open_interest = 115; // Open interest
-    int32 prt_count = 118; // print count
-    int32 prt_volume = 121; // print volume
+    int32 prt_count = 118; // Print count (entire trading period)
+    int32 prt_volume = 121; // Print volume (entire trading period)
     int32 realized_cnt = 124; // number of minute bar segments used in realizedVar calc
-    float realized_var = 127; // realizedVar = SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
-    float avg_mkt_size = 130; // MEAN[0.5 * (bidSize + askSize) ] @ 1 minute intervals during market hours
-    float avg_mkt_width = 133; // MEAN[ askPrice - bidPrice ] @ 1 minute intervals during market hours
-    double bid_prc = 136; // bid price (close - 1min)
-    double ask_prc = 139; // ask price (close - 1min)
-    double sr_cls_prc = 142; // sr close mark (close - 1min)
-    double close_prc = 145; // official exchange closing mark (last print;then official close)
-    YesNo has_sRCls_prc = 148;
-    YesNo has_close_prc = 151;
-    google.protobuf.Timestamp sr_close_mark_dttm = 154; // from MarketCloseQuote.srCloseMarkDttm
-    google.protobuf.Timestamp timestamp = 157;
+    double realized_vol = 158; // realizedVar = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
+    float avg_mkt_size = 130; // Average market size
+    float avg_mkt_width = 133; // Average market width
+    double bid_prc = 136; // bid price (close - 5 min)
+    double ask_prc = 139; // ask price (close - 5 min)
+    double sr_cls_prc = 142; // SR close mark (close - 5 min)
+    double close_prc = 145; // official exchange closing mark (or last print)
+    YesNo has_sRCls_prc = 148; // srClsPrc is valid
+    YesNo has_close_prc = 151; // closePrc is valid; otherwise is last print
+    google.protobuf.Timestamp sr_close_mark_dttm = 154; // (close - 5 min) date/time
+    google.protobuf.Timestamp timestamp = 157; // record publish/update timestamp
 }
 
 

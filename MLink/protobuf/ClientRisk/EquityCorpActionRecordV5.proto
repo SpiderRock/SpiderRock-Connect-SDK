@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    corp action record (managed by SR)
+*/    
+message EquityCorpActionRecordV5 {
+    message PKey {
+        
+        TickerKey ticker = 10; // ticker at EOD on trading date
+        DateKey ex_date = 11; // ex-date of the action
+    }
+
+    message Cash {
+        
+        double amount = 103;
+        Currency currency = 106;
+        CorpActionCash cash_type = 109;
+        string description = 112;
+    }
+
+    message Component {
+        
+        TickerKey ticker_sOD = 118; // ticker @ SOD
+        double component_ratio = 121; // price/position adjustment ratio [ratio x closemark -> adjclosemark]; default = 1
+        double component_fraction = 124; // position x componentFraction x spinoffMark -> cashInLieu; default = 1
+        double component_mark = 127; // SOD mark for tickerSOD [if not supplied SR calculated mark will be used]
+        CorpActionComponent component_type = 130;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string corp_action_text = 133; // descriptive detail (optional)
+    google.protobuf.Timestamp timestamp = 136;
+    repeated Cash cash = 100;
+    repeated Component component = 115;
+}
+
+

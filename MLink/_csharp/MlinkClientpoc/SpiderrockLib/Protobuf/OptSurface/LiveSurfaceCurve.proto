@@ -158,7 +158,7 @@ message LiveSurfaceCurve {
     float max_saddle_curvature = 490; // maximum saddle point curvature
     int32 skew_counter = 493; // skew surface fit counter
     int32 sdiv_counter = 496; // sdiv surface fit counter
-    MarketSession market_session = 499; // market session this surface is from
+    TradingSession trading_session = 515; // trading session this surface is from
     TradeableStatus tradeable_status = 502; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
     SurfaceResult surface_result = 505;
     google.protobuf.Timestamp s_timestamp = 508; // last surface curve fit timestamp

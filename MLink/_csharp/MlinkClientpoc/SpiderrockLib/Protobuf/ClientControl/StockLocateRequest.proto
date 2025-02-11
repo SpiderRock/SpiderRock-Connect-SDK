@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    StockLocateRequest records represent a client locate requests. These originate either from the SRSE AwayStockLocateGateway or from other SR Tools or APIs.
+    VLanBridge:FieldRename:coreClientFirm:clientFirm
+    BridgeFromV7
+*/    
+message StockLocateRequest {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string core_client_firm = 11; // coreClientFirm
+        int64 request_iD = 14; // ID used to make locate requests (SR generated request ID)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string locate_firm = 116;
+    string locate_pool = 117; // locate pool @ firm granting the locate
+    int32 request_quan = 100; // should be the request quantity for this request
+    RequestOrigin request_origin = 103;
+    string request_machine = 106;
+    string modified_by = 118; // user who last modified this record
+    SysEnvironment modified_in = 112;
+    google.protobuf.Timestamp timestamp = 115; // timestamp of last modification
+}
+
+

@@ -1,0 +1,165 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    RiskCubeDetail records are published by CoreRiskServers and are designed to be aggregated and analyzed over time.
+    RiskCubeDetail records are published to the SpiderRock Archive Host data pipeline at the end of each trading period.
+*/    
+message RiskCubeDetailV5 {
+    message PKey {
+        
+        string accnt = 10; // SR Accnt
+        OptionKey sec_key = 11;
+        SecType sec_type = 12; // [Call, Put, Stock, Future, Cash]
+        DateKey trade_date = 13;
+        RiskSession risk_session = 14;
+        string client_firm = 15; // SR assigned client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    RiskCubeVersion version = 100;
+    string clearing_firm = 106; // Clearing Firm
+    string clearing_accnt = 109; // Clearing Firm Accnt
+    string risk_server_code = 112; // SR RiskServer (server that published this record)
+    string view_group1 = 115; // Client defined view group #1 (can be fitered/aggregated)
+    string view_group2 = 118; // Client defined view group #2 (can be fitered/aggregated)
+    string view_group3 = 121; // Client defined view group #3 (can be fitered/aggregated)
+    TickerKey ticker = 124; // Risk Symbol (underlier for equities; product group for future/option complexes)
+    string risk_class = 127; // Symbol risk class (from SymbolControl record)
+    SymbolType symbol_type = 130; // Symbol type
+    float beta = 133; // beta (usually beta to SPX; see AccountConfig.betaSource)
+    BetaSource beta_source = 136;
+    string sector = 139; // Client defined sector (from SymbolControl record)
+    int32 ind_num = 142; // Ind Num (00)
+    int32 sub_num = 145; // Sub Num (0000)
+    int32 grp_num = 148; // Grp Num (000000)
+    int32 nbr_num = 151; // Nbr Num (00000000)
+    int32 e_days = 154; // days to next earnings [-5, +30]
+    int32 d_days = 157; // days to next dividend [-5, +30]
+    float x_delta = 160; // calls = +0.5 - delta; puts = -0.5 - delta
+    ExpCode exp_code = 163; // Time-to-expiry code (W1, W2, M1, M2, M34, M56, M7C, Y1, Y2)
+    SkewCode skew_code = 166; // Skew bucket code (Dd=Deep DownSide, Dn = DownSide, At = ATM, Up = UpSide, DU = FarUpSide)
+    EDaysCode e_days_code = 169; // Days to next earnings event (if any)
+    iVolRange i_vol_range = 172; // Implied ATM Vol Range
+    float skew_dD = 175; // dd (deep downside) skew metric (xde < -0.30)
+    float skew_dN = 178; // dn (downside) skew metric (-0.30 < xde < -0.10)
+    float skew_aT = 181; // at (atm) skew risk metric (-0.10 < xde < +0.10)
+    float skew_uP = 184; // up (upside) skew risk metric (+0.10 < xde < +0.30)
+    float skew_dU = 187; // du (far upside) skew risk metric (+0.30 < xde)
+    int32 sh_opn_pos = 190; // shares (start-of-day)
+    int32 fc_opn_pos = 193; // futures contracts (start-of-day)
+    int32 cn_opn_pos = 196; // options contracts (start-of-day)
+    float cn_atm_equiv = 199; // atm equivalent contracts; (opr.cnOpnPos + opr.cnBot - opr.cnSld) * opr.ve / opr.atmVega
+    int32 sh_bot = 202; // shares bot
+    int32 sh_sld = 205; // shares sld
+    int32 sh_sld_shrt = 208; // shares sld short
+    int32 fc_bot = 211; // future contracts bot
+    int32 fc_sld = 214; // future contracts sld
+    int32 cn_bot = 217; // option contracts bot
+    int32 cn_sld = 220; // option contracts sld
+    int32 cn_opened = 223; // option contracts opened
+    int32 cn_closed = 226; // option contracts closed
+    string opn_dir = 229; // open (start-of-day) direction (LN or SH)
+    string pos_dir = 232; // current (start-of-day + trades) direction (LN or SH)
+    int32 unit_opn_pos = 235; // effective opening position (shares or cn * underlierPerCn) (start-of-day)
+    int32 unit_cur_pos = 238; // effective current position (shares or cn * underlierPerCn) (start-of-day + trades)
+    int32 unit_qty_bot = 241; // effective shares bot (shares or cn * underlierPerCn)
+    int32 unit_qty_sld = 244; // effective shares sld (shares or cn * underlierPerCn)
+    float day_pnl = 247; // day pnl
+    float day_dn_pnl = 250; // day pnl (delta neutral)
+    float day_trd_delta = 253; // day trade delta
+    float day_trd_dDelta = 256; // day trade $delta
+    float day_trd_gamma = 259; // day trade gamma
+    float day_trd_dGamma = 262; // day trade $gamma
+    float day_trd_vega = 265; // day trade vega
+    float day_trd_wVega = 268; // day trade wVega (vega * vol)
+    float day_trd_tVega = 271; // day trade tVega (vega / sqrt(max(0.1, years * 4)))
+    float day_trd_wt_vega = 274; // day trade wtVega (vega * vol / sqrt(max(0.1, years * 4)))
+    float day_trd_theta = 277; // day trade theta
+    float day_edge_opened = 280; // day theo option edge opened (requires a theo model)
+    float day_edge_closed = 283; // day theo option edge closed (requires a theo model)
+    double day_mny_bot = 286; // day money bot
+    double day_mny_sld = 289; // day money sld
+    float opn_pnl_vol_mark = 292; // (cur.surface - pr.surface) * cnOpnClr * upc
+    float opn_pnl_mid_mark = 295; // (cur.mid - pr.mid) * cnOpnClr * upc
+    float opn_pnl_clr_mark = 298; // (cur.mid - pr.clr) * cnOpnClr * upc
+    float opn_mark_brk_mny = 301; // (cur.surface - cur.mid) * cnOpnClr * upc
+    float opn_theo_edge = 304; // opening edge (edge at the end of prior period) (requires a theo model)
+    float pos_theo_edge = 307; // current edge (opening positions + trades) (requires a theo model)
+    float t_vol_move = 310; // LN(tVol / tVolPr)
+    float t_edge_move = 313; // LN(tVol / iVol) - LN(tVolPr / iVolPr)
+    float t_edge = 316; // LN(tVol / iVol)
+    float opn_pnl_de = 319; // open position * mult * hedgeDe * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
+    float opn_pnl_ga = 322; // open position * mult * 0.5 * optGamma * dUPrc * dUPrc
+    float opn_pnl_th = 325; // open position * mult * optTheta * dTime
+    float opn_pnl_ve = 328; // open position * mult * optVega * dVol
+    float opn_pnl_vo = 331; // open position * mult * 0.5 * optVolga * dVol * dVol
+    float opn_pnl_va = 334; // open position * mult * optVanna * dVol * dUPrc
+    float opn_pnl_sl = 337; // open position * mult * vol/uPrc * slope * optVega * dUPrc
+    float opn_pnl_rate = 340; // open position * mult * optRho * dRate
+    float opn_pnl_sDiv = 343; // open position * mult * optPhi * dSDv
+    float opn_pnl_dDiv = 346; // open position * mult * optPhi * dDDv
+    float opn_pnl_err = 349; // unattributed pnl: SR Vol Pnl - opnPnlDe - opnPnlGa - opnPnlTh - opnPnlVe - opnPnlRat - opnPnlSDiv - opnPnlDDiv
+    float opn_edge_change = 352; // open position * mult * (tEdge - tEdgePr) (requires a theo model)
+    float pos_delta = 355; // live position * mult * hedgeDe
+    float pos_dDelta = 358; // live position * mult * hedgeDe * UPrc
+    float pos_dBeta = 361; // live position * mult * hedgeDe * beta * UPrc
+    float pos_gamma = 364; // live position * mult * optGamma
+    float pos_dGamma = 367; // live position * mult * optGamma * uPrc * uPrc / 100
+    float pos_vega = 370; // live position * mult * optVega
+    float pos_wVega = 373; // live position * mult * optVega * iVol
+    float pos_tVega = 376; // live position * mult * optVega / sqrt(max(0.1, years * 4))
+    float pos_wt_vega = 379; // live position * mult * optVega * iVol / sqrt(max(0.1, years * 4))
+    float pos_volga = 382; // live position * mult * optVolg
+    float pos_vanna = 385; // live position * mult * optVanna
+    float pos_theta = 388; // live position * mult * optTheta
+    float pos_rho = 391; // live position * mult * optRho
+    float pos_phi = 394; // live position * mult * optPhi
+    float pos_notional = 397; // live position * mult * uPrc
+    float pos_mkt_value = 400; // live position * mult * SR surface mark
+    float pos_prem_oPar = 403; // live position * mult * premium over parity
+    float atm_vol = 406; // atm volatility
+    float sym_vol = 409; // underlier symbol volatility (term.21d;censored)
+    float sr_slope = 412; // strike veSlope (sr surface;options only)
+    float prc_sVol = 415; // SR Surface Vol
+    float prc_tOpx = 418; // SR Surface Price
+    float prc_yOpx = 421; // SR Yesterday Surface Price
+    float prc_uPrc = 424; // underlier price
+    float prc_years = 427; // years-to-expiry
+    float prc_rate = 430; // discount rate-to-expiry
+    float prc_sdiv = 433; // continuous stock div rate-to-expiry
+    float prc_ddiv = 436; // cumulative discrete dividend paid through expiry
+    float u_prc_ratio = 439; // stock price multiplier
+    float u_prc_move = 442; // Underlier price change
+    float i_vol_move = 445; // Implied vol change (fixed strike ivol change from prior period)
+    float ex_div_amt = 448; // estimated exDiv amount (if any)
+    float borrow_rate = 451; // estimated stock borrow rate (if any)
+    int32 model_type = 454; // SRPricingLib.CalcModelType
+    int32 underliers_per_cn = 457; // underliers per contract
+    UnderlierType underlier_type = 460; // underlier type (used for option pricing)
+    float point_value = 463; // value of one point
+    Currency point_currency = 466;
+    float tick_value = 469; // value of one tick
+    Multihedge multihedge = 472;
+    TickerKey multihedge_source = 475; // MH Ticker Key (starts with '_') (if exists)
+    float multihedge_pVRatio = 478; // pv multiplier (fraction of underlier value (uPerCn x uPrc) / SUM(uPerCn x uPrc) associated with this fragment
+    float span_prc_inc_up = 481; // default (exchange) span price up increment for this asset
+    float span_prc_inc_dn = 484; // default (exchange) span price dn increment for this asset
+    float span_vol_inc = 487; // default (exchange) span volatility increment for this asset
+    SpanType prc_span_type = 490; // exchange prcSpan type
+    SpanType vol_span_type = 493; // exchange volSpan type
+    SpanPricingModel span_pricing_model = 496; // Exchange-defined model for SPAN option pricing calcs
+    MarginType margin_type = 499; // margin slide type: NMS_Equity = +/- 15%, NMS_Index = -8%/+6%, NMS_Medium = +/-10%
+    google.protobuf.Timestamp timestamp = 502;
+}
+
+

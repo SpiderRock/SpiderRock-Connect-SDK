@@ -21,16 +21,11 @@ message OptionOpenMark {
     
     PKey pkey = 2;
     DateKey trade_date = 100;
-    double u_bid = 103; // SR open uBid; (SR close uBid overnight adjusted)
-    double u_ask = 106; // SR open uAsk; (SR close uAsk overnight adjusted)
-    double u_sr_cls = 109; // SR open uMark; [SR close uMark (C - 1m) overnight adjusted]
+    OpnMarkState opn_mark_state = 191; // Preview or Final (note: preview is not corp action adjusted)
+    double u_sr_cls = 109; // SR open uMark; [SR close uMark (C - 5m) overnight adjusted]
     double u_close = 112; // exchange open uMark; [exchange close uMark overnight adjusted]
-    float bid_prc = 115; // SR open bid; [SR close bid overnight adjusted]
-    float ask_prc = 118; // SR open ask; [SR close ask overnight adjusted]
-    double sr_cls_prc = 121; // SR open mark; [SR close mark (close - 1min) overnight adjusted]
+    double sr_cls_prc = 121; // SR open mark; [SR close mark (close - 5m) overnight adjusted]
     double close_prc = 124; // exchange open mark; [exchange close mark overnight adjusted] [if available]
-    float bid_iV = 127; // implied vol of SR closing bid price
-    float ask_iV = 130; // implied vol of SR closing ask price
     float sr_prc = 133; // SR open surface price; [SR close surface price overnight adjusted]
     float sr_vol = 136; // SR surface volatility
     MarkSource sr_src = 139;
@@ -44,12 +39,14 @@ message OptionOpenMark {
     float ph = 163;
     float sr_slope = 166; // surface slope (SR surface)
     float de_decay = 169;
-    float sdiv = 172; // SR live sdiv rate
-    float ddiv = 175; // SR live ddiv rate
-    float rate = 178; // SR live int rate
+    float sdiv = 172; // term sdiv (stock dividend) rate
+    float ddiv = 175; // sum of discrete dividends
+    float ddiv_pv = 192; // sum of present value of discrete dividends
+    float rate = 178; // term discount rate
     float years = 181; // years to expiration
-    int32 error = 184; // SRPricingLib.CalcError
+    int32 error = 184; // pricing calc error (0 = none)
     string corp_action = 187;
+    google.protobuf.Timestamp config_now = 193; // timestamp in the trading period local timezone
     google.protobuf.Timestamp timestamp = 190;
 }
 

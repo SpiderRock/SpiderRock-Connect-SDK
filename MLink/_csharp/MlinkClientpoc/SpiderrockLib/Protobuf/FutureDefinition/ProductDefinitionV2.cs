@@ -26,54 +26,54 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjNQcm90b2J1Zi9GdXR1cmVEZWZpbml0aW9uL1Byb2R1Y3REZWZpbml0aW9u",
             "VjIucHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29t",
-            "bW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrEQ",
+            "bW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrIQ",
             "ChNQcm9kdWN0RGVmaW5pdGlvblYyEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOwoEcGtleRgCIAEoCzIt",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuUHJvZHVjdERlZmluaXRpb25WMi5QS2V5",
             "EhQKC3NlY3VyaXR5X2lEGPgBIAEoCRIuCgZ0aWNrZXIYZyABKAsyHi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRITCgtzUnNwcmVhZF9pRBhoIAEo",
-            "AxI4Cg1wcm9kdWN0X2NsYXNzGGogASgOMiEuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5Qcm9kdWN0Q2xhc3MSFAoMdW5kZXJsaWVyX2lEGG0gASgDEi8KB3VuZF9r",
-            "ZXkYcCABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRIyCgh1",
-            "bmRfdHlwZRhzIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5",
-            "cGUSFQoNcHJvZHVjdF9ncm91cBh2IAEoCRIWCg5zZWN1cml0eV9ncm91cBh5",
-            "IAEoCRIZChFtYXJrZXRfc2VnbWVudF9pRBh8IAEoBRIRCghyaWNfY29kZRj6",
-            "ASABKAkSFgoNc2VjdXJpdHlfZGVzYxj5ASABKAkSEQoIZXhjaGFuZ2UYggEg",
-            "ASgJEjcKDHByb2R1Y3RfdHlwZRiFASABKA4yIC5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlByb2R1Y3RUeXBlEjcKDHByb2R1Y3RfdGVybRiIASABKA4yIC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RUZXJtEkIKEnByb2R1Y3RfaW5kZXhf",
-            "dHlwZRiLASABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVmLlByb2R1Y3RJbmRl",
-            "eFR5cGUSFQoMcHJvZHVjdF9yYXRlGI4BIAEoAhIWCg1jb250cmFjdF9zaXpl",
-            "GJEBIAEoAhI5Cg1jb250cmFjdF91bml0GJQBIAEoDjIhLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuQ29udHJhY3RVbml0EjcKDHByaWNlX2Zvcm1hdBiXASABKA4y",
-            "IC5zcGlkZXJyb2NrLnByb3RvYnVmLlByaWNlRm9ybWF0EhYKDW1pbl90aWNr",
-            "X3NpemUYmgEgASgBEhcKDmRpc3BsYXlfZmFjdG9yGJ0BIAEoARIVCgxzdHJp",
-            "a2Vfc2NhbGUYoAEgASgBEhUKDG1pbl9sb3Rfc2l6ZRijASABKAUSEwoKYm9v",
-            "a19kZXB0aBimASABKAUSGwoSaW1wbGllZF9ib29rX2RlcHRoGKkBIAEoBRIX",
-            "Cg5pbXBfbWFya2V0X2luZBisASABKAUSIwoabWluX3ByaWNlX2luY3JlbWVu",
-            "dF9hbW91bnQYrwEgASgCEhIKCXBhcl92YWx1ZRiyASABKAISGAoPY29udF9t",
-            "dWx0aXBsaWVyGLUBIAEoAhISCgljYWJfcHJpY2UYuAEgASgBEjIKCnRyYWRl",
-            "X2N1cnIYuwEgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5DdXJyZW5jeRIz",
-            "CgtzZXR0bGVfY3Vychi+ASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1",
-            "cnJlbmN5EjMKC3N0cmlrZV9jdXJyGMEBIAEoDjIdLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuQ3VycmVuY3kSLwoKZXhwaXJhdGlvbhjEASABKAsyGi5nb29nbGUu",
-            "cHJvdG9idWYuVGltZXN0YW1wEi8KCG1hdHVyaXR5GMcBIAEoCzIcLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuRGF0ZUtleRI5Cg1leGVyY2lzZV90eXBlGMoBIAEo",
-            "DjIhLnNwaWRlcnJvY2sucHJvdG9idWYuRXhlcmNpc2VUeXBlEjEKDHVzZXJf",
-            "ZGVmaW5lZBjNASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhkK",
-            "EGRlY2F5X3N0YXJ0X3llYXIY0AEgASgFEhoKEWRlY2F5X3N0YXJ0X21vbnRo",
-            "GNMBIAEoBRIYCg9kZWNheV9zdGFydF9kYXkY1gEgASgFEhIKCWRlY2F5X3F0",
-            "eRjZASABKAUSFAoLcHJpY2VfcmF0aW8Y3AEgASgBEi4KCXRpbWVzdGFtcBj3",
-            "ASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjwKBGxlZ3MY3wEg",
-            "AygLMi0uc3BpZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0RGVmaW5pdGlvblYy",
-            "LkxlZ3MaawoEUEtleRIvCgdzZWNfa2V5GAogASgLMh4uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5PcHRpb25LZXkSMgoIc2VjX3R5cGUYCyABKA4yIC5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlGuEBCgRMZWdzEg8KBmxlZ19pRBji",
-            "ASABKAkSMAoHc2VjX2tleRjlASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "Lk9wdGlvbktleRIzCghzZWNfdHlwZRjoASABKA4yIC5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlNwZHJLZXlUeXBlEisKBHNpZGUY6wEgASgOMhwuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5CdXlTZWxsEg4KBXJhdGlvGO4BIAEoDRISCglyZWZfZGVs",
-            "dGEY8QEgASgCEhAKB3JlZl9wcmMY9AEgASgBYgZwcm90bzM="));
+            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIUCgtzUnNwcmVhZF9pRBj7ASAB",
+            "KAMSOAoNcHJvZHVjdF9jbGFzcxhqIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuUHJvZHVjdENsYXNzEhQKDHVuZGVybGllcl9pRBhtIAEoAxIvCgd1bmRf",
+            "a2V5GHAgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5FeHBpcnlLZXkSMgoI",
+            "dW5kX3R5cGUYcyABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlU",
+            "eXBlEhUKDXByb2R1Y3RfZ3JvdXAYdiABKAkSFgoOc2VjdXJpdHlfZ3JvdXAY",
+            "eSABKAkSGQoRbWFya2V0X3NlZ21lbnRfaUQYfCABKAUSEQoIcmljX2NvZGUY",
+            "+QEgASgJEhYKDXNlY3VyaXR5X2Rlc2MY+gEgASgJEhEKCGV4Y2hhbmdlGIIB",
+            "IAEoCRI3Cgxwcm9kdWN0X3R5cGUYhQEgASgOMiAuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5Qcm9kdWN0VHlwZRI3Cgxwcm9kdWN0X3Rlcm0YiAEgASgOMiAuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0VGVybRJCChJwcm9kdWN0X2luZGV4",
+            "X3R5cGUYiwEgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5Qcm9kdWN0SW5k",
+            "ZXhUeXBlEhUKDHByb2R1Y3RfcmF0ZRiOASABKAISFgoNY29udHJhY3Rfc2l6",
+            "ZRiRASABKAISOQoNY29udHJhY3RfdW5pdBiUASABKA4yIS5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkNvbnRyYWN0VW5pdBI3CgxwcmljZV9mb3JtYXQYlwEgASgO",
+            "MiAuc3BpZGVycm9jay5wcm90b2J1Zi5QcmljZUZvcm1hdBIWCg1taW5fdGlj",
+            "a19zaXplGJoBIAEoARIXCg5kaXNwbGF5X2ZhY3RvchidASABKAESFQoMc3Ry",
+            "aWtlX3NjYWxlGKABIAEoARIVCgxtaW5fbG90X3NpemUYowEgASgFEhMKCmJv",
+            "b2tfZGVwdGgYpgEgASgFEhsKEmltcGxpZWRfYm9va19kZXB0aBipASABKAUS",
+            "FwoOaW1wX21hcmtldF9pbmQYrAEgASgFEiMKGm1pbl9wcmljZV9pbmNyZW1l",
+            "bnRfYW1vdW50GK8BIAEoAhISCglwYXJfdmFsdWUYsgEgASgCEhgKD2NvbnRf",
+            "bXVsdGlwbGllchi1ASABKAISEgoJY2FiX3ByaWNlGLgBIAEoARIyCgp0cmFk",
+            "ZV9jdXJyGLsBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kS",
+            "MwoLc2V0dGxlX2N1cnIYvgEgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5D",
+            "dXJyZW5jeRIzCgtzdHJpa2VfY3VychjBASABKA4yHS5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLkN1cnJlbmN5Ei8KCmV4cGlyYXRpb24YxAEgASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcBIvCghtYXR1cml0eRjHASABKAsyHC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLkRhdGVLZXkSOQoNZXhlcmNpc2VfdHlwZRjKASAB",
+            "KA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLkV4ZXJjaXNlVHlwZRIxCgx1c2Vy",
+            "X2RlZmluZWQYzQEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIZ",
+            "ChBkZWNheV9zdGFydF95ZWFyGNABIAEoBRIaChFkZWNheV9zdGFydF9tb250",
+            "aBjTASABKAUSGAoPZGVjYXlfc3RhcnRfZGF5GNYBIAEoBRISCglkZWNheV9x",
+            "dHkY2QEgASgFEhQKC3ByaWNlX3JhdGlvGNwBIAEoARIuCgl0aW1lc3RhbXAY",
+            "9wEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI8CgRsZWdzGN8B",
+            "IAMoCzItLnNwaWRlcnJvY2sucHJvdG9idWYuUHJvZHVjdERlZmluaXRpb25W",
+            "Mi5MZWdzGmsKBFBLZXkSLwoHc2VjX2tleRgKIAEoCzIeLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuT3B0aW9uS2V5EjIKCHNlY190eXBlGAsgASgOMiAuc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5TcGRyS2V5VHlwZRrhAQoETGVncxIPCgZsZWdfaUQY",
+            "4gEgASgJEjAKB3NlY19rZXkY5QEgASgLMh4uc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5PcHRpb25LZXkSMwoIc2VjX3R5cGUY6AEgASgOMiAuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5TcGRyS2V5VHlwZRIrCgRzaWRlGOsBIAEoDjIcLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuQnV5U2VsbBIOCgVyYXRpbxjuASABKA0SEgoJcmVmX2Rl",
+            "bHRhGPEBIAEoAhIQCgdyZWZfcHJjGPQBIAEoAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -234,7 +234,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sRspread_iD" field.</summary>
-    public const int SRspreadIDFieldNumber = 104;
+    public const int SRspreadIDFieldNumber = 251;
     private long sRspreadID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -348,7 +348,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ric_code" field.</summary>
-    public const int RicCodeFieldNumber = 250;
+    public const int RicCodeFieldNumber = 249;
     private string ricCode_ = "";
     /// <summary>
     /// Full RIC Code - only provided for non-user defined instruments
@@ -363,7 +363,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "security_desc" field.</summary>
-    public const int SecurityDescFieldNumber = 249;
+    public const int SecurityDescFieldNumber = 250;
     private string securityDesc_ = "";
     /// <summary>
     /// full exchange symbol
@@ -963,10 +963,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
       }
-      if (SRspreadID != 0L) {
-        output.WriteRawTag(192, 6);
-        output.WriteInt64(SRspreadID);
-      }
       if (ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) {
         output.WriteRawTag(208, 6);
         output.WriteEnum((int) ProductClass);
@@ -1128,13 +1124,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 15);
         output.WriteString(SecurityID);
       }
-      if (SecurityDesc.Length != 0) {
+      if (RicCode.Length != 0) {
         output.WriteRawTag(202, 15);
+        output.WriteString(RicCode);
+      }
+      if (SecurityDesc.Length != 0) {
+        output.WriteRawTag(210, 15);
         output.WriteString(SecurityDesc);
       }
-      if (RicCode.Length != 0) {
-        output.WriteRawTag(210, 15);
-        output.WriteString(RicCode);
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(216, 15);
+        output.WriteInt64(SRspreadID);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1157,10 +1157,6 @@ namespace Spiderrock.Protobuf {
       if (ticker_ != null) {
         output.WriteRawTag(186, 6);
         output.WriteMessage(Ticker);
-      }
-      if (SRspreadID != 0L) {
-        output.WriteRawTag(192, 6);
-        output.WriteInt64(SRspreadID);
       }
       if (ProductClass != global::Spiderrock.Protobuf.ProductClass.Unspecified) {
         output.WriteRawTag(208, 6);
@@ -1323,13 +1319,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 15);
         output.WriteString(SecurityID);
       }
-      if (SecurityDesc.Length != 0) {
+      if (RicCode.Length != 0) {
         output.WriteRawTag(202, 15);
+        output.WriteString(RicCode);
+      }
+      if (SecurityDesc.Length != 0) {
+        output.WriteRawTag(210, 15);
         output.WriteString(SecurityDesc);
       }
-      if (RicCode.Length != 0) {
-        output.WriteRawTag(210, 15);
-        output.WriteString(RicCode);
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(216, 15);
+        output.WriteInt64(SRspreadID);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1688,10 +1688,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 832: {
-            SRspreadID = input.ReadInt64();
-            break;
-          }
           case 848: {
             ProductClass = (global::Spiderrock.Protobuf.ProductClass) input.ReadEnum();
             break;
@@ -1869,11 +1865,15 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1994: {
-            SecurityDesc = input.ReadString();
+            RicCode = input.ReadString();
             break;
           }
           case 2002: {
-            RicCode = input.ReadString();
+            SecurityDesc = input.ReadString();
+            break;
+          }
+          case 2008: {
+            SRspreadID = input.ReadInt64();
             break;
           }
         }
@@ -1910,10 +1910,6 @@ namespace Spiderrock.Protobuf {
               Ticker = new global::Spiderrock.Protobuf.TickerKey();
             }
             input.ReadMessage(Ticker);
-            break;
-          }
-          case 832: {
-            SRspreadID = input.ReadInt64();
             break;
           }
           case 848: {
@@ -2093,11 +2089,15 @@ namespace Spiderrock.Protobuf {
             break;
           }
           case 1994: {
-            SecurityDesc = input.ReadString();
+            RicCode = input.ReadString();
             break;
           }
           case 2002: {
-            RicCode = input.ReadString();
+            SecurityDesc = input.ReadString();
+            break;
+          }
+          case 2008: {
+            SRspreadID = input.ReadInt64();
             break;
           }
         }

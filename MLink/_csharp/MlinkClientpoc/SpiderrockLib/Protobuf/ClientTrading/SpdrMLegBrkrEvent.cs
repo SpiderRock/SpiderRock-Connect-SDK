@@ -37,7 +37,7 @@ namespace Spiderrock.Protobuf {
             "bBITCgtjbGllbnRfZmlybRhzIAEoCRIRCglhbHRfYWNjbnQYdiABKAkSFQoN",
             "YWx0X3VzZXJfbmFtZRh5IAEoCRIUCgxldmVudF9udW1iZXIYfCABKA0SNgoK",
             "c3RhZ2VfdHlwZRh/IAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkclN0",
-            "YWdlVHlwZRI3CgxzdGFnZV9yZXZpZXcYhwIgASgOMiAuc3BpZGVycm9jay5w",
+            "YWdlVHlwZRI3CgxzdGFnZV9yZXZpZXcYhAIgASgOMiAuc3BpZGVycm9jay5w",
             "cm90b2J1Zi5TdGFnZVJldmlldxIbChJiYXNlX3BhcmVudF9udW1iZXIYggEg",
             "ASgDEhsKEnByZXZfcGFyZW50X251bWJlchiFASABKAMSFAoLZW5naW5lX25h",
             "bWUYhQIgASgJEkIKEnNwZHJfYnJva2VyX3N0YXR1cxiLASABKA4yJS5zcGlk",
@@ -339,7 +339,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "stage_review" field.</summary>
-    public const int StageReviewFieldNumber = 263;
+    public const int StageReviewFieldNumber = 260;
     private global::Spiderrock.Protobuf.StageReview stageReview_ = global::Spiderrock.Protobuf.StageReview.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1212,6 +1212,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(154, 16);
         output.WriteMessage(Timestamp);
       }
+      if (StageReview != global::Spiderrock.Protobuf.StageReview.Unspecified) {
+        output.WriteRawTag(160, 16);
+        output.WriteEnum((int) StageReview);
+      }
       if (EngineName.Length != 0) {
         output.WriteRawTag(170, 16);
         output.WriteString(EngineName);
@@ -1219,10 +1223,6 @@ namespace Spiderrock.Protobuf {
       if (RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) {
         output.WriteRawTag(176, 16);
         output.WriteEnum((int) RiskLimitLevel);
-      }
-      if (StageReview != global::Spiderrock.Protobuf.StageReview.Unspecified) {
-        output.WriteRawTag(184, 16);
-        output.WriteEnum((int) StageReview);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1430,6 +1430,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(154, 16);
         output.WriteMessage(Timestamp);
       }
+      if (StageReview != global::Spiderrock.Protobuf.StageReview.Unspecified) {
+        output.WriteRawTag(160, 16);
+        output.WriteEnum((int) StageReview);
+      }
       if (EngineName.Length != 0) {
         output.WriteRawTag(170, 16);
         output.WriteString(EngineName);
@@ -1437,10 +1441,6 @@ namespace Spiderrock.Protobuf {
       if (RiskLimitLevel != global::Spiderrock.Protobuf.SpdrRiskLevel.Unspecified) {
         output.WriteRawTag(176, 16);
         output.WriteEnum((int) RiskLimitLevel);
-      }
-      if (StageReview != global::Spiderrock.Protobuf.StageReview.Unspecified) {
-        output.WriteRawTag(184, 16);
-        output.WriteEnum((int) StageReview);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2017,16 +2017,16 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 2080: {
+            StageReview = (global::Spiderrock.Protobuf.StageReview) input.ReadEnum();
+            break;
+          }
           case 2090: {
             EngineName = input.ReadString();
             break;
           }
           case 2096: {
             RiskLimitLevel = (global::Spiderrock.Protobuf.SpdrRiskLevel) input.ReadEnum();
-            break;
-          }
-          case 2104: {
-            StageReview = (global::Spiderrock.Protobuf.StageReview) input.ReadEnum();
             break;
           }
         }
@@ -2255,16 +2255,16 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 2080: {
+            StageReview = (global::Spiderrock.Protobuf.StageReview) input.ReadEnum();
+            break;
+          }
           case 2090: {
             EngineName = input.ReadString();
             break;
           }
           case 2096: {
             RiskLimitLevel = (global::Spiderrock.Protobuf.SpdrRiskLevel) input.ReadEnum();
-            break;
-          }
-          case 2104: {
-            StageReview = (global::Spiderrock.Protobuf.StageReview) input.ReadEnum();
             break;
           }
         }

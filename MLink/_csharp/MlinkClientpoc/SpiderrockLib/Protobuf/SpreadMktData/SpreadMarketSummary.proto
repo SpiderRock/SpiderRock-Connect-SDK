@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    These records represent live market summary snapshots for each active spread market
+*/    
+message SpreadMarketSummary {
+    message PKey {
+        
+        TickerKey skey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier (or product group) tickerKey
+    double ini_price = 103; // first print price of the day during regular market hours
+    double mrk_price = 106; // last print handling during regular market hours
+    double cls_price = 109; // official exchange closing price
+    double min_price = 112; // minimum print price within market hours
+    double max_price = 115; // maximum print price within market hours
+    int32 open_int = 118; // open interest
+    int32 bid_count = 121; // num prints <= quote.bid
+    int32 bid_volume = 124; // volume when prtPrice <= quote.bid
+    int32 ask_count = 127; // num prints >= quote.ask
+    int32 ask_volume = 130; // volume when prtPrice >= quote.ask
+    int32 mid_count = 133; // num prints inside quote.bid / quote.ask
+    int32 mid_volume = 136; // volume inside quote.bid / quote.ask
+    int32 prt_count = 139; // number of distinct print reports
+    double prt_price = 142; // last print price
+    int32 exp_count = 145; // number of updates included in exponential average
+    double exp_width = 148; // exponential average market width (10 minute 1/2 life)
+    float exp_bid_size = 151; // exponential average bid size (10 minute 1/2 life)
+    float exp_ask_size = 154; // exponential average ask size (10 minute 1/2 life)
+    google.protobuf.Timestamp last_print = 157;
+    google.protobuf.Timestamp timestamp = 160;
+}
+
+

@@ -30,6 +30,11 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
+    #ifndef _update_type__PrtUpdateType__GUARD__
+    #define _update_type__PrtUpdateType__GUARD__
+    DECL_STRONG_TYPE(update_type__PrtUpdateType, spiderrock::protobuf::api::PrtUpdateType);
+    #endif//_update_type__PrtUpdateType__GUARD__
+
     #ifndef _fkey__GUARD__
     #define _fkey__GUARD__
     DECL_STRONG_TYPE(fkey, ExpiryKey);
@@ -260,10 +265,10 @@ namespace api {
     DECL_STRONG_TYPE(sdiv__float, float);
     #endif//_sdiv__float__GUARD__
 
-    #ifndef _ddiv__GUARD__
-    #define _ddiv__GUARD__
-    DECL_STRONG_TYPE(ddiv, float);
-    #endif//_ddiv__GUARD__
+    #ifndef _ddiv__float__GUARD__
+    #define _ddiv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv__float, float);
+    #endif//_ddiv__float__GUARD__
 
     #ifndef _x_de__GUARD__
     #define _x_de__GUARD__
@@ -601,9 +606,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_okey);
             }
             if ( IncludePrtNumber()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(11,m_prt_number);
@@ -613,9 +618,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_okey);
             }
             if ( IncludePrtNumber()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,11,m_prt_number);
@@ -656,6 +661,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::OptionPrintSet_PKey;
+        using update_type = spiderrock::protobuf::api::update_type__PrtUpdateType;
         using fkey = spiderrock::protobuf::api::fkey;
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using prt_exch = spiderrock::protobuf::api::prt_exch__OptExch;
@@ -702,7 +708,7 @@ namespace api {
         using yrs = spiderrock::protobuf::api::yrs;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
-        using ddiv = spiderrock::protobuf::api::ddiv;
+        using ddiv = spiderrock::protobuf::api::ddiv__float;
         using x_de = spiderrock::protobuf::api::x_de;
         using x_axis = spiderrock::protobuf::api::x_axis;
         using multihedge = spiderrock::protobuf::api::multihedge;
@@ -760,6 +766,7 @@ namespace api {
         private:
         _meta m__meta{};
         pkey m_pkey{};
+        update_type m_update_type{};
         fkey m_fkey{};
         ticker m_ticker{};
         prt_exch m_prt_exch{};
@@ -869,6 +876,9 @@ namespace api {
         }		
         pkey get_pkey() const {
             return m_pkey;
+        }		
+        update_type get_update_type() const {
+            return m_update_type;
         }		
         fkey get_fkey() const {
             return m_fkey;
@@ -1179,6 +1189,9 @@ namespace api {
         }
         void set_pkey(const pkey& value)  {
             m_pkey = value;
+        }
+        void set_update_type(const update_type& value)  {
+            m_update_type = value;
         }
         void set_fkey(const fkey& value)  {
             m_fkey = value;
@@ -1494,6 +1507,9 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
+        void set(const update_type & value) {
+            set_update_type(value);
+        }
         void set(const fkey & value) {
             set_fkey(value);
         }
@@ -1798,6 +1814,7 @@ namespace api {
         void set(const OptionPrintSet & value) {
             set(value.m__meta);
             set(value.m_pkey);
+            set(value.m_update_type);
             set(value.m_fkey);
             set(value.m_ticker);
             set(value.m_prt_exch);
@@ -2240,15 +2257,16 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(368,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>(m_update_type)));
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(100, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey{};
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(100, expiryKeyLayout_fkey);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(103, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(103, tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_prt_exch)));
             if ( IncludePrtSize()) {
@@ -2538,15 +2556,16 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,368,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>(m_update_type)));
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 100, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey{};
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 100, expiryKeyLayout_fkey);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 103, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 103, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_prt_exch)));
             if ( IncludePrtSize()) {
@@ -2849,6 +2868,11 @@ namespace api {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             m_pkey.Decode(pos, pos + std::min(max - pos, static_cast<std::ptrdiff_t>(length)));
+                        }
+                        break;
+                    }
+                    case 368: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_update_type = static_cast<spiderrock::protobuf::api::PrtUpdateType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -3455,6 +3479,7 @@ namespace api {
 
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::_meta>() const { return OptionPrintSet::_meta{ m__meta}; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::pkey>() const { return OptionPrintSet::pkey{ m_pkey}; }
+    template<> inline const auto OptionPrintSet::get<OptionPrintSet::update_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PrtUpdateType>( m_update_type)); }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::fkey>() const { return OptionPrintSet::fkey{ m_fkey}; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::ticker>() const { return OptionPrintSet::ticker{ m_ticker}; }
     template<> inline const auto OptionPrintSet::get<OptionPrintSet::prt_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>( m_prt_exch)); }
@@ -3569,6 +3594,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const OptionPrintSet& m) {
         o << "\"_meta\":{" << m.get<OptionPrintSet::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<OptionPrintSet::pkey>() << "}";
+        o << ",\"update_type\":" << (int64_t)m.get<OptionPrintSet::update_type>();
         o << ",\"fkey\":{" << m.get<OptionPrintSet::fkey>() << "}";
         o << ",\"ticker\":{" << m.get<OptionPrintSet::ticker>() << "}";
         o << ",\"prt_exch\":" << (int64_t)m.get<OptionPrintSet::prt_exch>();

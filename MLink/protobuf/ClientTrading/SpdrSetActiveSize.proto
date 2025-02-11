@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrSetActiveSize records control the active working size for parent orders that are locked (have active size controls).  These records can be modified by ClientRiskTrader and ClientStageTrader user types.
+*/    
+message SpdrSetActiveSize {
+    message PKey {
+        
+        string accnt = 10; // SR trading account
+        OptionKey sec_key = 11; // Composite Security Key
+        SpdrKeyType sec_type = 12; // Security Type [Stock, Future, Option]
+        int64 grouping_code = 13;
+        SpdrSource spdr_source = 14;
+        BuySell order_side = 15;
+        string client_firm = 16; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 order_active_size = 100;
+    google.protobuf.Timestamp start_dttm = 106; // [optional] (parent order start time)
+    int32 active_duration = 128; // [optional] (number of seconds)
+    YesNo close_if_filled = 115; // close order if active size is <= cumFillQuantity
+    float cl_arrive_mark = 118; // note: will pass through as SpdrParentExecution.clArriveMark
+    string modified_by = 121; // user who last modified this record
+    SysEnvironment modified_in = 124;
+    google.protobuf.Timestamp timestamp = 127; // timestamp of last modification
+}
+
+

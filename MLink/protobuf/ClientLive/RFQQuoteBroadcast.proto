@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    Live spread quotes with SpiderRock markup details for equity and future option spreads.  Legs details are included in a packed field.  This table contains the most recent market for each spread.
+*/    
+message RFQQuoteBroadcast {
+    message PKey {
+        
+        int64 security_iD = 10; // exchange spread ID (eg. CME ProductID or ISE SecurityID)
+        ExchSource exch_source = 11;
+    }
+
+    message QuoteLegs {
+        
+        OptionKey leg_key = 226;
+        LegKeyType leg_key_type = 229;
+        int64 leg_security_iD = 232; // product securityID (if available, 0 otherwise) (can be another spread)
+        int64 leg_parent_sec_iD = 235; // product securityID of parent (if unrolled from a compound spread)
+        string leg_security_desc = 238; // Security description
+        uint32 leg_ratio = 241; // leg ratio (1, 2, etc)
+        BuySell leg_side = 244;
+        double leg_bid_price = 247; // leg market bid
+        int32 leg_bid_size = 250;
+        double leg_ask_price = 253; // leg market ask
+        int32 leg_ask_size = 256;
+        float leg_years = 259;
+        double leg_uPrc = 262;
+        float leg_opt_mult = 265; // SPC if equity, 1 if option/future
+        float leg_fut_mult = 268; // 1 if equity, uMult if option/future
+        float leg_surf_vol = 271; // leg surface volatility
+        float leg_surf_de = 274;
+        float leg_surf_ve = 277;
+        float leg_surf_price = 280; // surface price as of message arrival
+        float leg_theo_price = 283; // theo price
+        float leg_theo_prc_b = 286; // theo buy price
+        float leg_theo_prc_s = 289; // theo sell price
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // first ticker in leg list
+    string security_desc = 103; // SR constructed;blank on broadcast (filled by tool or SRSE proxy)
+    RFQSourceType rfq_source = 106;
+    SpreadStrategy rfq_strategy = 109;
+    YesNo is_covered_strategy = 112;
+    YesNo is_tradeable = 115;
+    double rfq_bid_price = 118; // best bid (buy) price for this RFQ/Spread book
+    int32 rfq_bid_quan = 121; // cumulative bid (buy) quantity
+    double rfq_ask_price = 124; // best ask (sell) price for this RFQ/Spread book
+    int32 rfq_ask_quan = 127; // cumulative ask (sell) quantity
+    double rfq_prt_price = 130; // last print price for this RFQ/Spread
+    int32 rfq_prt_size = 133; // last print size for this RFQ/Spread
+    int32 rfq_prt_volume = 136; // total print volume (for session) for this RFQ/Spread
+    int64 rfq_prt_time = 139;
+    double bid_price = 142; // best bid (buy) price for this RFQ/Spread from individual legs
+    int32 bid_quan = 145; // minimum bid (buy) quantity from individual legs
+    double ask_price = 148; // best ask (sell) price for this RFQ/Spread from individual legs
+    int32 ask_quan = 151; // minimum ask (sell) quantity from individual legs
+    float surf_delta = 154; // delta of all legs
+    float surf_vega = 157; // vega of all legs
+    float surf_price = 160; // surfPrice (SR mid-market) of all legs
+    float theo_price = 163; // theoPrice (if applicable) of all legs
+    float theo_price_lo = 166; // theoPrice (if applicable) of all legs (best way)
+    float theo_price_hi = 169; // theoPrice (if applicable) of all legs (worst way)
+    double min_uPrc = 172; // min uPrc of all option legs
+    double max_uPrc = 175; // max uPrc of all option legs
+    float min_years = 178; // min years of all option legs
+    float max_years = 181; // max years of all option legs
+    LegSecType leg_sec_types = 184; // multi value
+    string exchange = 187; // comma separated list
+    int32 grp_num = 190; // industry group number (equities only)
+    string sector = 193; // user defined sector code (if any)
+    string risk_class = 196; // risk class letter code
+    OptStatus opt_status = 199;
+    float pos_vega = 202;
+    float pos_gamma = 205;
+    float pos_theta = 208;
+    float pos_delta = 211;
+    int64 net_timestamp = 214; // PTP timestamp of most recent message update
+    int64 filter_id = 217; // used by tool/toolServer session to multiplex filters
+    int32 num_legs = 220;
+    repeated QuoteLegs quote_legs = 223;
+}
+
+

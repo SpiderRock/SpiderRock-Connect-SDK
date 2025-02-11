@@ -23,6 +23,7 @@ internal sealed partial class MessageCache : IFrameHandler
 
         return (int)header.msgtype switch
         {
+            /* CurrencyConversion */ 2540 => currencyConversion.TryHandle(ref frame),
             /* FutureBookQuote */ 2580 => futureBookQuote.TryHandle(ref frame),
             /* FuturePrint */ 2595 => futurePrint.TryHandle(ref frame),
             /* FuturePrintMarkup */ 2605 => futurePrintMarkup.TryHandle(ref frame),
@@ -65,6 +66,7 @@ internal sealed partial class MessageCache : IFrameHandler
     {
         get
         {
+            if (currencyConversion.HasEventHandlers) yield return (MessageType)2540;
             if (futureBookQuote.HasEventHandlers) yield return (MessageType)2580;
             if (futurePrint.HasEventHandlers) yield return (MessageType)2595;
             if (futurePrintMarkup.HasEventHandlers) yield return (MessageType)2605;
@@ -102,6 +104,7 @@ internal sealed partial class MessageCache : IFrameHandler
         }
     }
 
+    private readonly CurrencyConversionCache currencyConversion = new();
     private readonly FutureBookQuoteCache futureBookQuote = new();
     private readonly FuturePrintCache futurePrint = new();
     private readonly FuturePrintMarkupCache futurePrintMarkup = new();
@@ -137,6 +140,7 @@ internal sealed partial class MessageCache : IFrameHandler
     private readonly SyntheticFutureQuoteCache syntheticFutureQuote = new();
     private readonly TickerDefinitionExtCache tickerDefinitionExt = new();
 
+    public IMessageEvents<CurrencyConversion> CurrencyConversion => currencyConversion;
     public IMessageEvents<FutureBookQuote> FutureBookQuote => futureBookQuote;
     public IMessageEvents<FuturePrint> FuturePrint => futurePrint;
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => futurePrintMarkup;
@@ -171,6 +175,35 @@ internal sealed partial class MessageCache : IFrameHandler
     public IMessageEvents<SyntheticExpiryQuote> SyntheticExpiryQuote => syntheticExpiryQuote;
     public IMessageEvents<SyntheticFutureQuote> SyntheticFutureQuote => syntheticFutureQuote;
     public IMessageEvents<TickerDefinitionExt> TickerDefinitionExt => tickerDefinitionExt;
+
+    private sealed class CurrencyConversionCache : MessageTypeCache<CurrencyConversion, CurrencyConversion.PKeyLayout>
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, CurrencyConversion target, long timestamp)
+        {
+            Formatter.Default.Decode(buffer, target);
+            target.ReceivedNsecsSinceUnixEpoch = timestamp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void CopyTo(CurrencyConversion fromMessage, CurrencyConversion toMessage) => fromMessage.CopyTo(toMessage);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override CurrencyConversion CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
+        {
+            CurrencyConversion message = new();
+
+            UpdateFromBuffer(buffer, message, timestamp);
+
+            message.FromCache = fromCache;
+
+            return message;
+        }
+
+        public override MessageType Type => 2540;
+        
+        public override string ToString() => nameof(CurrencyConversionCache); 
+    }
 
     private sealed class FutureBookQuoteCache : MessageTypeCache<FutureBookQuote, FutureBookQuote.PKeyLayout>
     {

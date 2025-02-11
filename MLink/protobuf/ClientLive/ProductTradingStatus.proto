@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table contains live trading status records for entire product groups (futures and options) and asset groups and individual instruments
+*/    
+message ProductTradingStatus {
+    message PKey {
+        
+        TickerKey ccode = 10; // product group
+        string asset_code = 11; // asset code if this status update applies to a specific asset group (Can be empty)
+        int64 security_iD = 12; // product ID if this status update applies to a specific instrument (Can be 0)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trade_date = 100;
+    MarketStatus market_status = 103; // market status (open, halted, etc)
+    google.protobuf.Timestamp timestamp = 106; // time of last state update (CST)
+}
+
+

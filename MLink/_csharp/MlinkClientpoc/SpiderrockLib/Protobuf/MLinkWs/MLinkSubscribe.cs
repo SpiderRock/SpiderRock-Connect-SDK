@@ -25,7 +25,7 @@ namespace Spiderrock.Protobuf {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiVQcm90b2J1Zi9NTGlua1dzL01MaW5rU3Vic2NyaWJlLnByb3RvEhNzcGlk",
-            "ZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90byLBBAoO",
+            "ZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90byLYBAoO",
             "TUxpbmtTdWJzY3JpYmUSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnBy",
             "b3RvYnVmLk1lc3NhZ2VNZXRhZGF0YRISCgpzZXNzaW9uX2lEGGQgASgFEhQK",
             "DHN1YnNjcmliZV9pRBhnIAEoAxIWCg5hY3RpdmVfbGF0ZW5jeRhqIAEoBRI6",
@@ -35,14 +35,15 @@ namespace Spiderrock.Protobuf {
             "Y2sucHJvdG9idWYuTUxpbmtTdWJzY3JpYmUuU3Vic2NyaWJlEkQKC3Vuc3Vi",
             "c2NyaWJlGHwgAygLMi8uc3BpZGVycm9jay5wcm90b2J1Zi5NTGlua1N1YnNj",
             "cmliZS5VbnN1YnNjcmliZRI2CgR2aWV3GHMgAygLMiguc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5NTGlua1N1YnNjcmliZS5WaWV3GjEKCVN1YnNjcmliZRIRCght",
-            "c2dfbmFtZRiIASABKAkSEQoIbXNnX3BLZXkYiwEgASgJGjIKC1Vuc3Vic2Ny",
-            "aWJlEhAKCG1zZ19uYW1lGH8gASgJEhEKCG1zZ19wS2V5GIIBIAEoCRomCgRW",
-            "aWV3EhAKCG1zZ19uYW1lGHYgASgJEgwKBHZpZXcYeSABKAliBnByb3RvMw=="));
+            "cm90b2J1Zi5NTGlua1N1YnNjcmliZS5WaWV3GkgKCVN1YnNjcmliZRIRCght",
+            "c2dfbmFtZRiIASABKAkSEQoIbXNnX3BLZXkYiwEgASgJEhUKDGhpZ2h3YXRl",
+            "cl90cxiMASABKAMaMgoLVW5zdWJzY3JpYmUSEAoIbXNnX25hbWUYfyABKAkS",
+            "EQoIbXNnX3BLZXkYggEgASgJGiYKBFZpZXcSEAoIbXNnX25hbWUYdiABKAkS",
+            "DAoEdmlldxh5IAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MLinkSubscribe), global::Spiderrock.Protobuf.MLinkSubscribe.Parser, new[]{ "Meta", "SessionID", "SubscribeID", "ActiveLatency", "Compression", "DoReset", "Subscribe", "Unsubscribe", "View" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MLinkSubscribe.Types.Subscribe), global::Spiderrock.Protobuf.MLinkSubscribe.Types.Subscribe.Parser, new[]{ "MsgName", "MsgPKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MLinkSubscribe), global::Spiderrock.Protobuf.MLinkSubscribe.Parser, new[]{ "Meta", "SessionID", "SubscribeID", "ActiveLatency", "Compression", "DoReset", "Subscribe", "Unsubscribe", "View" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MLinkSubscribe.Types.Subscribe), global::Spiderrock.Protobuf.MLinkSubscribe.Types.Subscribe.Parser, new[]{ "MsgName", "MsgPKey", "HighwaterTs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MLinkSubscribe.Types.Unsubscribe), global::Spiderrock.Protobuf.MLinkSubscribe.Types.Unsubscribe.Parser, new[]{ "MsgName", "MsgPKey" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.MLinkSubscribe.Types.View), global::Spiderrock.Protobuf.MLinkSubscribe.Types.View.Parser, new[]{ "MsgName", "View_" }, null, null, null, null)})
           }));
@@ -566,6 +567,7 @@ namespace Spiderrock.Protobuf {
         public Subscribe(Subscribe other) : this() {
           msgName_ = other.msgName_;
           msgPKey_ = other.msgPKey_;
+          highwaterTs_ = other.highwaterTs_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -605,6 +607,21 @@ namespace Spiderrock.Protobuf {
           }
         }
 
+        /// <summary>Field number for the "highwater_ts" field.</summary>
+        public const int HighwaterTsFieldNumber = 140;
+        private long highwaterTs_;
+        /// <summary>
+        /// (optional) records must have a header.sentTs that is later than this value (nanoseconds after the UNIX epoch) [-1 means start from current server side highwaterTs]
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public long HighwaterTs {
+          get { return highwaterTs_; }
+          set {
+            highwaterTs_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
@@ -622,6 +639,7 @@ namespace Spiderrock.Protobuf {
           }
           if (MsgName != other.MsgName) return false;
           if (MsgPKey != other.MsgPKey) return false;
+          if (HighwaterTs != other.HighwaterTs) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -631,6 +649,7 @@ namespace Spiderrock.Protobuf {
           int hash = 1;
           if (MsgName.Length != 0) hash ^= MsgName.GetHashCode();
           if (MsgPKey.Length != 0) hash ^= MsgPKey.GetHashCode();
+          if (HighwaterTs != 0L) hash ^= HighwaterTs.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -657,6 +676,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(218, 8);
             output.WriteString(MsgPKey);
           }
+          if (HighwaterTs != 0L) {
+            output.WriteRawTag(224, 8);
+            output.WriteInt64(HighwaterTs);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -675,6 +698,10 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(218, 8);
             output.WriteString(MsgPKey);
           }
+          if (HighwaterTs != 0L) {
+            output.WriteRawTag(224, 8);
+            output.WriteInt64(HighwaterTs);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
           }
@@ -690,6 +717,9 @@ namespace Spiderrock.Protobuf {
           }
           if (MsgPKey.Length != 0) {
             size += 2 + pb::CodedOutputStream.ComputeStringSize(MsgPKey);
+          }
+          if (HighwaterTs != 0L) {
+            size += 2 + pb::CodedOutputStream.ComputeInt64Size(HighwaterTs);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -708,6 +738,9 @@ namespace Spiderrock.Protobuf {
           }
           if (other.MsgPKey.Length != 0) {
             MsgPKey = other.MsgPKey;
+          }
+          if (other.HighwaterTs != 0L) {
+            HighwaterTs = other.HighwaterTs;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -732,6 +765,10 @@ namespace Spiderrock.Protobuf {
                 MsgPKey = input.ReadString();
                 break;
               }
+              case 1120: {
+                HighwaterTs = input.ReadInt64();
+                break;
+              }
             }
           }
         #endif
@@ -753,6 +790,10 @@ namespace Spiderrock.Protobuf {
               }
               case 1114: {
                 MsgPKey = input.ReadString();
+                break;
+              }
+              case 1120: {
+                HighwaterTs = input.ReadInt64();
                 break;
               }
             }

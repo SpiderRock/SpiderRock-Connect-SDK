@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table contains circuit breaker information for market centers with circuit breakers.  Note that circuit breaker records may not always exist for a market center.
+*/    
+message NMSCircuitBreaker {
+    message PKey {
+        
+        string market_center = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float level1 = 100; // level 1 threshold
+    float level2 = 103; // level 2 threshold
+    float level3 = 106; // level 3 threshold
+    int32 current_level = 109; // current market circuit breaker level (0 - 3)
+    google.protobuf.Timestamp timestamp = 112;
+}
+
+

@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    The most recent (last) print record for each active equity and future option series.  Quote markup represents quote that existed just prior to the print on the reporting exchange.
+*/    
+message OptionPrint2 {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptExch prt_exch = 100;
+    int32 prt_size = 103; // print size [contracts]
+    float prt_price = 106; // print price
+    int32 prt_cluster_num = 109; // incremental print cluster counter (one counter per okey; used to group prints into clusters)
+    int32 prt_cluster_size = 112; // cumulative size of prints in this sequence (sequence of prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    PrtType prt_type = 115; // print type
+    string print_codes = 191; // European trade condition codes
+    uint32 prt_orders = 118; // number of participating orders
+    int32 prt_volume = 121; // day print volume in contracts (regular, electronic) [AUTO, REOP, MESL, TESL]
+    int32 oos_volume = 124; // day print volume reported out of sequence (not regular way electronic) [OSEQ, LATE, OPEN, OPNL]
+    int32 iso_volume = 127; // day ISO sweep volume [ISOI]
+    int32 sla_volume = 130; // single leg aution volume [SLAN, SLAI]
+    int32 mla_volume = 133; // multi leg auction volume [MLAT, TLAT, MASL, TASL]
+    int32 crx_volume = 136; // day electronic cross volume (no exposure period) [SLCN, SCLI, MLCT, TLCT]
+    int32 flr_volume = 139; // day exchange floor volume [SLFT, MLFT, MFSL, TLFT, TFSL, CMBO]
+    int32 mlg_volume = 142; // multi-leg (complex) volume [MLET, TLET]
+    int32 ukn_volume = 145; // other (uncategorized) volume
+    int32 cxl_volume = 148; // day print/cancel volume (num of contracts printed and then cancelled) [CANC, CNCL, CNCO, CNOL]
+    int32 total_volume = 151; // total day volume
+    uint32 bid_count = 154; // number of bid prints
+    uint32 ask_count = 157; // number of ask prints
+    int32 bid_volume = 160; // bid print volume in contracts
+    int32 ask_volume = 163; // ask print volume in contracts
+    float ebid = 166; // exchange bid (@ print time)
+    float eask = 169; // exchange ask (@ print time)
+    int32 ebsz = 172; // exchange bid size
+    int32 easz = 175; // exchange ask size
+    float eage = 178; // age of prevailing quote at time of print
+    PrtSide prt_side = 181; // implied print side (based on ebid/eask and nbbo market)
+    int64 prt_timestamp = 184; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 187; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    google.protobuf.Timestamp timestamp = 190;
+}
+
+

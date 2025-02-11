@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ExpirationRiskRecords contain account level position and risk summary detail. These records are published by AggRiskServers throughout the day approximately once per minute.
+*/    
+message ExpirationRiskRecordV5 {
+    message PKey {
+        
+        string accnt = 10;
+        Currency currency = 11;
+        DateKey expiration = 12;
+        string client_firm = 13; // SR assigned client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float vega_long = 106; // sum of long vega symbol positions;=sum(+ors.vega) if ors.vega > 0
+    float vega_short = 109; // sum of short vega symbol positions;= sum(-ors.vega) if ors.vega < 0
+    float w_vega_long = 112; // sum of long weighted vega symbol positions;=sum(+ors.wVega) if ors.wVega > 0
+    float w_vega_short = 115; // sum of short weighted vega symbol positions;= sum(-ors.wVega) if ors.wVega < 0
+    float wt_vega_long = 118; // sum of long time weighted vega symbol positions;=sum(+ors.wtVega) if ors.wtVega > 0
+    float wt_vega_short = 121; // sum of short time weighted vega symbol positions;= sum(-ors.wtVega) if ors.wtVega < 0
+    float theta_long = 124; // sum of long vega symbol positions;=sum(+ors.theta) if ors.theta > 0
+    float theta_short = 127; // sum of short vega symbol positions;= sum(-ors.theta) if ors.theta < 0
+    float rho_long = 130; // sum of long rho symbol positions;=sum(+ors.rho) if ors.rho > 0
+    float rho_short = 133; // sum of short rho symbol positions;= sum(-ors.rho) if ors.rho < 0
+    float d_gamma_long = 136; // sum of long $ gamma option positions
+    float d_gamma_short = 139; // sum of short $gamma option positions
+    float d_beta_ga_long = 142; // sum of long $ beta/gamma option positions
+    float d_beta_ga_short = 145; // sum of short $ beta/gamma option positions
+    float ivol_ln = 148; // vega weighted average symbol ivol where ors.vega > 0
+    float ivol_sh = 151; // vega weighted average symbol ivol where ors.vega < 0
+    float wt_ve_dd = 154; // Aggregate Dd Time Weighted Vega;=sum[wtVega] if opr.xde < -0.30
+    float wt_ve_dn = 157; // Aggregate Dn Time Weighted Vega;=sum[wtVega] if -0.30 <= opr.xde < -0.10
+    float wt_ve_at = 160; // Aggregate At Time Weighted Vega;=sum[wtVega] if abs(opr.xde) <= 0.10
+    float wt_ve_up = 163; // Aggregate Up Time Weighted Vega;=sum[wtVega] if +0.10 < opr.xde <= +0.30
+    float wt_ve_du = 166; // Aggregate Du Time Weighted Vega;=sum[wtVega] if +0.30 < opr.xde
+    int32 abs_clr_cn = 169; // absolute number of contracts (open clr)
+    int32 abs_cur_cn = 172; // absolute number of contracts (open clr + bot - sld)
+    float prem_ov_par = 175; // aggregate option premium over parity
+    float op_pnl_vol = 178; // options pnl (using SR vol marks)
+    float op_pnl_mid = 181; // options pnl (using SR mid marks)
+    float op_pnl_clr = 184; // options pnl (using CLR mid marks)
+    float op_day_vega = 187; // option vega traded today
+    float op_day_wVega = 190; // option (vol weighted) vega traded today
+    float op_day_tVega = 193; // option (time weighted) vega traded today
+    float op_day_wt_vega = 196; // option (vol time weighted) vega traded today
+    float op_day_theta = 199; // option theta traded today
+    float op_edge_opened = 202; // option theo edge opened today
+    float op_edge_closed = 205; // option theo edge closed today
+    float pnl_dn = 208; // option delta neutral pnl;=sum(ors.pnlDn)
+    float pnl_de = 211; // option delta pnl;=sum(ors.pnlDe)
+    float pnl_sl = 214; // option vega/delta pnl;=sum(ors.pnlSl)
+    float pnl_ga = 217; // option gamma pnl;=sum(ors.pnlGa)
+    float pnl_th = 220; // option theta pnl;=sum(ors.pnlTh)
+    float pnl_ve = 223; // option vega pnl;=sum(ors.pnlVe)
+    float pnl_vo = 226; // option volga pnl;=sum(ors.pnlVo)
+    float pnl_va = 229; // option vanna pnl;=sum(ors.pnlVa)
+    float pnl_dDiv = 232; // option DDiv pnl;=sum(ors.pnlDDiv)
+    float pnl_sDiv = 235; // option SDiv pnl;=sum(ors.pnlSDiv)
+    float pnl_rate = 238; // option Rate pnl;=sum(ors.pnlRate)
+    float pnl_err = 241; // option unexplained (error) pnl;=sum(ors.pnlErr)
+    float pnl_te = 244; // option theo edge pnl;=sum(ors.pnlTe)
+    float pnl_ln = 247; // option pnl from option positions with +vega
+    float pnl_sh = 250; // option pnl from option positions with -vega
+    float t_edge = 253; // aggregate option theo edge;=sum(srs.tEdge)
+    float t_edge_mult = 256; // denominator for computing edge per unit;=sum(srs.tEdgeMult)
+    float t_edge_pr = 259; // aggregate option theo edge (prior period);=sum(srs.tEdgePr)
+    float t_edge_mult_pr = 262; // enominator for computing edge per unit (prior period);=sum(srs.tEdgeMultPr)
+    float pos_tEdge_pnl = 265; // aggregate pnl (positive edge symbols);=sum(ors.posTEdgePnl)
+    float neg_tEdge_pnl = 268; // aggregate pnl (negative edge symbols);=sum(ors.negTEdgePnl)
+    float bad_tEdge_pnl = 271; // aggregate pnl (no theo edge symbols);=sum(ors.badTEdgePnl)
+    float va_rsu90 = 274; // Aggregate RiskSlide: uPrc up 90%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.90))
+    float va_rsd90 = 277; // Aggregate RiskSlide: uPrc dn 90%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.90))
+    float va_rsu50 = 280; // Aggregate RiskSlide: uPrc up 50%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.50))
+    float va_rsd50 = 283; // Aggregate RiskSlide: uPrc dn 50%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.50))
+    float va_rsu15 = 286; // Aggregate RiskSlide: uPrc up 15%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.15))
+    float va_rsd15 = 289; // Aggregate RiskSlide: uPrc dn 15%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.15))
+    float va_rsu10 = 292; // Aggregate RiskSlide: uPrc up 10%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.10))
+    float va_rsd10 = 295; // Aggregate RiskSlide: uPrc dn 10%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.10))
+    float va_rsu05 = 298; // Aggregate RiskSlide: uPrc up 5%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.05))
+    float va_rsd05 = 301; // Aggregate RiskSlide: uPrc dn 5%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.05))
+    float va_rsu1e = 304; // Aggregate RiskSlide: uPrc up 1x implied earn move, vol ramp out
+    float va_rsd1e = 307; // Aggregate RiskSlide: uPrc dn 1x implied earn move, vol ramp out
+    float va_rsu2e = 310; // Aggregate RiskSlide: uPrc up 2x implied earn move, vol ramp out
+    float va_rsd2e = 313; // Aggregate RiskSlide: uPrc dn 2x implied earn move, vol ramp out
+    float va_rearn = 316; // Aggregate RiskSlide: vol earn ramp out (no uPrc move)
+    float va_rcash = 319; // Aggregate RiskSlide: uPrc up 30%, vol = 0.01, 6mn deal close (delta neutral)
+    google.protobuf.Timestamp last_activity = 322;
+    google.protobuf.Timestamp timestamp = 325;
+}
+
+

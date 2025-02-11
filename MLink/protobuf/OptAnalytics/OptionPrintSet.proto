@@ -21,6 +21,7 @@ message OptionPrintSet {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
+    PrtUpdateType update_type = 368;
     ExpiryKey fkey = 100; // underlying fkey (if any)
     TickerKey ticker = 103; // underlying ticker
     OptExch prt_exch = 106; // exchange on which print took place

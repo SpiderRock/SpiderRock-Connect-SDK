@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrDropExecutionAck {
+    message PKey {
+        
+        int64 drop_number = 10; // SR drop record number
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string routing_code = 100;
+    OptionKey sec_key = 103;
+    SpdrKeyType sec_type = 106;
+    string client_firm = 109;
+    int32 fill_version = 112;
+    DropExecStatus drop_exec_status = 115;
+    string other_detail = 118;
+    string error_detail = 121;
+    int64 fill_number = 124; // SR Fill Number (if Accepted)
+    google.protobuf.Timestamp fill_dttm = 127;
+    google.protobuf.Timestamp timestamp = 130;
+}
+
+

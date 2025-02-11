@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    Live synthetic expiry quotes are SpiderRock option/expiry underlier quotes.  These can be from synthetic/implied futures quotes or other sources
+*/    
+message SyntheticExpiryQuote {
+    message PKey {
+        
+        ExpiryKey ekey = 10; // root + expiry
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double fair_price = 100;
+    double bid_price = 103; // best implied bid price
+    double ask_price = 106; // best implied ask price
+    int32 bid_size = 109; // best implied bid size
+    int32 ask_size = 112; // best implied ask size
+    SyntheticSource bid_source = 115;
+    SyntheticSource ask_source = 118;
+    MarketStatus market_status = 121; // composite market status of all dependent markets
+    int64 net_timestamp = 124; // most recent net timestamp of any market affecting this record
+}
+
+

@@ -128,6 +128,25 @@ internal partial class MessageCache
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void FireUpdatedEventIfSubscribed(TMessage obj, TMessage previousObj, Channel channel)
+        {
+            var updated = this.updated;
+            if (updated is null) return;
+            try
+            {
+                updatedEventArgs ??= new();
+                updatedEventArgs.Current = obj;
+                updatedEventArgs.Previous = previousObj;
+                updatedEventArgs.Channel = channel;
+                updated(this, updatedEventArgs);
+            }
+            catch (Exception e)
+            {
+                SRTrace.Default.TraceError(e, $"{ToString()}.{nameof(FireUpdatedEventIfSubscribed)} exception");
+            }
+        }
+
         private readonly Dictionary<TMessagePKeyLayout, TMessage> objectsByKey = new();
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -174,6 +193,7 @@ internal partial class MessageCache
 
                         FireCreatedEventIfSubscribed(item, channel);
                         FireChangedEventIfSubscribed(item, channel);
+                        FireUpdatedEventIfSubscribed(item, default, channel);
 
                         objectsByKey[pkey] = item;
 
@@ -205,19 +225,7 @@ internal partial class MessageCache
                 UpdateFromBuffer(buffer, item, netTimestamp);
 
                 FireChangedEventIfSubscribed(item, channel);
-
-                try
-                {
-                    updatedEventArgs ??= new();
-                    updatedEventArgs.Current = item;
-                    updatedEventArgs.Previous = Previous;
-                    updatedEventArgs.Channel = channel;
-                    updated(this, updatedEventArgs);
-                }
-                catch (Exception e)
-                {
-                    SRTrace.Default.TraceError(e, $"{ToString()}.{nameof(TryHandle)} exception invoking {nameof(Updated)} event handlers");
-                }
+                FireUpdatedEventIfSubscribed(item, Previous, channel);
             }
 
             return true;

@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+/*
+    Expected trading day market schedule for each TradingPeriod and SecType.  Including schedules for equity, futures, and options markets.  The NMS schedule is the NYSE announced trading calendar.  Other markets are from the listing exchange.
+    Typically includes records for the current week, previous week and next week
+*/    
+message MarketHoursConfig {
+    message PKey {
+        
+        TickerKey ticker = 10; // note: should be "*-ANY-ANY" (wildcard) for the per-TradingPeriod default MarketHoursConfig messages
+        SpdrKeyType sec_type = 11;
+        DateKey trade_date = 12;
+        TradingPeriod trading_period = 13; // note: this trading period should be the same for all tradeDates for each [ticker/secType] pair
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SRTimeZone time_zone = 100; // note: this does not have to match the associated TradingPeriod timeZone (default is TradingPeriod.TimeZone)
+    MarketDayType market_day_type = 101;
+    google.protobuf.Duration sr_close_mark_time = 102; // SR Close Mark Time; usually regular market close - 5 minute (C - 5M)
+    YesNo has_early_session = 103; // note: early session can start the previous day
+    google.protobuf.Duration early_pre_open_time = 104; // early session pre-open (orders accepted)
+    google.protobuf.Duration early_session_open_time = 105; // early session market open
+    google.protobuf.Duration early_session_close_time = 106; // early session market close
+    YesNo has_regular_session = 107;
+    google.protobuf.Duration reg_pre_open_time = 108; // regular session pre-open (order accepted)
+    google.protobuf.Duration reg_session_open_time = 109; // regular session open
+    google.protobuf.Duration reg_session_close_time = 110; // regular session close
+    YesNo has_late_session = 111;
+    google.protobuf.Duration late_pre_open_time = 112; // extended session pre-open (orders accepted)
+    google.protobuf.Duration late_session_open_time = 113; // extended session open
+    google.protobuf.Duration late_session_close_time = 114; // extended session close
+    YesNo has_ex_early_close = 115; // options have an early close on expiry day (secType = Option only)
+    google.protobuf.Duration ex_early_close_time = 116; // expiry day early close time
+    google.protobuf.Timestamp timestamp = 117;
+}
+
+

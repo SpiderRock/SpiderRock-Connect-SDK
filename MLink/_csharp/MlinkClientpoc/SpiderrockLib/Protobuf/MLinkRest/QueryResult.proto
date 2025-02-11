@@ -5,6 +5,7 @@ import "spiderrock_common.proto";
 
 package spiderrock.protobuf;
 
+import "google/protobuf/timestamp.proto";
 
     
 message QueryResult {
@@ -18,6 +19,8 @@ message QueryResult {
     float query_elapsed = 109; // query elapsed time (seconds)
     QResult result = 112; // query result
     string detail = 115; // query result detail
+    google.protobuf.Timestamp receive_timestamp = 116; // timestamp when MLink server received the request
+    google.protobuf.Timestamp send_timestamp = 117; // timestamp when MLink server sent this response
 }
 
 

@@ -132,7 +132,7 @@ message SpdrParentOrder {
     SpdrSource spdr_source = 154;
     int64 grouping_code = 157; // unique broker code;broker.pkey = (key + accnt + spdrSource + groupingCode)
     string exec_brkr_code = 1039; // overrides the default executing broker for this parent order
-    string extern_ex_dest = 163; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
+    string extern_ex_dest = 1040; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
     string extern_params = 166; // external algo names/parameters (usually just an algo name)
     string strategy = 169; // client-supplied strategy string;visible on SpiderRock GUI tools and other order reports.
     string user_name = 172; // name of the user entering the order
@@ -209,18 +209,21 @@ message SpdrParentOrder {
     float make_surf_width_offset = 385; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
     float order_ref_event_mult = 388; // expected underlier abs move (0.01 = 1%) @ orderRefEventDttm
     google.protobuf.Timestamp order_ref_event_dttm = 391; // Date/time of the next event.  Note that events are usually earnings but are not required to be.
+    NbboCap nbbo_cap = 1044; // indicates if order price is capped at NBBO (or 1, 5, 10 pennies through). Primarily for when parentOrderHandling = BlockAuction
     AutoHedge auto_hedge = 394;
     HedgeInst hedge_instrument = 397; // Default=actual underlier (EQT or FUT) [IndexOptions use ETF]; FrontMonth=actual underlier (EQT) or front month (FUT) [IndexOptions use FM Fut]; Stock=hedgeSecKey.TickerKey; Future=hedgeSecKey.ExpiryKey
     ExpiryKey hedge_sec_key = 400; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
     float hedge_beta_ratio = 403; // portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0]
     HedgeScope hedge_scope = 406; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 1034; // market session for the autohedge order [defaults to pOrder.marketSession]
-    string extern_hedge_ex_dest = 412; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_ex_dest = 1041; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 415; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     FirmType firm_type = 418; // used to override firmType in account config
     OrderCapacity order_capacity = 421;
     PositionType position_type = 424;
     ShortSaleFlag ssale_flag = 427; // used to determine stock auto-hedge flags
+    string locate_firm = 1042; // firm granting the locate (also locate firm used on street FIX orders) (required if selling short and no auto-locate is available)
+    string locate_pool = 1043; // locate pool @ firm granting the locate
     string no_cross_group = 430;
     string exch_trader_id = 433;
     string large_trader_id = 436;

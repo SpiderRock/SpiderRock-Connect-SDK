@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrOptTheoRecord {
+    message PKey {
+        
+        OptionKey okey = 10;
+        string theo_model = 11;
+        string client_firm = 12; // client firm this theo model is associated with (controls visibility)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float theo_vol = 100; // mid-point (fair) volatility
+    float bVol = 103; // buy vol
+    float sVol = 106; // sell vol
+    float bEdge = 109; // edge premium spread when buying
+    float sEdge = 112; // edge premium spread when selling
+    BuySellConvention buy_sell_convention = 115; // rule used to interpret BVol, SVol, BEdge, and SEdge
+    float ref_uPrc = 118; // Reference uPrc for dynamic vol: vol = TheoVol + vegaSlope * (uPrc - refUPrc).
+    float vega_slope = 121; // Set to zero for no dynamic.  hedge delta = delta + vegaSlope * vega;requires account.hedgeType = [TVol (theo delta + vegaSlope) or TvS (surface delta + vegaSlope)] (default is surface delta only)
+    TheoStatus theo_status = 124; // indicates where theos for this ticker will be utilized
+    google.protobuf.Timestamp timestamp = 127;
+}
+
+

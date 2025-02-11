@@ -103,7 +103,7 @@ message SpdrParentBrkrState {
     float hedge_beta_ratio = 301; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
     HedgeScope hedge_scope = 304; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 603; // market session for the autohedge order
-    string extern_hedge_ex_dest = 310; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_ex_dest = 607; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 313; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     string user_data1 = 316; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 319; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
@@ -134,7 +134,6 @@ message SpdrParentBrkrState {
     uint32 cex2 = 394; // bit mask of all exchanges where we are at this price
     int32 cnt2 = 397; // number of child orders at price level #2
     int32 c_more = 400; // number of additional child orders at inferior prices (if any)
-    string expiry_key = 403;
     float cn_vol = 406;
     float cn_yrs = 409;
     float cn_uPrc = 412;

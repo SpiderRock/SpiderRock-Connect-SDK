@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrReleaseWaitTrigger records are used to trigger the release of parent orders submitted with startType=WaitTrigger.  Note that all parent orders in a risk group will be triggered together.
+*/    
+message SpdrReleaseWaitTrigger {
+    message PKey {
+        
+        string accnt = 10;
+        int64 trigger_group_id = 11;
+        string client_firm = 12; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string modified_by = 100; // user who last modified this record
+    SysEnvironment modified_in = 103;
+    google.protobuf.Timestamp timestamp = 106; // timestamp of last modification
+}
+
+

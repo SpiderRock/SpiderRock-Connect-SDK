@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrSweepDetail records are published by execution engines when sweep trigger groups are processed
+*/    
+message SpdrSweepDetail {
+    message PKey {
+        
+        int64 parent_number = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string engine_name = 194; // SpiderRock execution engine that handled the parent order
+    string accnt = 103;
+    string client_firm = 106;
+    int64 risk_group_id = 109;
+    int64 trigger_group_id = 112; // WaitTrigger group Id
+    OptionKey sec_key = 115;
+    SpdrKeyType sec_type = 118;
+    int32 parent_order_size = 121;
+    double parent_limit_price = 124;
+    BuySell order_side = 127;
+    YesNo is_iSOSweep = 130;
+    int32 risk_limit_size = 133;
+    SpdrRisk risk_limit_reason = 136;
+    string risk_limit_detail = 139;
+    double nbbo_bid1 = 142;
+    double nbbo_ask1 = 145;
+    int32 nbbo_bid_size1 = 148;
+    int32 nbbo_ask_size1 = 151;
+    int32 nbbo_bid_cnt1 = 154;
+    int32 nbbo_ask_cnt1 = 157;
+    uint32 nbbo_bid_mask1 = 160;
+    uint32 nbbo_ask_mask1 = 163;
+    double nbbo_bid2 = 166;
+    double nbbo_ask2 = 169;
+    int32 nbbo_bid_size2 = 172;
+    int32 nbbo_ask_size2 = 175;
+    int32 nbbo_bid_cnt2 = 178;
+    int32 nbbo_ask_cnt2 = 181;
+    uint32 nbbo_bid_mask2 = 184;
+    uint32 nbbo_ask_mask2 = 187;
+    int64 net_timestamp = 190;
+    google.protobuf.Timestamp timestamp = 193;
+}
+
+

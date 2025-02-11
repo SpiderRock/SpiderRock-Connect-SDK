@@ -285,7 +285,7 @@ namespace spiderrock {
                 session.write(charBuffer, totalSize);
 				delete[] charBuffer;
             }
-			
+
 			template <typename ProtobufMessageType>
             void SendMessage(const ProtobufMessageType& t) {
 

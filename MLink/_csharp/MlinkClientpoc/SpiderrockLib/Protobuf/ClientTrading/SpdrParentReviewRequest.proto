@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrParentReviewRequest records created when a parent order is submitted with StageType=StageReview.  These records indicate that an external review of the parent order has been requested.
+*/    
+message SpdrParentReviewRequest {
+    message PKey {
+        
+        int64 parent_number = 10; // SPDR order number
+    }
+
+    message OrderLegs {
+        
+        TickerKey ticker = 211; // stock ticker
+        BuySell stock_side = 214; // [Buy | Sell | None]
+        int32 stock_shares = 217; // number of shares included (zero if none)
+        int64 stock_leg_id = 220; // SR stock leg ID
+        string alt_stk_leg_id = 223; // client stock leg ID (usually from a FIX order)
+        ShortSaleFlag ssale_flag = 226; // stock short sale flag
+        int32 num_legs = 229; // number of valid legs below
+        OptionKey sec_key1 = 232; // leg #1
+        SpdrKeyType sec_type1 = 235;
+        uint32 mult1 = 238;
+        BuySell side1 = 241;
+        int64 leg_id1 = 244; // SR leg Id
+        string alt_leg_id1 = 247; // client leg Id (usually from a FIX order)
+        PositionType pos_type1 = 250;
+        ShortSaleFlag ssale_flag1 = 253;
+        OptionKey sec_key2 = 256; // leg #2
+        SpdrKeyType sec_type2 = 259;
+        uint32 mult2 = 262;
+        BuySell side2 = 265;
+        int64 leg_id2 = 268; // SR leg Id
+        string alt_leg_id2 = 271; // client leg Id (usually from a FIX order)
+        PositionType pos_type2 = 274;
+        ShortSaleFlag ssale_flag2 = 277;
+        OptionKey sec_key3 = 280; // leg #3
+        SpdrKeyType sec_type3 = 283;
+        uint32 mult3 = 286;
+        BuySell side3 = 289;
+        int64 leg_id3 = 292; // SR leg Id
+        string alt_leg_id3 = 295; // client leg Id (usually from a FIX order)
+        PositionType pos_type3 = 298;
+        ShortSaleFlag ssale_flag3 = 301;
+        OptionKey sec_key4 = 304; // leg #4
+        SpdrKeyType sec_type4 = 307;
+        uint32 mult4 = 310;
+        BuySell side4 = 313;
+        int64 leg_id4 = 316; // SR leg Id
+        string alt_leg_id4 = 319; // client leg Id (usually from a FIX order)
+        PositionType pos_type4 = 322;
+        ShortSaleFlag ssale_flag4 = 325;
+        OptionKey sec_key5 = 328; // leg #5
+        SpdrKeyType sec_type5 = 331;
+        uint32 mult5 = 334;
+        BuySell side5 = 337;
+        int64 leg_id5 = 340; // SR leg Id
+        string alt_leg_id5 = 343; // client leg Id (usually from a FIX order)
+        PositionType pos_type5 = 346;
+        ShortSaleFlag ssale_flag5 = 349;
+        OptionKey sec_key6 = 352; // leg #6
+        SpdrKeyType sec_type6 = 355;
+        uint32 mult6 = 358;
+        BuySell side6 = 361;
+        int64 leg_id6 = 364; // SR leg Id
+        string alt_leg_id6 = 367; // client leg Id (usually from a FIX order)
+        PositionType pos_type6 = 370;
+        ShortSaleFlag ssale_flag6 = 373;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysEnvironment sys_environment = 100; // original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 103; // original (source) run status [Prod,Beta]
+    SpdrOrderShape parent_shape = 106; // Parent Shape [Single, Cross, MLeg, MLegCross]
+    string alt_order_id = 109; // alternate order ID (usually clOrdId from client)
+    string alt_prev_order_id = 112; // alternate prev order ID (usually origClOrdId from client during cxl/replace)
+    string alt_accnt = 115; // alternate (client assigned) "long" account string (optional) [used to map between client and SR account strings]
+    string alt_user_name = 118; // alternate (client assigned) user name (optional) [used to map between client and SR account strings]
+    OptionKey sec_key = 121; // Composite Security Key
+    SpdrKeyType sec_type = 124; // Security Type [Stock, Future, Option]
+    string security_desc = 127; // additional security description
+    string accnt = 130; // SR trading account
+    string client_firm = 133; // SR client firm
+    SpdrSource spdr_source = 136; // from original parent order
+    int64 grouping_code = 139; // from original parent order
+    string strategy = 142; // client-supplied strategy string;visible on SpiderRock GUI tools and other order reports.
+    string user_name = 145; // name of the user entering the order
+    BuySell order_side = 148;
+    int32 order_size = 151; // maximum fill size (contracts)
+    FirmType firm_type = 154; // used to override firmType in account config
+    OrderCapacity order_capacity = 157;
+    PositionType position_type = 160;
+    ShortSaleFlag ssale_flag = 163; // used to determine stock auto-hedge flags
+    int32 locate_quan = 166; // available locate quantity (if selling short)
+    string locate_firm = 169; // firm granting the locate (also locate firm used on street FIX orders)
+    string locate_pool = 172; // locate pool @ firm granting the locate
+    string no_cross_group = 175;
+    string exch_trader_id = 178;
+    string large_trader_id = 181;
+    string trading_location = 184;
+    ExpiryKey hedge_sec_key = 187;
+    SpdrKeyType hedge_sec_type = 190;
+    float hedge_units = 193;
+    string user_data1 = 196; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 199; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string child_data = 202; // client supplied data field; passes through to down stream child orders
+    google.protobuf.Timestamp timestamp = 205;
+    repeated OrderLegs order_legs = 208;
+}
+
+
