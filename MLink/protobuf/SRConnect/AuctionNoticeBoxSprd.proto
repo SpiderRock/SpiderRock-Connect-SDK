@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message AuctionNoticeBoxSprd {
+    message PKey {
+        
+        int64 notice_number = 10;
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 127;
+        InclExclDisclose incl_excl = 128;
+        YesNo is_comm_paying = 129;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier ticker
+    DateKey trade_date = 101;
+    DateKey expiry = 102;
+    double lo_strike = 103; // lo strike
+    double hi_strike = 104; // hi strike
+    AuctionType auction_type = 105;
+    AuctionEvent auction_event = 106;
+    AuctionSource auction_source = 107; // source of the auction notice (eg. SRC, MIAX, etc.)
+    YesNo is_test_auction = 108; // if yes, auction is a test auction (not a prod/live auction)
+    string short_code = 109; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    BuySell cust_side = 110; // if available
+    int32 cust_qty = 111;
+    double cust_prc = 112; // public cust price
+    YesNo has_cust_prc = 113;
+    FirmType cust_firm_type = 114; // cust firm type (if disclosed)
+    string cust_agent_mPID = 115; // cust agent exchange member initiating the auction (if disclosed)
+    string cust_client_firm = 116; // cust client firm (if disclosed)
+    float comm_enhancement = 117; // additional commission (if any) paid by responder
+    YesNo cust_comm_paying = 118; // client is commission paying (to the responder)
+    CustQtyCond cust_qty_cond = 119; // UpToQty, AllOrNone, QtyOrMore
+    int32 auction_duration = 120; // [expected] auction duration (in milliseconds)
+    double i_days = 121; // iDays = effective interest days [SR supplied]
+    double i_years = 122; // iYears = iDays / 360.0
+    double strike_pv = 123; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double eff_money_rate = 124; // effMoneyRate = (1.0 - (custPrc / (hiStrike - loStrike)) / iYears
+    InclExclDisclose include_sRNetwork = 125;
+    repeated DirectedCounterParty directed_counter_party = 126;
+}
+
+

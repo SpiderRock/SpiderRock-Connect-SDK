@@ -30,10 +30,25 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _okey__GUARD__
-    #define _okey__GUARD__
-    DECL_STRONG_TYPE(okey, OptionKey);
-    #endif//_okey__GUARD__
+    #ifndef _root__GUARD__
+    #define _root__GUARD__
+    DECL_STRONG_TYPE(root, TickerKey);
+    #endif//_root__GUARD__
+
+    #ifndef _expiry__GUARD__
+    #define _expiry__GUARD__
+    DECL_STRONG_TYPE(expiry, DateKey);
+    #endif//_expiry__GUARD__
+
+    #ifndef _strike__GUARD__
+    #define _strike__GUARD__
+    DECL_STRONG_TYPE(strike, double);
+    #endif//_strike__GUARD__
+
+    #ifndef _call_put__GUARD__
+    #define _call_put__GUARD__
+    DECL_STRONG_TYPE(call_put, spiderrock::protobuf::api::CallPut);
+    #endif//_call_put__GUARD__
 
     #ifndef _price__GUARD__
     #define _price__GUARD__
@@ -60,30 +75,25 @@ namespace api {
     DECL_STRONG_TYPE(rate__double, double);
     #endif//_rate__double__GUARD__
 
-    #ifndef _ex_type__ExerciseType__GUARD__
-    #define _ex_type__ExerciseType__GUARD__
-    DECL_STRONG_TYPE(ex_type__ExerciseType, spiderrock::protobuf::api::ExerciseType);
-    #endif//_ex_type__ExerciseType__GUARD__
+    #ifndef _ex_type__GUARD__
+    #define _ex_type__GUARD__
+    DECL_STRONG_TYPE(ex_type, spiderrock::protobuf::api::ExerciseType);
+    #endif//_ex_type__GUARD__
 
     #ifndef _ex_time__GUARD__
     #define _ex_time__GUARD__
     DECL_STRONG_TYPE(ex_time, spiderrock::protobuf::api::ExerciseTime);
     #endif//_ex_time__GUARD__
 
-    #ifndef _holiday_calendar__GUARD__
-    #define _holiday_calendar__GUARD__
-    DECL_STRONG_TYPE(holiday_calendar, spiderrock::protobuf::api::CalendarCode);
-    #endif//_holiday_calendar__GUARD__
-
     #ifndef _time_metric__GUARD__
     #define _time_metric__GUARD__
     DECL_STRONG_TYPE(time_metric, spiderrock::protobuf::api::TimeMetric);
     #endif//_time_metric__GUARD__
 
-    #ifndef _model_type__CalcModelType__GUARD__
-    #define _model_type__CalcModelType__GUARD__
-    DECL_STRONG_TYPE(model_type__CalcModelType, spiderrock::protobuf::api::CalcModelType);
-    #endif//_model_type__CalcModelType__GUARD__
+    #ifndef _model_type__GUARD__
+    #define _model_type__GUARD__
+    DECL_STRONG_TYPE(model_type, spiderrock::protobuf::api::CalcModelType);
+    #endif//_model_type__GUARD__
 
     #ifndef _calc_engine__GUARD__
     #define _calc_engine__GUARD__
@@ -175,17 +185,17 @@ namespace api {
     DECL_STRONG_TYPE(date__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_date__timestamp__GUARD__
 
-    #ifndef _amount__float__GUARD__
-    #define _amount__float__GUARD__
-    DECL_STRONG_TYPE(amount__float, float);
-    #endif//_amount__float__GUARD__
+    #ifndef _amount__GUARD__
+    #define _amount__GUARD__
+    DECL_STRONG_TYPE(amount, float);
+    #endif//_amount__GUARD__
 
     
     class GetOptionVolatility_DiscreteDividend {
         public:
         //using statements for all types used in this class
         using date = spiderrock::protobuf::api::date__timestamp;
-        using amount = spiderrock::protobuf::api::amount__float;
+        using amount = spiderrock::protobuf::api::amount;
 
         private:
         date m_date{};
@@ -276,17 +286,19 @@ namespace api {
         //using statements for all types used in this class
     
         using _meta = spiderrock::protobuf::api::_meta;
-        using okey = spiderrock::protobuf::api::okey;
+        using root = spiderrock::protobuf::api::root;
+        using expiry = spiderrock::protobuf::api::expiry;
+        using strike = spiderrock::protobuf::api::strike;
+        using call_put = spiderrock::protobuf::api::call_put;
         using price = spiderrock::protobuf::api::price;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
         using years = spiderrock::protobuf::api::years__double;
         using sdiv = spiderrock::protobuf::api::sdiv__double;
         using rate = spiderrock::protobuf::api::rate__double;
-        using ex_type = spiderrock::protobuf::api::ex_type__ExerciseType;
+        using ex_type = spiderrock::protobuf::api::ex_type;
         using ex_time = spiderrock::protobuf::api::ex_time;
-        using holiday_calendar = spiderrock::protobuf::api::holiday_calendar;
         using time_metric = spiderrock::protobuf::api::time_metric;
-        using model_type = spiderrock::protobuf::api::model_type__CalcModelType;
+        using model_type = spiderrock::protobuf::api::model_type;
         using calc_engine = spiderrock::protobuf::api::calc_engine;
         using inc_greeks = spiderrock::protobuf::api::inc_greeks;
         using vol = spiderrock::protobuf::api::vol;
@@ -308,7 +320,10 @@ namespace api {
 
         private:
         _meta m__meta{};
-        okey m_okey{};
+        root m_root{};
+        expiry m_expiry{};
+        strike m_strike{};
+        call_put m_call_put{};
         price m_price{};
         u_prc m_u_prc{};
         years m_years{};
@@ -316,7 +331,6 @@ namespace api {
         rate m_rate{};
         ex_type m_ex_type{};
         ex_time m_ex_time{};
-        holiday_calendar m_holiday_calendar{};
         time_metric m_time_metric{};
         model_type m_model_type{};
         calc_engine m_calc_engine{};
@@ -344,8 +358,17 @@ namespace api {
         _meta get__meta() const {
             return m__meta;
         }		
-        okey get_okey() const {
-            return m_okey;
+        root get_root() const {
+            return m_root;
+        }		
+        expiry get_expiry() const {
+            return m_expiry;
+        }		
+        strike get_strike() const {
+            return m_strike;
+        }		
+        call_put get_call_put() const {
+            return m_call_put;
         }		
         price get_price() const {
             return m_price;
@@ -367,9 +390,6 @@ namespace api {
         }		
         ex_time get_ex_time() const {
             return m_ex_time;
-        }		
-        holiday_calendar get_holiday_calendar() const {
-            return m_holiday_calendar;
         }		
         time_metric get_time_metric() const {
             return m_time_metric;
@@ -441,8 +461,17 @@ namespace api {
         void set__meta(const _meta& value)  {
             m__meta = value;
         }
-        void set_okey(const okey& value)  {
-            m_okey = value;
+        void set_root(const root& value)  {
+            m_root = value;
+        }
+        void set_expiry(const expiry& value)  {
+            m_expiry = value;
+        }
+        void set_strike(const strike& value)  {
+            m_strike = value;
+        }
+        void set_call_put(const call_put& value)  {
+            m_call_put = value;
         }
         void set_price(const price& value)  {
             m_price = value;
@@ -464,9 +493,6 @@ namespace api {
         }
         void set_ex_time(const ex_time& value)  {
             m_ex_time = value;
-        }
-        void set_holiday_calendar(const holiday_calendar& value)  {
-            m_holiday_calendar = value;
         }
         void set_time_metric(const time_metric& value)  {
             m_time_metric = value;
@@ -548,8 +574,17 @@ namespace api {
         void set(const _meta & value) {
             set__meta(value);
         }
-        void set(const okey & value) {
-            set_okey(value);
+        void set(const root & value) {
+            set_root(value);
+        }
+        void set(const expiry & value) {
+            set_expiry(value);
+        }
+        void set(const strike & value) {
+            set_strike(value);
+        }
+        void set(const call_put & value) {
+            set_call_put(value);
         }
         void set(const price & value) {
             set_price(value);
@@ -571,9 +606,6 @@ namespace api {
         }
         void set(const ex_time & value) {
             set_ex_time(value);
-        }
-        void set(const holiday_calendar & value) {
-            set_holiday_calendar(value);
         }
         void set(const time_metric & value) {
             set_time_metric(value);
@@ -638,7 +670,10 @@ namespace api {
 
         void set(const GetOptionVolatility & value) {
             set(value.m__meta);
-            set(value.m_okey);
+            set(value.m_root);
+            set(value.m_expiry);
+            set(value.m_strike);
+            set(value.m_call_put);
             set(value.m_price);
             set(value.m_u_prc);
             set(value.m_years);
@@ -646,7 +681,6 @@ namespace api {
             set(value.m_rate);
             set(value.m_ex_type);
             set(value.m_ex_time);
-            set(value.m_holiday_calendar);
             set(value.m_time_metric);
             set(value.m_model_type);
             set(value.m_calc_engine);
@@ -721,8 +755,14 @@ namespace api {
         bool IncludeMeta() const {
             return (m__meta.ByteSizeLong() > 0);
         }
-        bool IncludeOkey() const {
-            return (m_okey.ByteSizeLong() > 0);
+        bool IncludeRoot() const {
+            return (m_root.ByteSizeLong() > 0);
+        }
+        bool IncludeExpiry() const {
+            return (m_expiry.ByteSizeLong() > 0);
+        }
+        bool IncludeStrike() const {
+            return !(m_strike == 0.0);
         }
         bool IncludePrice() const {
             return !(m_price == 0.0);
@@ -795,11 +835,18 @@ namespace api {
                 m__meta.setCodecMessageMetadata(messageMetadata);
                 totalSize += SRProtobufCPP::FieldCodec::MessageMetadataFieldSize(1, messageMetadata);
             }
-            if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey{};
-                m_okey.setCodecOptionKey(optionKeyLayout_okey);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(197, optionKeyLayout_okey);
+            if ( IncludeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_root.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
+            if ( IncludeExpiry()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(103, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            }
+            if ( IncludeStrike()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(106,m_strike);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_call_put)));
             if ( IncludePrice()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(112,m_price);
             }
@@ -810,20 +857,19 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(118,m_years);
             }
             if ( IncludeSdiv()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(199,m_sdiv);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(121,m_sdiv);
             }
             if ( IncludeRate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(200,m_rate);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_rate);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(198,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalendarCode>(m_holiday_calendar)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcEngine>(m_calc_engine)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
             if ( IncludeVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(201,m_vol);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(154,m_vol);
             }
             if ( IncludeEffStrike()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(157,m_eff_strike);
@@ -883,11 +929,18 @@ namespace api {
                 m__meta.setCodecMessageMetadata(messageMetadata);
                 dest = SRProtobufCPP::FieldCodec::EncodeMessageMetadata(dest,1, messageMetadata);
             }
-            if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey{};
-                m_okey.setCodecOptionKey(optionKeyLayout_okey);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 197, optionKeyLayout_okey);
+            if ( IncludeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_root.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
+            if ( IncludeExpiry()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,103, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            }
+            if ( IncludeStrike()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,106,m_strike);
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_call_put)));
             if ( IncludePrice()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,112,m_price);
             }
@@ -898,20 +951,19 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,118,m_years);
             }
             if ( IncludeSdiv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,199,m_sdiv);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,121,m_sdiv);
             }
             if ( IncludeRate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,200,m_rate);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_rate);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,127,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_ex_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,130,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_ex_time)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,198,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalendarCode>(m_holiday_calendar)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>(m_model_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcEngine>(m_calc_engine)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_greeks)));
             if ( IncludeVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,201,m_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,154,m_vol);
             }
             if ( IncludeEffStrike()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,157,m_eff_strike);
@@ -985,10 +1037,30 @@ namespace api {
                         }
                         break;
                     }
-                    case 197: {
-                        if (tagType == SRProtobufCPP::OptionKeyCodec::TagType) {
-                            auto optionKey = SRProtobufCPP::FieldCodec::DecodeOptionKey(pos,max);
-                            m_okey.setFromCodec(optionKey);
+                    case 100: {
+                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
+                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                            m_root.setFromCodec(tickerKey);
+                        }
+                        break;
+                    }
+                    case 103: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
+                            m_expiry.set_year(dateKey.year());
+                            m_expiry.set_month(dateKey.month());
+                            m_expiry.set_day(dateKey.day());
+                        }
+                        break;
+                    }
+                    case 106: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_strike = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 109: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_call_put = static_cast<spiderrock::protobuf::api::CallPut>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1010,13 +1082,13 @@ namespace api {
                         }
                         break;
                     }
-                    case 199: {
+                    case 121: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_sdiv = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 200: {
+                    case 124: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_rate = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
@@ -1029,11 +1101,6 @@ namespace api {
                     }
                     case 130: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_ex_time = static_cast<spiderrock::protobuf::api::ExerciseTime>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        }
-                        break;
-                    }
-                    case 198: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_holiday_calendar = static_cast<spiderrock::protobuf::api::CalendarCode>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1057,7 +1124,7 @@ namespace api {
                         }
                         break;
                     }
-                    case 201: {
+                    case 154: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_vol = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
@@ -1166,7 +1233,10 @@ namespace api {
     // getter definitions for all classes above, both inner and outer classes
 
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::_meta>() const { return GetOptionVolatility::_meta{ m__meta}; }
-    template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::okey>() const { return GetOptionVolatility::okey{ m_okey}; }
+    template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::root>() const { return GetOptionVolatility::root{ m_root}; }
+    template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::expiry>() const { return GetOptionVolatility::expiry{ m_expiry}; }
+    template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::strike>() const { return m_strike; }
+    template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::call_put>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>( m_call_put)); }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::price>() const { return m_price; }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::u_prc>() const { return m_u_prc; }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::years>() const { return m_years; }
@@ -1174,7 +1244,6 @@ namespace api {
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::rate>() const { return m_rate; }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::ex_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>( m_ex_type)); }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::ex_time>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>( m_ex_time)); }
-    template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::holiday_calendar>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalendarCode>( m_holiday_calendar)); }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::time_metric>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>( m_time_metric)); }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::model_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcModelType>( m_model_type)); }
     template<> inline const auto GetOptionVolatility::get<GetOptionVolatility::calc_engine>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcEngine>( m_calc_engine)); }
@@ -1214,7 +1283,10 @@ namespace api {
 
     inline std::ostream& operator<<(std::ostream &o, const GetOptionVolatility& m) {
         o << "\"_meta\":{" << m.get<GetOptionVolatility::_meta>() << "}";
-        o << ",\"okey\":{" << m.get<GetOptionVolatility::okey>() << "}";
+        o << ",\"root\":{" << m.get<GetOptionVolatility::root>() << "}";
+        o << ",\"expiry\":{" << m.get<GetOptionVolatility::expiry>() << "}";
+        o << ",\"strike\":" << m.get<GetOptionVolatility::strike>();
+        o << ",\"call_put\":" << (int64_t)m.get<GetOptionVolatility::call_put>();
         o << ",\"price\":" << m.get<GetOptionVolatility::price>();
         o << ",\"u_prc\":" << m.get<GetOptionVolatility::u_prc>();
         o << ",\"years\":" << m.get<GetOptionVolatility::years>();
@@ -1222,7 +1294,6 @@ namespace api {
         o << ",\"rate\":" << m.get<GetOptionVolatility::rate>();
         o << ",\"ex_type\":" << (int64_t)m.get<GetOptionVolatility::ex_type>();
         o << ",\"ex_time\":" << (int64_t)m.get<GetOptionVolatility::ex_time>();
-        o << ",\"holiday_calendar\":" << (int64_t)m.get<GetOptionVolatility::holiday_calendar>();
         o << ",\"time_metric\":" << (int64_t)m.get<GetOptionVolatility::time_metric>();
         o << ",\"model_type\":" << (int64_t)m.get<GetOptionVolatility::model_type>();
         o << ",\"calc_engine\":" << (int64_t)m.get<GetOptionVolatility::calc_engine>();

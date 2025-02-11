@@ -21,9 +21,10 @@ message StockOpenMark {
     
     PKey pkey = 2;
     DateKey trade_date = 100;
-    OpnMarkState opn_mark_state = 119; // Preview or Final (note: preview is not corp action adjusted)
-    float sr_cls_prc = 103; // SR open mark; [SR close market (close - 5 min) from previous day; overnight adjusted]
+    float sr_cls_prc = 103; // SR open mark; [SR close market (close - 1 min) from previous day; overnight adjusted]
     float close_prc = 106; // exchange open mark; [exchange close mark from previous day; overnight adjusted]
+    float bid_prc = 109; // bid price [SR closing bid (close - 1 min) from previous day; overnight adjusted]
+    float ask_prc = 112; // ask price [SR closing ask (close - 1 min) from previous day; overnight adjusted]
     string corp_action = 115;
     google.protobuf.Timestamp timestamp = 118;
 }

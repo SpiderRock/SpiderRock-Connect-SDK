@@ -24,6 +24,7 @@ message AccountRiskRecordV5 {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
+    string risk_server_code = 103; // risk server that published this record
     double ln_dDelta = 106; // long net position $delta value (underlier + options) (today; SR marks)
     double sh_dDelta = 109; // short net position $delta value (underlier + options) (today; SR marks)
     double ln_stk_mkt_value = 112; // long stock market value (today; SR marks)

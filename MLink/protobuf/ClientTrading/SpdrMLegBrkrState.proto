@@ -210,7 +210,7 @@ message SpdrMLegBrkrState {
     SpdrKeyType hedge_sec_type = 631; // auto-hedge sec type (Stock or Future)
     float hedge_beta_ratio = 634; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
     HedgeScope hedge_scope = 637; // hedge group scope [RiskGroup or Accnt]
-    string extern_hedge_ex_dest = 1055; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_ex_dest = 640; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 643; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     float best_way_prc = 646; // current leg market nbbo (at time of record publish)
     float wrst_way_prc = 649; // current leg market nbbo ask (at time of record publish)
@@ -276,7 +276,7 @@ message SpdrMLegBrkrState {
     google.protobuf.Timestamp order_ref_event_dttm = 823;
     float mleg_prob_limit = 826; // live prob limit
     float mleg_surf_offset = 829; // live surface offset (in premium)
-    string extern_ex_dest = 1056;
+    string extern_ex_dest = 832;
     google.protobuf.Timestamp order_dttm = 835; // order entry date/time
     float min_surf_vol = 838; // (minimum) SR spread surface vol [vega weighted] while parent order was working
     float max_surf_vol = 841; // (maximum) SR spread surface vol [vega weighted] while parent order was working

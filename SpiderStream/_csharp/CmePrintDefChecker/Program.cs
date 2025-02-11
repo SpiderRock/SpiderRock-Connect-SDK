@@ -27,8 +27,8 @@ internal class Program
 
             SRTrace.AggregateEventFrequency = TimeSpan.FromSeconds(10);
 
-            using (var futQuoteEngine = new MbusClient(SysEnvironment.Saturn))
-            using (var defEngine = new MbusClient(SysEnvironment.Saturn))
+            using (var futQuoteEngine = new MbusClient())
+            using (var defEngine = new MbusClient())
             {
                 futQuoteEngine.AddChannelThreadGroup(IPAddress.Parse("YOUR.LOCAL.ADAPTER.ADDRESS"), "", MbusChannel.FutNbboQuoteX);
                 var definitions = new Dictionary<ExpiryKey, ProductDefinitionV2>();

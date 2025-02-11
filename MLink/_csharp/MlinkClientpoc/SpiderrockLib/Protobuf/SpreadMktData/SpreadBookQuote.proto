@@ -22,7 +22,7 @@ message SpreadBookQuote {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // common spread underlier
-    int64 sRspread_iD = 167;
+    int64 sRspread_iD = 101;
     double bid_price1 = 103; // bid price
     YesNo is_bid_price1_valid = 106;
     double ask_price1 = 109; // ask price
@@ -41,7 +41,6 @@ message SpreadBookQuote {
     uint32 ask_mask1 = 148; // exchange ask bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
     google.protobuf.Timestamp bid_time = 151; // last bid price or size change
     google.protobuf.Timestamp ask_time = 154; // last ask price or size change
-    int32 print_volume = 168;
     UpdateType update_type = 157;
     int64 src_timestamp = 160; // source high precision timestamp (if available)
     int64 net_timestamp = 163; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock

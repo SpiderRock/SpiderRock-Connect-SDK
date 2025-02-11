@@ -19,7 +19,7 @@ internal class Program
             /////////////////////////////////////////////
             // Instantiate and configure a MBUS client
 
-            mbusClient = new MbusClient(SysEnvironment.Saturn)
+            mbusClient = new MbusClient
             {
                 // if set, will be implicitly used when creating channel thread groups
                 LocalInterface = IPAddress.Parse("NIC_IPv4_ADDRESS"),

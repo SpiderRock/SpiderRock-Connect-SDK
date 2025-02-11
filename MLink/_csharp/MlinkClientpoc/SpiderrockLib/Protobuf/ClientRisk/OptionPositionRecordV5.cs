@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9DbGllbnRSaXNrL09wdGlvblBvc2l0aW9uUmVjb3JkVjUu",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIushChZP",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItwhChZP",
             "cHRpb25Qb3NpdGlvblJlY29yZFY1EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVy",
             "cm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESPgoEcGtleRgCIAEoCzIw",
             "LnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uUG9zaXRpb25SZWNvcmRWNS5Q",
@@ -72,62 +72,62 @@ namespace Spiderrock.Protobuf {
             "b2J1Zi5IZWRnZURlbHRhUnVsZRIUCgtiaW5hcnlfZGF5cxiYAiABKAISDQoE",
             "ZGF5cxibAiABKAUSDgoFeWVhcnMYngIgASgCEg0KBHJhdGUYoQIgASgCEg0K",
             "BHNkaXYYpAIgASgCEg0KBGRkaXYYpwIgASgCEg0KBGRhZGoYqgIgASgCEhAK",
-            "B2F0bV92b2wYrQIgASgCEhEKCGF0bV92ZWdhGLACIAEoAhINCgRzbW55GN4E",
-            "IAEoAhIOCgVpX3ZvbBizAiABKAISMwoJaV92b2xfc3JjGLYCIAEoDjIfLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuTWFya1NvdXJjZRILCgJkZRi5AiABKAISCwoC",
-            "Z2EYvAIgASgCEgsKAnRoGL8CIAEoAhILCgJ2ZRjCAiABKAISCwoCcmgYxQIg",
-            "ASgCEgsKAnBoGMgCIAEoAhILCgJ2bxjLAiABKAISCwoCdmEYzgIgASgCEhEK",
-            "CGRlX2RlY2F5GNECIAEoAhIMCgNlcnIY1AIgASgFEhEKCHZlX3Nsb3BlGNcC",
-            "IAEoAhIRCghoZWRnZV9kZRjaAiABKAISEQoIaGVkZ2VfZ2EY3QIgASgCEhEK",
-            "CHNyX3Nsb3BlGOACIAEoAhIuCglpc19iaW5hcnkY4wIgASgOMhouc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5ZZXNObxIUCgtwcmVtX292X3BhchjmAiABKAISDAoD",
-            "eGRlGOkCIAEoAhIRCghsb19ib3VuZBjsAiABKAISDQoEc3U5MBjvAiABKAIS",
-            "DQoEc2Q5MBjyAiABKAISDQoEc3U1MBj1AiABKAISDQoEc2Q1MBj4AiABKAIS",
-            "DQoEc3UxNRj7AiABKAISDQoEc2QxNRj+AiABKAISDQoEc3UxMBiBAyABKAIS",
-            "DQoEc2QxMBiEAyABKAISDQoEc3UwNhiHAyABKAISDQoEc2QwOBiKAyABKAIS",
-            "DQoEc3UwNRiNAyABKAISDQoEc2QwNRiQAyABKAISDQoEc3UxZRiTAyABKAIS",
-            "DQoEc2QxZRiWAyABKAISDQoEc3UyZRiZAyABKAISDQoEc2QyZRicAyABKAIS",
-            "DQoEZWFybhifAyABKAISDQoEY2FzaBiiAyABKAISEwoKdGhlb19tb2RlbBil",
-            "AyABKAkSDgoFdF92b2wYqAMgASgCEg4KBXRfb3B4GKsDIAEoAhISCgl0X2JP",
-            "cG5fcHgYrgMgASgCEhIKCXRfc09wbl9weBixAyABKAISEgoJdF9iQ2xzX3B4",
-            "GLQDIAEoAhISCgl0X3NDbHNfcHgYtwMgASgCEg0KBHRfZGUYugMgASgCEg0K",
-            "BHRfZ2EYvQMgASgCEg4KBXRfZXJyGMADIAEoBRIUCgt0aGVvX21vZGVsMhjD",
-            "AyABKAkSDwoGdF92b2wyGMYDIAEoAhIPCgZ0X29weDIYyQMgASgCEg8KBnRf",
-            "ZXJyMhjMAyABKAUSEQoIeWVhcnNfcHIYzwMgASgCEhAKB3JhdGVfcHIY0gMg",
-            "ASgCEhAKB3NkaXZfcHIY1QMgASgCEhAKB2RkaXZfcHIY2AMgASgCEhEKCGlf",
-            "dm9sX3ByGNsDIAEoAhIOCgVkZV9wchjeAyABKAISDgoFZ2FfcHIY4QMgASgC",
-            "Eg4KBXRoX3ByGOQDIAEoAhIOCgV2ZV9wchjnAyABKAISDgoFcmhfcHIY6gMg",
-            "ASgCEg4KBXBoX3ByGO0DIAEoAhIOCgV2b19wchjwAyABKAISDgoFdmFfcHIY",
-            "8wMgASgCEg8KBmVycl9wchj2AyABKAUSFAoLdmVfc2xvcGVfcHIY+QMgASgC",
-            "EhQKC2hlZGdlX2RlX3ByGPwDIAEoAhIRCgh0X3ZvbF9wchj/AyABKAISEQoI",
-            "dF9vcHhfcHIYggQgASgCEhAKB3RfZGVfcHIYhQQgASgCEhIKCXRfdm9sX3By",
-            "MhiIBCABKAISEgoJdF9vcHhfcHIyGIsEIAEoAhIRCgh0X2RlX3ByMhiOBCAB",
-            "KAISDwoGeGRlX3ByGJEEIAEoAhIXCg5tYXJnaW5fdURuX3ZEbhjaBCABKAIS",
-            "FwoObWFyZ2luX3VEbl92VXAY2wQgASgCEhcKDm1hcmdpbl91VXBfdkRuGNwE",
-            "IAEoAhIXCg5tYXJnaW5fdVVwX3ZVcBjdBCABKAISEwoKb3BuX3BubF9kZRiU",
-            "BCABKAISEwoKb3BuX3BubF9nYRiXBCABKAISEwoKb3BuX3BubF90aBiaBCAB",
-            "KAISEwoKb3BuX3BubF92ZRidBCABKAISEwoKb3BuX3BubF92bxigBCABKAIS",
-            "EwoKb3BuX3BubF92YRijBCABKAISEwoKb3BuX3BubF9zbBimBCABKAISFQoM",
-            "b3BuX3BubF9yYXRlGKkEIAEoAhIVCgxvcG5fcG5sX3NEaXYYrAQgASgCEhUK",
-            "DG9wbl9wbmxfZERpdhivBCABKAISEwoKb3BuX3BubF9zdhiyBCABKAISFAoL",
-            "b3BuX3BubF9lcnIYtQQgASgCEhIKCXNoX2JvdF9jMBi4BCABKAUSEgoJc2hf",
-            "c2xkX2MwGLsEIAEoBRISCglzaF9tbnlfYzAYvgQgASgCEhIKCXNoX2JvdF9j",
-            "MRjBBCABKAUSEgoJc2hfc2xkX2MxGMQEIAEoBRISCglzaF9tbnlfYzEYxwQg",
-            "ASgCEjsKDm1hcmtfZXJyX2NvZGVzGMoEIAEoDjIiLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuTWFya0Vycm9yQ29kZRIRCghleF92YWx1ZRjNBCABKAISMwoKcmlz",
-            "a19hbGVydBjQBCABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkFsZXJ0Q29k",
-            "ZRIXCg5udW1fZXhlY3V0aW9ucxjTBCABKAUSMgoNbWF4X2V4ZWNfZHR0bRjW",
-            "BCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCXRpbWVzdGFt",
-            "cBjZBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGsIBCgRQS2V5",
-            "EiwKBG9rZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktl",
-            "eRINCgVhY2NudBgLIAEoCRIwCgp0cmFkZV9kYXRlGAwgASgLMhwuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5EYXRlS2V5EjYKDHJpc2tfc2Vzc2lvbhgNIAEoDjIg",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuUmlza1Nlc3Npb24SEwoLY2xpZW50X2Zp",
-            "cm0YDiABKAliBnByb3RvMw=="));
+            "B2F0bV92b2wYrQIgASgCEhEKCGF0bV92ZWdhGLACIAEoAhIOCgVpX3ZvbBiz",
+            "AiABKAISMwoJaV92b2xfc3JjGLYCIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuTWFya1NvdXJjZRILCgJkZRi5AiABKAISCwoCZ2EYvAIgASgCEgsKAnRo",
+            "GL8CIAEoAhILCgJ2ZRjCAiABKAISCwoCcmgYxQIgASgCEgsKAnBoGMgCIAEo",
+            "AhILCgJ2bxjLAiABKAISCwoCdmEYzgIgASgCEhEKCGRlX2RlY2F5GNECIAEo",
+            "AhIMCgNlcnIY1AIgASgFEhEKCHZlX3Nsb3BlGNcCIAEoAhIRCghoZWRnZV9k",
+            "ZRjaAiABKAISEQoIaGVkZ2VfZ2EY3QIgASgCEhEKCHNyX3Nsb3BlGOACIAEo",
+            "AhIuCglpc19iaW5hcnkY4wIgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5Z",
+            "ZXNObxIUCgtwcmVtX292X3BhchjmAiABKAISDAoDeGRlGOkCIAEoAhIRCghs",
+            "b19ib3VuZBjsAiABKAISDQoEc3U5MBjvAiABKAISDQoEc2Q5MBjyAiABKAIS",
+            "DQoEc3U1MBj1AiABKAISDQoEc2Q1MBj4AiABKAISDQoEc3UxNRj7AiABKAIS",
+            "DQoEc2QxNRj+AiABKAISDQoEc3UxMBiBAyABKAISDQoEc2QxMBiEAyABKAIS",
+            "DQoEc3UwNhiHAyABKAISDQoEc2QwOBiKAyABKAISDQoEc3UwNRiNAyABKAIS",
+            "DQoEc2QwNRiQAyABKAISDQoEc3UxZRiTAyABKAISDQoEc2QxZRiWAyABKAIS",
+            "DQoEc3UyZRiZAyABKAISDQoEc2QyZRicAyABKAISDQoEZWFybhifAyABKAIS",
+            "DQoEY2FzaBiiAyABKAISEwoKdGhlb19tb2RlbBilAyABKAkSDgoFdF92b2wY",
+            "qAMgASgCEg4KBXRfb3B4GKsDIAEoAhISCgl0X2JPcG5fcHgYrgMgASgCEhIK",
+            "CXRfc09wbl9weBixAyABKAISEgoJdF9iQ2xzX3B4GLQDIAEoAhISCgl0X3ND",
+            "bHNfcHgYtwMgASgCEg0KBHRfZGUYugMgASgCEg0KBHRfZ2EYvQMgASgCEg4K",
+            "BXRfZXJyGMADIAEoBRIUCgt0aGVvX21vZGVsMhjDAyABKAkSDwoGdF92b2wy",
+            "GMYDIAEoAhIPCgZ0X29weDIYyQMgASgCEg8KBnRfZXJyMhjMAyABKAUSEQoI",
+            "eWVhcnNfcHIYzwMgASgCEhAKB3JhdGVfcHIY0gMgASgCEhAKB3NkaXZfcHIY",
+            "1QMgASgCEhAKB2RkaXZfcHIY2AMgASgCEhEKCGlfdm9sX3ByGNsDIAEoAhIO",
+            "CgVkZV9wchjeAyABKAISDgoFZ2FfcHIY4QMgASgCEg4KBXRoX3ByGOQDIAEo",
+            "AhIOCgV2ZV9wchjnAyABKAISDgoFcmhfcHIY6gMgASgCEg4KBXBoX3ByGO0D",
+            "IAEoAhIOCgV2b19wchjwAyABKAISDgoFdmFfcHIY8wMgASgCEg8KBmVycl9w",
+            "chj2AyABKAUSFAoLdmVfc2xvcGVfcHIY+QMgASgCEhQKC2hlZGdlX2RlX3By",
+            "GPwDIAEoAhIRCgh0X3ZvbF9wchj/AyABKAISEQoIdF9vcHhfcHIYggQgASgC",
+            "EhAKB3RfZGVfcHIYhQQgASgCEhIKCXRfdm9sX3ByMhiIBCABKAISEgoJdF9v",
+            "cHhfcHIyGIsEIAEoAhIRCgh0X2RlX3ByMhiOBCABKAISDwoGeGRlX3ByGJEE",
+            "IAEoAhIXCg5tYXJnaW5fdURuX3ZEbhjaBCABKAISFwoObWFyZ2luX3VEbl92",
+            "VXAY2wQgASgCEhcKDm1hcmdpbl91VXBfdkRuGNwEIAEoAhIXCg5tYXJnaW5f",
+            "dVVwX3ZVcBjdBCABKAISEwoKb3BuX3BubF9kZRiUBCABKAISEwoKb3BuX3Bu",
+            "bF9nYRiXBCABKAISEwoKb3BuX3BubF90aBiaBCABKAISEwoKb3BuX3BubF92",
+            "ZRidBCABKAISEwoKb3BuX3BubF92bxigBCABKAISEwoKb3BuX3BubF92YRij",
+            "BCABKAISEwoKb3BuX3BubF9zbBimBCABKAISFQoMb3BuX3BubF9yYXRlGKkE",
+            "IAEoAhIVCgxvcG5fcG5sX3NEaXYYrAQgASgCEhUKDG9wbl9wbmxfZERpdhiv",
+            "BCABKAISEwoKb3BuX3BubF9zdhiyBCABKAISFAoLb3BuX3BubF9lcnIYtQQg",
+            "ASgCEhIKCXNoX2JvdF9jMBi4BCABKAUSEgoJc2hfc2xkX2MwGLsEIAEoBRIS",
+            "CglzaF9tbnlfYzAYvgQgASgCEhIKCXNoX2JvdF9jMRjBBCABKAUSEgoJc2hf",
+            "c2xkX2MxGMQEIAEoBRISCglzaF9tbnlfYzEYxwQgASgCEjsKDm1hcmtfZXJy",
+            "X2NvZGVzGMoEIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuTWFya0Vycm9y",
+            "Q29kZRIRCghleF92YWx1ZRjNBCABKAISMwoKcmlza19hbGVydBjQBCABKA4y",
+            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLkFsZXJ0Q29kZRIXCg5udW1fZXhlY3V0",
+            "aW9ucxjTBCABKAUSMgoNbWF4X2V4ZWNfZHR0bRjWBCABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuVGltZXN0YW1wEi4KCXRpbWVzdGFtcBjZBCABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wGsIBCgRQS2V5EiwKBG9rZXkYCiABKAsy",
+            "Hi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRINCgVhY2NudBgLIAEo",
+            "CRIwCgp0cmFkZV9kYXRlGAwgASgLMhwuc3BpZGVycm9jay5wcm90b2J1Zi5E",
+            "YXRlS2V5EjYKDHJpc2tfc2Vzc2lvbhgNIAEoDjIgLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuUmlza1Nlc3Npb24SEwoLY2xpZW50X2Zpcm0YDiABKAliBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5), global::Spiderrock.Protobuf.OptionPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "RiskServerCode", "AggGroup", "Fkey", "Ticker", "ExType", "Multihedge", "MultihedgeSource", "MultihedgePVRatio", "OptionType", "CashOnEx", "StrikeRatio", "UPrcRatio", "UnderliersPerCn", "UnderlierType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "UPriceFormat", "UPrc", "UBid", "UAsk", "UMark", "UMarkSource", "OptBid", "OptAsk", "OptMidMark", "OptVolMark", "UOpnMark", "OptOpnVolMark", "OptOpnMidMark", "OptOpnClrMark", "OptOpnPosPrv", "OptOpnPosClr", "OptOpnPos", "OptOpnPosSrc", "CnBot", "CnSld", "CnOpened", "CnClosed", "EdgeOpened", "EdgeClosed", "TrdDelta", "TrdGamma", "TrdDeltaMny", "OptMnyBot", "OptMnySld", "DayPnl", "DnDayPnl", "OpnPnlMidMark", "OpnPnlVolMark", "OpnPnlClrMark", "CnNetOpnPos", "CnNetCurPos", "CnAtmEquiv", "Beta", "BetaSource", "DivDays", "HedgeDeltaRule", "BinaryDays", "Days", "Years", "Rate", "Sdiv", "Ddiv", "Dadj", "AtmVol", "AtmVega", "Smny", "IVol", "IVolSrc", "De", "Ga", "Th", "Ve", "Rh", "Ph", "Vo", "Va", "DeDecay", "Err", "VeSlope", "HedgeDe", "HedgeGa", "SrSlope", "IsBinary", "PremOvPar", "Xde", "LoBound", "Su90", "Sd90", "Su50", "Sd50", "Su15", "Sd15", "Su10", "Sd10", "Su06", "Sd08", "Su05", "Sd05", "Su1E", "Sd1E", "Su2E", "Sd2E", "Earn", "Cash", "TheoModel", "TVol", "TOpx", "TBOpnPx", "TSOpnPx", "TBClsPx", "TSClsPx", "TDe", "TGa", "TErr", "TheoModel2", "TVol2", "TOpx2", "TErr2", "YearsPr", "RatePr", "SdivPr", "DdivPr", "IVolPr", "DePr", "GaPr", "ThPr", "VePr", "RhPr", "PhPr", "VoPr", "VaPr", "ErrPr", "VeSlopePr", "HedgeDePr", "TVolPr", "TOpxPr", "TDePr", "TVolPr2", "TOpxPr2", "TDePr2", "XdePr", "MarginUDnVDn", "MarginUDnVUp", "MarginUUpVDn", "MarginUUpVUp", "OpnPnlDe", "OpnPnlGa", "OpnPnlTh", "OpnPnlVe", "OpnPnlVo", "OpnPnlVa", "OpnPnlSl", "OpnPnlRate", "OpnPnlSDiv", "OpnPnlDDiv", "OpnPnlSv", "OpnPnlErr", "ShBotC0", "ShSldC0", "ShMnyC0", "ShBotC1", "ShSldC1", "ShMnyC1", "MarkErrCodes", "ExValue", "RiskAlert", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey.Parser, new[]{ "Okey", "Accnt", "TradeDate", "RiskSession", "ClientFirm" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5), global::Spiderrock.Protobuf.OptionPositionRecordV5.Parser, new[]{ "Meta", "Pkey", "RiskServerCode", "AggGroup", "Fkey", "Ticker", "ExType", "Multihedge", "MultihedgeSource", "MultihedgePVRatio", "OptionType", "CashOnEx", "StrikeRatio", "UPrcRatio", "UnderliersPerCn", "UnderlierType", "TickValue", "PointValue", "PointCurrency", "PriceFormat", "UPriceFormat", "UPrc", "UBid", "UAsk", "UMark", "UMarkSource", "OptBid", "OptAsk", "OptMidMark", "OptVolMark", "UOpnMark", "OptOpnVolMark", "OptOpnMidMark", "OptOpnClrMark", "OptOpnPosPrv", "OptOpnPosClr", "OptOpnPos", "OptOpnPosSrc", "CnBot", "CnSld", "CnOpened", "CnClosed", "EdgeOpened", "EdgeClosed", "TrdDelta", "TrdGamma", "TrdDeltaMny", "OptMnyBot", "OptMnySld", "DayPnl", "DnDayPnl", "OpnPnlMidMark", "OpnPnlVolMark", "OpnPnlClrMark", "CnNetOpnPos", "CnNetCurPos", "CnAtmEquiv", "Beta", "BetaSource", "DivDays", "HedgeDeltaRule", "BinaryDays", "Days", "Years", "Rate", "Sdiv", "Ddiv", "Dadj", "AtmVol", "AtmVega", "IVol", "IVolSrc", "De", "Ga", "Th", "Ve", "Rh", "Ph", "Vo", "Va", "DeDecay", "Err", "VeSlope", "HedgeDe", "HedgeGa", "SrSlope", "IsBinary", "PremOvPar", "Xde", "LoBound", "Su90", "Sd90", "Su50", "Sd50", "Su15", "Sd15", "Su10", "Sd10", "Su06", "Sd08", "Su05", "Sd05", "Su1E", "Sd1E", "Su2E", "Sd2E", "Earn", "Cash", "TheoModel", "TVol", "TOpx", "TBOpnPx", "TSOpnPx", "TBClsPx", "TSClsPx", "TDe", "TGa", "TErr", "TheoModel2", "TVol2", "TOpx2", "TErr2", "YearsPr", "RatePr", "SdivPr", "DdivPr", "IVolPr", "DePr", "GaPr", "ThPr", "VePr", "RhPr", "PhPr", "VoPr", "VaPr", "ErrPr", "VeSlopePr", "HedgeDePr", "TVolPr", "TOpxPr", "TDePr", "TVolPr2", "TOpxPr2", "TDePr2", "XdePr", "MarginUDnVDn", "MarginUDnVUp", "MarginUUpVDn", "MarginUUpVUp", "OpnPnlDe", "OpnPnlGa", "OpnPnlTh", "OpnPnlVe", "OpnPnlVo", "OpnPnlVa", "OpnPnlSl", "OpnPnlRate", "OpnPnlSDiv", "OpnPnlDDiv", "OpnPnlSv", "OpnPnlErr", "ShBotC0", "ShSldC0", "ShMnyC0", "ShBotC1", "ShSldC1", "ShMnyC1", "MarkErrCodes", "ExValue", "RiskAlert", "NumExecutions", "MaxExecDttm", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey), global::Spiderrock.Protobuf.OptionPositionRecordV5.Types.PKey.Parser, new[]{ "Okey", "Accnt", "TradeDate", "RiskSession", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -245,7 +245,6 @@ namespace Spiderrock.Protobuf {
       dadj_ = other.dadj_;
       atmVol_ = other.atmVol_;
       atmVega_ = other.atmVega_;
-      smny_ = other.smny_;
       iVol_ = other.iVol_;
       iVolSrc_ = other.iVolSrc_;
       de_ = other.de_;
@@ -1363,21 +1362,6 @@ namespace Spiderrock.Protobuf {
       get { return atmVega_; }
       set {
         atmVega_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "smny" field.</summary>
-    public const int SmnyFieldNumber = 606;
-    private float smny_;
-    /// <summary>
-    /// option moneyness
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float Smny {
-      get { return smny_; }
-      set {
-        smny_ = value;
       }
     }
 
@@ -2960,7 +2944,6 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Dadj, other.Dadj)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AtmVol, other.AtmVol)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AtmVega, other.AtmVega)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Smny, other.Smny)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(IVol, other.IVol)) return false;
       if (IVolSrc != other.IVolSrc) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(De, other.De)) return false;
@@ -3141,7 +3124,6 @@ namespace Spiderrock.Protobuf {
       if (Dadj != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Dadj);
       if (AtmVol != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AtmVol);
       if (AtmVega != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AtmVega);
-      if (Smny != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Smny);
       if (IVol != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(IVol);
       if (IVolSrc != global::Spiderrock.Protobuf.MarkSource.Unspecified) hash ^= IVolSrc.GetHashCode();
       if (De != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(De);
@@ -3955,10 +3937,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(237, 37);
         output.WriteFloat(MarginUUpVUp);
       }
-      if (Smny != 0F) {
-        output.WriteRawTag(245, 37);
-        output.WriteFloat(Smny);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4661,10 +4639,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(237, 37);
         output.WriteFloat(MarginUUpVUp);
       }
-      if (Smny != 0F) {
-        output.WriteRawTag(245, 37);
-        output.WriteFloat(Smny);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4883,9 +4857,6 @@ namespace Spiderrock.Protobuf {
         size += 2 + 4;
       }
       if (AtmVega != 0F) {
-        size += 2 + 4;
-      }
-      if (Smny != 0F) {
         size += 2 + 4;
       }
       if (IVol != 0F) {
@@ -5433,9 +5404,6 @@ namespace Spiderrock.Protobuf {
       }
       if (other.AtmVega != 0F) {
         AtmVega = other.AtmVega;
-      }
-      if (other.Smny != 0F) {
-        Smny = other.Smny;
       }
       if (other.IVol != 0F) {
         IVol = other.IVol;
@@ -6480,10 +6448,6 @@ namespace Spiderrock.Protobuf {
             MarginUUpVUp = input.ReadFloat();
             break;
           }
-          case 4853: {
-            Smny = input.ReadFloat();
-            break;
-          }
         }
       }
     #endif
@@ -7210,10 +7174,6 @@ namespace Spiderrock.Protobuf {
           }
           case 4845: {
             MarginUUpVUp = input.ReadFloat();
-            break;
-          }
-          case 4853: {
-            Smny = input.ReadFloat();
             break;
           }
         }

@@ -105,10 +105,10 @@ namespace api {
     DECL_STRONG_TYPE(ask_time__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_ask_time__timestamp__GUARD__
 
-    #ifndef _update_type__UpdateType__GUARD__
-    #define _update_type__UpdateType__GUARD__
-    DECL_STRONG_TYPE(update_type__UpdateType, spiderrock::protobuf::api::UpdateType);
-    #endif//_update_type__UpdateType__GUARD__
+    #ifndef _update_type__GUARD__
+    #define _update_type__GUARD__
+    DECL_STRONG_TYPE(update_type, spiderrock::protobuf::api::UpdateType);
+    #endif//_update_type__GUARD__
 
     #ifndef _num_stk_legs__GUARD__
     #define _num_stk_legs__GUARD__
@@ -205,10 +205,10 @@ namespace api {
     DECL_STRONG_TYPE(min_years, float);
     #endif//_min_years__GUARD__
 
-    #ifndef _max_years__float__GUARD__
-    #define _max_years__float__GUARD__
-    DECL_STRONG_TYPE(max_years__float, float);
-    #endif//_max_years__float__GUARD__
+    #ifndef _max_years__GUARD__
+    #define _max_years__GUARD__
+    DECL_STRONG_TYPE(max_years, float);
+    #endif//_max_years__GUARD__
 
     #ifndef _ref_uprc__float__GUARD__
     #define _ref_uprc__float__GUARD__
@@ -413,9 +413,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
-                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_skey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_skey.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test)));
             return totalSize;
@@ -423,9 +423,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
-                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_skey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_skey.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test)));
         }
@@ -653,9 +653,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(238,optionKeyLayout_leg_sec_key);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(238,optionKeyLayout);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(244,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_leg_price_format)));
             totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(247,m_leg_security_desc);
@@ -677,9 +677,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 238, optionKeyLayout_leg_sec_key);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 238, optionKeyLayout);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,241,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,244,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_leg_price_format)));
             dest = SRProtobufCPP::FieldCodec::EncodeString(dest,247,static_cast<string>(m_leg_security_desc));
@@ -797,7 +797,7 @@ namespace api {
         using ask_exch1 = spiderrock::protobuf::api::ask_exch1__OptExch;
         using bid_time = spiderrock::protobuf::api::bid_time__timestamp;
         using ask_time = spiderrock::protobuf::api::ask_time__timestamp;
-        using update_type = spiderrock::protobuf::api::update_type__UpdateType;
+        using update_type = spiderrock::protobuf::api::update_type;
         using num_stk_legs = spiderrock::protobuf::api::num_stk_legs;
         using num_fut_legs = spiderrock::protobuf::api::num_fut_legs;
         using num_opt_legs = spiderrock::protobuf::api::num_opt_legs;
@@ -817,7 +817,7 @@ namespace api {
         using min_expiry = spiderrock::protobuf::api::min_expiry;
         using max_expiry = spiderrock::protobuf::api::max_expiry;
         using min_years = spiderrock::protobuf::api::min_years;
-        using max_years = spiderrock::protobuf::api::max_years__float;
+        using max_years = spiderrock::protobuf::api::max_years;
         using ref_uprc = spiderrock::protobuf::api::ref_uprc__float;
         using print_price = spiderrock::protobuf::api::print_price;
         using print_time = spiderrock::protobuf::api::print_time;
@@ -1571,9 +1571,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(298,m_srspread_id);
@@ -1711,9 +1711,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,298,m_srspread_id);

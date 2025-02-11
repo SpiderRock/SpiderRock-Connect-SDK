@@ -280,9 +280,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
             }
             if ( IncludeDays()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(11,m_days);
@@ -293,9 +293,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
             }
             if ( IncludeDays()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,11,m_days);

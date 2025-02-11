@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(prt_root, string);
     #endif//_prt_root__GUARD__
 
-    #ifndef _request_id__int32__GUARD__
-    #define _request_id__int32__GUARD__
-    DECL_STRONG_TYPE(request_id__int32, int32);
-    #endif//_request_id__int32__GUARD__
+    #ifndef _request_id__GUARD__
+    #define _request_id__GUARD__
+    DECL_STRONG_TYPE(request_id, int32);
+    #endif//_request_id__GUARD__
 
     #ifndef _event_type__GUARD__
     #define _event_type__GUARD__
@@ -406,9 +406,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
-            m_okey.setCodecOptionKey(optionKeyLayout_okey);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(130,optionKeyLayout_okey);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+            m_okey.setCodecOptionKey(optionKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(130,optionKeyLayout);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FlexType>(m_flex_type)));
             totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(136,m_quantity);
             totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_price);
@@ -427,9 +427,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
-            m_okey.setCodecOptionKey(optionKeyLayout_okey);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 130, optionKeyLayout_okey);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+            m_okey.setCodecOptionKey(optionKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 130, optionKeyLayout);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FlexType>(m_flex_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,136,m_quantity);
             dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_price);
@@ -523,7 +523,7 @@ namespace api {
         using event_id = spiderrock::protobuf::api::event_id;
         using prt_exch = spiderrock::protobuf::api::prt_exch__OptExch;
         using prt_root = spiderrock::protobuf::api::prt_root;
-        using request_id = spiderrock::protobuf::api::request_id__int32;
+        using request_id = spiderrock::protobuf::api::request_id;
         using event_type = spiderrock::protobuf::api::event_type;
         using total_quantity = spiderrock::protobuf::api::total_quantity;
         using package_price = spiderrock::protobuf::api::package_price;

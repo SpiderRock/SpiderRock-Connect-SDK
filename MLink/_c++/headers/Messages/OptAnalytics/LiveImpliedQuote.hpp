@@ -65,10 +65,10 @@ namespace api {
     DECL_STRONG_TYPE(sdiv__float, float);
     #endif//_sdiv__float__GUARD__
 
-    #ifndef _ddiv__float__GUARD__
-    #define _ddiv__float__GUARD__
-    DECL_STRONG_TYPE(ddiv__float, float);
-    #endif//_ddiv__float__GUARD__
+    #ifndef _ddiv__GUARD__
+    #define _ddiv__GUARD__
+    DECL_STRONG_TYPE(ddiv, float);
+    #endif//_ddiv__GUARD__
 
     #ifndef _o_bid__GUARD__
     #define _o_bid__GUARD__
@@ -190,10 +190,10 @@ namespace api {
     DECL_STRONG_TYPE(dn08, float);
     #endif//_dn08__GUARD__
 
-    #ifndef _syn_spot__double__GUARD__
-    #define _syn_spot__double__GUARD__
-    DECL_STRONG_TYPE(syn_spot__double, double);
-    #endif//_syn_spot__double__GUARD__
+    #ifndef _syn_spot__GUARD__
+    #define _syn_spot__GUARD__
+    DECL_STRONG_TYPE(syn_spot, double);
+    #endif//_syn_spot__GUARD__
 
     #ifndef _price_type__CalcPriceType__GUARD__
     #define _price_type__CalcPriceType__GUARD__
@@ -279,18 +279,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
-                m_okey.setCodecOptionKey(optionKeyLayout_okey);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_okey);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+                m_okey.setCodecOptionKey(optionKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
-                m_okey.setCodecOptionKey(optionKeyLayout_okey);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_okey);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+                m_okey.setCodecOptionKey(optionKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
             }
         }
 
@@ -332,7 +332,7 @@ namespace api {
         using x_axis = spiderrock::protobuf::api::x_axis;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
-        using ddiv = spiderrock::protobuf::api::ddiv__float;
+        using ddiv = spiderrock::protobuf::api::ddiv;
         using o_bid = spiderrock::protobuf::api::o_bid;
         using o_ask = spiderrock::protobuf::api::o_ask;
         using o_bid_iv = spiderrock::protobuf::api::o_bid_iv__float;
@@ -357,7 +357,7 @@ namespace api {
         using dn15 = spiderrock::protobuf::api::dn15;
         using up06 = spiderrock::protobuf::api::up06;
         using dn08 = spiderrock::protobuf::api::dn08;
-        using syn_spot = spiderrock::protobuf::api::syn_spot__double;
+        using syn_spot = spiderrock::protobuf::api::syn_spot;
         using price_type = spiderrock::protobuf::api::price_type__CalcPriceType;
         using calc_err = spiderrock::protobuf::api::calc_err__ImpliedQuoteError;
         using calc_source = spiderrock::protobuf::api::calc_source;
@@ -1016,9 +1016,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeUPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(103,m_u_prc);
@@ -1143,9 +1143,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeUPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,103,m_u_prc);

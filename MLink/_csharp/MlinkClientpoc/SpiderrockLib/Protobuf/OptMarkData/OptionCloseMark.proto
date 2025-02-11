@@ -8,7 +8,7 @@ package spiderrock.protobuf;
 import "google/protobuf/timestamp.proto";
 
 /*
-    OptionCloseMark records are published immediately after the market close - 5 min and again when exchanges publish official marks.
+    OptionCloseMark records are created immediately after the market close (clsMarkState=SRClose), when exchanges publish official marks (clsMarkState=ExchClose), and again during top of day rotation (clsMarkState=Final).  These records contain closing quotes and prices as well as markup details for all outright options.
     OptionCloseMark records are published to the SpiderRock elastic cluster when clsMarkState=Final
 */    
 message OptionCloseMark {
@@ -21,47 +21,42 @@ message OptionCloseMark {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    TickerKey ticker = 212; // SR Ticker that this option rolls up to
     DateKey trade_date = 100;
-    ClsMarkState cls_mark_state = 103; // Preview or Final
-    double u_bid = 106; // SpiderRock closing underlier bid (C - 5m)
-    double u_ask = 109; // SpiderRock closing underlier ask (C - 5m)
-    double u_sr_cls = 112; // SpiderRock underlier closing mark (C - 5m)
+    ClsMarkState cls_mark_state = 103; // LastPrt = last print received; SRClose = SpiderRock snapshot; ExchClose = official exchange close price; Final = Final close mark
+    double u_bid = 106; // SpiderRock closing underlier bid (C - 1m)
+    double u_ask = 109; // SpiderRock closing underlier ask (C - 1m)
+    double u_sr_cls = 112; // SpiderRock underlier closing mark (C - 1m)
     double u_close = 115; // exchange underlier closing mark
-    float bid_prc = 118; // SpiderRock closing option bid (C - 5m)
-    float ask_prc = 121; // SpiderRock closing option ask (C - 5m)
-    double sr_cls_prc = 124; // SpiderRock close mark (close - 5min) [NBBO mid-market]
+    float bid_prc = 118; // SpiderRock closing option bid (C - 1m)
+    float ask_prc = 121; // SpiderRock closing option ask (C - 1m)
+    double sr_cls_prc = 124; // SpiderRock close mark (close - 1min)
     double close_prc = 127; // official exchange closing mark (last print;then official close)
     YesNo has_sRCls_prc = 130;
     YesNo has_close_prc = 133;
-    YesNo has_uCls_prc = 209;
-    float bid_iV = 136; // implied vol of SpiderRock closing bid price (C - 5m)
-    float ask_iV = 139; // implied vol of SpiderRock closing ask price (C - 5m)
-    float sr_prc = 142; // sr close mark price (always within bidPx/askPx) (C - 5m)
-    float sr_vol = 145; // sr close mark volatility (C - 5m)
-    MarkSource sr_src = 148; // sr close mark source (SRVol is SurfaceVol)
-    float de = 151; // delta
-    float ga = 154; // gamma
-    float th = 157; // theta
-    float ve = 160; // vega
-    float vo = 163; // volga
-    float va = 166; // vanna
-    float rh = 169; // rho
-    float ph = 172; // phi
+    float bid_iV = 136; // implied vol of SpiderRock closing bid price (C - 1m)
+    float ask_iV = 139; // implied vol of SpiderRock closing ask price (C - 1m)
+    float sr_prc = 142; // SpiderRock surface price (always within bidPx/askPx) (C - 1m)
+    float sr_vol = 145; // SpiderRock surface volatility (C - 1m)
+    MarkSource sr_src = 148; // SpiderRock price source [NbboMid, SRVol, LoBound, HiBound, SRPricer, SRQuote, CloseMark]
+    float de = 151; // delta (SR surface)
+    float ga = 154; // gamma (SR surface)
+    float th = 157; // theta (SR surface)
+    float ve = 160; // vega (SR surface)
+    float vo = 163; // volga (SR surface)
+    float va = 166; // vanna (SR surface)
+    float rh = 169; // rho (SR surrface)
+    float ph = 172; // phi (SR surface)
     float sr_slope = 175; // surface slope (SR surface)
-    float de_decay = 178; // delta decay
-    float sdiv = 181; // sdiv rate
-    float ddiv = 184; // ddiv amount (sum of discrete dividend amounts)
-    float ddiv_pv = 210; // ddiv (present value) amount (sum of discrete dividend pv amounts)
-    float rate = 187; // discount rate
-    int32 i_days = 211; // interest days (today to expiry) (T+1)
+    float de_decay = 178; // delta decay (SR surface)
+    float sdiv = 181; // SpiderRock sdiv rate
+    float ddiv = 184; // SpiderRock ddiv rate (sum of discrete dividend amounts)
+    float rate = 187; // SpiderRock interest rate
     float years = 190; // years to expiration
-    int32 error = 193; // calculation error code
-    int32 open_interest = 196; // option open Interest
+    int32 error = 193; // SpiderRock pricing library calculation error code
+    int32 open_interest = 196; // Open Interest
     int32 prt_count = 199; // print count
-    int32 prt_volume = 202; // total printed volume (all prt types)
-    google.protobuf.Timestamp sr_close_mark_dttm = 205; // from MarketCloseQuote.srCloseMarkDttm (in trading period local timezone)
-    google.protobuf.Timestamp config_now = 213; // timestamp in the trading period local timezone
+    int32 prt_volume = 202; // total printed volume
+    google.protobuf.Timestamp sr_close_mark_dttm = 205; // from MarketCloseQuote.srCloseMarkDttm
     google.protobuf.Timestamp timestamp = 208; // record timestamp
 }
 

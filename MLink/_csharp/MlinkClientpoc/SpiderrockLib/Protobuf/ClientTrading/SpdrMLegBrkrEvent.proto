@@ -31,7 +31,7 @@ message SpdrMLegBrkrEvent {
     string alt_user_name = 121; // alternate (client assigned) user name (optional)
     uint32 event_number = 124;
     SpdrStageType stage_type = 127; // parent is a staged order [ToolVisible]
-    StageReview stage_review = 260;
+    StageReview stage_review = 263;
     int64 base_parent_number = 130; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
     int64 prev_parent_number = 133; // SPDR order number (order being cancelled/replaced) (zero if none)
     string engine_name = 261; // server stripe

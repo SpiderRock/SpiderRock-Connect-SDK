@@ -30,10 +30,10 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _update_type__UpdateType__GUARD__
-    #define _update_type__UpdateType__GUARD__
-    DECL_STRONG_TYPE(update_type__UpdateType, spiderrock::protobuf::api::UpdateType);
-    #endif//_update_type__UpdateType__GUARD__
+    #ifndef _update_type__GUARD__
+    #define _update_type__GUARD__
+    DECL_STRONG_TYPE(update_type, spiderrock::protobuf::api::UpdateType);
+    #endif//_update_type__GUARD__
 
     #ifndef _market_status__GUARD__
     #define _market_status__GUARD__
@@ -189,18 +189,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
             }
         }
 
@@ -235,7 +235,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::StockBookQuote_PKey;
-        using update_type = spiderrock::protobuf::api::update_type__UpdateType;
+        using update_type = spiderrock::protobuf::api::update_type;
         using market_status = spiderrock::protobuf::api::market_status;
         using bid_price1 = spiderrock::protobuf::api::bid_price1__float;
         using bid_size1 = spiderrock::protobuf::api::bid_size1;

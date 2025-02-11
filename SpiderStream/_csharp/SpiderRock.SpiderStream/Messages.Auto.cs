@@ -15,214 +15,6 @@ using SpiderRock.SpiderStream.Mbus.Layouts;
 namespace SpiderRock.SpiderStream;
 
 /// <summary>
-/// CurrencyConversion:2540
-/// </summary>
-/// <remarks>
-/// </remarks>
-
-public partial class CurrencyConversion : IMessage
-{
-    #region IMessage implementation
-
-    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
-    
-    public long PublishedNsecsSinceUnixEpoch => header.sentts;
-
-    public bool FromCache
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal set
-        {
-            if (value)
-            {
-                header.bits |= HeaderBits.FromCache;
-            }
-            else
-            {
-                header.bits &= ~HeaderBits.FromCache;
-            }
-        }
-    }
-
-    public ushort Type => header.msgtype;
-
-    #endregion
-
-    public CurrencyConversion()
-    {
-    }
-    
-    public CurrencyConversion(PKey pkey)
-    {
-        this.pkey.body = pkey.body;
-    }
-    
-    public CurrencyConversion(CurrencyConversion source)
-    {
-        source.CopyTo(this);
-    }
-    
-    internal CurrencyConversion(PKeyLayout pkey)
-    {
-        this.pkey.body = pkey;
-    }
-
-    public override bool Equals(object other)
-    {
-        return Equals(other as CurrencyConversion);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(CurrencyConversion other)
-    {
-        if (ReferenceEquals(other, null)) return false;
-        if (ReferenceEquals(other, this)) return true;
-        return pkey.Equals(other.pkey);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override int GetHashCode()
-    {
-        return pkey.GetHashCode();
-    }
-    
-    public override string ToString()
-    {
-        return TabRecord;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void CopyTo(CurrencyConversion target)
-    {			
-        target.header = header;
-         pkey.CopyTo(target.pkey);
-         target.body = body;
-
-    }
-
-    public void Clear()
-    {
-        pkey.Clear();
-         body = new BodyLayout();
-
-    }
-
-    public PKey Key => pkey;
-    
-    internal SourceId SourceId => header.sourceid;
-
-    internal Header header = new() {msgtype = MessageType.CurrencyConversion};
-    
-     public sealed class PKey : IEquatable<PKey>, ICloneable
-    {
-
-        internal PKeyLayout body;
-        
-        public PKey()					{ }
-
-        internal PKey(PKeyLayout body)	=> this.body = body;
-
-        public PKey(PKey other)
-        {
-            if (other is null) throw new ArgumentNullException(nameof(other));
-            body = other.body;
-				
-        }
-        
-        
-        public Currency SrcCurrency { get => body.srcCurrency; set => body.srcCurrency = value; }
-         
-        public Currency TgtCurrency { get => body.tgtCurrency; set => body.tgtCurrency = value; }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void Clear()
-        {
-            body = new PKeyLayout();
-
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void CopyTo(PKey target)
-        {
-            target.body = body;
-
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public object Clone()
-        {
-            var target = new PKey(body);
-
-            return target;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKey other && Equals(other);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() => body.GetHashCode();
-    } 
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct PKeyLayout : IEquatable<PKeyLayout>
-    {
-        public Currency srcCurrency;
-         public Currency tgtCurrency;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKeyLayout other)
-        {
-            return	srcCurrency.Equals(other.srcCurrency) &&
-					 	tgtCurrency.Equals(other.tgtCurrency);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = (int) srcCurrency;
-                 hashCode = (hashCode*397) ^ ((int) tgtCurrency);
-
-                return hashCode;
-            }
-        }
-    }
-
-    internal readonly PKey pkey = new();
-     
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct BodyLayout
-    {
-        public double convertRate;
-		public DateTimeLayout timestamp;
-    }
-
-    internal BodyLayout body;
-
-    
-    public double ConvertRate { get => body.convertRate; set => body.convertRate = value; }
-     
-    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
-
-
-} // CurrencyConversion
-
-
-/// <summary>
 /// FutureBookQuote:2580
 /// </summary>
 /// <remarks>
@@ -1757,7 +1549,6 @@ public partial class LiveRevConQuote : IMessage
 		public float ddivPv;
 		public DDivSource ddivSource;
 		public int iDays;
-		public float ddivDisc;
 		public float strikePv;
 		public float fairSVol;
 		public float fairSDiv;
@@ -1769,8 +1560,8 @@ public partial class LiveRevConQuote : IMessage
 		public float rcEExPrem;
 		public float fairLoanPv;
 		public float fairLoanRate;
-		public float rcBidPrc;
-		public float rcAskPrc;
+		public float rcBidLoanPv;
+		public float rcAskLoanPv;
 		public FixedString16Layout calcError;
 		public int cpOI;
 		public int cpVlm;
@@ -1803,34 +1594,32 @@ public partial class LiveRevConQuote : IMessage
     public DDivSource DdivSource { get => body.ddivSource; set => body.ddivSource = value; }
      /// <summary>number of interest (calendar) days to expiry</summary>
     public int IDays { get => body.iDays; set => body.iDays = value; }
-     /// <summary>dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry</summary>
-    public float DdivDisc { get => body.ddivDisc; set => body.ddivDisc = value; }
      /// <summary>strike * EXP(-globalRate * iDays / 365)</summary>
     public float StrikePv { get => body.strikePv; set => body.strikePv = value; }
      /// <summary>call/put surface volatility value</summary>
     public float FairSVol { get => body.fairSVol; set => body.fairSVol = value; }
      /// <summary>call/put surface alignment sdiv value</summary>
     public float FairSDiv { get => body.fairSDiv; set => body.fairSDiv = value; }
-     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
+     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
     public float FairCallPrc { get => body.fairCallPrc; set => body.fairCallPrc = value; }
-     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
+     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
     public float FairCallPrcE { get => body.fairCallPrcE; set => body.fairCallPrcE = value; }
-     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
+     /// <summary>fairPrice = PRICE.AMERICAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
     public float FairPutPrc { get => body.fairPutPrc; set => body.fairPutPrc = value; }
-     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, {ddivStream})</summary>
+     /// <summary>fairPrice = PRICE.EUROPEAN(uPrc, years, fairVol, fairSDiv, globalRate, ddivStream)</summary>
     public float FairPutPrcE { get => body.fairPutPrcE; set => body.fairPutPrcE = value; }
-     /// <summary>fairCallPrc - fairPutPrc - uPrc + strike  (revCon fairMid price)</summary>
+     /// <summary>uPrc + fairPutPrc - fairCallPrc - strike  (revCon fairMid price)</summary>
     public float RcFairPrc { get => body.rcFairPrc; set => body.rcFairPrc = value; }
      /// <summary>(fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)</summary>
     public float RcEExPrem { get => body.rcEExPrem; set => body.rcEExPrem = value; }
-     /// <summary>fairCallPrc - fairPutPrc - uPrc + strike + strikePv + ddivPv  (total present value of letting out shares) (term to expiry) (per share)</summary>
+     /// <summary>uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)</summary>
     public float FairLoanPv { get => body.fairLoanPv; set => body.fairLoanPv = value; }
-     /// <summary>fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)</summary>
+     /// <summary>(fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)</summary>
     public float FairLoanRate { get => body.fairLoanRate; set => body.fairLoanRate = value; }
-     /// <summary>callBid - putAsk - uPrc + strike (best way) (join markets)</summary>
-    public float RcBidPrc { get => body.rcBidPrc; set => body.rcBidPrc = value; }
-     /// <summary>callAsk - putBid - uPrc + strike (worst way) (cross markets)</summary>
-    public float RcAskPrc { get => body.rcAskPrc; set => body.rcAskPrc = value; }
+     /// <summary>uPrc - callAsk + putBid - strikePv - ddivPv - rcEExPrem (best way) (join markets)</summary>
+    public float RcBidLoanPv { get => body.rcBidLoanPv; set => body.rcBidLoanPv = value; }
+     /// <summary>uPrc - callBid + putAsk - strikePv - ddivPv - rcEExPrem (worst way) (cross markets)</summary>
+    public float RcAskLoanPv { get => body.rcAskLoanPv; set => body.rcAskLoanPv = value; }
      
     public string CalcError { get => body.calcError; set => body.calcError = value; }
      /// <summary>c/p open interest (market) [upper bound]</summary>
@@ -2122,7 +1911,7 @@ public partial class LiveSurfaceAtm : IMessage
 		public int counter;
 		public int skewCounter;
 		public int sdivCounter;
-		public TradingSession tradingSession;
+		public MarketSession marketSession;
 		public TradeableStatus tradeableStatus;
 		public SurfaceResult surfaceResult;
 		public DateTimeLayout timestamp;
@@ -2310,8 +2099,8 @@ public partial class LiveSurfaceAtm : IMessage
     public int SkewCounter { get => body.skewCounter; set => body.skewCounter = value; }
      /// <summary>sdiv surface fit counter</summary>
     public int SdivCounter { get => body.sdivCounter; set => body.sdivCounter = value; }
-     /// <summary>trading session this surface is from</summary>
-    public TradingSession TradingSession { get => body.tradingSession; set => body.tradingSession = value; }
+     /// <summary>market session this surface is from</summary>
+    public MarketSession MarketSession { get => body.marketSession; set => body.marketSession = value; }
      /// <summary>indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)</summary>
     public TradeableStatus TradeableStatus { get => body.tradeableStatus; set => body.tradeableStatus = value; }
      
@@ -2327,7 +2116,7 @@ public partial class LiveSurfaceAtm : IMessage
 /// OptionCloseMark:3140
 /// </summary>
 /// <remarks>
-	/// OptionCloseMark records are published immediately after the market close - 5 min and again when exchanges publish official marks.
+	/// OptionCloseMark records are created immediately after the market close (clsMarkState=SRClose), when exchanges publish official marks (clsMarkState=ExchClose), and again during top of day rotation (clsMarkState=Final).  These records contain closing quotes and prices as well as markup details for all outright options.
 	/// OptionCloseMark records are published to the SpiderRock elastic cluster when clsMarkState=Final/// </remarks>
 
 public partial class OptionCloseMark : IMessage
@@ -2512,8 +2301,7 @@ public partial class OptionCloseMark : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public TickerKeyLayout ticker;
-		public DateKeyLayout tradeDate;
+        public DateKeyLayout tradeDate;
 		public ClsMarkState clsMarkState;
 		public double uBid;
 		public double uAsk;
@@ -2525,7 +2313,6 @@ public partial class OptionCloseMark : IMessage
 		public double closePrc;
 		public YesNo hasSRClsPrc;
 		public YesNo hasClosePrc;
-		public YesNo hasUClsPrc;
 		public float bidIV;
 		public float askIV;
 		public float srPrc;
@@ -2543,40 +2330,35 @@ public partial class OptionCloseMark : IMessage
 		public float deDecay;
 		public float sdiv;
 		public float ddiv;
-		public float ddivPv;
 		public float rate;
-		public int iDays;
 		public float years;
 		public byte error;
 		public int openInterest;
 		public int prtCount;
 		public int prtVolume;
 		public DateTimeLayout srCloseMarkDttm;
-		public DateTimeLayout configNow;
 		public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    /// <summary>SR Ticker that this option rolls up to</summary>
-    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-     
+    
     public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
-     /// <summary>Preview or Final</summary>
+     /// <summary>LastPrt = last print received; SRClose = SpiderRock snapshot; ExchClose = official exchange close price; Final = Final close mark</summary>
     public ClsMarkState ClsMarkState { get => body.clsMarkState; set => body.clsMarkState = value; }
-     /// <summary>SpiderRock closing underlier bid (C - 5m)</summary>
+     /// <summary>SpiderRock closing underlier bid (C - 1m)</summary>
     public double UBid { get => body.uBid; set => body.uBid = value; }
-     /// <summary>SpiderRock closing underlier ask (C - 5m)</summary>
+     /// <summary>SpiderRock closing underlier ask (C - 1m)</summary>
     public double UAsk { get => body.uAsk; set => body.uAsk = value; }
-     /// <summary>SpiderRock underlier closing mark (C - 5m)</summary>
+     /// <summary>SpiderRock underlier closing mark (C - 1m)</summary>
     public double USrCls { get => body.uSrCls; set => body.uSrCls = value; }
      /// <summary>exchange underlier closing mark</summary>
     public double UClose { get => body.uClose; set => body.uClose = value; }
-     /// <summary>SpiderRock closing option bid (C - 5m)</summary>
+     /// <summary>SpiderRock closing option bid (C - 1m)</summary>
     public float BidPrc { get => body.bidPrc; set => body.bidPrc = value; }
-     /// <summary>SpiderRock closing option ask (C - 5m)</summary>
+     /// <summary>SpiderRock closing option ask (C - 1m)</summary>
     public float AskPrc { get => body.askPrc; set => body.askPrc = value; }
-     /// <summary>SpiderRock close mark (close - 5min) [NBBO mid-market]</summary>
+     /// <summary>SpiderRock close mark (close - 1min)</summary>
     public double SrClsPrc { get => body.srClsPrc; set => body.srClsPrc = value; }
      /// <summary>official exchange closing mark (last print;then official close)</summary>
     public double ClosePrc { get => body.closePrc; set => body.closePrc = value; }
@@ -2584,62 +2366,54 @@ public partial class OptionCloseMark : IMessage
     public YesNo HasSRClsPrc { get => body.hasSRClsPrc; set => body.hasSRClsPrc = value; }
      
     public YesNo HasClosePrc { get => body.hasClosePrc; set => body.hasClosePrc = value; }
-     
-    public YesNo HasUClsPrc { get => body.hasUClsPrc; set => body.hasUClsPrc = value; }
-     /// <summary>implied vol of SpiderRock closing bid price (C - 5m)</summary>
+     /// <summary>implied vol of SpiderRock closing bid price (C - 1m)</summary>
     public float BidIV { get => body.bidIV; set => body.bidIV = value; }
-     /// <summary>implied vol of SpiderRock closing ask price (C - 5m)</summary>
+     /// <summary>implied vol of SpiderRock closing ask price (C - 1m)</summary>
     public float AskIV { get => body.askIV; set => body.askIV = value; }
-     /// <summary>sr close mark price (always within bidPx/askPx) (C - 5m)</summary>
+     /// <summary>SpiderRock surface price (always within bidPx/askPx) (C - 1m)</summary>
     public float SrPrc { get => body.srPrc; set => body.srPrc = value; }
-     /// <summary>sr close mark volatility (C - 5m)</summary>
+     /// <summary>SpiderRock surface volatility (C - 1m)</summary>
     public float SrVol { get => body.srVol; set => body.srVol = value; }
-     /// <summary>sr close mark source (SRVol is SurfaceVol)</summary>
+     /// <summary>SpiderRock price source [NbboMid, SRVol, LoBound, HiBound, SRPricer, SRQuote, CloseMark]</summary>
     public MarkSource SrSrc { get => body.srSrc; set => body.srSrc = value; }
-     /// <summary>delta</summary>
+     /// <summary>delta (SR surface)</summary>
     public float De { get => body.de; set => body.de = value; }
-     /// <summary>gamma</summary>
+     /// <summary>gamma (SR surface)</summary>
     public float Ga { get => body.ga; set => body.ga = value; }
-     /// <summary>theta</summary>
+     /// <summary>theta (SR surface)</summary>
     public float Th { get => body.th; set => body.th = value; }
-     /// <summary>vega</summary>
+     /// <summary>vega (SR surface)</summary>
     public float Ve { get => body.ve; set => body.ve = value; }
-     /// <summary>volga</summary>
+     /// <summary>volga (SR surface)</summary>
     public float Vo { get => body.vo; set => body.vo = value; }
-     /// <summary>vanna</summary>
+     /// <summary>vanna (SR surface)</summary>
     public float Va { get => body.va; set => body.va = value; }
-     /// <summary>rho</summary>
+     /// <summary>rho (SR surrface)</summary>
     public float Rh { get => body.rh; set => body.rh = value; }
-     /// <summary>phi</summary>
+     /// <summary>phi (SR surface)</summary>
     public float Ph { get => body.ph; set => body.ph = value; }
      /// <summary>surface slope (SR surface)</summary>
     public float SrSlope { get => body.srSlope; set => body.srSlope = value; }
-     /// <summary>delta decay</summary>
+     /// <summary>delta decay (SR surface)</summary>
     public float DeDecay { get => body.deDecay; set => body.deDecay = value; }
-     /// <summary>sdiv rate</summary>
+     /// <summary>SpiderRock sdiv rate</summary>
     public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
-     /// <summary>ddiv amount (sum of discrete dividend amounts)</summary>
+     /// <summary>SpiderRock ddiv rate (sum of discrete dividend amounts)</summary>
     public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
-     /// <summary>ddiv (present value) amount (sum of discrete dividend pv amounts)</summary>
-    public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
-     /// <summary>discount rate</summary>
+     /// <summary>SpiderRock interest rate</summary>
     public float Rate { get => body.rate; set => body.rate = value; }
-     /// <summary>interest days (today to expiry) (T+1)</summary>
-    public int IDays { get => body.iDays; set => body.iDays = value; }
      /// <summary>years to expiration</summary>
     public float Years { get => body.years; set => body.years = value; }
-     /// <summary>calculation error code</summary>
+     /// <summary>SpiderRock pricing library calculation error code</summary>
     public byte Error { get => body.error; set => body.error = value; }
-     /// <summary>option open Interest</summary>
+     /// <summary>Open Interest</summary>
     public int OpenInterest { get => body.openInterest; set => body.openInterest = value; }
      /// <summary>print count</summary>
     public int PrtCount { get => body.prtCount; set => body.prtCount = value; }
-     /// <summary>total printed volume (all prt types)</summary>
+     /// <summary>total printed volume</summary>
     public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
-     /// <summary>from MarketCloseQuote.srCloseMarkDttm (in trading period local timezone)</summary>
+     /// <summary>from MarketCloseQuote.srCloseMarkDttm</summary>
     public DateTime SrCloseMarkDttm { get => body.srCloseMarkDttm; set => body.srCloseMarkDttm = value; }
-     /// <summary>timestamp in the trading period local timezone</summary>
-    public DateTime ConfigNow { get => body.configNow; set => body.configNow = value; }
      /// <summary>record timestamp</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
@@ -5586,7 +5360,7 @@ public partial class RootDefinition : IMessage
                 var src = ExchangeList[i];
                 var dest = target.ExchangeList[i] ?? new ExchangeItem();
 				dest.OptExch = src.OptExch;
- 				dest.Root = src.Root;
+ 				dest.NativeRoot = src.NativeRoot;
 
                 target.ExchangeList[i] = dest;
             }
@@ -5718,18 +5492,19 @@ public partial class RootDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class ExchangeItem
     {
-        public const int Length = 15;
+        public const int Length = 13;
 
         public ExchangeItem() { }
         
-        public ExchangeItem(OptExch optExch, TickerKey root)
+        public ExchangeItem(OptExch optExch, string nativeRoot)
         {
             this.OptExch = optExch;
-			this.Root = root;
+			this.NativeRoot = nativeRoot;
         }
 
         public OptExch OptExch { get; internal set; }
-		public TickerKey Root { get; internal set; }
+		private FixedString12Layout _nativeRoot;
+		public string NativeRoot { get { return _nativeRoot; } internal set { _nativeRoot = value; } }
     }
 
     public ExchangeItem[] ExchangeList { get; set; }
@@ -5772,7 +5547,6 @@ public partial class RootDefinition : IMessage
 		public ExerciseTime exerciseTime;
 		public ExerciseType exerciseType;
 		public TimeMetric timeMetric;
-		public TradingPeriod tradingPeriod;
 		public PricingModel pricingModel;
 		public MoneynessType moneynessType;
 		public PriceQuoteType priceQuoteType;
@@ -5796,7 +5570,6 @@ public partial class RootDefinition : IMessage
 		public Currency strikeCurr;
 		public TickerKeyLayout defaultSurfaceRoot;
 		public FixedString6Layout ricRoot;
-		public TickerKeyLayout regionalCompositeRoot;
 		public DateTimeLayout timestamp;
 		public PricingSource_V7 pricingSource_V7;
     }
@@ -5833,8 +5606,6 @@ public partial class RootDefinition : IMessage
     public ExerciseType ExerciseType { get => body.exerciseType; set => body.exerciseType = value; }
      /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
     public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
-     
-    public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
      
     public PricingModel PricingModel { get => body.pricingModel; set => body.pricingModel = value; }
      /// <summary>moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)</summary>
@@ -5881,8 +5652,6 @@ public partial class RootDefinition : IMessage
     public TickerKey DefaultSurfaceRoot { get => TickerKey.GetCreateTickerKey(body.defaultSurfaceRoot); set => body.defaultSurfaceRoot = value.Layout; }
      /// <summary>RIC Root</summary>
     public string RicRoot { get => body.ricRoot; set => body.ricRoot = value; }
-     /// <summary>regional composite ticker - set on European contributor products only</summary>
-    public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
@@ -6086,7 +5855,7 @@ public partial class SpdrAuctionState : IMessage
         public OptionKeyLayout secKey;
          public SpdrKeyType secType;
          public OptExch auctionExch;
-         public ExDestString auctionExDest;
+         public FixedString16Layout auctionExDest;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(PKeyLayout other)
@@ -7081,15 +6850,12 @@ public partial class SpreadExchDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public YesNo flipSide;
-		public DateTimeLayout timestamp;
+        public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    /// <summary>if the leg sides have been flipped</summary>
-    public YesNo FlipSide { get => body.flipSide; set => body.flipSide = value; }
-     
+    
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -7304,7 +7070,6 @@ public partial class SpreadExchOrder : IMessage
 		public int size;
 		public double price;
 		public YesNo isPriceValid;
-		public YesNo flipSide;
 		public int origOrderSize;
 		public ExchOrderType orderType;
 		public ExchOrderStatus orderStatus;
@@ -7333,8 +7098,6 @@ public partial class SpreadExchOrder : IMessage
     public double Price { get => body.price; set => body.price = value; }
      
     public YesNo IsPriceValid { get => body.isPriceValid; set => body.isPriceValid = value; }
-     /// <summary>if the side and price have been flipped</summary>
-    public YesNo FlipSide { get => body.flipSide; set => body.flipSide = value; }
      /// <summary>original order size (if available)</summary>
     public int OrigOrderSize { get => body.origOrderSize; set => body.origOrderSize = value; }
      
@@ -8625,8 +8388,7 @@ public partial class StockMarketSummary : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public DateKeyLayout tradeDate;
-		public double opnPrice;
+        public double opnPrice;
 		public double mrkPrice;
 		public double clsPrice;
 		public double minPrice;
@@ -8639,21 +8401,18 @@ public partial class StockMarketSummary : IMessage
 		public int midCount;
 		public int midVolume;
 		public int prtCount;
-		public int prtVolume;
-		public double lastPrtPrice;
-		public DateTimeLayout lastPrtDttm;
+		public double prtPrice;
 		public int expCount;
 		public double expWidth;
 		public float expBidSize;
 		public float expAskSize;
+		public DateTimeLayout lastPrint;
 		public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    
-    public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
-     /// <summary>first print price of the day during regular market hours</summary>
+    /// <summary>first print price of the day during regular market hours</summary>
     public double OpnPrice { get => body.opnPrice; set => body.opnPrice = value; }
      /// <summary>last print handled during regular market hours</summary>
     public double MrkPrice { get => body.mrkPrice; set => body.mrkPrice = value; }
@@ -8679,12 +8438,8 @@ public partial class StockMarketSummary : IMessage
     public int MidVolume { get => body.midVolume; set => body.midVolume = value; }
      /// <summary>number of distinct print reports</summary>
     public int PrtCount { get => body.prtCount; set => body.prtCount = value; }
-     /// <summary>total print volume (all print types)</summary>
-    public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
      /// <summary>last print price</summary>
-    public double LastPrtPrice { get => body.lastPrtPrice; set => body.lastPrtPrice = value; }
-     /// <summary>last print time</summary>
-    public DateTime LastPrtDttm { get => body.lastPrtDttm; set => body.lastPrtDttm = value; }
+    public double PrtPrice { get => body.prtPrice; set => body.prtPrice = value; }
      /// <summary>number of updates included in exponential average</summary>
     public int ExpCount { get => body.expCount; set => body.expCount = value; }
      /// <summary>exponential average market width (10 minute 1/2 life)</summary>
@@ -8693,6 +8448,8 @@ public partial class StockMarketSummary : IMessage
     public float ExpBidSize { get => body.expBidSize; set => body.expBidSize = value; }
      /// <summary>exponential average ask size (10 minute 1/2 life)</summary>
     public float ExpAskSize { get => body.expAskSize; set => body.expAskSize = value; }
+     
+    public DateTime LastPrint { get => body.lastPrint; set => body.lastPrint = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
@@ -9908,6 +9665,7 @@ public partial class TickerDefinitionExt : IMessage
 		public YesNo hasOptions;
 		public int numOptions;
 		public long sharesOutstanding;
+		public TimeMetric timeMetric;
 		public OTCPrimaryMarket otcPrimaryMarket;
 		public OTCTier otcTier;
 		public FixedString1Layout otcReportingStatus;
@@ -9915,8 +9673,6 @@ public partial class TickerDefinitionExt : IMessage
 		public int otcFlags;
 		public TkDefSource tkDefSource;
 		public TkStatusFlag statusFlag;
-		public TimeMetric timeMetric;
-		public TradingPeriod tradingPeriod;
 		public DateTimeLayout timestamp;
     }
 
@@ -9996,6 +9752,8 @@ public partial class TickerDefinitionExt : IMessage
     public int NumOptions { get => body.numOptions; set => body.numOptions = value; }
      /// <summary>symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)</summary>
     public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
+     /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
+    public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
      
     public OTCPrimaryMarket OtcPrimaryMarket { get => body.otcPrimaryMarket; set => body.otcPrimaryMarket = value; }
      
@@ -10010,10 +9768,6 @@ public partial class TickerDefinitionExt : IMessage
     public TkDefSource TkDefSource { get => body.tkDefSource; set => body.tkDefSource = value; }
      
     public TkStatusFlag StatusFlag { get => body.statusFlag; set => body.statusFlag = value; }
-     /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
-    public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
-     
-    public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 

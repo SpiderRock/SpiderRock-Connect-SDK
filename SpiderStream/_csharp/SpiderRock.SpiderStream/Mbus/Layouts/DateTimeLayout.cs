@@ -1,22 +1,29 @@
 ﻿using System;
-using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-
 namespace SpiderRock.SpiderStream.Mbus.Layouts;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1, Size = 8)]
-unsafe internal struct DateTimeLayout : IEquatable<DateTimeLayout>
+internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(DateTimeLayout other) => Ticks == other.Ticks;
+    public bool Equals(DateTimeLayout other)
+    {
+        return _data == other._data;
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override bool Equals(object obj) => obj is DateTimeLayout dtl && Equals(dtl);
+    public override bool Equals(object obj)
+    {
+        return obj is DateTimeLayout && Equals((DateTimeLayout)obj);
+    }
 
-    public override int GetHashCode() => _data.GetHashCode();
+    public override int GetHashCode()
+    {
+        return _data.GetHashCode();
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool operator ==(DateTimeLayout left, DateTimeLayout right) => left.Equals(right);
@@ -26,32 +33,27 @@ unsafe internal struct DateTimeLayout : IEquatable<DateTimeLayout>
 
     private readonly long _data;
 
-    public DateTimeLayout(long ticks)
+    public DateTimeLayout(long data)
     {
-        var dttm = new DateTime(ticks, DateTimeKind.Unspecified);
-        _data = *(long*)&dttm;
+        _data = data;
     }
 
-    public long Ticks => ((DateTime)this).Ticks;
+    public long Ticks { get { return _data; } }
 
-    public bool IsEmpty => _data == 0;
+    public bool IsEmpty { get { return _data == 0; } }
 
-    public int Microseconds
+    public int Microseconds { get { return (int)(_data / 10L % 1000000L); } }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static implicit operator DateTimeLayout(DateTime value)
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (int)unchecked(Ticks / 10L % 1000000L);
+        return new DateTimeLayout(value.Ticks);
     }
 
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static implicit operator DateTimeLayout(DateTime value) => *(DateTimeLayout*)&value;
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static implicit operator DateTime(DateTimeLayout value) => *(DateTime*)&value;
-
-    public override string ToString()
+    public static implicit operator DateTime(DateTimeLayout value)
     {
-        return ((DateTime)this).ToString(CultureInfo.InvariantCulture);
+        return new DateTime(value._data);
     }
 }
 

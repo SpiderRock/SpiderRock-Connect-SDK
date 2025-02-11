@@ -26,36 +26,35 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9TcHJlYWRNa3REYXRhL1NwcmVhZEJvb2tRdW90ZS5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iwwgKD1NwcmVh",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iqwgKD1NwcmVh",
             "ZEJvb2tRdW90ZRIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJyb2Nr",
             "LnByb3RvYnVmLlNwcmVhZEJvb2tRdW90ZS5QS2V5Ei4KBnRpY2tlchhkIAEo",
-            "CzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EhQKC3NSc3ByZWFk",
-            "X2lEGKcBIAEoAxISCgpiaWRfcHJpY2UxGGcgASgBEjcKE2lzX2JpZF9wcmlj",
-            "ZTFfdmFsaWQYaiABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhIK",
-            "CmFza19wcmljZTEYbSABKAESNwoTaXNfYXNrX3ByaWNlMV92YWxpZBhwIAEo",
-            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEQoJYmlkX3NpemUxGHMg",
-            "ASgFEhEKCWFza19zaXplMRh2IAEoBRISCgpiaWRfcHJpY2UyGHkgASgBEjcK",
-            "E2lzX2JpZF9wcmljZTJfdmFsaWQYfCABKA4yGi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlllc05vEhIKCmFza19wcmljZTIYfyABKAESOAoTaXNfYXNrX3ByaWNl",
-            "Ml92YWxpZBiCASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhIK",
-            "CWJpZF9zaXplMhiFASABKAUSEgoJYXNrX3NpemUyGIgBIAEoBRIwCgliaWRf",
-            "ZXhjaDEYiwEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNoEjAK",
-            "CWFza19leGNoMRiOASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4",
-            "Y2gSEgoJYmlkX21hc2sxGJEBIAEoDRISCglhc2tfbWFzazEYlAEgASgNEi0K",
-            "CGJpZF90aW1lGJcBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
-            "LQoIYXNrX3RpbWUYmgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
-            "cBIVCgxwcmludF92b2x1bWUYqAEgASgFEjUKC3VwZGF0ZV90eXBlGJ0BIAEo",
-            "DjIfLnNwaWRlcnJvY2sucHJvdG9idWYuVXBkYXRlVHlwZRIWCg1zcmNfdGlt",
-            "ZXN0YW1wGKABIAEoAxIWCg1uZXRfdGltZXN0YW1wGKMBIAEoAxIuCgl0aW1l",
-            "c3RhbXAYpgEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBphCgRQ",
-            "S2V5EiwKBHNrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tl",
-            "cktleRIrCgdpc190ZXN0GAsgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5Z",
-            "ZXNOb2IGcHJvdG8z"));
+            "CzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EhMKC3NSc3ByZWFk",
+            "X2lEGGUgASgDEhIKCmJpZF9wcmljZTEYZyABKAESNwoTaXNfYmlkX3ByaWNl",
+            "MV92YWxpZBhqIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEgoK",
+            "YXNrX3ByaWNlMRhtIAEoARI3ChNpc19hc2tfcHJpY2UxX3ZhbGlkGHAgASgO",
+            "Mhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIRCgliaWRfc2l6ZTEYcyAB",
+            "KAUSEQoJYXNrX3NpemUxGHYgASgFEhIKCmJpZF9wcmljZTIYeSABKAESNwoT",
+            "aXNfYmlkX3ByaWNlMl92YWxpZBh8IAEoDjIaLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuWWVzTm8SEgoKYXNrX3ByaWNlMhh/IAEoARI4ChNpc19hc2tfcHJpY2Uy",
+            "X3ZhbGlkGIIBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEgoJ",
+            "YmlkX3NpemUyGIUBIAEoBRISCglhc2tfc2l6ZTIYiAEgASgFEjAKCWJpZF9l",
+            "eGNoMRiLASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSMAoJ",
+            "YXNrX2V4Y2gxGI4BIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhj",
+            "aBISCgliaWRfbWFzazEYkQEgASgNEhIKCWFza19tYXNrMRiUASABKA0SLQoI",
+            "YmlkX3RpbWUYlwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIt",
+            "Cghhc2tfdGltZRiaASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "EjUKC3VwZGF0ZV90eXBlGJ0BIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "VXBkYXRlVHlwZRIWCg1zcmNfdGltZXN0YW1wGKABIAEoAxIWCg1uZXRfdGlt",
+            "ZXN0YW1wGKMBIAEoAxIuCgl0aW1lc3RhbXAYpgEgASgLMhouZ29vZ2xlLnBy",
+            "b3RvYnVmLlRpbWVzdGFtcBphCgRQS2V5EiwKBHNrZXkYCiABKAsyHi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIrCgdpc190ZXN0GAsgASgOMhou",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNOb2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookQuote), global::Spiderrock.Protobuf.SpreadBookQuote.Parser, new[]{ "Meta", "Pkey", "Ticker", "SRspreadID", "BidPrice1", "IsBidPrice1Valid", "AskPrice1", "IsAskPrice1Valid", "BidSize1", "AskSize1", "BidPrice2", "IsBidPrice2Valid", "AskPrice2", "IsAskPrice2Valid", "BidSize2", "AskSize2", "BidExch1", "AskExch1", "BidMask1", "AskMask1", "BidTime", "AskTime", "PrintVolume", "UpdateType", "SrcTimestamp", "NetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookQuote.Types.PKey), global::Spiderrock.Protobuf.SpreadBookQuote.Types.PKey.Parser, new[]{ "Skey", "IsTest" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookQuote), global::Spiderrock.Protobuf.SpreadBookQuote.Parser, new[]{ "Meta", "Pkey", "Ticker", "SRspreadID", "BidPrice1", "IsBidPrice1Valid", "AskPrice1", "IsAskPrice1Valid", "BidSize1", "AskSize1", "BidPrice2", "IsBidPrice2Valid", "AskPrice2", "IsAskPrice2Valid", "BidSize2", "AskSize2", "BidExch1", "AskExch1", "BidMask1", "AskMask1", "BidTime", "AskTime", "UpdateType", "SrcTimestamp", "NetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpreadBookQuote.Types.PKey), global::Spiderrock.Protobuf.SpreadBookQuote.Types.PKey.Parser, new[]{ "Skey", "IsTest" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -122,7 +121,6 @@ namespace Spiderrock.Protobuf {
       askMask1_ = other.askMask1_;
       bidTime_ = other.bidTime_ != null ? other.bidTime_.Clone() : null;
       askTime_ = other.askTime_ != null ? other.askTime_.Clone() : null;
-      printVolume_ = other.printVolume_;
       updateType_ = other.updateType_;
       srcTimestamp_ = other.srcTimestamp_;
       netTimestamp_ = other.netTimestamp_;
@@ -176,7 +174,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sRspread_iD" field.</summary>
-    public const int SRspreadIDFieldNumber = 167;
+    public const int SRspreadIDFieldNumber = 101;
     private long sRspreadID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -445,18 +443,6 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "print_volume" field.</summary>
-    public const int PrintVolumeFieldNumber = 168;
-    private int printVolume_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int PrintVolume {
-      get { return printVolume_; }
-      set {
-        printVolume_ = value;
-      }
-    }
-
     /// <summary>Field number for the "update_type" field.</summary>
     public const int UpdateTypeFieldNumber = 157;
     private global::Spiderrock.Protobuf.UpdateType updateType_ = global::Spiderrock.Protobuf.UpdateType.Unspecified;
@@ -548,7 +534,6 @@ namespace Spiderrock.Protobuf {
       if (AskMask1 != other.AskMask1) return false;
       if (!object.Equals(BidTime, other.BidTime)) return false;
       if (!object.Equals(AskTime, other.AskTime)) return false;
-      if (PrintVolume != other.PrintVolume) return false;
       if (UpdateType != other.UpdateType) return false;
       if (SrcTimestamp != other.SrcTimestamp) return false;
       if (NetTimestamp != other.NetTimestamp) return false;
@@ -582,7 +567,6 @@ namespace Spiderrock.Protobuf {
       if (AskMask1 != 0) hash ^= AskMask1.GetHashCode();
       if (bidTime_ != null) hash ^= BidTime.GetHashCode();
       if (askTime_ != null) hash ^= AskTime.GetHashCode();
-      if (PrintVolume != 0) hash ^= PrintVolume.GetHashCode();
       if (UpdateType != global::Spiderrock.Protobuf.UpdateType.Unspecified) hash ^= UpdateType.GetHashCode();
       if (SrcTimestamp != 0L) hash ^= SrcTimestamp.GetHashCode();
       if (NetTimestamp != 0L) hash ^= NetTimestamp.GetHashCode();
@@ -617,6 +601,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Ticker);
       }
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(168, 6);
+        output.WriteInt64(SRspreadID);
+      }
       if (BidPrice1 != 0D) {
         output.WriteRawTag(185, 6);
         output.WriteDouble(BidPrice1);
@@ -704,14 +692,6 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(178, 10);
         output.WriteMessage(Timestamp);
-      }
-      if (SRspreadID != 0L) {
-        output.WriteRawTag(184, 10);
-        output.WriteInt64(SRspreadID);
-      }
-      if (PrintVolume != 0) {
-        output.WriteRawTag(192, 10);
-        output.WriteInt32(PrintVolume);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -735,6 +715,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Ticker);
       }
+      if (SRspreadID != 0L) {
+        output.WriteRawTag(168, 6);
+        output.WriteInt64(SRspreadID);
+      }
       if (BidPrice1 != 0D) {
         output.WriteRawTag(185, 6);
         output.WriteDouble(BidPrice1);
@@ -822,14 +806,6 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(178, 10);
         output.WriteMessage(Timestamp);
-      }
-      if (SRspreadID != 0L) {
-        output.WriteRawTag(184, 10);
-        output.WriteInt64(SRspreadID);
-      }
-      if (PrintVolume != 0) {
-        output.WriteRawTag(192, 10);
-        output.WriteInt32(PrintVolume);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -906,9 +882,6 @@ namespace Spiderrock.Protobuf {
       }
       if (askTime_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(AskTime);
-      }
-      if (PrintVolume != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeInt32Size(PrintVolume);
       }
       if (UpdateType != global::Spiderrock.Protobuf.UpdateType.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) UpdateType);
@@ -1015,9 +988,6 @@ namespace Spiderrock.Protobuf {
         }
         AskTime.MergeFrom(other.AskTime);
       }
-      if (other.PrintVolume != 0) {
-        PrintVolume = other.PrintVolume;
-      }
       if (other.UpdateType != global::Spiderrock.Protobuf.UpdateType.Unspecified) {
         UpdateType = other.UpdateType;
       }
@@ -1069,6 +1039,10 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
+          case 808: {
+            SRspreadID = input.ReadInt64();
+            break;
+          }
           case 825: {
             BidPrice1 = input.ReadDouble();
             break;
@@ -1164,14 +1138,6 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 1336: {
-            SRspreadID = input.ReadInt64();
-            break;
-          }
-          case 1344: {
-            PrintVolume = input.ReadInt32();
             break;
           }
         }
@@ -1210,6 +1176,10 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
+          case 808: {
+            SRspreadID = input.ReadInt64();
+            break;
+          }
           case 825: {
             BidPrice1 = input.ReadDouble();
             break;
@@ -1305,14 +1275,6 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 1336: {
-            SRspreadID = input.ReadInt64();
-            break;
-          }
-          case 1344: {
-            PrintVolume = input.ReadInt32();
             break;
           }
         }

@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuctionNoticeBX {
+    message PKey {
+        
+        int64 notice_number = 10;
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 211;
+        InclExclDisclose incl_excl = 214;
+        YesNo is_comm_paying = 217;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier ticker
+    DateKey trade_date = 103;
+    AuctionType auction_type = 106;
+    AuctionEvent auction_event = 109;
+    string src_auction_iD = 112; // auction ID as known by the auction source (empty for SRC)
+    string src_auction_type = 115;
+    AuctionSource auction_source = 118; // source of the auction notice (eg. SRC, MIAX, etc.)
+    YesNo is_test_auction = 121; // if yes, auction is a test auction (not a prod/live auction)
+    string short_code = 124; // 8 letter auction short code (unique per day) (block auctions only) (can be used to find auctions on SR tools)
+    string industry = 127; // industry string
+    SymbolType symbol_type = 130;
+    float u_avg_daily_vlm = 133; // underlier average daily trading volume
+    TickerKey root = 136; // option root (+C.Lo/-P.Lo/-C.Hi/+P.Hi)
+    DateKey expiry = 139;
+    double lo_strike = 142; // lo strike
+    double hi_strike = 145; // hi strike
+    BuySell cust_side = 148; // if available
+    int32 cust_qty = 151;
+    double cust_prc = 154; // public cust price
+    YesNo has_cust_prc = 157;
+    FirmType cust_firm_type = 160; // cust firm type (if disclosed)
+    string cust_agent_mPID = 163; // cust agent exchange member initiating the auction (if disclosed)
+    string cust_client_firm = 166; // cust client firm (if disclosed)
+    float comm_enhancement = 169; // additional commission (if any) paid by responder
+    YesNo cust_comm_paying = 172; // client is commission paying (to the responder)
+    CustQtyCond cust_qty_cond = 175; // UpToQty, AllOrNone, QtyOrMore
+    int32 auction_duration = 178; // [expected] auction duration (in milliseconds)
+    double i_days = 181; // iDays = effective interest days [SR supplied]
+    double i_years = 184; // iYears = iDays / 360.0
+    double point_value = 187; // point value of the associated options; expiry money = (hiStrike - loStrike) * pointValue;
+    double strike_pv = 190; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double eff_money_rate = 193; // effMoneyRate = (1.0 - (custPrc / (hiStrike - loStrike)) / iYears
+    int64 src_timestamp = 196;
+    int64 net_timestamp = 199;
+    google.protobuf.Timestamp timestamp = 202; // from ats / exchange net timestamp if possible
+    InclExclDisclose include_sRNetwork = 205;
+    repeated DirectedCounterParty directed_counter_party = 208;
+}
+
+

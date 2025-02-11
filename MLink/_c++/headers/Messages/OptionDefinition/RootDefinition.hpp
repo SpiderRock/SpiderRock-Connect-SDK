@@ -105,11 +105,6 @@ namespace api {
     DECL_STRONG_TYPE(time_metric, spiderrock::protobuf::api::TimeMetric);
     #endif//_time_metric__GUARD__
 
-    #ifndef _trading_period__TradingPeriod__GUARD__
-    #define _trading_period__TradingPeriod__GUARD__
-    DECL_STRONG_TYPE(trading_period__TradingPeriod, spiderrock::protobuf::api::TradingPeriod);
-    #endif//_trading_period__TradingPeriod__GUARD__
-
     #ifndef _pricing_model__GUARD__
     #define _pricing_model__GUARD__
     DECL_STRONG_TYPE(pricing_model, spiderrock::protobuf::api::PricingModel);
@@ -225,11 +220,6 @@ namespace api {
     DECL_STRONG_TYPE(ric_root, string);
     #endif//_ric_root__GUARD__
 
-    #ifndef _regional_composite_root__GUARD__
-    #define _regional_composite_root__GUARD__
-    DECL_STRONG_TYPE(regional_composite_root, TickerKey);
-    #endif//_regional_composite_root__GUARD__
-
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -250,10 +240,10 @@ namespace api {
     DECL_STRONG_TYPE(opt_exch, spiderrock::protobuf::api::OptExch);
     #endif//_opt_exch__GUARD__
 
-    #ifndef _root__GUARD__
-    #define _root__GUARD__
-    DECL_STRONG_TYPE(root, TickerKey);
-    #endif//_root__GUARD__
+    #ifndef _native_root__GUARD__
+    #define _native_root__GUARD__
+    DECL_STRONG_TYPE(native_root, string);
+    #endif//_native_root__GUARD__
 
     #ifndef _ticker__TickerKey__GUARD__
     #define _ticker__TickerKey__GUARD__
@@ -314,18 +304,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_root);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_root.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_root);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_root.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
             }
         }
 
@@ -357,24 +347,24 @@ namespace api {
         public:
         //using statements for all types used in this class
         using opt_exch = spiderrock::protobuf::api::opt_exch;
-        using root = spiderrock::protobuf::api::root;
+        using native_root = spiderrock::protobuf::api::native_root;
 
         private:
         opt_exch m_opt_exch{};
-        root m_root{};
+        native_root m_native_root{};
 
         public:
         opt_exch get_opt_exch() const {
             return m_opt_exch;
         }
-		root get_root() const {
-            return m_root;
+        native_root get_native_root() const {
+            return m_native_root;
         }
         void set_opt_exch(const opt_exch& value)  {
             m_opt_exch = value;
         }
-        void set_root(const root& value)  {
-            m_root = value;
+        void set_native_root(const native_root& value)  {
+            m_native_root = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -385,7 +375,7 @@ namespace api {
         //specializations for set functions for the valid types
         
         void set(const opt_exch & value) { set_opt_exch(value); }
-        void set(const root & value) { set_root(value); }
+        void set(const native_root & value) { set_native_root(value); }
 
 
         RootDefinition_Exchange() {}
@@ -406,17 +396,13 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-            m_root.setCodecTickerKey(tickerKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(224,tickerKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(221,m_native_root);
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch)));
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-            m_root.setCodecTickerKey(tickerKeyLayout_root);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 224, tickerKeyLayout_root);
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,221,static_cast<string>(m_native_root));
             return dest;
         }
 
@@ -436,9 +422,7 @@ namespace api {
                     case 220: {m_opt_exch = static_cast<spiderrock::protobuf::api::OptExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 224: {
-                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                        m_root.setFromCodec(tickerKey);
+                    case 221: {m_native_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -507,9 +491,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-            m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 214, tickerKeyLayout_ticker);
+            SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+            m_ticker.setCodecTickerKey(tickerKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 214, tickerKeyLayout);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,217,m_spc);
             return dest;
         }
@@ -563,7 +547,6 @@ namespace api {
         using exercise_time = spiderrock::protobuf::api::exercise_time;
         using exercise_type = spiderrock::protobuf::api::exercise_type;
         using time_metric = spiderrock::protobuf::api::time_metric;
-        using trading_period = spiderrock::protobuf::api::trading_period__TradingPeriod;
         using pricing_model = spiderrock::protobuf::api::pricing_model;
         using moneyness_type = spiderrock::protobuf::api::moneyness_type;
         using price_quote_type = spiderrock::protobuf::api::price_quote_type;
@@ -587,7 +570,6 @@ namespace api {
         using strike_curr = spiderrock::protobuf::api::strike_curr;
         using default_surface_root = spiderrock::protobuf::api::default_surface_root;
         using ric_root = spiderrock::protobuf::api::ric_root;
-        using regional_composite_root = spiderrock::protobuf::api::regional_composite_root;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using pricing_source__v7 = spiderrock::protobuf::api::pricing_source__v7;
         using exchange = spiderrock::protobuf::api::RootDefinition_Exchange;
@@ -611,7 +593,6 @@ namespace api {
         exercise_time m_exercise_time{};
         exercise_type m_exercise_type{};
         time_metric m_time_metric{};
-        trading_period m_trading_period{};
         pricing_model m_pricing_model{};
         moneyness_type m_moneyness_type{};
         price_quote_type m_price_quote_type{};
@@ -635,7 +616,6 @@ namespace api {
         strike_curr m_strike_curr{};
         default_surface_root m_default_surface_root{};
         ric_root m_ric_root{};
-        regional_composite_root m_regional_composite_root{};
         timestamp m_timestamp{};
         pricing_source__v7 m_pricing_source__v7{};
         std::vector<exchange> m_exchange{};
@@ -694,9 +674,6 @@ namespace api {
         }		
         time_metric get_time_metric() const {
             return m_time_metric;
-        }		
-        trading_period get_trading_period() const {
-            return m_trading_period;
         }		
         pricing_model get_pricing_model() const {
             return m_pricing_model;
@@ -766,9 +743,6 @@ namespace api {
         }		
         ric_root get_ric_root() const {
             return m_ric_root;
-        }		
-        regional_composite_root get_regional_composite_root() const {
-            return m_regional_composite_root;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -843,9 +817,6 @@ namespace api {
         void set_time_metric(const time_metric& value)  {
             m_time_metric = value;
         }
-        void set_trading_period(const trading_period& value)  {
-            m_trading_period = value;
-        }
         void set_pricing_model(const pricing_model& value)  {
             m_pricing_model = value;
         }
@@ -914,9 +885,6 @@ namespace api {
         }
         void set_ric_root(const ric_root& value)  {
             m_ric_root = value;
-        }
-        void set_regional_composite_root(const regional_composite_root& value)  {
-            m_regional_composite_root = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -1001,9 +969,6 @@ namespace api {
         void set(const time_metric & value) {
             set_time_metric(value);
         }
-        void set(const trading_period & value) {
-            set_trading_period(value);
-        }
         void set(const pricing_model & value) {
             set_pricing_model(value);
         }
@@ -1073,9 +1038,6 @@ namespace api {
         void set(const ric_root & value) {
             set_ric_root(value);
         }
-        void set(const regional_composite_root & value) {
-            set_regional_composite_root(value);
-        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -1107,7 +1069,6 @@ namespace api {
             set(value.m_exercise_time);
             set(value.m_exercise_type);
             set(value.m_time_metric);
-            set(value.m_trading_period);
             set(value.m_pricing_model);
             set(value.m_moneyness_type);
             set(value.m_price_quote_type);
@@ -1131,7 +1092,6 @@ namespace api {
             set(value.m_strike_curr);
             set(value.m_default_surface_root);
             set(value.m_ric_root);
-            set(value.m_regional_composite_root);
             set(value.m_timestamp);
             set(value.m_pricing_source__v7);set_exchange_list(value.m_exchange);set_underlying_list(value.m_underlying);
         }
@@ -1243,9 +1203,6 @@ namespace api {
         bool IncludeRicRoot() const {
             return !(m_ric_root.empty());
         }
-        bool IncludeRegionalCompositeRoot() const {
-            return (m_regional_composite_root.ByteSizeLong() > 0);
-        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -1270,28 +1227,28 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeOsiRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_osi_root);
             }
             if ( IncludeCcode()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ccode{};
-                m_ccode.setCodecTickerKey(tickerKeyLayout_ccode);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout_ccode);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ccode.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(109, expiryKeyLayout_u_prc_driver_key);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(109, expiryKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriverKey2()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key2{};
-                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key2);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(115, expiryKeyLayout_u_prc_driver_key2);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
+                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(115, expiryKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type2)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_u_prc_bound_ccode)));
@@ -1302,7 +1259,6 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_exercise_time)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(139,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_exercise_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingModel>(m_pricing_model)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MoneynessType>(m_moneyness_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceQuoteType>(m_price_quote_type)));
@@ -1345,17 +1301,12 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_settle_curr)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_strike_curr)));
             if ( IncludeDefaultSurfaceRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_default_surface_root{};
-                m_default_surface_root.setCodecTickerKey(tickerKeyLayout_default_surface_root);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(205, tickerKeyLayout_default_surface_root);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_default_surface_root.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(205, tickerKeyLayout);
             }
             if ( IncludeRicRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(218,m_ric_root);
-            }
-            if ( IncludeRegionalCompositeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_root{};
-                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout_regional_composite_root);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(225, tickerKeyLayout_regional_composite_root);
             }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
@@ -1390,28 +1341,28 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeOsiRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_osi_root));
             }
             if ( IncludeCcode()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ccode{};
-                m_ccode.setCodecTickerKey(tickerKeyLayout_ccode);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout_ccode);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ccode.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout);
             }
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 109, expiryKeyLayout_u_prc_driver_key);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 109, expiryKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriverKey2()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key2{};
-                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key2);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 115, expiryKeyLayout_u_prc_driver_key2);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
+                m_u_prc_driver_key2.setCodecExpiryKey(expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 115, expiryKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,118,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type2)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_u_prc_bound_ccode)));
@@ -1422,7 +1373,6 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>(m_exercise_time)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,139,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>(m_exercise_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>(m_time_metric)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,223,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>(m_trading_period)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingModel>(m_pricing_model)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MoneynessType>(m_moneyness_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceQuoteType>(m_price_quote_type)));
@@ -1465,17 +1415,12 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_settle_curr)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_strike_curr)));
             if ( IncludeDefaultSurfaceRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_default_surface_root{};
-                m_default_surface_root.setCodecTickerKey(tickerKeyLayout_default_surface_root);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 205, tickerKeyLayout_default_surface_root);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_default_surface_root.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 205, tickerKeyLayout);
             }
             if ( IncludeRicRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,218,static_cast<string>(m_ric_root));
-            }
-            if ( IncludeRegionalCompositeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_root{};
-                m_regional_composite_root.setCodecTickerKey(tickerKeyLayout_regional_composite_root);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 225, tickerKeyLayout_regional_composite_root);
             }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
@@ -1609,11 +1554,6 @@ namespace api {
                         }
                         break;
                     }
-                    case 223: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_trading_period = static_cast<spiderrock::protobuf::api::TradingPeriod>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        }
-                        break;
-                    }
                     case 145: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_pricing_model = static_cast<spiderrock::protobuf::api::PricingModel>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1742,13 +1682,6 @@ namespace api {
                         }
                         break;
                     }
-                    case 225: {
-                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
-                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                            m_regional_composite_root.setFromCodec(tickerKey);
-                        }
-                        break;
-                    }
                     case 208: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -1804,7 +1737,6 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::exercise_time>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseTime>( m_exercise_time)); }
     template<> inline const auto RootDefinition::get<RootDefinition::exercise_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExerciseType>( m_exercise_type)); }
     template<> inline const auto RootDefinition::get<RootDefinition::time_metric>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TimeMetric>( m_time_metric)); }
-    template<> inline const auto RootDefinition::get<RootDefinition::trading_period>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradingPeriod>( m_trading_period)); }
     template<> inline const auto RootDefinition::get<RootDefinition::pricing_model>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingModel>( m_pricing_model)); }
     template<> inline const auto RootDefinition::get<RootDefinition::moneyness_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MoneynessType>( m_moneyness_type)); }
     template<> inline const auto RootDefinition::get<RootDefinition::price_quote_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceQuoteType>( m_price_quote_type)); }
@@ -1828,7 +1760,6 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::strike_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_strike_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::default_surface_root>() const { return RootDefinition::default_surface_root{ m_default_surface_root}; }
     template<> inline const auto RootDefinition::get<RootDefinition::ric_root>() const { return m_ric_root; }
-    template<> inline const auto RootDefinition::get<RootDefinition::regional_composite_root>() const { return RootDefinition::regional_composite_root{ m_regional_composite_root}; }
     template<> inline const auto RootDefinition::get<RootDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto RootDefinition::get<RootDefinition::pricing_source__v7>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>( m_pricing_source__v7)); }
     template<> inline const auto RootDefinition::get<RootDefinition::exchange>(int i) const { return RootDefinition::exchange{ get_exchange(i)}; }
@@ -1838,7 +1769,7 @@ namespace api {
     template<> inline const auto RootDefinition_PKey::get<RootDefinition_PKey::root>() const { return RootDefinition_PKey::root{m_root}; }
     
     template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::opt_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_opt_exch));}
-    template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::root>() const { return RootDefinition_Exchange::root{m_root}; }
+    template<> inline const auto RootDefinition_Exchange::get<RootDefinition_Exchange::native_root>() const { return m_native_root; }
     
     template<> inline const auto RootDefinition_Underlying::get<RootDefinition_Underlying::ticker>() const { return RootDefinition_Underlying::ticker{m_ticker}; }
     template<> inline const auto RootDefinition_Underlying::get<RootDefinition_Underlying::spc>() const { return m_spc; }
@@ -1852,7 +1783,7 @@ namespace api {
 
     inline std::ostream& operator<<(std::ostream &o, const RootDefinition_Exchange& m) {
         o << "\"opt_exch\":" << (int64_t)m.get<RootDefinition_Exchange::opt_exch>();
-        o << ",\"root\":{" << m.get<RootDefinition_Exchange::root>() << "}";
+        o << ",\"native_root\":\"" << m.get<RootDefinition_Exchange::native_root>() << "\"";
         return o;
     }
 
@@ -1880,7 +1811,6 @@ namespace api {
         o << ",\"exercise_time\":" << (int64_t)m.get<RootDefinition::exercise_time>();
         o << ",\"exercise_type\":" << (int64_t)m.get<RootDefinition::exercise_type>();
         o << ",\"time_metric\":" << (int64_t)m.get<RootDefinition::time_metric>();
-        o << ",\"trading_period\":" << (int64_t)m.get<RootDefinition::trading_period>();
         o << ",\"pricing_model\":" << (int64_t)m.get<RootDefinition::pricing_model>();
         o << ",\"moneyness_type\":" << (int64_t)m.get<RootDefinition::moneyness_type>();
         o << ",\"price_quote_type\":" << (int64_t)m.get<RootDefinition::price_quote_type>();
@@ -1904,7 +1834,6 @@ namespace api {
         o << ",\"strike_curr\":" << (int64_t)m.get<RootDefinition::strike_curr>();
         o << ",\"default_surface_root\":{" << m.get<RootDefinition::default_surface_root>() << "}";
         o << ",\"ric_root\":\"" << m.get<RootDefinition::ric_root>() << "\"";
-        o << ",\"regional_composite_root\":{" << m.get<RootDefinition::regional_composite_root>() << "}";
         {
             std::time_t tt = m.get<RootDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};

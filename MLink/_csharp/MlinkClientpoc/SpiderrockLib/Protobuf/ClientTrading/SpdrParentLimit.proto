@@ -113,7 +113,7 @@ message SpdrParentLimit {
     float cl_arrive_mark = 382; // client specified arrival mark (passed through to ParentExecution; markup only)
     string user_data1 = 385; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 388; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
-    string exec_brkr_code = 407; // an SR assigned execBrkrCode
+    string exec_brkr_code = 391; // an SR assigned execBrkrCode
     string modified_by = 394; // user who last modified this record
     SysEnvironment modified_in = 397;
     google.protobuf.Timestamp timestamp = 400; // timestamp of last modification

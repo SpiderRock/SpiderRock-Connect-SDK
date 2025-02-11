@@ -75,10 +75,10 @@ namespace api {
     DECL_STRONG_TYPE(auction_size, int32);
     #endif//_auction_size__GUARD__
 
-    #ifndef _auction_price__double__GUARD__
-    #define _auction_price__double__GUARD__
-    DECL_STRONG_TYPE(auction_price__double, double);
-    #endif//_auction_price__double__GUARD__
+    #ifndef _auction_price__GUARD__
+    #define _auction_price__GUARD__
+    DECL_STRONG_TYPE(auction_price, double);
+    #endif//_auction_price__GUARD__
 
     #ifndef _is_auction_price_valid__GUARD__
     #define _is_auction_price_valid__GUARD__
@@ -145,10 +145,10 @@ namespace api {
     DECL_STRONG_TYPE(num_updates, int32);
     #endif//_num_updates__GUARD__
 
-    #ifndef _num_responses__int32__GUARD__
-    #define _num_responses__int32__GUARD__
-    DECL_STRONG_TYPE(num_responses__int32, int32);
-    #endif//_num_responses__int32__GUARD__
+    #ifndef _num_responses__GUARD__
+    #define _num_responses__GUARD__
+    DECL_STRONG_TYPE(num_responses, int32);
+    #endif//_num_responses__GUARD__
 
     #ifndef _best_response_size__GUARD__
     #define _best_response_size__GUARD__
@@ -195,15 +195,15 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _sec_key__OptionKey__GUARD__
-    #define _sec_key__OptionKey__GUARD__
-    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
-    #endif//_sec_key__OptionKey__GUARD__
+    #ifndef _sec_key__GUARD__
+    #define _sec_key__GUARD__
+    DECL_STRONG_TYPE(sec_key, OptionKey);
+    #endif//_sec_key__GUARD__
 
-    #ifndef _sec_type__SpdrKeyType__GUARD__
-    #define _sec_type__SpdrKeyType__GUARD__
-    DECL_STRONG_TYPE(sec_type__SpdrKeyType, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_sec_type__SpdrKeyType__GUARD__
+    #ifndef _sec_type__GUARD__
+    #define _sec_type__GUARD__
+    DECL_STRONG_TYPE(sec_type, spiderrock::protobuf::api::SpdrKeyType);
+    #endif//_sec_type__GUARD__
 
     #ifndef _auction_exch__GUARD__
     #define _auction_exch__GUARD__
@@ -239,8 +239,8 @@ namespace api {
     class SpdrAuctionState_PKey {
         public:
         //using statements for all types used in this class
-        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
-        using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
+        using sec_key = spiderrock::protobuf::api::sec_key;
+        using sec_type = spiderrock::protobuf::api::sec_type;
         using auction_exch = spiderrock::protobuf::api::auction_exch;
         using auction_ex_dest = spiderrock::protobuf::api::auction_ex_dest;
 
@@ -314,28 +314,28 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
-                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_sec_key);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+                m_sec_key.setCodecOptionKey(optionKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_auction_exch)));
             if ( IncludeAuctionExDest()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(14,m_auction_ex_dest);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(13,m_auction_ex_dest);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
-                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_sec_key);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+                m_sec_key.setCodecOptionKey(optionKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_auction_exch)));
             if ( IncludeAuctionExDest()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,14,static_cast<string>(m_auction_ex_dest));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,13,static_cast<string>(m_auction_ex_dest));
             }
         }
 
@@ -363,7 +363,7 @@ namespace api {
                     case 12: {m_auction_exch = static_cast<spiderrock::protobuf::api::OptExch>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 14: {m_auction_ex_dest = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 13: {m_auction_ex_dest = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -442,9 +442,9 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(202,optionKeyLayout_leg_sec_key);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(202,optionKeyLayout);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(208,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
             totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(211,m_leg_ratio);
@@ -452,9 +452,9 @@ namespace api {
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout_leg_sec_key;
-            m_leg_sec_key.setCodecOptionKey(optionKeyLayout_leg_sec_key);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 202, optionKeyLayout_leg_sec_key);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
+            m_leg_sec_key.setCodecOptionKey(optionKeyLayout);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 202, optionKeyLayout);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_leg_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,208,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_leg_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,211,m_leg_ratio);
@@ -510,7 +510,7 @@ namespace api {
         using auction_type = spiderrock::protobuf::api::auction_type__AuctionType;
         using auction_side = spiderrock::protobuf::api::auction_side;
         using auction_size = spiderrock::protobuf::api::auction_size;
-        using auction_price = spiderrock::protobuf::api::auction_price__double;
+        using auction_price = spiderrock::protobuf::api::auction_price;
         using is_auction_price_valid = spiderrock::protobuf::api::is_auction_price_valid;
         using auction_duration = spiderrock::protobuf::api::auction_duration;
         using auction_start_size = spiderrock::protobuf::api::auction_start_size;
@@ -524,7 +524,7 @@ namespace api {
         using other_detail = spiderrock::protobuf::api::other_detail;
         using matched_size = spiderrock::protobuf::api::matched_size;
         using num_updates = spiderrock::protobuf::api::num_updates;
-        using num_responses = spiderrock::protobuf::api::num_responses__int32;
+        using num_responses = spiderrock::protobuf::api::num_responses;
         using best_response_size = spiderrock::protobuf::api::best_response_size;
         using best_response_price = spiderrock::protobuf::api::best_response_price;
         using cum_fill_quantity = spiderrock::protobuf::api::cum_fill_quantity;

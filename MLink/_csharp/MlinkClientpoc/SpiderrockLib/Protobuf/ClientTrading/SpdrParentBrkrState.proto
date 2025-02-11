@@ -29,12 +29,12 @@ message SpdrParentBrkrState {
     string user_name = 100; // SR user name string
     int64 parent_number = 106; // SR parent number
     int64 base_parent_number = 109;
-    int64 modify_number = 596; // most recent parent number affecting this order (AddReplace or Modify)
-    int64 notice_number = 604; // SR noticeNumber [required when parentOrderHandling = BlockAuction | BlockResponse]
+    int64 modify_number = 600; // most recent parent number affecting this order (AddReplace or Modify)
+    int64 notice_number = 601; // SR noticeNumber [required when parentOrderHandling = BlockAuction | BlockResponse]
     int64 risk_group_id = 112; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
     int64 trigger_group_id = 115;
     string strategy = 118; // parent order strategy string (can be user supplied)
-    string exec_brkr_code = 606; // execBrkrCode attached to parent order (if any)
+    string exec_brkr_code = 641; // execBrkrCode attached to parent order (if any)
     string alt_order_id = 121; // alternate order ID (usually clOrdId from client)
     int64 package_id = 124; // groups related order/brokers together (eg. Legger w/MLeg Parent)
     string alt_accnt = 127; // alternate (client assigned) "long" account string (optional)
@@ -56,7 +56,7 @@ message SpdrParentBrkrState {
     SpdrOrderStatus spdr_order_status = 175; // status of the most recent parent order handled by this broker
     SpdrCloseReason spdr_close_reason = 178; // close reason of most recent parent order
     SpdrRejectReason spdr_reject_reason = 181; // reject reason (if any) of most recent parent order
-    SpdrRiskLevel spdr_reject_level = 599; // reject level (if any) of most recent parent order
+    SpdrRiskLevel spdr_reject_level = 597; // reject level (if any) of most recent parent order
     YesNo is_permanently_closed = 184; // indicates that this broker is permanently closed (cannot be cxl/replaced or re-opened) [auto-hedge orders only]
     int32 num_extern_risk_hold = 187; // num external risk management rejects received
     string last_extern_risk_text = 190; // last external (exch?) risk management reject
@@ -64,7 +64,7 @@ message SpdrParentBrkrState {
     string spdr_comment = 196;
     int32 order_size = 199; // order size of most recent parent order
     int32 order_active_size = 202; // total activated size (total size released for execution) (-1 = all available size)
-    int32 active_duration = 600; // [optional] (number of seconds)
+    int32 active_duration = 602; // [optional] (number of seconds)
     google.protobuf.Timestamp update_dttm = 205;
     google.protobuf.Timestamp good_till_dttm = 208; // order expiration date/time (most recent parent order in cxl/replace chain)
     int32 leaves_quantity = 211; // current child order leaves quantity (quantity actively working in the market;all child orders)
@@ -81,10 +81,10 @@ message SpdrParentBrkrState {
     google.protobuf.Timestamp last_fill_dttm = 244;
     int32 risk_limit_size = 247; // risk limit size (maximum size to nearest risk limit)
     SpdrRisk risk_limit_desc = 250; // reason for size reduction
-    SpdrRiskLevel risk_limit_level = 601; // risk limit level responsible for reduction
-    string risk_limit_detail = 602; // risk limit detail
+    SpdrRiskLevel risk_limit_level = 598; // risk limit level responsible for reduction
+    string risk_limit_detail = 599; // risk limit detail
     double limit_price = 253; // simple limit
-    double limit_ref_uPrc = 605;
+    double limit_ref_uPrc = 254;
     LimitError limit_err = 256;
     string limit_err_desc = 259;
     float best_limit_offset = 262; // (possible price improvement) (gap between best price and init/limit price) (Face/Matrix orders)
@@ -103,7 +103,7 @@ message SpdrParentBrkrState {
     float hedge_beta_ratio = 301; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
     HedgeScope hedge_scope = 304; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 603; // market session for the autohedge order
-    string extern_hedge_ex_dest = 607; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_ex_dest = 310; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 313; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     string user_data1 = 316; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 319; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
@@ -134,6 +134,7 @@ message SpdrParentBrkrState {
     uint32 cex2 = 394; // bit mask of all exchanges where we are at this price
     int32 cnt2 = 397; // number of child orders at price level #2
     int32 c_more = 400; // number of additional child orders at inferior prices (if any)
+    string expiry_key = 403;
     float cn_vol = 406;
     float cn_yrs = 409;
     float cn_uPrc = 412;

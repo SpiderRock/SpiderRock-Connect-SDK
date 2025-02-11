@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJQYXJlbnRPcmRlci5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ihFAKD1NwZHJQ",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ip08KD1NwZHJQ",
             "YXJlbnRPcmRlchIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJyb2Nr",
             "LnByb3RvYnVmLlNwZHJQYXJlbnRPcmRlci5QS2V5EjwKD3N5c19lbnZpcm9u",
@@ -45,9 +45,9 @@ namespace Spiderrock.Protobuf {
             "KAkSDgoFYWNjbnQYlAEgASgJEhQKC2NsaWVudF9maXJtGJcBIAEoCRI1Cgtz",
             "cGRyX3NvdXJjZRiaASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJT",
             "b3VyY2USFgoNZ3JvdXBpbmdfY29kZRidASABKAMSFwoOZXhlY19icmtyX2Nv",
-            "ZGUYjwggASgJEhcKDmV4dGVybl9leF9kZXN0GJAIIAEoCRIWCg1leHRlcm5f",
+            "ZGUYoAEgASgJEhcKDmV4dGVybl9leF9kZXN0GKMBIAEoCRIWCg1leHRlcm5f",
             "cGFyYW1zGKYBIAEoCRIRCghzdHJhdGVneRipASABKAkSEgoJdXNlcl9uYW1l",
-            "GKwBIAEoCRI1Cgt1c2VyX3NvdXJjZRiHCCABKA4yHy5zcGlkZXJyb2NrLnBy",
+            "GKwBIAEoCRI1Cgt1c2VyX3NvdXJjZRiKCCABKA4yHy5zcGlkZXJyb2NrLnBy",
             "b3RvYnVmLlNwZHJTb3VyY2USLwoKb3JkZXJfZHR0bRiyASABKAsyGi5nb29n",
             "bGUucHJvdG9idWYuVGltZXN0YW1wEjEKCm9yZGVyX3NpZGUYtQEgASgOMhwu",
             "c3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhMKCm9yZGVyX3NpemUYuAEg",
@@ -78,10 +78,10 @@ namespace Spiderrock.Protobuf {
             "ZRIWCg1taW5fb3B0aW9uX3B4GIYCIAEoAhIZChBtYXhfY2hpbGRfb3JkZXJz",
             "GIkCIAEoBRISCglleGNoX21hc2sYjAIgASgNEjwKD3NwZHJfc3RhZ2VfdHlw",
             "ZRiPAiABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJTdGFnZVR5cGUS",
-            "OwoObWFya2V0X3Nlc3Npb24YiAggASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
+            "OwoObWFya2V0X3Nlc3Npb24YiwggASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
             "Zi5NYXJrZXRTZXNzaW9uEi8KCnN0YXJ0X2R0dG0YlQIgASgLMhouZ29vZ2xl",
             "LnByb3RvYnVmLlRpbWVzdGFtcBIXCg5vcmRlcl9kdXJhdGlvbhiYAiABKAUS",
-            "GAoPYWN0aXZlX2R1cmF0aW9uGIkIIAEoBRIzCg5nb29kX3RpbGxfZHR0bRib",
+            "GAoPYWN0aXZlX2R1cmF0aW9uGIwIIAEoBRIzCg5nb29kX3RpbGxfZHR0bRib",
             "AiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjMKCnN0YXJ0X3R5",
             "cGUYngIgASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5TdGFydFR5cGUSGQoQ",
             "dHJpZ2dlcl9ncm91cF9pZBihAiABKAMSGgoRdHJpZ2dlcl90aW1lc3RhbXAY",
@@ -114,151 +114,149 @@ namespace Spiderrock.Protobuf {
             "Zl92b2xfb2Zmc2V0GP4CIAEoAhIfChZtYWtlX3N1cmZfd2lkdGhfb2Zmc2V0",
             "GIEDIAEoAhIdChRvcmRlcl9yZWZfZXZlbnRfbXVsdBiEAyABKAISOQoUb3Jk",
             "ZXJfcmVmX2V2ZW50X2R0dG0YhwMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
-            "bWVzdGFtcBIvCghuYmJvX2NhcBiUCCABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLk5iYm9DYXASMwoKYXV0b19oZWRnZRiKAyABKA4yHi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkF1dG9IZWRnZRI5ChBoZWRnZV9pbnN0cnVtZW50GI0DIAEo",
-            "DjIeLnNwaWRlcnJvY2sucHJvdG9idWYuSGVkZ2VJbnN0EjYKDWhlZGdlX3Nl",
-            "Y19rZXkYkAMgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5FeHBpcnlLZXkS",
-            "GQoQaGVkZ2VfYmV0YV9yYXRpbxiTAyABKAISNQoLaGVkZ2Vfc2NvcGUYlgMg",
-            "ASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5IZWRnZVNjb3BlEjoKDWhlZGdl",
-            "X3Nlc3Npb24YigggASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5NYXJrZXRT",
-            "ZXNzaW9uEh0KFGV4dGVybl9oZWRnZV9leF9kZXN0GJEIIAEoCRIcChNleHRl",
-            "cm5faGVkZ2VfcGFyYW1zGJ8DIAEoCRIxCglmaXJtX3R5cGUYogMgASgOMh0u",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5GaXJtVHlwZRI7Cg5vcmRlcl9jYXBhY2l0",
-            "eRilAyABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLk9yZGVyQ2FwYWNpdHkS",
-            "OQoNcG9zaXRpb25fdHlwZRioAyABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlBvc2l0aW9uVHlwZRI3Cgpzc2FsZV9mbGFnGKsDIAEoDjIiLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuU2hvcnRTYWxlRmxhZxIUCgtsb2NhdGVfZmlybRiSCCAB",
-            "KAkSFAoLbG9jYXRlX3Bvb2wYkwggASgJEhcKDm5vX2Nyb3NzX2dyb3VwGK4D",
-            "IAEoCRIXCg5leGNoX3RyYWRlcl9pZBixAyABKAkSGAoPbGFyZ2VfdHJhZGVy",
-            "X2lkGLQDIAEoCRIZChB0cmFkaW5nX2xvY2F0aW9uGLcDIAEoCRIwCglsZWFk",
-            "X3NpZGUY5AMgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEiAK",
-            "F21heF9jb21wbGV0aW9uX3NsaXBwYWdlGOcDIAEoARIaChFvcmRlcl9yZWZf",
-            "cHJlbWl1bRjqAyABKAISFgoNbm90aWNlX251bWJlchiOCCABKAMSEQoIdGhl",
-            "b192b2wY8AMgASgCEhcKDmNsX2Fycml2ZV9tYXJrGPMDIAEoAhIWCg1yaXNr",
-            "X2dyb3VwX2lkGPYDIAEoAxI8ChdyZXFfYXV4X3Jpc2tfZ3JvdXBfY3RybBiM",
-            "CCABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj0KEHJlZl9yTWV0",
-            "cmljMV9zcmMYugMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmlj",
-            "U291cmNlEj0KEHJlZl9yTWV0cmljMl9zcmMYvQMgASgOMiIuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5STWV0cmljU291cmNlEj0KEHJlZl9yTWV0cmljM19zcmMY",
-            "wAMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmljU291cmNlEj0K",
-            "EHJlZl9yTWV0cmljNF9zcmMYwwMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5STWV0cmljU291cmNlEj0KEHJlZl9yTWV0cmljNV9zcmMYxgMgASgOMiIu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmljU291cmNlEj0KEHJlZl9yTWV0",
-            "cmljNl9zcmMYyQMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmlj",
-            "U291cmNlEj0KEHJlZl9yTWV0cmljN19zcmMYzAMgASgOMiIuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5STWV0cmljU291cmNlEhsKEm9yZGVyX3JlZl9yTWV0cmlj",
-            "MRjPAyABKAISGwoSb3JkZXJfcmVmX3JNZXRyaWMyGNIDIAEoAhIbChJvcmRl",
-            "cl9yZWZfck1ldHJpYzMY1QMgASgCEhsKEm9yZGVyX3JlZl9yTWV0cmljNBjY",
-            "AyABKAISGwoSb3JkZXJfcmVmX3JNZXRyaWM1GNsDIAEoAhIbChJvcmRlcl9y",
-            "ZWZfck1ldHJpYzYY3gMgASgCEhsKEm9yZGVyX3JlZl9yTWV0cmljNxjhAyAB",
-            "KAISHwoWZXhwX2RheV93dF92ZWdhX29mZnNldBiRBCABKAISHwoWbWF4X2V4",
-            "cF9kYXlfd3RfdmVnYV9sbhiLBCABKAISHwoWbWF4X2V4cF9kYXlfd3RfdmVn",
-            "YV9zaBiOBCABKAISIAoXbWF4X2V4cF9kYXlfck1ldHJpYzZfbG4YrwQgASgC",
-            "EiAKF21heF9leHBfZGF5X3JNZXRyaWM2X3NoGLIEIAEoAhIeChVzeW1fZGF5",
-            "X2REZWx0YV9vZmZzZXQYrAQgASgCEh4KFW1heF9zeW1fZGF5X2REZWx0YV9s",
-            "bhimBCABKAISHgoVbWF4X3N5bV9kYXlfZERlbHRhX3NoGKkEIAEoAhIcChNz",
-            "eW1fZGF5X3ZlZ2Ffb2Zmc2V0GJoEIAEoAhIcChNtYXhfc3ltX2RheV92ZWdh",
-            "X2xuGJQEIAEoAhIcChNtYXhfc3ltX2RheV92ZWdhX3NoGJcEIAEoAhIfChZz",
-            "eW1fZGF5X3d0X3ZlZ2Ffb2Zmc2V0GKMEIAEoAhIfChZtYXhfc3ltX2RheV93",
-            "dF92ZWdhX2xuGJ0EIAEoAhIfChZtYXhfc3ltX2RheV93dF92ZWdhX3NoGKAE",
-            "IAEoAhIgChdtYXhfc3ltX2RheV9yTWV0cmljN19sbhi4BCABKAISIAoXbWF4",
-            "X3N5bV9kYXlfck1ldHJpYzdfc2gYuwQgASgCEh4KFW1heF9ncnBfZGF5X2RE",
-            "ZWx0YV9sbhjBBCABKAISHgoVbWF4X2dycF9kYXlfZERlbHRhX3NoGMQEIAEo",
-            "AhIcChNtYXhfZ3JwX2RheV92ZWdhX2xuGMoEIAEoAhIcChNtYXhfZ3JwX2Rh",
-            "eV92ZWdhX3NoGM0EIAEoAhIdChRtYXhfZ3JwX2RheV92ZWdhX2FicxjQBCAB",
-            "KAISGwoSZ3JwX2RheV92ZWdhX3JhdGlvGNMEIAEoAhIhChhtYXhfZ3JwX2Rh",
-            "eV9jb250cmFjdHNfbG4YhgUgASgFEiEKGG1heF9ncnBfZGF5X2NvbnRyYWN0",
-            "c19zaBiJBSABKAUSIgoZbWF4X2dycF9kYXlfY29udHJhY3RzX2FicxiMBSAB",
-            "KAUSIAoXbWF4X2dycF9kYXlfck1ldHJpYzFfbG4Y4gQgASgCEiAKF21heF9n",
-            "cnBfZGF5X3JNZXRyaWMxX3NoGOUEIAEoAhIhChhtYXhfZ3JwX2RheV9yTWV0",
-            "cmljMV9hYnMY6AQgASgCEh8KFmdycF9kYXlfck1ldHJpYzFfcmF0aW8Y6wQg",
-            "ASgCEiAKF21heF9ncnBfZGF5X3JNZXRyaWMyX2xuGO4EIAEoAhIgChdtYXhf",
-            "Z3JwX2RheV9yTWV0cmljMl9zaBjxBCABKAISIAoXbWF4X2dycF9kYXlfck1l",
-            "dHJpYzNfbG4Y9AQgASgCEiAKF21heF9ncnBfZGF5X3JNZXRyaWMzX3NoGPcE",
-            "IAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmljNF9sbhj6BCABKAISIAoXbWF4",
-            "X2dycF9kYXlfck1ldHJpYzRfc2gY/QQgASgCEiAKF21heF9ncnBfZGF5X3JN",
-            "ZXRyaWM1X2xuGIAFIAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmljNV9zaBiD",
-            "BSABKAISHgoVc3ltX2VtYV9jeGxfZERlbHRhX2xuGI8FIAEoAhIeChVzeW1f",
-            "ZW1hX2N4bF9kRGVsdGFfc2gYkgUgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3Zl",
-            "Z2FfbG4YlQUgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ffc2gYmAUgASgC",
-            "EjMKDmxhc3RfZmlsbF9kdHRtGJsFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXASEwoKdXNlcl9kYXRhMRieBSABKAkSEwoKdXNlcl9kYXRhMhih",
-            "BSABKAkSEwoKY2hpbGRfZGF0YRikBSABKAkSFgoNc3JjX3RpbWVzdGFtcBin",
-            "BSABKAMSFgoNc2d3X3RpbWVzdGFtcBiqBSABKAMSLgoJdGltZXN0YW1wGK0F",
-            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASQQoRaW5jbHVkZV9z",
-            "Uk5ldHdvcmsYjQggASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5JbmNsRXhj",
-            "bERpc2Nsb3NlEloKFmRpcmVjdGVkX2NvdW50ZXJfcGFydHkYtgUgAygLMjku",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5TcGRyUGFyZW50T3JkZXIuRGlyZWN0ZWRD",
-            "b3VudGVyUGFydHkSQwoKb3JkZXJfbGVncxjvBSADKAsyLi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlNwZHJQYXJlbnRPcmRlci5PcmRlckxlZ3MaHQoEUEtleRIV",
-            "Cg1wYXJlbnRfbnVtYmVyGAogASgDGmcKFERpcmVjdGVkQ291bnRlclBhcnR5",
-            "EhQKC2NsaWVudF9maXJtGLkFIAEoCRI5CglpbmNsX2V4Y2wYvAUgASgOMiUu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5JbmNsRXhjbERpc2Nsb3NlGvsUCglPcmRl",
-            "ckxlZ3MSLwoGdGlja2VyGPIFIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "VGlja2VyS2V5EjEKCnN0b2NrX3NpZGUY9QUgASgOMhwuc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5CdXlTZWxsEhUKDHN0b2NrX3NoYXJlcxj4BSABKAUSFQoMc3Rv",
-            "Y2tfbGVnX2lkGPsFIAEoAxIXCg5hbHRfc3RrX2xlZ19pZBj+BSABKAkSNwoK",
-            "c3NhbGVfZmxhZxiBBiABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNob3J0",
-            "U2FsZUZsYWcSEQoIcmVmX3VQcmMYhwYgASgCEhEKCG51bV9sZWdzGIoGIAEo",
-            "BRIxCghzZWNfa2V5MRiNBiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9w",
-            "dGlvbktleRI0CglzZWNfdHlwZTEYkAYgASgOMiAuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5TcGRyS2V5VHlwZRIOCgVtdWx0MRiTBiABKA0SLAoFc2lkZTEYlgYg",
-            "ASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhAKB2xlZ19pZDEY",
-            "mQYgASgDEhQKC2FsdF9sZWdfaWQxGJwGIAEoCRI1Cglwb3NfdHlwZTEYnwYg",
-            "ASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5Qb3NpdGlvblR5cGUSOAoLc3Nh",
-            "bGVfZmxhZzEYpQYgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5TaG9ydFNh",
-            "bGVGbGFnEg4KBXZlZ2ExGKsGIAEoAhISCglyZWZfdVByYzEYrgYgASgBEhMK",
-            "CnJlZl9kZWx0YTEYsQYgASgCEhYKDXJlZl9lYXJuX2NudDEYtAYgASgFEjEK",
-            "CHNlY19rZXkyGLcGIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9u",
-            "S2V5EjQKCXNlY190eXBlMhi6BiABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlNwZHJLZXlUeXBlEg4KBW11bHQyGL0GIAEoDRIsCgVzaWRlMhjABiABKA4y",
-            "HC5zcGlkZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSEAoHbGVnX2lkMhjDBiAB",
-            "KAMSFAoLYWx0X2xlZ19pZDIYxgYgASgJEjUKCXBvc190eXBlMhjJBiABKA4y",
-            "IS5zcGlkZXJyb2NrLnByb3RvYnVmLlBvc2l0aW9uVHlwZRI4Cgtzc2FsZV9m",
-            "bGFnMhjPBiABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNob3J0U2FsZUZs",
-            "YWcSDgoFdmVnYTIY1QYgASgCEhIKCXJlZl91UHJjMhjYBiABKAESEwoKcmVm",
-            "X2RlbHRhMhjbBiABKAISFgoNcmVmX2Vhcm5fY250MhjeBiABKAUSMQoIc2Vj",
-            "X2tleTMY4QYgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkS",
-            "NAoJc2VjX3R5cGUzGOQGIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bk",
-            "cktleVR5cGUSDgoFbXVsdDMY5wYgASgNEiwKBXNpZGUzGOoGIAEoDjIcLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuQnV5U2VsbBIQCgdsZWdfaWQzGO0GIAEoAxIU",
-            "CgthbHRfbGVnX2lkMxjwBiABKAkSNQoJcG9zX3R5cGUzGPMGIAEoDjIhLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuUG9zaXRpb25UeXBlEjgKC3NzYWxlX2ZsYWcz",
-            "GPkGIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuU2hvcnRTYWxlRmxhZxIO",
-            "CgV2ZWdhMxj/BiABKAISEgoJcmVmX3VQcmMzGIIHIAEoARITCgpyZWZfZGVs",
-            "dGEzGIUHIAEoAhIWCg1yZWZfZWFybl9jbnQzGIgHIAEoBRIxCghzZWNfa2V5",
-            "NBiLByABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRI0Cglz",
-            "ZWNfdHlwZTQYjgcgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyS2V5",
-            "VHlwZRIOCgVtdWx0NBiRByABKA0SLAoFc2lkZTQYlAcgASgOMhwuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5CdXlTZWxsEhAKB2xlZ19pZDQYlwcgASgDEhQKC2Fs",
-            "dF9sZWdfaWQ0GJoHIAEoCRI1Cglwb3NfdHlwZTQYnQcgASgOMiEuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5Qb3NpdGlvblR5cGUSOAoLc3NhbGVfZmxhZzQYowcg",
-            "ASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5TaG9ydFNhbGVGbGFnEg4KBXZl",
-            "Z2E0GKkHIAEoAhISCglyZWZfdVByYzQYrAcgASgBEhMKCnJlZl9kZWx0YTQY",
-            "rwcgASgCEhYKDXJlZl9lYXJuX2NudDQYsgcgASgFEjEKCHNlY19rZXk1GLUH",
-            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjQKCXNlY190",
-            "eXBlNRi4ByABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBl",
-            "Eg4KBW11bHQ1GLsHIAEoDRIsCgVzaWRlNRi+ByABKA4yHC5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkJ1eVNlbGwSEAoHbGVnX2lkNRjBByABKAMSFAoLYWx0X2xl",
-            "Z19pZDUYxAcgASgJEjUKCXBvc190eXBlNRjHByABKA4yIS5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlBvc2l0aW9uVHlwZRI4Cgtzc2FsZV9mbGFnNRjNByABKA4y",
-            "Ii5zcGlkZXJyb2NrLnByb3RvYnVmLlNob3J0U2FsZUZsYWcSDgoFdmVnYTUY",
-            "0wcgASgCEhIKCXJlZl91UHJjNRjWByABKAESEwoKcmVmX2RlbHRhNRjZByAB",
-            "KAISFgoNcmVmX2Vhcm5fY250NRjcByABKAUSMQoIc2VjX2tleTYY3wcgASgL",
-            "Mh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkSNAoJc2VjX3R5cGU2",
-            "GOIHIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSDgoF",
-            "bXVsdDYY5QcgASgNEiwKBXNpZGU2GOgHIAEoDjIcLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuQnV5U2VsbBIQCgdsZWdfaWQ2GOsHIAEoAxIUCgthbHRfbGVnX2lk",
-            "NhjuByABKAkSNQoJcG9zX3R5cGU2GPEHIAEoDjIhLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuUG9zaXRpb25UeXBlEjgKC3NzYWxlX2ZsYWc2GPcHIAEoDjIiLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuU2hvcnRTYWxlRmxhZxIOCgV2ZWdhNhj9ByAB",
-            "KAISEgoJcmVmX3VQcmM2GIAIIAEoARITCgpyZWZfZGVsdGE2GIMIIAEoAhIW",
-            "Cg1yZWZfZWFybl9jbnQ2GIYIIAEoBWIGcHJvdG8z"));
+            "bWVzdGFtcBIzCgphdXRvX2hlZGdlGIoDIAEoDjIeLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuQXV0b0hlZGdlEjkKEGhlZGdlX2luc3RydW1lbnQYjQMgASgOMh4u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5IZWRnZUluc3QSNgoNaGVkZ2Vfc2VjX2tl",
+            "eRiQAyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRIZChBo",
+            "ZWRnZV9iZXRhX3JhdGlvGJMDIAEoAhI1CgtoZWRnZV9zY29wZRiWAyABKA4y",
+            "Hy5zcGlkZXJyb2NrLnByb3RvYnVmLkhlZGdlU2NvcGUSOgoNaGVkZ2Vfc2Vz",
+            "c2lvbhiNCCABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtldFNlc3Np",
+            "b24SHQoUZXh0ZXJuX2hlZGdlX2V4X2Rlc3QYnAMgASgJEhwKE2V4dGVybl9o",
+            "ZWRnZV9wYXJhbXMYnwMgASgJEjEKCWZpcm1fdHlwZRiiAyABKA4yHS5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLkZpcm1UeXBlEjsKDm9yZGVyX2NhcGFjaXR5GKUD",
+            "IAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuT3JkZXJDYXBhY2l0eRI5Cg1w",
+            "b3NpdGlvbl90eXBlGKgDIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuUG9z",
+            "aXRpb25UeXBlEjcKCnNzYWxlX2ZsYWcYqwMgASgOMiIuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5TaG9ydFNhbGVGbGFnEhcKDm5vX2Nyb3NzX2dyb3VwGK4DIAEo",
+            "CRIXCg5leGNoX3RyYWRlcl9pZBixAyABKAkSGAoPbGFyZ2VfdHJhZGVyX2lk",
+            "GLQDIAEoCRIZChB0cmFkaW5nX2xvY2F0aW9uGLcDIAEoCRIwCglsZWFkX3Np",
+            "ZGUY5AMgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEiAKF21h",
+            "eF9jb21wbGV0aW9uX3NsaXBwYWdlGOcDIAEoARIaChFvcmRlcl9yZWZfcHJl",
+            "bWl1bRjqAyABKAISFgoNbm90aWNlX251bWJlchiICCABKAMSEQoIdGhlb192",
+            "b2wY8AMgASgCEhcKDmNsX2Fycml2ZV9tYXJrGPMDIAEoAhIWCg1yaXNrX2dy",
+            "b3VwX2lkGPYDIAEoAxI8ChdyZXFfYXV4X3Jpc2tfZ3JvdXBfY3RybBiJCCAB",
+            "KA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj0KEHJlZl9yTWV0cmlj",
+            "MV9zcmMYugMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmljU291",
+            "cmNlEj0KEHJlZl9yTWV0cmljMl9zcmMYvQMgASgOMiIuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5STWV0cmljU291cmNlEj0KEHJlZl9yTWV0cmljM19zcmMYwAMg",
+            "ASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmljU291cmNlEj0KEHJl",
+            "Zl9yTWV0cmljNF9zcmMYwwMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5S",
+            "TWV0cmljU291cmNlEj0KEHJlZl9yTWV0cmljNV9zcmMYxgMgASgOMiIuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5STWV0cmljU291cmNlEj0KEHJlZl9yTWV0cmlj",
+            "Nl9zcmMYyQMgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5STWV0cmljU291",
+            "cmNlEj0KEHJlZl9yTWV0cmljN19zcmMYzAMgASgOMiIuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5STWV0cmljU291cmNlEhsKEm9yZGVyX3JlZl9yTWV0cmljMRjP",
+            "AyABKAISGwoSb3JkZXJfcmVmX3JNZXRyaWMyGNIDIAEoAhIbChJvcmRlcl9y",
+            "ZWZfck1ldHJpYzMY1QMgASgCEhsKEm9yZGVyX3JlZl9yTWV0cmljNBjYAyAB",
+            "KAISGwoSb3JkZXJfcmVmX3JNZXRyaWM1GNsDIAEoAhIbChJvcmRlcl9yZWZf",
+            "ck1ldHJpYzYY3gMgASgCEhsKEm9yZGVyX3JlZl9yTWV0cmljNxjhAyABKAIS",
+            "HwoWZXhwX2RheV93dF92ZWdhX29mZnNldBiRBCABKAISHwoWbWF4X2V4cF9k",
+            "YXlfd3RfdmVnYV9sbhiLBCABKAISHwoWbWF4X2V4cF9kYXlfd3RfdmVnYV9z",
+            "aBiOBCABKAISIAoXbWF4X2V4cF9kYXlfck1ldHJpYzZfbG4YrwQgASgCEiAK",
+            "F21heF9leHBfZGF5X3JNZXRyaWM2X3NoGLIEIAEoAhIeChVzeW1fZGF5X2RE",
+            "ZWx0YV9vZmZzZXQYrAQgASgCEh4KFW1heF9zeW1fZGF5X2REZWx0YV9sbhim",
+            "BCABKAISHgoVbWF4X3N5bV9kYXlfZERlbHRhX3NoGKkEIAEoAhIcChNzeW1f",
+            "ZGF5X3ZlZ2Ffb2Zmc2V0GJoEIAEoAhIcChNtYXhfc3ltX2RheV92ZWdhX2xu",
+            "GJQEIAEoAhIcChNtYXhfc3ltX2RheV92ZWdhX3NoGJcEIAEoAhIfChZzeW1f",
+            "ZGF5X3d0X3ZlZ2Ffb2Zmc2V0GKMEIAEoAhIfChZtYXhfc3ltX2RheV93dF92",
+            "ZWdhX2xuGJ0EIAEoAhIfChZtYXhfc3ltX2RheV93dF92ZWdhX3NoGKAEIAEo",
+            "AhIgChdtYXhfc3ltX2RheV9yTWV0cmljN19sbhi4BCABKAISIAoXbWF4X3N5",
+            "bV9kYXlfck1ldHJpYzdfc2gYuwQgASgCEh4KFW1heF9ncnBfZGF5X2REZWx0",
+            "YV9sbhjBBCABKAISHgoVbWF4X2dycF9kYXlfZERlbHRhX3NoGMQEIAEoAhIc",
+            "ChNtYXhfZ3JwX2RheV92ZWdhX2xuGMoEIAEoAhIcChNtYXhfZ3JwX2RheV92",
+            "ZWdhX3NoGM0EIAEoAhIdChRtYXhfZ3JwX2RheV92ZWdhX2FicxjQBCABKAIS",
+            "GwoSZ3JwX2RheV92ZWdhX3JhdGlvGNMEIAEoAhIhChhtYXhfZ3JwX2RheV9j",
+            "b250cmFjdHNfbG4YhgUgASgFEiEKGG1heF9ncnBfZGF5X2NvbnRyYWN0c19z",
+            "aBiJBSABKAUSIgoZbWF4X2dycF9kYXlfY29udHJhY3RzX2FicxiMBSABKAUS",
+            "IAoXbWF4X2dycF9kYXlfck1ldHJpYzFfbG4Y4gQgASgCEiAKF21heF9ncnBf",
+            "ZGF5X3JNZXRyaWMxX3NoGOUEIAEoAhIhChhtYXhfZ3JwX2RheV9yTWV0cmlj",
+            "MV9hYnMY6AQgASgCEh8KFmdycF9kYXlfck1ldHJpYzFfcmF0aW8Y6wQgASgC",
+            "EiAKF21heF9ncnBfZGF5X3JNZXRyaWMyX2xuGO4EIAEoAhIgChdtYXhfZ3Jw",
+            "X2RheV9yTWV0cmljMl9zaBjxBCABKAISIAoXbWF4X2dycF9kYXlfck1ldHJp",
+            "YzNfbG4Y9AQgASgCEiAKF21heF9ncnBfZGF5X3JNZXRyaWMzX3NoGPcEIAEo",
+            "AhIgChdtYXhfZ3JwX2RheV9yTWV0cmljNF9sbhj6BCABKAISIAoXbWF4X2dy",
+            "cF9kYXlfck1ldHJpYzRfc2gY/QQgASgCEiAKF21heF9ncnBfZGF5X3JNZXRy",
+            "aWM1X2xuGIAFIAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmljNV9zaBiDBSAB",
+            "KAISHgoVc3ltX2VtYV9jeGxfZERlbHRhX2xuGI8FIAEoAhIeChVzeW1fZW1h",
+            "X2N4bF9kRGVsdGFfc2gYkgUgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ff",
+            "bG4YlQUgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ffc2gYmAUgASgCEjMK",
+            "Dmxhc3RfZmlsbF9kdHRtGJsFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASEwoKdXNlcl9kYXRhMRieBSABKAkSEwoKdXNlcl9kYXRhMhihBSAB",
+            "KAkSEwoKY2hpbGRfZGF0YRikBSABKAkSFgoNc3JjX3RpbWVzdGFtcBinBSAB",
+            "KAMSFgoNc2d3X3RpbWVzdGFtcBiqBSABKAMSLgoJdGltZXN0YW1wGK0FIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASQQoRaW5jbHVkZV9zUk5l",
+            "dHdvcmsYswUgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5JbmNsRXhjbERp",
+            "c2Nsb3NlEloKFmRpcmVjdGVkX2NvdW50ZXJfcGFydHkYtgUgAygLMjkuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5TcGRyUGFyZW50T3JkZXIuRGlyZWN0ZWRDb3Vu",
+            "dGVyUGFydHkSQwoKb3JkZXJfbGVncxjvBSADKAsyLi5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlNwZHJQYXJlbnRPcmRlci5PcmRlckxlZ3MaHQoEUEtleRIVCg1w",
+            "YXJlbnRfbnVtYmVyGAogASgDGmcKFERpcmVjdGVkQ291bnRlclBhcnR5EhQK",
+            "C2NsaWVudF9maXJtGLkFIAEoCRI5CglpbmNsX2V4Y2wYvAUgASgOMiUuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5JbmNsRXhjbERpc2Nsb3NlGvsUCglPcmRlckxl",
+            "Z3MSLwoGdGlja2VyGPIFIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlj",
+            "a2VyS2V5EjEKCnN0b2NrX3NpZGUY9QUgASgOMhwuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5CdXlTZWxsEhUKDHN0b2NrX3NoYXJlcxj4BSABKAUSFQoMc3RvY2tf",
+            "bGVnX2lkGPsFIAEoAxIXCg5hbHRfc3RrX2xlZ19pZBj+BSABKAkSNwoKc3Nh",
+            "bGVfZmxhZxiBBiABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNob3J0U2Fs",
+            "ZUZsYWcSEQoIcmVmX3VQcmMYhwYgASgCEhEKCG51bV9sZWdzGIoGIAEoBRIx",
+            "CghzZWNfa2V5MRiNBiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlv",
+            "bktleRI0CglzZWNfdHlwZTEYkAYgASgOMiAuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5TcGRyS2V5VHlwZRIOCgVtdWx0MRiTBiABKA0SLAoFc2lkZTEYlgYgASgO",
+            "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhAKB2xlZ19pZDEYmQYg",
+            "ASgDEhQKC2FsdF9sZWdfaWQxGJwGIAEoCRI1Cglwb3NfdHlwZTEYnwYgASgO",
+            "MiEuc3BpZGVycm9jay5wcm90b2J1Zi5Qb3NpdGlvblR5cGUSOAoLc3NhbGVf",
+            "ZmxhZzEYpQYgASgOMiIuc3BpZGVycm9jay5wcm90b2J1Zi5TaG9ydFNhbGVG",
+            "bGFnEg4KBXZlZ2ExGKsGIAEoAhISCglyZWZfdVByYzEYrgYgASgBEhMKCnJl",
+            "Zl9kZWx0YTEYsQYgASgCEhYKDXJlZl9lYXJuX2NudDEYtAYgASgFEjEKCHNl",
+            "Y19rZXkyGLcGIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5",
+            "EjQKCXNlY190eXBlMhi6BiABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNw",
+            "ZHJLZXlUeXBlEg4KBW11bHQyGL0GIAEoDRIsCgVzaWRlMhjABiABKA4yHC5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSEAoHbGVnX2lkMhjDBiABKAMS",
+            "FAoLYWx0X2xlZ19pZDIYxgYgASgJEjUKCXBvc190eXBlMhjJBiABKA4yIS5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlBvc2l0aW9uVHlwZRI4Cgtzc2FsZV9mbGFn",
+            "MhjPBiABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNob3J0U2FsZUZsYWcS",
+            "DgoFdmVnYTIY1QYgASgCEhIKCXJlZl91UHJjMhjYBiABKAESEwoKcmVmX2Rl",
+            "bHRhMhjbBiABKAISFgoNcmVmX2Vhcm5fY250MhjeBiABKAUSMQoIc2VjX2tl",
+            "eTMY4QYgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkSNAoJ",
+            "c2VjX3R5cGUzGOQGIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bkcktl",
+            "eVR5cGUSDgoFbXVsdDMY5wYgASgNEiwKBXNpZGUzGOoGIAEoDjIcLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuQnV5U2VsbBIQCgdsZWdfaWQzGO0GIAEoAxIUCgth",
+            "bHRfbGVnX2lkMxjwBiABKAkSNQoJcG9zX3R5cGUzGPMGIAEoDjIhLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuUG9zaXRpb25UeXBlEjgKC3NzYWxlX2ZsYWczGPkG",
+            "IAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuU2hvcnRTYWxlRmxhZxIOCgV2",
+            "ZWdhMxj/BiABKAISEgoJcmVmX3VQcmMzGIIHIAEoARITCgpyZWZfZGVsdGEz",
+            "GIUHIAEoAhIWCg1yZWZfZWFybl9jbnQzGIgHIAEoBRIxCghzZWNfa2V5NBiL",
+            "ByABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRI0CglzZWNf",
+            "dHlwZTQYjgcgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyS2V5VHlw",
+            "ZRIOCgVtdWx0NBiRByABKA0SLAoFc2lkZTQYlAcgASgOMhwuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5CdXlTZWxsEhAKB2xlZ19pZDQYlwcgASgDEhQKC2FsdF9s",
+            "ZWdfaWQ0GJoHIAEoCRI1Cglwb3NfdHlwZTQYnQcgASgOMiEuc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5Qb3NpdGlvblR5cGUSOAoLc3NhbGVfZmxhZzQYowcgASgO",
+            "MiIuc3BpZGVycm9jay5wcm90b2J1Zi5TaG9ydFNhbGVGbGFnEg4KBXZlZ2E0",
+            "GKkHIAEoAhISCglyZWZfdVByYzQYrAcgASgBEhMKCnJlZl9kZWx0YTQYrwcg",
+            "ASgCEhYKDXJlZl9lYXJuX2NudDQYsgcgASgFEjEKCHNlY19rZXk1GLUHIAEo",
+            "CzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjQKCXNlY190eXBl",
+            "NRi4ByABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEg4K",
+            "BW11bHQ1GLsHIAEoDRIsCgVzaWRlNRi+ByABKA4yHC5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLkJ1eVNlbGwSEAoHbGVnX2lkNRjBByABKAMSFAoLYWx0X2xlZ19p",
+            "ZDUYxAcgASgJEjUKCXBvc190eXBlNRjHByABKA4yIS5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlBvc2l0aW9uVHlwZRI4Cgtzc2FsZV9mbGFnNRjNByABKA4yIi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlNob3J0U2FsZUZsYWcSDgoFdmVnYTUY0wcg",
+            "ASgCEhIKCXJlZl91UHJjNRjWByABKAESEwoKcmVmX2RlbHRhNRjZByABKAIS",
+            "FgoNcmVmX2Vhcm5fY250NRjcByABKAUSMQoIc2VjX2tleTYY3wcgASgLMh4u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXkSNAoJc2VjX3R5cGU2GOIH",
+            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSDgoFbXVs",
+            "dDYY5QcgASgNEiwKBXNpZGU2GOgHIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuQnV5U2VsbBIQCgdsZWdfaWQ2GOsHIAEoAxIUCgthbHRfbGVnX2lkNhju",
+            "ByABKAkSNQoJcG9zX3R5cGU2GPEHIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuUG9zaXRpb25UeXBlEjgKC3NzYWxlX2ZsYWc2GPcHIAEoDjIiLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuU2hvcnRTYWxlRmxhZxIOCgV2ZWdhNhj9ByABKAIS",
+            "EgoJcmVmX3VQcmM2GIAIIAEoARITCgpyZWZfZGVsdGE2GIMIIAEoAhIWCg1y",
+            "ZWZfZWFybl9jbnQ2GIYIIAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentOrder), global::Spiderrock.Protobuf.SpdrParentOrder.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "SpdrActionType", "ParentShape", "ClientSeqNumIn", "AltOrderId", "AltPrevOrderId", "AltAutoHedgeId", "AltAccnt", "AltUserName", "SrcRoutingCode", "PackageId", "SecKey", "SecType", "SecurityDesc", "Accnt", "ClientFirm", "SpdrSource", "GroupingCode", "ExecBrkrCode", "ExternExDest", "ExternParams", "Strategy", "UserName", "UserSource", "OrderDttm", "OrderSide", "OrderSize", "OrderActiveSize", "CurCumFillQuantity", "AddCumFillQuantity", "MaxExposureSize", "NumMakeExchanges", "PublicSize", "CanOverlapCxlRepl", "ProgressRule", "BlockVisibility", "ProgressSliceCnt", "ProgressExposeTime", "VwapParticipation", "MinMktOnClosePct", "TriggerType", "TriggerLevel", "AuctionResponder", "MaxMakeExchFee", "MaxTakeExchFee", "IncTakeExchFee", "IncMakeExchFee", "MakeExchRule", "CxlUPrcRange", "MinUBid", "MaxUAsk", "MinMaxType", "MinOptionPx", "MaxChildOrders", "ExchMask", "SpdrStageType", "MarketSession", "StartDttm", "OrderDuration", "ActiveDuration", "GoodTillDttm", "StartType", "TriggerGroupId", "TriggerTimestamp", "ParentOrderHandling", "ParentBalanceHandling", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "TakeReachRule", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDelta", "OrderRefGamma", "OrderVolLimit", "RateOverride", "SdivOverride", "DdivOverride", "OverrideCode", "OrderPrcOffset", "StateModel", "UStateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidthOffset", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidthOffset", "OrderRefEventMult", "OrderRefEventDttm", "NbboCap", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "ExternHedgeExDest", "ExternHedgeParams", "FirmType", "OrderCapacity", "PositionType", "SsaleFlag", "LocateFirm", "LocatePool", "NoCrossGroup", "ExchTraderId", "LargeTraderId", "TradingLocation", "LeadSide", "MaxCompletionSlippage", "OrderRefPremium", "NoticeNumber", "TheoVol", "ClArriveMark", "RiskGroupId", "ReqAuxRiskGroupCtrl", "RefRMetric1Src", "RefRMetric2Src", "RefRMetric3Src", "RefRMetric4Src", "RefRMetric5Src", "RefRMetric6Src", "RefRMetric7Src", "OrderRefRMetric1", "OrderRefRMetric2", "OrderRefRMetric3", "OrderRefRMetric4", "OrderRefRMetric5", "OrderRefRMetric6", "OrderRefRMetric7", "ExpDayWtVegaOffset", "MaxExpDayWtVegaLn", "MaxExpDayWtVegaSh", "MaxExpDayRMetric6Ln", "MaxExpDayRMetric6Sh", "SymDayDDeltaOffset", "MaxSymDayDDeltaLn", "MaxSymDayDDeltaSh", "SymDayVegaOffset", "MaxSymDayVegaLn", "MaxSymDayVegaSh", "SymDayWtVegaOffset", "MaxSymDayWtVegaLn", "MaxSymDayWtVegaSh", "MaxSymDayRMetric7Ln", "MaxSymDayRMetric7Sh", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "MaxGrpDayRMetric2Ln", "MaxGrpDayRMetric2Sh", "MaxGrpDayRMetric3Ln", "MaxGrpDayRMetric3Sh", "MaxGrpDayRMetric4Ln", "MaxGrpDayRMetric4Sh", "MaxGrpDayRMetric5Ln", "MaxGrpDayRMetric5Sh", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "LastFillDttm", "UserData1", "UserData2", "ChildData", "SrcTimestamp", "SgwTimestamp", "Timestamp", "IncludeSRNetwork", "DirectedCounterParty", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentOrder.Types.PKey), global::Spiderrock.Protobuf.SpdrParentOrder.Types.PKey.Parser, new[]{ "ParentNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentOrder), global::Spiderrock.Protobuf.SpdrParentOrder.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "SpdrActionType", "ParentShape", "ClientSeqNumIn", "AltOrderId", "AltPrevOrderId", "AltAutoHedgeId", "AltAccnt", "AltUserName", "SrcRoutingCode", "PackageId", "SecKey", "SecType", "SecurityDesc", "Accnt", "ClientFirm", "SpdrSource", "GroupingCode", "ExecBrkrCode", "ExternExDest", "ExternParams", "Strategy", "UserName", "UserSource", "OrderDttm", "OrderSide", "OrderSize", "OrderActiveSize", "CurCumFillQuantity", "AddCumFillQuantity", "MaxExposureSize", "NumMakeExchanges", "PublicSize", "CanOverlapCxlRepl", "ProgressRule", "BlockVisibility", "ProgressSliceCnt", "ProgressExposeTime", "VwapParticipation", "MinMktOnClosePct", "TriggerType", "TriggerLevel", "AuctionResponder", "MaxMakeExchFee", "MaxTakeExchFee", "IncTakeExchFee", "IncMakeExchFee", "MakeExchRule", "CxlUPrcRange", "MinUBid", "MaxUAsk", "MinMaxType", "MinOptionPx", "MaxChildOrders", "ExchMask", "SpdrStageType", "MarketSession", "StartDttm", "OrderDuration", "ActiveDuration", "GoodTillDttm", "StartType", "TriggerGroupId", "TriggerTimestamp", "ParentOrderHandling", "ParentBalanceHandling", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "TakeReachRule", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDelta", "OrderRefGamma", "OrderVolLimit", "RateOverride", "SdivOverride", "DdivOverride", "OverrideCode", "OrderPrcOffset", "StateModel", "UStateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidthOffset", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidthOffset", "OrderRefEventMult", "OrderRefEventDttm", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "ExternHedgeExDest", "ExternHedgeParams", "FirmType", "OrderCapacity", "PositionType", "SsaleFlag", "NoCrossGroup", "ExchTraderId", "LargeTraderId", "TradingLocation", "LeadSide", "MaxCompletionSlippage", "OrderRefPremium", "NoticeNumber", "TheoVol", "ClArriveMark", "RiskGroupId", "ReqAuxRiskGroupCtrl", "RefRMetric1Src", "RefRMetric2Src", "RefRMetric3Src", "RefRMetric4Src", "RefRMetric5Src", "RefRMetric6Src", "RefRMetric7Src", "OrderRefRMetric1", "OrderRefRMetric2", "OrderRefRMetric3", "OrderRefRMetric4", "OrderRefRMetric5", "OrderRefRMetric6", "OrderRefRMetric7", "ExpDayWtVegaOffset", "MaxExpDayWtVegaLn", "MaxExpDayWtVegaSh", "MaxExpDayRMetric6Ln", "MaxExpDayRMetric6Sh", "SymDayDDeltaOffset", "MaxSymDayDDeltaLn", "MaxSymDayDDeltaSh", "SymDayVegaOffset", "MaxSymDayVegaLn", "MaxSymDayVegaSh", "SymDayWtVegaOffset", "MaxSymDayWtVegaLn", "MaxSymDayWtVegaSh", "MaxSymDayRMetric7Ln", "MaxSymDayRMetric7Sh", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "MaxGrpDayRMetric2Ln", "MaxGrpDayRMetric2Sh", "MaxGrpDayRMetric3Ln", "MaxGrpDayRMetric3Sh", "MaxGrpDayRMetric4Ln", "MaxGrpDayRMetric4Sh", "MaxGrpDayRMetric5Ln", "MaxGrpDayRMetric5Sh", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "LastFillDttm", "UserData1", "UserData2", "ChildData", "SrcTimestamp", "SgwTimestamp", "Timestamp", "IncludeSRNetwork", "DirectedCounterParty", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentOrder.Types.PKey), global::Spiderrock.Protobuf.SpdrParentOrder.Types.PKey.Parser, new[]{ "ParentNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentOrder.Types.DirectedCounterParty), global::Spiderrock.Protobuf.SpdrParentOrder.Types.DirectedCounterParty.Parser, new[]{ "ClientFirm", "InclExcl" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentOrder.Types.OrderLegs), global::Spiderrock.Protobuf.SpdrParentOrder.Types.OrderLegs.Parser, new[]{ "Ticker", "StockSide", "StockShares", "StockLegId", "AltStkLegId", "SsaleFlag", "RefUPrc", "NumLegs", "SecKey1", "SecType1", "Mult1", "Side1", "LegId1", "AltLegId1", "PosType1", "SsaleFlag1", "Vega1", "RefUPrc1", "RefDelta1", "RefEarnCnt1", "SecKey2", "SecType2", "Mult2", "Side2", "LegId2", "AltLegId2", "PosType2", "SsaleFlag2", "Vega2", "RefUPrc2", "RefDelta2", "RefEarnCnt2", "SecKey3", "SecType3", "Mult3", "Side3", "LegId3", "AltLegId3", "PosType3", "SsaleFlag3", "Vega3", "RefUPrc3", "RefDelta3", "RefEarnCnt3", "SecKey4", "SecType4", "Mult4", "Side4", "LegId4", "AltLegId4", "PosType4", "SsaleFlag4", "Vega4", "RefUPrc4", "RefDelta4", "RefEarnCnt4", "SecKey5", "SecType5", "Mult5", "Side5", "LegId5", "AltLegId5", "PosType5", "SsaleFlag5", "Vega5", "RefUPrc5", "RefDelta5", "RefEarnCnt5", "SecKey6", "SecType6", "Mult6", "Side6", "LegId6", "AltLegId6", "PosType6", "SsaleFlag6", "Vega6", "RefUPrc6", "RefDelta6", "RefEarnCnt6" }, null, null, null, null)})
           }));
@@ -406,7 +404,6 @@ namespace Spiderrock.Protobuf {
       makeSurfWidthOffset_ = other.makeSurfWidthOffset_;
       orderRefEventMult_ = other.orderRefEventMult_;
       orderRefEventDttm_ = other.orderRefEventDttm_ != null ? other.orderRefEventDttm_.Clone() : null;
-      nbboCap_ = other.nbboCap_;
       autoHedge_ = other.autoHedge_;
       hedgeInstrument_ = other.hedgeInstrument_;
       hedgeSecKey_ = other.hedgeSecKey_ != null ? other.hedgeSecKey_.Clone() : null;
@@ -419,8 +416,6 @@ namespace Spiderrock.Protobuf {
       orderCapacity_ = other.orderCapacity_;
       positionType_ = other.positionType_;
       ssaleFlag_ = other.ssaleFlag_;
-      locateFirm_ = other.locateFirm_;
-      locatePool_ = other.locatePool_;
       noCrossGroup_ = other.noCrossGroup_;
       exchTraderId_ = other.exchTraderId_;
       largeTraderId_ = other.largeTraderId_;
@@ -808,7 +803,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exec_brkr_code" field.</summary>
-    public const int ExecBrkrCodeFieldNumber = 1039;
+    public const int ExecBrkrCodeFieldNumber = 160;
     private string execBrkrCode_ = "";
     /// <summary>
     /// overrides the default executing broker for this parent order
@@ -823,7 +818,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_ex_dest" field.</summary>
-    public const int ExternExDestFieldNumber = 1040;
+    public const int ExternExDestFieldNumber = 163;
     private string externExDest_ = "";
     /// <summary>
     /// routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
@@ -883,7 +878,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "user_source" field.</summary>
-    public const int UserSourceFieldNumber = 1031;
+    public const int UserSourceFieldNumber = 1034;
     private global::Spiderrock.Protobuf.SpdrSource userSource_ = global::Spiderrock.Protobuf.SpdrSource.Unspecified;
     /// <summary>
     /// SpdrSource of this order (assumed to be the same as spdrSource if None)
@@ -1375,7 +1370,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "market_session" field.</summary>
-    public const int MarketSessionFieldNumber = 1032;
+    public const int MarketSessionFieldNumber = 1035;
     private global::Spiderrock.Protobuf.MarketSession marketSession_ = global::Spiderrock.Protobuf.MarketSession.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1417,7 +1412,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "active_duration" field.</summary>
-    public const int ActiveDurationFieldNumber = 1033;
+    public const int ActiveDurationFieldNumber = 1036;
     private int activeDuration_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1947,21 +1942,6 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "nbbo_cap" field.</summary>
-    public const int NbboCapFieldNumber = 1044;
-    private global::Spiderrock.Protobuf.NbboCap nbboCap_ = global::Spiderrock.Protobuf.NbboCap.Unspecified;
-    /// <summary>
-    /// indicates if order price is capped at NBBO (or 1, 5, 10 pennies through). Primarily for when parentOrderHandling = BlockAuction
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.NbboCap NbboCap {
-      get { return nbboCap_; }
-      set {
-        nbboCap_ = value;
-      }
-    }
-
     /// <summary>Field number for the "auto_hedge" field.</summary>
     public const int AutoHedgeFieldNumber = 394;
     private global::Spiderrock.Protobuf.AutoHedge autoHedge_ = global::Spiderrock.Protobuf.AutoHedge.Unspecified;
@@ -2035,7 +2015,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "hedge_session" field.</summary>
-    public const int HedgeSessionFieldNumber = 1034;
+    public const int HedgeSessionFieldNumber = 1037;
     private global::Spiderrock.Protobuf.MarketSession hedgeSession_ = global::Spiderrock.Protobuf.MarketSession.Unspecified;
     /// <summary>
     /// market session for the autohedge order [defaults to pOrder.marketSession]
@@ -2050,7 +2030,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "extern_hedge_ex_dest" field.</summary>
-    public const int ExternHedgeExDestFieldNumber = 1041;
+    public const int ExternHedgeExDestFieldNumber = 412;
     private string externHedgeExDest_ = "";
     /// <summary>
     /// external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
@@ -2130,36 +2110,6 @@ namespace Spiderrock.Protobuf {
       get { return ssaleFlag_; }
       set {
         ssaleFlag_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "locate_firm" field.</summary>
-    public const int LocateFirmFieldNumber = 1042;
-    private string locateFirm_ = "";
-    /// <summary>
-    /// firm granting the locate (also locate firm used on street FIX orders) (required if selling short and no auto-locate is available)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string LocateFirm {
-      get { return locateFirm_; }
-      set {
-        locateFirm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "locate_pool" field.</summary>
-    public const int LocatePoolFieldNumber = 1043;
-    private string locatePool_ = "";
-    /// <summary>
-    /// locate pool @ firm granting the locate
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string LocatePool {
-      get { return locatePool_; }
-      set {
-        locatePool_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -2257,7 +2207,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "notice_number" field.</summary>
-    public const int NoticeNumberFieldNumber = 1038;
+    public const int NoticeNumberFieldNumber = 1032;
     private long noticeNumber_;
     /// <summary>
     /// required when parentOrderHandling = BlockResponse
@@ -2317,7 +2267,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "req_aux_risk_group_ctrl" field.</summary>
-    public const int ReqAuxRiskGroupCtrlFieldNumber = 1036;
+    public const int ReqAuxRiskGroupCtrlFieldNumber = 1033;
     private global::Spiderrock.Protobuf.YesNo reqAuxRiskGroupCtrl_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3226,7 +3176,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "include_sRNetwork" field.</summary>
-    public const int IncludeSRNetworkFieldNumber = 1037;
+    public const int IncludeSRNetworkFieldNumber = 691;
     private global::Spiderrock.Protobuf.InclExclDisclose includeSRNetwork_ = global::Spiderrock.Protobuf.InclExclDisclose.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3373,7 +3323,6 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MakeSurfWidthOffset, other.MakeSurfWidthOffset)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefEventMult, other.OrderRefEventMult)) return false;
       if (!object.Equals(OrderRefEventDttm, other.OrderRefEventDttm)) return false;
-      if (NbboCap != other.NbboCap) return false;
       if (AutoHedge != other.AutoHedge) return false;
       if (HedgeInstrument != other.HedgeInstrument) return false;
       if (!object.Equals(HedgeSecKey, other.HedgeSecKey)) return false;
@@ -3386,8 +3335,6 @@ namespace Spiderrock.Protobuf {
       if (OrderCapacity != other.OrderCapacity) return false;
       if (PositionType != other.PositionType) return false;
       if (SsaleFlag != other.SsaleFlag) return false;
-      if (LocateFirm != other.LocateFirm) return false;
-      if (LocatePool != other.LocatePool) return false;
       if (NoCrossGroup != other.NoCrossGroup) return false;
       if (ExchTraderId != other.ExchTraderId) return false;
       if (LargeTraderId != other.LargeTraderId) return false;
@@ -3571,7 +3518,6 @@ namespace Spiderrock.Protobuf {
       if (MakeSurfWidthOffset != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MakeSurfWidthOffset);
       if (OrderRefEventMult != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefEventMult);
       if (orderRefEventDttm_ != null) hash ^= OrderRefEventDttm.GetHashCode();
-      if (NbboCap != global::Spiderrock.Protobuf.NbboCap.Unspecified) hash ^= NbboCap.GetHashCode();
       if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) hash ^= AutoHedge.GetHashCode();
       if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) hash ^= HedgeInstrument.GetHashCode();
       if (hedgeSecKey_ != null) hash ^= HedgeSecKey.GetHashCode();
@@ -3584,8 +3530,6 @@ namespace Spiderrock.Protobuf {
       if (OrderCapacity != global::Spiderrock.Protobuf.OrderCapacity.Unspecified) hash ^= OrderCapacity.GetHashCode();
       if (PositionType != global::Spiderrock.Protobuf.PositionType.Unspecified) hash ^= PositionType.GetHashCode();
       if (SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) hash ^= SsaleFlag.GetHashCode();
-      if (LocateFirm.Length != 0) hash ^= LocateFirm.GetHashCode();
-      if (LocatePool.Length != 0) hash ^= LocatePool.GetHashCode();
       if (NoCrossGroup.Length != 0) hash ^= NoCrossGroup.GetHashCode();
       if (ExchTraderId.Length != 0) hash ^= ExchTraderId.GetHashCode();
       if (LargeTraderId.Length != 0) hash ^= LargeTraderId.GetHashCode();
@@ -3765,6 +3709,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(232, 9);
         output.WriteInt64(GroupingCode);
       }
+      if (ExecBrkrCode.Length != 0) {
+        output.WriteRawTag(130, 10);
+        output.WriteString(ExecBrkrCode);
+      }
+      if (ExternExDest.Length != 0) {
+        output.WriteRawTag(154, 10);
+        output.WriteString(ExternExDest);
+      }
       if (ExternParams.Length != 0) {
         output.WriteRawTag(178, 10);
         output.WriteString(ExternParams);
@@ -4077,6 +4029,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(176, 25);
         output.WriteEnum((int) HedgeScope);
       }
+      if (ExternHedgeExDest.Length != 0) {
+        output.WriteRawTag(226, 25);
+        output.WriteString(ExternHedgeExDest);
+      }
       if (ExternHedgeParams.Length != 0) {
         output.WriteRawTag(250, 25);
         output.WriteString(ExternHedgeParams);
@@ -4385,59 +4341,35 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 42);
         output.WriteMessage(Timestamp);
       }
+      if (IncludeSRNetwork != global::Spiderrock.Protobuf.InclExclDisclose.Unspecified) {
+        output.WriteRawTag(152, 43);
+        output.WriteEnum((int) IncludeSRNetwork);
+      }
       directedCounterParty_.WriteTo(output, _repeated_directedCounterParty_codec);
       orderLegs_.WriteTo(output, _repeated_orderLegs_codec);
+      if (NoticeNumber != 0L) {
+        output.WriteRawTag(192, 64);
+        output.WriteInt64(NoticeNumber);
+      }
+      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(200, 64);
+        output.WriteEnum((int) ReqAuxRiskGroupCtrl);
+      }
       if (UserSource != global::Spiderrock.Protobuf.SpdrSource.Unspecified) {
-        output.WriteRawTag(184, 64);
+        output.WriteRawTag(208, 64);
         output.WriteEnum((int) UserSource);
       }
       if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
-        output.WriteRawTag(192, 64);
+        output.WriteRawTag(216, 64);
         output.WriteEnum((int) MarketSession);
       }
       if (ActiveDuration != 0) {
-        output.WriteRawTag(200, 64);
+        output.WriteRawTag(224, 64);
         output.WriteInt32(ActiveDuration);
       }
       if (HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
-        output.WriteRawTag(208, 64);
-        output.WriteEnum((int) HedgeSession);
-      }
-      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(224, 64);
-        output.WriteEnum((int) ReqAuxRiskGroupCtrl);
-      }
-      if (IncludeSRNetwork != global::Spiderrock.Protobuf.InclExclDisclose.Unspecified) {
         output.WriteRawTag(232, 64);
-        output.WriteEnum((int) IncludeSRNetwork);
-      }
-      if (NoticeNumber != 0L) {
-        output.WriteRawTag(240, 64);
-        output.WriteInt64(NoticeNumber);
-      }
-      if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(250, 64);
-        output.WriteString(ExecBrkrCode);
-      }
-      if (ExternExDest.Length != 0) {
-        output.WriteRawTag(130, 65);
-        output.WriteString(ExternExDest);
-      }
-      if (ExternHedgeExDest.Length != 0) {
-        output.WriteRawTag(138, 65);
-        output.WriteString(ExternHedgeExDest);
-      }
-      if (LocateFirm.Length != 0) {
-        output.WriteRawTag(146, 65);
-        output.WriteString(LocateFirm);
-      }
-      if (LocatePool.Length != 0) {
-        output.WriteRawTag(154, 65);
-        output.WriteString(LocatePool);
-      }
-      if (NbboCap != global::Spiderrock.Protobuf.NbboCap.Unspecified) {
-        output.WriteRawTag(160, 65);
-        output.WriteEnum((int) NbboCap);
+        output.WriteEnum((int) HedgeSession);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4533,6 +4465,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(232, 9);
         output.WriteInt64(GroupingCode);
       }
+      if (ExecBrkrCode.Length != 0) {
+        output.WriteRawTag(130, 10);
+        output.WriteString(ExecBrkrCode);
+      }
+      if (ExternExDest.Length != 0) {
+        output.WriteRawTag(154, 10);
+        output.WriteString(ExternExDest);
+      }
       if (ExternParams.Length != 0) {
         output.WriteRawTag(178, 10);
         output.WriteString(ExternParams);
@@ -4845,6 +4785,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(176, 25);
         output.WriteEnum((int) HedgeScope);
       }
+      if (ExternHedgeExDest.Length != 0) {
+        output.WriteRawTag(226, 25);
+        output.WriteString(ExternHedgeExDest);
+      }
       if (ExternHedgeParams.Length != 0) {
         output.WriteRawTag(250, 25);
         output.WriteString(ExternHedgeParams);
@@ -5153,59 +5097,35 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(234, 42);
         output.WriteMessage(Timestamp);
       }
+      if (IncludeSRNetwork != global::Spiderrock.Protobuf.InclExclDisclose.Unspecified) {
+        output.WriteRawTag(152, 43);
+        output.WriteEnum((int) IncludeSRNetwork);
+      }
       directedCounterParty_.WriteTo(ref output, _repeated_directedCounterParty_codec);
       orderLegs_.WriteTo(ref output, _repeated_orderLegs_codec);
+      if (NoticeNumber != 0L) {
+        output.WriteRawTag(192, 64);
+        output.WriteInt64(NoticeNumber);
+      }
+      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(200, 64);
+        output.WriteEnum((int) ReqAuxRiskGroupCtrl);
+      }
       if (UserSource != global::Spiderrock.Protobuf.SpdrSource.Unspecified) {
-        output.WriteRawTag(184, 64);
+        output.WriteRawTag(208, 64);
         output.WriteEnum((int) UserSource);
       }
       if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
-        output.WriteRawTag(192, 64);
+        output.WriteRawTag(216, 64);
         output.WriteEnum((int) MarketSession);
       }
       if (ActiveDuration != 0) {
-        output.WriteRawTag(200, 64);
+        output.WriteRawTag(224, 64);
         output.WriteInt32(ActiveDuration);
       }
       if (HedgeSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
-        output.WriteRawTag(208, 64);
-        output.WriteEnum((int) HedgeSession);
-      }
-      if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
-        output.WriteRawTag(224, 64);
-        output.WriteEnum((int) ReqAuxRiskGroupCtrl);
-      }
-      if (IncludeSRNetwork != global::Spiderrock.Protobuf.InclExclDisclose.Unspecified) {
         output.WriteRawTag(232, 64);
-        output.WriteEnum((int) IncludeSRNetwork);
-      }
-      if (NoticeNumber != 0L) {
-        output.WriteRawTag(240, 64);
-        output.WriteInt64(NoticeNumber);
-      }
-      if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(250, 64);
-        output.WriteString(ExecBrkrCode);
-      }
-      if (ExternExDest.Length != 0) {
-        output.WriteRawTag(130, 65);
-        output.WriteString(ExternExDest);
-      }
-      if (ExternHedgeExDest.Length != 0) {
-        output.WriteRawTag(138, 65);
-        output.WriteString(ExternHedgeExDest);
-      }
-      if (LocateFirm.Length != 0) {
-        output.WriteRawTag(146, 65);
-        output.WriteString(LocateFirm);
-      }
-      if (LocatePool.Length != 0) {
-        output.WriteRawTag(154, 65);
-        output.WriteString(LocatePool);
-      }
-      if (NbboCap != global::Spiderrock.Protobuf.NbboCap.Unspecified) {
-        output.WriteRawTag(160, 65);
-        output.WriteEnum((int) NbboCap);
+        output.WriteEnum((int) HedgeSession);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -5514,9 +5434,6 @@ namespace Spiderrock.Protobuf {
       if (orderRefEventDttm_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(OrderRefEventDttm);
       }
-      if (NbboCap != global::Spiderrock.Protobuf.NbboCap.Unspecified) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) NbboCap);
-      }
       if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AutoHedge);
       }
@@ -5552,12 +5469,6 @@ namespace Spiderrock.Protobuf {
       }
       if (SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SsaleFlag);
-      }
-      if (LocateFirm.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocateFirm);
-      }
-      if (LocatePool.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(LocatePool);
       }
       if (NoCrossGroup.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(NoCrossGroup);
@@ -6116,9 +6027,6 @@ namespace Spiderrock.Protobuf {
         }
         OrderRefEventDttm.MergeFrom(other.OrderRefEventDttm);
       }
-      if (other.NbboCap != global::Spiderrock.Protobuf.NbboCap.Unspecified) {
-        NbboCap = other.NbboCap;
-      }
       if (other.AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) {
         AutoHedge = other.AutoHedge;
       }
@@ -6157,12 +6065,6 @@ namespace Spiderrock.Protobuf {
       }
       if (other.SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) {
         SsaleFlag = other.SsaleFlag;
-      }
-      if (other.LocateFirm.Length != 0) {
-        LocateFirm = other.LocateFirm;
-      }
-      if (other.LocatePool.Length != 0) {
-        LocatePool = other.LocatePool;
       }
       if (other.NoCrossGroup.Length != 0) {
         NoCrossGroup = other.NoCrossGroup;
@@ -6505,6 +6407,14 @@ namespace Spiderrock.Protobuf {
             GroupingCode = input.ReadInt64();
             break;
           }
+          case 1282: {
+            ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 1306: {
+            ExternExDest = input.ReadString();
+            break;
+          }
           case 1330: {
             ExternParams = input.ReadString();
             break;
@@ -6832,6 +6742,10 @@ namespace Spiderrock.Protobuf {
             HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
             break;
           }
+          case 3298: {
+            ExternHedgeExDest = input.ReadString();
+            break;
+          }
           case 3322: {
             ExternHedgeParams = input.ReadString();
             break;
@@ -7146,6 +7060,10 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 5528: {
+            IncludeSRNetwork = (global::Spiderrock.Protobuf.InclExclDisclose) input.ReadEnum();
+            break;
+          }
           case 5554: {
             directedCounterParty_.AddEntriesFrom(input, _repeated_directedCounterParty_codec);
             break;
@@ -7154,56 +7072,28 @@ namespace Spiderrock.Protobuf {
             orderLegs_.AddEntriesFrom(input, _repeated_orderLegs_codec);
             break;
           }
-          case 8248: {
-            UserSource = (global::Spiderrock.Protobuf.SpdrSource) input.ReadEnum();
-            break;
-          }
           case 8256: {
-            MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
-            break;
-          }
-          case 8264: {
-            ActiveDuration = input.ReadInt32();
-            break;
-          }
-          case 8272: {
-            HedgeSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
-            break;
-          }
-          case 8288: {
-            ReqAuxRiskGroupCtrl = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 8296: {
-            IncludeSRNetwork = (global::Spiderrock.Protobuf.InclExclDisclose) input.ReadEnum();
-            break;
-          }
-          case 8304: {
             NoticeNumber = input.ReadInt64();
             break;
           }
-          case 8314: {
-            ExecBrkrCode = input.ReadString();
+          case 8264: {
+            ReqAuxRiskGroupCtrl = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 8322: {
-            ExternExDest = input.ReadString();
+          case 8272: {
+            UserSource = (global::Spiderrock.Protobuf.SpdrSource) input.ReadEnum();
             break;
           }
-          case 8330: {
-            ExternHedgeExDest = input.ReadString();
+          case 8280: {
+            MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
             break;
           }
-          case 8338: {
-            LocateFirm = input.ReadString();
+          case 8288: {
+            ActiveDuration = input.ReadInt32();
             break;
           }
-          case 8346: {
-            LocatePool = input.ReadString();
-            break;
-          }
-          case 8352: {
-            NbboCap = (global::Spiderrock.Protobuf.NbboCap) input.ReadEnum();
+          case 8296: {
+            HedgeSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
             break;
           }
         }
@@ -7314,6 +7204,14 @@ namespace Spiderrock.Protobuf {
             GroupingCode = input.ReadInt64();
             break;
           }
+          case 1282: {
+            ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 1306: {
+            ExternExDest = input.ReadString();
+            break;
+          }
           case 1330: {
             ExternParams = input.ReadString();
             break;
@@ -7641,6 +7539,10 @@ namespace Spiderrock.Protobuf {
             HedgeScope = (global::Spiderrock.Protobuf.HedgeScope) input.ReadEnum();
             break;
           }
+          case 3298: {
+            ExternHedgeExDest = input.ReadString();
+            break;
+          }
           case 3322: {
             ExternHedgeParams = input.ReadString();
             break;
@@ -7955,6 +7857,10 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 5528: {
+            IncludeSRNetwork = (global::Spiderrock.Protobuf.InclExclDisclose) input.ReadEnum();
+            break;
+          }
           case 5554: {
             directedCounterParty_.AddEntriesFrom(ref input, _repeated_directedCounterParty_codec);
             break;
@@ -7963,56 +7869,28 @@ namespace Spiderrock.Protobuf {
             orderLegs_.AddEntriesFrom(ref input, _repeated_orderLegs_codec);
             break;
           }
-          case 8248: {
-            UserSource = (global::Spiderrock.Protobuf.SpdrSource) input.ReadEnum();
-            break;
-          }
           case 8256: {
-            MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
-            break;
-          }
-          case 8264: {
-            ActiveDuration = input.ReadInt32();
-            break;
-          }
-          case 8272: {
-            HedgeSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
-            break;
-          }
-          case 8288: {
-            ReqAuxRiskGroupCtrl = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
-            break;
-          }
-          case 8296: {
-            IncludeSRNetwork = (global::Spiderrock.Protobuf.InclExclDisclose) input.ReadEnum();
-            break;
-          }
-          case 8304: {
             NoticeNumber = input.ReadInt64();
             break;
           }
-          case 8314: {
-            ExecBrkrCode = input.ReadString();
+          case 8264: {
+            ReqAuxRiskGroupCtrl = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
-          case 8322: {
-            ExternExDest = input.ReadString();
+          case 8272: {
+            UserSource = (global::Spiderrock.Protobuf.SpdrSource) input.ReadEnum();
             break;
           }
-          case 8330: {
-            ExternHedgeExDest = input.ReadString();
+          case 8280: {
+            MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
             break;
           }
-          case 8338: {
-            LocateFirm = input.ReadString();
+          case 8288: {
+            ActiveDuration = input.ReadInt32();
             break;
           }
-          case 8346: {
-            LocatePool = input.ReadString();
-            break;
-          }
-          case 8352: {
-            NbboCap = (global::Spiderrock.Protobuf.NbboCap) input.ReadEnum();
+          case 8296: {
+            HedgeSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
             break;
           }
         }

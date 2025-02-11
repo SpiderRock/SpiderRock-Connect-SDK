@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(print_volume, int32);
     #endif//_print_volume__GUARD__
 
-    #ifndef _update_type__UpdateType__GUARD__
-    #define _update_type__UpdateType__GUARD__
-    DECL_STRONG_TYPE(update_type__UpdateType, spiderrock::protobuf::api::UpdateType);
-    #endif//_update_type__UpdateType__GUARD__
+    #ifndef _update_type__GUARD__
+    #define _update_type__GUARD__
+    DECL_STRONG_TYPE(update_type, spiderrock::protobuf::api::UpdateType);
+    #endif//_update_type__GUARD__
 
     #ifndef _src_timestamp__GUARD__
     #define _src_timestamp__GUARD__
@@ -223,9 +223,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
-                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_skey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_skey.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test)));
             return totalSize;
@@ -233,9 +233,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
-                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_skey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_skey.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_test)));
         }
@@ -295,7 +295,7 @@ namespace api {
         using bid_time = spiderrock::protobuf::api::bid_time__timestamp;
         using ask_time = spiderrock::protobuf::api::ask_time__timestamp;
         using print_volume = spiderrock::protobuf::api::print_volume;
-        using update_type = spiderrock::protobuf::api::update_type__UpdateType;
+        using update_type = spiderrock::protobuf::api::update_type;
         using src_timestamp = spiderrock::protobuf::api::src_timestamp;
         using net_timestamp = spiderrock::protobuf::api::net_timestamp;
         using timestamp = spiderrock::protobuf::api::timestamp;
@@ -743,9 +743,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(167,m_srspread_id);
@@ -820,9 +820,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeSrspreadId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,167,m_srspread_id);

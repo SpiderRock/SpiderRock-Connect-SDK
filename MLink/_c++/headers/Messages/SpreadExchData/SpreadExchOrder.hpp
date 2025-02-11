@@ -55,11 +55,6 @@ namespace api {
     DECL_STRONG_TYPE(is_price_valid, spiderrock::protobuf::api::YesNo);
     #endif//_is_price_valid__GUARD__
 
-    #ifndef _flip_side__GUARD__
-    #define _flip_side__GUARD__
-    DECL_STRONG_TYPE(flip_side, spiderrock::protobuf::api::YesNo);
-    #endif//_flip_side__GUARD__
-
     #ifndef _orig_order_size__GUARD__
     #define _orig_order_size__GUARD__
     DECL_STRONG_TYPE(orig_order_size, int32);
@@ -135,10 +130,10 @@ namespace api {
     DECL_STRONG_TYPE(skey, TickerKey);
     #endif//_skey__GUARD__
 
-    #ifndef _exch__OptExch__GUARD__
-    #define _exch__OptExch__GUARD__
-    DECL_STRONG_TYPE(exch__OptExch, spiderrock::protobuf::api::OptExch);
-    #endif//_exch__OptExch__GUARD__
+    #ifndef _exch__GUARD__
+    #define _exch__GUARD__
+    DECL_STRONG_TYPE(exch, spiderrock::protobuf::api::OptExch);
+    #endif//_exch__GUARD__
 
     #ifndef _side__GUARD__
     #define _side__GUARD__
@@ -155,7 +150,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using skey = spiderrock::protobuf::api::skey;
-        using exch = spiderrock::protobuf::api::exch__OptExch;
+        using exch = spiderrock::protobuf::api::exch;
         using side = spiderrock::protobuf::api::side;
         using is_test = spiderrock::protobuf::api::is_test;
 
@@ -226,9 +221,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
-                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_skey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_skey.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_exch)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
@@ -238,9 +233,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_skey;
-                m_skey.setCodecTickerKey(tickerKeyLayout_skey);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_skey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
+                m_skey.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptExch>(m_exch)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
@@ -292,7 +287,6 @@ namespace api {
         using size = spiderrock::protobuf::api::size;
         using price = spiderrock::protobuf::api::price;
         using is_price_valid = spiderrock::protobuf::api::is_price_valid;
-        using flip_side = spiderrock::protobuf::api::flip_side;
         using orig_order_size = spiderrock::protobuf::api::orig_order_size;
         using order_type = spiderrock::protobuf::api::order_type;
         using order_status = spiderrock::protobuf::api::order_status;
@@ -316,7 +310,6 @@ namespace api {
         size m_size{};
         price m_price{};
         is_price_valid m_is_price_valid{};
-        flip_side m_flip_side{};
         orig_order_size m_orig_order_size{};
         order_type m_order_type{};
         order_status m_order_status{};
@@ -355,9 +348,6 @@ namespace api {
         }		
         is_price_valid get_is_price_valid() const {
             return m_is_price_valid;
-        }		
-        flip_side get_flip_side() const {
-            return m_flip_side;
         }		
         orig_order_size get_orig_order_size() const {
             return m_orig_order_size;
@@ -425,9 +415,6 @@ namespace api {
         }
         void set_is_price_valid(const is_price_valid& value)  {
             m_is_price_valid = value;
-        }
-        void set_flip_side(const flip_side& value)  {
-            m_flip_side = value;
         }
         void set_orig_order_size(const orig_order_size& value)  {
             m_orig_order_size = value;
@@ -500,9 +487,6 @@ namespace api {
         void set(const is_price_valid & value) {
             set_is_price_valid(value);
         }
-        void set(const flip_side & value) {
-            set_flip_side(value);
-        }
         void set(const orig_order_size & value) {
             set_orig_order_size(value);
         }
@@ -554,7 +538,6 @@ namespace api {
             set(value.m_size);
             set(value.m_price);
             set(value.m_is_price_valid);
-            set(value.m_flip_side);
             set(value.m_orig_order_size);
             set(value.m_order_type);
             set(value.m_order_status);
@@ -678,9 +661,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeOrderId()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(103,m_order_id);
@@ -692,7 +675,6 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(109,m_price);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_price_valid)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(171,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
             if ( IncludeOrigOrderSize()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(115,m_orig_order_size);
             }
@@ -738,9 +720,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeOrderId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,103,static_cast<string>(m_order_id));
@@ -752,7 +734,6 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,109,m_price);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_price_valid)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,171,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_flip_side)));
             if ( IncludeOrigOrderSize()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,115,m_orig_order_size);
             }
@@ -840,11 +821,6 @@ namespace api {
                     }
                     case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_is_price_valid = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        }
-                        break;
-                    }
-                    case 171: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_flip_side = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -942,7 +918,6 @@ namespace api {
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::size>() const { return m_size; }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::price>() const { return m_price; }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::is_price_valid>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_price_valid)); }
-    template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::flip_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_flip_side)); }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::orig_order_size>() const { return m_orig_order_size; }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::order_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExchOrderType>( m_order_type)); }
     template<> inline const auto SpreadExchOrder::get<SpreadExchOrder::order_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ExchOrderStatus>( m_order_status)); }
@@ -980,7 +955,6 @@ namespace api {
         o << ",\"size\":" << m.get<SpreadExchOrder::size>();
         o << ",\"price\":" << m.get<SpreadExchOrder::price>();
         o << ",\"is_price_valid\":" << (int64_t)m.get<SpreadExchOrder::is_price_valid>();
-        o << ",\"flip_side\":" << (int64_t)m.get<SpreadExchOrder::flip_side>();
         o << ",\"orig_order_size\":" << m.get<SpreadExchOrder::orig_order_size>();
         o << ",\"order_type\":" << (int64_t)m.get<SpreadExchOrder::order_type>();
         o << ",\"order_status\":" << (int64_t)m.get<SpreadExchOrder::order_status>();

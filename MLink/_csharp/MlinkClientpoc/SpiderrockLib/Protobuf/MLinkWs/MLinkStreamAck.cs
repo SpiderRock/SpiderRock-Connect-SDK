@@ -32,7 +32,7 @@ namespace Spiderrock.Protobuf {
             "cnlfbGFiZWwYbSABKAkSLwoLdW5zdWJzY3JpYmUYcCABKA4yGi5zcGlkZXJy",
             "b2NrLnByb3RvYnVmLlllc05vEhAKCG1zZ19uYW1lGHMgASgJEi4KBnJlc3Vs",
             "dBh2IAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQWNrUmVzdWx0Eg4KBmRl",
-            "dGFpbBh6IAEoCWIGcHJvdG8z"));
+            "dGFpbBh5IAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -210,7 +210,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "detail" field.</summary>
-    public const int DetailFieldNumber = 122;
+    public const int DetailFieldNumber = 121;
     private string detail_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -312,7 +312,7 @@ namespace Spiderrock.Protobuf {
         output.WriteEnum((int) Result);
       }
       if (Detail.Length != 0) {
-        output.WriteRawTag(210, 7);
+        output.WriteRawTag(202, 7);
         output.WriteString(Detail);
       }
       if (_unknownFields != null) {
@@ -358,7 +358,7 @@ namespace Spiderrock.Protobuf {
         output.WriteEnum((int) Result);
       }
       if (Detail.Length != 0) {
-        output.WriteRawTag(210, 7);
+        output.WriteRawTag(202, 7);
         output.WriteString(Detail);
       }
       if (_unknownFields != null) {
@@ -490,7 +490,7 @@ namespace Spiderrock.Protobuf {
             Result = (global::Spiderrock.Protobuf.AckResult) input.ReadEnum();
             break;
           }
-          case 978: {
+          case 970: {
             Detail = input.ReadString();
             break;
           }
@@ -544,7 +544,7 @@ namespace Spiderrock.Protobuf {
             Result = (global::Spiderrock.Protobuf.AckResult) input.ReadEnum();
             break;
           }
-          case 978: {
+          case 970: {
             Detail = input.ReadString();
             break;
           }

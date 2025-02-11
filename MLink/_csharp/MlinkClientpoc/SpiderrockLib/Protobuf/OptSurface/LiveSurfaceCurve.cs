@@ -27,7 +27,7 @@ namespace Spiderrock.Protobuf {
             "CipQcm90b2J1Zi9PcHRTdXJmYWNlL0xpdmVTdXJmYWNlQ3VydmUucHJvdG8S",
             "E3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3Rv",
             "Gh5nb29nbGUvcHJvdG9idWYvZHVyYXRpb24ucHJvdG8aH2dvb2dsZS9wcm90",
-            "b2J1Zi90aW1lc3RhbXAucHJvdG8imh4KEExpdmVTdXJmYWNlQ3VydmUSMwoF",
+            "b2J1Zi90aW1lc3RhbXAucHJvdG8imB4KEExpdmVTdXJmYWNlQ3VydmUSMwoF",
             "X21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3NhZ2VNZXRh",
             "ZGF0YRI4CgRwa2V5GAIgASgLMiouc3BpZGVycm9jay5wcm90b2J1Zi5MaXZl",
             "U3VyZmFjZUN1cnZlLlBLZXkSLgoGdGlja2VyGGQgASgLMh4uc3BpZGVycm9j",
@@ -103,21 +103,21 @@ namespace Spiderrock.Protobuf {
             "cHJjGN4DIAEoAhIUCgtmaXRfZXJyX3ZvbBjhAyABKAISFwoObnVtX3NhZGRs",
             "ZV9wdHMY5AMgASgFEhgKD21pbl9zYWRkbGVfc3BhbhjnAyABKAISHQoUbWF4",
             "X3NhZGRsZV9jdXJ2YXR1cmUY6gMgASgCEhUKDHNrZXdfY291bnRlchjtAyAB",
-            "KAUSFQoMc2Rpdl9jb3VudGVyGPADIAEoBRI9Cg90cmFkaW5nX3Nlc3Npb24Y",
-            "gwQgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5UcmFkaW5nU2Vzc2lvbhI/",
-            "ChB0cmFkZWFibGVfc3RhdHVzGPYDIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuVHJhZGVhYmxlU3RhdHVzEjsKDnN1cmZhY2VfcmVzdWx0GPkDIAEoDjIi",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuU3VyZmFjZVJlc3VsdBIwCgtzX3RpbWVz",
-            "dGFtcBj8AyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEigKBHRp",
-            "bWUY/wMgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEi4KCXRpbWVz",
-            "dGFtcBiCBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGnEKBFBL",
-            "ZXkSLAoEZWtleRgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuRXhwaXJ5",
-            "S2V5EjsKDHN1cmZhY2VfdHlwZRgLIAEoDjIlLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuU3VyZmFjZUN1cnZlVHlwZWIGcHJvdG8z"));
+            "KAUSFQoMc2Rpdl9jb3VudGVyGPADIAEoBRI7Cg5tYXJrZXRfc2Vzc2lvbhjz",
+            "AyABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtldFNlc3Npb24SPwoQ",
+            "dHJhZGVhYmxlX3N0YXR1cxj2AyABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlRyYWRlYWJsZVN0YXR1cxI7Cg5zdXJmYWNlX3Jlc3VsdBj5AyABKA4yIi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlN1cmZhY2VSZXN1bHQSMAoLc190aW1lc3Rh",
+            "bXAY/AMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIoCgR0aW1l",
+            "GP8DIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbhIuCgl0aW1lc3Rh",
+            "bXAYggQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpxCgRQS2V5",
+            "EiwKBGVrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtl",
+            "eRI7CgxzdXJmYWNlX3R5cGUYCyABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlN1cmZhY2VDdXJ2ZVR5cGViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceCurve), global::Spiderrock.Protobuf.LiveSurfaceCurve.Parser, new[]{ "Meta", "Pkey", "Ticker", "Fkey", "UPrcDriverKey", "UPrcDriverType", "UPrcDriver", "UPrc", "UBid", "UAsk", "Years", "Rate", "Sdiv", "Ddiv", "DdivPv", "DdivSource", "SymbolRatio", "ExType", "ModelType", "PriceType", "EarnCnt", "EarnCntAdj", "AxisVolRT", "AxisFUPrc", "SynSpot", "SynCarry", "AtmStrike", "MoneynessType", "UnderlierMode", "CpAdjType", "PriceQuoteType", "AtmVol", "AtmCen", "AtmVolHist", "AtmCenHist", "EMove", "EMoveHist", "UPrcRatio", "MinAtmVol", "MaxAtmVol", "MinCPAdjVal", "MaxCPAdjVal", "AtmFixedMove", "AtmPhi", "AtmRho", "AtmVega", "Slope", "VarSwapFV", "GridType", "KnotShift", "FitPowerC", "FitPowerP", "MinXAxis", "MaxXAxis", "AsymptoticVolC", "AsymptoticVolP", "MinCurvValue", "MinCurvXAxis", "MaxCurvValue", "MaxCurvXAxis", "SkewMinX", "SkewMinY", "SurfaceFit", "SkewC00", "SkewC01", "SkewC02", "SkewC03", "SkewC04", "SkewC05", "SkewC06", "SkewC07", "SkewC08", "SkewC09", "SkewC10", "SkewC11", "SkewC12", "SkewC13", "SkewC14", "SkewC15", "SkewC16", "SkewC17", "SkewC18", "SkewC19", "SkewC20", "SkewC21", "SkewC22", "SkewC23", "SkewC24", "SkewC25", "SkewC26", "SkewC27", "SkewC28", "IvAdjD07", "IvAdjD06", "IvAdjD05", "IvAdjD04", "IvAdjD03", "IvAdjD02", "IvAdjD01", "IvAdjU01", "IvAdjU02", "IvAdjU03", "IvAdjU04", "IvAdjU05", "IvAdjU06", "IvAdjU07", "CpAdjD04", "CpAdjD03", "CpAdjD02", "CpAdjD01", "CpAdjU01", "CpAdjU02", "CpAdjU03", "CpAdjU04", "Pwidth", "Vwidth", "CCnt", "PCnt", "CBidMiss", "CAskMiss", "PBidMiss", "PAskMiss", "FitAvgErr", "FitAvgAbsErr", "FitMaxPrcErr", "FitErrXX", "FitErrCP", "FitErrDe", "FitErrBid", "FitErrAsk", "FitErrPrc", "FitErrVol", "NumSaddlePts", "MinSaddleSpan", "MaxSaddleCurvature", "SkewCounter", "SdivCounter", "TradingSession", "TradeableStatus", "SurfaceResult", "STimestamp", "Time", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceCurve.Types.PKey), global::Spiderrock.Protobuf.LiveSurfaceCurve.Types.PKey.Parser, new[]{ "Ekey", "SurfaceType" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceCurve), global::Spiderrock.Protobuf.LiveSurfaceCurve.Parser, new[]{ "Meta", "Pkey", "Ticker", "Fkey", "UPrcDriverKey", "UPrcDriverType", "UPrcDriver", "UPrc", "UBid", "UAsk", "Years", "Rate", "Sdiv", "Ddiv", "DdivPv", "DdivSource", "SymbolRatio", "ExType", "ModelType", "PriceType", "EarnCnt", "EarnCntAdj", "AxisVolRT", "AxisFUPrc", "SynSpot", "SynCarry", "AtmStrike", "MoneynessType", "UnderlierMode", "CpAdjType", "PriceQuoteType", "AtmVol", "AtmCen", "AtmVolHist", "AtmCenHist", "EMove", "EMoveHist", "UPrcRatio", "MinAtmVol", "MaxAtmVol", "MinCPAdjVal", "MaxCPAdjVal", "AtmFixedMove", "AtmPhi", "AtmRho", "AtmVega", "Slope", "VarSwapFV", "GridType", "KnotShift", "FitPowerC", "FitPowerP", "MinXAxis", "MaxXAxis", "AsymptoticVolC", "AsymptoticVolP", "MinCurvValue", "MinCurvXAxis", "MaxCurvValue", "MaxCurvXAxis", "SkewMinX", "SkewMinY", "SurfaceFit", "SkewC00", "SkewC01", "SkewC02", "SkewC03", "SkewC04", "SkewC05", "SkewC06", "SkewC07", "SkewC08", "SkewC09", "SkewC10", "SkewC11", "SkewC12", "SkewC13", "SkewC14", "SkewC15", "SkewC16", "SkewC17", "SkewC18", "SkewC19", "SkewC20", "SkewC21", "SkewC22", "SkewC23", "SkewC24", "SkewC25", "SkewC26", "SkewC27", "SkewC28", "IvAdjD07", "IvAdjD06", "IvAdjD05", "IvAdjD04", "IvAdjD03", "IvAdjD02", "IvAdjD01", "IvAdjU01", "IvAdjU02", "IvAdjU03", "IvAdjU04", "IvAdjU05", "IvAdjU06", "IvAdjU07", "CpAdjD04", "CpAdjD03", "CpAdjD02", "CpAdjD01", "CpAdjU01", "CpAdjU02", "CpAdjU03", "CpAdjU04", "Pwidth", "Vwidth", "CCnt", "PCnt", "CBidMiss", "CAskMiss", "PBidMiss", "PAskMiss", "FitAvgErr", "FitAvgAbsErr", "FitMaxPrcErr", "FitErrXX", "FitErrCP", "FitErrDe", "FitErrBid", "FitErrAsk", "FitErrPrc", "FitErrVol", "NumSaddlePts", "MinSaddleSpan", "MaxSaddleCurvature", "SkewCounter", "SdivCounter", "MarketSession", "TradeableStatus", "SurfaceResult", "STimestamp", "Time", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.LiveSurfaceCurve.Types.PKey), global::Spiderrock.Protobuf.LiveSurfaceCurve.Types.PKey.Parser, new[]{ "Ekey", "SurfaceType" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -300,7 +300,7 @@ namespace Spiderrock.Protobuf {
       maxSaddleCurvature_ = other.maxSaddleCurvature_;
       skewCounter_ = other.skewCounter_;
       sdivCounter_ = other.sdivCounter_;
-      tradingSession_ = other.tradingSession_;
+      marketSession_ = other.marketSession_;
       tradeableStatus_ = other.tradeableStatus_;
       surfaceResult_ = other.surfaceResult_;
       sTimestamp_ = other.sTimestamp_ != null ? other.sTimestamp_.Clone() : null;
@@ -2280,18 +2280,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "trading_session" field.</summary>
-    public const int TradingSessionFieldNumber = 515;
-    private global::Spiderrock.Protobuf.TradingSession tradingSession_ = global::Spiderrock.Protobuf.TradingSession.Unspecified;
+    /// <summary>Field number for the "market_session" field.</summary>
+    public const int MarketSessionFieldNumber = 499;
+    private global::Spiderrock.Protobuf.MarketSession marketSession_ = global::Spiderrock.Protobuf.MarketSession.Unspecified;
     /// <summary>
-    /// trading session this surface is from
+    /// market session this surface is from
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.TradingSession TradingSession {
-      get { return tradingSession_; }
+    public global::Spiderrock.Protobuf.MarketSession MarketSession {
+      get { return marketSession_; }
       set {
-        tradingSession_ = value;
+        marketSession_ = value;
       }
     }
 
@@ -2513,7 +2513,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxSaddleCurvature, other.MaxSaddleCurvature)) return false;
       if (SkewCounter != other.SkewCounter) return false;
       if (SdivCounter != other.SdivCounter) return false;
-      if (TradingSession != other.TradingSession) return false;
+      if (MarketSession != other.MarketSession) return false;
       if (TradeableStatus != other.TradeableStatus) return false;
       if (SurfaceResult != other.SurfaceResult) return false;
       if (!object.Equals(STimestamp, other.STimestamp)) return false;
@@ -2663,7 +2663,7 @@ namespace Spiderrock.Protobuf {
       if (MaxSaddleCurvature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxSaddleCurvature);
       if (SkewCounter != 0) hash ^= SkewCounter.GetHashCode();
       if (SdivCounter != 0) hash ^= SdivCounter.GetHashCode();
-      if (TradingSession != global::Spiderrock.Protobuf.TradingSession.Unspecified) hash ^= TradingSession.GetHashCode();
+      if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) hash ^= MarketSession.GetHashCode();
       if (TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) hash ^= TradeableStatus.GetHashCode();
       if (SurfaceResult != global::Spiderrock.Protobuf.SurfaceResult.Unspecified) hash ^= SurfaceResult.GetHashCode();
       if (sTimestamp_ != null) hash ^= STimestamp.GetHashCode();
@@ -3235,6 +3235,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(128, 31);
         output.WriteInt32(SdivCounter);
       }
+      if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        output.WriteRawTag(152, 31);
+        output.WriteEnum((int) MarketSession);
+      }
       if (TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) {
         output.WriteRawTag(176, 31);
         output.WriteEnum((int) TradeableStatus);
@@ -3254,10 +3258,6 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(146, 32);
         output.WriteMessage(Timestamp);
-      }
-      if (TradingSession != global::Spiderrock.Protobuf.TradingSession.Unspecified) {
-        output.WriteRawTag(152, 32);
-        output.WriteEnum((int) TradingSession);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3817,6 +3817,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(128, 31);
         output.WriteInt32(SdivCounter);
       }
+      if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        output.WriteRawTag(152, 31);
+        output.WriteEnum((int) MarketSession);
+      }
       if (TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) {
         output.WriteRawTag(176, 31);
         output.WriteEnum((int) TradeableStatus);
@@ -3836,10 +3840,6 @@ namespace Spiderrock.Protobuf {
       if (timestamp_ != null) {
         output.WriteRawTag(146, 32);
         output.WriteMessage(Timestamp);
-      }
-      if (TradingSession != global::Spiderrock.Protobuf.TradingSession.Unspecified) {
-        output.WriteRawTag(152, 32);
-        output.WriteEnum((int) TradingSession);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4262,8 +4262,8 @@ namespace Spiderrock.Protobuf {
       if (SdivCounter != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(SdivCounter);
       }
-      if (TradingSession != global::Spiderrock.Protobuf.TradingSession.Unspecified) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TradingSession);
+      if (MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) MarketSession);
       }
       if (TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TradeableStatus);
@@ -4718,8 +4718,8 @@ namespace Spiderrock.Protobuf {
       if (other.SdivCounter != 0) {
         SdivCounter = other.SdivCounter;
       }
-      if (other.TradingSession != global::Spiderrock.Protobuf.TradingSession.Unspecified) {
-        TradingSession = other.TradingSession;
+      if (other.MarketSession != global::Spiderrock.Protobuf.MarketSession.Unspecified) {
+        MarketSession = other.MarketSession;
       }
       if (other.TradeableStatus != global::Spiderrock.Protobuf.TradeableStatus.Unspecified) {
         TradeableStatus = other.TradeableStatus;
@@ -5323,6 +5323,10 @@ namespace Spiderrock.Protobuf {
             SdivCounter = input.ReadInt32();
             break;
           }
+          case 3992: {
+            MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
+            break;
+          }
           case 4016: {
             TradeableStatus = (global::Spiderrock.Protobuf.TradeableStatus) input.ReadEnum();
             break;
@@ -5350,10 +5354,6 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 4120: {
-            TradingSession = (global::Spiderrock.Protobuf.TradingSession) input.ReadEnum();
             break;
           }
         }
@@ -5934,6 +5934,10 @@ namespace Spiderrock.Protobuf {
             SdivCounter = input.ReadInt32();
             break;
           }
+          case 3992: {
+            MarketSession = (global::Spiderrock.Protobuf.MarketSession) input.ReadEnum();
+            break;
+          }
           case 4016: {
             TradeableStatus = (global::Spiderrock.Protobuf.TradeableStatus) input.ReadEnum();
             break;
@@ -5961,10 +5965,6 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 4120: {
-            TradingSession = (global::Spiderrock.Protobuf.TradingSession) input.ReadEnum();
             break;
           }
         }

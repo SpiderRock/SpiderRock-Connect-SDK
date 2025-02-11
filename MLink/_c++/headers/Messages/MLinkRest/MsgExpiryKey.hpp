@@ -152,9 +152,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::MessageMetadataFieldSize(1, messageMetadata);
             }
             if ( IncludeExpiryKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_expiry_key{};
-                m_expiry_key.setCodecExpiryKey(expiryKeyLayout_expiry_key);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(100, expiryKeyLayout_expiry_key);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
+                m_expiry_key.setCodecExpiryKey(expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(100, expiryKeyLayout);
             }
             return totalSize;
         }
@@ -166,9 +166,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeMessageMetadata(dest,1, messageMetadata);
             }
             if ( IncludeExpiryKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_expiry_key{};
-                m_expiry_key.setCodecExpiryKey(expiryKeyLayout_expiry_key);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 100, expiryKeyLayout_expiry_key);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
+                m_expiry_key.setCodecExpiryKey(expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 100, expiryKeyLayout);
             }
         }
 

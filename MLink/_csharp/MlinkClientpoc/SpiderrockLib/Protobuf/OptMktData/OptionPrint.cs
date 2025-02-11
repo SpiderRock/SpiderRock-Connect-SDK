@@ -26,34 +26,34 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiVQcm90b2J1Zi9PcHRNa3REYXRhL09wdGlvblByaW50LnByb3RvEhNzcGlk",
             "ZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90bxofZ29v",
-            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byL7BwoLT3B0aW9uUHJpbnQS",
+            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLlBwoLT3B0aW9uUHJpbnQS",
             "MwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3NhZ2VN",
             "ZXRhZGF0YRIzCgRwa2V5GAIgASgLMiUuc3BpZGVycm9jay5wcm90b2J1Zi5P",
             "cHRpb25QcmludC5QS2V5Ei4KCHBydF9leGNoGGQgASgOMhwuc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5PcHRFeGNoEhAKCHBydF9zaXplGGcgASgFEhEKCXBydF9w",
             "cmljZRhqIAEoAhIXCg9wcnRfY2x1c3Rlcl9udW0YbSABKAUSGAoQcHJ0X2Ns",
             "dXN0ZXJfc2l6ZRhwIAEoBRIuCghwcnRfdHlwZRhzIAEoDjIcLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuUHJ0VHlwZRIUCgtwcmludF9jb2RlcxjLASABKAkSEgoK",
-            "cHJ0X29yZGVycxh2IAEoDRISCgpwcnRfdm9sdW1lGHkgASgFEhIKCmN4bF92",
-            "b2x1bWUYfCABKAUSEQoJYmlkX2NvdW50GH8gASgNEhIKCWFza19jb3VudBiC",
-            "ASABKA0SEwoKYmlkX3ZvbHVtZRiFASABKAUSEwoKYXNrX3ZvbHVtZRiIASAB",
-            "KAUSDQoEZWJpZBiLASABKAISDQoEZWFzaxiOASABKAISDQoEZWJzehiRASAB",
-            "KAUSDQoEZWFzehiUASABKAUSDQoEZWFnZRiXASABKAISEgoJYmlkX3ByaWNl",
-            "GJoBIAEoAhISCglhc2tfcHJpY2UYnQEgASgCEhMKCmJpZF9wcmljZTIYoAEg",
-            "ASgCEhMKCmFza19wcmljZTIYowEgASgCEhEKCGJpZF9zaXplGKYBIAEoBRIR",
-            "Cghhc2tfc2l6ZRipASABKAUSFQoMY3VtX2JpZF9zaXplGKwBIAEoBRIVCgxj",
-            "dW1fYXNrX3NpemUYrwEgASgFEhYKDWN1bV9iaWRfc2l6ZTIYsgEgASgFEhYK",
-            "DWN1bV9hc2tfc2l6ZTIYtQEgASgFEhEKCGJpZF9tYXNrGLgBIAEoDRIRCghh",
-            "c2tfbWFzaxi7ASABKA0SLwoIcHJ0X3NpZGUYvgEgASgOMhwuc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5QcnRTaWRlEhYKDXBydF90aW1lc3RhbXAYwQEgASgDEhYK",
-            "DW5ldF90aW1lc3RhbXAYxAEgASgDEhkKEG9xX25ldF90aW1lc3RhbXAYxwEg",
-            "ASgDEi4KCXRpbWVzdGFtcBjKASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wGjQKBFBLZXkSLAoEb2tleRgKIAEoCzIeLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuT3B0aW9uS2V5YgZwcm90bzM="));
+            "Y2sucHJvdG9idWYuUHJ0VHlwZRISCgpwcnRfb3JkZXJzGHYgASgNEhIKCnBy",
+            "dF92b2x1bWUYeSABKAUSEgoKY3hsX3ZvbHVtZRh8IAEoBRIRCgliaWRfY291",
+            "bnQYfyABKA0SEgoJYXNrX2NvdW50GIIBIAEoDRITCgpiaWRfdm9sdW1lGIUB",
+            "IAEoBRITCgphc2tfdm9sdW1lGIgBIAEoBRINCgRlYmlkGIsBIAEoAhINCgRl",
+            "YXNrGI4BIAEoAhINCgRlYnN6GJEBIAEoBRINCgRlYXN6GJQBIAEoBRINCgRl",
+            "YWdlGJcBIAEoAhISCgliaWRfcHJpY2UYmgEgASgCEhIKCWFza19wcmljZRid",
+            "ASABKAISEwoKYmlkX3ByaWNlMhigASABKAISEwoKYXNrX3ByaWNlMhijASAB",
+            "KAISEQoIYmlkX3NpemUYpgEgASgFEhEKCGFza19zaXplGKkBIAEoBRIVCgxj",
+            "dW1fYmlkX3NpemUYrAEgASgFEhUKDGN1bV9hc2tfc2l6ZRivASABKAUSFgoN",
+            "Y3VtX2JpZF9zaXplMhiyASABKAUSFgoNY3VtX2Fza19zaXplMhi1ASABKAUS",
+            "EQoIYmlkX21hc2sYuAEgASgNEhEKCGFza19tYXNrGLsBIAEoDRIvCghwcnRf",
+            "c2lkZRi+ASABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLlBydFNpZGUSFgoN",
+            "cHJ0X3RpbWVzdGFtcBjBASABKAMSFgoNbmV0X3RpbWVzdGFtcBjEASABKAMS",
+            "GQoQb3FfbmV0X3RpbWVzdGFtcBjHASABKAMSLgoJdGltZXN0YW1wGMoBIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaNAoEUEtleRIsCgRva2V5",
+            "GAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRpb25LZXliBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrint), global::Spiderrock.Protobuf.OptionPrint.Parser, new[]{ "Meta", "Pkey", "PrtExch", "PrtSize", "PrtPrice", "PrtClusterNum", "PrtClusterSize", "PrtType", "PrintCodes", "PrtOrders", "PrtVolume", "CxlVolume", "BidCount", "AskCount", "BidVolume", "AskVolume", "Ebid", "Eask", "Ebsz", "Easz", "Eage", "BidPrice", "AskPrice", "BidPrice2", "AskPrice2", "BidSize", "AskSize", "CumBidSize", "CumAskSize", "CumBidSize2", "CumAskSize2", "BidMask", "AskMask", "PrtSide", "PrtTimestamp", "NetTimestamp", "OqNetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrint.Types.PKey), global::Spiderrock.Protobuf.OptionPrint.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrint), global::Spiderrock.Protobuf.OptionPrint.Parser, new[]{ "Meta", "Pkey", "PrtExch", "PrtSize", "PrtPrice", "PrtClusterNum", "PrtClusterSize", "PrtType", "PrtOrders", "PrtVolume", "CxlVolume", "BidCount", "AskCount", "BidVolume", "AskVolume", "Ebid", "Eask", "Ebsz", "Easz", "Eage", "BidPrice", "AskPrice", "BidPrice2", "AskPrice2", "BidSize", "AskSize", "CumBidSize", "CumAskSize", "CumBidSize2", "CumAskSize2", "BidMask", "AskMask", "PrtSide", "PrtTimestamp", "NetTimestamp", "OqNetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.OptionPrint.Types.PKey), global::Spiderrock.Protobuf.OptionPrint.Types.PKey.Parser, new[]{ "Okey" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -106,7 +106,6 @@ namespace Spiderrock.Protobuf {
       prtClusterNum_ = other.prtClusterNum_;
       prtClusterSize_ = other.prtClusterSize_;
       prtType_ = other.prtType_;
-      printCodes_ = other.printCodes_;
       prtOrders_ = other.prtOrders_;
       prtVolume_ = other.prtVolume_;
       cxlVolume_ = other.cxlVolume_;
@@ -253,21 +252,6 @@ namespace Spiderrock.Protobuf {
       get { return prtType_; }
       set {
         prtType_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "print_codes" field.</summary>
-    public const int PrintCodesFieldNumber = 203;
-    private string printCodes_ = "";
-    /// <summary>
-    /// European trade condition codes
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string PrintCodes {
-      get { return printCodes_; }
-      set {
-        printCodes_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -726,7 +710,6 @@ namespace Spiderrock.Protobuf {
       if (PrtClusterNum != other.PrtClusterNum) return false;
       if (PrtClusterSize != other.PrtClusterSize) return false;
       if (PrtType != other.PrtType) return false;
-      if (PrintCodes != other.PrintCodes) return false;
       if (PrtOrders != other.PrtOrders) return false;
       if (PrtVolume != other.PrtVolume) return false;
       if (CxlVolume != other.CxlVolume) return false;
@@ -771,7 +754,6 @@ namespace Spiderrock.Protobuf {
       if (PrtClusterNum != 0) hash ^= PrtClusterNum.GetHashCode();
       if (PrtClusterSize != 0) hash ^= PrtClusterSize.GetHashCode();
       if (PrtType != global::Spiderrock.Protobuf.PrtType.Unspecified) hash ^= PrtType.GetHashCode();
-      if (PrintCodes.Length != 0) hash ^= PrintCodes.GetHashCode();
       if (PrtOrders != 0) hash ^= PrtOrders.GetHashCode();
       if (PrtVolume != 0) hash ^= PrtVolume.GetHashCode();
       if (CxlVolume != 0) hash ^= CxlVolume.GetHashCode();
@@ -967,10 +949,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 12);
         output.WriteMessage(Timestamp);
       }
-      if (PrintCodes.Length != 0) {
-        output.WriteRawTag(218, 12);
-        output.WriteString(PrintCodes);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1129,10 +1107,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(210, 12);
         output.WriteMessage(Timestamp);
       }
-      if (PrintCodes.Length != 0) {
-        output.WriteRawTag(218, 12);
-        output.WriteString(PrintCodes);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1166,9 +1140,6 @@ namespace Spiderrock.Protobuf {
       }
       if (PrtType != global::Spiderrock.Protobuf.PrtType.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PrtType);
-      }
-      if (PrintCodes.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(PrintCodes);
       }
       if (PrtOrders != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PrtOrders);
@@ -1298,9 +1269,6 @@ namespace Spiderrock.Protobuf {
       }
       if (other.PrtType != global::Spiderrock.Protobuf.PrtType.Unspecified) {
         PrtType = other.PrtType;
-      }
-      if (other.PrintCodes.Length != 0) {
-        PrintCodes = other.PrintCodes;
       }
       if (other.PrtOrders != 0) {
         PrtOrders = other.PrtOrders;
@@ -1564,10 +1532,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
-          case 1626: {
-            PrintCodes = input.ReadString();
-            break;
-          }
         }
       }
     #endif
@@ -1738,10 +1702,6 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 1626: {
-            PrintCodes = input.ReadString();
             break;
           }
         }

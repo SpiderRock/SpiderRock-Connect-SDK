@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuctionPrint {
+    message PKey {
+        
+        int64 notice_number = 10; // AuctionNotice.noticeNumber
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 165;
+        SpdrKeyType sec_type = 166;
+        BuySell side = 167;
+        uint32 ratio = 168;
+        int32 und_per_cn = 169;
+        float point_value = 170;
+        ExpiryType exp_type = 171; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
+        float years = 172; // SR volatility years to expiry
+        float rate = 173; // SR global (discount) rate to expiry
+        float atm_vol = 174; // ATM (fwd uPrc) SR surface volatility
+        float ddiv_pv = 175; // SR present value of ddiv stream
+        float t_vol = 176; // client theo surface volatility (if client surfaces uploaded to SR)
+        float s_vol = 177; // SR Surface Volatility
+        float s_div = 178; // SR Surface SDiv
+        float s_prc = 179; // SR Surface Price
+        float de = 180;
+        float ga = 181;
+        float th = 182;
+        float ve = 183;
+        YesNo s_vol_ok = 184; // Yes if live market and sVol are tracking as expected
+        float o_bid = 185; // NBBO bid price
+        int32 o_bid_sz = 186; // cumulative NBBO bid size
+        uint32 o_bid_mask = 187; // bit-mask of participating NBBO exchanges
+        float o_ask = 188; // NBBO ask price
+        int32 o_ask_sz = 189; // cumulative NBBO ask size
+        uint32 o_ask_mask = 190; // bit-mask of participating NBBO exchanges
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier ticker
+    DateKey trade_date = 101;
+    YesNo is_test_auction = 157; // if yes, auction is a test auction (not a prod/live auction)
+    google.protobuf.Timestamp notice_time = 102; // notice create timestamp (high precision)
+    AuctionType auction_type = 103; // (eg. Block, Flash, Improvement, Facilitation, etc.)
+    AuctionSource auction_source = 104; // source of the auction notice (eg. SRC, MIAX, etc.)
+    string industry = 111; // industry string
+    SymbolType symbol_type = 112;
+    float u_avg_daily_vlm = 113; // underlier average daily trading volume
+    BuySell cust_side = 114; // from AuctionNotice (if known)
+    int32 cust_qty = 115; // from AuctionNotice (if known)
+    double cust_prc = 116; // from AuctionNotice (if known)
+    YesNo has_cust_prc = 117; // from AuctionNotice (if known)
+    FirmType cust_firm_type = 118; // cust firm type (if disclosed)
+    string cust_agent_mPID = 119; // cust agent exchange member initiating the auction (if disclosed)
+    float comm_enhancement = 158; // additional commission (if any) paid by responder
+    int32 num_opt_legs = 105; // MLEG Only
+    ToolSpreadClass spread_class = 106;
+    SpreadFlavor spread_flavor = 107; // MLEG Only
+    YesNo contains_hedge = 108; // MLEG Only
+    YesNo contains_flex = 109; // contains FLEX options (not regular listed options)
+    YesNo contains_multi_hedge = 110; // contains MultiHedge (corp action adjusted) options
+    double u_bid = 159;
+    double u_ask = 160;
+    float net_de = 142;
+    float net_ga = 143;
+    float net_th = 144;
+    float net_ve = 145;
+    float pkg_surf_prc = 161; // SR Surface Price (entire package)
+    float pkg_bid_prc = 162; // pkg bid price (best way price) (entire package)
+    float pkg_ask_prc = 163; // pkg ask price (best way price) (entire package)
+    double prt_price = 121; // reported OPRA print price (pkgPrice if MLeg)
+    double prt_price2 = 122; // if reported as 2 separate prints at different prices (ie, partial size improvement)
+    int32 prt_size = 123; // reported OPRA print size (pgkSize if MLeg)
+    int32 prt_size2 = 124; // reported OPRA print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 125; // reported OPRA print time (1st print if MLeg) (high precision)
+    PrtType prt_type = 126; // reported OPRA print type
+    double prt_uBid = 127; // best estimate of uBid @ auction print time
+    double prt_uAsk = 128; // best estimate of uAsk @ auction print time
+    double prt_uPrc = 129; // best estimate of uPrc @ auction print time
+    float prt_surf_vol = 130; // surface vol @ auction print time (single option auction only)
+    float prt_surf_prc = 131; // surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+    float bid_prc = 132; // option nbbo bid @ auction print time
+    int32 bid_sz = 133; // nbbo bid cum size
+    uint32 bid_mask = 134; // nbbo bid exch mask
+    float ask_prc = 135; // option nbbo ask @ auction print time
+    int32 ask_sz = 136; // nbbo ask cum size
+    uint32 ask_mask = 137; // nbbo ask exch mask
+    float exch_bid_prc = 138; // exch bid @ auction print time
+    int32 exch_bid_sz = 139; // exch bid size
+    float exch_ask_prc = 140; // exch ask @ auction print time
+    int32 exch_ask_sz = 141; // exch ask size
+    float u_prc1m = 146; // uPrc (mid market) @ auction print time + 1m
+    float bid_prc1m = 147; // option nbbo bid @ auction print time + 1m
+    float ask_prc1m = 148; // option nbbo ask @ auction print time + 1m
+    float surf_vol1m = 149; // surface vol @ auction print time + 1m (single option auction only)
+    float surf_prc1m = 150; // surface prc @ auction print time + 1m (@ uMid)
+    float u_prc10m = 151; // uPrc (mid market) @ auction print time + 10m
+    float bid_prc10m = 152; // option nbbo bid @ auction print time + 10m
+    float ask_prc10m = 153; // option nbbo ask @ auction print time + 10m
+    float surf_vol10m = 154; // surface vol @ auction print time + 10m (single option auction only)
+    float surf_prc10m = 155; // surface prc @ auction print time + 10m (@ uMid)
+    google.protobuf.Timestamp timestamp = 156;
+    repeated OrderLegs order_legs = 164;
+}
+
+

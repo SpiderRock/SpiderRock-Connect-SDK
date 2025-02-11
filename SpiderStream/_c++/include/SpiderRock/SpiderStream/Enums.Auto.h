@@ -126,8 +126,10 @@ namespace SpiderRock
  		enum class ClsMarkState : Enum 
 		{
 			None=0,
-			Preview=1,
-			Final=2
+			LastPrt=1,
+			SRClose=2,
+			ExchClose=4,
+			Final=8
 		};
 
  		enum class ContractUnit : Enum 
@@ -351,7 +353,10 @@ namespace SpiderRock
 			SRVol=2,
 			LoBound=3,
 			HiBound=4,
-			Other=5
+			SRPricer=5,
+			SRQuote=6,
+			CloseMark=7,
+			OpenMark=8
 		};
 
  		enum class MarketQualifier : Enum 
@@ -360,6 +365,17 @@ namespace SpiderRock
 			NA=1,
 			Opening=2,
 			Implied=3
+		};
+
+ 		enum class MarketSession : Enum 
+		{
+			None=0,
+			PreMkt=1,
+			RegMkt=2,
+			PostMkt=3,
+			PreRegMkt=4,
+			RegPostMkt=5,
+			AllDay=6
 		};
 
  		enum class MarketStatus : Enum 
@@ -455,16 +471,15 @@ namespace SpiderRock
 			EMLD=23,
 			CFE=24,
 			MEMX=25,
-			SPHR=26,
-			EUREX=27,
-			CEDX=28,
-			NXAM=29,
-			NXBR=30,
-			NXLS=31,
-			NXML=32,
-			NXOS=33,
-			NXP=34,
-			ICEFE=35
+			EUREX=26,
+			CEDX=27,
+			NXAM=28,
+			NXBR=29,
+			NXLS=30,
+			NXML=31,
+			NXOS=32,
+			NXP=33,
+			ICEFE=34
 		};
 
  		enum class OptMktType : Flag 
@@ -615,10 +630,13 @@ namespace SpiderRock
 			LSE=25,
 			NXAM=26,
 			NXBR=27,
-			NXLS=28,
-			NXML=29,
-			NXOS=30,
-			NXP=31
+			NXDUB=28,
+			NXLS=29,
+			NXLDN=30,
+			NXML=31,
+			NXMLT=32,
+			NXOS=33,
+			NXP=34
 		};
 
  		enum class ProductClass : Enum 
@@ -795,10 +813,13 @@ namespace SpiderRock
 			XETRA=27,
 			NXAM=28,
 			NXBR=29,
-			NXLS=30,
-			NXML=31,
-			NXOS=32,
-			NXP=33
+			NXDUB=30,
+			NXLS=31,
+			NXLDN=32,
+			NXML=33,
+			NXMLT=34,
+			NXOS=35,
+			NXP=36
 		};
 
  		enum class StkPriceInc : Enum 
@@ -974,19 +995,22 @@ namespace SpiderRock
 			CUSIP=18,
 			ISIN=19,
 			BXE=20,
-			EUX=21,
+			ESX=21,
 			ANY=22,
 			CXE=23,
 			DXE=24,
 			NXAM=25,
 			NXBR=26,
-			NXLS=27,
-			NXML=28,
-			NXOS=29,
-			NXP=30,
-			EUREX=31,
-			CEDX=32,
-			ICEFE=33
+			NXDUB=27,
+			NXLS=28,
+			NXLDN=29,
+			NXML=30,
+			NXMLT=31,
+			NXOS=32,
+			NXP=33,
+			EUREX=34,
+			CEDX=35,
+			ICEFE=36
 		};
 
  		enum class TimeInForce : Enum 
@@ -1005,7 +1029,11 @@ namespace SpiderRock
 			None=0,
 			D252=1,
 			D365=2,
-			SRV6=3
+			SPX=3,
+			WK1=4,
+			WK2=5,
+			WK3=6,
+			WK4=7
 		};
 
  		enum class TkDefSource : Enum 
@@ -1073,43 +1101,6 @@ namespace SpiderRock
 			VWidthEma=18,
 			PWidthEma=19,
 			Closed=20
-		};
-
- 		enum class TradingPeriod : Enum 
-		{
-			None=0,
-			NMS=1,
-			NMS_EXT=2,
-			NMS_GTH=3,
-			CME_ES=10,
-			CME_ZC=11,
-			CME_ZN=12,
-			CME_CL=13,
-			CME_GC=14,
-			CFE=30,
-			ICE_US=32,
-			ICE_EU=35,
-			EUX=50,
-			EU_ERX=51,
-			EU_CBOE=52,
-			EU_NXAM=53,
-			EU_NXBR=54,
-			EU_NXLS=55,
-			EU_NXML=56,
-			EU_NXOS=57,
-			EU_NXP=58
-		};
-
- 		enum class TradingSession : Enum 
-		{
-			None=0,
-			RegularMkt=1,
-			PreMkt=2,
-			PostMkt=3,
-			PostMktETF=4,
-			NextDay=5,
-			MktClosed=6,
-			Rotation=7
 		};
 
  		enum class UnderlierMode : Enum 

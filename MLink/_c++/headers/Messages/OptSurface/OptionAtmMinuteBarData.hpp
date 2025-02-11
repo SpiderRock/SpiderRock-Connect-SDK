@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(start_time_minute, string);
     #endif//_start_time_minute__GUARD__
 
-    #ifndef _end_time__timestamp__GUARD__
-    #define _end_time__timestamp__GUARD__
-    DECL_STRONG_TYPE(end_time__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_end_time__timestamp__GUARD__
+    #ifndef _end_time__GUARD__
+    #define _end_time__GUARD__
+    DECL_STRONG_TYPE(end_time, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_end_time__GUARD__
 
     #ifndef _end_time_minute__GUARD__
     #define _end_time_minute__GUARD__
@@ -75,15 +75,15 @@ namespace api {
     DECL_STRONG_TYPE(sdiv__float, float);
     #endif//_sdiv__float__GUARD__
 
-    #ifndef _ddiv__float__GUARD__
-    #define _ddiv__float__GUARD__
-    DECL_STRONG_TYPE(ddiv__float, float);
-    #endif//_ddiv__float__GUARD__
+    #ifndef _ddiv__GUARD__
+    #define _ddiv__GUARD__
+    DECL_STRONG_TYPE(ddiv, float);
+    #endif//_ddiv__GUARD__
 
-    #ifndef _u_prc_ratio__double__GUARD__
-    #define _u_prc_ratio__double__GUARD__
-    DECL_STRONG_TYPE(u_prc_ratio__double, double);
-    #endif//_u_prc_ratio__double__GUARD__
+    #ifndef _u_prc_ratio__GUARD__
+    #define _u_prc_ratio__GUARD__
+    DECL_STRONG_TYPE(u_prc_ratio, double);
+    #endif//_u_prc_ratio__GUARD__
 
     #ifndef _ivol__GUARD__
     #define _ivol__GUARD__
@@ -220,10 +220,10 @@ namespace api {
     DECL_STRONG_TYPE(ekey, ExpiryKey);
     #endif//_ekey__GUARD__
 
-    #ifndef _trading_date__timestamp__GUARD__
-    #define _trading_date__timestamp__GUARD__
-    DECL_STRONG_TYPE(trading_date__timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_trading_date__timestamp__GUARD__
+    #ifndef _trading_date__GUARD__
+    #define _trading_date__GUARD__
+    DECL_STRONG_TYPE(trading_date, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_trading_date__GUARD__
 
     #ifndef _minute__GUARD__
     #define _minute__GUARD__
@@ -235,7 +235,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using ekey = spiderrock::protobuf::api::ekey;
-        using trading_date = spiderrock::protobuf::api::trading_date__timestamp;
+        using trading_date = spiderrock::protobuf::api::trading_date;
         using minute = spiderrock::protobuf::api::minute;
 
         private:
@@ -303,9 +303,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
             }
             if ( IncludeTradingDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(11, m_trading_date);
@@ -318,9 +318,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
             }
             if ( IncludeTradingDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 11, m_trading_date);
@@ -370,14 +370,14 @@ namespace api {
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using start_time = spiderrock::protobuf::api::start_time;
         using start_time_minute = spiderrock::protobuf::api::start_time_minute;
-        using end_time = spiderrock::protobuf::api::end_time__timestamp;
+        using end_time = spiderrock::protobuf::api::end_time;
         using end_time_minute = spiderrock::protobuf::api::end_time_minute;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
-        using ddiv = spiderrock::protobuf::api::ddiv__float;
-        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio__double;
+        using ddiv = spiderrock::protobuf::api::ddiv;
+        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio;
         using ivol = spiderrock::protobuf::api::ivol;
         using ivxx = spiderrock::protobuf::api::ivxx;
         using iv_cen = spiderrock::protobuf::api::iv_cen;
@@ -1034,9 +1034,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
             }
             if ( IncludeStartTime()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(103, m_start_time);
@@ -1159,9 +1159,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
             }
             if ( IncludeStartTime()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 103, m_start_time);

@@ -418,9 +418,9 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_currency)));
             if ( IncludeCompositeTkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_composite_tkey{};
-                m_composite_tkey.setCodecTickerKey(tickerKeyLayout_composite_tkey);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(101, tickerKeyLayout_composite_tkey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_composite_tkey.setCodecTickerKey(tickerKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(101, tickerKeyLayout);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ProductClass>(m_underlier_type)));
             if ( IncludeContributors()) {
@@ -446,9 +446,9 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_currency)));
             if ( IncludeCompositeTkey()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_composite_tkey{};
-                m_composite_tkey.setCodecTickerKey(tickerKeyLayout_composite_tkey);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 101, tickerKeyLayout_composite_tkey);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
+                m_composite_tkey.setCodecTickerKey(tickerKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 101, tickerKeyLayout);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ProductClass>(m_underlier_type)));
             if ( IncludeContributors()) {

@@ -76,7 +76,7 @@ message ToolCompositeExecution {
     int32 child_size = 265; // child order size
     double child_price = 268; // child order price
     string child_exch = 271; // child order exchange code (SpiderRock)
-    string child_ex_dest = 600; // child order exchange code (downstream)
+    string child_ex_dest = 274; // child order exchange code (downstream)
     double child_uPrc = 277; // underlier market price @ child order send time
     double child_bid = 280; // market bid @ child order send time
     double child_ask = 283; // market ask @ child order send time
@@ -126,7 +126,7 @@ message ToolCompositeExecution {
     float fill_ga = 415;
     float fill_ve = 418;
     ExecRole exec_role = 421; // SpiderRock relationship to this execution record (Direct, Drop, etc)
-    string exec_brkr_code = 599; // exec broker acronym (usually an MPID)
+    string exec_brkr_code = 424; // exec broker acronym (usually an MPID)
     string exec_brkr_accnt = 427; // account at executing broker (if any)
     string exec_brkr_cl_firm = 430; // client/firm at executing broker (if any)
     string exec_brkr_user_name = 433; // user executing broker (if any)

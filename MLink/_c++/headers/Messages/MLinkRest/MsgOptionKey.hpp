@@ -152,9 +152,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::MessageMetadataFieldSize(1, messageMetadata);
             }
             if ( IncludeOptionKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_option_key{};
-                m_option_key.setCodecOptionKey(optionKeyLayout_option_key);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(100, optionKeyLayout_option_key);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout{};
+                m_option_key.setCodecOptionKey(optionKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(100, optionKeyLayout);
             }
             return totalSize;
         }
@@ -166,9 +166,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeMessageMetadata(dest,1, messageMetadata);
             }
             if ( IncludeOptionKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout_option_key{};
-                m_option_key.setCodecOptionKey(optionKeyLayout_option_key);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 100, optionKeyLayout_option_key);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout{};
+                m_option_key.setCodecOptionKey(optionKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 100, optionKeyLayout);
             }
         }
 

@@ -97,7 +97,7 @@ namespace Spiderrock.Protobuf {
             "bG4Y9QIgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ffc2gY+AIgASgCEhEK",
             "CHRoZW9fdm9sGPsCIAEoAhIXCg5jbF9hcnJpdmVfbWFyaxj+AiABKAISEwoK",
             "dXNlcl9kYXRhMRiBAyABKAkSEwoKdXNlcl9kYXRhMhiEAyABKAkSFwoOZXhl",
-            "Y19icmtyX2NvZGUYlwMgASgJEhQKC21vZGlmaWVkX2J5GIoDIAEoCRI5Cgtt",
+            "Y19icmtyX2NvZGUYhwMgASgJEhQKC21vZGlmaWVkX2J5GIoDIAEoCRI5Cgtt",
             "b2RpZmllZF9pbhiNAyABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vu",
             "dmlyb25tZW50Ei4KCXRpbWVzdGFtcBiQAyABKAsyGi5nb29nbGUucHJvdG9i",
             "dWYuVGltZXN0YW1wGo4CCgRQS2V5Eg0KBWFjY250GAogASgJEi8KB3NlY19r",
@@ -1569,7 +1569,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exec_brkr_code" field.</summary>
-    public const int ExecBrkrCodeFieldNumber = 407;
+    public const int ExecBrkrCodeFieldNumber = 391;
     private string execBrkrCode_ = "";
     /// <summary>
     /// an SR assigned execBrkrCode
@@ -2183,6 +2183,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 24);
         output.WriteString(UserData2);
       }
+      if (ExecBrkrCode.Length != 0) {
+        output.WriteRawTag(186, 24);
+        output.WriteString(ExecBrkrCode);
+      }
       if (ModifiedBy.Length != 0) {
         output.WriteRawTag(210, 24);
         output.WriteString(ModifiedBy);
@@ -2218,10 +2222,6 @@ namespace Spiderrock.Protobuf {
       if (ActiveDuration != 0) {
         output.WriteRawTag(176, 25);
         output.WriteInt32(ActiveDuration);
-      }
-      if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(186, 25);
-        output.WriteString(ExecBrkrCode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2565,6 +2565,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 24);
         output.WriteString(UserData2);
       }
+      if (ExecBrkrCode.Length != 0) {
+        output.WriteRawTag(186, 24);
+        output.WriteString(ExecBrkrCode);
+      }
       if (ModifiedBy.Length != 0) {
         output.WriteRawTag(210, 24);
         output.WriteString(ModifiedBy);
@@ -2600,10 +2604,6 @@ namespace Spiderrock.Protobuf {
       if (ActiveDuration != 0) {
         output.WriteRawTag(176, 25);
         output.WriteInt32(ActiveDuration);
-      }
-      if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(186, 25);
-        output.WriteString(ExecBrkrCode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3559,6 +3559,10 @@ namespace Spiderrock.Protobuf {
             UserData2 = input.ReadString();
             break;
           }
+          case 3130: {
+            ExecBrkrCode = input.ReadString();
+            break;
+          }
           case 3154: {
             ModifiedBy = input.ReadString();
             break;
@@ -3596,10 +3600,6 @@ namespace Spiderrock.Protobuf {
           }
           case 3248: {
             ActiveDuration = input.ReadInt32();
-            break;
-          }
-          case 3258: {
-            ExecBrkrCode = input.ReadString();
             break;
           }
         }
@@ -3961,6 +3961,10 @@ namespace Spiderrock.Protobuf {
             UserData2 = input.ReadString();
             break;
           }
+          case 3130: {
+            ExecBrkrCode = input.ReadString();
+            break;
+          }
           case 3154: {
             ModifiedBy = input.ReadString();
             break;
@@ -3998,10 +4002,6 @@ namespace Spiderrock.Protobuf {
           }
           case 3248: {
             ActiveDuration = input.ReadInt32();
-            break;
-          }
-          case 3258: {
-            ExecBrkrCode = input.ReadString();
             break;
           }
         }

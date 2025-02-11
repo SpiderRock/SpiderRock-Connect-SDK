@@ -29,7 +29,6 @@ message StockPrint {
     float mrk_price = 118; // last regular market print price
     float cls_price = 121; // official closing price (if available)
     StkPrintType prt_type = 124;
-    string print_codes = 164; // European trade condition codes
     int32 prt_cond1 = 127; // print condition (from SIP feed)
     int32 prt_cond2 = 130;
     int32 prt_cond3 = 133;

@@ -26,20 +26,19 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CilQcm90b2J1Zi9GdXRNYXJrRGF0YS9GdXR1cmVPcGVuTWFyay5wcm90bxIT",
             "c3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8a",
-            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i9gIKDkZ1dHVyZU9w",
+            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i3QIKDkZ1dHVyZU9w",
             "ZW5NYXJrEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5N",
             "ZXNzYWdlTWV0YWRhdGESNgoEcGtleRgCIAEoCzIoLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuRnV0dXJlT3Blbk1hcmsuUEtleRIwCgp0cmFkZV9kYXRlGGQgASgL",
-            "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EjkKDm9wbl9tYXJrX3N0",
-            "YXRlGHQgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5PcG5NYXJrU3RhdGUS",
-            "EgoKc3JfY2xzX3ByYxhnIAEoARIRCgljbG9zZV9wcmMYaiABKAESLQoJdGlt",
-            "ZXN0YW1wGHMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo0CgRQ",
-            "S2V5EiwKBGZrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGly",
-            "eUtleWIGcHJvdG8z"));
+            "Mhwuc3BpZGVycm9jay5wcm90b2J1Zi5EYXRlS2V5EhIKCnNyX2Nsc19wcmMY",
+            "ZyABKAESEQoJY2xvc2VfcHJjGGogASgBEg8KB2JpZF9wcmMYbSABKAESDwoH",
+            "YXNrX3ByYxhwIAEoARItCgl0aW1lc3RhbXAYcyABKAsyGi5nb29nbGUucHJv",
+            "dG9idWYuVGltZXN0YW1wGjQKBFBLZXkSLAoEZmtleRgKIAEoCzIeLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuRXhwaXJ5S2V5YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.FutureOpenMark), global::Spiderrock.Protobuf.FutureOpenMark.Parser, new[]{ "Meta", "Pkey", "TradeDate", "OpnMarkState", "SrClsPrc", "ClosePrc", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.FutureOpenMark.Types.PKey), global::Spiderrock.Protobuf.FutureOpenMark.Types.PKey.Parser, new[]{ "Fkey" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.FutureOpenMark), global::Spiderrock.Protobuf.FutureOpenMark.Parser, new[]{ "Meta", "Pkey", "TradeDate", "SrClsPrc", "ClosePrc", "BidPrc", "AskPrc", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.FutureOpenMark.Types.PKey), global::Spiderrock.Protobuf.FutureOpenMark.Types.PKey.Parser, new[]{ "Fkey" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -87,9 +86,10 @@ namespace Spiderrock.Protobuf {
       Meta_ = other.Meta_ != null ? other.Meta_.Clone() : null;
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
       tradeDate_ = other.tradeDate_ != null ? other.tradeDate_.Clone() : null;
-      opnMarkState_ = other.opnMarkState_;
       srClsPrc_ = other.srClsPrc_;
       closePrc_ = other.closePrc_;
+      bidPrc_ = other.bidPrc_;
+      askPrc_ = other.askPrc_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -136,26 +136,11 @@ namespace Spiderrock.Protobuf {
       }
     }
 
-    /// <summary>Field number for the "opn_mark_state" field.</summary>
-    public const int OpnMarkStateFieldNumber = 116;
-    private global::Spiderrock.Protobuf.OpnMarkState opnMarkState_ = global::Spiderrock.Protobuf.OpnMarkState.Unspecified;
-    /// <summary>
-    /// Preview or Final
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.OpnMarkState OpnMarkState {
-      get { return opnMarkState_; }
-      set {
-        opnMarkState_ = value;
-      }
-    }
-
     /// <summary>Field number for the "sr_cls_prc" field.</summary>
     public const int SrClsPrcFieldNumber = 103;
     private double srClsPrc_;
     /// <summary>
-    /// SR open mark; [SR close mark (close - 5min) from previous day]
+    /// SR open mark; [SR close mark (close - 1min) from previous day]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -178,6 +163,36 @@ namespace Spiderrock.Protobuf {
       get { return closePrc_; }
       set {
         closePrc_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bid_prc" field.</summary>
+    public const int BidPrcFieldNumber = 109;
+    private double bidPrc_;
+    /// <summary>
+    /// bid price (SR bid price from previous day)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double BidPrc {
+      get { return bidPrc_; }
+      set {
+        bidPrc_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ask_prc" field.</summary>
+    public const int AskPrcFieldNumber = 112;
+    private double askPrc_;
+    /// <summary>
+    /// ask price (SR ask price from previous day)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double AskPrc {
+      get { return askPrc_; }
+      set {
+        askPrc_ = value;
       }
     }
 
@@ -211,9 +226,10 @@ namespace Spiderrock.Protobuf {
       if (!object.Equals(Meta, other.Meta)) return false;
       if (!object.Equals(Pkey, other.Pkey)) return false;
       if (!object.Equals(TradeDate, other.TradeDate)) return false;
-      if (OpnMarkState != other.OpnMarkState) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(SrClsPrc, other.SrClsPrc)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ClosePrc, other.ClosePrc)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(BidPrc, other.BidPrc)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(AskPrc, other.AskPrc)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -225,9 +241,10 @@ namespace Spiderrock.Protobuf {
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
       if (tradeDate_ != null) hash ^= TradeDate.GetHashCode();
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) hash ^= OpnMarkState.GetHashCode();
       if (SrClsPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(SrClsPrc);
       if (ClosePrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ClosePrc);
+      if (BidPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(BidPrc);
+      if (AskPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(AskPrc);
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -267,13 +284,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(209, 6);
         output.WriteDouble(ClosePrc);
       }
+      if (BidPrc != 0D) {
+        output.WriteRawTag(233, 6);
+        output.WriteDouble(BidPrc);
+      }
+      if (AskPrc != 0D) {
+        output.WriteRawTag(129, 7);
+        output.WriteDouble(AskPrc);
+      }
       if (timestamp_ != null) {
         output.WriteRawTag(154, 7);
         output.WriteMessage(Timestamp);
-      }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        output.WriteRawTag(160, 7);
-        output.WriteEnum((int) OpnMarkState);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -305,13 +326,17 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(209, 6);
         output.WriteDouble(ClosePrc);
       }
+      if (BidPrc != 0D) {
+        output.WriteRawTag(233, 6);
+        output.WriteDouble(BidPrc);
+      }
+      if (AskPrc != 0D) {
+        output.WriteRawTag(129, 7);
+        output.WriteDouble(AskPrc);
+      }
       if (timestamp_ != null) {
         output.WriteRawTag(154, 7);
         output.WriteMessage(Timestamp);
-      }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        output.WriteRawTag(160, 7);
-        output.WriteEnum((int) OpnMarkState);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -332,13 +357,16 @@ namespace Spiderrock.Protobuf {
       if (tradeDate_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(TradeDate);
       }
-      if (OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) OpnMarkState);
-      }
       if (SrClsPrc != 0D) {
         size += 2 + 8;
       }
       if (ClosePrc != 0D) {
+        size += 2 + 8;
+      }
+      if (BidPrc != 0D) {
+        size += 2 + 8;
+      }
+      if (AskPrc != 0D) {
         size += 2 + 8;
       }
       if (timestamp_ != null) {
@@ -374,14 +402,17 @@ namespace Spiderrock.Protobuf {
         }
         TradeDate.MergeFrom(other.TradeDate);
       }
-      if (other.OpnMarkState != global::Spiderrock.Protobuf.OpnMarkState.Unspecified) {
-        OpnMarkState = other.OpnMarkState;
-      }
       if (other.SrClsPrc != 0D) {
         SrClsPrc = other.SrClsPrc;
       }
       if (other.ClosePrc != 0D) {
         ClosePrc = other.ClosePrc;
+      }
+      if (other.BidPrc != 0D) {
+        BidPrc = other.BidPrc;
+      }
+      if (other.AskPrc != 0D) {
+        AskPrc = other.AskPrc;
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -433,15 +464,19 @@ namespace Spiderrock.Protobuf {
             ClosePrc = input.ReadDouble();
             break;
           }
+          case 873: {
+            BidPrc = input.ReadDouble();
+            break;
+          }
+          case 897: {
+            AskPrc = input.ReadDouble();
+            break;
+          }
           case 922: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 928: {
-            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
             break;
           }
         }
@@ -488,15 +523,19 @@ namespace Spiderrock.Protobuf {
             ClosePrc = input.ReadDouble();
             break;
           }
+          case 873: {
+            BidPrc = input.ReadDouble();
+            break;
+          }
+          case 897: {
+            AskPrc = input.ReadDouble();
+            break;
+          }
           case 922: {
             if (timestamp_ == null) {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
-            break;
-          }
-          case 928: {
-            OpnMarkState = (global::Spiderrock.Protobuf.OpnMarkState) input.ReadEnum();
             break;
           }
         }

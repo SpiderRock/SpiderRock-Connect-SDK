@@ -55,7 +55,7 @@ internal class Program
 
             SRTrace.AggregateEventFrequency = TimeSpan.FromSeconds(freq);
 
-            using MbusClient mbusClient = new(SysEnvironment.Saturn)
+            using MbusClient mbusClient = new()
             {
                 LocalInterface = ifAddr,
                 ApiKey = apiKey

@@ -77,7 +77,7 @@ namespace Spiderrock.Protobuf {
             "YnVmLlRpbWVzdGFtcBIYCg9jaGlsZF9jbF9vcmRfaWQYgwIgASgJEhsKEmNo",
             "aWxkX3JvdXRpbmdfY29kZRiGAiABKAkSEwoKY2hpbGRfc2l6ZRiJAiABKAUS",
             "FAoLY2hpbGRfcHJpY2UYjAIgASgBEhMKCmNoaWxkX2V4Y2gYjwIgASgJEhYK",
-            "DWNoaWxkX2V4X2Rlc3QY2AQgASgJEhMKCmNoaWxkX3VQcmMYlQIgASgBEhIK",
+            "DWNoaWxkX2V4X2Rlc3QYkgIgASgJEhMKCmNoaWxkX3VQcmMYlQIgASgBEhIK",
             "CWNoaWxkX2JpZBiYAiABKAESEgoJY2hpbGRfYXNrGJsCIAEoARIXCg5jaGls",
             "ZF9mYWlyX3ByYxieAiABKAISGQoQY2hpbGRfZmFpcl93aWR0aBihAiABKAIS",
             "EgoJY2hpbGRfdm9sGKQCIAEoAhITCgpjaGlsZF9wcm9iGKcCIAEoAhIYCg9j",
@@ -113,7 +113,7 @@ namespace Spiderrock.Protobuf {
             "X2xpcXVpZGl0eV90YWcYlgMgASgJEhYKDWZpbGxfZXhjaF9mZWUYmQMgASgC",
             "EhAKB2ZpbGxfZGUYnAMgASgCEhAKB2ZpbGxfZ2EYnwMgASgCEhAKB2ZpbGxf",
             "dmUYogMgASgCEjEKCWV4ZWNfcm9sZRilAyABKA4yHS5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLkV4ZWNSb2xlEhcKDmV4ZWNfYnJrcl9jb2RlGNcEIAEoCRIYCg9l",
+            "b3RvYnVmLkV4ZWNSb2xlEhcKDmV4ZWNfYnJrcl9jb2RlGKgDIAEoCRIYCg9l",
             "eGVjX2Jya3JfYWNjbnQYqwMgASgJEhoKEWV4ZWNfYnJrcl9jbF9maXJtGK4D",
             "IAEoCRIcChNleGVjX2Jya3JfdXNlcl9uYW1lGLEDIAEoCRI6ChJjbGVhcmlu",
             "Z19mbGlwX3R5cGUYtAMgASgOMh0uc3BpZGVycm9jay5wcm90b2J1Zi5GbGlw",
@@ -1252,7 +1252,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "child_ex_dest" field.</summary>
-    public const int ChildExDestFieldNumber = 600;
+    public const int ChildExDestFieldNumber = 274;
     private string childExDest_ = "";
     /// <summary>
     /// child order exchange code (downstream)
@@ -1993,7 +1993,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exec_brkr_code" field.</summary>
-    public const int ExecBrkrCodeFieldNumber = 599;
+    public const int ExecBrkrCodeFieldNumber = 424;
     private string execBrkrCode_ = "";
     /// <summary>
     /// exec broker acronym (usually an MPID)
@@ -3410,6 +3410,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(250, 16);
         output.WriteString(ChildExch);
       }
+      if (ChildExDest.Length != 0) {
+        output.WriteRawTag(146, 17);
+        output.WriteString(ChildExDest);
+      }
       if (ChildUPrc != 0D) {
         output.WriteRawTag(169, 17);
         output.WriteDouble(ChildUPrc);
@@ -3605,6 +3609,10 @@ namespace Spiderrock.Protobuf {
       if (ExecRole != global::Spiderrock.Protobuf.ExecRole.Unspecified) {
         output.WriteRawTag(168, 26);
         output.WriteEnum((int) ExecRole);
+      }
+      if (ExecBrkrCode.Length != 0) {
+        output.WriteRawTag(194, 26);
+        output.WriteString(ExecBrkrCode);
       }
       if (ExecBrkrAccnt.Length != 0) {
         output.WriteRawTag(218, 26);
@@ -3817,14 +3825,6 @@ namespace Spiderrock.Protobuf {
       if (MarginUUpVUp != 0F) {
         output.WriteRawTag(181, 37);
         output.WriteFloat(MarginUUpVUp);
-      }
-      if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(186, 37);
-        output.WriteString(ExecBrkrCode);
-      }
-      if (ChildExDest.Length != 0) {
-        output.WriteRawTag(194, 37);
-        output.WriteString(ChildExDest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4076,6 +4076,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(250, 16);
         output.WriteString(ChildExch);
       }
+      if (ChildExDest.Length != 0) {
+        output.WriteRawTag(146, 17);
+        output.WriteString(ChildExDest);
+      }
       if (ChildUPrc != 0D) {
         output.WriteRawTag(169, 17);
         output.WriteDouble(ChildUPrc);
@@ -4271,6 +4275,10 @@ namespace Spiderrock.Protobuf {
       if (ExecRole != global::Spiderrock.Protobuf.ExecRole.Unspecified) {
         output.WriteRawTag(168, 26);
         output.WriteEnum((int) ExecRole);
+      }
+      if (ExecBrkrCode.Length != 0) {
+        output.WriteRawTag(194, 26);
+        output.WriteString(ExecBrkrCode);
       }
       if (ExecBrkrAccnt.Length != 0) {
         output.WriteRawTag(218, 26);
@@ -4483,14 +4491,6 @@ namespace Spiderrock.Protobuf {
       if (MarginUUpVUp != 0F) {
         output.WriteRawTag(181, 37);
         output.WriteFloat(MarginUUpVUp);
-      }
-      if (ExecBrkrCode.Length != 0) {
-        output.WriteRawTag(186, 37);
-        output.WriteString(ExecBrkrCode);
-      }
-      if (ChildExDest.Length != 0) {
-        output.WriteRawTag(194, 37);
-        output.WriteString(ChildExDest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -5804,6 +5804,10 @@ namespace Spiderrock.Protobuf {
             ChildExch = input.ReadString();
             break;
           }
+          case 2194: {
+            ChildExDest = input.ReadString();
+            break;
+          }
           case 2217: {
             ChildUPrc = input.ReadDouble();
             break;
@@ -6004,6 +6008,10 @@ namespace Spiderrock.Protobuf {
           }
           case 3368: {
             ExecRole = (global::Spiderrock.Protobuf.ExecRole) input.ReadEnum();
+            break;
+          }
+          case 3394: {
+            ExecBrkrCode = input.ReadString();
             break;
           }
           case 3418: {
@@ -6219,14 +6227,6 @@ namespace Spiderrock.Protobuf {
           }
           case 4789: {
             MarginUUpVUp = input.ReadFloat();
-            break;
-          }
-          case 4794: {
-            ExecBrkrCode = input.ReadString();
-            break;
-          }
-          case 4802: {
-            ChildExDest = input.ReadString();
             break;
           }
         }
@@ -6505,6 +6505,10 @@ namespace Spiderrock.Protobuf {
             ChildExch = input.ReadString();
             break;
           }
+          case 2194: {
+            ChildExDest = input.ReadString();
+            break;
+          }
           case 2217: {
             ChildUPrc = input.ReadDouble();
             break;
@@ -6705,6 +6709,10 @@ namespace Spiderrock.Protobuf {
           }
           case 3368: {
             ExecRole = (global::Spiderrock.Protobuf.ExecRole) input.ReadEnum();
+            break;
+          }
+          case 3394: {
+            ExecBrkrCode = input.ReadString();
             break;
           }
           case 3418: {
@@ -6920,14 +6928,6 @@ namespace Spiderrock.Protobuf {
           }
           case 4789: {
             MarginUUpVUp = input.ReadFloat();
-            break;
-          }
-          case 4794: {
-            ExecBrkrCode = input.ReadString();
-            break;
-          }
-          case 4802: {
-            ChildExDest = input.ReadString();
             break;
           }
         }

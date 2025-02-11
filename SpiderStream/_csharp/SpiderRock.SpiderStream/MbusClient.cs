@@ -19,11 +19,7 @@ namespace SpiderRock.SpiderStream;
 /// </summary>
 public sealed partial class MbusClient : IDisposable
 {
-    private SysEnvironment environment;
-    public SysEnvironment Environment {
-        get { return environment; }
-    }
-
+    public const SysEnvironment Environment = SysEnvironment.Saturn;
     public const SysRealm Realm = SysRealm.NMS;
 
     readonly object syncRoot = new();
@@ -34,14 +30,11 @@ public sealed partial class MbusClient : IDisposable
     bool running;
     bool disposed;
 
-    public MbusClient(SysEnvironment environment)
+    public MbusClient()
     {
         messageCache = new();
         frameHandler = new(messageCache);
         InitializeMessageEventsDispatch(messageCache);
-
-        this.environment = environment;
-        MbusChannel.Environment = Environment;
     }
 
     public void AddChannelThreadGroup(params IPEndPoint[] channels) => AddChannelThreadGroup(LocalInterface, "Default", channels);
@@ -165,7 +158,6 @@ public sealed partial class MbusClient : IDisposable
 
             MLink.WsBinaryClient<Mbus.FrameHandler<MessageCache>> cacheRequest = null;
 
-
             try
             {
                 cacheRequest = new(
@@ -186,7 +178,6 @@ public sealed partial class MbusClient : IDisposable
 
                 SRTrace.Default.TraceError(ex, $"Cache request failed, execution will continue but it may impact the efficiency of initial message processing");
             }
-
 
             foreach (var channelThreadGroup in channelThreadGroups)
             {

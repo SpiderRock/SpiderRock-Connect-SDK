@@ -29,8 +29,8 @@ namespace Spiderrock.Protobuf {
             "b3RvIq8CChFOYXRpb25zSW5kZXhQcmljZRIzCgVfbWV0YRgBIAEoCzIkLnNw",
             "aWRlcnJvY2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEjkKBHBrZXkYAiAB",
             "KAsyKy5zcGlkZXJyb2NrLnByb3RvYnVmLk5hdGlvbnNJbmRleFByaWNlLlBL",
-            "ZXkSEQoJbXJrX3ByaWNlGGQgASgCEiwKBmV4cGlyeRhlIAEoCzIcLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuRGF0ZUtleRIVCg1zcmNfdGltZXN0YW1wGGYgASgD",
+            "ZXkSEQoJbXJrX3ByaWNlGGQgASgCEiwKBmV4cGlyeRhnIAEoCzIcLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuRGF0ZUtleRIVCg1zcmNfdGltZXN0YW1wGGogASgD",
             "GlIKBFBLZXkSLgoGdGlja2VyGAogASgLMh4uc3BpZGVycm9jay5wcm90b2J1",
             "Zi5UaWNrZXJLZXkSDAoEbmFtZRgLIAEoCRIMCgRkYXlzGAwgASgFYgZwcm90",
             "bzM="));
@@ -136,7 +136,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "expiry" field.</summary>
-    public const int ExpiryFieldNumber = 101;
+    public const int ExpiryFieldNumber = 103;
     private global::Spiderrock.Protobuf.DateKey expiry_;
     /// <summary>
     /// running expiration date for index
@@ -151,7 +151,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "src_timestamp" field.</summary>
-    public const int SrcTimestampFieldNumber = 102;
+    public const int SrcTimestampFieldNumber = 106;
     private long srcTimestamp_;
     /// <summary>
     /// OPRA source timestamp (nanoseconds since epoch)
@@ -228,11 +228,11 @@ namespace Spiderrock.Protobuf {
         output.WriteFloat(MrkPrice);
       }
       if (expiry_ != null) {
-        output.WriteRawTag(170, 6);
+        output.WriteRawTag(186, 6);
         output.WriteMessage(Expiry);
       }
       if (SrcTimestamp != 0L) {
-        output.WriteRawTag(176, 6);
+        output.WriteRawTag(208, 6);
         output.WriteInt64(SrcTimestamp);
       }
       if (_unknownFields != null) {
@@ -258,11 +258,11 @@ namespace Spiderrock.Protobuf {
         output.WriteFloat(MrkPrice);
       }
       if (expiry_ != null) {
-        output.WriteRawTag(170, 6);
+        output.WriteRawTag(186, 6);
         output.WriteMessage(Expiry);
       }
       if (SrcTimestamp != 0L) {
-        output.WriteRawTag(176, 6);
+        output.WriteRawTag(208, 6);
         output.WriteInt64(SrcTimestamp);
       }
       if (_unknownFields != null) {
@@ -359,14 +359,14 @@ namespace Spiderrock.Protobuf {
             MrkPrice = input.ReadFloat();
             break;
           }
-          case 810: {
+          case 826: {
             if (expiry_ == null) {
               Expiry = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(Expiry);
             break;
           }
-          case 816: {
+          case 848: {
             SrcTimestamp = input.ReadInt64();
             break;
           }
@@ -403,14 +403,14 @@ namespace Spiderrock.Protobuf {
             MrkPrice = input.ReadFloat();
             break;
           }
-          case 810: {
+          case 826: {
             if (expiry_ == null) {
               Expiry = new global::Spiderrock.Protobuf.DateKey();
             }
             input.ReadMessage(Expiry);
             break;
           }
-          case 816: {
+          case 848: {
             SrcTimestamp = input.ReadInt64();
             break;
           }

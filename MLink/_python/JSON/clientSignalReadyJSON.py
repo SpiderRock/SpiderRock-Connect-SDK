@@ -40,7 +40,7 @@ async def query_mlink(authentication_key):
     while retry:
         try:
             async with websockets.connect(uriJson,
-                                          additional_headers={"Authorization": f"Bearer {authentication_key}"},
+                                          extra_headers={"Authorization": f"Bearer {authentication_key}"},
                                           ping_timeout=None) as websocket:
                 msg = {
                     "header": {

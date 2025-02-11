@@ -29,7 +29,6 @@ message SpreadExchDefinition {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    YesNo flip_side = 108; // if the leg sides have been flipped
     google.protobuf.Timestamp timestamp = 105;
     repeated Legs legs = 100;
 }

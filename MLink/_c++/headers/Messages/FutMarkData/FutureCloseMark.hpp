@@ -75,20 +75,20 @@ namespace api {
     DECL_STRONG_TYPE(realized_cnt, int32);
     #endif//_realized_cnt__GUARD__
 
-    #ifndef _realized_vol__double__GUARD__
-    #define _realized_vol__double__GUARD__
-    DECL_STRONG_TYPE(realized_vol__double, double);
-    #endif//_realized_vol__double__GUARD__
+    #ifndef _realized_var__GUARD__
+    #define _realized_var__GUARD__
+    DECL_STRONG_TYPE(realized_var, float);
+    #endif//_realized_var__GUARD__
 
-    #ifndef _avg_mkt_size__float__GUARD__
-    #define _avg_mkt_size__float__GUARD__
-    DECL_STRONG_TYPE(avg_mkt_size__float, float);
-    #endif//_avg_mkt_size__float__GUARD__
+    #ifndef _avg_mkt_size__GUARD__
+    #define _avg_mkt_size__GUARD__
+    DECL_STRONG_TYPE(avg_mkt_size, float);
+    #endif//_avg_mkt_size__GUARD__
 
-    #ifndef _avg_mkt_width__float__GUARD__
-    #define _avg_mkt_width__float__GUARD__
-    DECL_STRONG_TYPE(avg_mkt_width__float, float);
-    #endif//_avg_mkt_width__float__GUARD__
+    #ifndef _avg_mkt_width__GUARD__
+    #define _avg_mkt_width__GUARD__
+    DECL_STRONG_TYPE(avg_mkt_width, float);
+    #endif//_avg_mkt_width__GUARD__
 
     #ifndef _bid_prc__double__GUARD__
     #define _bid_prc__double__GUARD__
@@ -184,18 +184,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_fkey);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
+                m_fkey.setCodecExpiryKey(expiryKeyLayout);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_fkey);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
+                m_fkey.setCodecExpiryKey(expiryKeyLayout);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
             }
         }
 
@@ -238,9 +238,9 @@ namespace api {
         using prt_count = spiderrock::protobuf::api::prt_count;
         using prt_volume = spiderrock::protobuf::api::prt_volume;
         using realized_cnt = spiderrock::protobuf::api::realized_cnt;
-        using realized_vol = spiderrock::protobuf::api::realized_vol__double;
-        using avg_mkt_size = spiderrock::protobuf::api::avg_mkt_size__float;
-        using avg_mkt_width = spiderrock::protobuf::api::avg_mkt_width__float;
+        using realized_var = spiderrock::protobuf::api::realized_var;
+        using avg_mkt_size = spiderrock::protobuf::api::avg_mkt_size;
+        using avg_mkt_width = spiderrock::protobuf::api::avg_mkt_width;
         using bid_prc = spiderrock::protobuf::api::bid_prc__double;
         using ask_prc = spiderrock::protobuf::api::ask_prc__double;
         using sr_cls_prc = spiderrock::protobuf::api::sr_cls_prc__double;
@@ -262,7 +262,7 @@ namespace api {
         prt_count m_prt_count{};
         prt_volume m_prt_volume{};
         realized_cnt m_realized_cnt{};
-        realized_vol m_realized_vol{};
+        realized_var m_realized_var{};
         avg_mkt_size m_avg_mkt_size{};
         avg_mkt_width m_avg_mkt_width{};
         bid_prc m_bid_prc{};
@@ -310,8 +310,8 @@ namespace api {
         realized_cnt get_realized_cnt() const {
             return m_realized_cnt;
         }		
-        realized_vol get_realized_vol() const {
-            return m_realized_vol;
+        realized_var get_realized_var() const {
+            return m_realized_var;
         }		
         avg_mkt_size get_avg_mkt_size() const {
             return m_avg_mkt_size;
@@ -380,8 +380,8 @@ namespace api {
         void set_realized_cnt(const realized_cnt& value)  {
             m_realized_cnt = value;
         }
-        void set_realized_vol(const realized_vol& value)  {
-            m_realized_vol = value;
+        void set_realized_var(const realized_var& value)  {
+            m_realized_var = value;
         }
         void set_avg_mkt_size(const avg_mkt_size& value)  {
             m_avg_mkt_size = value;
@@ -454,8 +454,8 @@ namespace api {
         void set(const realized_cnt & value) {
             set_realized_cnt(value);
         }
-        void set(const realized_vol & value) {
-            set_realized_vol(value);
+        void set(const realized_var & value) {
+            set_realized_var(value);
         }
         void set(const avg_mkt_size & value) {
             set_avg_mkt_size(value);
@@ -500,7 +500,7 @@ namespace api {
             set(value.m_prt_count);
             set(value.m_prt_volume);
             set(value.m_realized_cnt);
-            set(value.m_realized_vol);
+            set(value.m_realized_var);
             set(value.m_avg_mkt_size);
             set(value.m_avg_mkt_width);
             set(value.m_bid_prc);
@@ -593,8 +593,8 @@ namespace api {
         bool IncludeRealizedCnt() const {
             return !(m_realized_cnt == 0);
         }
-        bool IncludeRealizedVol() const {
-            return !(m_realized_vol == 0.0);
+        bool IncludeRealizedVar() const {
+            return !(m_realized_var == 0.0);
         }
         bool IncludeAvgMktSize() const {
             return !(m_avg_mkt_size == 0.0);
@@ -659,8 +659,8 @@ namespace api {
             if ( IncludeRealizedCnt()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(124,m_realized_cnt);
             }
-            if ( IncludeRealizedVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(158,m_realized_vol);
+            if ( IncludeRealizedVar()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(127,m_realized_var);
             }
             if ( IncludeAvgMktSize()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_avg_mkt_size);
@@ -727,8 +727,8 @@ namespace api {
             if ( IncludeRealizedCnt()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,124,m_realized_cnt);
             }
-            if ( IncludeRealizedVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,158,m_realized_vol);
+            if ( IncludeRealizedVar()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,127,m_realized_var);
             }
             if ( IncludeAvgMktSize()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_avg_mkt_size);
@@ -842,9 +842,9 @@ namespace api {
                         }
                         break;
                     }
-                    case 158: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_realized_vol = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                    case 127: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_realized_var = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
@@ -926,7 +926,7 @@ namespace api {
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::prt_count>() const { return m_prt_count; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::prt_volume>() const { return m_prt_volume; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::realized_cnt>() const { return m_realized_cnt; }
-    template<> inline const auto FutureCloseMark::get<FutureCloseMark::realized_vol>() const { return m_realized_vol; }
+    template<> inline const auto FutureCloseMark::get<FutureCloseMark::realized_var>() const { return m_realized_var; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::avg_mkt_size>() const { return m_avg_mkt_size; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::avg_mkt_width>() const { return m_avg_mkt_width; }
     template<> inline const auto FutureCloseMark::get<FutureCloseMark::bid_prc>() const { return m_bid_prc; }
@@ -958,7 +958,7 @@ namespace api {
         o << ",\"prt_count\":" << m.get<FutureCloseMark::prt_count>();
         o << ",\"prt_volume\":" << m.get<FutureCloseMark::prt_volume>();
         o << ",\"realized_cnt\":" << m.get<FutureCloseMark::realized_cnt>();
-        o << ",\"realized_vol\":" << m.get<FutureCloseMark::realized_vol>();
+        o << ",\"realized_var\":" << m.get<FutureCloseMark::realized_var>();
         o << ",\"avg_mkt_size\":" << m.get<FutureCloseMark::avg_mkt_size>();
         o << ",\"avg_mkt_width\":" << m.get<FutureCloseMark::avg_mkt_width>();
         o << ",\"bid_prc\":" << m.get<FutureCloseMark::bid_prc>();

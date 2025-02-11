@@ -60,16 +60,6 @@ namespace api {
     DECL_STRONG_TYPE(detail, string);
     #endif//_detail__GUARD__
 
-    #ifndef _receive_timestamp__GUARD__
-    #define _receive_timestamp__GUARD__
-    DECL_STRONG_TYPE(receive_timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_receive_timestamp__GUARD__
-
-    #ifndef _send_timestamp__GUARD__
-    #define _send_timestamp__GUARD__
-    DECL_STRONG_TYPE(send_timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
-    #endif//_send_timestamp__GUARD__
-
     
 
     class QueryResult {
@@ -83,8 +73,6 @@ namespace api {
         using query_elapsed = spiderrock::protobuf::api::query_elapsed__float;
         using result = spiderrock::protobuf::api::result__QResult;
         using detail = spiderrock::protobuf::api::detail;
-        using receive_timestamp = spiderrock::protobuf::api::receive_timestamp;
-        using send_timestamp = spiderrock::protobuf::api::send_timestamp;
 
         private:
         _meta m__meta{};
@@ -94,8 +82,6 @@ namespace api {
         query_elapsed m_query_elapsed{};
         result m_result{};
         detail m_detail{};
-        receive_timestamp m_receive_timestamp{};
-        send_timestamp m_send_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -120,12 +106,6 @@ namespace api {
         }		
         detail get_detail() const {
             return m_detail;
-        }		
-        receive_timestamp get_receive_timestamp() const {
-            return m_receive_timestamp;
-        }		
-        send_timestamp get_send_timestamp() const {
-            return m_send_timestamp;
         }
         size_t getMLinkHeaderLength() const
         {
@@ -151,12 +131,6 @@ namespace api {
         }
         void set_detail(const detail& value)  {
             m_detail = value;
-        }
-        void set_receive_timestamp(const receive_timestamp& value)  {
-            m_receive_timestamp = value;
-        }
-        void set_send_timestamp(const send_timestamp& value)  {
-            m_send_timestamp = value;
         }
 
         //templatized getters and setters
@@ -187,12 +161,6 @@ namespace api {
         void set(const detail & value) {
             set_detail(value);
         }
-        void set(const receive_timestamp & value) {
-            set_receive_timestamp(value);
-        }
-        void set(const send_timestamp & value) {
-            set_send_timestamp(value);
-        }
 
         void set(const QueryResult & value) {
             set(value.m__meta);
@@ -202,8 +170,6 @@ namespace api {
             set(value.m_query_elapsed);
             set(value.m_result);
             set(value.m_detail);
-            set(value.m_receive_timestamp);
-            set(value.m_send_timestamp);
         }
 
         QueryResult() {
@@ -274,12 +240,6 @@ namespace api {
         bool IncludeDetail() const {
             return !(m_detail.empty());
         }
-        bool IncludeReceiveTimestamp() const {
-            return (m_receive_timestamp.time_since_epoch().count() != 0);
-        }
-        bool IncludeSendTimestamp() const {
-            return (m_send_timestamp.time_since_epoch().count() != 0);
-        }
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
@@ -303,12 +263,6 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::QResult>(m_result)));
             if ( IncludeDetail()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(115,m_detail);
-            }
-            if ( IncludeReceiveTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(116, m_receive_timestamp);
-            }
-            if ( IncludeSendTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(117, m_send_timestamp);
             }
             return totalSize;
         }
@@ -334,12 +288,6 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::QResult>(m_result)));
             if ( IncludeDetail()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,115,static_cast<string>(m_detail));
-            }
-            if ( IncludeReceiveTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 116, m_receive_timestamp);
-            }
-            if ( IncludeSendTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 117, m_send_timestamp);
             }
         }
 
@@ -399,18 +347,6 @@ namespace api {
                         }
                         break;
                     }
-                    case 116: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            m_receive_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
-                        }
-                        break;
-                    }
-                    case 117: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            m_send_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
-                        }
-                        break;
-                    }
                 }
             }
         }
@@ -427,8 +363,6 @@ namespace api {
     template<> inline const auto QueryResult::get<QueryResult::query_elapsed>() const { return m_query_elapsed; }
     template<> inline const auto QueryResult::get<QueryResult::result>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::QResult>( m_result)); }
     template<> inline const auto QueryResult::get<QueryResult::detail>() const { return m_detail; }
-    template<> inline const auto QueryResult::get<QueryResult::receive_timestamp>() const { return m_receive_timestamp; }
-    template<> inline const auto QueryResult::get<QueryResult::send_timestamp>() const { return m_send_timestamp; }
     // ostream operators for all classes above, output should adhere to a JSON format
 
     inline std::ostream& operator<<(std::ostream &o, const QueryResult& m) {
@@ -439,18 +373,6 @@ namespace api {
         o << ",\"query_elapsed\":" << m.get<QueryResult::query_elapsed>();
         o << ",\"result\":" << (int64_t)m.get<QueryResult::result>();
         o << ",\"detail\":\"" << m.get<QueryResult::detail>() << "\"";
-        {
-            std::time_t tt = m.get<QueryResult::receive_timestamp>().time_since_epoch().count() / 1'000'000'000;
-			struct tm tm1{};
-			localtime_s(&tm1, &tt);
-            o << ",\"receive_timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
-        }
-        {
-            std::time_t tt = m.get<QueryResult::send_timestamp>().time_since_epoch().count() / 1'000'000'000;
-			struct tm tm1{};
-			localtime_s(&tm1, &tt);
-            o << ",\"send_timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
-        }
         return o;
     }
 

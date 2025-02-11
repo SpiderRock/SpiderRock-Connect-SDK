@@ -132,7 +132,7 @@ msg = {
 
 ```python
 async with websockets.connect(uriJson, 
-additional_headers={"Authorization": "Bearer {apikey}"}, ping_timeout=None) as websocket:
+extra_headers={"Authorization": "Bearer {apikey}"}, ping_timeout=None) as websocket:
 ```
 
 
@@ -630,6 +630,8 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
     ```Python
     uriJson = "wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/json"
     apiKey = 'your api key'
+    password = 'your password'
+    api_key_token = f"{apiKey}.{password}"
     ```
 
     Asynchronously query AAPL:
@@ -649,7 +651,7 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
         try:
           async with websockets.connect(
             uriJson,
-            additional_headers={"Authorization": f"Bearer {api_key_token}"},
+            extra_headers={"Authorization": f"Bearer {api_key_token}"},
             ping_timeout=None
           ) as websocket:
             msg = {
@@ -688,7 +690,7 @@ If at any time during a session, a user sends an MLinkLogon message, the server 
         try:
           async with websockets.connect(
             uriJson, 
-            additional_headers={"Authorization": f"Bearer {api_key_token}"},
+            extra_headers={"Authorization": f"Bearer {api_key_token}"},
             ping_timeout=None
           ) as websocket:
             msg = {

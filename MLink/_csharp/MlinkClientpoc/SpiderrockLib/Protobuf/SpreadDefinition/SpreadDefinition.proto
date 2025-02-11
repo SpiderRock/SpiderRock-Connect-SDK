@@ -11,12 +11,12 @@ import "google/protobuf/timestamp.proto";
 message SpreadDefinition {
     message PKey {
         
-        int64 sRspread_iD = 11; // SR legs list hash
+        int64 sRspread_iD = 10; // SR legs list hash
     }
 
     message ExchSprIDs {
         
-        string exch_spr_iD = 108; // unique exchange spread id
+        string exch_spr_iD = 110; // unique exchange spread id
     }
 
     message Legs {
@@ -25,8 +25,8 @@ message SpreadDefinition {
         SpdrKeyType leg_sec_type = 104;
         BuySell leg_side = 105;
         uint32 leg_ratio = 106; // leg ratio (1, 2, etc)
-        float ref_delta = 110;
-        double ref_prc = 111;
+        float ref_delta = 107;
+        double ref_prc = 108;
     }
 
 
@@ -35,8 +35,8 @@ message SpreadDefinition {
     PKey pkey = 2;
     TickerKey ticker = 100; // underlier (or product group) tickerKey
     ToolSpreadClass spread_class = 101; // option spread type
-    google.protobuf.Timestamp timestamp = 109;
-    repeated ExchSprIDs exch_spr_i_ds = 107;
+    google.protobuf.Timestamp timestamp = 111;
+    repeated ExchSprIDs exch_spr_i_ds = 109;
     repeated Legs legs = 102;
 }
 

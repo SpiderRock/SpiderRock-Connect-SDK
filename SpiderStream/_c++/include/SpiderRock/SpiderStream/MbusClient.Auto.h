@@ -39,7 +39,6 @@ namespace SpiderRock
 			void CreateThreadGroup(Protocol proto, std::initializer_list<DataChannel> channels);
 			void Start();
 
-			void RegisterObserver(std::shared_ptr<CreateEventObserver<CurrencyConversion>> observer);
 			void RegisterObserver(std::shared_ptr<CreateEventObserver<FutureBookQuote>> observer);
 			void RegisterObserver(std::shared_ptr<CreateEventObserver<FuturePrint>> observer);
 			void RegisterObserver(std::shared_ptr<CreateEventObserver<FuturePrintMarkup>> observer);
@@ -75,7 +74,6 @@ namespace SpiderRock
 			void RegisterObserver(std::shared_ptr<CreateEventObserver<SyntheticFutureQuote>> observer);
 			void RegisterObserver(std::shared_ptr<CreateEventObserver<TickerDefinitionExt>> observer);
 			
-			void RegisterObserver(std::shared_ptr<ChangeEventObserver<CurrencyConversion>> observer);
 			void RegisterObserver(std::shared_ptr<ChangeEventObserver<FutureBookQuote>> observer);
 			void RegisterObserver(std::shared_ptr<ChangeEventObserver<FuturePrint>> observer);
 			void RegisterObserver(std::shared_ptr<ChangeEventObserver<FuturePrintMarkup>> observer);
@@ -111,7 +109,6 @@ namespace SpiderRock
 			void RegisterObserver(std::shared_ptr<ChangeEventObserver<SyntheticFutureQuote>> observer);
 			void RegisterObserver(std::shared_ptr<ChangeEventObserver<TickerDefinitionExt>> observer);
 			
-			void RegisterObserver(std::shared_ptr<UpdateEventObserver<CurrencyConversion>> observer);
 			void RegisterObserver(std::shared_ptr<UpdateEventObserver<FutureBookQuote>> observer);
 			void RegisterObserver(std::shared_ptr<UpdateEventObserver<FuturePrint>> observer);
 			void RegisterObserver(std::shared_ptr<UpdateEventObserver<FuturePrintMarkup>> observer);
