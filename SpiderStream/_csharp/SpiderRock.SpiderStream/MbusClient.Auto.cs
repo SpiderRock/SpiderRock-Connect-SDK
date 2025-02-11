@@ -14,6 +14,7 @@ namespace SpiderRock.SpiderStream;
 
 public sealed partial class MbusClient
 {
+    MessageEventsDispatcher<CurrencyConversion> currencyConversionDispatch;
     MessageEventsDispatcher<FutureBookQuote> futureBookQuoteDispatch;
     MessageEventsDispatcher<FuturePrint> futurePrintDispatch;
     MessageEventsDispatcher<FuturePrintMarkup> futurePrintMarkupDispatch;
@@ -51,6 +52,7 @@ public sealed partial class MbusClient
 
     private void InitializeMessageEventsDispatch(MessageCache messageCache)
     {
+        currencyConversionDispatch = new(messageCache.CurrencyConversion);
         futureBookQuoteDispatch = new(messageCache.FutureBookQuote);
         futurePrintDispatch = new(messageCache.FuturePrint);
         futurePrintMarkupDispatch = new(messageCache.FuturePrintMarkup);
@@ -91,6 +93,7 @@ public sealed partial class MbusClient
     {
         return (ushort)messageType switch
         {
+            /* CurrencyConversion */ 2540 => currencyConversionDispatch,
             /* FutureBookQuote */ 2580 => futureBookQuoteDispatch,
             /* FuturePrint */ 2595 => futurePrintDispatch,
             /* FuturePrintMarkup */ 2605 => futurePrintMarkupDispatch,
@@ -129,6 +132,7 @@ public sealed partial class MbusClient
         };
     }
 
+    public IMessageEvents<CurrencyConversion> CurrencyConversion => messageCache.CurrencyConversion;
     public IMessageEvents<FutureBookQuote> FutureBookQuote => messageCache.FutureBookQuote;
     public IMessageEvents<FuturePrint> FuturePrint => messageCache.FuturePrint;
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => messageCache.FuturePrintMarkup;

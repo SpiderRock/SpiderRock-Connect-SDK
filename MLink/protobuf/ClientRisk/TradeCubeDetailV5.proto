@@ -1,0 +1,219 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    TradeCubeDetail records are published by CoreRiskServers and are visible in SRSE throughout the day.  They are designed to be aggregated and analyzed over time.
+    TradeCubeDetail records are published to the SpiderRock Archive Host data pipeline after all markup detail is complete.
+*/    
+message TradeCubeDetailV5 {
+    message PKey {
+        
+        int64 fill_number = 10; // SpiderRock execution number (globally unique over trailing 10 days)
+        DateKey trade_date = 11; // trade date
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    RunStatus run_status = 100;
+    SysEnvironment sys_environment = 103;
+    int32 version = 106; // record version number; starts at zero and goes up every time an execution record is re-published (eg, bust, +1m marks, +10m marks, etc)
+    string cl_ord_id = 109; // clOrdId resulting in fill (child order)
+    int64 parent_number = 112; // SpiderRock parent number
+    int64 package_id = 115; // groups related order/brokers together (eg. Legger w/MLeg Parent)
+    string alt_order_id = 118; // alternate order ID (usually clOrdId from client)
+    string src_routing_code = 121; // inbound FIX routing code, if any
+    SpdrSource spdr_source = 124; // SpiderRock parent order source code [broker pkey]
+    int64 grouping_code = 127; // SpiderRock parent broker number [broker pkey]
+    string accnt = 130; // SpiderRock Accnt Code
+    string client_firm = 133; // SpiderRock ClientFirm Code
+    string pri_agg_group = 136; // primary aggregation group
+    string sec_agg_group = 139; // secondary aggregation group
+    OptionKey sec_key = 145; // security key
+    SpdrKeyType sec_type = 148; // security type [Stock, Future, Option]
+    TickerKey ticker = 151; // base ticker
+    string view_group1 = 154; // viewGroup1 (user supplied; if any)
+    string view_group2 = 157; // viewGroup2 (user supplied; if any)
+    string view_group3 = 160; // viewGroup3 (user supplied; if any)
+    string risk_class = 163; // user supplied risk class code (from SymbolControl record)
+    SymbolType symbol_type = 166; // symbol type
+    string sector = 169; // user supplied sector code (from SymbolControl record)
+    int32 ind_num = 172; // ind num (00)
+    int32 sub_num = 175; // sub num (0000)
+    int32 grp_num = 178; // grp num (000000)
+    int32 nbr_num = 181; // nbr num (00000000)
+    int32 edays = 184; // days to next earnings [-5, +60]
+    ExpCode exp_code = 187; // expiration tenor code
+    SkewCode skew_code = 190; // strike skew code
+    WidthCode width_code = 193; // market width code
+    PriceFormat price_format = 196; // SpiderRock price display format code
+    PriceFormat u_price_format = 199; // SpiderRock underlier price display code
+    float years = 202; // years to expiration
+    int32 underliers_per_cn = 205; // underliers per contract (futures and options)
+    UnderlierType underlier_type = 208; // underlier type (affects $greek calcs)
+    float tick_value = 211; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 214; // $NLV value of a point
+    Currency point_currency = 217;
+    float u_prc_ratio = 220; // UPrcRatio (SymbolRatio) from product definition
+    float min_tick_size = 223;
+    string routing_code = 226; // SpiderRock market routing code
+    string orig_exec_iD = 229; // original execution ID string (child order)
+    string last_exec_iD = 232; // most recent execution ID (same as origExecID unless CANCEL/CORRECTION has been processed)
+    google.protobuf.Timestamp transact_dttm = 235; // transaction date/time as reported by exchange or down stream broker
+    ExecStatus exec_status = 238; // SpiderRock execution status (Fill,Bust,Correct,Reject,SysRej)
+    string remote_text = 241; // text comment from endpoint (if any)
+    SpdrLimitType order_limit_type = 244; // parent order limit type [Vol, VolX, PrcDe, PrcDeX, etc]
+    SpdrLimitClass order_limit_class = 247; // parent order limit class (makeLimitClass if fill was from making; takeLimitClass if fill was from taking)
+    SpdrOrderShape parent_shape = 250;
+    ParentOrderHandling parent_order_handling = 253; // base parent order algo [take style algo]
+    ParentBalanceHandling parent_balance_handling = 256; // base parent order balance handling [make style algo]
+    int32 parent_order_size = 259; // parent order size
+    string method = 262; // execution method string
+    string strategy = 265; // client strategy [usually client supplied]
+    string user_name = 268; // SpiderRock user name associated with the parent order
+    string origin = 271; // parent order origin string
+    string source = 274; // execution source string
+    string server = 277; // SpiderRock execution engine that handled the parent order
+    string clearing_firm = 280; // clearing firm (delivery)
+    string clearing_accnt = 283; // clearing firm account (if any)
+    OrderCapacity last_capacity = 286; // child order capacity
+    ExecRole exec_role = 289; // SpiderRock relationship to this execution record (Direct, Drop, etc)
+    string exec_brkr_code = 705; // SR exec broker acronym
+    string exec_brkr_accnt = 295; // account at executing broker/prime (if any)
+    string exec_brkr_cl_firm = 298; // client/firm at executing broker/prime (if any)
+    string exec_brkr_user_name = 301;
+    FlipType clearing_flip_type = 304; // clearingFlip Type (CMTA or Giveup)
+    string clearing_flip_firm = 307; // clearingFlip Broker/MPID/CMTA
+    string clearing_flip_accnt = 310; // clearingFlip additional detail (sub-accnt)
+    int64 risk_group_id = 313; // riskGroupId (parent order group ID) for this execution report
+    float fill_brkr_rate = 316; // billing brokerage rate (tier 1)
+    float fill_routing_rate = 319; // billing routing rate (tier 1)
+    BillingSecType billing_sec_type = 322; // SpiderRock billing security type
+    BillingCategory billing_category = 325; // SpiderRock billing category
+    FirmType firm_type = 328; // chld order firm type [Customer, ProCust, Firm, MM, etc]
+    BuySell side = 331; // parent/child order side
+    PriceType price_type = 334; // order limit price type
+    ShortSaleFlag ssale_flag = 337; // child order short sale flag
+    ShortSaleFlag spdr_sSale_flag = 340; // parent order short sale flag
+    PositionType position_type = 343; // child order position type
+    AutoHedge auto_hedge = 346; // SpiderRock auto-hedge algorithm (if any)
+    google.protobuf.Timestamp order_dttm = 349; // Date/time of parent order arrival
+    double order_uBid = 352; // underlier market bid @ parent order arrival
+    double order_uAsk = 355; // underlier market ask @ parent order arrival
+    double order_bid = 358; // option market bid @ parent order arrival (options only)
+    double order_ask = 361; // option market ask @ parent order arrival (options only)
+    float order_surf_prc = 364; // SpiderRock surface price @ parent order arrival (options only)
+    float order_surf_vol = 367;
+    float order_limit_vol = 370; // parent order limit volatilty (options only)
+    double order_limit_prc = 373; // parent order limit price @ parent order arrival
+    double order_limit_ref_uPrc = 376; // limit reference underlier price @ parent order arrival (options only)
+    SpdrOrderShape child_shape = 379;
+    int32 child_size = 382; // child order size
+    double child_price = 385; // child order price
+    string child_exch = 388; // child order exchange code (SpiderRock)
+    string child_ex_dest = 706; // child order exchange code (downstream)
+    google.protobuf.Timestamp child_dttm = 394; // child order send date/time
+    double child_uBid = 397; // underlier market bid @ child order send time
+    double child_uAsk = 400; // underlier market bid @ child order send time
+    double child_bid = 403; // option market bid @ child order send time (options only)
+    double child_ask = 406; // option market ask @ child order send time (options only)
+    float child_surf_prc = 409; // SpiderRock surface price @ child order send time (options only)
+    float child_vol = 412; // child order volatilty (options only)
+    float child_prob = 415; // child order probability (T+x)
+    double child_limit_prc = 418; // parent order limit price @ child order send time
+    double child_limit_ref_uPrc = 421; // limit reference underlier price @ child order send time (options only)
+    float child_limit_pnl = 424; // child limit improvement pnl (childLimitPrc to fillPrice)
+    ChildHandler child_algo_handler = 427; // algo that generated the child order responsible for this fill
+    string child_order_handling = 430; // algo that generated the child order responsible for this fill
+    ChildCreateReason child_create_reason = 433; // child order create reason code
+    ChildCancelReason child_cancel_reason = 436; // child order cancel reason code
+    MktStance child_mkt_stance = 439; // child order was expected to be marketable @ child send time
+    YesNo child_cxl_attempted = 442; // cancel attempt was made on the child order prior to receiving this fill
+    float child_cxl_fill_latency = 445; // cancel latency (for fills with a cancel attempt)
+    string fill_exch = 448; // ExDest code from child order execution report (lastMkt)
+    double fill_price = 451; // fill price
+    double fill_ts = 454; // fill report ts (seconds since startup; 100 nanosec resolution)
+    google.protobuf.Timestamp fill_dttm = 457; // Date/time of fill arrival
+    int32 fill_size = 460; // fill quantity
+    int32 eff_fill_size = 463; // fill size x underliers per contract
+    float fill_vol = 466; // fill volatilty (options only)
+    float fill_prob = 469; // fill order probability (T+x)
+    double fill_limit_prc = 472; // parent order limit price @ fill arrival time
+    double fill_limit_ref_uPrc = 475; // limit reference underlier price @ fill arrival time (options only)
+    float fill_limit_pnl = 478; // fill limit improvement pnl (fillLimitPrc to fillPrice)
+    float fill_de = 481; // fill delta
+    float fill_ve = 484; // fill vega
+    float fill_th = 487; // fill theta
+    double fill_uPrc = 493; // fill underlier mid-market
+    float fill_beta = 496; // SpiderRock estimate of beta to SPX
+    float fill_tv = 532; // theo vol (user supplied)
+    float fill_tp = 535; // theo price
+    double fill_uBid = 538; // underlier market bid @ fill arrival
+    double fill_uAsk = 541; // underlier market ask @ fill arrival
+    double fill_bid = 544; // option market bid @ fill arrival
+    double fill_ask = 547; // option market ask @ fill arrival
+    float fill_surf_prc = 550; // SpiderRock surface price @ fill arrival
+    double fill_post_uMark1_m = 553; // underlier mark @ fill arrival + 1M
+    double fill_post_uMark10_m = 556; // underlier mark @ fill arrival + 10M
+    double fill_post_mark1_m = 559; // SpiderRock mid or surface mark @ fill arrival + 1M
+    double fill_post_mark10_m = 562; // SpiderRock mid or surface mark @ fill arrival + 10M
+    float margin_uDn_vDn = 701; // Aggregate RiskSlide: uPrc dn, vol dn
+    float margin_uDn_vUp = 702; // Aggregate RiskSlide: uPrc dn, vol up
+    float margin_uUp_vDn = 703; // Aggregate RiskSlide: uPrc up, vol dn
+    float margin_uUp_vUp = 704; // Aggregate RiskSlide: uPrc up, vol up
+    RiskCode risk_code = 565; // SpiderRock Risk Code (if any)
+    string exch_liquidity_tag = 568; // liquidity tag (exchange)
+    string spdr_liquidity_tag = 571; // SpiderRock normalized liquidity tag
+    string fill_exch_detail = 574; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    float notional_value = 577; // cn * mult * uPrc
+    float market_value = 580; // cn * mult * fillPrice
+    float order_mkt_width = 583; // market width @ parent order arrival
+    float child_mkt_width = 586; // market width @ child order send time
+    float fill_mkt_width = 589; // market width @ fill arrival
+    float parent_order_age = 592; // elaspsed time from parent order entry/update to this fill event
+    ParentAge parent_age_code = 595; // elaspsed time from parent order entry/update to this fill event [coded]
+    float trd_delta = 598; // trade delta
+    float trd_dDelta = 601; // trade $delta
+    float trd_gamma = 604; // trade gamma
+    float trd_vega = 607; // trade vega
+    float trd_wt_vega = 610; // trade wtVega (vega * vol / sqrt(max(0.1, years * 4)))
+    float trd_theta = 613; // trade theta
+    float trd_prem = 616; // trade premium over parity
+    float trd_beta = 619; // trade beta
+    float trd_dBeta = 622; // trade $beta
+    float surf_edge = 625; // SR surface edge (user supplied theo vol/prc to SpiderRock surface price)
+    float surf_edge_unit = 628; // SR surface edge normalized to $100 underlier
+    float theo_edge = 631; // theo edge (user supplied theo vol/prc to SpiderRock surface price)
+    float theo_edge_unit = 634; // theo edge normalized to $100 underlier
+    float exch_fee = 637; // SpiderRock exchange fee estimate
+    float half_width_pnl = 640; // estimated half-width Pnl
+    float cl_arrive_pnl = 643; // -dir * qty * (fillPrice - clArriveMark)  # maybe use orderSurfPrc instead
+    float arrive_pnl = 646; // -dir * qty * (fillPrice - 0.5 * (orderBid + orderAsk))  # maybe use orderSurfPrc instead
+    float arrive_dn_pnl = 649; // arrivePnl - uDriftArrivePnl
+    float u_drift_arrive_pnl = 652; // -dir * qty * fillDe * (0.5 * (fillUBid + fillUAsk) - 0.5 * (orderUBid + orderUAsk))
+    float day_dn_pnl = 655; // delta neutral Pnl (to EOD)
+    float day_m1_pnl = 658; // delta neutral Pnl (Fill + 1M)
+    float day_m10_pnl = 661; // delta neutral Pnl (Fill + 10M)
+    float u_drift_day_pnl = 664; // underlier delta drift Pnl (to EOD)
+    float u_drift_m1_pnl = 667; // underlier delta drift Pnl (Fill + 1M)
+    float u_drift_m10_pnl = 670; // underlier delta drift Pnl (Fill + 10M)
+    float day_pnl = 673; // actual Pnl to EOD
+    double live_mark = 676; // SpiderRock internal use
+    double live_uPrc = 679; // SpiderRock internal use
+    double pend_mark = 682; // SpiderRock internal use
+    double pend_uPrc = 685; // SpiderRock internal use
+    string trd_mark_error = 688; // trade mark error code
+    string day_mark_error = 691; // day mark error code
+    string user_data1 = 694; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 697; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    google.protobuf.Timestamp timestamp = 700; // SR system timestamp
+}
+
+

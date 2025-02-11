@@ -28,6 +28,7 @@ message SpreadExchOrder {
     int32 size = 106; // total spreads available
     double price = 109;
     YesNo is_price_valid = 112;
+    YesNo flip_side = 171; // if the side and price have been flipped
     int32 orig_order_size = 115; // original order size (if available)
     ExchOrderType order_type = 118;
     ExchOrderStatus order_status = 121;

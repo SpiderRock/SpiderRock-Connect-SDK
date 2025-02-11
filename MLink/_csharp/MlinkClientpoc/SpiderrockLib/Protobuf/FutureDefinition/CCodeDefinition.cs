@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci9Qcm90b2J1Zi9GdXR1cmVEZWZpbml0aW9uL0NDb2RlRGVmaW5pdGlvbi5w",
             "cm90bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24u",
-            "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ilQcKD0ND",
+            "cHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i0gcKD0ND",
             "b2RlRGVmaW5pdGlvbhIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJy",
             "b2NrLnByb3RvYnVmLkNDb2RlRGVmaW5pdGlvbi5QS2V5Ei0KB2Z1dGV4Y2gY",
@@ -44,14 +44,15 @@ namespace Spiderrock.Protobuf {
             "Z2UYjgEgASgJEhQKC2dtaV9wcm9kdWN0GJEBIAEoCRIVCgxnbWlfc3ViX3R5",
             "cGUYlAEgASgJEh4KFWRpc3BsYXlfcHJpY2Vfc2NhbGluZxiXASABKAISFwoO",
             "c3RyaWtlX3NjYWxpbmcYmgEgASgCEhQKC2Rlc2NyaXB0aW9uGJ0BIAEoCRIW",
-            "Cg1tYXJrZXRfY2VudGVyGKABIAEoCRIuCgl0aW1lc3RhbXAYowEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIVCgxyaWNfY29kZV9fdjcYiCcg",
-            "ASgJGjUKBFBLZXkSLQoFY2NvZGUYCiABKAsyHi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLlRpY2tlcktleWIGcHJvdG8z"));
+            "Cg1tYXJrZXRfY2VudGVyGKABIAEoCRI7Cg50cmFkaW5nX3BlcmlvZBilASAB",
+            "KA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlRyYWRpbmdQZXJpb2QSLgoJdGlt",
+            "ZXN0YW1wGKMBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASFQoM",
+            "cmljX2NvZGVfX3Y3GIgnIAEoCRo1CgRQS2V5Ei0KBWNjb2RlGAogASgLMh4u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition), global::Spiderrock.Protobuf.CCodeDefinition.Parser, new[]{ "Meta", "Pkey", "Futexch", "Ticker", "SettleTime", "PositionLimit", "TickValue", "PointValue", "PointCurrency", "PriceScaling", "UnderliersPerCn", "UnderlierType", "ClearingCode", "RicRoot", "BbgRoot", "BbgGroup", "GmiExchange", "GmiProduct", "GmiSubType", "DisplayPriceScaling", "StrikeScaling", "Description", "MarketCenter", "Timestamp", "RicCodeV7" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey), global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey.Parser, new[]{ "Ccode" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition), global::Spiderrock.Protobuf.CCodeDefinition.Parser, new[]{ "Meta", "Pkey", "Futexch", "Ticker", "SettleTime", "PositionLimit", "TickValue", "PointValue", "PointCurrency", "PriceScaling", "UnderliersPerCn", "UnderlierType", "ClearingCode", "RicRoot", "BbgRoot", "BbgGroup", "GmiExchange", "GmiProduct", "GmiSubType", "DisplayPriceScaling", "StrikeScaling", "Description", "MarketCenter", "TradingPeriod", "Timestamp", "RicCodeV7" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey), global::Spiderrock.Protobuf.CCodeDefinition.Types.PKey.Parser, new[]{ "Ccode" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -121,6 +122,7 @@ namespace Spiderrock.Protobuf {
       strikeScaling_ = other.strikeScaling_;
       description_ = other.description_;
       marketCenter_ = other.marketCenter_;
+      tradingPeriod_ = other.tradingPeriod_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       ricCodeV7_ = other.ricCodeV7_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -468,6 +470,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "trading_period" field.</summary>
+    public const int TradingPeriodFieldNumber = 165;
+    private global::Spiderrock.Protobuf.TradingPeriod tradingPeriod_ = global::Spiderrock.Protobuf.TradingPeriod.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TradingPeriod TradingPeriod {
+      get { return tradingPeriod_; }
+      set {
+        tradingPeriod_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 163;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -533,6 +547,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(StrikeScaling, other.StrikeScaling)) return false;
       if (Description != other.Description) return false;
       if (MarketCenter != other.MarketCenter) return false;
+      if (TradingPeriod != other.TradingPeriod) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       if (RicCodeV7 != other.RicCodeV7) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -565,6 +580,7 @@ namespace Spiderrock.Protobuf {
       if (StrikeScaling != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(StrikeScaling);
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (MarketCenter.Length != 0) hash ^= MarketCenter.GetHashCode();
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) hash ^= TradingPeriod.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (RicCodeV7.Length != 0) hash ^= RicCodeV7.GetHashCode();
       if (_unknownFields != null) {
@@ -681,6 +697,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 10);
         output.WriteString(RicRoot);
       }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        output.WriteRawTag(168, 10);
+        output.WriteEnum((int) TradingPeriod);
+      }
       if (RicCodeV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(RicCodeV7);
@@ -791,6 +811,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 10);
         output.WriteString(RicRoot);
       }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        output.WriteRawTag(168, 10);
+        output.WriteEnum((int) TradingPeriod);
+      }
       if (RicCodeV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(RicCodeV7);
@@ -873,6 +897,9 @@ namespace Spiderrock.Protobuf {
       }
       if (MarketCenter.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(MarketCenter);
+      }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TradingPeriod);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -969,6 +996,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.MarketCenter.Length != 0) {
         MarketCenter = other.MarketCenter;
+      }
+      if (other.TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        TradingPeriod = other.TradingPeriod;
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -1102,6 +1132,10 @@ namespace Spiderrock.Protobuf {
             RicRoot = input.ReadString();
             break;
           }
+          case 1320: {
+            TradingPeriod = (global::Spiderrock.Protobuf.TradingPeriod) input.ReadEnum();
+            break;
+          }
           case 40002: {
             RicCodeV7 = input.ReadString();
             break;
@@ -1227,6 +1261,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1314: {
             RicRoot = input.ReadString();
+            break;
+          }
+          case 1320: {
+            TradingPeriod = (global::Spiderrock.Protobuf.TradingPeriod) input.ReadEnum();
             break;
           }
           case 40002: {

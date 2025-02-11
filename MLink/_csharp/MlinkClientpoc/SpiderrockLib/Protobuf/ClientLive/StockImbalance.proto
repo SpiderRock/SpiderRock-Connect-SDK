@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    StockImbalance records contain live exchange closing auction imbalance details.  Imbalance information in aggregated across exchanges with imbalance feeds.
+    Final StockImbalance records are published to the SpiderRock elastic cluster nightly after the auction close.
+*/    
+message StockImbalance {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        AuctionReason auction_type = 11; // Opening/Closing
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp auction_time = 100;
+    int32 max_imbalance = 103;
+    StkExch max_imbalance_exch = 106;
+    double max_imbalance_match_px = 109;
+    AuctionStatus max_imbalance_status = 112;
+    int32 cum_bid_imbalance_mkt = 115;
+    int32 cum_ask_imbalance_mkt = 118;
+    int32 cum_bid_imbalance_tot = 121;
+    int32 cum_ask_imbalance_tot = 124;
+    int32 cum_paired_qty = 127;
+    google.protobuf.Timestamp timestamp = 130;
+}
+
+

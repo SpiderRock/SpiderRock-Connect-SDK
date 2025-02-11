@@ -25,7 +25,6 @@ message SymbolRiskSummaryV5 {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    string risk_server_code = 103; // SR risk server code that published this record
     string sector = 106; // SymbolControl.sector: user defined sector code
     int32 industry = 109; // industry code [00000000]
     float beta = 112; // beta (usually beta to SPX; see AccountConfig.betaSource)
@@ -137,7 +136,7 @@ message SymbolRiskSummaryV5 {
     float hedge_gamma = 430; // Aggregate Postion Hedge Gamma (either iVol or tVol based;can go binary);=sum[shCurPos * opr.hedgeGa]
     float hedge_dGamma = 433; // Aggregate Postion ($) Hedge Gamma
     float prem_ov_par = 436; // Aggregate Position Premium Over Parity;=sum[shCurPosM *  max(0, opr.optVolMark - opr.loBound)]
-    float simp_prem_ov_par = 439; // Aggregate Position Premium Over Parity Simple;=sum[shCurPosM * max(0,  opr.opxMidMark - max(0, ±(strike - uprc)))]
+    float simp_prem_ov_par = 439; // Aggregate Position Premium Over Parity Simple;=sum[shCurPosM * max(0,  opr.opxMidMark - max(0, Â±(strike - uprc)))]
     float wt_ve_dd = 442; // Aggregate Dd Time Weighted Vega; =sum[wtVega] if opr.xde < -0.30
     float wt_ve_dn = 445; // Aggregate Dn Time Weighted Vega; =sum[wtVega] if -0.30 <= opr.xde < -0.10
     float wt_ve_at = 448; // Aggregate At Time Weighted Vega; =sum[wtVega] if abs(opr.xde) <= 0.10

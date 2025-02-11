@@ -35,20 +35,20 @@ namespace api {
     DECL_STRONG_TYPE(settle_date, DateKey);
     #endif//_settle_date__GUARD__
 
-    #ifndef _settle_px__GUARD__
-    #define _settle_px__GUARD__
-    DECL_STRONG_TYPE(settle_px, double);
-    #endif//_settle_px__GUARD__
+    #ifndef _settle_px__double__GUARD__
+    #define _settle_px__double__GUARD__
+    DECL_STRONG_TYPE(settle_px__double, double);
+    #endif//_settle_px__double__GUARD__
 
-    #ifndef _low_lmt_px__GUARD__
-    #define _low_lmt_px__GUARD__
-    DECL_STRONG_TYPE(low_lmt_px, double);
-    #endif//_low_lmt_px__GUARD__
+    #ifndef _low_lmt_px__double__GUARD__
+    #define _low_lmt_px__double__GUARD__
+    DECL_STRONG_TYPE(low_lmt_px__double, double);
+    #endif//_low_lmt_px__double__GUARD__
 
-    #ifndef _high_lmt_px__GUARD__
-    #define _high_lmt_px__GUARD__
-    DECL_STRONG_TYPE(high_lmt_px, double);
-    #endif//_high_lmt_px__GUARD__
+    #ifndef _high_lmt_px__double__GUARD__
+    #define _high_lmt_px__double__GUARD__
+    DECL_STRONG_TYPE(high_lmt_px__double, double);
+    #endif//_high_lmt_px__double__GUARD__
 
     #ifndef _open_int__GUARD__
     #define _open_int__GUARD__
@@ -124,18 +124,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey;
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_fkey);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey;
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_fkey);
             }
         }
 
@@ -170,9 +170,9 @@ namespace api {
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::FutureSettlementMark_PKey;
         using settle_date = spiderrock::protobuf::api::settle_date;
-        using settle_px = spiderrock::protobuf::api::settle_px;
-        using low_lmt_px = spiderrock::protobuf::api::low_lmt_px;
-        using high_lmt_px = spiderrock::protobuf::api::high_lmt_px;
+        using settle_px = spiderrock::protobuf::api::settle_px__double;
+        using low_lmt_px = spiderrock::protobuf::api::low_lmt_px__double;
+        using high_lmt_px = spiderrock::protobuf::api::high_lmt_px__double;
         using open_int = spiderrock::protobuf::api::open_int;
         using volume = spiderrock::protobuf::api::volume;
         using early = spiderrock::protobuf::api::early;

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CurrencyTransaction {
+    message PKey {
+        
+        int64 transaction_iD = 10;
+        DateKey trade_date = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string client_firm = 103;
+    Currency bot_currency = 106;
+    double bot_quantity = 109;
+    Currency sld_currency = 112;
+    double sld_quantity = 115;
+    string comment = 118;
+    google.protobuf.Timestamp transaction_dttm = 121;
+    google.protobuf.Timestamp timestamp = 124;
+}
+
+

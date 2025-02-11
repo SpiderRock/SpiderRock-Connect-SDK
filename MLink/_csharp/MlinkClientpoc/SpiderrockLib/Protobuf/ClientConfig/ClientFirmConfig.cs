@@ -26,111 +26,111 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9DbGllbnRDb25maWcvQ2xpZW50RmlybUNvbmZpZy5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iwiQKEENsaWVu",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iwyQKEENsaWVu",
             "dEZpcm1Db25maWcSMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI4CgRwa2V5GAIgASgLMiouc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5DbGllbnRGaXJtQ29uZmlnLlBLZXkSQQoSY2xpZW50X2Zp",
             "cm1fc3RhdHVzGGQgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5DbGllbnRG",
             "aXJtU3RhdHVzEjsKF2NsaWVudF9maXJtX3N0YXR1c19kdHRtGGcgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCgplbmFibGVkX2luGGggASgO",
-            "Mh8uc3BpZGVycm9jay5wcm90b2J1Zi5TeXNWZXJzaW9uEj0KEGNsaWVudF9m",
-            "aXJtX3R5cGUYaiABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLkNsaWVudEZp",
-            "cm1UeXBlEhgKEGNsaWVudF9maXJtX25hbWUYbSABKAkSHgoWY2xpZW50X2Zp",
-            "cm1fc2hvcnRfY29kZRhwIAEoCRJNChhjbGllbnRfZmlybV9yZWxhdGlvbnNo",
-            "aXAYcyABKA4yKy5zcGlkZXJyb2NrLnByb3RvYnVmLkNsaWVudEZpcm1SZWxh",
-            "dGlvbnNoaXASEwoLcmVwX2NvZGVfc1IYdiABKAkSFwoPY2xpZW50X3RhZ19w",
-            "b29sGHkgASgJEhcKD2JpbGxpbmdfYWNjb3VudBh8IAEoCRIYChBiaWxsaW5n",
-            "X3NjaGVkdWxlGH8gASgJEhkKEGJpbGxpbmdfYWRkcmVzczEYggEgASgJEhkK",
-            "EGJpbGxpbmdfYWRkcmVzczIYhQEgASgJEhUKDGJpbGxpbmdfY2l0eRiIASAB",
-            "KAkSFgoNYmlsbGluZ19zdGF0ZRiLASABKAkSGQoQYmlsbGluZ196aXBfY29k",
-            "ZRiOASABKAkSGAoPYmlsbGluZ19jb3VudHJ5GJEBIAEoCRIdChRiaWxsaW5n",
-            "X3Bob25lX251bWJlchiUASABKAkSHgoVYmlsbGluZ19lbWFpbF9hZGRyZXNz",
-            "GJcBIAEoCRIYCg9yZXBvcnRfYWRkcmVzczEYmgEgASgJEhgKD3JlcG9ydF9h",
-            "ZGRyZXNzMhidASABKAkSFAoLcmVwb3J0X2NpdHkYoAEgASgJEhUKDHJlcG9y",
-            "dF9zdGF0ZRijASABKAkSGAoPcmVwb3J0X3ppcF9jb2RlGKYBIAEoCRIXCg5y",
-            "ZXBvcnRfY291bnRyeRipASABKAkSHAoTcmVwb3J0X3Bob25lX251bWJlchis",
-            "ASABKAkSHQoUcmVwb3J0X2VtYWlsX2FkZHJlc3MYrwEgASgJEhkKEGNvcmVf",
-            "Y2xpZW50X2Zpcm0YsgEgASgJEhwKE3Nwb25zb3JfY2xpZW50X2Zpcm0YtQEg",
-            "ASgJEjsKFmNhbl9oYXZlX3RyYWRpbmdfYWNjbnQYuAEgASgOMhouc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5ZZXNObxIYCg9sZWdhbF9lbnRpdHlfaWQYuwEgASgJ",
-            "EhwKE3NlY19sYXJnZV90cmFkZXJfaWQYvAEgASgJEjgKE2x0aWRfZWZmZWN0",
-            "aXZlX2RhdGUYvQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI/",
-            "ChFjYXRfY2Fpc190aWRfdHlwZRi+ASABKA4yIy5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkNhdENhaXNUaWRUeXBlEhsKEmNhdF9jYWlzX3RpZF92YWx1ZRi/ASAB",
-            "KAkSQQoSY2F0X2NhaXNfY3VzdF90eXBlGMABIAEoDjIkLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuQ2F0Q2Fpc0N1c3RUeXBlEhgKD3N5bmNfYWdnX2dyb3VwcxjB",
-            "ASABKAkSFwoOc3luY190aHJlc2hvbGQYxAEgASgCEi4KCXZpZXdfZ0lDUxjH",
-            "ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEi8KCnZpZXdfY1VT",
-            "SVAYygEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI7ChZyZXN0",
-            "cmljdF9sb2NhdGVfdXBsb2FkGM0BIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuWWVzTm8SNwoScmVzdHJpY3RfYXV0b2hlZGdlGNABIAEoDjIaLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuWWVzTm8SSgolY3hsX3Jpc2tfZ3JvdXBfb25fcmV2",
-            "aWV3X2hlZGdlX3JlamVjdBjTASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "Llllc05vEjoKEHVzZXJfcmF0ZV9zb3VyY2UY1gEgASgOMh8uc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5SYXRlU291cmNlEkIKHWVuYWJsZV9zcnNlX3Byb2R1Y3Rf",
-            "c25hcHNob3RzGNkBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
-            "MQoJYXV0aF90eXBlGOUBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQXV0",
-            "aFR5cGUSGQoQYXV0aF9leHRlcm5fbmFtZRjoASABKAkSGwoSYXV0aF9leHRl",
-            "cm5fcGFyYW1zGOsBIAEoCRIZChBwd19maWxlX3RyYW5zZmVyGO4BIAEoCRI5",
-            "ChRkcm9wX2FsbF9wYXJlbnRfdGFncxjxASABKA4yGi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlllc05vEjUKEGVuYWJsZV9zcnNlX3Byb2QYjwIgASgOMhouc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5ZZXNObxIUCgttb2RpZmllZF9ieRiSAiABKAkS",
-            "OQoLbW9kaWZpZWRfaW4YlQIgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5T",
-            "eXNFbnZpcm9ubWVudBIuCgl0aW1lc3RhbXAYmAIgASgLMhouZ29vZ2xlLnBy",
-            "b3RvYnVmLlRpbWVzdGFtcBIdChR0b29sX3Byb2R1Y3RfYWNsX192NxiIJyAB",
-            "KAkSIAoXZWxhc3RpY19wcm9kdWN0X2FjbF9fdjcYiScgASgJEhwKE21hcmtl",
-            "dF9kYXRhX2FjbF9fdjcYiicgASgJEhwKE2d3dF9wcm9kdWN0X2FjbF9fdjcY",
-            "iycgASgJEkUKFHJpc2tfc2VydmVyX2NvZGVfX3Y3GIwnIAEoDjImLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuUmlza1NlcnZlckNvZGVfVjcSRQoUZHJvcF9zZXJ2",
-            "ZXJfY29kZV9fdjcYjScgASgOMiYuc3BpZGVycm9jay5wcm90b2J1Zi5Ecm9w",
-            "U2VydmVyQ29kZV9WNxJGChVkcm9wX3NlcnZlcl9jb2RlMl9fdjcYjicgASgO",
-            "MiYuc3BpZGVycm9jay5wcm90b2J1Zi5Ecm9wU2VydmVyQ29kZV9WNxJGChVk",
-            "cm9wX3NlcnZlcl9jb2RlM19fdjcYjycgASgOMiYuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5Ecm9wU2VydmVyQ29kZV9WNxJGChVkcm9wX3NlcnZlcl9jb2RlNF9f",
-            "djcYkCcgASgOMiYuc3BpZGVycm9jay5wcm90b2J1Zi5Ecm9wU2VydmVyQ29k",
-            "ZV9WNxJGChVkcm9wX3NlcnZlcl9jb2RlNV9fdjcYkScgASgOMiYuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5Ecm9wU2VydmVyQ29kZV9WNxJGChVkcm9wX3NlcnZl",
-            "cl9jb2RlNl9fdjcYkicgASgOMiYuc3BpZGVycm9jay5wcm90b2J1Zi5Ecm9w",
-            "U2VydmVyQ29kZV9WNxJGChVkcm9wX3NlcnZlcl9jb2RlN19fdjcYkycgASgO",
-            "MiYuc3BpZGVycm9jay5wcm90b2J1Zi5Ecm9wU2VydmVyQ29kZV9WNxJGChVk",
-            "cm9wX3NlcnZlcl9jb2RlOF9fdjcYlCcgASgOMiYuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5Ecm9wU2VydmVyQ29kZV9WNxI+ChBwcml2YWN5X3J1bGVfX3Y3GJUn",
-            "IAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYuUHJpdmFjeVJ1bGVfVjcSRAoT",
-            "YWxsb3dlZF9pbmdyZXNzX192NxiWJyABKA4yJi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkFsbG93ZWRJbmdyZXNzX1Y3EjoKFXJlc3RyaWN0X2lQU291cmNlX192",
-            "NxiXJyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhsKEmlwX2Fj",
-            "Y2Vzc19tYXNrX192NxiYJyABKAkSQQoSdHdvX3BoYXNlX3R5cGVfX3Y3GJkn",
-            "IAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuVHdvUGhhc2VUeXBlX1Y3Ej0K",
-            "GGNoYW5nZV9vbl9pbml0X2xvZ29uX192NxiaJyABKA4yGi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlllc05vEjUKEHVzZXJfbG9ja291dF9fdjcYmycgASgOMhou",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI4ChNlbmZvcmNlX2hpc3Rvcnlf",
-            "X3Y3GJwnIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SEwoKcHdf",
-            "YWdlX192NxidJyABKAUSFgoNcHdfbGVuZ3RoX192NxieJyABKAUSFwoOcHdf",
-            "aGlzdG9yeV9fdjcYnycgASgFEkAKEXB3X2NvbXBsZXhpdHlfX3Y3GKAnIAEo",
-            "DjIkLnNwaWRlcnJvY2sucHJvdG9idWYuUHdDb21wbGV4aXR5X1Y3EhwKE2xv",
-            "Y2F0ZV9yZXFfZmlybV9fdjcYoScgASgJEkUKFmxvY2F0ZV9kYXRhX2NlbnRl",
-            "cl9fdjcYoicgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5TUkRhdGFDZW50",
-            "ZXJfVjcSGAoPcm91dGVfdGFibGVfX3Y3GKMnIAEoCRI/ChN1c2VyX3RpY2tl",
-            "cl9zcmNfX3Y3GKQnIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2Vy",
-            "U3JjX1Y3EhYKDXVzZXJfbmFtZV9fdjcYpScgASgJElsKFmRpcmVjdGVkX2Nv",
-            "dW50ZXJfcGFydHkY9AEgAygLMjouc3BpZGVycm9jay5wcm90b2J1Zi5DbGll",
-            "bnRGaXJtQ29uZmlnLkRpcmVjdGVkQ291bnRlclBhcnR5ElkKFWV4Y2x1ZGVf",
-            "Y291bnRlcl9wYXJ0eRj7ASADKAsyOS5zcGlkZXJyb2NrLnByb3RvYnVmLkNs",
-            "aWVudEZpcm1Db25maWcuRXhjbHVkZUNvdW50ZXJQYXJ0eRJGCgtsb2NhdGVf",
-            "cG9vbBjcASADKAsyMC5zcGlkZXJyb2NrLnByb3RvYnVmLkNsaWVudEZpcm1D",
-            "b25maWcuTG9jYXRlUG9vbBJPChByYXdfZGF0YV9iaWxsaW5nGP0BIAMoCzI0",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuQ2xpZW50RmlybUNvbmZpZy5SYXdEYXRh",
-            "QmlsbGluZxJDCgpzb3VyY2VfaV9wGIYCIAMoCzIuLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuQ2xpZW50RmlybUNvbmZpZy5Tb3VyY2VJUBobCgRQS2V5EhMKC2Ns",
-            "aWVudF9maXJtGAogASgJGmAKFERpcmVjdGVkQ291bnRlclBhcnR5EhQKC2Ns",
-            "aWVudF9maXJtGPcBIAEoCRIyCg1pc19jb21tX3BhcnR5GPoBIAEoDjIaLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuWWVzTm8aKwoTRXhjbHVkZUNvdW50ZXJQYXJ0",
-            "eRIUCgtjbGllbnRfZmlybRj8ASABKAkaOAoKTG9jYXRlUG9vbBIUCgtsb2Nh",
-            "dGVfZmlybRjfASABKAkSFAoLbG9jYXRlX3Bvb2wY4gEgASgJGnYKDlJhd0Rh",
-            "dGFCaWxsaW5nEjEKBXRva2VuGIACIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuUmF3RGF0YVRva2VuEjEKBXNjb3BlGIMCIAEoDjIhLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuUmF3RGF0YVNjb3BlGjYKCFNvdXJjZUlQEhQKC2lwX3Y0X3Jh",
-            "bmdlGIkCIAEoCRIUCgtpcF92Nl9yYW5nZRiMAiABKAliBnByb3RvMw=="));
+            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI0CgplbmFibGVkX2luGJ0CIAEo",
+            "DjIfLnNwaWRlcnJvY2sucHJvdG9idWYuU3lzVmVyc2lvbhI9ChBjbGllbnRf",
+            "ZmlybV90eXBlGGogASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5DbGllbnRG",
+            "aXJtVHlwZRIYChBjbGllbnRfZmlybV9uYW1lGG0gASgJEh4KFmNsaWVudF9m",
+            "aXJtX3Nob3J0X2NvZGUYcCABKAkSTQoYY2xpZW50X2Zpcm1fcmVsYXRpb25z",
+            "aGlwGHMgASgOMisuc3BpZGVycm9jay5wcm90b2J1Zi5DbGllbnRGaXJtUmVs",
+            "YXRpb25zaGlwEhMKC3JlcF9jb2RlX3NSGHYgASgJEhcKD2NsaWVudF90YWdf",
+            "cG9vbBh5IAEoCRIXCg9iaWxsaW5nX2FjY291bnQYfCABKAkSGAoQYmlsbGlu",
+            "Z19zY2hlZHVsZRh/IAEoCRIZChBiaWxsaW5nX2FkZHJlc3MxGIIBIAEoCRIZ",
+            "ChBiaWxsaW5nX2FkZHJlc3MyGIUBIAEoCRIVCgxiaWxsaW5nX2NpdHkYiAEg",
+            "ASgJEhYKDWJpbGxpbmdfc3RhdGUYiwEgASgJEhkKEGJpbGxpbmdfemlwX2Nv",
+            "ZGUYjgEgASgJEhgKD2JpbGxpbmdfY291bnRyeRiRASABKAkSHQoUYmlsbGlu",
+            "Z19waG9uZV9udW1iZXIYlAEgASgJEh4KFWJpbGxpbmdfZW1haWxfYWRkcmVz",
+            "cxiXASABKAkSGAoPcmVwb3J0X2FkZHJlc3MxGJoBIAEoCRIYCg9yZXBvcnRf",
+            "YWRkcmVzczIYnQEgASgJEhQKC3JlcG9ydF9jaXR5GKABIAEoCRIVCgxyZXBv",
+            "cnRfc3RhdGUYowEgASgJEhgKD3JlcG9ydF96aXBfY29kZRimASABKAkSFwoO",
+            "cmVwb3J0X2NvdW50cnkYqQEgASgJEhwKE3JlcG9ydF9waG9uZV9udW1iZXIY",
+            "rAEgASgJEh0KFHJlcG9ydF9lbWFpbF9hZGRyZXNzGK8BIAEoCRIZChBjb3Jl",
+            "X2NsaWVudF9maXJtGLIBIAEoCRIcChNzcG9uc29yX2NsaWVudF9maXJtGLUB",
+            "IAEoCRI7ChZjYW5faGF2ZV90cmFkaW5nX2FjY250GLgBIAEoDjIaLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuWWVzTm8SGAoPbGVnYWxfZW50aXR5X2lkGLsBIAEo",
+            "CRIcChNzZWNfbGFyZ2VfdHJhZGVyX2lkGL4BIAEoCRI4ChNsdGlkX2VmZmVj",
+            "dGl2ZV9kYXRlGJkCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "PwoRY2F0X2NhaXNfdGlkX3R5cGUYmgIgASgOMiMuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5DYXRDYWlzVGlkVHlwZRIbChJjYXRfY2Fpc190aWRfdmFsdWUYmwIg",
+            "ASgJEkEKEmNhdF9jYWlzX2N1c3RfdHlwZRicAiABKA4yJC5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLkNhdENhaXNDdXN0VHlwZRIYCg9zeW5jX2FnZ19ncm91cHMY",
+            "wQEgASgJEhcKDnN5bmNfdGhyZXNob2xkGMQBIAEoAhIuCgl2aWV3X2dJQ1MY",
+            "xwEgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIvCgp2aWV3X2NV",
+            "U0lQGMoBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SOwoWcmVz",
+            "dHJpY3RfbG9jYXRlX3VwbG9hZBjNASABKA4yGi5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlllc05vEjcKEnJlc3RyaWN0X2F1dG9oZWRnZRjQASABKA4yGi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlllc05vEkoKJWN4bF9yaXNrX2dyb3VwX29uX3Jl",
+            "dmlld19oZWRnZV9yZWplY3QY0wEgASgOMhouc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5ZZXNObxI6ChB1c2VyX3JhdGVfc291cmNlGNYBIAEoDjIfLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuUmF0ZVNvdXJjZRJCCh1lbmFibGVfc3JzZV9wcm9kdWN0",
+            "X3NuYXBzaG90cxjZASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05v",
+            "EjEKCWF1dGhfdHlwZRjlASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkF1",
+            "dGhUeXBlEhkKEGF1dGhfZXh0ZXJuX25hbWUY6AEgASgJEhsKEmF1dGhfZXh0",
+            "ZXJuX3BhcmFtcxjrASABKAkSGQoQcHdfZmlsZV90cmFuc2ZlchjuASABKAkS",
+            "OQoUZHJvcF9hbGxfcGFyZW50X3RhZ3MY8QEgASgOMhouc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5ZZXNObxI1ChBlbmFibGVfc3JzZV9wcm9kGI8CIAEoDjIaLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuWWVzTm8SFAoLbW9kaWZpZWRfYnkYkgIgASgJ",
+            "EjkKC21vZGlmaWVkX2luGJUCIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "U3lzRW52aXJvbm1lbnQSLgoJdGltZXN0YW1wGJgCIAEoCzIaLmdvb2dsZS5w",
+            "cm90b2J1Zi5UaW1lc3RhbXASHQoUdG9vbF9wcm9kdWN0X2FjbF9fdjcYiCcg",
+            "ASgJEiAKF2VsYXN0aWNfcHJvZHVjdF9hY2xfX3Y3GIknIAEoCRIcChNtYXJr",
+            "ZXRfZGF0YV9hY2xfX3Y3GIonIAEoCRIcChNnd3RfcHJvZHVjdF9hY2xfX3Y3",
+            "GIsnIAEoCRJFChRyaXNrX3NlcnZlcl9jb2RlX192NxiMJyABKA4yJi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlJpc2tTZXJ2ZXJDb2RlX1Y3EkUKFGRyb3Bfc2Vy",
+            "dmVyX2NvZGVfX3Y3GI0nIAEoDjImLnNwaWRlcnJvY2sucHJvdG9idWYuRHJv",
+            "cFNlcnZlckNvZGVfVjcSRgoVZHJvcF9zZXJ2ZXJfY29kZTJfX3Y3GI4nIAEo",
+            "DjImLnNwaWRlcnJvY2sucHJvdG9idWYuRHJvcFNlcnZlckNvZGVfVjcSRgoV",
+            "ZHJvcF9zZXJ2ZXJfY29kZTNfX3Y3GI8nIAEoDjImLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuRHJvcFNlcnZlckNvZGVfVjcSRgoVZHJvcF9zZXJ2ZXJfY29kZTRf",
+            "X3Y3GJAnIAEoDjImLnNwaWRlcnJvY2sucHJvdG9idWYuRHJvcFNlcnZlckNv",
+            "ZGVfVjcSRgoVZHJvcF9zZXJ2ZXJfY29kZTVfX3Y3GJEnIAEoDjImLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuRHJvcFNlcnZlckNvZGVfVjcSRgoVZHJvcF9zZXJ2",
+            "ZXJfY29kZTZfX3Y3GJInIAEoDjImLnNwaWRlcnJvY2sucHJvdG9idWYuRHJv",
+            "cFNlcnZlckNvZGVfVjcSRgoVZHJvcF9zZXJ2ZXJfY29kZTdfX3Y3GJMnIAEo",
+            "DjImLnNwaWRlcnJvY2sucHJvdG9idWYuRHJvcFNlcnZlckNvZGVfVjcSRgoV",
+            "ZHJvcF9zZXJ2ZXJfY29kZThfX3Y3GJQnIAEoDjImLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuRHJvcFNlcnZlckNvZGVfVjcSPgoQcHJpdmFjeV9ydWxlX192NxiV",
+            "JyABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlByaXZhY3lSdWxlX1Y3EkQK",
+            "E2FsbG93ZWRfaW5ncmVzc19fdjcYlicgASgOMiYuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5BbGxvd2VkSW5ncmVzc19WNxI6ChVyZXN0cmljdF9pUFNvdXJjZV9f",
+            "djcYlycgASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIbChJpcF9h",
+            "Y2Nlc3NfbWFza19fdjcYmCcgASgJEkEKEnR3b19waGFzZV90eXBlX192NxiZ",
+            "JyABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLlR3b1BoYXNlVHlwZV9WNxI9",
+            "ChhjaGFuZ2Vfb25faW5pdF9sb2dvbl9fdjcYmicgASgOMhouc3BpZGVycm9j",
+            "ay5wcm90b2J1Zi5ZZXNObxI1ChB1c2VyX2xvY2tvdXRfX3Y3GJsnIAEoDjIa",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SOAoTZW5mb3JjZV9oaXN0b3J5",
+            "X192NxicJyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEhMKCnB3",
+            "X2FnZV9fdjcYnScgASgFEhYKDXB3X2xlbmd0aF9fdjcYnicgASgFEhcKDnB3",
+            "X2hpc3RvcnlfX3Y3GJ8nIAEoBRJAChFwd19jb21wbGV4aXR5X192NxigJyAB",
+            "KA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLlB3Q29tcGxleGl0eV9WNxIcChNs",
+            "b2NhdGVfcmVxX2Zpcm1fX3Y3GKEnIAEoCRJFChZsb2NhdGVfZGF0YV9jZW50",
+            "ZXJfX3Y3GKInIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuU1JEYXRhQ2Vu",
+            "dGVyX1Y3EhgKD3JvdXRlX3RhYmxlX192NxijJyABKAkSPwoTdXNlcl90aWNr",
+            "ZXJfc3JjX192NxikJyABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tl",
+            "clNyY19WNxIWCg11c2VyX25hbWVfX3Y3GKUnIAEoCRJbChZkaXJlY3RlZF9j",
+            "b3VudGVyX3BhcnR5GPQBIAMoCzI6LnNwaWRlcnJvY2sucHJvdG9idWYuQ2xp",
+            "ZW50RmlybUNvbmZpZy5EaXJlY3RlZENvdW50ZXJQYXJ0eRJZChVleGNsdWRl",
+            "X2NvdW50ZXJfcGFydHkYngIgAygLMjkuc3BpZGVycm9jay5wcm90b2J1Zi5D",
+            "bGllbnRGaXJtQ29uZmlnLkV4Y2x1ZGVDb3VudGVyUGFydHkSRgoLbG9jYXRl",
+            "X3Bvb2wY3AEgAygLMjAuc3BpZGVycm9jay5wcm90b2J1Zi5DbGllbnRGaXJt",
+            "Q29uZmlnLkxvY2F0ZVBvb2wSTwoQcmF3X2RhdGFfYmlsbGluZxj9ASADKAsy",
+            "NC5zcGlkZXJyb2NrLnByb3RvYnVmLkNsaWVudEZpcm1Db25maWcuUmF3RGF0",
+            "YUJpbGxpbmcSQwoKc291cmNlX2lfcBiGAiADKAsyLi5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLkNsaWVudEZpcm1Db25maWcuU291cmNlSVAaGwoEUEtleRITCgtj",
+            "bGllbnRfZmlybRgKIAEoCRpgChREaXJlY3RlZENvdW50ZXJQYXJ0eRIUCgtj",
+            "bGllbnRfZmlybRj3ASABKAkSMgoNaXNfY29tbV9wYXJ0eRj6ASABKA4yGi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vGisKE0V4Y2x1ZGVDb3VudGVyUGFy",
+            "dHkSFAoLY2xpZW50X2Zpcm0YnwIgASgJGjgKCkxvY2F0ZVBvb2wSFAoLbG9j",
+            "YXRlX2Zpcm0Y3wEgASgJEhQKC2xvY2F0ZV9wb29sGOIBIAEoCRp2Cg5SYXdE",
+            "YXRhQmlsbGluZxIxCgV0b2tlbhiAAiABKA4yIS5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlJhd0RhdGFUb2tlbhIxCgVzY29wZRiDAiABKA4yIS5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlJhd0RhdGFTY29wZRo2CghTb3VyY2VJUBIUCgtpcF92NF9y",
+            "YW5nZRiJAiABKAkSFAoLaXBfdjZfcmFuZ2UYjAIgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -335,7 +335,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "enabled_in" field.</summary>
-    public const int EnabledInFieldNumber = 104;
+    public const int EnabledInFieldNumber = 285;
     private global::Spiderrock.Protobuf.SysVersion enabledIn_ = global::Spiderrock.Protobuf.SysVersion.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -764,7 +764,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "sec_large_trader_id" field.</summary>
-    public const int SecLargeTraderIdFieldNumber = 188;
+    public const int SecLargeTraderIdFieldNumber = 190;
     private string secLargeTraderId_ = "";
     /// <summary>
     /// SEC-assigned trading ID assigned to a firm.  13 character string, contains numbers and dashes.
@@ -779,7 +779,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "ltid_effective_date" field.</summary>
-    public const int LtidEffectiveDateFieldNumber = 189;
+    public const int LtidEffectiveDateFieldNumber = 281;
     private global::Google.Protobuf.WellKnownTypes.Timestamp ltidEffectiveDate_;
     /// <summary>
     /// LargeTraderID Effective Date
@@ -794,7 +794,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cat_cais_tid_type" field.</summary>
-    public const int CatCaisTidTypeFieldNumber = 190;
+    public const int CatCaisTidTypeFieldNumber = 282;
     private global::Spiderrock.Protobuf.CatCaisTidType catCaisTidType_ = global::Spiderrock.Protobuf.CatCaisTidType.Unspecified;
     /// <summary>
     /// CAT CAIS TID (Transformed Identifiers) Type
@@ -809,7 +809,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cat_cais_tid_value" field.</summary>
-    public const int CatCaisTidValueFieldNumber = 191;
+    public const int CatCaisTidValueFieldNumber = 283;
     private string catCaisTidValue_ = "";
     /// <summary>
     /// CAT CAIS TID Value
@@ -824,7 +824,7 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "cat_cais_cust_type" field.</summary>
-    public const int CatCaisCustTypeFieldNumber = 192;
+    public const int CatCaisCustTypeFieldNumber = 284;
     private global::Spiderrock.Protobuf.CatCaisCustType catCaisCustType_ = global::Spiderrock.Protobuf.CatCaisCustType.Unspecified;
     /// <summary>
     /// CAT CAIS CustomerType
@@ -1007,7 +1007,7 @@ namespace Spiderrock.Protobuf {
     public const int AuthExternParamsFieldNumber = 235;
     private string authExternParams_ = "";
     /// <summary>
-    /// eg. 'https://corp.domain.com:xxxx'
+    /// eg. `https://corp.domain.com:xxxx`
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1090,9 +1090,6 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 280;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
-    /// <summary>
-    /// timestamp of last modification
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp Timestamp {
@@ -1526,7 +1523,7 @@ namespace Spiderrock.Protobuf {
     public const int UserTickerSrcV7FieldNumber = 5028;
     private global::Spiderrock.Protobuf.TickerSrc_V7 userTickerSrcV7_ = global::Spiderrock.Protobuf.TickerSrc_V7.Unspecified;
     /// <summary>
-    /// only v7: enum values do not match with v8: V7[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,TD=7,NYMEX=8,COMEX=9,RUT=10,CBOE=11,ISE=12,ARCA=13,NYSE=14,OTC=15,TST1=16,TST2=17,TST3=18,TST=19,USR1=20,USR2=21,USR3=22,NSDQ=23,MFQS=24,PHLX=25,MIAX=26,TSE=27,DJI=28,CBX=29,BXE=30,ESX=31,CXE=32,DXE=33,NXAM=34,NXBR=35,NXDUB=36,NXLS=37,NXLDN=38,NXML=39,NXMLT=40,NXOS=41,NXP=42,EUREX=43,CEDX=44], V8[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,NYMEX=7,COMEX=8,RUT=9,CIDX=10,ARCA=11,NYSE=12,OTC=13,NSDQ=14,MFQS=15,MIAX=16,DJI=17,CUSIP=18,ISIN=19,BXE=20,ESX=21,ANY=22,CXE=23,DXE=24,NXAM=25,NXBR=26,NXDUB=27,NXLS=28,NXLDN=29,NXML=30,NXMLT=31,NXOS=32,NXP=33,EUREX=34,CEDX=35]
+    /// only v7: enum values do not match with v8: V7[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,TD=7,NYMEX=8,COMEX=9,RUT=10,CBOE=11,ISE=12,ARCA=13,NYSE=14,OTC=15,TST1=16,TST2=17,TST3=18,TST=19,USR1=20,USR2=21,USR3=22,NSDQ=23,MFQS=24,PHLX=25,MIAX=26,TSE=27,DJI=28,CBX=29,BXE=30,EUX=31,CXE=32,DXE=33,NXAM=34,NXBR=35,NXLS=36,NXML=37,NXOS=38,NXP=39,EUREX=40,CEDX=41,ICEFE=42], V8[None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,NYMEX=7,COMEX=8,RUT=9,CIDX=10,ARCA=11,NYSE=12,OTC=13,NSDQ=14,MFQS=15,MIAX=16,DJI=17,CUSIP=18,ISIN=19,BXE=20,EUX=21,ANY=22,CXE=23,DXE=24,NXAM=25,NXBR=26,NXLS=27,NXML=28,NXOS=29,NXP=30,EUREX=31,CEDX=32,ICEFE=33]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1564,9 +1561,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exclude_counter_party" field.</summary>
-    public const int ExcludeCounterPartyFieldNumber = 251;
+    public const int ExcludeCounterPartyFieldNumber = 286;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.ClientFirmConfig.Types.ExcludeCounterParty> _repeated_excludeCounterParty_codec
-        = pb::FieldCodec.ForMessage(2010, global::Spiderrock.Protobuf.ClientFirmConfig.Types.ExcludeCounterParty.Parser);
+        = pb::FieldCodec.ForMessage(2290, global::Spiderrock.Protobuf.ClientFirmConfig.Types.ExcludeCounterParty.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.ClientFirmConfig.Types.ExcludeCounterParty> excludeCounterParty_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.ClientFirmConfig.Types.ExcludeCounterParty>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1845,10 +1842,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 6);
         output.WriteMessage(ClientFirmStatusDttm);
       }
-      if (EnabledIn != global::Spiderrock.Protobuf.SysVersion.Unspecified) {
-        output.WriteRawTag(192, 6);
-        output.WriteEnum((int) EnabledIn);
-      }
       if (ClientFirmType != global::Spiderrock.Protobuf.ClientFirmType.Unspecified) {
         output.WriteRawTag(208, 6);
         output.WriteEnum((int) ClientFirmType);
@@ -1962,24 +1955,8 @@ namespace Spiderrock.Protobuf {
         output.WriteString(LegalEntityId);
       }
       if (SecLargeTraderId.Length != 0) {
-        output.WriteRawTag(226, 11);
+        output.WriteRawTag(242, 11);
         output.WriteString(SecLargeTraderId);
-      }
-      if (ltidEffectiveDate_ != null) {
-        output.WriteRawTag(234, 11);
-        output.WriteMessage(LtidEffectiveDate);
-      }
-      if (CatCaisTidType != global::Spiderrock.Protobuf.CatCaisTidType.Unspecified) {
-        output.WriteRawTag(240, 11);
-        output.WriteEnum((int) CatCaisTidType);
-      }
-      if (CatCaisTidValue.Length != 0) {
-        output.WriteRawTag(250, 11);
-        output.WriteString(CatCaisTidValue);
-      }
-      if (CatCaisCustType != global::Spiderrock.Protobuf.CatCaisCustType.Unspecified) {
-        output.WriteRawTag(128, 12);
-        output.WriteEnum((int) CatCaisCustType);
       }
       if (SyncAggGroups.Length != 0) {
         output.WriteRawTag(138, 12);
@@ -2039,7 +2016,6 @@ namespace Spiderrock.Protobuf {
         output.WriteEnum((int) DropAllParentTags);
       }
       directedCounterParty_.WriteTo(output, _repeated_directedCounterParty_codec);
-      excludeCounterParty_.WriteTo(output, _repeated_excludeCounterParty_codec);
       rawDataBilling_.WriteTo(output, _repeated_rawDataBilling_codec);
       sourceIP_.WriteTo(output, _repeated_sourceIP_codec);
       if (EnableSrseProd != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -2058,6 +2034,27 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 17);
         output.WriteMessage(Timestamp);
       }
+      if (ltidEffectiveDate_ != null) {
+        output.WriteRawTag(202, 17);
+        output.WriteMessage(LtidEffectiveDate);
+      }
+      if (CatCaisTidType != global::Spiderrock.Protobuf.CatCaisTidType.Unspecified) {
+        output.WriteRawTag(208, 17);
+        output.WriteEnum((int) CatCaisTidType);
+      }
+      if (CatCaisTidValue.Length != 0) {
+        output.WriteRawTag(218, 17);
+        output.WriteString(CatCaisTidValue);
+      }
+      if (CatCaisCustType != global::Spiderrock.Protobuf.CatCaisCustType.Unspecified) {
+        output.WriteRawTag(224, 17);
+        output.WriteEnum((int) CatCaisCustType);
+      }
+      if (EnabledIn != global::Spiderrock.Protobuf.SysVersion.Unspecified) {
+        output.WriteRawTag(232, 17);
+        output.WriteEnum((int) EnabledIn);
+      }
+      excludeCounterParty_.WriteTo(output, _repeated_excludeCounterParty_codec);
       if (ToolProductAclV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(ToolProductAclV7);
@@ -2204,10 +2201,6 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 6);
         output.WriteMessage(ClientFirmStatusDttm);
       }
-      if (EnabledIn != global::Spiderrock.Protobuf.SysVersion.Unspecified) {
-        output.WriteRawTag(192, 6);
-        output.WriteEnum((int) EnabledIn);
-      }
       if (ClientFirmType != global::Spiderrock.Protobuf.ClientFirmType.Unspecified) {
         output.WriteRawTag(208, 6);
         output.WriteEnum((int) ClientFirmType);
@@ -2321,24 +2314,8 @@ namespace Spiderrock.Protobuf {
         output.WriteString(LegalEntityId);
       }
       if (SecLargeTraderId.Length != 0) {
-        output.WriteRawTag(226, 11);
+        output.WriteRawTag(242, 11);
         output.WriteString(SecLargeTraderId);
-      }
-      if (ltidEffectiveDate_ != null) {
-        output.WriteRawTag(234, 11);
-        output.WriteMessage(LtidEffectiveDate);
-      }
-      if (CatCaisTidType != global::Spiderrock.Protobuf.CatCaisTidType.Unspecified) {
-        output.WriteRawTag(240, 11);
-        output.WriteEnum((int) CatCaisTidType);
-      }
-      if (CatCaisTidValue.Length != 0) {
-        output.WriteRawTag(250, 11);
-        output.WriteString(CatCaisTidValue);
-      }
-      if (CatCaisCustType != global::Spiderrock.Protobuf.CatCaisCustType.Unspecified) {
-        output.WriteRawTag(128, 12);
-        output.WriteEnum((int) CatCaisCustType);
       }
       if (SyncAggGroups.Length != 0) {
         output.WriteRawTag(138, 12);
@@ -2398,7 +2375,6 @@ namespace Spiderrock.Protobuf {
         output.WriteEnum((int) DropAllParentTags);
       }
       directedCounterParty_.WriteTo(ref output, _repeated_directedCounterParty_codec);
-      excludeCounterParty_.WriteTo(ref output, _repeated_excludeCounterParty_codec);
       rawDataBilling_.WriteTo(ref output, _repeated_rawDataBilling_codec);
       sourceIP_.WriteTo(ref output, _repeated_sourceIP_codec);
       if (EnableSrseProd != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -2417,6 +2393,27 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(194, 17);
         output.WriteMessage(Timestamp);
       }
+      if (ltidEffectiveDate_ != null) {
+        output.WriteRawTag(202, 17);
+        output.WriteMessage(LtidEffectiveDate);
+      }
+      if (CatCaisTidType != global::Spiderrock.Protobuf.CatCaisTidType.Unspecified) {
+        output.WriteRawTag(208, 17);
+        output.WriteEnum((int) CatCaisTidType);
+      }
+      if (CatCaisTidValue.Length != 0) {
+        output.WriteRawTag(218, 17);
+        output.WriteString(CatCaisTidValue);
+      }
+      if (CatCaisCustType != global::Spiderrock.Protobuf.CatCaisCustType.Unspecified) {
+        output.WriteRawTag(224, 17);
+        output.WriteEnum((int) CatCaisCustType);
+      }
+      if (EnabledIn != global::Spiderrock.Protobuf.SysVersion.Unspecified) {
+        output.WriteRawTag(232, 17);
+        output.WriteEnum((int) EnabledIn);
+      }
+      excludeCounterParty_.WriteTo(ref output, _repeated_excludeCounterParty_codec);
       if (ToolProductAclV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(ToolProductAclV7);
@@ -3140,10 +3137,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(ClientFirmStatusDttm);
             break;
           }
-          case 832: {
-            EnabledIn = (global::Spiderrock.Protobuf.SysVersion) input.ReadEnum();
-            break;
-          }
           case 848: {
             ClientFirmType = (global::Spiderrock.Protobuf.ClientFirmType) input.ReadEnum();
             break;
@@ -3256,27 +3249,8 @@ namespace Spiderrock.Protobuf {
             LegalEntityId = input.ReadString();
             break;
           }
-          case 1506: {
+          case 1522: {
             SecLargeTraderId = input.ReadString();
-            break;
-          }
-          case 1514: {
-            if (ltidEffectiveDate_ == null) {
-              LtidEffectiveDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LtidEffectiveDate);
-            break;
-          }
-          case 1520: {
-            CatCaisTidType = (global::Spiderrock.Protobuf.CatCaisTidType) input.ReadEnum();
-            break;
-          }
-          case 1530: {
-            CatCaisTidValue = input.ReadString();
-            break;
-          }
-          case 1536: {
-            CatCaisCustType = (global::Spiderrock.Protobuf.CatCaisCustType) input.ReadEnum();
             break;
           }
           case 1546: {
@@ -3343,10 +3317,6 @@ namespace Spiderrock.Protobuf {
             directedCounterParty_.AddEntriesFrom(input, _repeated_directedCounterParty_codec);
             break;
           }
-          case 2010: {
-            excludeCounterParty_.AddEntriesFrom(input, _repeated_excludeCounterParty_codec);
-            break;
-          }
           case 2026: {
             rawDataBilling_.AddEntriesFrom(input, _repeated_rawDataBilling_codec);
             break;
@@ -3372,6 +3342,33 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 2250: {
+            if (ltidEffectiveDate_ == null) {
+              LtidEffectiveDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(LtidEffectiveDate);
+            break;
+          }
+          case 2256: {
+            CatCaisTidType = (global::Spiderrock.Protobuf.CatCaisTidType) input.ReadEnum();
+            break;
+          }
+          case 2266: {
+            CatCaisTidValue = input.ReadString();
+            break;
+          }
+          case 2272: {
+            CatCaisCustType = (global::Spiderrock.Protobuf.CatCaisCustType) input.ReadEnum();
+            break;
+          }
+          case 2280: {
+            EnabledIn = (global::Spiderrock.Protobuf.SysVersion) input.ReadEnum();
+            break;
+          }
+          case 2290: {
+            excludeCounterParty_.AddEntriesFrom(input, _repeated_excludeCounterParty_codec);
             break;
           }
           case 40002: {
@@ -3534,10 +3531,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(ClientFirmStatusDttm);
             break;
           }
-          case 832: {
-            EnabledIn = (global::Spiderrock.Protobuf.SysVersion) input.ReadEnum();
-            break;
-          }
           case 848: {
             ClientFirmType = (global::Spiderrock.Protobuf.ClientFirmType) input.ReadEnum();
             break;
@@ -3650,27 +3643,8 @@ namespace Spiderrock.Protobuf {
             LegalEntityId = input.ReadString();
             break;
           }
-          case 1506: {
+          case 1522: {
             SecLargeTraderId = input.ReadString();
-            break;
-          }
-          case 1514: {
-            if (ltidEffectiveDate_ == null) {
-              LtidEffectiveDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LtidEffectiveDate);
-            break;
-          }
-          case 1520: {
-            CatCaisTidType = (global::Spiderrock.Protobuf.CatCaisTidType) input.ReadEnum();
-            break;
-          }
-          case 1530: {
-            CatCaisTidValue = input.ReadString();
-            break;
-          }
-          case 1536: {
-            CatCaisCustType = (global::Spiderrock.Protobuf.CatCaisCustType) input.ReadEnum();
             break;
           }
           case 1546: {
@@ -3737,10 +3711,6 @@ namespace Spiderrock.Protobuf {
             directedCounterParty_.AddEntriesFrom(ref input, _repeated_directedCounterParty_codec);
             break;
           }
-          case 2010: {
-            excludeCounterParty_.AddEntriesFrom(ref input, _repeated_excludeCounterParty_codec);
-            break;
-          }
           case 2026: {
             rawDataBilling_.AddEntriesFrom(ref input, _repeated_rawDataBilling_codec);
             break;
@@ -3766,6 +3736,33 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 2250: {
+            if (ltidEffectiveDate_ == null) {
+              LtidEffectiveDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(LtidEffectiveDate);
+            break;
+          }
+          case 2256: {
+            CatCaisTidType = (global::Spiderrock.Protobuf.CatCaisTidType) input.ReadEnum();
+            break;
+          }
+          case 2266: {
+            CatCaisTidValue = input.ReadString();
+            break;
+          }
+          case 2272: {
+            CatCaisCustType = (global::Spiderrock.Protobuf.CatCaisCustType) input.ReadEnum();
+            break;
+          }
+          case 2280: {
+            EnabledIn = (global::Spiderrock.Protobuf.SysVersion) input.ReadEnum();
+            break;
+          }
+          case 2290: {
+            excludeCounterParty_.AddEntriesFrom(ref input, _repeated_excludeCounterParty_codec);
             break;
           }
           case 40002: {
@@ -4364,7 +4361,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "client_firm" field.</summary>
-        public const int ClientFirmFieldNumber = 252;
+        public const int ClientFirmFieldNumber = 287;
         private string clientFirm_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4418,7 +4415,7 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (ClientFirm.Length != 0) {
-            output.WriteRawTag(226, 15);
+            output.WriteRawTag(250, 17);
             output.WriteString(ClientFirm);
           }
           if (_unknownFields != null) {
@@ -4432,7 +4429,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (ClientFirm.Length != 0) {
-            output.WriteRawTag(226, 15);
+            output.WriteRawTag(250, 17);
             output.WriteString(ClientFirm);
           }
           if (_unknownFields != null) {
@@ -4478,7 +4475,7 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 2018: {
+              case 2298: {
                 ClientFirm = input.ReadString();
                 break;
               }
@@ -4497,7 +4494,7 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 2018: {
+              case 2298: {
                 ClientFirm = input.ReadString();
                 break;
               }

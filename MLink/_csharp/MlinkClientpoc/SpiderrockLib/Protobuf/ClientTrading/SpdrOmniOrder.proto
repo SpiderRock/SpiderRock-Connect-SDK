@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrOmniOrder {
+    message PKey {
+        
+        int64 omni_order_number = 10; // unique number for this message
+    }
+
+    message ChildOrders {
+        
+        int64 cl_ord_id = 145; // childOrders in the above allocation
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string omni_accnt = 100; // omnibus accnt (SR accnt)
+    string client_firm = 146; // SR client firm
+    OptionKey sec_key = 103; // security key (stock, future, or option)
+    SpdrKeyType sec_type = 106; // security type
+    BuySell order_side = 109; // order side (always buy for MLEG orders)
+    ShortSaleFlag ssale_flag = 112; // ssale flag (None if not stock)
+    PositionType position_type = 115; // positionType (None if not equity option)
+    SpdrSource spdr_source = 118; // parent order source
+    int64 grouping_code = 121; // unique broker code
+    int64 base_parent_number = 124; // SR BaseParentNumber these executions belong to (can be zero if executions are drop)
+    string mleg_leg_key = 127; // [secKey.StringKey;legRatio;side;positionEffect, secKey.StringKey;legRatio;side;positionEffect, ...]
+    int32 cum_fill_qty = 130; // net cumFillQty (total for the day)
+    double avg_fill_prc = 133; // average fill price
+    OmniAllocStatus alloc_status = 136; // allocation status
+    google.protobuf.Timestamp timestamp = 139;
+    repeated ChildOrders child_orders = 142;
+}
+
+

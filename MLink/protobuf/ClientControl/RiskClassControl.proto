@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RiskClassControl {
+    message PKey {
+        
+        string accnt = 10;
+        string risk_class = 11;
+        string client_firm = 12; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string risk_class_label = 100; // risk class label
+    int32 max_dDelta = 103; // maximum symbol abs($delta) (suspends c/p trading)
+    int32 min_va_rs50 = 106; // (xRM) max loss [underlier +/- 50%]
+    int32 max_va_rs50 = 109; // (xRM) max gain [underlier +/- 50%]
+    int32 min_va_rs15 = 112; // (xRM) max loss [underlier +/- 15%]
+    int32 max_va_rs15 = 115; // (xRM) max gain [underlier +/- 15%]
+    int32 min_wt_vega = 118; // (xRM) minimum symbol net wtVega;wtVega = ve * vol / sqrt(max(0.1, years * 4))
+    int32 max_wt_vega = 121; // (xRM) maximum symbol net wtVega;wtVega = ve * vol / sqrt(max(0.1, years * 4))
+    float max_wt_ve_pct_m1 = 124; // % of min/max symbol wtVega in M1 {days < 10} expirations
+    float max_wt_ve_pct_m2 = 127; // % of min/max symbol wtVega in M2 {10 < days < 25} expirations
+    float max_wt_ve_pct_m3 = 130; // % of min/max symbol wtVega in M3 {25 < days < 65} expirations
+    float max_wt_ve_pct_m4 = 133; // % of min/max symbol wtVega in M4 {65 < days < 130} expirations
+    float max_wt_ve_pct_m5 = 136; // % of min/max symbol wtVega in M5 {130 < days} expirations
+    string modified_by = 139; // user who last modified this record
+    SysEnvironment modified_in = 142;
+    google.protobuf.Timestamp timestamp = 145; // timestamp of last modification
+}
+
+

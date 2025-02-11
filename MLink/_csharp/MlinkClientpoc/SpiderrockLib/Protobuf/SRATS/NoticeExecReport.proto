@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message NoticeExecReport {
+    message PKey {
+        
+        int64 notice_number = 13; // AuctionNotice.noticeNumber
+        int64 base_parent_number = 14;
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 117;
+        SpdrKeyType sec_type = 118;
+        BuySell side = 119;
+        int32 ratio = 120;
+        LegPositionType position_type = 121;
+        int32 leg_cum_fill_qty = 122;
+        double leg_avg_fill_price = 123;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 125; // underlier ticker
+    DateKey trade_date = 126;
+    string accnt = 139; // SR Accnt
+    string client_firm = 140; // SR ClientFirm
+    google.protobuf.Timestamp notice_dttm = 141; // either notice create datetime or notice arrival@SR datetime (high precision)
+    string response_id = 100; // from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
+    SpdrSource resp_origin = 142;
+    SpdrStageType stage_type = 101;
+    AuctionType auction_type = 143;
+    AuctionSource auction_source = 144; // source of the auction notice (eg. SRC, MIAX, etc.)
+    google.protobuf.Timestamp resp_dttm = 127; // response arrival dttm (high precision)
+    BuySell resp_side = 102;
+    int32 resp_size = 103;
+    int32 resp_active_size = 104; // active response order size (zero for ActiveHold)
+    double resp_price = 105; // effRespPrice = respPrice + de * (uMid - refUPrc) + 0.5 * ga * (uMid - refUPrc)^2
+    double ref_uPrc = 106; // reference price for tied to underlier orders (mid-market tie) (block auctions only)
+    float ref_de = 107; // reference delta for tied to underlier orders (zero if tie is not desired) (block auctions only)
+    float ref_ga = 108; // reference gamma for tied to underlier orders (zero if tie is not desired) (block auctions only)
+    RoundRule round_rule = 128; // Exact (100%) or Fuzzy (90%) [default is Exact] (block auctions only)
+    double step_up_incr = 129; // additional price increment (best price) (typically only used if auction is competitive)
+    int64 risk_group_id = 109; // any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
+    string strategy = 110; // user strategy field (visible on SR tools)
+    string user_data1 = 111; // user data field (free text) (from NoticeResponse)
+    SpdrOrderStatus resp_status = 112;
+    string resp_detail = 113;
+    double last_uPrc = 145; // effective uPrc (mid-market) from last trial pass
+    double last_trial_prc = 146; // effective response price from last trial pass
+    int32 leaves_qty = 147; // open order quantity
+    int32 cum_fill_qty = 130; // pkg cumFillQty if MLeg
+    double avg_fill_price = 131; // pkg avgFillPrice if MLeg
+    double add_latency = 148; // latency from notice arrival@SR to external response send (in seconds) OR latency from notice create to response accepted (in seconds) (SRC Auctions)
+    double ack_latency = 149; // latency from external response send to external response ack (FRT) (in seconds) (external auctions only)
+    NoticeResult response_result = 132;
+    int32 response_time = 133; // notice response arrival time (milliseconds since auction start)
+    double prt_price = 134; // reported print price (pkgPrice if MLeg)
+    int32 prt_size = 135; // reported print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 136; // reported print time (1st print if MLeg)
+    double prt_uBid = 150; // best estimate of uBid @ auction print time
+    double prt_uAsk = 151; // best estimate of uAsk @ auction print time
+    google.protobuf.Timestamp timestamp = 124;
+    repeated OrderLegs order_legs = 116;
+}
+
+

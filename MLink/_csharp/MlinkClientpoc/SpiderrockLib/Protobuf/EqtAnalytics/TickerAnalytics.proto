@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TickerAnalytics {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey tradingdate = 11; // trading period
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 security_iD = 100; // security ID is used to track a ticker over time.  It is a best effort attempt to track a ticker through name changes and other corporate actions
+    int32 alt_iD = 103; // SR security ID is used to track a ticker over time.  It is a best effort attempt to track a ticker through name changes and other corporate actions
+    int32 day_number = 106; // cardinal day number (increments by 1 each trading period)
+    float openprice = 109; // open print
+    float highprice = 112; // highest regular hours print price
+    float lowprice = 115; // lowest regular hours print price
+    float closeprice = 118; // official exchange close (as reported by primary exchange)
+    float pr_close = 121; // adjusted prior period close; closePr = prior Close X returnFactor
+    float pr_close_unadj = 124; // unadjusted prior period close
+    double week52_high = 127; // 52 week high
+    DateKey week52_high_date = 130; // 52 week high date
+    double week52_low = 133; // 52 week low
+    DateKey week52_low_date = 136; // 52 week low date
+    float avg_volume = 139; // trailing average 20D daily stock volume
+    double ccvar = 142; // close-close log return daily variance (using the adjusted yesterday close:Ln (Close/ClosePr) ^ 2
+    double hlvar = 145; // high-low daily variance
+    float dayreturn = 148; // daily return (adjusted for CorpAction)
+    float returnfactor = 151; // adjustment factor
+    float cumreturnfactor = 154; // cumulative adjustment factor
+    google.protobuf.Timestamp timestamp = 157; // record update timestamp
+}
+
+

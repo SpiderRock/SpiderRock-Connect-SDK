@@ -30,10 +30,10 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _stk_exch__GUARD__
-    #define _stk_exch__GUARD__
-    DECL_STRONG_TYPE(stk_exch, float);
-    #endif//_stk_exch__GUARD__
+    #ifndef _stk_exch__float__GUARD__
+    #define _stk_exch__float__GUARD__
+    DECL_STRONG_TYPE(stk_exch__float, float);
+    #endif//_stk_exch__float__GUARD__
 
     #ifndef _ts__GUARD__
     #define _ts__GUARD__
@@ -45,10 +45,10 @@ namespace api {
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
     #endif//_ticker__TickerKey__GUARD__
 
-    #ifndef _source__GUARD__
-    #define _source__GUARD__
-    DECL_STRONG_TYPE(source, spiderrock::protobuf::api::EventSource);
-    #endif//_source__GUARD__
+    #ifndef _source__EventSource__GUARD__
+    #define _source__EventSource__GUARD__
+    DECL_STRONG_TYPE(source__EventSource, spiderrock::protobuf::api::EventSource);
+    #endif//_source__EventSource__GUARD__
 
     #ifndef _confidence_ind__GUARD__
     #define _confidence_ind__GUARD__
@@ -105,7 +105,7 @@ namespace api {
         public:
         //using statements for all types used in this class
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
-        using source = spiderrock::protobuf::api::source;
+        using source = spiderrock::protobuf::api::source__EventSource;
 
         private:
         ticker m_ticker{};
@@ -158,9 +158,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::EventSource>(m_source)));
             return totalSize;
@@ -168,9 +168,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout;
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::EventSource>(m_source)));
         }
@@ -412,7 +412,7 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::WshFutureQuarters_PKey;
-        using stk_exch = spiderrock::protobuf::api::stk_exch;
+        using stk_exch = spiderrock::protobuf::api::stk_exch__float;
         using ts = spiderrock::protobuf::api::ts;
         using earnings = spiderrock::protobuf::api::WshFutureQuarters_Earnings;
 

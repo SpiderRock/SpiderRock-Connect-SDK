@@ -70,10 +70,10 @@ namespace api {
     DECL_STRONG_TYPE(global_rate, float);
     #endif//_global_rate__GUARD__
 
-    #ifndef _ddiv__GUARD__
-    #define _ddiv__GUARD__
-    DECL_STRONG_TYPE(ddiv, float);
-    #endif//_ddiv__GUARD__
+    #ifndef _ddiv__float__GUARD__
+    #define _ddiv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv__float, float);
+    #endif//_ddiv__float__GUARD__
 
     #ifndef _ddiv_pv__float__GUARD__
     #define _ddiv_pv__float__GUARD__
@@ -89,6 +89,11 @@ namespace api {
     #define _i_days__int32__GUARD__
     DECL_STRONG_TYPE(i_days__int32, int32);
     #endif//_i_days__int32__GUARD__
+
+    #ifndef _ddiv_disc__GUARD__
+    #define _ddiv_disc__GUARD__
+    DECL_STRONG_TYPE(ddiv_disc, float);
+    #endif//_ddiv_disc__GUARD__
 
     #ifndef _strike_pv__float__GUARD__
     #define _strike_pv__float__GUARD__
@@ -145,15 +150,15 @@ namespace api {
     DECL_STRONG_TYPE(fair_loan_rate, float);
     #endif//_fair_loan_rate__GUARD__
 
-    #ifndef _rc_bid_loan_pv__GUARD__
-    #define _rc_bid_loan_pv__GUARD__
-    DECL_STRONG_TYPE(rc_bid_loan_pv, float);
-    #endif//_rc_bid_loan_pv__GUARD__
+    #ifndef _rc_bid_prc__GUARD__
+    #define _rc_bid_prc__GUARD__
+    DECL_STRONG_TYPE(rc_bid_prc, float);
+    #endif//_rc_bid_prc__GUARD__
 
-    #ifndef _rc_ask_loan_pv__GUARD__
-    #define _rc_ask_loan_pv__GUARD__
-    DECL_STRONG_TYPE(rc_ask_loan_pv, float);
-    #endif//_rc_ask_loan_pv__GUARD__
+    #ifndef _rc_ask_prc__GUARD__
+    #define _rc_ask_prc__GUARD__
+    DECL_STRONG_TYPE(rc_ask_prc, float);
+    #endif//_rc_ask_prc__GUARD__
 
     #ifndef _calc_error__GUARD__
     #define _calc_error__GUARD__
@@ -246,9 +251,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_okey);
             }
             if ( IncludeTradeDate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(11, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -258,9 +263,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_okey);
             }
             if ( IncludeTradeDate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,11, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
@@ -313,10 +318,11 @@ namespace api {
         using atm_vol = spiderrock::protobuf::api::atm_vol;
         using years = spiderrock::protobuf::api::years__float;
         using global_rate = spiderrock::protobuf::api::global_rate;
-        using ddiv = spiderrock::protobuf::api::ddiv;
+        using ddiv = spiderrock::protobuf::api::ddiv__float;
         using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using ddiv_source = spiderrock::protobuf::api::ddiv_source;
         using i_days = spiderrock::protobuf::api::i_days__int32;
+        using ddiv_disc = spiderrock::protobuf::api::ddiv_disc;
         using strike_pv = spiderrock::protobuf::api::strike_pv__float;
         using fair_svol = spiderrock::protobuf::api::fair_svol;
         using fair_sdiv = spiderrock::protobuf::api::fair_sdiv;
@@ -328,8 +334,8 @@ namespace api {
         using rc_eex_prem = spiderrock::protobuf::api::rc_eex_prem__float;
         using fair_loan_pv = spiderrock::protobuf::api::fair_loan_pv;
         using fair_loan_rate = spiderrock::protobuf::api::fair_loan_rate;
-        using rc_bid_loan_pv = spiderrock::protobuf::api::rc_bid_loan_pv;
-        using rc_ask_loan_pv = spiderrock::protobuf::api::rc_ask_loan_pv;
+        using rc_bid_prc = spiderrock::protobuf::api::rc_bid_prc;
+        using rc_ask_prc = spiderrock::protobuf::api::rc_ask_prc;
         using calc_error = spiderrock::protobuf::api::calc_error;
         using cp_oi = spiderrock::protobuf::api::cp_oi;
         using cp_vlm = spiderrock::protobuf::api::cp_vlm;
@@ -350,6 +356,7 @@ namespace api {
         ddiv_pv m_ddiv_pv{};
         ddiv_source m_ddiv_source{};
         i_days m_i_days{};
+        ddiv_disc m_ddiv_disc{};
         strike_pv m_strike_pv{};
         fair_svol m_fair_svol{};
         fair_sdiv m_fair_sdiv{};
@@ -361,8 +368,8 @@ namespace api {
         rc_eex_prem m_rc_eex_prem{};
         fair_loan_pv m_fair_loan_pv{};
         fair_loan_rate m_fair_loan_rate{};
-        rc_bid_loan_pv m_rc_bid_loan_pv{};
-        rc_ask_loan_pv m_rc_ask_loan_pv{};
+        rc_bid_prc m_rc_bid_prc{};
+        rc_ask_prc m_rc_ask_prc{};
         calc_error m_calc_error{};
         cp_oi m_cp_oi{};
         cp_vlm m_cp_vlm{};
@@ -413,6 +420,9 @@ namespace api {
         i_days get_i_days() const {
             return m_i_days;
         }		
+        ddiv_disc get_ddiv_disc() const {
+            return m_ddiv_disc;
+        }		
         strike_pv get_strike_pv() const {
             return m_strike_pv;
         }		
@@ -446,11 +456,11 @@ namespace api {
         fair_loan_rate get_fair_loan_rate() const {
             return m_fair_loan_rate;
         }		
-        rc_bid_loan_pv get_rc_bid_loan_pv() const {
-            return m_rc_bid_loan_pv;
+        rc_bid_prc get_rc_bid_prc() const {
+            return m_rc_bid_prc;
         }		
-        rc_ask_loan_pv get_rc_ask_loan_pv() const {
-            return m_rc_ask_loan_pv;
+        rc_ask_prc get_rc_ask_prc() const {
+            return m_rc_ask_prc;
         }		
         calc_error get_calc_error() const {
             return m_calc_error;
@@ -510,6 +520,9 @@ namespace api {
         void set_i_days(const i_days& value)  {
             m_i_days = value;
         }
+        void set_ddiv_disc(const ddiv_disc& value)  {
+            m_ddiv_disc = value;
+        }
         void set_strike_pv(const strike_pv& value)  {
             m_strike_pv = value;
         }
@@ -543,11 +556,11 @@ namespace api {
         void set_fair_loan_rate(const fair_loan_rate& value)  {
             m_fair_loan_rate = value;
         }
-        void set_rc_bid_loan_pv(const rc_bid_loan_pv& value)  {
-            m_rc_bid_loan_pv = value;
+        void set_rc_bid_prc(const rc_bid_prc& value)  {
+            m_rc_bid_prc = value;
         }
-        void set_rc_ask_loan_pv(const rc_ask_loan_pv& value)  {
-            m_rc_ask_loan_pv = value;
+        void set_rc_ask_prc(const rc_ask_prc& value)  {
+            m_rc_ask_prc = value;
         }
         void set_calc_error(const calc_error& value)  {
             m_calc_error = value;
@@ -611,6 +624,9 @@ namespace api {
         void set(const i_days & value) {
             set_i_days(value);
         }
+        void set(const ddiv_disc & value) {
+            set_ddiv_disc(value);
+        }
         void set(const strike_pv & value) {
             set_strike_pv(value);
         }
@@ -644,11 +660,11 @@ namespace api {
         void set(const fair_loan_rate & value) {
             set_fair_loan_rate(value);
         }
-        void set(const rc_bid_loan_pv & value) {
-            set_rc_bid_loan_pv(value);
+        void set(const rc_bid_prc & value) {
+            set_rc_bid_prc(value);
         }
-        void set(const rc_ask_loan_pv & value) {
-            set_rc_ask_loan_pv(value);
+        void set(const rc_ask_prc & value) {
+            set_rc_ask_prc(value);
         }
         void set(const calc_error & value) {
             set_calc_error(value);
@@ -678,6 +694,7 @@ namespace api {
             set(value.m_ddiv_pv);
             set(value.m_ddiv_source);
             set(value.m_i_days);
+            set(value.m_ddiv_disc);
             set(value.m_strike_pv);
             set(value.m_fair_svol);
             set(value.m_fair_sdiv);
@@ -689,8 +706,8 @@ namespace api {
             set(value.m_rc_eex_prem);
             set(value.m_fair_loan_pv);
             set(value.m_fair_loan_rate);
-            set(value.m_rc_bid_loan_pv);
-            set(value.m_rc_ask_loan_pv);
+            set(value.m_rc_bid_prc);
+            set(value.m_rc_ask_prc);
             set(value.m_calc_error);
             set(value.m_cp_oi);
             set(value.m_cp_vlm);
@@ -786,6 +803,9 @@ namespace api {
         bool IncludeIDays() const {
             return !(m_i_days == 0);
         }
+        bool IncludeDdivDisc() const {
+            return !(m_ddiv_disc == 0.0);
+        }
         bool IncludeStrikePv() const {
             return !(m_strike_pv == 0.0);
         }
@@ -819,11 +839,11 @@ namespace api {
         bool IncludeFairLoanRate() const {
             return !(m_fair_loan_rate == 0.0);
         }
-        bool IncludeRcBidLoanPv() const {
-            return !(m_rc_bid_loan_pv == 0.0);
+        bool IncludeRcBidPrc() const {
+            return !(m_rc_bid_prc == 0.0);
         }
-        bool IncludeRcAskLoanPv() const {
-            return !(m_rc_ask_loan_pv == 0.0);
+        bool IncludeRcAskPrc() const {
+            return !(m_rc_ask_prc == 0.0);
         }
         bool IncludeCalcError() const {
             return !(m_calc_error.empty());
@@ -852,9 +872,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeXAxis()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(101,m_x_axis);
@@ -886,6 +906,9 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>(m_ddiv_source)));
             if ( IncludeIDays()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(111,m_i_days);
+            }
+            if ( IncludeDdivDisc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(129,m_ddiv_disc);
             }
             if ( IncludeStrikePv()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(112,m_strike_pv);
@@ -920,11 +943,11 @@ namespace api {
             if ( IncludeFairLoanRate()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(122,m_fair_loan_rate);
             }
-            if ( IncludeRcBidLoanPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(123,m_rc_bid_loan_pv);
+            if ( IncludeRcBidPrc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_rc_bid_prc);
             }
-            if ( IncludeRcAskLoanPv()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_rc_ask_loan_pv);
+            if ( IncludeRcAskPrc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(131,m_rc_ask_prc);
             }
             if ( IncludeCalcError()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(125,m_calc_error);
@@ -953,9 +976,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeXAxis()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,101,m_x_axis);
@@ -987,6 +1010,9 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,110,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>(m_ddiv_source)));
             if ( IncludeIDays()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,111,m_i_days);
+            }
+            if ( IncludeDdivDisc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,129,m_ddiv_disc);
             }
             if ( IncludeStrikePv()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,112,m_strike_pv);
@@ -1021,11 +1047,11 @@ namespace api {
             if ( IncludeFairLoanRate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,122,m_fair_loan_rate);
             }
-            if ( IncludeRcBidLoanPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,123,m_rc_bid_loan_pv);
+            if ( IncludeRcBidPrc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_rc_bid_prc);
             }
-            if ( IncludeRcAskLoanPv()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_rc_ask_loan_pv);
+            if ( IncludeRcAskPrc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,131,m_rc_ask_prc);
             }
             if ( IncludeCalcError()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,125,static_cast<string>(m_calc_error));
@@ -1141,6 +1167,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 129: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_ddiv_disc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 112: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_strike_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -1207,15 +1239,15 @@ namespace api {
                         }
                         break;
                     }
-                    case 123: {
+                    case 130: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_rc_bid_loan_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_rc_bid_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 124: {
+                    case 131: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_rc_ask_loan_pv = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                            m_rc_ask_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
@@ -1266,6 +1298,7 @@ namespace api {
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::ddiv_pv>() const { return m_ddiv_pv; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::ddiv_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::DDivSource>( m_ddiv_source)); }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::i_days>() const { return m_i_days; }
+    template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::ddiv_disc>() const { return m_ddiv_disc; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::strike_pv>() const { return m_strike_pv; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::fair_svol>() const { return m_fair_svol; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::fair_sdiv>() const { return m_fair_sdiv; }
@@ -1277,8 +1310,8 @@ namespace api {
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::rc_eex_prem>() const { return m_rc_eex_prem; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::fair_loan_pv>() const { return m_fair_loan_pv; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::fair_loan_rate>() const { return m_fair_loan_rate; }
-    template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::rc_bid_loan_pv>() const { return m_rc_bid_loan_pv; }
-    template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::rc_ask_loan_pv>() const { return m_rc_ask_loan_pv; }
+    template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::rc_bid_prc>() const { return m_rc_bid_prc; }
+    template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::rc_ask_prc>() const { return m_rc_ask_prc; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::calc_error>() const { return m_calc_error; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::cp_oi>() const { return m_cp_oi; }
     template<> inline const auto LiveRevConQuote::get<LiveRevConQuote::cp_vlm>() const { return m_cp_vlm; }
@@ -1309,6 +1342,7 @@ namespace api {
         o << ",\"ddiv_pv\":" << m.get<LiveRevConQuote::ddiv_pv>();
         o << ",\"ddiv_source\":" << (int64_t)m.get<LiveRevConQuote::ddiv_source>();
         o << ",\"i_days\":" << m.get<LiveRevConQuote::i_days>();
+        o << ",\"ddiv_disc\":" << m.get<LiveRevConQuote::ddiv_disc>();
         o << ",\"strike_pv\":" << m.get<LiveRevConQuote::strike_pv>();
         o << ",\"fair_svol\":" << m.get<LiveRevConQuote::fair_svol>();
         o << ",\"fair_sdiv\":" << m.get<LiveRevConQuote::fair_sdiv>();
@@ -1320,8 +1354,8 @@ namespace api {
         o << ",\"rc_eex_prem\":" << m.get<LiveRevConQuote::rc_eex_prem>();
         o << ",\"fair_loan_pv\":" << m.get<LiveRevConQuote::fair_loan_pv>();
         o << ",\"fair_loan_rate\":" << m.get<LiveRevConQuote::fair_loan_rate>();
-        o << ",\"rc_bid_loan_pv\":" << m.get<LiveRevConQuote::rc_bid_loan_pv>();
-        o << ",\"rc_ask_loan_pv\":" << m.get<LiveRevConQuote::rc_ask_loan_pv>();
+        o << ",\"rc_bid_prc\":" << m.get<LiveRevConQuote::rc_bid_prc>();
+        o << ",\"rc_ask_prc\":" << m.get<LiveRevConQuote::rc_ask_prc>();
         o << ",\"calc_error\":\"" << m.get<LiveRevConQuote::calc_error>() << "\"";
         o << ",\"cp_oi\":" << m.get<LiveRevConQuote::cp_oi>();
         o << ",\"cp_vlm\":" << m.get<LiveRevConQuote::cp_vlm>();

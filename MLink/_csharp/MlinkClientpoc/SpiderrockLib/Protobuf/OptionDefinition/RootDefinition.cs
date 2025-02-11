@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci5Qcm90b2J1Zi9PcHRpb25EZWZpbml0aW9uL1Jvb3REZWZpbml0aW9uLnBy",
             "b3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5w",
-            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKSEgoOUm9v",
+            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLBEwoOUm9v",
             "dERlZmluaXRpb24SMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk1lc3NhZ2VNZXRhZGF0YRI2CgRwa2V5GAIgASgLMiguc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5Sb290RGVmaW5pdGlvbi5QS2V5Ei4KBnRpY2tlchhkIAEo",
@@ -47,43 +47,47 @@ namespace Spiderrock.Protobuf {
             "Y2lzZV90aW1lGIgBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuRXhlcmNp",
             "c2VUaW1lEjkKDWV4ZXJjaXNlX3R5cGUYiwEgASgOMiEuc3BpZGVycm9jay5w",
             "cm90b2J1Zi5FeGVyY2lzZVR5cGUSNQoLdGltZV9tZXRyaWMYjgEgASgOMh8u",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5UaW1lTWV0cmljEjkKDXByaWNpbmdfbW9k",
-            "ZWwYkQEgASgOMiEuc3BpZGVycm9jay5wcm90b2J1Zi5QcmljaW5nTW9kZWwS",
-            "OwoObW9uZXluZXNzX3R5cGUYlAEgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5Nb25leW5lc3NUeXBlEj4KEHByaWNlX3F1b3RlX3R5cGUYlwEgASgOMiMu",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5QcmljZVF1b3RlVHlwZRI1Cgt2b2x1bWVf",
-            "dGllchiaASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlZvbHVtZVRpZXIS",
-            "FwoOcG9zaXRpb25fbGltaXQYnQEgASgFEhIKCWV4Y2hhbmdlcxigASABKAkS",
-            "EwoKdGlja192YWx1ZRijASABKAISFAoLcG9pbnRfdmFsdWUYpgEgASgCEjYK",
-            "DnBvaW50X2N1cnJlbmN5GKkBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "Q3VycmVuY3kSFQoMc3RyaWtlX3NjYWxlGKwBIAEoARIVCgxzdHJpa2VfcmF0",
-            "aW8YrwEgASgCEhkKEGNhc2hfb25fZXhlcmNpc2UYsgEgASgCEhoKEXVuZGVy",
-            "bGllcnNfcGVyX2NuGLUBIAEoBRIVCgxwcmVtaXVtX211bHQYuAEgASgBEjsK",
-            "DmFkal9jb252ZW50aW9uGLsBIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "QWRqQ29udmVudGlvbhI4Cg1vcHRfcHJpY2VfaW5jGL4BIAEoDjIgLnNwaWRl",
-            "cnJvY2sucHJvdG9idWYuT3B0UHJpY2VJbmMSNwoMcHJpY2VfZm9ybWF0GMEB",
-            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuUHJpY2VGb3JtYXQSMgoKdHJh",
-            "ZGVfY3VychjEASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5",
-            "EjMKC3NldHRsZV9jdXJyGMcBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "Q3VycmVuY3kSMwoLc3RyaWtlX2N1cnIYygEgASgOMh0uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5DdXJyZW5jeRI9ChRkZWZhdWx0X3N1cmZhY2Vfcm9vdBjNASAB",
-            "KAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIRCghyaWNfcm9v",
-            "dBjaASABKAkSLgoJdGltZXN0YW1wGNABIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASQgoScHJpY2luZ19zb3VyY2VfX3Y3GIgnIAEoDjIlLnNw",
-            "aWRlcnJvY2sucHJvdG9idWYuUHJpY2luZ1NvdXJjZV9WNxI/CghleGNoYW5n",
-            "ZRjcASADKAsyLC5zcGlkZXJyb2NrLnByb3RvYnVmLlJvb3REZWZpbml0aW9u",
-            "LkV4Y2hhbmdlEkMKCnVuZGVybHlpbmcY0wEgAygLMi4uc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5Sb290RGVmaW5pdGlvbi5VbmRlcmx5aW5nGjQKBFBLZXkSLAoE",
-            "cm9vdBgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5GlEK",
-            "CEV4Y2hhbmdlEi8KCG9wdF9leGNoGN8BIAEoDjIcLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuT3B0RXhjaBIUCgtuYXRpdmVfcm9vdBjiASABKAkaSwoKVW5kZXJs",
-            "eWluZxIvCgZ0aWNrZXIY1gEgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5U",
-            "aWNrZXJLZXkSDAoDc3BjGNkBIAEoAmIGcHJvdG8z"));
+            "c3BpZGVycm9jay5wcm90b2J1Zi5UaW1lTWV0cmljEjsKDnRyYWRpbmdfcGVy",
+            "aW9kGN8BIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuVHJhZGluZ1Blcmlv",
+            "ZBI5Cg1wcmljaW5nX21vZGVsGJEBIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuUHJpY2luZ01vZGVsEjsKDm1vbmV5bmVzc190eXBlGJQBIAEoDjIiLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuTW9uZXluZXNzVHlwZRI+ChBwcmljZV9xdW90",
+            "ZV90eXBlGJcBIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYuUHJpY2VRdW90",
+            "ZVR5cGUSNQoLdm9sdW1lX3RpZXIYmgEgASgOMh8uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5Wb2x1bWVUaWVyEhcKDnBvc2l0aW9uX2xpbWl0GJ0BIAEoBRISCgll",
+            "eGNoYW5nZXMYoAEgASgJEhMKCnRpY2tfdmFsdWUYowEgASgCEhQKC3BvaW50",
+            "X3ZhbHVlGKYBIAEoAhI2Cg5wb2ludF9jdXJyZW5jeRipASABKA4yHS5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EhUKDHN0cmlrZV9zY2FsZRisASAB",
+            "KAESFQoMc3RyaWtlX3JhdGlvGK8BIAEoAhIZChBjYXNoX29uX2V4ZXJjaXNl",
+            "GLIBIAEoAhIaChF1bmRlcmxpZXJzX3Blcl9jbhi1ASABKAUSFQoMcHJlbWl1",
+            "bV9tdWx0GLgBIAEoARIVCgxzeW1ib2xfcmF0aW8Y3gEgASgCEjsKDmFkal9j",
+            "b252ZW50aW9uGLsBIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuQWRqQ29u",
+            "dmVudGlvbhI4Cg1vcHRfcHJpY2VfaW5jGL4BIAEoDjIgLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuT3B0UHJpY2VJbmMSNwoMcHJpY2VfZm9ybWF0GMEBIAEoDjIg",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuUHJpY2VGb3JtYXQSMgoKdHJhZGVfY3Vy",
+            "chjEASABKA4yHS5zcGlkZXJyb2NrLnByb3RvYnVmLkN1cnJlbmN5EjMKC3Nl",
+            "dHRsZV9jdXJyGMcBIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVu",
+            "Y3kSMwoLc3RyaWtlX2N1cnIYygEgASgOMh0uc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5DdXJyZW5jeRI9ChRkZWZhdWx0X3N1cmZhY2Vfcm9vdBjNASABKAsyHi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIRCghyaWNfcm9vdBjaASAB",
+            "KAkSQAoXcmVnaW9uYWxfY29tcG9zaXRlX3Jvb3QY4QEgASgLMh4uc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSLgoJdGltZXN0YW1wGNABIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASQgoScHJpY2luZ19zb3VyY2Vf",
+            "X3Y3GIgnIAEoDjIlLnNwaWRlcnJvY2sucHJvdG9idWYuUHJpY2luZ1NvdXJj",
+            "ZV9WNxI/CghleGNoYW5nZRjbASADKAsyLC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LlJvb3REZWZpbml0aW9uLkV4Y2hhbmdlEkMKCnVuZGVybHlpbmcY0wEgAygL",
+            "Mi4uc3BpZGVycm9jay5wcm90b2J1Zi5Sb290RGVmaW5pdGlvbi5VbmRlcmx5",
+            "aW5nGjQKBFBLZXkSLAoEcm9vdBgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuVGlja2VyS2V5GmoKCEV4Y2hhbmdlEi8KCG9wdF9leGNoGNwBIAEoDjIc",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhjaBItCgRyb290GOABIAEoCzIe",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5GksKClVuZGVybHlpbmcS",
+            "LwoGdGlja2VyGNYBIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2Vy",
+            "S2V5EgwKA3NwYxjZASABKAJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "Timestamp", "PricingSourceV7", "Exchange", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Exchange), global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser, new[]{ "OptExch", "NativeRoot" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition), global::Spiderrock.Protobuf.RootDefinition.Parser, new[]{ "Meta", "Pkey", "Ticker", "OsiRoot", "Ccode", "UPrcDriverKey", "UPrcDriverType", "UPrcDriverKey2", "UPrcDriverType2", "UPrcBoundCCode", "ExpirationMap", "UnderlierMode", "OptionType", "Multihedge", "ExerciseTime", "ExerciseType", "TimeMetric", "TradingPeriod", "PricingModel", "MoneynessType", "PriceQuoteType", "VolumeTier", "PositionLimit", "Exchanges", "TickValue", "PointValue", "PointCurrency", "StrikeScale", "StrikeRatio", "CashOnExercise", "UnderliersPerCn", "PremiumMult", "SymbolRatio", "AdjConvention", "OptPriceInc", "PriceFormat", "TradeCurr", "SettleCurr", "StrikeCurr", "DefaultSurfaceRoot", "RicRoot", "RegionalCompositeRoot", "Timestamp", "PricingSourceV7", "Exchange", "Underlying" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.PKey), global::Spiderrock.Protobuf.RootDefinition.Types.PKey.Parser, new[]{ "Root" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Exchange), global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser, new[]{ "OptExch", "Root" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RootDefinition.Types.Underlying), global::Spiderrock.Protobuf.RootDefinition.Types.Underlying.Parser, new[]{ "Ticker", "Spc" }, null, null, null, null)})
           }));
     }
@@ -146,6 +150,7 @@ namespace Spiderrock.Protobuf {
       exerciseTime_ = other.exerciseTime_;
       exerciseType_ = other.exerciseType_;
       timeMetric_ = other.timeMetric_;
+      tradingPeriod_ = other.tradingPeriod_;
       pricingModel_ = other.pricingModel_;
       moneynessType_ = other.moneynessType_;
       priceQuoteType_ = other.priceQuoteType_;
@@ -160,6 +165,7 @@ namespace Spiderrock.Protobuf {
       cashOnExercise_ = other.cashOnExercise_;
       underliersPerCn_ = other.underliersPerCn_;
       premiumMult_ = other.premiumMult_;
+      symbolRatio_ = other.symbolRatio_;
       adjConvention_ = other.adjConvention_;
       optPriceInc_ = other.optPriceInc_;
       priceFormat_ = other.priceFormat_;
@@ -168,6 +174,7 @@ namespace Spiderrock.Protobuf {
       strikeCurr_ = other.strikeCurr_;
       defaultSurfaceRoot_ = other.defaultSurfaceRoot_ != null ? other.defaultSurfaceRoot_.Clone() : null;
       ricRoot_ = other.ricRoot_;
+      regionalCompositeRoot_ = other.regionalCompositeRoot_ != null ? other.regionalCompositeRoot_.Clone() : null;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
       pricingSourceV7_ = other.pricingSourceV7_;
       exchange_ = other.exchange_.Clone();
@@ -424,6 +431,18 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "trading_period" field.</summary>
+    public const int TradingPeriodFieldNumber = 223;
+    private global::Spiderrock.Protobuf.TradingPeriod tradingPeriod_ = global::Spiderrock.Protobuf.TradingPeriod.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TradingPeriod TradingPeriod {
+      get { return tradingPeriod_; }
+      set {
+        tradingPeriod_ = value;
+      }
+    }
+
     /// <summary>Field number for the "pricing_model" field.</summary>
     public const int PricingModelFieldNumber = 145;
     private global::Spiderrock.Protobuf.PricingModel pricingModel_ = global::Spiderrock.Protobuf.PricingModel.Unspecified;
@@ -625,6 +644,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "symbol_ratio" field.</summary>
+    public const int SymbolRatioFieldNumber = 222;
+    private float symbolRatio_;
+    /// <summary>
+    /// note: currently used when AdjConvention is None, value of 0 implies symbolRatio is 1
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float SymbolRatio {
+      get { return symbolRatio_; }
+      set {
+        symbolRatio_ = value;
+      }
+    }
+
     /// <summary>Field number for the "adj_convention" field.</summary>
     public const int AdjConventionFieldNumber = 187;
     private global::Spiderrock.Protobuf.AdjConvention adjConvention_ = global::Spiderrock.Protobuf.AdjConvention.Unspecified;
@@ -730,6 +764,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "regional_composite_root" field.</summary>
+    public const int RegionalCompositeRootFieldNumber = 225;
+    private global::Spiderrock.Protobuf.TickerKey regionalCompositeRoot_;
+    /// <summary>
+    /// regional composite ticker - set on European contributor products only
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.TickerKey RegionalCompositeRoot {
+      get { return regionalCompositeRoot_; }
+      set {
+        regionalCompositeRoot_ = value;
+      }
+    }
+
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 208;
     private global::Google.Protobuf.WellKnownTypes.Timestamp timestamp_;
@@ -758,9 +807,9 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "exchange" field.</summary>
-    public const int ExchangeFieldNumber = 220;
+    public const int ExchangeFieldNumber = 219;
     private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> _repeated_exchange_codec
-        = pb::FieldCodec.ForMessage(1762, global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser);
+        = pb::FieldCodec.ForMessage(1754, global::Spiderrock.Protobuf.RootDefinition.Types.Exchange.Parser);
     private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange> exchange_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.RootDefinition.Types.Exchange>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -811,6 +860,7 @@ namespace Spiderrock.Protobuf {
       if (ExerciseTime != other.ExerciseTime) return false;
       if (ExerciseType != other.ExerciseType) return false;
       if (TimeMetric != other.TimeMetric) return false;
+      if (TradingPeriod != other.TradingPeriod) return false;
       if (PricingModel != other.PricingModel) return false;
       if (MoneynessType != other.MoneynessType) return false;
       if (PriceQuoteType != other.PriceQuoteType) return false;
@@ -825,6 +875,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(CashOnExercise, other.CashOnExercise)) return false;
       if (UnderliersPerCn != other.UnderliersPerCn) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(PremiumMult, other.PremiumMult)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymbolRatio, other.SymbolRatio)) return false;
       if (AdjConvention != other.AdjConvention) return false;
       if (OptPriceInc != other.OptPriceInc) return false;
       if (PriceFormat != other.PriceFormat) return false;
@@ -833,6 +884,7 @@ namespace Spiderrock.Protobuf {
       if (StrikeCurr != other.StrikeCurr) return false;
       if (!object.Equals(DefaultSurfaceRoot, other.DefaultSurfaceRoot)) return false;
       if (RicRoot != other.RicRoot) return false;
+      if (!object.Equals(RegionalCompositeRoot, other.RegionalCompositeRoot)) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
       if (PricingSourceV7 != other.PricingSourceV7) return false;
       if(!exchange_.Equals(other.exchange_)) return false;
@@ -861,6 +913,7 @@ namespace Spiderrock.Protobuf {
       if (ExerciseTime != global::Spiderrock.Protobuf.ExerciseTime.Unspecified) hash ^= ExerciseTime.GetHashCode();
       if (ExerciseType != global::Spiderrock.Protobuf.ExerciseType.Unspecified) hash ^= ExerciseType.GetHashCode();
       if (TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) hash ^= TimeMetric.GetHashCode();
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) hash ^= TradingPeriod.GetHashCode();
       if (PricingModel != global::Spiderrock.Protobuf.PricingModel.Unspecified) hash ^= PricingModel.GetHashCode();
       if (MoneynessType != global::Spiderrock.Protobuf.MoneynessType.Unspecified) hash ^= MoneynessType.GetHashCode();
       if (PriceQuoteType != global::Spiderrock.Protobuf.PriceQuoteType.Unspecified) hash ^= PriceQuoteType.GetHashCode();
@@ -875,6 +928,7 @@ namespace Spiderrock.Protobuf {
       if (CashOnExercise != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(CashOnExercise);
       if (UnderliersPerCn != 0) hash ^= UnderliersPerCn.GetHashCode();
       if (PremiumMult != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(PremiumMult);
+      if (SymbolRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymbolRatio);
       if (AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) hash ^= AdjConvention.GetHashCode();
       if (OptPriceInc != global::Spiderrock.Protobuf.OptPriceInc.Unspecified) hash ^= OptPriceInc.GetHashCode();
       if (PriceFormat != global::Spiderrock.Protobuf.PriceFormat.Unspecified) hash ^= PriceFormat.GetHashCode();
@@ -883,6 +937,7 @@ namespace Spiderrock.Protobuf {
       if (StrikeCurr != global::Spiderrock.Protobuf.Currency.Unspecified) hash ^= StrikeCurr.GetHashCode();
       if (defaultSurfaceRoot_ != null) hash ^= DefaultSurfaceRoot.GetHashCode();
       if (RicRoot.Length != 0) hash ^= RicRoot.GetHashCode();
+      if (regionalCompositeRoot_ != null) hash ^= RegionalCompositeRoot.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) hash ^= PricingSourceV7.GetHashCode();
       hash ^= exchange_.GetHashCode();
@@ -1067,6 +1122,18 @@ namespace Spiderrock.Protobuf {
         output.WriteString(RicRoot);
       }
       exchange_.WriteTo(output, _repeated_exchange_codec);
+      if (SymbolRatio != 0F) {
+        output.WriteRawTag(245, 13);
+        output.WriteFloat(SymbolRatio);
+      }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        output.WriteRawTag(248, 13);
+        output.WriteEnum((int) TradingPeriod);
+      }
+      if (regionalCompositeRoot_ != null) {
+        output.WriteRawTag(138, 14);
+        output.WriteMessage(RegionalCompositeRoot);
+      }
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
         output.WriteRawTag(192, 184, 2);
         output.WriteEnum((int) PricingSourceV7);
@@ -1243,6 +1310,18 @@ namespace Spiderrock.Protobuf {
         output.WriteString(RicRoot);
       }
       exchange_.WriteTo(ref output, _repeated_exchange_codec);
+      if (SymbolRatio != 0F) {
+        output.WriteRawTag(245, 13);
+        output.WriteFloat(SymbolRatio);
+      }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        output.WriteRawTag(248, 13);
+        output.WriteEnum((int) TradingPeriod);
+      }
+      if (regionalCompositeRoot_ != null) {
+        output.WriteRawTag(138, 14);
+        output.WriteMessage(RegionalCompositeRoot);
+      }
       if (PricingSourceV7 != global::Spiderrock.Protobuf.PricingSource_V7.Unspecified) {
         output.WriteRawTag(192, 184, 2);
         output.WriteEnum((int) PricingSourceV7);
@@ -1308,6 +1387,9 @@ namespace Spiderrock.Protobuf {
       if (TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TimeMetric);
       }
+      if (TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TradingPeriod);
+      }
       if (PricingModel != global::Spiderrock.Protobuf.PricingModel.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PricingModel);
       }
@@ -1350,6 +1432,9 @@ namespace Spiderrock.Protobuf {
       if (PremiumMult != 0D) {
         size += 2 + 8;
       }
+      if (SymbolRatio != 0F) {
+        size += 2 + 4;
+      }
       if (AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) AdjConvention);
       }
@@ -1373,6 +1458,9 @@ namespace Spiderrock.Protobuf {
       }
       if (RicRoot.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(RicRoot);
+      }
+      if (regionalCompositeRoot_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RegionalCompositeRoot);
       }
       if (timestamp_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Timestamp);
@@ -1463,6 +1551,9 @@ namespace Spiderrock.Protobuf {
       if (other.TimeMetric != global::Spiderrock.Protobuf.TimeMetric.Unspecified) {
         TimeMetric = other.TimeMetric;
       }
+      if (other.TradingPeriod != global::Spiderrock.Protobuf.TradingPeriod.Unspecified) {
+        TradingPeriod = other.TradingPeriod;
+      }
       if (other.PricingModel != global::Spiderrock.Protobuf.PricingModel.Unspecified) {
         PricingModel = other.PricingModel;
       }
@@ -1505,6 +1596,9 @@ namespace Spiderrock.Protobuf {
       if (other.PremiumMult != 0D) {
         PremiumMult = other.PremiumMult;
       }
+      if (other.SymbolRatio != 0F) {
+        SymbolRatio = other.SymbolRatio;
+      }
       if (other.AdjConvention != global::Spiderrock.Protobuf.AdjConvention.Unspecified) {
         AdjConvention = other.AdjConvention;
       }
@@ -1531,6 +1625,12 @@ namespace Spiderrock.Protobuf {
       }
       if (other.RicRoot.Length != 0) {
         RicRoot = other.RicRoot;
+      }
+      if (other.regionalCompositeRoot_ != null) {
+        if (regionalCompositeRoot_ == null) {
+          RegionalCompositeRoot = new global::Spiderrock.Protobuf.TickerKey();
+        }
+        RegionalCompositeRoot.MergeFrom(other.RegionalCompositeRoot);
       }
       if (other.timestamp_ != null) {
         if (timestamp_ == null) {
@@ -1746,8 +1846,23 @@ namespace Spiderrock.Protobuf {
             RicRoot = input.ReadString();
             break;
           }
-          case 1762: {
+          case 1754: {
             exchange_.AddEntriesFrom(input, _repeated_exchange_codec);
+            break;
+          }
+          case 1781: {
+            SymbolRatio = input.ReadFloat();
+            break;
+          }
+          case 1784: {
+            TradingPeriod = (global::Spiderrock.Protobuf.TradingPeriod) input.ReadEnum();
+            break;
+          }
+          case 1802: {
+            if (regionalCompositeRoot_ == null) {
+              RegionalCompositeRoot = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(RegionalCompositeRoot);
             break;
           }
           case 40000: {
@@ -1957,8 +2072,23 @@ namespace Spiderrock.Protobuf {
             RicRoot = input.ReadString();
             break;
           }
-          case 1762: {
+          case 1754: {
             exchange_.AddEntriesFrom(ref input, _repeated_exchange_codec);
+            break;
+          }
+          case 1781: {
+            SymbolRatio = input.ReadFloat();
+            break;
+          }
+          case 1784: {
+            TradingPeriod = (global::Spiderrock.Protobuf.TradingPeriod) input.ReadEnum();
+            break;
+          }
+          case 1802: {
+            if (regionalCompositeRoot_ == null) {
+              RegionalCompositeRoot = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            input.ReadMessage(RegionalCompositeRoot);
             break;
           }
           case 40000: {
@@ -2208,7 +2338,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public Exchange(Exchange other) : this() {
           optExch_ = other.optExch_;
-          nativeRoot_ = other.nativeRoot_;
+          root_ = other.root_ != null ? other.root_.Clone() : null;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2219,7 +2349,7 @@ namespace Spiderrock.Protobuf {
         }
 
         /// <summary>Field number for the "opt_exch" field.</summary>
-        public const int OptExchFieldNumber = 223;
+        public const int OptExchFieldNumber = 220;
         private global::Spiderrock.Protobuf.OptExch optExch_ = global::Spiderrock.Protobuf.OptExch.Unspecified;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2230,15 +2360,15 @@ namespace Spiderrock.Protobuf {
           }
         }
 
-        /// <summary>Field number for the "native_root" field.</summary>
-        public const int NativeRootFieldNumber = 226;
-        private string nativeRoot_ = "";
+        /// <summary>Field number for the "root" field.</summary>
+        public const int RootFieldNumber = 224;
+        private global::Spiderrock.Protobuf.TickerKey root_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public string NativeRoot {
-          get { return nativeRoot_; }
+        public global::Spiderrock.Protobuf.TickerKey Root {
+          get { return root_; }
           set {
-            nativeRoot_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            root_ = value;
           }
         }
 
@@ -2258,7 +2388,7 @@ namespace Spiderrock.Protobuf {
             return true;
           }
           if (OptExch != other.OptExch) return false;
-          if (NativeRoot != other.NativeRoot) return false;
+          if (!object.Equals(Root, other.Root)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -2267,7 +2397,7 @@ namespace Spiderrock.Protobuf {
         public override int GetHashCode() {
           int hash = 1;
           if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) hash ^= OptExch.GetHashCode();
-          if (NativeRoot.Length != 0) hash ^= NativeRoot.GetHashCode();
+          if (root_ != null) hash ^= Root.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2287,12 +2417,12 @@ namespace Spiderrock.Protobuf {
           output.WriteRawMessage(this);
         #else
           if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
-            output.WriteRawTag(248, 13);
+            output.WriteRawTag(224, 13);
             output.WriteEnum((int) OptExch);
           }
-          if (NativeRoot.Length != 0) {
-            output.WriteRawTag(146, 14);
-            output.WriteString(NativeRoot);
+          if (root_ != null) {
+            output.WriteRawTag(130, 14);
+            output.WriteMessage(Root);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -2305,12 +2435,12 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
           if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
-            output.WriteRawTag(248, 13);
+            output.WriteRawTag(224, 13);
             output.WriteEnum((int) OptExch);
           }
-          if (NativeRoot.Length != 0) {
-            output.WriteRawTag(146, 14);
-            output.WriteString(NativeRoot);
+          if (root_ != null) {
+            output.WriteRawTag(130, 14);
+            output.WriteMessage(Root);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -2325,8 +2455,8 @@ namespace Spiderrock.Protobuf {
           if (OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
             size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) OptExch);
           }
-          if (NativeRoot.Length != 0) {
-            size += 2 + pb::CodedOutputStream.ComputeStringSize(NativeRoot);
+          if (root_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Root);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -2343,8 +2473,11 @@ namespace Spiderrock.Protobuf {
           if (other.OptExch != global::Spiderrock.Protobuf.OptExch.Unspecified) {
             OptExch = other.OptExch;
           }
-          if (other.NativeRoot.Length != 0) {
-            NativeRoot = other.NativeRoot;
+          if (other.root_ != null) {
+            if (root_ == null) {
+              Root = new global::Spiderrock.Protobuf.TickerKey();
+            }
+            Root.MergeFrom(other.Root);
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2361,12 +2494,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 1784: {
+              case 1760: {
                 OptExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
                 break;
               }
-              case 1810: {
-                NativeRoot = input.ReadString();
+              case 1794: {
+                if (root_ == null) {
+                  Root = new global::Spiderrock.Protobuf.TickerKey();
+                }
+                input.ReadMessage(Root);
                 break;
               }
             }
@@ -2384,12 +2520,15 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 1784: {
+              case 1760: {
                 OptExch = (global::Spiderrock.Protobuf.OptExch) input.ReadEnum();
                 break;
               }
-              case 1810: {
-                NativeRoot = input.ReadString();
+              case 1794: {
+                if (root_ == null) {
+                  Root = new global::Spiderrock.Protobuf.TickerKey();
+                }
+                input.ReadMessage(Root);
                 break;
               }
             }

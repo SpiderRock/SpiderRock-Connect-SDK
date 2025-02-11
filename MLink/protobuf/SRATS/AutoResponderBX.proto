@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AutoResponderBX {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11;
+        TickerKey root = 12;
+        DateKey expiry = 13;
+        BuySell resp_side = 14; // auction responder side (your side) (Buy = Buy/Borrow Cash)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string user_name = 100; // username used for responding to auction notices
+    TickerKey ticker = 101;
+    YesNo is_disabled = 102; // if Yes, this auto-responder record is disabled
+    int64 expiry_money_avail = 103; // money available for responding (day total; this ticker/expiry; all strikes) [note: money = (hiStrike - loStrike) * pointValue per BX spread]
+    int64 ticker_money_avail = 104; // money available for responding (day total; this ticker; all strikes)
+    double transact_fee = 105;
+    double money_rate = 106; // 0.00 = no effective lend/borrow value (360 day convention)
+    YesNo inc_fees_in_resp = 107; // include all estimated responder fees in final response price
+    RoundRule round_rule = 108;
+    int64 risk_group_id = 109;
+    string modified_by = 110; // user who last modified this record
+    SysEnvironment modified_in = 111;
+    google.protobuf.Timestamp timestamp = 112; // timestamp of last modification
+}
+
+

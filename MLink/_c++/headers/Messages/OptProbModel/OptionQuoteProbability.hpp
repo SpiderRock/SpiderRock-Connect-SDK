@@ -110,10 +110,10 @@ namespace api {
     DECL_STRONG_TYPE(ask_tk_im_rv, spiderrock::protobuf::api::PredictResult);
     #endif//_ask_tk_im_rv__GUARD__
 
-    #ifndef _surf_price__GUARD__
-    #define _surf_price__GUARD__
-    DECL_STRONG_TYPE(surf_price, double);
-    #endif//_surf_price__GUARD__
+    #ifndef _surf_price__double__GUARD__
+    #define _surf_price__double__GUARD__
+    DECL_STRONG_TYPE(surf_price__double, double);
+    #endif//_surf_price__double__GUARD__
 
     #ifndef _surf_vol__double__GUARD__
     #define _surf_vol__double__GUARD__
@@ -278,9 +278,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_okey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StateModel>(m_state_model)));
             return totalSize;
@@ -288,9 +288,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeOkey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_okey.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_okey;
+                m_okey.setCodecOptionKey(optionKeyLayout_okey);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_okey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StateModel>(m_state_model)));
         }
@@ -345,7 +345,7 @@ namespace api {
         using ask_tk_im_prob = spiderrock::protobuf::api::ask_tk_im_prob;
         using bid_tk_im_rv = spiderrock::protobuf::api::bid_tk_im_rv;
         using ask_tk_im_rv = spiderrock::protobuf::api::ask_tk_im_rv;
-        using surf_price = spiderrock::protobuf::api::surf_price;
+        using surf_price = spiderrock::protobuf::api::surf_price__double;
         using surf_vol = spiderrock::protobuf::api::surf_vol__double;
         using sdiv = spiderrock::protobuf::api::sdiv__double;
         using surf_buy_prob = spiderrock::protobuf::api::surf_buy_prob;

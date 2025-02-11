@@ -130,10 +130,10 @@ namespace api {
     DECL_STRONG_TYPE(price_format, spiderrock::protobuf::api::PriceFormat);
     #endif//_price_format__GUARD__
 
-    #ifndef _min_tick_size__GUARD__
-    #define _min_tick_size__GUARD__
-    DECL_STRONG_TYPE(min_tick_size, double);
-    #endif//_min_tick_size__GUARD__
+    #ifndef _min_tick_size__double__GUARD__
+    #define _min_tick_size__double__GUARD__
+    DECL_STRONG_TYPE(min_tick_size__double, double);
+    #endif//_min_tick_size__double__GUARD__
 
     #ifndef _display_factor__GUARD__
     #define _display_factor__GUARD__
@@ -250,30 +250,30 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
-    #ifndef _sec_key__GUARD__
-    #define _sec_key__GUARD__
-    DECL_STRONG_TYPE(sec_key, OptionKey);
-    #endif//_sec_key__GUARD__
+    #ifndef _sec_key__OptionKey__GUARD__
+    #define _sec_key__OptionKey__GUARD__
+    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
+    #endif//_sec_key__OptionKey__GUARD__
 
-    #ifndef _sec_type__GUARD__
-    #define _sec_type__GUARD__
-    DECL_STRONG_TYPE(sec_type, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_sec_type__GUARD__
+    #ifndef _sec_type__SpdrKeyType__GUARD__
+    #define _sec_type__SpdrKeyType__GUARD__
+    DECL_STRONG_TYPE(sec_type__SpdrKeyType, spiderrock::protobuf::api::SpdrKeyType);
+    #endif//_sec_type__SpdrKeyType__GUARD__
 
-    #ifndef _leg_id__GUARD__
-    #define _leg_id__GUARD__
-    DECL_STRONG_TYPE(leg_id, string);
-    #endif//_leg_id__GUARD__
+    #ifndef _leg_id__string__GUARD__
+    #define _leg_id__string__GUARD__
+    DECL_STRONG_TYPE(leg_id__string, string);
+    #endif//_leg_id__string__GUARD__
 
-    #ifndef _sec_key__GUARD__
-    #define _sec_key__GUARD__
-    DECL_STRONG_TYPE(sec_key, OptionKey);
-    #endif//_sec_key__GUARD__
+    #ifndef _sec_key__OptionKey__GUARD__
+    #define _sec_key__OptionKey__GUARD__
+    DECL_STRONG_TYPE(sec_key__OptionKey, OptionKey);
+    #endif//_sec_key__OptionKey__GUARD__
 
-    #ifndef _sec_type__GUARD__
-    #define _sec_type__GUARD__
-    DECL_STRONG_TYPE(sec_type, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_sec_type__GUARD__
+    #ifndef _sec_type__SpdrKeyType__GUARD__
+    #define _sec_type__SpdrKeyType__GUARD__
+    DECL_STRONG_TYPE(sec_type__SpdrKeyType, spiderrock::protobuf::api::SpdrKeyType);
+    #endif//_sec_type__SpdrKeyType__GUARD__
 
     #ifndef _side__GUARD__
     #define _side__GUARD__
@@ -290,17 +290,17 @@ namespace api {
     DECL_STRONG_TYPE(ref_delta, float);
     #endif//_ref_delta__GUARD__
 
-    #ifndef _ref_prc__GUARD__
-    #define _ref_prc__GUARD__
-    DECL_STRONG_TYPE(ref_prc, double);
-    #endif//_ref_prc__GUARD__
+    #ifndef _ref_prc__double__GUARD__
+    #define _ref_prc__double__GUARD__
+    DECL_STRONG_TYPE(ref_prc__double, double);
+    #endif//_ref_prc__double__GUARD__
 
     
     class ProductDefinitionV2_PKey {
         public:
         //using statements for all types used in this class
-        using sec_key = spiderrock::protobuf::api::sec_key;
-        using sec_type = spiderrock::protobuf::api::sec_type;
+        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
+        using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
 
         private:
         sec_key m_sec_key{};
@@ -353,9 +353,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(10,optionKeyLayout_sec_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             return totalSize;
@@ -363,9 +363,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeSecKey()) {
-                SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-                m_sec_key.setCodecOptionKey(optionKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout);
+                SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+                m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 10, optionKeyLayout_sec_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
         }
@@ -400,13 +400,13 @@ namespace api {
     class ProductDefinitionV2_Legs {
         public:
         //using statements for all types used in this class
-        using leg_id = spiderrock::protobuf::api::leg_id;
-        using sec_key = spiderrock::protobuf::api::sec_key;
-        using sec_type = spiderrock::protobuf::api::sec_type;
+        using leg_id = spiderrock::protobuf::api::leg_id__string;
+        using sec_key = spiderrock::protobuf::api::sec_key__OptionKey;
+        using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using side = spiderrock::protobuf::api::side;
         using ratio = spiderrock::protobuf::api::ratio__uint32;
         using ref_delta = spiderrock::protobuf::api::ref_delta;
-        using ref_prc = spiderrock::protobuf::api::ref_prc;
+        using ref_prc = spiderrock::protobuf::api::ref_prc__double;
 
         private:
         leg_id m_leg_id{};
@@ -495,9 +495,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(226,m_leg_id);
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_sec_key.setCodecOptionKey(optionKeyLayout);
-            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(229,optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+            m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+            totalSize += SRProtobufCPP::FieldCodec::OptionKeyFieldSize(229,optionKeyLayout_sec_key);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(232,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(235,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
             totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(238,m_ratio);
@@ -508,9 +508,9 @@ namespace api {
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
             dest = SRProtobufCPP::FieldCodec::EncodeString(dest,226,static_cast<string>(m_leg_id));
-            SRProtobufCPP::OptionKeyLayout optionKeyLayout;
-            m_sec_key.setCodecOptionKey(optionKeyLayout);
-            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 229, optionKeyLayout);
+            SRProtobufCPP::OptionKeyLayout optionKeyLayout_sec_key;
+            m_sec_key.setCodecOptionKey(optionKeyLayout_sec_key);
+            dest = SRProtobufCPP::FieldCodec::EncodeOptionKey(dest, 229, optionKeyLayout_sec_key);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,232,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_sec_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,235,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,238,m_ratio);
@@ -588,7 +588,7 @@ namespace api {
         using contract_size = spiderrock::protobuf::api::contract_size__float;
         using contract_unit = spiderrock::protobuf::api::contract_unit;
         using price_format = spiderrock::protobuf::api::price_format;
-        using min_tick_size = spiderrock::protobuf::api::min_tick_size;
+        using min_tick_size = spiderrock::protobuf::api::min_tick_size__double;
         using display_factor = spiderrock::protobuf::api::display_factor;
         using strike_scale = spiderrock::protobuf::api::strike_scale;
         using min_lot_size = spiderrock::protobuf::api::min_lot_size;
@@ -1336,9 +1336,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(248,m_security_id);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(103, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(103, tickerKeyLayout_ticker);
             }
             if ( IncludeSrspreadId()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(251,m_srspread_id);
@@ -1348,9 +1348,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(109,m_underlier_id);
             }
             if ( IncludeUndKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_und_key.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(112, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_und_key{};
+                m_und_key.setCodecExpiryKey(expiryKeyLayout_und_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(112, expiryKeyLayout_und_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_und_type)));
             if ( IncludeProductGroup()) {
@@ -1469,9 +1469,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,248,static_cast<string>(m_security_id));
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 103, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 103, tickerKeyLayout_ticker);
             }
             if ( IncludeSrspreadId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,251,m_srspread_id);
@@ -1481,9 +1481,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,109,m_underlier_id);
             }
             if ( IncludeUndKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_und_key.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 112, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_und_key{};
+                m_und_key.setCodecExpiryKey(expiryKeyLayout_und_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 112, expiryKeyLayout_und_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_und_type)));
             if ( IncludeProductGroup()) {

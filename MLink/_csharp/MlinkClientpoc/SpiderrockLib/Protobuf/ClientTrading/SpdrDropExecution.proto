@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrDropExecution {
+    message PKey {
+        
+        int64 drop_number = 10; // SR drop record number
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysEnvironment sys_environment = 100; // original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 103; // original (source) run status [Prod,Beta]
+    string routing_code = 106;
+    int32 routing_seq_num = 109;
+    OptionKey sec_key = 112;
+    SpdrKeyType sec_type = 115;
+    string security_desc = 118;
+    string security_type = 121;
+    string symbol = 124; // symbol (+ '.' + symbolSfx)
+    google.protobuf.Timestamp maturity_date = 127;
+    double strike = 130;
+    CallPut call_put = 133;
+    string account = 136; // FixTag.1
+    string giveup_firm = 139;
+    string giveup_accnt = 142;
+    string clearing_firm = 145;
+    string clearing_accnt = 148;
+    string drop_data1 = 151;
+    string drop_data2 = 154;
+    string cl_ord_id = 157; // child order clOrdId (if available)
+    int32 fill_version = 160; // cancel/correct version number (initial fill is version=1)
+    ExecStatus fill_exec_status = 163; // SpiderRock execution status (Fill,Bust,Correct,Reject,SysRej)
+    google.protobuf.Timestamp fill_dttm = 166; // fill DateTime (from SRDateTime)
+    int32 fill_quantity = 169; // fill size (from execReport.lastSize)
+    BuySell fill_side = 172; // fill side (from execReport.side)
+    ShortSaleFlag fill_sSale_flag = 175; // fill side (from execReport.side)
+    PositionType fill_position_type = 178;
+    double fill_price = 181; // fill price (from execReport.lastPrice)
+    google.protobuf.Timestamp fill_transact_dttm = 184; // fill DateTime (from execReport.fillDttm)
+    string fill_market = 187; // fill market (from execReport.lastMarket)
+    string fill_sRLiq_tag = 190; // fill SR normalized liquidity tag
+    string fill_exch_liq_tag = 193; // fill exchange liquidity code
+    float fill_exch_fee = 196; // fill exchange fee (if available)
+    string fill_exec_id = 199; // fill execution id (from execReport.execId)
+    string fill_ref_exec_id = 202; // fill ref execution id (from execReport.refExecId) [only set on a cancel or correct]
+    int64 fill_leg_ref_id = 205; // fill leg ref id (from execReport.legRefId)
+    string fill_firm_type = 208; // fill firm type (as reported from street side)
+    string fill_exec_broker = 211; // fill execution broker (as reported from street side)
+    OrderCapacity fill_order_capacity = 214; // fill order capacity (as reported from street side)
+    string fill_contra_detail = 217; // fill contra party additional detail (if available)
+    OrderCapacity fill_contra_capacity = 220; // fill order capacity of contra party (if available)
+    string fill_street_text = 223;
+    int64 net_timestamp = 226; // drop gateway arrival timestamp
+    google.protobuf.Timestamp timestamp = 229;
+    SRDataCenter_V7 data_center__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
+}
+
+

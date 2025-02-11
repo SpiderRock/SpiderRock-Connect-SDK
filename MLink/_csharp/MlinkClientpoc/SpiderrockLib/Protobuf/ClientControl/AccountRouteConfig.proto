@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AccountRouteConfig {
+    message PKey {
+        
+        string accnt = 10; // SR assigned accnt code
+        string client_firm = 14; // SR assigned client firm acronym
+        string exec_brkr_code = 15; // SR execBrkrCode (SR Assigned)
+    }
+
+    message ClearingFlip {
+        
+        string ex_dest = 193; // exDest (eg. CBOEOPT, AMEXCOB, NMS$OPT, NMS$STK, NMS$COB, CMX$FUT)
+        FlipType clr_flip_type = 187; // type of clearing corp delivery
+        string clr_flip_firm = 188; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
+        string clr_flip_accnt = 189; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
+        string clr_agent = 190; // deliverTo agent (eg. DVP Agent Bank ID)
+        string clr_tax_iD = 191; // deliverTo taxID (eg. DVP TaxID)
+    }
+
+    message ExchControl {
+        
+        string ex_dest = 194; // exchange (eg. NYSESTK, CBOEOPT, AMEXCOB, NMS$OPT, NMS$STK, NMS$COB, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+        YesNo disable = 163;
+    }
+
+    message ExecBrkrAccnts {
+        
+        ExchGroup exch_group = 180; // eg (NMS, CMX, ICE, EUREX) (NONE=ANY)
+        SpdrSecType sec_type = 181; // eg (Stock, Future, Option) (NONE=ANY)
+        string exec_brkr_accnt = 182; // exec broker account (supplied by exec broker) (usually Account<1>)
+        string exec_brkr_cl_firm = 183; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+        string exec_brkr_user_name = 184; // exec broker user name (supplied by exec broker)
+    }
+
+    message RoutingTable {
+        
+        string routing_code = 151; // routing session code (is a RouteDefinition.pkey.routingCode) [RouteDefinition.execBrkrCode must match execBrkrCode]
+        YesNo cob_tied = 192; // can handle COB (MLeg/AB) orders tied to an underlier (must be yes here and also must be yes on the underling route definition/exDest)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo enabled = 100; // yes=route enabled
+    RelationshipType relationship = 103;
+    string cat_dest_firm_iMID = 106; // Destination Firm IMID (supplied by FINRA fbo destination; can be B/D or Exchange)
+    CatDeptType cat_dest_dept_type = 109; // CAT destination department type
+    RoutingRule routing_rule = 145;
+    string backup_route_code = 154; // backup route code (if above are unavailable)
+    string extern_params = 166; // pass through params (must be understood by end point handler) usually [tag=value;tag=value;tag=value]
+    string comment = 169; // maintainer commments
+    string modified_by = 172; // user who last modified this record
+    SysEnvironment modified_in = 175;
+    google.protobuf.Timestamp timestamp = 178; // timestamp of last modification
+    repeated ClearingFlip clearing_flip = 130;
+    repeated ExchControl exch_control = 157;
+    repeated ExecBrkrAccnts exec_brkr_accnts = 179;
+    repeated RoutingTable routing_table = 148;
+}
+
+

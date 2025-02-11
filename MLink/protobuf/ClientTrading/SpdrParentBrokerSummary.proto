@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    SpdrParentBrokerSummary records are created at the end of a trading period and contain a summary of trading activity for the period; Summary of Stk/Fut/Opt/MLeg Brkr State records.
+*/    
+message SpdrParentBrokerSummary {
+    message PKey {
+        
+        string accnt = 10;
+        SpdrKeyType sec_type = 11;
+        TickerSrc ticker_src = 12;
+        SpdrSource spdr_source = 13;
+        ParentOrderHandling parent_order_handling = 14;
+        DateKey trading_period = 15;
+        string client_firm = 16; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_orders = 103; // number of parent orders
+    int32 num_brokers = 106; // number of parent brokers
+    int32 num_sec_keys = 109; // number of unique secKeys
+    int32 num_underliers = 112; // number of unique underlier secKeys
+    int32 sum_order_size = 115; // total parent order size
+    int32 sum_sweep_mkt_size = 118; // size that would be expected to fill immediately after parent order arrival
+    int32 sum_sweep_fill_qty = 121; // size that filled as a result of an initial sweep
+    float sum_active_seconds = 124; // total seconds parent order is active
+    float sum_working_seconds = 127; // total seconds with at least one working child order
+    int32 num_child_orders = 130; // total number of child orders generated
+    int32 cum_fill_qty = 133;
+    int32 sum_vwap_qty = 136; // SUM: cumFillQty [if avgVwapPrice exists] (stock and futures only)
+    float sum_vwap_pn_l = 139; // SUM: (avgVWapPrice - avgFillPrice) * cumFillQty [if avgVwapPrice exists] (stock and futures only)
+}
+
+

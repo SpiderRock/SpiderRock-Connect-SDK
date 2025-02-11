@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SectorControl {
+    message PKey {
+        
+        string accnt = 10;
+        string sector = 11;
+        string client_firm = 12; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string sector_label = 100; // sector label (description)
+    string modified_by = 103; // user who last modified this record
+    SysEnvironment modified_in = 106;
+    google.protobuf.Timestamp timestamp = 109; // timestamp of last modification
+}
+
+

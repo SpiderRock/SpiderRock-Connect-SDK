@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records are as loaded by clients and usually represents their negotiated borrow rates.
+*/    
+message StockPoolBorrowRate {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string client_firm = 11; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float borrow_rate = 100; // overnight borrow rate for this ticker
+    string source = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

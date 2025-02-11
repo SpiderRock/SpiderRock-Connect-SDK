@@ -19,6 +19,41 @@ internal unsafe partial class Formatter
 {
     
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, CurrencyConversion dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, CurrencyConversion dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(CurrencyConversion.PKeyLayout) + sizeof(CurrencyConversion.BodyLayout) > max) throw new IOException("Max exceeded decoding CurrencyConversion");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((CurrencyConversion.PKeyLayout*) src); src += sizeof(CurrencyConversion.PKeyLayout);
+             dest.body = *((CurrencyConversion.BodyLayout*) src); src += sizeof(CurrencyConversion.BodyLayout);
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, FutureBookQuote dest)
     {
         fixed (byte* p = buffer)
@@ -715,7 +750,7 @@ internal unsafe partial class Formatter
             {
                 var item = new RootDefinition.ExchangeItem();
                     item.OptExch = *((OptExch*) src); src++;
-                     item.NativeRoot = *((FixedString12Layout*) src); src += sizeof(FixedString12Layout);
+                     item.Root = TickerKey.GetCreateTickerKey(*((TickerKeyLayout*) src)); src += sizeof(TickerKeyLayout);
 
                 dest.ExchangeList[i] = item;
             }

@@ -248,9 +248,9 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey;
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_fkey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StateModel>(m_state_model)));
             return totalSize;
@@ -258,9 +258,9 @@ namespace api {
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeFkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_fkey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_fkey;
+                m_fkey.setCodecExpiryKey(expiryKeyLayout_fkey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_fkey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,11,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StateModel>(m_state_model)));
         }

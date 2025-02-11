@@ -22,8 +22,8 @@ message NationsIndexPrice {
     
     PKey pkey = 2;
     float mrk_price = 100; // last regular market price
-    DateKey expiry = 103; // running expiration date for index
-    int64 src_timestamp = 106; // OPRA source timestamp (nanoseconds since epoch)
+    DateKey expiry = 101; // running expiration date for index
+    int64 src_timestamp = 102; // OPRA source timestamp (nanoseconds since epoch)
 }
 
 

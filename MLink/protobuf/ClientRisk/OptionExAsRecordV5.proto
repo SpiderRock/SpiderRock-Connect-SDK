@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Option exercise/assigment records (either from SR clearing loaders or uploaded directly by client)
+*/    
+message OptionExAsRecordV5 {
+    message PKey {
+        
+        OptionKey okey = 10;
+        string accnt = 11;
+        DateKey trade_date = 12; // trading date immediately prior to ex-date of the action
+        string client_firm = 13; // SR assigned client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string ex_as_trans_id = 100; // exercise/assigment transaction Id [optiona] (used to reference away sytem records)
+    int32 ex_as_contracts = 103; // note: override the normal automatic ex/as rules for up to this number of contracts. The balance (if any) will be presumed to ex/as according to default rules
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

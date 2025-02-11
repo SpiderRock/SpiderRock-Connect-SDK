@@ -76,7 +76,7 @@ message ToolCompositeExecution {
     int32 child_size = 265; // child order size
     double child_price = 268; // child order price
     string child_exch = 271; // child order exchange code (SpiderRock)
-    string child_ex_dest = 274; // child order exchange code (downstream)
+    string child_ex_dest = 600; // child order exchange code (downstream)
     double child_uPrc = 277; // underlier market price @ child order send time
     double child_bid = 280; // market bid @ child order send time
     double child_ask = 283; // market ask @ child order send time

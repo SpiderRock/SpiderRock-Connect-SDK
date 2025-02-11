@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiRQcm90b2J1Zi9FcXRNa3REYXRhL1N0b2NrUHJpbnQucHJvdG8SE3NwaWRl",
             "cnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3RvGh9nb29n",
-            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIs8FCgpTdG9ja1ByaW50EjMK",
+            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIuUFCgpTdG9ja1ByaW50EjMK",
             "BV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdlTWV0",
             "YWRhdGESMgoEcGtleRgCIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYuU3Rv",
             "Y2tQcmludC5QS2V5Ei4KCHBydF9leGNoGGQgASgOMhwuc3BpZGVycm9jay5w",
@@ -34,19 +34,20 @@ namespace Spiderrock.Protobuf {
             "ZRhqIAEoAhIXCg9wcnRfY2x1c3Rlcl9udW0YbSABKAUSGAoQcHJ0X2NsdXN0",
             "ZXJfc2l6ZRhwIAEoBRISCgpwcnRfdm9sdW1lGHMgASgFEhEKCW1ya19wcmlj",
             "ZRh2IAEoAhIRCgljbHNfcHJpY2UYeSABKAISMwoIcHJ0X3R5cGUYfCABKA4y",
-            "IS5zcGlkZXJyb2NrLnByb3RvYnVmLlN0a1ByaW50VHlwZRIRCglwcnRfY29u",
-            "ZDEYfyABKAUSEgoJcHJ0X2NvbmQyGIIBIAEoBRISCglwcnRfY29uZDMYhQEg",
-            "ASgFEhIKCXBydF9jb25kNBiIASABKAUSDQoEZWJpZBiLASABKAISDQoEZWFz",
-            "axiOASABKAISDQoEZWJzehiRASABKAUSDQoEZWFzehiUASABKAUSDQoEZWFn",
-            "ZRiXASABKAISLwoIcHJ0X3NpZGUYmgEgASgOMhwuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5QcnRTaWRlEhYKDXBydF90aW1lc3RhbXAYnQEgASgDEhYKDW5ldF90",
-            "aW1lc3RhbXAYoAEgASgDEi4KCXRpbWVzdGFtcBijASABKAsyGi5nb29nbGUu",
-            "cHJvdG9idWYuVGltZXN0YW1wGjYKBFBLZXkSLgoGdGlja2VyGAogASgLMh4u",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXliBnByb3RvMw=="));
+            "IS5zcGlkZXJyb2NrLnByb3RvYnVmLlN0a1ByaW50VHlwZRIUCgtwcmludF9j",
+            "b2RlcxikASABKAkSEQoJcHJ0X2NvbmQxGH8gASgFEhIKCXBydF9jb25kMhiC",
+            "ASABKAUSEgoJcHJ0X2NvbmQzGIUBIAEoBRISCglwcnRfY29uZDQYiAEgASgF",
+            "Eg0KBGViaWQYiwEgASgCEg0KBGVhc2sYjgEgASgCEg0KBGVic3oYkQEgASgF",
+            "Eg0KBGVhc3oYlAEgASgFEg0KBGVhZ2UYlwEgASgCEi8KCHBydF9zaWRlGJoB",
+            "IAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuUHJ0U2lkZRIWCg1wcnRfdGlt",
+            "ZXN0YW1wGJ0BIAEoAxIWCg1uZXRfdGltZXN0YW1wGKABIAEoAxIuCgl0aW1l",
+            "c3RhbXAYowEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBo2CgRQ",
+            "S2V5Ei4KBnRpY2tlchgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlj",
+            "a2VyS2V5YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPrint), global::Spiderrock.Protobuf.StockPrint.Parser, new[]{ "Meta", "Pkey", "PrtExch", "PrtSize", "PrtPrice", "PrtClusterNum", "PrtClusterSize", "PrtVolume", "MrkPrice", "ClsPrice", "PrtType", "PrtCond1", "PrtCond2", "PrtCond3", "PrtCond4", "Ebid", "Eask", "Ebsz", "Easz", "Eage", "PrtSide", "PrtTimestamp", "NetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPrint.Types.PKey), global::Spiderrock.Protobuf.StockPrint.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPrint), global::Spiderrock.Protobuf.StockPrint.Parser, new[]{ "Meta", "Pkey", "PrtExch", "PrtSize", "PrtPrice", "PrtClusterNum", "PrtClusterSize", "PrtVolume", "MrkPrice", "ClsPrice", "PrtType", "PrintCodes", "PrtCond1", "PrtCond2", "PrtCond3", "PrtCond4", "Ebid", "Eask", "Ebsz", "Easz", "Eage", "PrtSide", "PrtTimestamp", "NetTimestamp", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.StockPrint.Types.PKey), global::Spiderrock.Protobuf.StockPrint.Types.PKey.Parser, new[]{ "Ticker" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -102,6 +103,7 @@ namespace Spiderrock.Protobuf {
       mrkPrice_ = other.mrkPrice_;
       clsPrice_ = other.clsPrice_;
       prtType_ = other.prtType_;
+      printCodes_ = other.printCodes_;
       prtCond1_ = other.prtCond1_;
       prtCond2_ = other.prtCond2_;
       prtCond3_ = other.prtCond3_;
@@ -277,6 +279,21 @@ namespace Spiderrock.Protobuf {
       get { return prtType_; }
       set {
         prtType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "print_codes" field.</summary>
+    public const int PrintCodesFieldNumber = 164;
+    private string printCodes_ = "";
+    /// <summary>
+    /// European trade condition codes
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string PrintCodes {
+      get { return printCodes_; }
+      set {
+        printCodes_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -486,6 +503,7 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MrkPrice, other.MrkPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ClsPrice, other.ClsPrice)) return false;
       if (PrtType != other.PrtType) return false;
+      if (PrintCodes != other.PrintCodes) return false;
       if (PrtCond1 != other.PrtCond1) return false;
       if (PrtCond2 != other.PrtCond2) return false;
       if (PrtCond3 != other.PrtCond3) return false;
@@ -517,6 +535,7 @@ namespace Spiderrock.Protobuf {
       if (MrkPrice != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MrkPrice);
       if (ClsPrice != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ClsPrice);
       if (PrtType != global::Spiderrock.Protobuf.StkPrintType.Unspecified) hash ^= PrtType.GetHashCode();
+      if (PrintCodes.Length != 0) hash ^= PrintCodes.GetHashCode();
       if (PrtCond1 != 0) hash ^= PrtCond1.GetHashCode();
       if (PrtCond2 != 0) hash ^= PrtCond2.GetHashCode();
       if (PrtCond3 != 0) hash ^= PrtCond3.GetHashCode();
@@ -644,6 +663,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(154, 10);
         output.WriteMessage(Timestamp);
       }
+      if (PrintCodes.Length != 0) {
+        output.WriteRawTag(162, 10);
+        output.WriteString(PrintCodes);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -750,6 +773,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(154, 10);
         output.WriteMessage(Timestamp);
       }
+      if (PrintCodes.Length != 0) {
+        output.WriteRawTag(162, 10);
+        output.WriteString(PrintCodes);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -792,6 +819,9 @@ namespace Spiderrock.Protobuf {
       }
       if (PrtType != global::Spiderrock.Protobuf.StkPrintType.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PrtType);
+      }
+      if (PrintCodes.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(PrintCodes);
       }
       if (PrtCond1 != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(PrtCond1);
@@ -882,6 +912,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.PrtType != global::Spiderrock.Protobuf.StkPrintType.Unspecified) {
         PrtType = other.PrtType;
+      }
+      if (other.PrintCodes.Length != 0) {
+        PrintCodes = other.PrintCodes;
       }
       if (other.PrtCond1 != 0) {
         PrtCond1 = other.PrtCond1;
@@ -1045,6 +1078,10 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 1314: {
+            PrintCodes = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1163,6 +1200,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 1314: {
+            PrintCodes = input.ReadString();
             break;
           }
         }

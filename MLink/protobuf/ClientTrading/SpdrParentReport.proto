@@ -1,0 +1,420 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrParentReport {
+    message PKey {
+        
+        int64 parent_number = 10; // SPDR order number
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 520;
+        InclExclDisclose incl_excl = 523;
+    }
+
+    message FaceLegs_V7 {
+        
+        int64 last_leg_ref_id__v7 = 5014; // only V7
+        google.protobuf.Timestamp last_fill_dttm__v7 = 5015; // only V7
+        int32 cum_square_qty__v7 = 5016; // only V7
+        double avg_square_prc__v7 = 5017; // only V7
+        google.protobuf.Timestamp last_square_dttm__v7 = 5018; // only V7
+        int32 cum_partial_qty__v7 = 5019; // only V7
+        ShortSaleFlag ssale_flag__v7 = 5020; // only v7 - enum values match with v8
+        int32 stock_cum_fill_qty__v7 = 5021; // only V7
+        double stock_avg_fill_prc__v7 = 5022; // only V7
+        PositionType pos_type1__v7 = 5023; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag1__v7 = 5024; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty1__v7 = 5025; // only V7
+        double leg_avg_fill_prc1__v7 = 5026; // only V7
+        PositionType pos_type2__v7 = 5027; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag2__v7 = 5028; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty2__v7 = 5029; // only V7
+        double leg_avg_fill_prc2__v7 = 5030; // only V7
+        PositionType pos_type3__v7 = 5031; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag3__v7 = 5032; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty3__v7 = 5033; // only V7
+        double leg_avg_fill_prc3__v7 = 5034; // only V7
+        PositionType pos_type4__v7 = 5035; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag4__v7 = 5036; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty4__v7 = 5037; // only V7
+        double leg_avg_fill_prc4__v7 = 5038; // only V7
+        PositionType pos_type5__v7 = 5039; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag5__v7 = 5040; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty5__v7 = 5041; // only V7
+        double leg_avg_fill_prc5__v7 = 5042; // only V7
+        PositionType pos_type6__v7 = 5043; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag6__v7 = 5044; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty6__v7 = 5045; // only V7
+        double leg_avg_fill_prc6__v7 = 5046; // only V7
+    }
+
+    message FaceSide_V7 {
+        
+        int64 face_id__v7 = 5048; // only V7
+        string alt_order_id__v7 = 5049; // only V7
+        string accnt__v7 = 5050; // only V7: using metaType
+        string client_firm__v7 = 5051; // only V7: using metaType
+        string alt_accnt__v7 = 5052; // only V7
+        FirmType firm_type__v7 = 5053; // only v7 - enum values match with v8
+        OrderCapacity order_capacity__v7 = 5054; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag__v7 = 5055; // only v7 - enum values match with v8
+        PositionType position_type__v7 = 5056; // only v7 - enum values match with v8
+        int32 firm_position__v7 = 5057; // only V7
+        int32 open_sell_sh__v7 = 5058; // only V7
+        int32 locate_quan__v7 = 5059; // only V7
+        string locate_firm__v7 = 5060; // only V7
+        string locate_pool__v7 = 5061; // only V7
+        string locate_source__v7 = 5062; // only V7
+        string no_cross_group__v7 = 5063; // only V7
+        string exch_trader_id__v7 = 5064; // only V7
+        string large_trader_id__v7 = 5065; // only V7
+        string trading_location__v7 = 5066; // only V7
+        string clearing_firm__v7 = 5067; // only V7
+        string clearing_accnt__v7 = 5068; // only V7
+        FlipType clearing_flip_type__v7 = 5069; // only v7 - enum values match with v8
+        string clearing_flip_firm__v7 = 5070; // only V7
+        string clearing_flip_accnt__v7 = 5071; // only V7
+        string cat_src_brkr_iMID__v7 = 5072; // only V7
+        CatAccntType cat_src_accnt_type__v7 = 5073; // only v7 - enum values match with v8
+        CatFirmType cat_src_firm_type__v7 = 5074; // only v7 - enum values match with v8
+        int32 cum_fill_quantity__v7 = 5075; // only V7
+        double avg_fill_price__v7 = 5076; // only V7
+        int32 leaves_qty__v7 = 5077; // only V7
+        int64 last_fill_number__v7 = 5078; // only V7
+        google.protobuf.Timestamp last_fill_dttm__v7 = 5079; // only V7
+    }
+
+    message OrderLegs {
+        
+        int64 last_leg_ref_id = 616;
+        google.protobuf.Timestamp last_fill_dttm = 619;
+        int32 cum_square_qty = 622; // cum spread quantity filled (all legs received)
+        double avg_square_prc = 625;
+        google.protobuf.Timestamp last_square_dttm = 628;
+        int32 cum_partial_qty = 631; // cum spread quantity partially filled (at least one leg received) [expected cumFilledQty if all legs square up]
+        int32 review_cum_square_qty = 634; // review cum spread quantity filled (all legs received)
+        double review_avg_square_prc = 637;
+        google.protobuf.Timestamp review_last_square_dttm = 640;
+        int32 review_cum_partial_qty = 643; // review cum spread quantity partially filled (at least one leg received) [expected cumFilledQty if all legs square up]
+        TickerKey ticker = 646; // stock ticker
+        BuySell stock_side = 649; // [Buy | Sell | None]
+        int32 stock_shares = 652; // number of shares included (zero if none)
+        int64 stock_leg_id = 655; // SR stock leg Id
+        string alt_stk_leg_id = 658; // client stock leg Id (usually from a FIX order)
+        string review_stk_leg_id = 661; // client review stock leg Id (usually from a FIX order)
+        string review_stk_leg_alt_id = 664; // client review stock leg alt Id (usually from a FIX order)
+        ShortSaleFlag ssale_flag = 667; // stock short sale flag
+        int32 stock_cum_fill_qty = 670;
+        double stock_avg_fill_prc = 673;
+        int32 stock_review_cum_fill_qty = 676;
+        double stock_review_avg_fill_prc = 679;
+        int32 num_legs = 682; // number of valid legs below
+        OptionKey sec_key1 = 685; // leg #1
+        SpdrKeyType sec_type1 = 688;
+        uint32 mult1 = 691;
+        BuySell side1 = 694;
+        int64 leg_id1 = 697; // SR leg Id
+        string alt_leg_id1 = 700; // client leg Id (usually from a FIX order)
+        string review_leg_id1 = 703; // client review leg Id (usually from a FIX order)
+        string review_leg_alt_id1 = 706; // client review leg alt Id (usually from a FIX order)
+        PositionType pos_type1 = 709;
+        ShortSaleFlag ssale_flag1 = 712;
+        int32 leg_cum_fill_qty1 = 715;
+        double leg_avg_fill_prc1 = 718;
+        int32 leg_review_cum_fill_qty1 = 721;
+        double leg_review_avg_fill_prc1 = 724;
+        OptionKey sec_key2 = 727; // leg #2
+        SpdrKeyType sec_type2 = 730;
+        uint32 mult2 = 733;
+        BuySell side2 = 736;
+        int64 leg_id2 = 739; // SR leg Id
+        string alt_leg_id2 = 742; // client leg Id (usually from a FIX order)
+        string review_leg_id2 = 745; // client review leg Id (usually from a FIX order)
+        string review_leg_alt_id2 = 748; // client review leg alt Id (usually from a FIX order)
+        PositionType pos_type2 = 751;
+        ShortSaleFlag ssale_flag2 = 754;
+        int32 leg_cum_fill_qty2 = 757;
+        double leg_avg_fill_prc2 = 760;
+        int32 leg_review_cum_fill_qty2 = 763;
+        double leg_review_avg_fill_prc2 = 766;
+        OptionKey sec_key3 = 769; // leg #3
+        SpdrKeyType sec_type3 = 772;
+        uint32 mult3 = 775;
+        BuySell side3 = 778;
+        int64 leg_id3 = 781; // SR leg Id
+        string alt_leg_id3 = 784; // client leg Id (usually from a FIX order)
+        string review_leg_id3 = 787; // client review leg Id (usually from a FIX order)
+        string review_leg_alt_id3 = 790; // client review leg alt Id (usually from a FIX order)
+        PositionType pos_type3 = 793;
+        ShortSaleFlag ssale_flag3 = 796;
+        int32 leg_cum_fill_qty3 = 799;
+        double leg_avg_fill_prc3 = 802;
+        int32 leg_review_cum_fill_qty3 = 805;
+        double leg_review_avg_fill_prc3 = 808;
+        OptionKey sec_key4 = 811; // leg #4
+        SpdrKeyType sec_type4 = 814;
+        uint32 mult4 = 817;
+        BuySell side4 = 820;
+        int64 leg_id4 = 823; // SR leg Id
+        string alt_leg_id4 = 826; // client leg Id (usually from a FIX order)
+        string review_leg_id4 = 829; // client review leg Id (usually from a FIX order)
+        string review_leg_alt_id4 = 832; // client review leg alt Id (usually from a FIX order)
+        PositionType pos_type4 = 835;
+        ShortSaleFlag ssale_flag4 = 838;
+        int32 leg_cum_fill_qty4 = 841;
+        double leg_avg_fill_prc4 = 844;
+        int32 leg_review_cum_fill_qty4 = 847;
+        double leg_review_avg_fill_prc4 = 850;
+        OptionKey sec_key5 = 853; // leg #5
+        SpdrKeyType sec_type5 = 856;
+        uint32 mult5 = 859;
+        BuySell side5 = 862;
+        int64 leg_id5 = 865; // SR leg Id
+        string alt_leg_id5 = 868; // client leg Id (usually from a FIX order)
+        string review_leg_id5 = 871; // client review leg Id (usually from a FIX order)
+        string review_leg_alt_id5 = 874; // client review leg alt Id (usually from a FIX order)
+        PositionType pos_type5 = 877;
+        ShortSaleFlag ssale_flag5 = 880;
+        int32 leg_cum_fill_qty5 = 883;
+        double leg_avg_fill_prc5 = 886;
+        int32 leg_review_cum_fill_qty5 = 889;
+        double leg_review_avg_fill_prc5 = 892;
+        OptionKey sec_key6 = 895; // leg #6
+        SpdrKeyType sec_type6 = 898;
+        uint32 mult6 = 901;
+        BuySell side6 = 904;
+        int64 leg_id6 = 907; // SR leg Id
+        string alt_leg_id6 = 910; // client leg Id (usually from a FIX order)
+        string review_leg_id6 = 913; // client review leg Id (usually from a FIX order)
+        string review_leg_alt_id6 = 916; // client review leg alt Id (usually from a FIX order)
+        PositionType pos_type6 = 919;
+        ShortSaleFlag ssale_flag6 = 922;
+        int32 leg_cum_fill_qty6 = 925;
+        double leg_avg_fill_prc6 = 928;
+        int32 leg_review_cum_fill_qty6 = 931;
+        double leg_review_avg_fill_prc6 = 934;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 103;
+    RunStatus run_status = 106;
+    int64 report_number = 109;
+    SpdrOrderShape parent_shape = 112;
+    int32 record_version = 115;
+    RecordSource record_source = 118;
+    int32 parent_version = 121; // SPDR order instance number (1 = original order; 2 = 1st cancel/replace, etc)
+    int64 base_parent_number = 124; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
+    int64 prev_parent_number = 1037; // SPDR order number (order being cancelled/replaced) (zero if none)
+    int64 next_parent_number = 1038; // SPDR order number (next order in cxl/replace sequence) (zero if none)
+    SpdrActionType spdr_action_type = 1098;
+    google.protobuf.Timestamp prev_parent_create_dttm = 133; // none/undefined if first order in a sequence
+    int32 prev_parent_cum_fill_qty = 136;
+    int32 client_seq_num_in = 139; // inbound client seq number (FIX orders only)
+    string alt_order_id = 142; // usually client clOrdId (from FIX or SRSE)
+    string alt_prev_order_id = 145; // usually previous/orig (cxl/repl) client clOrdId (from FIX or SRSE)
+    string alt_cancel_id = 151; // client cancelId (from FIX or SRSE) [identifies the message responsible for user cxl actions]
+    string src_routing_code = 154; // inbound FIX routing code, if any
+    int64 package_id = 157; // references spread orderNumber, if a legged spread order
+    int64 prev_package_id = 160;
+    int64 risk_group_id = 163; // all orders with the same riskGroupId share a common set of risk counters; .Grp. risk limits apply to these shared counters
+    int64 trigger_group_id = 166; // WaitTrigger group Id
+    OptionKey sec_key = 169;
+    SpdrKeyType sec_type = 172;
+    string accnt = 175; // SR trading account
+    string client_firm = 178; // SR client firm
+    string core_client_firm = 1039;
+    string sponsor_client_firm = 1040;
+    string client_accnt = 181; // client assigned "long" account string (from AccountConfig) [used to map between client and SR account strings]
+    string user_name = 184; // name of the user entering the order
+    SpdrSource user_source = 1041; // SpdrSource of this order
+    string alt_accnt = 187; // alternate (client assigned) "long" account string (optional) [used to map between client and SR account strings]
+    string alt_user_name = 190; // alternate (client assigned) user name (optional) [used to map between client and SR account strings]
+    string exec_brkr_code = 1094; // overrides the default executing broker for this parent order
+    string extern_ex_dest = 1095; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
+    string extern_params = 199; // external algo names/parameters (usually just an algo name)
+    SpdrSource spdr_source = 202; // parent order source enum
+    int64 grouping_code = 205; // unique broker code; broker.pkey = (key + accnt + spdrSource + groupingCode)
+    string engine_name = 1042; // execution engine (partition) handling this parent order
+    google.protobuf.Timestamp order_dttm = 211;
+    BuySell order_side = 214;
+    PriceType price_type = 217;
+    int32 order_size = 220;
+    int32 order_active_size = 223; // total activated size (total size released for execution) (-1 = all available size)
+    SpdrStageType spdr_stage_type = 226; // SizeLock = stage pending modification (can reduce size); SizeModify = stage pending modification (can increase/reduce size)
+    StageReview stage_review = 1043;
+    ParentOrderHandling parent_order_handling = 229;
+    ParentBalanceHandling parent_balance_handling = 232;
+    double limit_price = 235; // limit price @ order arrival
+    SpdrLimitType order_limit_type = 238;
+    SpdrLimitClass take_limit_class = 241;
+    SpdrLimitClass make_limit_class = 244;
+    StartType start_type = 247; // WaitTrigger associates this order with a triggerGroupId.  The initial wave of child orders from the TriggerGroup will be simultaneously delivered when a trigger signal is received.
+    MarketSession market_session = 1044;
+    int32 active_duration = 1097;
+    google.protobuf.Timestamp start_dttm = 253; // [optional] (default: 2000-01-01)
+    google.protobuf.Timestamp good_till_dttm = 256; // [optional] (default: 2099-01-01)
+    AutoHedge auto_hedge = 259;
+    HedgeInst hedge_instrument = 262; // Default=underlier (EQT or FUT) [Index Options use ETF]; FrontMonth=underlier (EQT) or front month (FUT) [Index Options use FM Fut]; Stock=hedgeSecKey; Future=hedgeSecKey
+    ExpiryKey hedge_sec_key = 265;
+    SpdrKeyType hedge_sec_type = 268;
+    float hedge_beta_ratio = 271; // portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0])
+    HedgeScope hedge_scope = 274; // hedge group scope [RiskGroup or Accnt]
+    MarketSession hedge_session = 1045; // market session for the autohedge order
+    google.protobuf.Timestamp order_create_dttm = 280; // order send time
+    float order_create_latency = 283; // order send to order ack latency (in milliseconds)
+    OrderCancelReason cancel_reason = 286;
+    google.protobuf.Timestamp order_cancel_dttm = 289; // order cancel time
+    float order_cancel_latency = 292; // cancel send to cancel ack latency (in milliseconds)
+    google.protobuf.Timestamp order_working_dttm = 295; // order send ack time (acknowleged working/new) (first exec report indicating the order is active)
+    google.protobuf.Timestamp order_closed_dttm = 298; // order terminated ack time (first exec report indicating the order is in a terminal state;eg. cancelled, filled, rejected, etc)
+    string order_closed_text = 301;
+    int32 max_exposure_size = 1046; // maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    PublicSizeHandling public_size = 1047; // public order size handling: None=algo default; Randomize=randomize public size; MktSize=expose typical market size; FullSize=expose entire order size where possible; FullSizeR=randomize full size
+    YesNo can_overlap_cxl_repl = 1048; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
+    int32 progress_expose_time = 1049; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
+    ProgressRule progress_rule = 1050; // Immediate = all size immediately available; TWAP = work from arrival to expiration; VWAP = work order not faster than participation rate
+    int32 progress_slice_cnt = 1051; // number of slices to use (default = 4 or 8) [max 20]
+    float vwap_participation = 1052; // target vwap participation rate (target % of trade activity)
+    AuctionResponder auction_responder = 1053; // if set, parent order can be an auction responder
+    float max_make_exch_fee = 1054; // maximum making exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    float max_take_exch_fee = 1055; // maximum taking exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    IncExchFee inc_take_exch_fee = 1056; // include exchange fee in probability and surface based take limit calculations
+    IncExchFee inc_make_exch_fee = 1057; // include exchange fee in probability and surface based make limit calculations
+    MakeExchRule make_exch_rule = 1058; // ActiveMaker exchange preference rule: 'MaxPart' = maximize participation; 'FeeOrder' = minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO; 'RoundRobin' will rotate through exch list
+    UPrcCxl cxl_uPrc_range = 1059; // cancel parent order if/when outside the uPrice range [ _Halt = also cancel if halted ]
+    float min_uBid = 1060; // [optional]
+    float max_uAsk = 1061; // [optional] (< $0.01 = none)
+    float min_option_px = 1062; // [optional] option price floor for tied to stock orders
+    int32 max_child_orders = 1063; // maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
+    int32 order_duration = 1064; // [optional] (number of seconds)
+    ReachRule take_reach_rule = 1065; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    double order_prc_limit = 1066; // Applies if LimitType = Prc[]
+    double order_ref_uPrc = 1067; // default=underlier.mid
+    float order_ref_delta = 1068; // default=option.delta
+    float order_ref_gamma = 1069; // default=option.gamma
+    float order_vol_limit = 1070; // Applies if LimitType = Vol[] [uses SR dividends and borrow rates]
+    float rate_override = 1071; // zero = ignore; > zero = override
+    float sdiv_override = 1072;
+    string ddiv_override = 1073; // discrete dividend string override ([yearsToExpiry,divYears:divAmount,divYears:divAmount, ...])
+    OverrideCode override_code = 1074;
+    double order_prc_offset = 1075; // default=0 [surface, relX and pegX limit offsets]
+    AlphaType take_alpha_type = 1076; // Applies if takeLimitClass = Probability
+    AlphaType make_alpha_type = 1077; // Applies if makeLimitClass = Probability
+    float take_alpha_factor = 1078; // [-2,+2] takeProbLimit = MAX(takeProbability, takeProbAvg + takeAlphaFactor * takeProbStd) [if AlphaType = Relative]
+    float make_alpha_factor = 1079; // [-2,+2] makeProbLimit = MAX(makeProbability, makeProbAvg + makeAlphaFactor * makeProbStd) [if AlphaType = Relative]
+    float take_probability = 1080; // takeProbLimit = takeProbability [if AlphaType = Static]
+    float make_probability = 1081; // makeProbLimit = makeProbability [if AlphaType = Static]
+    double take_surf_prc_offset = 1082; // default=0
+    float take_surf_vol_offset = 1083; // default=0
+    float take_surf_width_offset = 1084; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
+    double make_surf_prc_offset = 1085; // default=0
+    float make_surf_vol_offset = 1086; // default=0
+    float make_surf_width_offset = 1087; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
+    float order_ref_event_mult = 1088;
+    google.protobuf.Timestamp order_ref_event_dttm = 1089;
+    NbboCap nbbo_cap = 1099; // indicates if order is capped at NBBO (or 1, 5, 10 pennies through)
+    string extern_hedge_ex_dest = 1096; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_params = 1091; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
+    SpdrOrderStatus spdr_order_status = 304;
+    SpdrCloseReason spdr_close_reason = 307;
+    SpdrRejectReason spdr_reject_reason = 310;
+    SpdrRiskLevel spdr_reject_level = 1092;
+    FirmType firm_type = 313;
+    OrderCapacity order_capacity = 316;
+    ShortSaleFlag ssale_flag = 319; // primary short sale flag (single leg orders)
+    PositionType position_type = 322; // primary position type (single leg orders)
+    int32 arrive_firm_pos = 325; // firm position [resolved @ parent order arrival]
+    ShortSaleFlag arrive_sSale_flag = 328; // primary short sale flag (single leg orders) [resolved @ parent order arrival; short if any of order size would be short]
+    string no_cross_group = 331;
+    string exch_trader_id = 334;
+    string large_trader_id = 337;
+    string trading_location = 340;
+    int32 firm_position = 343;
+    int32 open_sell_sh = 346;
+    int32 locate_quan = 349; // available locate quantity (if selling short) @ arrival time
+    string locate_firm = 352; // locate firm (usually an MPID)
+    string locate_pool = 355; // locate pool @ locate firm
+    string clearing_firm = 358; // clearing firm [from AccountConfig; may not match parent execution]
+    string clearing_accnt = 361; // clearing firm [from AccountConfig; may not match parent execution]
+    CatReportType cat_reportable = 364; // CAT reportable type (from AccountConfig.catReportable)
+    string cat_src_brkr_iMID = 367; // B/D firm FDID (only exists if a B/D is the source) (supplied by FINRA fbo client) (from ClientFirm.catSrcBrkrIMID)
+    CatAccntType cat_src_accnt_type = 370; // CAT account holder type (from AccountConfig.catSrcAccntType [Eqt, Opt])
+    CatFirmType cat_src_firm_type = 373; // CAT source type (from AccountConfig.catSrcType [Eqt, Opt])
+    CatDeptType cat_dest_dept_type = 376; // Infer from ParentOrder Agency or ATS (BlockInitiate/BlockRespond)
+    string cat_accnt = 379; // CAT Firm Designated ID
+    string cat_brkr_accnt = 382; // Brokers CAT Firm Designated ID
+    int32 cum_fill_quantity = 385;
+    double avg_fill_price = 388;
+    double avg_fill_uPrice = 391;
+    int32 leaves_qty = 394;
+    int64 last_fill_number = 397;
+    google.protobuf.Timestamp last_fill_dttm = 400;
+    string review_cl_ord_id = 403;
+    string review_orig_cl_ord_id = 406;
+    string review_cancel_cl_ord_id = 409;
+    int32 review_order_size = 412;
+    int32 review_order_active_size = 415;
+    int32 review_cum_fill_quantity = 418;
+    double review_avg_fill_price = 421;
+    int32 review_leaves_qty = 424;
+    SpdrOrderStatus review_order_status = 427;
+    MaxProgress max_progress = 433;
+    string max_progress_detail = 436;
+    google.protobuf.Timestamp max_progress_time = 439;
+    int32 num_child_orders = 442; // [is390Eligible] (numChildOrders > 0 if parent order is 390 Eligible and also generated at least 1 child order)
+    double nbbo_bid = 445; // best nbbo bid @ arrival time
+    double nbbo_ask = 448; // best nbbo ask @ arrival time
+    int32 nbbo_bid_sz = 451; // public cumulative bid size @ nbboBid
+    int32 nbbo_ask_sz = 454; // public cumulative ask size @ nbboAsk
+    MktStance mkt_stance = 457;
+    string parent_strategy = 460; // client strategy [usually client supplied]
+    TickerKey ticker = 463; // underlier (option only)
+    float tick_value = 466; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 469; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 472;
+    float notional_mult = 475;
+    string security_iD = 478; // from ProductDefinition.securityID
+    string security_desc = 481; // from ProductDefinition.securityDesc
+    string product_group = 484; // from ProductDefinition.productGroup
+    ProductClass product_class = 487; // from ProductDefinition.productClass
+    ExpiryKey und_key = 490; // from ProductDefinition.undKey
+    SpdrKeyType und_type = 493; // from ProductDefinition.undType
+    string u_sec_desc = 496; // [options only] underlier security description
+    PriceFormat price_format = 499;
+    string user_data1 = 502; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 505; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    google.protobuf.Timestamp timestamp = 508;
+    InclExclDisclose include_sRNetwork = 1093;
+    string alt_cross_id__v7 = 5000; // only V7
+    string exec_broker_accnt__v7 = 5001; // only V7
+    string exec_broker_cl_firm__v7 = 5002; // only V7
+    string exec_username__v7 = 5003; // only V7
+    SRDataCenter_V7 data_center__v7 = 5004; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
+    TimeInForce time_in_force__v7 = 5005; // only v7 - enum values match with v8
+    TimeInForce hedge_tIF__v7 = 5006; // only v7 - enum values match with v8
+    string locate_source__v7 = 5007; // only V7
+    FlipType clearing_flip_type__v7 = 5008; // only v7 - enum values match with v8
+    string clearing_flip_firm__v7 = 5009; // only V7
+    string clearing_flip_accnt__v7 = 5010; // only V7
+    string review_routing_code__v7 = 5011; // only V7
+    int32 progress_timeout__v7 = 5012; // only V7
+    repeated DirectedCounterParty directed_counter_party = 517;
+    repeated FaceLegs_V7 face_legs__v7 = 5013;
+    repeated FaceSide_V7 face_side__v7 = 5047;
+    repeated OrderLegs order_legs = 613;
+}
+
+

@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrTheoExpSurface {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        string theo_model = 11;
+        string client_firm = 12; // client firm this theo model is associated with (controls visibility)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    SkewFunc skew_func = 103;
+    VolTimeUnits vol_time_units = 106; // default uses the SR native time metric (trading minutes); V6 is a prior SR metric (trading days)
+    uPrcRefRule u_prc_ref_rule = 109;
+    float ref_uPrc = 112; // -1 = use SR uPrc @ record insert
+    float ref_uPrc_weight = 115; // w: [0,1];adjRefUPrc = w * refUPrc + (1 - w) * uPrc;note: w=1 implies sticky strike behavior;w=0 implies sticky delta behavior
+    float ref_sRAtm = 118; // -1 = use SR surface atm @ record insert
+    float ref_sRAtm_weight = 121; // w: [0,1];theoVolAdj = theoVol + tvSlope * (uPrc - refUPrc) + w * (liveSRAtm - refSRAtm)
+    float param_a = 124; // param A - J are inputs to the skewFunc model selected above
+    float param_b = 127;
+    float param_c = 130;
+    float param_d = 133;
+    float param_e = 136;
+    float param_f = 139;
+    float param_g = 142;
+    float param_h = 145;
+    float param_i = 148;
+    float param_j = 151;
+    float theo_vol = 154; // theo volatility @ hypothetical atm strike (note: hypothetical atm strike depends on the definition of xAxis implied by the skewFunc model;usually the strike where xAxis = 0)
+    float b_opn_vol = 157; // buy open vol
+    float b_cls_vol = 160; // buy close vol
+    float s_opn_vol = 163; // sell open vol
+    float s_cls_vol = 166; // sell close vol
+    float b_opn_edge = 169; // edge spread to open when buying
+    float b_cls_edge = 172; // edge spread to close when buying
+    float s_opn_edge = 175; // edge spread to open when selling
+    float s_cls_edge = 178; // edge spread to close when selling
+    BuySellConvention buy_sell_convention = 181;
+    float ln_dDiv = 184; // (depricated)
+    float sh_dDiv = 187; // (depricated)
+    float ln_sDiv = 190; // long sdiv
+    float sh_sDiv = 193; // short sdiv
+    float tv_slope = 196; // tvSlope = dTheoVol / dUPrc;theoVolAdj = theoVol + tvSlope * (uPrc - refUPrc).  Note: tvSlope affects the calculation of theoSurface veSlope values which in turn affect hedgeDelta calculations when account.hedgeType = 'TvS'
+    DivRule div_rule = 199; // specifies how DDiv and SDiv values will be incorporated
+    YesNo user_rate_override = 202; // use rate from the UserRateOverride table instead of SR Rate curve
+    YesNo user_sDiv_override = 205; // use sdiv from the UserSDivOverride table instead of SR SDiv
+    YesNo user_dDiv_override = 208; // use dividends from the UserDividendOverride table instead of SR Dividends
+    float min_uBid = 211; // any non-hold status will revert to markup if live uMid is outside of [minUBid, maxUAsk]
+    float max_uAsk = 214;
+    TheoStatus theo_status = 217;
+    string comment = 220;
+    google.protobuf.Timestamp updated = 223; // datetime of last record update.  will default to current datetime on record load of not supplied
+    string modified_by = 226; // user who last modified this record
+    SysEnvironment modified_in = 229;
+    google.protobuf.Timestamp timestamp = 232; // timestamp of last modification
+}
+
+

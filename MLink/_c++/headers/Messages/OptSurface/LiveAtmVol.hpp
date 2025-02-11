@@ -50,10 +50,10 @@ namespace api {
     DECL_STRONG_TYPE(rate__float, float);
     #endif//_rate__float__GUARD__
 
-    #ifndef _ddiv__GUARD__
-    #define _ddiv__GUARD__
-    DECL_STRONG_TYPE(ddiv, float);
-    #endif//_ddiv__GUARD__
+    #ifndef _ddiv__float__GUARD__
+    #define _ddiv__float__GUARD__
+    DECL_STRONG_TYPE(ddiv__float, float);
+    #endif//_ddiv__float__GUARD__
 
     #ifndef _ddiv_pv__float__GUARD__
     #define _ddiv_pv__float__GUARD__
@@ -75,10 +75,10 @@ namespace api {
     DECL_STRONG_TYPE(atm_ema, float);
     #endif//_atm_ema__GUARD__
 
-    #ifndef _u_prc_ratio__GUARD__
-    #define _u_prc_ratio__GUARD__
-    DECL_STRONG_TYPE(u_prc_ratio, double);
-    #endif//_u_prc_ratio__GUARD__
+    #ifndef _u_prc_ratio__double__GUARD__
+    #define _u_prc_ratio__double__GUARD__
+    DECL_STRONG_TYPE(u_prc_ratio__double, double);
+    #endif//_u_prc_ratio__double__GUARD__
 
     #ifndef _u_prc_ratio_ema__GUARD__
     #define _u_prc_ratio_ema__GUARD__
@@ -135,10 +135,10 @@ namespace api {
     DECL_STRONG_TYPE(axis_fuprc, float);
     #endif//_axis_fuprc__GUARD__
 
-    #ifndef _syn_spot__GUARD__
-    #define _syn_spot__GUARD__
-    DECL_STRONG_TYPE(syn_spot, double);
-    #endif//_syn_spot__GUARD__
+    #ifndef _syn_spot__double__GUARD__
+    #define _syn_spot__double__GUARD__
+    DECL_STRONG_TYPE(syn_spot__double, double);
+    #endif//_syn_spot__double__GUARD__
 
     #ifndef _v_width__GUARD__
     #define _v_width__GUARD__
@@ -224,18 +224,18 @@ namespace api {
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(10,expiryKeyLayout_ekey);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
             if ( IncludeEkey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout;
-                m_ekey.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 10, expiryKeyLayout_ekey);
             }
         }
 
@@ -273,12 +273,12 @@ namespace api {
         using u_prc = spiderrock::protobuf::api::u_prc__double;
         using years = spiderrock::protobuf::api::years__float;
         using rate = spiderrock::protobuf::api::rate__float;
-        using ddiv = spiderrock::protobuf::api::ddiv;
+        using ddiv = spiderrock::protobuf::api::ddiv__float;
         using ddiv_pv = spiderrock::protobuf::api::ddiv_pv__float;
         using ddiv_source = spiderrock::protobuf::api::ddiv_source;
         using atm_vol = spiderrock::protobuf::api::atm_vol;
         using atm_ema = spiderrock::protobuf::api::atm_ema;
-        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio;
+        using u_prc_ratio = spiderrock::protobuf::api::u_prc_ratio__double;
         using u_prc_ratio_ema = spiderrock::protobuf::api::u_prc_ratio_ema;
         using sdiv = spiderrock::protobuf::api::sdiv__float;
         using sdiv_ema = spiderrock::protobuf::api::sdiv_ema;
@@ -290,7 +290,7 @@ namespace api {
         using u_prc_driver_type = spiderrock::protobuf::api::u_prc_driver_type;
         using u_prc_driver = spiderrock::protobuf::api::u_prc_driver;
         using axis_fuprc = spiderrock::protobuf::api::axis_fuprc;
-        using syn_spot = spiderrock::protobuf::api::syn_spot;
+        using syn_spot = spiderrock::protobuf::api::syn_spot__double;
         using v_width = spiderrock::protobuf::api::v_width;
         using num_atm_strikes = spiderrock::protobuf::api::num_atm_strikes;
         using tradeable_status = spiderrock::protobuf::api::tradeable_status;
@@ -786,9 +786,9 @@ namespace api {
                 totalSize += pKeyLength;
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             if ( IncludeUPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(103,m_u_prc);
@@ -833,9 +833,9 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CPAdjType>(m_cp_adj_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(151, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(151, expiryKeyLayout_u_prc_driver_key);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriver()) {
@@ -876,9 +876,9 @@ namespace api {
                 m_pkey.Encode(dest,max);
             }
             if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout);
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
+                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             if ( IncludeUPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,103,m_u_prc);
@@ -923,9 +923,9 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CPAdjType>(m_cp_adj_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcPriceType>(m_price_type)));
             if ( IncludeUPrcDriverKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout{};
-                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 151, expiryKeyLayout);
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_u_prc_driver_key{};
+                m_u_prc_driver_key.setCodecExpiryKey(expiryKeyLayout_u_prc_driver_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 151, expiryKeyLayout_u_prc_driver_key);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_u_prc_driver_type)));
             if ( IncludeUPrcDriver()) {
