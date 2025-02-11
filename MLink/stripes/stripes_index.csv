@@ -1,8 +1,0 @@
-Stripe,Tickers
-M1, [NDX, NDXP, RUT, RUTW, MRUT]
-M2, [SPY, VXX]
-M3, [QQQ]
-M4, [IWM]
-M, [M1:M2]
-S, [SPX, SPXW, XSP, VIX, VIXW]
- 
