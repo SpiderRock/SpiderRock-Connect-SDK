@@ -3320,7 +3320,8 @@ public partial class OptionMarketSummary : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public double opnPrice;
+        public DateKeyLayout tradeDate;
+		public double opnPrice;
 		public double opnVolatility;
 		public double clsPrice;
 		public double clsVolatility;
@@ -3336,18 +3337,21 @@ public partial class OptionMarketSummary : IMessage
 		public int midCount;
 		public int midVolume;
 		public int prtCount;
+		public int prtVolume;
 		public double lastPrtPrice;
+		public DateTimeLayout lastPrtDttm;
 		public float lastPrtVolatility;
 		public double avgWidth;
 		public float avgBidSize;
 		public float avgAskSize;
-		public DateTimeLayout lastPrint;
 		public DateTimeLayout timestamp;
     }
 
     internal BodyLayout body;
 
-    /// <summary>start of day (SR) open mark</summary>
+    
+    public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
+     /// <summary>start of day (SR) open mark</summary>
     public double OpnPrice { get => body.opnPrice; set => body.opnPrice = value; }
      /// <summary>start of day (SR) open mark (volatility)</summary>
     public double OpnVolatility { get => body.opnVolatility; set => body.opnVolatility = value; }
@@ -3379,18 +3383,20 @@ public partial class OptionMarketSummary : IMessage
     public int MidVolume { get => body.midVolume; set => body.midVolume = value; }
      /// <summary>number of distinct print reports</summary>
     public int PrtCount { get => body.prtCount; set => body.prtCount = value; }
+     /// <summary>total print volume (all print types)</summary>
+    public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
      /// <summary>last print price</summary>
     public double LastPrtPrice { get => body.lastPrtPrice; set => body.lastPrtPrice = value; }
+     /// <summary>last print time</summary>
+    public DateTime LastPrtDttm { get => body.lastPrtDttm; set => body.lastPrtDttm = value; }
      /// <summary>last print volatility</summary>
     public float LastPrtVolatility { get => body.lastPrtVolatility; set => body.lastPrtVolatility = value; }
-     /// <summary>average market width (time weighted)</summary>
+     /// <summary>(not supported) average market width (time weighted)</summary>
     public double AvgWidth { get => body.avgWidth; set => body.avgWidth = value; }
-     /// <summary>average bid size (time weighted)</summary>
+     /// <summary>(not supported) average bid size (time weighted)</summary>
     public float AvgBidSize { get => body.avgBidSize; set => body.avgBidSize = value; }
-     /// <summary>average ask size (time weighted)</summary>
+     /// <summary>(not supported) average ask size (time weighted)</summary>
     public float AvgAskSize { get => body.avgAskSize; set => body.avgAskSize = value; }
-     
-    public DateTime LastPrint { get => body.lastPrint; set => body.lastPrint = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
@@ -5791,6 +5797,7 @@ public partial class RootDefinition : IMessage
 		public AdjConvention adjConvention;
 		public OptPriceInc optPriceInc;
 		public PriceFormat priceFormat;
+		public double minTickSize;
 		public Currency tradeCurr;
 		public Currency settleCurr;
 		public Currency strikeCurr;
@@ -5871,6 +5878,8 @@ public partial class RootDefinition : IMessage
     public OptPriceInc OptPriceInc { get => body.optPriceInc; set => body.optPriceInc = value; }
      /// <summary>price display format</summary>
     public PriceFormat PriceFormat { get => body.priceFormat; set => body.priceFormat = value; }
+     /// <summary>min tick size used for European native exchange options</summary>
+    public double MinTickSize { get => body.minTickSize; set => body.minTickSize = value; }
      
     public Currency TradeCurr { get => body.tradeCurr; set => body.tradeCurr = value; }
      
@@ -6815,7 +6824,7 @@ public partial class SpreadDefinition : IMessage
     internal struct BodyLayout
     {
         public TickerKeyLayout ticker;
-		public ToolSpreadClass spreadClass;
+		public SpreadClass spreadClass;
 		public DateTimeLayout timestamp;
     }
 
@@ -6824,7 +6833,7 @@ public partial class SpreadDefinition : IMessage
     /// <summary>underlier (or product group) tickerKey</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>option spread type</summary>
-    public ToolSpreadClass SpreadClass { get => body.spreadClass; set => body.spreadClass = value; }
+    public SpreadClass SpreadClass { get => body.spreadClass; set => body.spreadClass = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 

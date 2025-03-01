@@ -992,7 +992,7 @@ public partial class OptionMarketSummary
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "okey_rt\tokey_ts\tokey_at\tokey_yr\tokey_mn\tokey_dy\tokey_xx\tokey_cp\topnPrice\topnVolatility\tclsPrice\tclsVolatility\tminPrtPrc\tminPrtVol\tmaxPrtPrc\tmaxPrtVol\topenInterest\tbidCount\tbidVolume\taskCount\taskVolume\tmidCount\tmidVolume\tprtCount\tlastPrtPrice\tlastPrtVolatility\tavgWidth\tavgBidSize\tavgAskSize\tlastPrint\ttimestamp";
+    public const string TabHeader = "okey_rt\tokey_ts\tokey_at\tokey_yr\tokey_mn\tokey_dy\tokey_xx\tokey_cp\ttradeDate\topnPrice\topnVolatility\tclsPrice\tclsVolatility\tminPrtPrc\tminPrtVol\tmaxPrtPrc\tmaxPrtVol\topenInterest\tbidCount\tbidVolume\taskCount\taskVolume\tmidCount\tmidVolume\tprtCount\tprtVolume\tlastPrtPrice\tlastPrtDttm\tlastPrtVolatility\tavgWidth\tavgBidSize\tavgAskSize\ttimestamp";
 
     public string TabRecord
     {
@@ -1005,6 +1005,8 @@ public partial class OptionMarketSummary
 
             recordBuilder.Append('\t');
 
+            recordBuilder.Append(TradeDate);
+            recordBuilder.Append('\t');
             recordBuilder.Append(OpnPrice);
             recordBuilder.Append('\t');
             recordBuilder.Append(OpnVolatility);
@@ -1037,7 +1039,11 @@ public partial class OptionMarketSummary
             recordBuilder.Append('\t');
             recordBuilder.Append(PrtCount);
             recordBuilder.Append('\t');
+            recordBuilder.Append(PrtVolume);
+            recordBuilder.Append('\t');
             recordBuilder.Append(LastPrtPrice);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(LastPrtDttm);
             recordBuilder.Append('\t');
             recordBuilder.Append(LastPrtVolatility);
             recordBuilder.Append('\t');
@@ -1046,8 +1052,6 @@ public partial class OptionMarketSummary
             recordBuilder.Append(AvgBidSize);
             recordBuilder.Append('\t');
             recordBuilder.Append(AvgAskSize);
-            recordBuilder.Append('\t');
-            recordBuilder.AppendInTabRecordFormat(LastPrint);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
 
@@ -1642,7 +1646,7 @@ public partial class RootDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tExchange\tUnderlying";
+    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tExchange\tUnderlying";
 
     public string TabRecord
     {
@@ -1722,6 +1726,8 @@ public partial class RootDefinition
             recordBuilder.Append(OptPriceInc);
             recordBuilder.Append('\t');
             recordBuilder.Append(PriceFormat);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(MinTickSize);
             recordBuilder.Append('\t');
             recordBuilder.Append(TradeCurr);
             recordBuilder.Append('\t');
