@@ -1314,6 +1314,7 @@ private:
 	struct Layout
 	{
 		Key pkey;
+		DateKey tradeDate;
 		Double opnPrice;
 		Double opnVolatility;
 		Double clsPrice;
@@ -1330,12 +1331,13 @@ private:
 		Int midCount;
 		Int midVolume;
 		Int prtCount;
+		Int prtVolume;
 		Double lastPrtPrice;
+		DateTime lastPrtDttm;
 		Float lastPrtVolatility;
 		Double avgWidth;
 		Float avgBidSize;
 		Float avgAskSize;
-		DateTime lastPrint;
 		DateTime timestamp;
 	};
 	
@@ -1351,6 +1353,7 @@ public:
 	inline void time_received(uint64_t value) { time_received_ = value; }
 	inline uint64_t time_received() const { return time_received_; }
 	
+	inline DateKey tradeDate() const { return layout_.tradeDate; }
 	inline Double opnPrice() const { return layout_.opnPrice; }
 	inline Double opnVolatility() const { return layout_.opnVolatility; }
 	inline Double clsPrice() const { return layout_.clsPrice; }
@@ -1367,12 +1370,13 @@ public:
 	inline Int midCount() const { return layout_.midCount; }
 	inline Int midVolume() const { return layout_.midVolume; }
 	inline Int prtCount() const { return layout_.prtCount; }
+	inline Int prtVolume() const { return layout_.prtVolume; }
 	inline Double lastPrtPrice() const { return layout_.lastPrtPrice; }
+	inline DateTime lastPrtDttm() const { return layout_.lastPrtDttm; }
 	inline Float lastPrtVolatility() const { return layout_.lastPrtVolatility; }
 	inline Double avgWidth() const { return layout_.avgWidth; }
 	inline Float avgBidSize() const { return layout_.avgBidSize; }
 	inline Float avgAskSize() const { return layout_.avgAskSize; }
-	inline DateTime lastPrint() const { return layout_.lastPrint; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 
@@ -2340,6 +2344,7 @@ private:
 		AdjConvention adjConvention;
 		OptPriceInc optPriceInc;
 		PriceFormat priceFormat;
+		Double minTickSize;
 		Currency tradeCurr;
 		Currency settleCurr;
 		Currency strikeCurr;
@@ -2397,6 +2402,7 @@ public:
 	inline AdjConvention adjConvention() const { return layout_.adjConvention; }
 	inline OptPriceInc optPriceInc() const { return layout_.optPriceInc; }
 	inline PriceFormat priceFormat() const { return layout_.priceFormat; }
+	inline Double minTickSize() const { return layout_.minTickSize; }
 	inline Currency tradeCurr() const { return layout_.tradeCurr; }
 	inline Currency settleCurr() const { return layout_.settleCurr; }
 	inline Currency strikeCurr() const { return layout_.strikeCurr; }
@@ -2778,7 +2784,7 @@ private:
 	{
 		Key pkey;
 		TickerKey ticker;
-		ToolSpreadClass spreadClass;
+		SpreadClass spreadClass;
 		DateTime timestamp;
 	};
 	
@@ -2796,7 +2802,7 @@ public:
 	inline uint64_t time_received() const { return time_received_; }
 	
 	inline const TickerKey& ticker() const { return layout_.ticker; }
-	inline ToolSpreadClass spreadClass() const { return layout_.spreadClass; }
+	inline SpreadClass spreadClass() const { return layout_.spreadClass; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 

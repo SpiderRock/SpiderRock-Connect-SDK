@@ -195,7 +195,9 @@ namespace SpiderRock
 			ZAR=20,
 			HUF=21,
 			USX=22,
-			GBX=23
+			GBX=23,
+			DKK=24,
+			GEL=25
 		};
 
  		enum class DDivSource : Enum 
@@ -558,7 +560,19 @@ namespace SpiderRock
 			A5=42,
 			A6=43,
 			A7=44,
-			E32=45
+			E32=45,
+			EU2A=46,
+			EU2B=47,
+			EU2C=48,
+			EU2D=49,
+			EU2E=50,
+			EU3A=51,
+			EU3B=52,
+			EU3C=53,
+			EU3D=54,
+			EU3E=55,
+			EU4A=57,
+			EU5A=58
 		};
 
  		enum class PriceQuoteType : Enum 
@@ -618,7 +632,42 @@ namespace SpiderRock
 			NXLS=28,
 			NXML=29,
 			NXOS=30,
-			NXP=31
+			NXP=31,
+			XJSE=32,
+			BERA=33,
+			FRAA=34,
+			HAMA=35,
+			XWBO=36,
+			DUSA=37,
+			XSWX=38,
+			XWAR=39,
+			FNSE=40,
+			XGAT=41,
+			XSTO=42,
+			XTAE=43,
+			XCYS=44,
+			XPRA=45,
+			HANA=46,
+			BOTC=47,
+			NXDUB=48,
+			XATH=49,
+			XMAD=50,
+			XCSE=51,
+			FNDK=52,
+			XTAL=53,
+			FNEE=54,
+			XHEL=55,
+			NMO=56,
+			TRQX=57,
+			XICE=58,
+			FNIS=59,
+			XLIT=60,
+			FNLT=61,
+			XRIS=62,
+			FNLV=63,
+			XSAT=64,
+			MUNA=65,
+			XETA=66
 		};
 
  		enum class ProductClass : Enum 
@@ -761,6 +810,32 @@ namespace SpiderRock
 			Future=2,
 			Option=3,
 			MLeg=4
+		};
+
+ 		enum class SpreadClass : Enum 
+		{
+			None=0,
+			Stk=1,
+			Fut=2,
+			Call=3,
+			Put=4,
+			Synth=5,
+			RevCon=6,
+			Box=7,
+			JRoll=8,
+			Roll=9,
+			Straddle=10,
+			Strangle=11,
+			CSpread=12,
+			PSpread=13,
+			VStrip=14,
+			VSpread=15,
+			HStrip=16,
+			HSpread=17,
+			BFly=18,
+			RiskRev=19,
+			Mixed=20,
+			VarSwap=21
 		};
 
  		enum class StkExch : Enum 
@@ -1024,32 +1099,6 @@ namespace SpiderRock
 			Delisted=2
 		};
 
- 		enum class ToolSpreadClass : Enum 
-		{
-			None=0,
-			Stk=1,
-			Fut=2,
-			Call=3,
-			Put=4,
-			Synth=5,
-			RevCon=6,
-			Box=7,
-			JRoll=8,
-			Roll=9,
-			Straddle=10,
-			Strangle=11,
-			CSpread=12,
-			PSpread=13,
-			VStrip=14,
-			VSpread=15,
-			HStrip=16,
-			HSpread=17,
-			BFly=18,
-			RiskRev=19,
-			Mixed=20,
-			VarSwap=21
-		};
-
  		enum class TradeableStatus : Enum 
 		{
 			None=0,
@@ -1082,10 +1131,25 @@ namespace SpiderRock
 			NMS_EXT=2,
 			NMS_GTH=3,
 			CME_ES=10,
-			CME_ZC=11,
-			CME_ZN=12,
-			CME_CL=13,
-			CME_GC=14,
+			CME_GRAIN=11,
+			CME_TRSY=12,
+			CME_ENGY=13,
+			CME_METAL=14,
+			CME_FX=15,
+			CME_COMD=16,
+			CME_CRYP=17,
+			CME_DAIRY=18,
+			CME_EQBTIC=19,
+			CME_NKBTIC=20,
+			CME_WEATHER=21,
+			CME_TACO=22,
+			CME_TPXBTIC=23,
+			CME_FTSE=24,
+			CME_BMD=25,
+			CME_BOVESPA=26,
+			CME_EQTMAC=27,
+			CME_TAM=28,
+			CME_OTHER=29,
 			CFE=30,
 			ICE_US=32,
 			ICE_EU=35,
