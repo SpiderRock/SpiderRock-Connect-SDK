@@ -34,7 +34,7 @@ message SpreadDefinition {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // underlier (or product group) tickerKey
-    ToolSpreadClass spread_class = 101; // option spread type
+    SpreadClass spread_class = 112; // option spread type
     google.protobuf.Timestamp timestamp = 109;
     repeated ExchSprIDs exch_spr_i_ds = 107;
     repeated Legs legs = 102;

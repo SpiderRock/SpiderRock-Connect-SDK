@@ -113,6 +113,7 @@ message UserConfig {
     string contact_slack = 196; // Contact Slack Handle
     string contact_ice_chat = 199; // Contact ICE Handle
     string contact_bBerg_handle = 202; // Contact Bloomberg Handle (BBGID)
+    string contact_sym_chat = 412; // Contact Symphony Stream ID
     string chat_client_firm = 407; // ICE Gateway (Bot) responder client firm
     string chat_prod_accnt = 408; // ICE Gateway (Bot) prod responder accnt
     string chat_test_accnt = 409; // ICE Gateway (Bot) test responder accnt

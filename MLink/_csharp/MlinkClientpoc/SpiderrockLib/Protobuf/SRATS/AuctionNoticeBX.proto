@@ -53,6 +53,9 @@ message AuctionNoticeBX {
     YesNo cust_comm_paying = 121; // client is commission paying (to the responder)
     CustQtyCond cust_qty_cond = 122; // UpToQty, AllOrNone, QtyOrMore
     int32 auction_duration = 123; // [expected] auction duration (in milliseconds)
+    float pkg_surf_prc = 143; // SR Surface Price (entire package)
+    float pkg_bid_prc = 144; // leg market best way price (pkg bid)
+    float pkg_ask_prc = 145; // leg market worst way price (pkg ask)
     double i_days = 124; // iDays = effective interest days [SR supplied]
     double i_years = 125; // iYears = iDays / 360.0
     double point_value = 126; // point value of the associated options; expiry money = (hiStrike - loStrike) * pointValue;

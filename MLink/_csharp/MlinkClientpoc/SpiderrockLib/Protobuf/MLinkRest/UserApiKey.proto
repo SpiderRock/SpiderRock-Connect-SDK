@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserApiKey {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 id = 100; // API key serial number which identifies this key
+    google.protobuf.Timestamp expires = 101; // API key expiration date, defaults to never 2100-01-01
+    google.protobuf.Timestamp created = 102; // API key creation date
+    string label = 103; // API key name/description (if any; may be client supplied)
+    string plaintext_api_key = 104; // plaintext API key (only sent for an add operation)
+    YesNo success = 105; // did the call succeed?
+    string error_message = 106; // error message if success == No
+    MLinkActions action = 107; // action to take
+}
+
+

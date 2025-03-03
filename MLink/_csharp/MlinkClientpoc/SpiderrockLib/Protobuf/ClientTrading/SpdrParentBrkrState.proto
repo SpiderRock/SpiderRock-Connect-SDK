@@ -34,6 +34,7 @@ message SpdrParentBrkrState {
     int64 risk_group_id = 112; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
     int64 trigger_group_id = 115;
     string strategy = 118; // parent order strategy string (can be user supplied)
+    string strategy_accnt = 608; // SR strategy account (option; if exists will be validated)
     string exec_brkr_code = 606; // execBrkrCode attached to parent order (if any)
     string alt_order_id = 121; // alternate order ID (usually clOrdId from client)
     int64 package_id = 124; // groups related order/brokers together (eg. Legger w/MLeg Parent)

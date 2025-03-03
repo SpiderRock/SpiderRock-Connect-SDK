@@ -105,6 +105,13 @@ message SpdrParentLimit {
     float max_grp_day_rMetric4_sh = 349; // max acct+riskGroup day rMetric4 short (positive number;-1=no limit);risk limit = max limit + current net counter
     float max_grp_day_rMetric5_ln = 352; // max acct+riskGroup day rMetric5 long (positive number;-1=no limit);risk limit = max limit - current net counter
     float max_grp_day_rMetric5_sh = 355; // max acct+riskGroup day rMetric5 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float order_ref_rMetric1 = 408; // user supplied RMetric1 value (used in RiskGroupID risk controls) [netRMetric1 = sum(fillQty * orderRefRMetric1 * underlierPerCn)], src specified in parentorder
+    float order_ref_rMetric2 = 409; // user supplied RMetric2 value (used in RiskGroupID risk controls) [netRMetric2 = sum(fillQty * orderRefRMetric2 * underlierPerCn)], src specified in parentorder
+    float order_ref_rMetric3 = 410; // user supplied RMetric3 value (used in RiskGroupID risk controls) [netRMetric3 = sum(fillQty * orderRefRMetric3 * underlierPerCn)], src specified in parentorder
+    float order_ref_rMetric4 = 411; // user supplied RMetric4 value (used in RiskGroupID risk controls) [netRMetric4 = sum(fillQty * orderRefRMetric4 * underlierPerCn)], src specified in parentorder
+    float order_ref_rMetric5 = 412; // user supplied RMetric5 value (used in RiskGroupID risk controls) [netRMetric5 = sum(fillQty * orderRefRMetric5 * underlierPerCn)], src specified in parentorder
+    float order_ref_rMetric6 = 413; // user supplied RMetric6 value (used in ExpDay risk controls) [netRMetric6 = sum(fillQty * orderRefRMetric6 * underlierPerCn)]
+    float order_ref_rMetric7 = 414; // user supplied RMetric7 value (used in SymDay risk controls) [netRMetric7 = sum(fillQty * orderRefRMetric7 * underlierPerCn)]
     float sym_ema_cxl_dDelta_ln = 367; // max acct+symbol 60s EMA $delta long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
     float sym_ema_cxl_dDelta_sh = 370; // max acct+symbol 60s EMA $delta short (positive number; <= 0 is no limit)
     float sym_ema_cxl_wt_vega_ln = 373; // max acct+symbol 60s EMA wtVega long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]

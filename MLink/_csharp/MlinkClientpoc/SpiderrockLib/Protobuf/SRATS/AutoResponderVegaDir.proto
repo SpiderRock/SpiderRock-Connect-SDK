@@ -13,9 +13,9 @@ message AutoResponderVegaDir {
         
         string accnt = 10;
         string client_firm = 14;
-        TickerKey ticker = 11;
-        DateKey expiry = 15;
+        TickerKey root = 16;
         BuySell resp_side = 12; // auction responder side (your side)
+        int32 responder_iD = 17; // client supplied responder ID (can be any number including zero)
     }
 
 
@@ -24,9 +24,15 @@ message AutoResponderVegaDir {
     PKey pkey = 2;
     string user_name = 100; // username used for responding to auction notices
     YesNo is_disabled = 102; // if Yes, this auto-responder record is disabled
+    google.protobuf.Timestamp enabled_until = 136; // will be enabled up until this time
     YesNo can_include_flex = 103; // if yes, can respond to auction notices that include flex option legs
     YesNo can_include_stock = 104; // if yes, can respond to auction notices that include a stock leg
     CallPut cp_flag = 105; // if not Pair must match all option legs
+    float min_net_vega_ratio = 137; // minimum ratio of abs(netVega)/totalVega to enable a response (hard lower limit of 0.25)
+    float min_years = 138; // all leg years must be between [minYears, maxYears]
+    float max_years = 139;
+    google.protobuf.Timestamp min_expiry = 140; // all leg expiries must be between [minExpiry, maxExpiry]
+    google.protobuf.Timestamp max_expiry = 141;
     float min_xDelta = 110; // all leg xDelta must be between [minXDelta, maxXDelta]
     float max_xDelta = 111;
     double min_strike = 112; // all leg strikes must be between [minStrike, maxStrike]

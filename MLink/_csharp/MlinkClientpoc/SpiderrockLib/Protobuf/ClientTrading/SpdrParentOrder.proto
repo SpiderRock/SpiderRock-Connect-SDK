@@ -129,6 +129,7 @@ message SpdrParentOrder {
     string security_desc = 145; // additional security description
     string accnt = 148; // SR trading account
     string client_firm = 151; // SR client firm
+    string strategy_accnt = 1045; // SR strategy account (option; if exists will be validated)
     SpdrSource spdr_source = 154;
     int64 grouping_code = 157; // unique broker code;broker.pkey = (key + accnt + spdrSource + groupingCode)
     string exec_brkr_code = 1039; // overrides the default executing broker for this parent order
