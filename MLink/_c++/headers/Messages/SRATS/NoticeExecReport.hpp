@@ -190,6 +190,36 @@ namespace api {
     DECL_STRONG_TYPE(ack_latency, double);
     #endif//_ack_latency__GUARD__
 
+    #ifndef _num_opt_legs__GUARD__
+    #define _num_opt_legs__GUARD__
+    DECL_STRONG_TYPE(num_opt_legs, int32);
+    #endif//_num_opt_legs__GUARD__
+
+    #ifndef _spread_class__GUARD__
+    #define _spread_class__GUARD__
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::SpreadClass);
+    #endif//_spread_class__GUARD__
+
+    #ifndef _spread_flavor__GUARD__
+    #define _spread_flavor__GUARD__
+    DECL_STRONG_TYPE(spread_flavor, spiderrock::protobuf::api::SpreadFlavor);
+    #endif//_spread_flavor__GUARD__
+
+    #ifndef _contains_hedge__GUARD__
+    #define _contains_hedge__GUARD__
+    DECL_STRONG_TYPE(contains_hedge, spiderrock::protobuf::api::YesNo);
+    #endif//_contains_hedge__GUARD__
+
+    #ifndef _contains_flex__GUARD__
+    #define _contains_flex__GUARD__
+    DECL_STRONG_TYPE(contains_flex, spiderrock::protobuf::api::YesNo);
+    #endif//_contains_flex__GUARD__
+
+    #ifndef _contains_multi_hedge__GUARD__
+    #define _contains_multi_hedge__GUARD__
+    DECL_STRONG_TYPE(contains_multi_hedge, spiderrock::protobuf::api::YesNo);
+    #endif//_contains_multi_hedge__GUARD__
+
     #ifndef _response_result__GUARD__
     #define _response_result__GUARD__
     DECL_STRONG_TYPE(response_result, spiderrock::protobuf::api::NoticeResult);
@@ -581,6 +611,12 @@ namespace api {
         using avg_fill_price = spiderrock::protobuf::api::avg_fill_price;
         using add_latency = spiderrock::protobuf::api::add_latency;
         using ack_latency = spiderrock::protobuf::api::ack_latency;
+        using num_opt_legs = spiderrock::protobuf::api::num_opt_legs;
+        using spread_class = spiderrock::protobuf::api::spread_class;
+        using spread_flavor = spiderrock::protobuf::api::spread_flavor;
+        using contains_hedge = spiderrock::protobuf::api::contains_hedge;
+        using contains_flex = spiderrock::protobuf::api::contains_flex;
+        using contains_multi_hedge = spiderrock::protobuf::api::contains_multi_hedge;
         using response_result = spiderrock::protobuf::api::response_result;
         using response_time = spiderrock::protobuf::api::response_time;
         using prt_price = spiderrock::protobuf::api::prt_price__double;
@@ -626,6 +662,12 @@ namespace api {
         avg_fill_price m_avg_fill_price{};
         add_latency m_add_latency{};
         ack_latency m_ack_latency{};
+        num_opt_legs m_num_opt_legs{};
+        spread_class m_spread_class{};
+        spread_flavor m_spread_flavor{};
+        contains_hedge m_contains_hedge{};
+        contains_flex m_contains_flex{};
+        contains_multi_hedge m_contains_multi_hedge{};
         response_result m_response_result{};
         response_time m_response_time{};
         prt_price m_prt_price{};
@@ -740,6 +782,24 @@ namespace api {
         }		
         ack_latency get_ack_latency() const {
             return m_ack_latency;
+        }		
+        num_opt_legs get_num_opt_legs() const {
+            return m_num_opt_legs;
+        }		
+        spread_class get_spread_class() const {
+            return m_spread_class;
+        }		
+        spread_flavor get_spread_flavor() const {
+            return m_spread_flavor;
+        }		
+        contains_hedge get_contains_hedge() const {
+            return m_contains_hedge;
+        }		
+        contains_flex get_contains_flex() const {
+            return m_contains_flex;
+        }		
+        contains_multi_hedge get_contains_multi_hedge() const {
+            return m_contains_multi_hedge;
         }		
         response_result get_response_result() const {
             return m_response_result;
@@ -876,6 +936,24 @@ namespace api {
         }
         void set_ack_latency(const ack_latency& value)  {
             m_ack_latency = value;
+        }
+        void set_num_opt_legs(const num_opt_legs& value)  {
+            m_num_opt_legs = value;
+        }
+        void set_spread_class(const spread_class& value)  {
+            m_spread_class = value;
+        }
+        void set_spread_flavor(const spread_flavor& value)  {
+            m_spread_flavor = value;
+        }
+        void set_contains_hedge(const contains_hedge& value)  {
+            m_contains_hedge = value;
+        }
+        void set_contains_flex(const contains_flex& value)  {
+            m_contains_flex = value;
+        }
+        void set_contains_multi_hedge(const contains_multi_hedge& value)  {
+            m_contains_multi_hedge = value;
         }
         void set_response_result(const response_result& value)  {
             m_response_result = value;
@@ -1023,6 +1101,24 @@ namespace api {
         void set(const ack_latency & value) {
             set_ack_latency(value);
         }
+        void set(const num_opt_legs & value) {
+            set_num_opt_legs(value);
+        }
+        void set(const spread_class & value) {
+            set_spread_class(value);
+        }
+        void set(const spread_flavor & value) {
+            set_spread_flavor(value);
+        }
+        void set(const contains_hedge & value) {
+            set_contains_hedge(value);
+        }
+        void set(const contains_flex & value) {
+            set_contains_flex(value);
+        }
+        void set(const contains_multi_hedge & value) {
+            set_contains_multi_hedge(value);
+        }
         void set(const response_result & value) {
             set_response_result(value);
         }
@@ -1086,6 +1182,12 @@ namespace api {
             set(value.m_avg_fill_price);
             set(value.m_add_latency);
             set(value.m_ack_latency);
+            set(value.m_num_opt_legs);
+            set(value.m_spread_class);
+            set(value.m_spread_flavor);
+            set(value.m_contains_hedge);
+            set(value.m_contains_flex);
+            set(value.m_contains_multi_hedge);
             set(value.m_response_result);
             set(value.m_response_time);
             set(value.m_prt_price);
@@ -1227,6 +1329,9 @@ namespace api {
         bool IncludeAckLatency() const {
             return !(m_ack_latency == 0.0);
         }
+        bool IncludeNumOptLegs() const {
+            return !(m_num_opt_legs == 0);
+        }
         bool IncludeResponseTime() const {
             return !(m_response_time == 0);
         }
@@ -1349,6 +1454,14 @@ namespace api {
             if ( IncludeAckLatency()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(149,m_ack_latency);
             }
+            if ( IncludeNumOptLegs()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(152,m_num_opt_legs);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(153,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(155,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(156,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_multi_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(132,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeResult>(m_response_result)));
             if ( IncludeResponseTime()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(133,m_response_time);
@@ -1476,6 +1589,14 @@ namespace api {
             if ( IncludeAckLatency()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,149,m_ack_latency);
             }
+            if ( IncludeNumOptLegs()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,152,m_num_opt_legs);
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,153,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,155,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,156,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_multi_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,132,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeResult>(m_response_result)));
             if ( IncludeResponseTime()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,133,m_response_time);
@@ -1724,6 +1845,37 @@ namespace api {
                         }
                         break;
                     }
+                    case 152: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_opt_legs = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 153: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_class = static_cast<spiderrock::protobuf::api::SpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 154: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_flavor = static_cast<spiderrock::protobuf::api::SpreadFlavor>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 155: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_contains_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 156: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_contains_flex = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 157: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_contains_multi_hedge = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 132: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_response_result = static_cast<spiderrock::protobuf::api::NoticeResult>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1823,6 +1975,12 @@ namespace api {
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::avg_fill_price>() const { return m_avg_fill_price; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::add_latency>() const { return m_add_latency; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::ack_latency>() const { return m_ack_latency; }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::num_opt_legs>() const { return m_num_opt_legs; }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>( m_spread_class)); }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::spread_flavor>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>( m_spread_flavor)); }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::contains_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_hedge)); }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::contains_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_flex)); }
+    template<> inline const auto NoticeExecReport::get<NoticeExecReport::contains_multi_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_multi_hedge)); }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::response_result>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::NoticeResult>( m_response_result)); }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::response_time>() const { return m_response_time; }
     template<> inline const auto NoticeExecReport::get<NoticeExecReport::prt_price>() const { return m_prt_price; }
@@ -1908,6 +2066,12 @@ namespace api {
         o << ",\"avg_fill_price\":" << m.get<NoticeExecReport::avg_fill_price>();
         o << ",\"add_latency\":" << m.get<NoticeExecReport::add_latency>();
         o << ",\"ack_latency\":" << m.get<NoticeExecReport::ack_latency>();
+        o << ",\"num_opt_legs\":" << m.get<NoticeExecReport::num_opt_legs>();
+        o << ",\"spread_class\":" << (int64_t)m.get<NoticeExecReport::spread_class>();
+        o << ",\"spread_flavor\":" << (int64_t)m.get<NoticeExecReport::spread_flavor>();
+        o << ",\"contains_hedge\":" << (int64_t)m.get<NoticeExecReport::contains_hedge>();
+        o << ",\"contains_flex\":" << (int64_t)m.get<NoticeExecReport::contains_flex>();
+        o << ",\"contains_multi_hedge\":" << (int64_t)m.get<NoticeExecReport::contains_multi_hedge>();
         o << ",\"response_result\":" << (int64_t)m.get<NoticeExecReport::response_result>();
         o << ",\"response_time\":" << m.get<NoticeExecReport::response_time>();
         o << ",\"prt_price\":" << m.get<NoticeExecReport::prt_price>();

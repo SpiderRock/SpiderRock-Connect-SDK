@@ -115,6 +115,11 @@ namespace api {
     DECL_STRONG_TYPE(locate_pool, string);
     #endif//_locate_pool__GUARD__
 
+    #ifndef _ssale_flag__GUARD__
+    #define _ssale_flag__GUARD__
+    DECL_STRONG_TYPE(ssale_flag, spiderrock::protobuf::api::ShortSaleFlag);
+    #endif//_ssale_flag__GUARD__
+
     #ifndef _req_aux_risk_group_ctrl__GUARD__
     #define _req_aux_risk_group_ctrl__GUARD__
     DECL_STRONG_TYPE(req_aux_risk_group_ctrl, spiderrock::protobuf::api::YesNo);
@@ -496,6 +501,7 @@ namespace api {
         using user_data1 = spiderrock::protobuf::api::user_data1;
         using locate_firm = spiderrock::protobuf::api::locate_firm;
         using locate_pool = spiderrock::protobuf::api::locate_pool;
+        using ssale_flag = spiderrock::protobuf::api::ssale_flag;
         using req_aux_risk_group_ctrl = spiderrock::protobuf::api::req_aux_risk_group_ctrl;
         using auto_hedge = spiderrock::protobuf::api::auto_hedge;
         using hedge_instrument = spiderrock::protobuf::api::hedge_instrument;
@@ -528,6 +534,7 @@ namespace api {
         user_data1 m_user_data1{};
         locate_firm m_locate_firm{};
         locate_pool m_locate_pool{};
+        ssale_flag m_ssale_flag{};
         req_aux_risk_group_ctrl m_req_aux_risk_group_ctrl{};
         auto_hedge m_auto_hedge{};
         hedge_instrument m_hedge_instrument{};
@@ -599,6 +606,9 @@ namespace api {
         }		
         locate_pool get_locate_pool() const {
             return m_locate_pool;
+        }		
+        ssale_flag get_ssale_flag() const {
+            return m_ssale_flag;
         }		
         req_aux_risk_group_ctrl get_req_aux_risk_group_ctrl() const {
             return m_req_aux_risk_group_ctrl;
@@ -696,6 +706,9 @@ namespace api {
         }
         void set_locate_pool(const locate_pool& value)  {
             m_locate_pool = value;
+        }
+        void set_ssale_flag(const ssale_flag& value)  {
+            m_ssale_flag = value;
         }
         void set_req_aux_risk_group_ctrl(const req_aux_risk_group_ctrl& value)  {
             m_req_aux_risk_group_ctrl = value;
@@ -804,6 +817,9 @@ namespace api {
         void set(const locate_pool & value) {
             set_locate_pool(value);
         }
+        void set(const ssale_flag & value) {
+            set_ssale_flag(value);
+        }
         void set(const req_aux_risk_group_ctrl & value) {
             set_req_aux_risk_group_ctrl(value);
         }
@@ -858,6 +874,7 @@ namespace api {
             set(value.m_user_data1);
             set(value.m_locate_firm);
             set(value.m_locate_pool);
+            set(value.m_ssale_flag);
             set(value.m_req_aux_risk_group_ctrl);
             set(value.m_auto_hedge);
             set(value.m_hedge_instrument);
@@ -1044,6 +1061,7 @@ namespace api {
             if ( IncludeLocatePool()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(123,m_locate_pool);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_req_aux_risk_group_ctrl)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(125,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(126,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
@@ -1132,6 +1150,7 @@ namespace api {
             if ( IncludeLocatePool()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,123,static_cast<string>(m_locate_pool));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_req_aux_risk_group_ctrl)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,125,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,126,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
@@ -1292,6 +1311,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 133: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_ssale_flag = static_cast<spiderrock::protobuf::api::ShortSaleFlag>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 124: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_req_aux_risk_group_ctrl = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1384,6 +1408,7 @@ namespace api {
     template<> inline const auto NoticeResponse::get<NoticeResponse::user_data1>() const { return m_user_data1; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::locate_firm>() const { return m_locate_firm; }
     template<> inline const auto NoticeResponse::get<NoticeResponse::locate_pool>() const { return m_locate_pool; }
+    template<> inline const auto NoticeResponse::get<NoticeResponse::ssale_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>( m_ssale_flag)); }
     template<> inline const auto NoticeResponse::get<NoticeResponse::req_aux_risk_group_ctrl>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_req_aux_risk_group_ctrl)); }
     template<> inline const auto NoticeResponse::get<NoticeResponse::auto_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>( m_auto_hedge)); }
     template<> inline const auto NoticeResponse::get<NoticeResponse::hedge_instrument>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>( m_hedge_instrument)); }
@@ -1444,6 +1469,7 @@ namespace api {
         o << ",\"user_data1\":\"" << m.get<NoticeResponse::user_data1>() << "\"";
         o << ",\"locate_firm\":\"" << m.get<NoticeResponse::locate_firm>() << "\"";
         o << ",\"locate_pool\":\"" << m.get<NoticeResponse::locate_pool>() << "\"";
+        o << ",\"ssale_flag\":" << (int64_t)m.get<NoticeResponse::ssale_flag>();
         o << ",\"req_aux_risk_group_ctrl\":" << (int64_t)m.get<NoticeResponse::req_aux_risk_group_ctrl>();
         o << ",\"auto_hedge\":" << (int64_t)m.get<NoticeResponse::auto_hedge>();
         o << ",\"hedge_instrument\":" << (int64_t)m.get<NoticeResponse::hedge_instrument>();

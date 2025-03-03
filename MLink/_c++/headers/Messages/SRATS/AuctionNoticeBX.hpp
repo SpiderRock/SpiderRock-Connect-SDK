@@ -170,6 +170,21 @@ namespace api {
     DECL_STRONG_TYPE(auction_duration, int32);
     #endif//_auction_duration__GUARD__
 
+    #ifndef _pkg_surf_prc__GUARD__
+    #define _pkg_surf_prc__GUARD__
+    DECL_STRONG_TYPE(pkg_surf_prc, float);
+    #endif//_pkg_surf_prc__GUARD__
+
+    #ifndef _pkg_bid_prc__GUARD__
+    #define _pkg_bid_prc__GUARD__
+    DECL_STRONG_TYPE(pkg_bid_prc, float);
+    #endif//_pkg_bid_prc__GUARD__
+
+    #ifndef _pkg_ask_prc__GUARD__
+    #define _pkg_ask_prc__GUARD__
+    DECL_STRONG_TYPE(pkg_ask_prc, float);
+    #endif//_pkg_ask_prc__GUARD__
+
     #ifndef _i_days__double__GUARD__
     #define _i_days__double__GUARD__
     DECL_STRONG_TYPE(i_days__double, double);
@@ -459,6 +474,9 @@ namespace api {
         using cust_comm_paying = spiderrock::protobuf::api::cust_comm_paying;
         using cust_qty_cond = spiderrock::protobuf::api::cust_qty_cond;
         using auction_duration = spiderrock::protobuf::api::auction_duration;
+        using pkg_surf_prc = spiderrock::protobuf::api::pkg_surf_prc;
+        using pkg_bid_prc = spiderrock::protobuf::api::pkg_bid_prc;
+        using pkg_ask_prc = spiderrock::protobuf::api::pkg_ask_prc;
         using i_days = spiderrock::protobuf::api::i_days__double;
         using i_years = spiderrock::protobuf::api::i_years;
         using point_value = spiderrock::protobuf::api::point_value__double;
@@ -502,6 +520,9 @@ namespace api {
         cust_comm_paying m_cust_comm_paying{};
         cust_qty_cond m_cust_qty_cond{};
         auction_duration m_auction_duration{};
+        pkg_surf_prc m_pkg_surf_prc{};
+        pkg_bid_prc m_pkg_bid_prc{};
+        pkg_ask_prc m_pkg_ask_prc{};
         i_days m_i_days{};
         i_years m_i_years{};
         point_value m_point_value{};
@@ -606,6 +627,15 @@ namespace api {
         }		
         auction_duration get_auction_duration() const {
             return m_auction_duration;
+        }		
+        pkg_surf_prc get_pkg_surf_prc() const {
+            return m_pkg_surf_prc;
+        }		
+        pkg_bid_prc get_pkg_bid_prc() const {
+            return m_pkg_bid_prc;
+        }		
+        pkg_ask_prc get_pkg_ask_prc() const {
+            return m_pkg_ask_prc;
         }		
         i_days get_i_days() const {
             return m_i_days;
@@ -736,6 +766,15 @@ namespace api {
         }
         void set_auction_duration(const auction_duration& value)  {
             m_auction_duration = value;
+        }
+        void set_pkg_surf_prc(const pkg_surf_prc& value)  {
+            m_pkg_surf_prc = value;
+        }
+        void set_pkg_bid_prc(const pkg_bid_prc& value)  {
+            m_pkg_bid_prc = value;
+        }
+        void set_pkg_ask_prc(const pkg_ask_prc& value)  {
+            m_pkg_ask_prc = value;
         }
         void set_i_days(const i_days& value)  {
             m_i_days = value;
@@ -877,6 +916,15 @@ namespace api {
         void set(const auction_duration & value) {
             set_auction_duration(value);
         }
+        void set(const pkg_surf_prc & value) {
+            set_pkg_surf_prc(value);
+        }
+        void set(const pkg_bid_prc & value) {
+            set_pkg_bid_prc(value);
+        }
+        void set(const pkg_ask_prc & value) {
+            set_pkg_ask_prc(value);
+        }
         void set(const i_days & value) {
             set_i_days(value);
         }
@@ -942,6 +990,9 @@ namespace api {
             set(value.m_cust_comm_paying);
             set(value.m_cust_qty_cond);
             set(value.m_auction_duration);
+            set(value.m_pkg_surf_prc);
+            set(value.m_pkg_bid_prc);
+            set(value.m_pkg_ask_prc);
             set(value.m_i_days);
             set(value.m_i_years);
             set(value.m_point_value);
@@ -1061,6 +1112,15 @@ namespace api {
         bool IncludeAuctionDuration() const {
             return !(m_auction_duration == 0);
         }
+        bool IncludePkgSurfPrc() const {
+            return !(m_pkg_surf_prc == 0.0);
+        }
+        bool IncludePkgBidPrc() const {
+            return !(m_pkg_bid_prc == 0.0);
+        }
+        bool IncludePkgAskPrc() const {
+            return !(m_pkg_ask_prc == 0.0);
+        }
         bool IncludeIDays() const {
             return !(m_i_days == 0.0);
         }
@@ -1167,6 +1227,15 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(122,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>(m_cust_qty_cond)));
             if ( IncludeAuctionDuration()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(123,m_auction_duration);
+            }
+            if ( IncludePkgSurfPrc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(143,m_pkg_surf_prc);
+            }
+            if ( IncludePkgBidPrc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(144,m_pkg_bid_prc);
+            }
+            if ( IncludePkgAskPrc()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(145,m_pkg_ask_prc);
             }
             if ( IncludeIDays()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(124,m_i_days);
@@ -1280,6 +1349,15 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,122,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>(m_cust_qty_cond)));
             if ( IncludeAuctionDuration()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,123,m_auction_duration);
+            }
+            if ( IncludePkgSurfPrc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,143,m_pkg_surf_prc);
+            }
+            if ( IncludePkgBidPrc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,144,m_pkg_bid_prc);
+            }
+            if ( IncludePkgAskPrc()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,145,m_pkg_ask_prc);
             }
             if ( IncludeIDays()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,124,m_i_days);
@@ -1509,6 +1587,24 @@ namespace api {
                         }
                         break;
                     }
+                    case 143: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pkg_surf_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 144: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pkg_bid_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 145: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pkg_ask_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 124: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_i_days = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
@@ -1615,6 +1711,9 @@ namespace api {
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::cust_comm_paying>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_cust_comm_paying)); }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::cust_qty_cond>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CustQtyCond>( m_cust_qty_cond)); }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::auction_duration>() const { return m_auction_duration; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::pkg_surf_prc>() const { return m_pkg_surf_prc; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::pkg_bid_prc>() const { return m_pkg_bid_prc; }
+    template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::pkg_ask_prc>() const { return m_pkg_ask_prc; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::i_days>() const { return m_i_days; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::i_years>() const { return m_i_years; }
     template<> inline const auto AuctionNoticeBX::get<AuctionNoticeBX::point_value>() const { return m_point_value; }
@@ -1678,6 +1777,9 @@ namespace api {
         o << ",\"cust_comm_paying\":" << (int64_t)m.get<AuctionNoticeBX::cust_comm_paying>();
         o << ",\"cust_qty_cond\":" << (int64_t)m.get<AuctionNoticeBX::cust_qty_cond>();
         o << ",\"auction_duration\":" << m.get<AuctionNoticeBX::auction_duration>();
+        o << ",\"pkg_surf_prc\":" << m.get<AuctionNoticeBX::pkg_surf_prc>();
+        o << ",\"pkg_bid_prc\":" << m.get<AuctionNoticeBX::pkg_bid_prc>();
+        o << ",\"pkg_ask_prc\":" << m.get<AuctionNoticeBX::pkg_ask_prc>();
         o << ",\"i_days\":" << m.get<AuctionNoticeBX::i_days>();
         o << ",\"i_years\":" << m.get<AuctionNoticeBX::i_years>();
         o << ",\"point_value\":" << m.get<AuctionNoticeBX::point_value>();

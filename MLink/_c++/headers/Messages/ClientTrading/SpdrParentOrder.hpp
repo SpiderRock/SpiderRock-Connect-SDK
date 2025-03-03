@@ -115,6 +115,11 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
+    #ifndef _strategy_accnt__GUARD__
+    #define _strategy_accnt__GUARD__
+    DECL_STRONG_TYPE(strategy_accnt, string);
+    #endif//_strategy_accnt__GUARD__
+
     #ifndef _spdr_source__GUARD__
     #define _spdr_source__GUARD__
     DECL_STRONG_TYPE(spdr_source, spiderrock::protobuf::api::SpdrSource);
@@ -2796,6 +2801,7 @@ namespace api {
         using security_desc = spiderrock::protobuf::api::security_desc;
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
+        using strategy_accnt = spiderrock::protobuf::api::strategy_accnt;
         using spdr_source = spiderrock::protobuf::api::spdr_source;
         using grouping_code = spiderrock::protobuf::api::grouping_code;
         using exec_brkr_code = spiderrock::protobuf::api::exec_brkr_code;
@@ -2989,6 +2995,7 @@ namespace api {
         security_desc m_security_desc{};
         accnt m_accnt{};
         client_firm m_client_firm{};
+        strategy_accnt m_strategy_accnt{};
         spdr_source m_spdr_source{};
         grouping_code m_grouping_code{};
         exec_brkr_code m_exec_brkr_code{};
@@ -3221,6 +3228,9 @@ namespace api {
         }		
         client_firm get_client_firm() const {
             return m_client_firm;
+        }		
+        strategy_accnt get_strategy_accnt() const {
+            return m_strategy_accnt;
         }		
         spdr_source get_spdr_source() const {
             return m_spdr_source;
@@ -3804,6 +3814,9 @@ namespace api {
         }
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
+        }
+        void set_strategy_accnt(const strategy_accnt& value)  {
+            m_strategy_accnt = value;
         }
         void set_spdr_source(const spdr_source& value)  {
             m_spdr_source = value;
@@ -4398,6 +4411,9 @@ namespace api {
         void set(const client_firm & value) {
             set_client_firm(value);
         }
+        void set(const strategy_accnt & value) {
+            set_strategy_accnt(value);
+        }
         void set(const spdr_source & value) {
             set_spdr_source(value);
         }
@@ -4935,6 +4951,7 @@ namespace api {
             set(value.m_security_desc);
             set(value.m_accnt);
             set(value.m_client_firm);
+            set(value.m_strategy_accnt);
             set(value.m_spdr_source);
             set(value.m_grouping_code);
             set(value.m_exec_brkr_code);
@@ -5198,6 +5215,9 @@ namespace api {
         }
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
+        }
+        bool IncludeStrategyAccnt() const {
+            return !(m_strategy_accnt.empty());
         }
         bool IncludeGroupingCode() const {
             return !(m_grouping_code == 0);
@@ -5627,6 +5647,9 @@ namespace api {
             }
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(151,m_client_firm);
+            }
+            if ( IncludeStrategyAccnt()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(1045,m_strategy_accnt);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>(m_spdr_source)));
             if ( IncludeGroupingCode()) {
@@ -6114,6 +6137,9 @@ namespace api {
             }
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,151,static_cast<string>(m_client_firm));
+            }
+            if ( IncludeStrategyAccnt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,1045,static_cast<string>(m_strategy_accnt));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>(m_spdr_source)));
             if ( IncludeGroupingCode()) {
@@ -6670,6 +6696,12 @@ namespace api {
                     case 151: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 1045: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_strategy_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -7692,6 +7724,7 @@ namespace api {
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::security_desc>() const { return m_security_desc; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::accnt>() const { return m_accnt; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::client_firm>() const { return m_client_firm; }
+    template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::strategy_accnt>() const { return m_strategy_accnt; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::spdr_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>( m_spdr_source)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::grouping_code>() const { return m_grouping_code; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::exec_brkr_code>() const { return m_exec_brkr_code; }
@@ -8069,6 +8102,7 @@ namespace api {
         o << ",\"security_desc\":\"" << m.get<SpdrParentOrder::security_desc>() << "\"";
         o << ",\"accnt\":\"" << m.get<SpdrParentOrder::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<SpdrParentOrder::client_firm>() << "\"";
+        o << ",\"strategy_accnt\":\"" << m.get<SpdrParentOrder::strategy_accnt>() << "\"";
         o << ",\"spdr_source\":" << (int64_t)m.get<SpdrParentOrder::spdr_source>();
         o << ",\"grouping_code\":" << m.get<SpdrParentOrder::grouping_code>();
         o << ",\"exec_brkr_code\":\"" << m.get<SpdrParentOrder::exec_brkr_code>() << "\"";

@@ -19,6 +19,7 @@
 #include "ClientControl/FutureControl.hpp"
 #include "ClientControl/GlobalRiskControl.hpp"
 #include "ClientControl/IndustryControl.hpp"
+#include "ClientControl/MarRiskComposite.hpp"
 #include "ClientControl/MarRiskControl.hpp"
 #include "ClientControl/MarRiskControlTkOverride.hpp"
 #include "ClientControl/MarRiskCounter.hpp"
@@ -174,6 +175,7 @@
 #include "MLinkRest/MsgTickerKey.hpp"
 #include "MLinkRest/PostAck.hpp"
 #include "MLinkRest/QueryResult.hpp"
+#include "MLinkRest/UserApiKey.hpp"
 #include "MLinkRest/UserMetaData.hpp"
 #include "MLinkWs/MLinkAdmin.hpp"
 #include "MLinkWs/MLinkDataAck.hpp"
@@ -196,6 +198,7 @@
 #include "OptAnalytics/StockBeta.hpp"
 #include "OptExchAuction/SpdrAuctionState.hpp"
 #include "OptionDefinition/OptExpiryDefinition.hpp"
+#include "OptionDefinition/RegionalInstrumentId.hpp"
 #include "OptionDefinition/RegionalOptionComposite.hpp"
 #include "OptionDefinition/RootDefinition.hpp"
 #include "OptMarkData/OptionCloseMark.hpp"
@@ -288,6 +291,7 @@ class Observer {
     FutureControl msgFutureControl{};
     GlobalRiskControl msgGlobalRiskControl{};
     IndustryControl msgIndustryControl{};
+    MarRiskComposite msgMarRiskComposite{};
     MarRiskControl msgMarRiskControl{};
     MarRiskControlTkOverride msgMarRiskControlTkOverride{};
     MarRiskCounter msgMarRiskCounter{};
@@ -443,6 +447,7 @@ class Observer {
     MsgTickerKey msgMsgTickerKey{};
     PostAck msgPostAck{};
     QueryResult msgQueryResult{};
+    UserApiKey msgUserApiKey{};
     UserMetaData msgUserMetaData{};
     MLinkAdmin msgMLinkAdmin{};
     MLinkDataAck msgMLinkDataAck{};
@@ -465,6 +470,7 @@ class Observer {
     StockBeta msgStockBeta{};
     SpdrAuctionState msgSpdrAuctionState{};
     OptExpiryDefinition msgOptExpiryDefinition{};
+    RegionalInstrumentId msgRegionalInstrumentId{};
     RegionalOptionComposite msgRegionalOptionComposite{};
     RootDefinition msgRootDefinition{};
     OptionCloseMark msgOptionCloseMark{};
@@ -664,6 +670,12 @@ class Observer {
 			    msgIndustryControl.Clear();
                 msgIndustryControl.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const IndustryControl &)msgIndustryControl);
+                break;
+            }
+            case 4675: {  // MarRiskComposite
+			    msgMarRiskComposite.Clear();
+                msgMarRiskComposite.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const MarRiskComposite &)msgMarRiskComposite);
                 break;
             }
             case 4550: {  // MarRiskControl
@@ -1596,6 +1608,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const QueryResult &)msgQueryResult);
                 break;
             }
+            case 3476: {  // UserApiKey
+			    msgUserApiKey.Clear();
+                msgUserApiKey.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const UserApiKey &)msgUserApiKey);
+                break;
+            }
             case 3470: {  // UserMetaData
 			    msgUserMetaData.Clear();
                 msgUserMetaData.ParseFromArray(buf, len);
@@ -1726,6 +1744,12 @@ class Observer {
 			    msgOptExpiryDefinition.Clear();
                 msgOptExpiryDefinition.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const OptExpiryDefinition &)msgOptExpiryDefinition);
+                break;
+            }
+            case 4410: {  // RegionalInstrumentId
+			    msgRegionalInstrumentId.Clear();
+                msgRegionalInstrumentId.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const RegionalInstrumentId &)msgRegionalInstrumentId);
                 break;
             }
             case 4405: {  // RegionalOptionComposite

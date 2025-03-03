@@ -37,7 +37,7 @@ namespace api {
 
     #ifndef _spread_class__GUARD__
     #define _spread_class__GUARD__
-    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::SpreadClass);
     #endif//_spread_class__GUARD__
 
     #ifndef _timestamp__GUARD__
@@ -605,7 +605,7 @@ namespace api {
                 m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(109, m_timestamp);
             }
@@ -642,7 +642,7 @@ namespace api {
                 m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 109, m_timestamp);
             }
@@ -697,8 +697,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_class = static_cast<spiderrock::protobuf::api::SpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -738,7 +738,7 @@ namespace api {
     template<> inline const auto SpreadDefinition::get<SpreadDefinition::_meta>() const { return SpreadDefinition::_meta{ m__meta}; }
     template<> inline const auto SpreadDefinition::get<SpreadDefinition::pkey>() const { return SpreadDefinition::pkey{ m_pkey}; }
     template<> inline const auto SpreadDefinition::get<SpreadDefinition::ticker>() const { return SpreadDefinition::ticker{ m_ticker}; }
-    template<> inline const auto SpreadDefinition::get<SpreadDefinition::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
+    template<> inline const auto SpreadDefinition::get<SpreadDefinition::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>( m_spread_class)); }
     template<> inline const auto SpreadDefinition::get<SpreadDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto SpreadDefinition::get<SpreadDefinition::exch_spr_i_ds>(int i) const { return SpreadDefinition::exch_spr_i_ds{ get_exch_spr_i_ds(i)}; }
     template<> inline int SpreadDefinition::count<SpreadDefinition::exch_spr_i_ds>() const { return static_cast<int>( m_exch_spr_i_ds.size()); }

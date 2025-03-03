@@ -125,15 +125,10 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
-    #ifndef _root__GUARD__
-    #define _root__GUARD__
-    DECL_STRONG_TYPE(root, TickerKey);
-    #endif//_root__GUARD__
-
-    #ifndef _expiry__GUARD__
-    #define _expiry__GUARD__
-    DECL_STRONG_TYPE(expiry, DateKey);
-    #endif//_expiry__GUARD__
+    #ifndef _ekey__GUARD__
+    #define _ekey__GUARD__
+    DECL_STRONG_TYPE(ekey, ExpiryKey);
+    #endif//_ekey__GUARD__
 
     #ifndef _resp_side__GUARD__
     #define _resp_side__GUARD__
@@ -146,15 +141,13 @@ namespace api {
         //using statements for all types used in this class
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
-        using root = spiderrock::protobuf::api::root;
-        using expiry = spiderrock::protobuf::api::expiry;
+        using ekey = spiderrock::protobuf::api::ekey;
         using resp_side = spiderrock::protobuf::api::resp_side;
 
         private:
         accnt m_accnt{};
         client_firm m_client_firm{};
-        root m_root{};
-        expiry m_expiry{};
+        ekey m_ekey{};
         resp_side m_resp_side{};
 
         public:
@@ -164,11 +157,8 @@ namespace api {
         client_firm get_client_firm() const {
             return m_client_firm;
         }
-		root get_root() const {
-            return m_root;
-        }
-		expiry get_expiry() const {
-            return m_expiry;
+		ekey get_ekey() const {
+            return m_ekey;
         }
         resp_side get_resp_side() const {
             return m_resp_side;
@@ -179,11 +169,8 @@ namespace api {
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
         }
-        void set_root(const root& value)  {
-            m_root = value;
-        }
-        void set_expiry(const expiry& value)  {
-            m_expiry = value;
+        void set_ekey(const ekey& value)  {
+            m_ekey = value;
         }
         void set_resp_side(const resp_side& value)  {
             m_resp_side = value;
@@ -198,8 +185,7 @@ namespace api {
         
         void set(const accnt & value) { set_accnt(value); }
         void set(const client_firm & value) { set_client_firm(value); }
-        void set(const root & value) { set_root(value); }
-        void set(const expiry & value) { set_expiry(value); }
+        void set(const ekey & value) { set_ekey(value); }
         void set(const resp_side & value) { set_resp_side(value); }
 
 
@@ -223,11 +209,8 @@ namespace api {
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
         }
-        bool IncludeRoot() const {
-            return (m_root.ByteSizeLong() > 0);
-        }
-        bool IncludeExpiry() const {
-            return (m_expiry.ByteSizeLong() > 0);
+        bool IncludeEkey() const {
+            return (m_ekey.ByteSizeLong() > 0);
         }
 
 
@@ -239,13 +222,10 @@ namespace api {
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_client_firm);
             }
-            if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(12,tickerKeyLayout_root);
-            }
-            if ( IncludeExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(13, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(15,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(14,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
             return totalSize;
@@ -258,13 +238,10 @@ namespace api {
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_client_firm));
             }
-            if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 12, tickerKeyLayout_root);
-            }
-            if ( IncludeExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,13, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 15, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,14,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
         }
@@ -288,16 +265,8 @@ namespace api {
                     case 11: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 12: {
-                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                        m_root.setFromCodec(tickerKey);
-                        break;
-                    }
-                    case 13: {
-                        auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                        m_expiry.set_year(dateKey.year());
-                        m_expiry.set_month(dateKey.month());
-                        m_expiry.set_day(dateKey.day());
+                    case 15: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
+                        m_ekey.setFromCodec(expiryKey);
                         break;
                     }
                     case 14: {m_resp_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
@@ -920,8 +889,7 @@ namespace api {
     template<> inline const auto AutoResponderSN::get<AutoResponderSN::timestamp>() const { return m_timestamp; }
     template<> inline const auto AutoResponderSN_PKey::get<AutoResponderSN_PKey::accnt>() const { return m_accnt; }
     template<> inline const auto AutoResponderSN_PKey::get<AutoResponderSN_PKey::client_firm>() const { return m_client_firm; }
-    template<> inline const auto AutoResponderSN_PKey::get<AutoResponderSN_PKey::root>() const { return AutoResponderSN_PKey::root{m_root}; }
-    template<> inline const auto AutoResponderSN_PKey::get<AutoResponderSN_PKey::expiry>() const { return AutoResponderSN_PKey::expiry{m_expiry}; }
+    template<> inline const auto AutoResponderSN_PKey::get<AutoResponderSN_PKey::ekey>() const { return AutoResponderSN_PKey::ekey{m_ekey}; }
     template<> inline const auto AutoResponderSN_PKey::get<AutoResponderSN_PKey::resp_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side));}
     
     // ostream operators for all classes above, output should adhere to a JSON format
@@ -929,8 +897,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const AutoResponderSN_PKey& m) {
         o << "\"accnt\":\"" << m.get<AutoResponderSN_PKey::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<AutoResponderSN_PKey::client_firm>() << "\"";
-        o << ",\"root\":{" << m.get<AutoResponderSN_PKey::root>() << "}";
-        o << ",\"expiry\":{" << m.get<AutoResponderSN_PKey::expiry>() << "}";
+        o << ",\"ekey\":{" << m.get<AutoResponderSN_PKey::ekey>() << "}";
         o << ",\"resp_side\":" << (int64_t)m.get<AutoResponderSN_PKey::resp_side>();
         return o;
     }

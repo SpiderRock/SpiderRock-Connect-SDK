@@ -425,6 +425,41 @@ namespace api {
     DECL_STRONG_TYPE(max_grp_day_rmetric5_sh, float);
     #endif//_max_grp_day_rmetric5_sh__GUARD__
 
+    #ifndef _order_ref_rmetric1__GUARD__
+    #define _order_ref_rmetric1__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric1, float);
+    #endif//_order_ref_rmetric1__GUARD__
+
+    #ifndef _order_ref_rmetric2__GUARD__
+    #define _order_ref_rmetric2__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric2, float);
+    #endif//_order_ref_rmetric2__GUARD__
+
+    #ifndef _order_ref_rmetric3__GUARD__
+    #define _order_ref_rmetric3__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric3, float);
+    #endif//_order_ref_rmetric3__GUARD__
+
+    #ifndef _order_ref_rmetric4__GUARD__
+    #define _order_ref_rmetric4__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric4, float);
+    #endif//_order_ref_rmetric4__GUARD__
+
+    #ifndef _order_ref_rmetric5__GUARD__
+    #define _order_ref_rmetric5__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric5, float);
+    #endif//_order_ref_rmetric5__GUARD__
+
+    #ifndef _order_ref_rmetric6__GUARD__
+    #define _order_ref_rmetric6__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric6, float);
+    #endif//_order_ref_rmetric6__GUARD__
+
+    #ifndef _order_ref_rmetric7__GUARD__
+    #define _order_ref_rmetric7__GUARD__
+    DECL_STRONG_TYPE(order_ref_rmetric7, float);
+    #endif//_order_ref_rmetric7__GUARD__
+
     #ifndef _sym_ema_cxl_ddelta_ln__GUARD__
     #define _sym_ema_cxl_ddelta_ln__GUARD__
     DECL_STRONG_TYPE(sym_ema_cxl_ddelta_ln, float);
@@ -799,6 +834,13 @@ namespace api {
         using max_grp_day_rmetric4_sh = spiderrock::protobuf::api::max_grp_day_rmetric4_sh;
         using max_grp_day_rmetric5_ln = spiderrock::protobuf::api::max_grp_day_rmetric5_ln;
         using max_grp_day_rmetric5_sh = spiderrock::protobuf::api::max_grp_day_rmetric5_sh;
+        using order_ref_rmetric1 = spiderrock::protobuf::api::order_ref_rmetric1;
+        using order_ref_rmetric2 = spiderrock::protobuf::api::order_ref_rmetric2;
+        using order_ref_rmetric3 = spiderrock::protobuf::api::order_ref_rmetric3;
+        using order_ref_rmetric4 = spiderrock::protobuf::api::order_ref_rmetric4;
+        using order_ref_rmetric5 = spiderrock::protobuf::api::order_ref_rmetric5;
+        using order_ref_rmetric6 = spiderrock::protobuf::api::order_ref_rmetric6;
+        using order_ref_rmetric7 = spiderrock::protobuf::api::order_ref_rmetric7;
         using sym_ema_cxl_ddelta_ln = spiderrock::protobuf::api::sym_ema_cxl_ddelta_ln;
         using sym_ema_cxl_ddelta_sh = spiderrock::protobuf::api::sym_ema_cxl_ddelta_sh;
         using sym_ema_cxl_wt_vega_ln = spiderrock::protobuf::api::sym_ema_cxl_wt_vega_ln;
@@ -894,6 +936,13 @@ namespace api {
         max_grp_day_rmetric4_sh m_max_grp_day_rmetric4_sh{};
         max_grp_day_rmetric5_ln m_max_grp_day_rmetric5_ln{};
         max_grp_day_rmetric5_sh m_max_grp_day_rmetric5_sh{};
+        order_ref_rmetric1 m_order_ref_rmetric1{};
+        order_ref_rmetric2 m_order_ref_rmetric2{};
+        order_ref_rmetric3 m_order_ref_rmetric3{};
+        order_ref_rmetric4 m_order_ref_rmetric4{};
+        order_ref_rmetric5 m_order_ref_rmetric5{};
+        order_ref_rmetric6 m_order_ref_rmetric6{};
+        order_ref_rmetric7 m_order_ref_rmetric7{};
         sym_ema_cxl_ddelta_ln m_sym_ema_cxl_ddelta_ln{};
         sym_ema_cxl_ddelta_sh m_sym_ema_cxl_ddelta_sh{};
         sym_ema_cxl_wt_vega_ln m_sym_ema_cxl_wt_vega_ln{};
@@ -1152,6 +1201,27 @@ namespace api {
         }		
         max_grp_day_rmetric5_sh get_max_grp_day_rmetric5_sh() const {
             return m_max_grp_day_rmetric5_sh;
+        }		
+        order_ref_rmetric1 get_order_ref_rmetric1() const {
+            return m_order_ref_rmetric1;
+        }		
+        order_ref_rmetric2 get_order_ref_rmetric2() const {
+            return m_order_ref_rmetric2;
+        }		
+        order_ref_rmetric3 get_order_ref_rmetric3() const {
+            return m_order_ref_rmetric3;
+        }		
+        order_ref_rmetric4 get_order_ref_rmetric4() const {
+            return m_order_ref_rmetric4;
+        }		
+        order_ref_rmetric5 get_order_ref_rmetric5() const {
+            return m_order_ref_rmetric5;
+        }		
+        order_ref_rmetric6 get_order_ref_rmetric6() const {
+            return m_order_ref_rmetric6;
+        }		
+        order_ref_rmetric7 get_order_ref_rmetric7() const {
+            return m_order_ref_rmetric7;
         }		
         sym_ema_cxl_ddelta_ln get_sym_ema_cxl_ddelta_ln() const {
             return m_sym_ema_cxl_ddelta_ln;
@@ -1435,6 +1505,27 @@ namespace api {
         }
         void set_max_grp_day_rmetric5_sh(const max_grp_day_rmetric5_sh& value)  {
             m_max_grp_day_rmetric5_sh = value;
+        }
+        void set_order_ref_rmetric1(const order_ref_rmetric1& value)  {
+            m_order_ref_rmetric1 = value;
+        }
+        void set_order_ref_rmetric2(const order_ref_rmetric2& value)  {
+            m_order_ref_rmetric2 = value;
+        }
+        void set_order_ref_rmetric3(const order_ref_rmetric3& value)  {
+            m_order_ref_rmetric3 = value;
+        }
+        void set_order_ref_rmetric4(const order_ref_rmetric4& value)  {
+            m_order_ref_rmetric4 = value;
+        }
+        void set_order_ref_rmetric5(const order_ref_rmetric5& value)  {
+            m_order_ref_rmetric5 = value;
+        }
+        void set_order_ref_rmetric6(const order_ref_rmetric6& value)  {
+            m_order_ref_rmetric6 = value;
+        }
+        void set_order_ref_rmetric7(const order_ref_rmetric7& value)  {
+            m_order_ref_rmetric7 = value;
         }
         void set_sym_ema_cxl_ddelta_ln(const sym_ema_cxl_ddelta_ln& value)  {
             m_sym_ema_cxl_ddelta_ln = value;
@@ -1723,6 +1814,27 @@ namespace api {
         void set(const max_grp_day_rmetric5_sh & value) {
             set_max_grp_day_rmetric5_sh(value);
         }
+        void set(const order_ref_rmetric1 & value) {
+            set_order_ref_rmetric1(value);
+        }
+        void set(const order_ref_rmetric2 & value) {
+            set_order_ref_rmetric2(value);
+        }
+        void set(const order_ref_rmetric3 & value) {
+            set_order_ref_rmetric3(value);
+        }
+        void set(const order_ref_rmetric4 & value) {
+            set_order_ref_rmetric4(value);
+        }
+        void set(const order_ref_rmetric5 & value) {
+            set_order_ref_rmetric5(value);
+        }
+        void set(const order_ref_rmetric6 & value) {
+            set_order_ref_rmetric6(value);
+        }
+        void set(const order_ref_rmetric7 & value) {
+            set_order_ref_rmetric7(value);
+        }
         void set(const sym_ema_cxl_ddelta_ln & value) {
             set_sym_ema_cxl_ddelta_ln(value);
         }
@@ -1842,6 +1954,13 @@ namespace api {
             set(value.m_max_grp_day_rmetric4_sh);
             set(value.m_max_grp_day_rmetric5_ln);
             set(value.m_max_grp_day_rmetric5_sh);
+            set(value.m_order_ref_rmetric1);
+            set(value.m_order_ref_rmetric2);
+            set(value.m_order_ref_rmetric3);
+            set(value.m_order_ref_rmetric4);
+            set(value.m_order_ref_rmetric5);
+            set(value.m_order_ref_rmetric6);
+            set(value.m_order_ref_rmetric7);
             set(value.m_sym_ema_cxl_ddelta_ln);
             set(value.m_sym_ema_cxl_ddelta_sh);
             set(value.m_sym_ema_cxl_wt_vega_ln);
@@ -2110,6 +2229,27 @@ namespace api {
         bool IncludeMaxGrpDayRmetric5Sh() const {
             return !(m_max_grp_day_rmetric5_sh == 0.0);
         }
+        bool IncludeOrderRefRmetric1() const {
+            return !(m_order_ref_rmetric1 == 0.0);
+        }
+        bool IncludeOrderRefRmetric2() const {
+            return !(m_order_ref_rmetric2 == 0.0);
+        }
+        bool IncludeOrderRefRmetric3() const {
+            return !(m_order_ref_rmetric3 == 0.0);
+        }
+        bool IncludeOrderRefRmetric4() const {
+            return !(m_order_ref_rmetric4 == 0.0);
+        }
+        bool IncludeOrderRefRmetric5() const {
+            return !(m_order_ref_rmetric5 == 0.0);
+        }
+        bool IncludeOrderRefRmetric6() const {
+            return !(m_order_ref_rmetric6 == 0.0);
+        }
+        bool IncludeOrderRefRmetric7() const {
+            return !(m_order_ref_rmetric7 == 0.0);
+        }
         bool IncludeSymEmaCxlDdeltaLn() const {
             return !(m_sym_ema_cxl_ddelta_ln == 0.0);
         }
@@ -2367,6 +2507,27 @@ namespace api {
             }
             if ( IncludeMaxGrpDayRmetric5Sh()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(355,m_max_grp_day_rmetric5_sh);
+            }
+            if ( IncludeOrderRefRmetric1()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(408,m_order_ref_rmetric1);
+            }
+            if ( IncludeOrderRefRmetric2()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(409,m_order_ref_rmetric2);
+            }
+            if ( IncludeOrderRefRmetric3()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(410,m_order_ref_rmetric3);
+            }
+            if ( IncludeOrderRefRmetric4()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(411,m_order_ref_rmetric4);
+            }
+            if ( IncludeOrderRefRmetric5()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(412,m_order_ref_rmetric5);
+            }
+            if ( IncludeOrderRefRmetric6()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(413,m_order_ref_rmetric6);
+            }
+            if ( IncludeOrderRefRmetric7()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(414,m_order_ref_rmetric7);
             }
             if ( IncludeSymEmaCxlDdeltaLn()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(367,m_sym_ema_cxl_ddelta_ln);
@@ -2626,6 +2787,27 @@ namespace api {
             }
             if ( IncludeMaxGrpDayRmetric5Sh()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,355,m_max_grp_day_rmetric5_sh);
+            }
+            if ( IncludeOrderRefRmetric1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,408,m_order_ref_rmetric1);
+            }
+            if ( IncludeOrderRefRmetric2()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,409,m_order_ref_rmetric2);
+            }
+            if ( IncludeOrderRefRmetric3()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,410,m_order_ref_rmetric3);
+            }
+            if ( IncludeOrderRefRmetric4()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,411,m_order_ref_rmetric4);
+            }
+            if ( IncludeOrderRefRmetric5()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,412,m_order_ref_rmetric5);
+            }
+            if ( IncludeOrderRefRmetric6()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,413,m_order_ref_rmetric6);
+            }
+            if ( IncludeOrderRefRmetric7()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,414,m_order_ref_rmetric7);
             }
             if ( IncludeSymEmaCxlDdeltaLn()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,367,m_sym_ema_cxl_ddelta_ln);
@@ -3152,6 +3334,48 @@ namespace api {
                         }
                         break;
                     }
+                    case 408: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric1 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 409: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric2 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 410: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric3 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 411: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric4 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 412: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric5 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 413: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric6 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 414: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_order_ref_rmetric7 = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 367: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_sym_ema_cxl_ddelta_ln = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -3313,6 +3537,13 @@ namespace api {
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::max_grp_day_rmetric4_sh>() const { return m_max_grp_day_rmetric4_sh; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::max_grp_day_rmetric5_ln>() const { return m_max_grp_day_rmetric5_ln; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::max_grp_day_rmetric5_sh>() const { return m_max_grp_day_rmetric5_sh; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric1>() const { return m_order_ref_rmetric1; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric2>() const { return m_order_ref_rmetric2; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric3>() const { return m_order_ref_rmetric3; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric4>() const { return m_order_ref_rmetric4; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric5>() const { return m_order_ref_rmetric5; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric6>() const { return m_order_ref_rmetric6; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::order_ref_rmetric7>() const { return m_order_ref_rmetric7; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::sym_ema_cxl_ddelta_ln>() const { return m_sym_ema_cxl_ddelta_ln; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::sym_ema_cxl_ddelta_sh>() const { return m_sym_ema_cxl_ddelta_sh; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::sym_ema_cxl_wt_vega_ln>() const { return m_sym_ema_cxl_wt_vega_ln; }
@@ -3438,6 +3669,13 @@ namespace api {
         o << ",\"max_grp_day_rmetric4_sh\":" << m.get<SpdrParentLimit::max_grp_day_rmetric4_sh>();
         o << ",\"max_grp_day_rmetric5_ln\":" << m.get<SpdrParentLimit::max_grp_day_rmetric5_ln>();
         o << ",\"max_grp_day_rmetric5_sh\":" << m.get<SpdrParentLimit::max_grp_day_rmetric5_sh>();
+        o << ",\"order_ref_rmetric1\":" << m.get<SpdrParentLimit::order_ref_rmetric1>();
+        o << ",\"order_ref_rmetric2\":" << m.get<SpdrParentLimit::order_ref_rmetric2>();
+        o << ",\"order_ref_rmetric3\":" << m.get<SpdrParentLimit::order_ref_rmetric3>();
+        o << ",\"order_ref_rmetric4\":" << m.get<SpdrParentLimit::order_ref_rmetric4>();
+        o << ",\"order_ref_rmetric5\":" << m.get<SpdrParentLimit::order_ref_rmetric5>();
+        o << ",\"order_ref_rmetric6\":" << m.get<SpdrParentLimit::order_ref_rmetric6>();
+        o << ",\"order_ref_rmetric7\":" << m.get<SpdrParentLimit::order_ref_rmetric7>();
         o << ",\"sym_ema_cxl_ddelta_ln\":" << m.get<SpdrParentLimit::sym_ema_cxl_ddelta_ln>();
         o << ",\"sym_ema_cxl_ddelta_sh\":" << m.get<SpdrParentLimit::sym_ema_cxl_ddelta_sh>();
         o << ",\"sym_ema_cxl_wt_vega_ln\":" << m.get<SpdrParentLimit::sym_ema_cxl_wt_vega_ln>();

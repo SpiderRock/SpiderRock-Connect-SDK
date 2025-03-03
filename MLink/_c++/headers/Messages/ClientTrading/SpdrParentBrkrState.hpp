@@ -70,6 +70,11 @@ namespace api {
     DECL_STRONG_TYPE(strategy, string);
     #endif//_strategy__GUARD__
 
+    #ifndef _strategy_accnt__GUARD__
+    #define _strategy_accnt__GUARD__
+    DECL_STRONG_TYPE(strategy_accnt, string);
+    #endif//_strategy_accnt__GUARD__
+
     #ifndef _exec_brkr_code__GUARD__
     #define _exec_brkr_code__GUARD__
     DECL_STRONG_TYPE(exec_brkr_code, string);
@@ -1043,6 +1048,7 @@ namespace api {
         using risk_group_id = spiderrock::protobuf::api::risk_group_id;
         using trigger_group_id = spiderrock::protobuf::api::trigger_group_id;
         using strategy = spiderrock::protobuf::api::strategy;
+        using strategy_accnt = spiderrock::protobuf::api::strategy_accnt;
         using exec_brkr_code = spiderrock::protobuf::api::exec_brkr_code;
         using alt_order_id = spiderrock::protobuf::api::alt_order_id;
         using package_id = spiderrock::protobuf::api::package_id;
@@ -1201,6 +1207,7 @@ namespace api {
         risk_group_id m_risk_group_id{};
         trigger_group_id m_trigger_group_id{};
         strategy m_strategy{};
+        strategy_accnt m_strategy_accnt{};
         exec_brkr_code m_exec_brkr_code{};
         alt_order_id m_alt_order_id{};
         package_id m_package_id{};
@@ -1380,6 +1387,9 @@ namespace api {
         }		
         strategy get_strategy() const {
             return m_strategy;
+        }		
+        strategy_accnt get_strategy_accnt() const {
+            return m_strategy_accnt;
         }		
         exec_brkr_code get_exec_brkr_code() const {
             return m_exec_brkr_code;
@@ -1852,6 +1862,9 @@ namespace api {
         }
         void set_strategy(const strategy& value)  {
             m_strategy = value;
+        }
+        void set_strategy_accnt(const strategy_accnt& value)  {
+            m_strategy_accnt = value;
         }
         void set_exec_brkr_code(const exec_brkr_code& value)  {
             m_exec_brkr_code = value;
@@ -2329,6 +2342,9 @@ namespace api {
         void set(const strategy & value) {
             set_strategy(value);
         }
+        void set(const strategy_accnt & value) {
+            set_strategy_accnt(value);
+        }
         void set(const exec_brkr_code & value) {
             set_exec_brkr_code(value);
         }
@@ -2779,6 +2795,7 @@ namespace api {
             set(value.m_risk_group_id);
             set(value.m_trigger_group_id);
             set(value.m_strategy);
+            set(value.m_strategy_accnt);
             set(value.m_exec_brkr_code);
             set(value.m_alt_order_id);
             set(value.m_package_id);
@@ -3006,6 +3023,9 @@ namespace api {
         }
         bool IncludeStrategy() const {
             return !(m_strategy.empty());
+        }
+        bool IncludeStrategyAccnt() const {
+            return !(m_strategy_accnt.empty());
         }
         bool IncludeExecBrkrCode() const {
             return !(m_exec_brkr_code.empty());
@@ -3386,6 +3406,9 @@ namespace api {
             }
             if ( IncludeStrategy()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(118,m_strategy);
+            }
+            if ( IncludeStrategyAccnt()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(608,m_strategy_accnt);
             }
             if ( IncludeExecBrkrCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(606,m_exec_brkr_code);
@@ -3802,6 +3825,9 @@ namespace api {
             }
             if ( IncludeStrategy()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,118,static_cast<string>(m_strategy));
+            }
+            if ( IncludeStrategyAccnt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,608,static_cast<string>(m_strategy_accnt));
             }
             if ( IncludeExecBrkrCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,606,static_cast<string>(m_exec_brkr_code));
@@ -4256,6 +4282,12 @@ namespace api {
                     case 118: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_strategy = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 608: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_strategy_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -5124,6 +5156,7 @@ namespace api {
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::risk_group_id>() const { return m_risk_group_id; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::trigger_group_id>() const { return m_trigger_group_id; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::strategy>() const { return m_strategy; }
+    template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::strategy_accnt>() const { return m_strategy_accnt; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::exec_brkr_code>() const { return m_exec_brkr_code; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::alt_order_id>() const { return m_alt_order_id; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::package_id>() const { return m_package_id; }
@@ -5302,6 +5335,7 @@ namespace api {
         o << ",\"risk_group_id\":" << m.get<SpdrParentBrkrState::risk_group_id>();
         o << ",\"trigger_group_id\":" << m.get<SpdrParentBrkrState::trigger_group_id>();
         o << ",\"strategy\":\"" << m.get<SpdrParentBrkrState::strategy>() << "\"";
+        o << ",\"strategy_accnt\":\"" << m.get<SpdrParentBrkrState::strategy_accnt>() << "\"";
         o << ",\"exec_brkr_code\":\"" << m.get<SpdrParentBrkrState::exec_brkr_code>() << "\"";
         o << ",\"alt_order_id\":\"" << m.get<SpdrParentBrkrState::alt_order_id>() << "\"";
         o << ",\"package_id\":" << m.get<SpdrParentBrkrState::package_id>();

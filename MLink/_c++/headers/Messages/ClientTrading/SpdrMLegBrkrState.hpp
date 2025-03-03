@@ -97,7 +97,7 @@ namespace api {
 
     #ifndef _spread_class__GUARD__
     #define _spread_class__GUARD__
-    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::SpreadClass);
     #endif//_spread_class__GUARD__
 
     #ifndef _spread_flavor__GUARD__
@@ -6181,7 +6181,7 @@ namespace api {
             if ( IncludeExecBrkrCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(1054,m_exec_brkr_code);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1042,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1057,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1043,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_stock_side)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
@@ -6978,7 +6978,7 @@ namespace api {
             if ( IncludeExecBrkrCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,1054,static_cast<string>(m_exec_brkr_code));
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1042,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1057,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1043,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,133,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_stock_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,136,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
@@ -7833,8 +7833,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 1042: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 1057: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_class = static_cast<spiderrock::protobuf::api::SpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -9519,7 +9519,7 @@ namespace api {
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::is_flagged>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_flagged)); }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::notice_number>() const { return m_notice_number; }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::exec_brkr_code>() const { return m_exec_brkr_code; }
-    template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
+    template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>( m_spread_class)); }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::spread_flavor>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>( m_spread_flavor)); }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::stock_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>( m_stock_side)); }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::ssale_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>( m_ssale_flag)); }

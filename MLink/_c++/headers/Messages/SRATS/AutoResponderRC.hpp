@@ -45,6 +45,11 @@ namespace api {
     DECL_STRONG_TYPE(is_disabled, spiderrock::protobuf::api::YesNo);
     #endif//_is_disabled__GUARD__
 
+    #ifndef _enabled_until__GUARD__
+    #define _enabled_until__GUARD__
+    DECL_STRONG_TYPE(enabled_until, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_enabled_until__GUARD__
+
     #ifndef _expiry_qty_avail__GUARD__
     #define _expiry_qty_avail__GUARD__
     DECL_STRONG_TYPE(expiry_qty_avail, int32);
@@ -125,15 +130,10 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
-    #ifndef _root__GUARD__
-    #define _root__GUARD__
-    DECL_STRONG_TYPE(root, TickerKey);
-    #endif//_root__GUARD__
-
-    #ifndef _expiry__GUARD__
-    #define _expiry__GUARD__
-    DECL_STRONG_TYPE(expiry, DateKey);
-    #endif//_expiry__GUARD__
+    #ifndef _ekey__GUARD__
+    #define _ekey__GUARD__
+    DECL_STRONG_TYPE(ekey, ExpiryKey);
+    #endif//_ekey__GUARD__
 
     #ifndef _resp_side__GUARD__
     #define _resp_side__GUARD__
@@ -146,15 +146,13 @@ namespace api {
         //using statements for all types used in this class
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
-        using root = spiderrock::protobuf::api::root;
-        using expiry = spiderrock::protobuf::api::expiry;
+        using ekey = spiderrock::protobuf::api::ekey;
         using resp_side = spiderrock::protobuf::api::resp_side;
 
         private:
         accnt m_accnt{};
         client_firm m_client_firm{};
-        root m_root{};
-        expiry m_expiry{};
+        ekey m_ekey{};
         resp_side m_resp_side{};
 
         public:
@@ -164,11 +162,8 @@ namespace api {
         client_firm get_client_firm() const {
             return m_client_firm;
         }
-		root get_root() const {
-            return m_root;
-        }
-		expiry get_expiry() const {
-            return m_expiry;
+		ekey get_ekey() const {
+            return m_ekey;
         }
         resp_side get_resp_side() const {
             return m_resp_side;
@@ -179,11 +174,8 @@ namespace api {
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
         }
-        void set_root(const root& value)  {
-            m_root = value;
-        }
-        void set_expiry(const expiry& value)  {
-            m_expiry = value;
+        void set_ekey(const ekey& value)  {
+            m_ekey = value;
         }
         void set_resp_side(const resp_side& value)  {
             m_resp_side = value;
@@ -198,8 +190,7 @@ namespace api {
         
         void set(const accnt & value) { set_accnt(value); }
         void set(const client_firm & value) { set_client_firm(value); }
-        void set(const root & value) { set_root(value); }
-        void set(const expiry & value) { set_expiry(value); }
+        void set(const ekey & value) { set_ekey(value); }
         void set(const resp_side & value) { set_resp_side(value); }
 
 
@@ -223,11 +214,8 @@ namespace api {
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
         }
-        bool IncludeRoot() const {
-            return (m_root.ByteSizeLong() > 0);
-        }
-        bool IncludeExpiry() const {
-            return (m_expiry.ByteSizeLong() > 0);
+        bool IncludeEkey() const {
+            return (m_ekey.ByteSizeLong() > 0);
         }
 
 
@@ -239,13 +227,10 @@ namespace api {
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_client_firm);
             }
-            if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(12,tickerKeyLayout_root);
-            }
-            if ( IncludeExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(13, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(15,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(14,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
             return totalSize;
@@ -258,13 +243,10 @@ namespace api {
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_client_firm));
             }
-            if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 12, tickerKeyLayout_root);
-            }
-            if ( IncludeExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,13, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 15, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,14,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
         }
@@ -288,16 +270,8 @@ namespace api {
                     case 11: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 12: {
-                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                        m_root.setFromCodec(tickerKey);
-                        break;
-                    }
-                    case 13: {
-                        auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                        m_expiry.set_year(dateKey.year());
-                        m_expiry.set_month(dateKey.month());
-                        m_expiry.set_day(dateKey.day());
+                    case 15: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
+                        m_ekey.setFromCodec(expiryKey);
                         break;
                     }
                     case 14: {m_resp_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
@@ -319,6 +293,7 @@ namespace api {
         using user_name = spiderrock::protobuf::api::user_name;
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using is_disabled = spiderrock::protobuf::api::is_disabled;
+        using enabled_until = spiderrock::protobuf::api::enabled_until;
         using expiry_qty_avail = spiderrock::protobuf::api::expiry_qty_avail;
         using ticker_qty_avail = spiderrock::protobuf::api::ticker_qty_avail;
         using transact_fee = spiderrock::protobuf::api::transact_fee;
@@ -340,6 +315,7 @@ namespace api {
         user_name m_user_name{};
         ticker m_ticker{};
         is_disabled m_is_disabled{};
+        enabled_until m_enabled_until{};
         expiry_qty_avail m_expiry_qty_avail{};
         ticker_qty_avail m_ticker_qty_avail{};
         transact_fee m_transact_fee{};
@@ -372,6 +348,9 @@ namespace api {
         }		
         is_disabled get_is_disabled() const {
             return m_is_disabled;
+        }		
+        enabled_until get_enabled_until() const {
+            return m_enabled_until;
         }		
         expiry_qty_avail get_expiry_qty_avail() const {
             return m_expiry_qty_avail;
@@ -433,6 +412,9 @@ namespace api {
         }
         void set_is_disabled(const is_disabled& value)  {
             m_is_disabled = value;
+        }
+        void set_enabled_until(const enabled_until& value)  {
+            m_enabled_until = value;
         }
         void set_expiry_qty_avail(const expiry_qty_avail& value)  {
             m_expiry_qty_avail = value;
@@ -499,6 +481,9 @@ namespace api {
         void set(const is_disabled & value) {
             set_is_disabled(value);
         }
+        void set(const enabled_until & value) {
+            set_enabled_until(value);
+        }
         void set(const expiry_qty_avail & value) {
             set_expiry_qty_avail(value);
         }
@@ -548,6 +533,7 @@ namespace api {
             set(value.m_user_name);
             set(value.m_ticker);
             set(value.m_is_disabled);
+            set(value.m_enabled_until);
             set(value.m_expiry_qty_avail);
             set(value.m_ticker_qty_avail);
             set(value.m_transact_fee);
@@ -626,6 +612,9 @@ namespace api {
         bool IncludeTicker() const {
             return (m_ticker.ByteSizeLong() > 0);
         }
+        bool IncludeEnabledUntil() const {
+            return (m_enabled_until.time_since_epoch().count() != 0);
+        }
         bool IncludeExpiryQtyAvail() const {
             return !(m_expiry_qty_avail == 0);
         }
@@ -676,6 +665,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(101, tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_disabled)));
+            if ( IncludeEnabledUntil()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(117, m_enabled_until);
+            }
             if ( IncludeExpiryQtyAvail()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(103,m_expiry_qty_avail);
             }
@@ -731,6 +723,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 101, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_disabled)));
+            if ( IncludeEnabledUntil()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 117, m_enabled_until);
+            }
             if ( IncludeExpiryQtyAvail()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,103,m_expiry_qty_avail);
             }
@@ -808,6 +803,12 @@ namespace api {
                     }
                     case 102: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_is_disabled = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 117: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_enabled_until = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
@@ -904,6 +905,7 @@ namespace api {
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::user_name>() const { return m_user_name; }
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::ticker>() const { return AutoResponderRC::ticker{ m_ticker}; }
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::is_disabled>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_disabled)); }
+    template<> inline const auto AutoResponderRC::get<AutoResponderRC::enabled_until>() const { return m_enabled_until; }
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::expiry_qty_avail>() const { return m_expiry_qty_avail; }
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::ticker_qty_avail>() const { return m_ticker_qty_avail; }
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::transact_fee>() const { return m_transact_fee; }
@@ -920,8 +922,7 @@ namespace api {
     template<> inline const auto AutoResponderRC::get<AutoResponderRC::timestamp>() const { return m_timestamp; }
     template<> inline const auto AutoResponderRC_PKey::get<AutoResponderRC_PKey::accnt>() const { return m_accnt; }
     template<> inline const auto AutoResponderRC_PKey::get<AutoResponderRC_PKey::client_firm>() const { return m_client_firm; }
-    template<> inline const auto AutoResponderRC_PKey::get<AutoResponderRC_PKey::root>() const { return AutoResponderRC_PKey::root{m_root}; }
-    template<> inline const auto AutoResponderRC_PKey::get<AutoResponderRC_PKey::expiry>() const { return AutoResponderRC_PKey::expiry{m_expiry}; }
+    template<> inline const auto AutoResponderRC_PKey::get<AutoResponderRC_PKey::ekey>() const { return AutoResponderRC_PKey::ekey{m_ekey}; }
     template<> inline const auto AutoResponderRC_PKey::get<AutoResponderRC_PKey::resp_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side));}
     
     // ostream operators for all classes above, output should adhere to a JSON format
@@ -929,8 +930,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const AutoResponderRC_PKey& m) {
         o << "\"accnt\":\"" << m.get<AutoResponderRC_PKey::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<AutoResponderRC_PKey::client_firm>() << "\"";
-        o << ",\"root\":{" << m.get<AutoResponderRC_PKey::root>() << "}";
-        o << ",\"expiry\":{" << m.get<AutoResponderRC_PKey::expiry>() << "}";
+        o << ",\"ekey\":{" << m.get<AutoResponderRC_PKey::ekey>() << "}";
         o << ",\"resp_side\":" << (int64_t)m.get<AutoResponderRC_PKey::resp_side>();
         return o;
     }
@@ -941,6 +941,12 @@ namespace api {
         o << ",\"user_name\":\"" << m.get<AutoResponderRC::user_name>() << "\"";
         o << ",\"ticker\":{" << m.get<AutoResponderRC::ticker>() << "}";
         o << ",\"is_disabled\":" << (int64_t)m.get<AutoResponderRC::is_disabled>();
+        {
+            std::time_t tt = m.get<AutoResponderRC::enabled_until>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"enabled_until\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
         o << ",\"expiry_qty_avail\":" << m.get<AutoResponderRC::expiry_qty_avail>();
         o << ",\"ticker_qty_avail\":" << m.get<AutoResponderRC::ticker_qty_avail>();
         o << ",\"transact_fee\":" << m.get<AutoResponderRC::transact_fee>();

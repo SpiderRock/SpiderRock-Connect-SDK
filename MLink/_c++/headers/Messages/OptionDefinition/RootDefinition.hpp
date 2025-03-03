@@ -200,6 +200,11 @@ namespace api {
     DECL_STRONG_TYPE(price_format, spiderrock::protobuf::api::PriceFormat);
     #endif//_price_format__GUARD__
 
+    #ifndef _min_tick_size__double__GUARD__
+    #define _min_tick_size__double__GUARD__
+    DECL_STRONG_TYPE(min_tick_size__double, double);
+    #endif//_min_tick_size__double__GUARD__
+
     #ifndef _trade_curr__GUARD__
     #define _trade_curr__GUARD__
     DECL_STRONG_TYPE(trade_curr, spiderrock::protobuf::api::Currency);
@@ -582,6 +587,7 @@ namespace api {
         using adj_convention = spiderrock::protobuf::api::adj_convention;
         using opt_price_inc = spiderrock::protobuf::api::opt_price_inc;
         using price_format = spiderrock::protobuf::api::price_format;
+        using min_tick_size = spiderrock::protobuf::api::min_tick_size__double;
         using trade_curr = spiderrock::protobuf::api::trade_curr;
         using settle_curr = spiderrock::protobuf::api::settle_curr;
         using strike_curr = spiderrock::protobuf::api::strike_curr;
@@ -630,6 +636,7 @@ namespace api {
         adj_convention m_adj_convention{};
         opt_price_inc m_opt_price_inc{};
         price_format m_price_format{};
+        min_tick_size m_min_tick_size{};
         trade_curr m_trade_curr{};
         settle_curr m_settle_curr{};
         strike_curr m_strike_curr{};
@@ -751,6 +758,9 @@ namespace api {
         }		
         price_format get_price_format() const {
             return m_price_format;
+        }		
+        min_tick_size get_min_tick_size() const {
+            return m_min_tick_size;
         }		
         trade_curr get_trade_curr() const {
             return m_trade_curr;
@@ -899,6 +909,9 @@ namespace api {
         }
         void set_price_format(const price_format& value)  {
             m_price_format = value;
+        }
+        void set_min_tick_size(const min_tick_size& value)  {
+            m_min_tick_size = value;
         }
         void set_trade_curr(const trade_curr& value)  {
             m_trade_curr = value;
@@ -1058,6 +1071,9 @@ namespace api {
         void set(const price_format & value) {
             set_price_format(value);
         }
+        void set(const min_tick_size & value) {
+            set_min_tick_size(value);
+        }
         void set(const trade_curr & value) {
             set_trade_curr(value);
         }
@@ -1126,6 +1142,7 @@ namespace api {
             set(value.m_adj_convention);
             set(value.m_opt_price_inc);
             set(value.m_price_format);
+            set(value.m_min_tick_size);
             set(value.m_trade_curr);
             set(value.m_settle_curr);
             set(value.m_strike_curr);
@@ -1237,6 +1254,9 @@ namespace api {
         bool IncludeSymbolRatio() const {
             return !(m_symbol_ratio == 0.0);
         }
+        bool IncludeMinTickSize() const {
+            return !(m_min_tick_size == 0.0);
+        }
         bool IncludeDefaultSurfaceRoot() const {
             return (m_default_surface_root.ByteSizeLong() > 0);
         }
@@ -1341,6 +1361,9 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(193,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_price_format)));
+            if ( IncludeMinTickSize()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(226,m_min_tick_size);
+            }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(196,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_trade_curr)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_settle_curr)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_strike_curr)));
@@ -1461,6 +1484,9 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>(m_adj_convention)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>(m_opt_price_inc)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,193,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>(m_price_format)));
+            if ( IncludeMinTickSize()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,226,m_min_tick_size);
+            }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,196,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_trade_curr)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,199,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_settle_curr)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_strike_curr)));
@@ -1714,6 +1740,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 226: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_min_tick_size = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
                     case 196: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_trade_curr = static_cast<spiderrock::protobuf::api::Currency>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1823,6 +1855,7 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::adj_convention>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjConvention>( m_adj_convention)); }
     template<> inline const auto RootDefinition::get<RootDefinition::opt_price_inc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OptPriceInc>( m_opt_price_inc)); }
     template<> inline const auto RootDefinition::get<RootDefinition::price_format>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PriceFormat>( m_price_format)); }
+    template<> inline const auto RootDefinition::get<RootDefinition::min_tick_size>() const { return m_min_tick_size; }
     template<> inline const auto RootDefinition::get<RootDefinition::trade_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_trade_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::settle_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_settle_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::strike_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_strike_curr)); }
@@ -1899,6 +1932,7 @@ namespace api {
         o << ",\"adj_convention\":" << (int64_t)m.get<RootDefinition::adj_convention>();
         o << ",\"opt_price_inc\":" << (int64_t)m.get<RootDefinition::opt_price_inc>();
         o << ",\"price_format\":" << (int64_t)m.get<RootDefinition::price_format>();
+        o << ",\"min_tick_size\":" << m.get<RootDefinition::min_tick_size>();
         o << ",\"trade_curr\":" << (int64_t)m.get<RootDefinition::trade_curr>();
         o << ",\"settle_curr\":" << (int64_t)m.get<RootDefinition::settle_curr>();
         o << ",\"strike_curr\":" << (int64_t)m.get<RootDefinition::strike_curr>();

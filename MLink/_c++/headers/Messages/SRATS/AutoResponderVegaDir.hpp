@@ -40,6 +40,11 @@ namespace api {
     DECL_STRONG_TYPE(is_disabled, spiderrock::protobuf::api::YesNo);
     #endif//_is_disabled__GUARD__
 
+    #ifndef _enabled_until__GUARD__
+    #define _enabled_until__GUARD__
+    DECL_STRONG_TYPE(enabled_until, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_enabled_until__GUARD__
+
     #ifndef _can_include_flex__GUARD__
     #define _can_include_flex__GUARD__
     DECL_STRONG_TYPE(can_include_flex, spiderrock::protobuf::api::YesNo);
@@ -54,6 +59,31 @@ namespace api {
     #define _cp_flag__GUARD__
     DECL_STRONG_TYPE(cp_flag, spiderrock::protobuf::api::CallPut);
     #endif//_cp_flag__GUARD__
+
+    #ifndef _min_net_vega_ratio__GUARD__
+    #define _min_net_vega_ratio__GUARD__
+    DECL_STRONG_TYPE(min_net_vega_ratio, float);
+    #endif//_min_net_vega_ratio__GUARD__
+
+    #ifndef _min_years__GUARD__
+    #define _min_years__GUARD__
+    DECL_STRONG_TYPE(min_years, float);
+    #endif//_min_years__GUARD__
+
+    #ifndef _max_years__float__GUARD__
+    #define _max_years__float__GUARD__
+    DECL_STRONG_TYPE(max_years__float, float);
+    #endif//_max_years__float__GUARD__
+
+    #ifndef _min_expiry__GUARD__
+    #define _min_expiry__GUARD__
+    DECL_STRONG_TYPE(min_expiry, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_min_expiry__GUARD__
+
+    #ifndef _max_expiry__GUARD__
+    #define _max_expiry__GUARD__
+    DECL_STRONG_TYPE(max_expiry, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_max_expiry__GUARD__
 
     #ifndef _min_xdelta__GUARD__
     #define _min_xdelta__GUARD__
@@ -175,20 +205,20 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
-    #ifndef _ticker__TickerKey__GUARD__
-    #define _ticker__TickerKey__GUARD__
-    DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
-    #endif//_ticker__TickerKey__GUARD__
-
-    #ifndef _expiry__GUARD__
-    #define _expiry__GUARD__
-    DECL_STRONG_TYPE(expiry, DateKey);
-    #endif//_expiry__GUARD__
+    #ifndef _root__GUARD__
+    #define _root__GUARD__
+    DECL_STRONG_TYPE(root, TickerKey);
+    #endif//_root__GUARD__
 
     #ifndef _resp_side__GUARD__
     #define _resp_side__GUARD__
     DECL_STRONG_TYPE(resp_side, spiderrock::protobuf::api::BuySell);
     #endif//_resp_side__GUARD__
+
+    #ifndef _responder_id__GUARD__
+    #define _responder_id__GUARD__
+    DECL_STRONG_TYPE(responder_id, int32);
+    #endif//_responder_id__GUARD__
 
     
     class AutoResponderVegaDir_PKey {
@@ -196,16 +226,16 @@ namespace api {
         //using statements for all types used in this class
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
-        using ticker = spiderrock::protobuf::api::ticker__TickerKey;
-        using expiry = spiderrock::protobuf::api::expiry;
+        using root = spiderrock::protobuf::api::root;
         using resp_side = spiderrock::protobuf::api::resp_side;
+        using responder_id = spiderrock::protobuf::api::responder_id;
 
         private:
         accnt m_accnt{};
         client_firm m_client_firm{};
-        ticker m_ticker{};
-        expiry m_expiry{};
+        root m_root{};
         resp_side m_resp_side{};
+        responder_id m_responder_id{};
 
         public:
         accnt get_accnt() const {
@@ -214,14 +244,14 @@ namespace api {
         client_firm get_client_firm() const {
             return m_client_firm;
         }
-		ticker get_ticker() const {
-            return m_ticker;
-        }
-		expiry get_expiry() const {
-            return m_expiry;
+		root get_root() const {
+            return m_root;
         }
         resp_side get_resp_side() const {
             return m_resp_side;
+        }
+        responder_id get_responder_id() const {
+            return m_responder_id;
         }
         void set_accnt(const accnt& value)  {
             m_accnt = value;
@@ -229,14 +259,14 @@ namespace api {
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
         }
-        void set_ticker(const ticker& value)  {
-            m_ticker = value;
-        }
-        void set_expiry(const expiry& value)  {
-            m_expiry = value;
+        void set_root(const root& value)  {
+            m_root = value;
         }
         void set_resp_side(const resp_side& value)  {
             m_resp_side = value;
+        }
+        void set_responder_id(const responder_id& value)  {
+            m_responder_id = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -248,9 +278,9 @@ namespace api {
         
         void set(const accnt & value) { set_accnt(value); }
         void set(const client_firm & value) { set_client_firm(value); }
-        void set(const ticker & value) { set_ticker(value); }
-        void set(const expiry & value) { set_expiry(value); }
+        void set(const root & value) { set_root(value); }
         void set(const resp_side & value) { set_resp_side(value); }
+        void set(const responder_id & value) { set_responder_id(value); }
 
 
         AutoResponderVegaDir_PKey() {}
@@ -273,11 +303,11 @@ namespace api {
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
         }
-        bool IncludeTicker() const {
-            return (m_ticker.ByteSizeLong() > 0);
+        bool IncludeRoot() const {
+            return (m_root.ByteSizeLong() > 0);
         }
-        bool IncludeExpiry() const {
-            return (m_expiry.ByteSizeLong() > 0);
+        bool IncludeResponderId() const {
+            return !(m_responder_id == 0);
         }
 
 
@@ -289,15 +319,15 @@ namespace api {
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(14,m_client_firm);
             }
-            if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(11,tickerKeyLayout_ticker);
-            }
-            if ( IncludeExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(15, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
+                m_root.setCodecTickerKey(tickerKeyLayout_root);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(16,tickerKeyLayout_root);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
+            if ( IncludeResponderId()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(17,m_responder_id);
+            }
             return totalSize;
         }
 
@@ -308,15 +338,15 @@ namespace api {
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,14,static_cast<string>(m_client_firm));
             }
-            if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker;
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 11, tickerKeyLayout_ticker);
-            }
-            if ( IncludeExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,15, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeRoot()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
+                m_root.setCodecTickerKey(tickerKeyLayout_root);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 16, tickerKeyLayout_root);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,12,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
+            if ( IncludeResponderId()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,17,m_responder_id);
+            }
         }
 
         const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
@@ -338,19 +368,15 @@ namespace api {
                     case 14: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 11: {
+                    case 16: {
                         auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                        m_ticker.setFromCodec(tickerKey);
-                        break;
-                    }
-                    case 15: {
-                        auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                        m_expiry.set_year(dateKey.year());
-                        m_expiry.set_month(dateKey.month());
-                        m_expiry.set_day(dateKey.day());
+                        m_root.setFromCodec(tickerKey);
                         break;
                     }
                     case 12: {m_resp_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        break;
+                    }
+                    case 17: {m_responder_id = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
                 }
@@ -368,9 +394,15 @@ namespace api {
         using pkey = spiderrock::protobuf::api::AutoResponderVegaDir_PKey;
         using user_name = spiderrock::protobuf::api::user_name;
         using is_disabled = spiderrock::protobuf::api::is_disabled;
+        using enabled_until = spiderrock::protobuf::api::enabled_until;
         using can_include_flex = spiderrock::protobuf::api::can_include_flex;
         using can_include_stock = spiderrock::protobuf::api::can_include_stock;
         using cp_flag = spiderrock::protobuf::api::cp_flag;
+        using min_net_vega_ratio = spiderrock::protobuf::api::min_net_vega_ratio;
+        using min_years = spiderrock::protobuf::api::min_years;
+        using max_years = spiderrock::protobuf::api::max_years__float;
+        using min_expiry = spiderrock::protobuf::api::min_expiry;
+        using max_expiry = spiderrock::protobuf::api::max_expiry;
         using min_xdelta = spiderrock::protobuf::api::min_xdelta;
         using max_xdelta = spiderrock::protobuf::api::max_xdelta;
         using min_strike = spiderrock::protobuf::api::min_strike;
@@ -399,9 +431,15 @@ namespace api {
         pkey m_pkey{};
         user_name m_user_name{};
         is_disabled m_is_disabled{};
+        enabled_until m_enabled_until{};
         can_include_flex m_can_include_flex{};
         can_include_stock m_can_include_stock{};
         cp_flag m_cp_flag{};
+        min_net_vega_ratio m_min_net_vega_ratio{};
+        min_years m_min_years{};
+        max_years m_max_years{};
+        min_expiry m_min_expiry{};
+        max_expiry m_max_expiry{};
         min_xdelta m_min_xdelta{};
         max_xdelta m_max_xdelta{};
         min_strike m_min_strike{};
@@ -440,6 +478,9 @@ namespace api {
         is_disabled get_is_disabled() const {
             return m_is_disabled;
         }		
+        enabled_until get_enabled_until() const {
+            return m_enabled_until;
+        }		
         can_include_flex get_can_include_flex() const {
             return m_can_include_flex;
         }		
@@ -448,6 +489,21 @@ namespace api {
         }		
         cp_flag get_cp_flag() const {
             return m_cp_flag;
+        }		
+        min_net_vega_ratio get_min_net_vega_ratio() const {
+            return m_min_net_vega_ratio;
+        }		
+        min_years get_min_years() const {
+            return m_min_years;
+        }		
+        max_years get_max_years() const {
+            return m_max_years;
+        }		
+        min_expiry get_min_expiry() const {
+            return m_min_expiry;
+        }		
+        max_expiry get_max_expiry() const {
+            return m_max_expiry;
         }		
         min_xdelta get_min_xdelta() const {
             return m_min_xdelta;
@@ -531,6 +587,9 @@ namespace api {
         void set_is_disabled(const is_disabled& value)  {
             m_is_disabled = value;
         }
+        void set_enabled_until(const enabled_until& value)  {
+            m_enabled_until = value;
+        }
         void set_can_include_flex(const can_include_flex& value)  {
             m_can_include_flex = value;
         }
@@ -539,6 +598,21 @@ namespace api {
         }
         void set_cp_flag(const cp_flag& value)  {
             m_cp_flag = value;
+        }
+        void set_min_net_vega_ratio(const min_net_vega_ratio& value)  {
+            m_min_net_vega_ratio = value;
+        }
+        void set_min_years(const min_years& value)  {
+            m_min_years = value;
+        }
+        void set_max_years(const max_years& value)  {
+            m_max_years = value;
+        }
+        void set_min_expiry(const min_expiry& value)  {
+            m_min_expiry = value;
+        }
+        void set_max_expiry(const max_expiry& value)  {
+            m_max_expiry = value;
         }
         void set_min_xdelta(const min_xdelta& value)  {
             m_min_xdelta = value;
@@ -626,6 +700,9 @@ namespace api {
         void set(const is_disabled & value) {
             set_is_disabled(value);
         }
+        void set(const enabled_until & value) {
+            set_enabled_until(value);
+        }
         void set(const can_include_flex & value) {
             set_can_include_flex(value);
         }
@@ -634,6 +711,21 @@ namespace api {
         }
         void set(const cp_flag & value) {
             set_cp_flag(value);
+        }
+        void set(const min_net_vega_ratio & value) {
+            set_min_net_vega_ratio(value);
+        }
+        void set(const min_years & value) {
+            set_min_years(value);
+        }
+        void set(const max_years & value) {
+            set_max_years(value);
+        }
+        void set(const min_expiry & value) {
+            set_min_expiry(value);
+        }
+        void set(const max_expiry & value) {
+            set_max_expiry(value);
         }
         void set(const min_xdelta & value) {
             set_min_xdelta(value);
@@ -707,9 +799,15 @@ namespace api {
             set(value.m_pkey);
             set(value.m_user_name);
             set(value.m_is_disabled);
+            set(value.m_enabled_until);
             set(value.m_can_include_flex);
             set(value.m_can_include_stock);
             set(value.m_cp_flag);
+            set(value.m_min_net_vega_ratio);
+            set(value.m_min_years);
+            set(value.m_max_years);
+            set(value.m_min_expiry);
+            set(value.m_max_expiry);
             set(value.m_min_xdelta);
             set(value.m_max_xdelta);
             set(value.m_min_strike);
@@ -793,6 +891,24 @@ namespace api {
         bool IncludeUserName() const {
             return !(m_user_name.empty());
         }
+        bool IncludeEnabledUntil() const {
+            return (m_enabled_until.time_since_epoch().count() != 0);
+        }
+        bool IncludeMinNetVegaRatio() const {
+            return !(m_min_net_vega_ratio == 0.0);
+        }
+        bool IncludeMinYears() const {
+            return !(m_min_years == 0.0);
+        }
+        bool IncludeMaxYears() const {
+            return !(m_max_years == 0.0);
+        }
+        bool IncludeMinExpiry() const {
+            return (m_min_expiry.time_since_epoch().count() != 0);
+        }
+        bool IncludeMaxExpiry() const {
+            return (m_max_expiry.time_since_epoch().count() != 0);
+        }
         bool IncludeMinXdelta() const {
             return !(m_min_xdelta == 0.0);
         }
@@ -856,9 +972,27 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(100,m_user_name);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_disabled)));
+            if ( IncludeEnabledUntil()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(136, m_enabled_until);
+            }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_flex)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_stock)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_cp_flag)));
+            if ( IncludeMinNetVegaRatio()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(137,m_min_net_vega_ratio);
+            }
+            if ( IncludeMinYears()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(138,m_min_years);
+            }
+            if ( IncludeMaxYears()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(139,m_max_years);
+            }
+            if ( IncludeMinExpiry()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(140, m_min_expiry);
+            }
+            if ( IncludeMaxExpiry()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(141, m_max_expiry);
+            }
             if ( IncludeMinXdelta()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(110,m_min_xdelta);
             }
@@ -931,9 +1065,27 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,100,static_cast<string>(m_user_name));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_disabled)));
+            if ( IncludeEnabledUntil()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 136, m_enabled_until);
+            }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_flex)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_stock)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_cp_flag)));
+            if ( IncludeMinNetVegaRatio()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,137,m_min_net_vega_ratio);
+            }
+            if ( IncludeMinYears()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,138,m_min_years);
+            }
+            if ( IncludeMaxYears()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,139,m_max_years);
+            }
+            if ( IncludeMinExpiry()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 140, m_min_expiry);
+            }
+            if ( IncludeMaxExpiry()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 141, m_max_expiry);
+            }
             if ( IncludeMinXdelta()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,110,m_min_xdelta);
             }
@@ -1029,6 +1181,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 136: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_enabled_until = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        }
+                        break;
+                    }
                     case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_can_include_flex = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1041,6 +1199,36 @@ namespace api {
                     }
                     case 105: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_cp_flag = static_cast<spiderrock::protobuf::api::CallPut>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 137: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_min_net_vega_ratio = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 138: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_min_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 139: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_max_years = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 140: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_min_expiry = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        }
+                        break;
+                    }
+                    case 141: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_max_expiry = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
@@ -1183,9 +1371,15 @@ namespace api {
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::pkey>() const { return AutoResponderVegaDir::pkey{ m_pkey}; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::user_name>() const { return m_user_name; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::is_disabled>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_disabled)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::enabled_until>() const { return m_enabled_until; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::can_include_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_include_flex)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::can_include_stock>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_include_stock)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::cp_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>( m_cp_flag)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_net_vega_ratio>() const { return m_min_net_vega_ratio; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_years>() const { return m_min_years; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::max_years>() const { return m_max_years; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_expiry>() const { return m_min_expiry; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::max_expiry>() const { return m_max_expiry; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_xdelta>() const { return m_min_xdelta; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::max_xdelta>() const { return m_max_xdelta; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_strike>() const { return m_min_strike; }
@@ -1210,18 +1404,18 @@ namespace api {
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::timestamp>() const { return m_timestamp; }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::accnt>() const { return m_accnt; }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::client_firm>() const { return m_client_firm; }
-    template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::ticker>() const { return AutoResponderVegaDir_PKey::ticker{m_ticker}; }
-    template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::expiry>() const { return AutoResponderVegaDir_PKey::expiry{m_expiry}; }
+    template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::root>() const { return AutoResponderVegaDir_PKey::root{m_root}; }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::resp_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side));}
+    template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::responder_id>() const { return m_responder_id; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
     inline std::ostream& operator<<(std::ostream &o, const AutoResponderVegaDir_PKey& m) {
         o << "\"accnt\":\"" << m.get<AutoResponderVegaDir_PKey::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<AutoResponderVegaDir_PKey::client_firm>() << "\"";
-        o << ",\"ticker\":{" << m.get<AutoResponderVegaDir_PKey::ticker>() << "}";
-        o << ",\"expiry\":{" << m.get<AutoResponderVegaDir_PKey::expiry>() << "}";
+        o << ",\"root\":{" << m.get<AutoResponderVegaDir_PKey::root>() << "}";
         o << ",\"resp_side\":" << (int64_t)m.get<AutoResponderVegaDir_PKey::resp_side>();
+        o << ",\"responder_id\":" << m.get<AutoResponderVegaDir_PKey::responder_id>();
         return o;
     }
 
@@ -1230,9 +1424,30 @@ namespace api {
         o << ",\"pkey\":{" << m.get<AutoResponderVegaDir::pkey>() << "}";
         o << ",\"user_name\":\"" << m.get<AutoResponderVegaDir::user_name>() << "\"";
         o << ",\"is_disabled\":" << (int64_t)m.get<AutoResponderVegaDir::is_disabled>();
+        {
+            std::time_t tt = m.get<AutoResponderVegaDir::enabled_until>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"enabled_until\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
         o << ",\"can_include_flex\":" << (int64_t)m.get<AutoResponderVegaDir::can_include_flex>();
         o << ",\"can_include_stock\":" << (int64_t)m.get<AutoResponderVegaDir::can_include_stock>();
         o << ",\"cp_flag\":" << (int64_t)m.get<AutoResponderVegaDir::cp_flag>();
+        o << ",\"min_net_vega_ratio\":" << m.get<AutoResponderVegaDir::min_net_vega_ratio>();
+        o << ",\"min_years\":" << m.get<AutoResponderVegaDir::min_years>();
+        o << ",\"max_years\":" << m.get<AutoResponderVegaDir::max_years>();
+        {
+            std::time_t tt = m.get<AutoResponderVegaDir::min_expiry>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"min_expiry\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
+        {
+            std::time_t tt = m.get<AutoResponderVegaDir::max_expiry>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"max_expiry\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
         o << ",\"min_xdelta\":" << m.get<AutoResponderVegaDir::min_xdelta>();
         o << ",\"max_xdelta\":" << m.get<AutoResponderVegaDir::max_xdelta>();
         o << ",\"min_strike\":" << m.get<AutoResponderVegaDir::min_strike>();

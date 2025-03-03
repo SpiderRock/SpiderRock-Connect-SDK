@@ -165,6 +165,11 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
+    #ifndef _strategy_accnt__GUARD__
+    #define _strategy_accnt__GUARD__
+    DECL_STRONG_TYPE(strategy_accnt, string);
+    #endif//_strategy_accnt__GUARD__
+
     #ifndef _core_client_firm__GUARD__
     #define _core_client_firm__GUARD__
     DECL_STRONG_TYPE(core_client_firm, string);
@@ -4760,6 +4765,7 @@ namespace api {
         using sec_type = spiderrock::protobuf::api::sec_type__SpdrKeyType;
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
+        using strategy_accnt = spiderrock::protobuf::api::strategy_accnt;
         using core_client_firm = spiderrock::protobuf::api::core_client_firm;
         using sponsor_client_firm = spiderrock::protobuf::api::sponsor_client_firm;
         using client_accnt = spiderrock::protobuf::api::client_accnt;
@@ -4971,6 +4977,7 @@ namespace api {
         sec_type m_sec_type{};
         accnt m_accnt{};
         client_firm m_client_firm{};
+        strategy_accnt m_strategy_accnt{};
         core_client_firm m_core_client_firm{};
         sponsor_client_firm m_sponsor_client_firm{};
         client_accnt m_client_accnt{};
@@ -5241,6 +5248,9 @@ namespace api {
         }		
         client_firm get_client_firm() const {
             return m_client_firm;
+        }		
+        strategy_accnt get_strategy_accnt() const {
+            return m_strategy_accnt;
         }		
         core_client_firm get_core_client_firm() const {
             return m_core_client_firm;
@@ -5884,6 +5894,9 @@ namespace api {
         }
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
+        }
+        void set_strategy_accnt(const strategy_accnt& value)  {
+            m_strategy_accnt = value;
         }
         void set_core_client_firm(const core_client_firm& value)  {
             m_core_client_firm = value;
@@ -6538,6 +6551,9 @@ namespace api {
         void set(const client_firm & value) {
             set_client_firm(value);
         }
+        void set(const strategy_accnt & value) {
+            set_strategy_accnt(value);
+        }
         void set(const core_client_firm & value) {
             set_core_client_firm(value);
         }
@@ -7109,6 +7125,7 @@ namespace api {
             set(value.m_sec_type);
             set(value.m_accnt);
             set(value.m_client_firm);
+            set(value.m_strategy_accnt);
             set(value.m_core_client_firm);
             set(value.m_sponsor_client_firm);
             set(value.m_client_accnt);
@@ -7402,6 +7419,9 @@ namespace api {
         }
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
+        }
+        bool IncludeStrategyAccnt() const {
+            return !(m_strategy_accnt.empty());
         }
         bool IncludeCoreClientFirm() const {
             return !(m_core_client_firm.empty());
@@ -7854,6 +7874,9 @@ namespace api {
             }
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(178,m_client_firm);
+            }
+            if ( IncludeStrategyAccnt()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(1100,m_strategy_accnt);
             }
             if ( IncludeCoreClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(1039,m_core_client_firm);
@@ -8385,6 +8408,9 @@ namespace api {
             }
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,178,static_cast<string>(m_client_firm));
+            }
+            if ( IncludeStrategyAccnt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,1100,static_cast<string>(m_strategy_accnt));
             }
             if ( IncludeCoreClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,1039,static_cast<string>(m_core_client_firm));
@@ -9017,6 +9043,12 @@ namespace api {
                     case 178: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 1100: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_strategy_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -10096,6 +10128,7 @@ namespace api {
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::sec_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>( m_sec_type)); }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::accnt>() const { return m_accnt; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::client_firm>() const { return m_client_firm; }
+    template<> inline const auto SpdrParentReport::get<SpdrParentReport::strategy_accnt>() const { return m_strategy_accnt; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::core_client_firm>() const { return m_core_client_firm; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::sponsor_client_firm>() const { return m_sponsor_client_firm; }
     template<> inline const auto SpdrParentReport::get<SpdrParentReport::client_accnt>() const { return m_client_accnt; }
@@ -10722,6 +10755,7 @@ namespace api {
         o << ",\"sec_type\":" << (int64_t)m.get<SpdrParentReport::sec_type>();
         o << ",\"accnt\":\"" << m.get<SpdrParentReport::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<SpdrParentReport::client_firm>() << "\"";
+        o << ",\"strategy_accnt\":\"" << m.get<SpdrParentReport::strategy_accnt>() << "\"";
         o << ",\"core_client_firm\":\"" << m.get<SpdrParentReport::core_client_firm>() << "\"";
         o << ",\"sponsor_client_firm\":\"" << m.get<SpdrParentReport::sponsor_client_firm>() << "\"";
         o << ",\"client_accnt\":\"" << m.get<SpdrParentReport::client_accnt>() << "\"";

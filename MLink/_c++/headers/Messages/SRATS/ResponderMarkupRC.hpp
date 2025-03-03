@@ -40,6 +40,11 @@ namespace api {
     DECL_STRONG_TYPE(is_disabled, spiderrock::protobuf::api::YesNo);
     #endif//_is_disabled__GUARD__
 
+    #ifndef _enabled_until__GUARD__
+    #define _enabled_until__GUARD__
+    DECL_STRONG_TYPE(enabled_until, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
+    #endif//_enabled_until__GUARD__
+
     #ifndef _expiry_qty_avail__GUARD__
     #define _expiry_qty_avail__GUARD__
     DECL_STRONG_TYPE(expiry_qty_avail, int32);
@@ -185,6 +190,166 @@ namespace api {
     DECL_STRONG_TYPE(eff_stock_rate, double);
     #endif//_eff_stock_rate__GUARD__
 
+    #ifndef _num_notices__GUARD__
+    #define _num_notices__GUARD__
+    DECL_STRONG_TYPE(num_notices, int64);
+    #endif//_num_notices__GUARD__
+
+    #ifndef _num_notice_sr__GUARD__
+    #define _num_notice_sr__GUARD__
+    DECL_STRONG_TYPE(num_notice_sr, int64);
+    #endif//_num_notice_sr__GUARD__
+
+    #ifndef _num_notice_amex__GUARD__
+    #define _num_notice_amex__GUARD__
+    DECL_STRONG_TYPE(num_notice_amex, int64);
+    #endif//_num_notice_amex__GUARD__
+
+    #ifndef _num_notice_bats__GUARD__
+    #define _num_notice_bats__GUARD__
+    DECL_STRONG_TYPE(num_notice_bats, int64);
+    #endif//_num_notice_bats__GUARD__
+
+    #ifndef _num_notice_box__GUARD__
+    #define _num_notice_box__GUARD__
+    DECL_STRONG_TYPE(num_notice_box, int64);
+    #endif//_num_notice_box__GUARD__
+
+    #ifndef _num_notice_cboe__GUARD__
+    #define _num_notice_cboe__GUARD__
+    DECL_STRONG_TYPE(num_notice_cboe, int64);
+    #endif//_num_notice_cboe__GUARD__
+
+    #ifndef _num_notice_c2__GUARD__
+    #define _num_notice_c2__GUARD__
+    DECL_STRONG_TYPE(num_notice_c2, int64);
+    #endif//_num_notice_c2__GUARD__
+
+    #ifndef _num_notice_edgo__GUARD__
+    #define _num_notice_edgo__GUARD__
+    DECL_STRONG_TYPE(num_notice_edgo, int64);
+    #endif//_num_notice_edgo__GUARD__
+
+    #ifndef _num_notice_emld__GUARD__
+    #define _num_notice_emld__GUARD__
+    DECL_STRONG_TYPE(num_notice_emld, int64);
+    #endif//_num_notice_emld__GUARD__
+
+    #ifndef _num_notice_gmni__GUARD__
+    #define _num_notice_gmni__GUARD__
+    DECL_STRONG_TYPE(num_notice_gmni, int64);
+    #endif//_num_notice_gmni__GUARD__
+
+    #ifndef _num_notice_ise__GUARD__
+    #define _num_notice_ise__GUARD__
+    DECL_STRONG_TYPE(num_notice_ise, int64);
+    #endif//_num_notice_ise__GUARD__
+
+    #ifndef _num_notice_mcry__GUARD__
+    #define _num_notice_mcry__GUARD__
+    DECL_STRONG_TYPE(num_notice_mcry, int64);
+    #endif//_num_notice_mcry__GUARD__
+
+    #ifndef _num_notice_memx__GUARD__
+    #define _num_notice_memx__GUARD__
+    DECL_STRONG_TYPE(num_notice_memx, int64);
+    #endif//_num_notice_memx__GUARD__
+
+    #ifndef _num_notice_miax__GUARD__
+    #define _num_notice_miax__GUARD__
+    DECL_STRONG_TYPE(num_notice_miax, int64);
+    #endif//_num_notice_miax__GUARD__
+
+    #ifndef _num_notice_mprl__GUARD__
+    #define _num_notice_mprl__GUARD__
+    DECL_STRONG_TYPE(num_notice_mprl, int64);
+    #endif//_num_notice_mprl__GUARD__
+
+    #ifndef _num_notice_nyse__GUARD__
+    #define _num_notice_nyse__GUARD__
+    DECL_STRONG_TYPE(num_notice_nyse, int64);
+    #endif//_num_notice_nyse__GUARD__
+
+    #ifndef _num_notice_nqbx__GUARD__
+    #define _num_notice_nqbx__GUARD__
+    DECL_STRONG_TYPE(num_notice_nqbx, int64);
+    #endif//_num_notice_nqbx__GUARD__
+
+    #ifndef _num_notice_nsdq__GUARD__
+    #define _num_notice_nsdq__GUARD__
+    DECL_STRONG_TYPE(num_notice_nsdq, int64);
+    #endif//_num_notice_nsdq__GUARD__
+
+    #ifndef _num_notice_phlx__GUARD__
+    #define _num_notice_phlx__GUARD__
+    DECL_STRONG_TYPE(num_notice_phlx, int64);
+    #endif//_num_notice_phlx__GUARD__
+
+    #ifndef _num_notice_sphr__GUARD__
+    #define _num_notice_sphr__GUARD__
+    DECL_STRONG_TYPE(num_notice_sphr, int64);
+    #endif//_num_notice_sphr__GUARD__
+
+    #ifndef _resp_disabled_skips__GUARD__
+    #define _resp_disabled_skips__GUARD__
+    DECL_STRONG_TYPE(resp_disabled_skips, int64);
+    #endif//_resp_disabled_skips__GUARD__
+
+    #ifndef _listed_flex_skips__GUARD__
+    #define _listed_flex_skips__GUARD__
+    DECL_STRONG_TYPE(listed_flex_skips, int64);
+    #endif//_listed_flex_skips__GUARD__
+
+    #ifndef _notice_price_skips__GUARD__
+    #define _notice_price_skips__GUARD__
+    DECL_STRONG_TYPE(notice_price_skips, int64);
+    #endif//_notice_price_skips__GUARD__
+
+    #ifndef _size_limit_skips__GUARD__
+    #define _size_limit_skips__GUARD__
+    DECL_STRONG_TYPE(size_limit_skips, int64);
+    #endif//_size_limit_skips__GUARD__
+
+    #ifndef _risk_group_limit_skips__GUARD__
+    #define _risk_group_limit_skips__GUARD__
+    DECL_STRONG_TYPE(risk_group_limit_skips, int64);
+    #endif//_risk_group_limit_skips__GUARD__
+
+    #ifndef _num_responses__int64__GUARD__
+    #define _num_responses__int64__GUARD__
+    DECL_STRONG_TYPE(num_responses__int64, int64);
+    #endif//_num_responses__int64__GUARD__
+
+    #ifndef _num_full_size__GUARD__
+    #define _num_full_size__GUARD__
+    DECL_STRONG_TYPE(num_full_size, int64);
+    #endif//_num_full_size__GUARD__
+
+    #ifndef _num_alloc_size__GUARD__
+    #define _num_alloc_size__GUARD__
+    DECL_STRONG_TYPE(num_alloc_size, int64);
+    #endif//_num_alloc_size__GUARD__
+
+    #ifndef _num_price_miss__GUARD__
+    #define _num_price_miss__GUARD__
+    DECL_STRONG_TYPE(num_price_miss, int64);
+    #endif//_num_price_miss__GUARD__
+
+    #ifndef _num_too_late__GUARD__
+    #define _num_too_late__GUARD__
+    DECL_STRONG_TYPE(num_too_late, int64);
+    #endif//_num_too_late__GUARD__
+
+    #ifndef _num_other_miss__GUARD__
+    #define _num_other_miss__GUARD__
+    DECL_STRONG_TYPE(num_other_miss, int64);
+    #endif//_num_other_miss__GUARD__
+
+    #ifndef _num_did_not_trade__GUARD__
+    #define _num_did_not_trade__GUARD__
+    DECL_STRONG_TYPE(num_did_not_trade, int64);
+    #endif//_num_did_not_trade__GUARD__
+
     #ifndef _modified_by__GUARD__
     #define _modified_by__GUARD__
     DECL_STRONG_TYPE(modified_by, string);
@@ -210,15 +375,10 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
-    #ifndef _root__GUARD__
-    #define _root__GUARD__
-    DECL_STRONG_TYPE(root, TickerKey);
-    #endif//_root__GUARD__
-
-    #ifndef _expiry__GUARD__
-    #define _expiry__GUARD__
-    DECL_STRONG_TYPE(expiry, DateKey);
-    #endif//_expiry__GUARD__
+    #ifndef _ekey__GUARD__
+    #define _ekey__GUARD__
+    DECL_STRONG_TYPE(ekey, ExpiryKey);
+    #endif//_ekey__GUARD__
 
     #ifndef _resp_side__GUARD__
     #define _resp_side__GUARD__
@@ -231,15 +391,13 @@ namespace api {
         //using statements for all types used in this class
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
-        using root = spiderrock::protobuf::api::root;
-        using expiry = spiderrock::protobuf::api::expiry;
+        using ekey = spiderrock::protobuf::api::ekey;
         using resp_side = spiderrock::protobuf::api::resp_side;
 
         private:
         accnt m_accnt{};
         client_firm m_client_firm{};
-        root m_root{};
-        expiry m_expiry{};
+        ekey m_ekey{};
         resp_side m_resp_side{};
 
         public:
@@ -249,11 +407,8 @@ namespace api {
         client_firm get_client_firm() const {
             return m_client_firm;
         }
-		root get_root() const {
-            return m_root;
-        }
-		expiry get_expiry() const {
-            return m_expiry;
+		ekey get_ekey() const {
+            return m_ekey;
         }
         resp_side get_resp_side() const {
             return m_resp_side;
@@ -264,11 +419,8 @@ namespace api {
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
         }
-        void set_root(const root& value)  {
-            m_root = value;
-        }
-        void set_expiry(const expiry& value)  {
-            m_expiry = value;
+        void set_ekey(const ekey& value)  {
+            m_ekey = value;
         }
         void set_resp_side(const resp_side& value)  {
             m_resp_side = value;
@@ -283,8 +435,7 @@ namespace api {
         
         void set(const accnt & value) { set_accnt(value); }
         void set(const client_firm & value) { set_client_firm(value); }
-        void set(const root & value) { set_root(value); }
-        void set(const expiry & value) { set_expiry(value); }
+        void set(const ekey & value) { set_ekey(value); }
         void set(const resp_side & value) { set_resp_side(value); }
 
 
@@ -308,11 +459,8 @@ namespace api {
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
         }
-        bool IncludeRoot() const {
-            return (m_root.ByteSizeLong() > 0);
-        }
-        bool IncludeExpiry() const {
-            return (m_expiry.ByteSizeLong() > 0);
+        bool IncludeEkey() const {
+            return (m_ekey.ByteSizeLong() > 0);
         }
 
 
@@ -324,13 +472,10 @@ namespace api {
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_client_firm);
             }
-            if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(12,tickerKeyLayout_root);
-            }
-            if ( IncludeExpiry()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(13, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(15,expiryKeyLayout_ekey);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(14,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
             return totalSize;
@@ -343,13 +488,10 @@ namespace api {
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_client_firm));
             }
-            if ( IncludeRoot()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_root;
-                m_root.setCodecTickerKey(tickerKeyLayout_root);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 12, tickerKeyLayout_root);
-            }
-            if ( IncludeExpiry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,13, m_expiry.get_year(), m_expiry.get_month(), m_expiry.get_day());
+            if ( IncludeEkey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_ekey;
+                m_ekey.setCodecExpiryKey(expiryKeyLayout_ekey);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 15, expiryKeyLayout_ekey);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,14,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side)));
         }
@@ -373,16 +515,8 @@ namespace api {
                     case 11: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 12: {
-                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                        m_root.setFromCodec(tickerKey);
-                        break;
-                    }
-                    case 13: {
-                        auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                        m_expiry.set_year(dateKey.year());
-                        m_expiry.set_month(dateKey.month());
-                        m_expiry.set_day(dateKey.day());
+                    case 15: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
+                        m_ekey.setFromCodec(expiryKey);
                         break;
                     }
                     case 14: {m_resp_side = static_cast<spiderrock::protobuf::api::BuySell>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
@@ -403,6 +537,7 @@ namespace api {
         using pkey = spiderrock::protobuf::api::ResponderMarkupRC_PKey;
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using is_disabled = spiderrock::protobuf::api::is_disabled;
+        using enabled_until = spiderrock::protobuf::api::enabled_until;
         using expiry_qty_avail = spiderrock::protobuf::api::expiry_qty_avail;
         using ticker_qty_avail = spiderrock::protobuf::api::ticker_qty_avail;
         using transact_fee = spiderrock::protobuf::api::transact_fee;
@@ -432,6 +567,38 @@ namespace api {
         using limit_price = spiderrock::protobuf::api::limit_price;
         using eff_stock_lend_pv = spiderrock::protobuf::api::eff_stock_lend_pv;
         using eff_stock_rate = spiderrock::protobuf::api::eff_stock_rate;
+        using num_notices = spiderrock::protobuf::api::num_notices;
+        using num_notice_sr = spiderrock::protobuf::api::num_notice_sr;
+        using num_notice_amex = spiderrock::protobuf::api::num_notice_amex;
+        using num_notice_bats = spiderrock::protobuf::api::num_notice_bats;
+        using num_notice_box = spiderrock::protobuf::api::num_notice_box;
+        using num_notice_cboe = spiderrock::protobuf::api::num_notice_cboe;
+        using num_notice_c2 = spiderrock::protobuf::api::num_notice_c2;
+        using num_notice_edgo = spiderrock::protobuf::api::num_notice_edgo;
+        using num_notice_emld = spiderrock::protobuf::api::num_notice_emld;
+        using num_notice_gmni = spiderrock::protobuf::api::num_notice_gmni;
+        using num_notice_ise = spiderrock::protobuf::api::num_notice_ise;
+        using num_notice_mcry = spiderrock::protobuf::api::num_notice_mcry;
+        using num_notice_memx = spiderrock::protobuf::api::num_notice_memx;
+        using num_notice_miax = spiderrock::protobuf::api::num_notice_miax;
+        using num_notice_mprl = spiderrock::protobuf::api::num_notice_mprl;
+        using num_notice_nyse = spiderrock::protobuf::api::num_notice_nyse;
+        using num_notice_nqbx = spiderrock::protobuf::api::num_notice_nqbx;
+        using num_notice_nsdq = spiderrock::protobuf::api::num_notice_nsdq;
+        using num_notice_phlx = spiderrock::protobuf::api::num_notice_phlx;
+        using num_notice_sphr = spiderrock::protobuf::api::num_notice_sphr;
+        using resp_disabled_skips = spiderrock::protobuf::api::resp_disabled_skips;
+        using listed_flex_skips = spiderrock::protobuf::api::listed_flex_skips;
+        using notice_price_skips = spiderrock::protobuf::api::notice_price_skips;
+        using size_limit_skips = spiderrock::protobuf::api::size_limit_skips;
+        using risk_group_limit_skips = spiderrock::protobuf::api::risk_group_limit_skips;
+        using num_responses = spiderrock::protobuf::api::num_responses__int64;
+        using num_full_size = spiderrock::protobuf::api::num_full_size;
+        using num_alloc_size = spiderrock::protobuf::api::num_alloc_size;
+        using num_price_miss = spiderrock::protobuf::api::num_price_miss;
+        using num_too_late = spiderrock::protobuf::api::num_too_late;
+        using num_other_miss = spiderrock::protobuf::api::num_other_miss;
+        using num_did_not_trade = spiderrock::protobuf::api::num_did_not_trade;
         using modified_by = spiderrock::protobuf::api::modified_by;
         using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
@@ -441,6 +608,7 @@ namespace api {
         pkey m_pkey{};
         ticker m_ticker{};
         is_disabled m_is_disabled{};
+        enabled_until m_enabled_until{};
         expiry_qty_avail m_expiry_qty_avail{};
         ticker_qty_avail m_ticker_qty_avail{};
         transact_fee m_transact_fee{};
@@ -470,6 +638,38 @@ namespace api {
         limit_price m_limit_price{};
         eff_stock_lend_pv m_eff_stock_lend_pv{};
         eff_stock_rate m_eff_stock_rate{};
+        num_notices m_num_notices{};
+        num_notice_sr m_num_notice_sr{};
+        num_notice_amex m_num_notice_amex{};
+        num_notice_bats m_num_notice_bats{};
+        num_notice_box m_num_notice_box{};
+        num_notice_cboe m_num_notice_cboe{};
+        num_notice_c2 m_num_notice_c2{};
+        num_notice_edgo m_num_notice_edgo{};
+        num_notice_emld m_num_notice_emld{};
+        num_notice_gmni m_num_notice_gmni{};
+        num_notice_ise m_num_notice_ise{};
+        num_notice_mcry m_num_notice_mcry{};
+        num_notice_memx m_num_notice_memx{};
+        num_notice_miax m_num_notice_miax{};
+        num_notice_mprl m_num_notice_mprl{};
+        num_notice_nyse m_num_notice_nyse{};
+        num_notice_nqbx m_num_notice_nqbx{};
+        num_notice_nsdq m_num_notice_nsdq{};
+        num_notice_phlx m_num_notice_phlx{};
+        num_notice_sphr m_num_notice_sphr{};
+        resp_disabled_skips m_resp_disabled_skips{};
+        listed_flex_skips m_listed_flex_skips{};
+        notice_price_skips m_notice_price_skips{};
+        size_limit_skips m_size_limit_skips{};
+        risk_group_limit_skips m_risk_group_limit_skips{};
+        num_responses m_num_responses{};
+        num_full_size m_num_full_size{};
+        num_alloc_size m_num_alloc_size{};
+        num_price_miss m_num_price_miss{};
+        num_too_late m_num_too_late{};
+        num_other_miss m_num_other_miss{};
+        num_did_not_trade m_num_did_not_trade{};
         modified_by m_modified_by{};
         modified_in m_modified_in{};
         timestamp m_timestamp{};
@@ -488,6 +688,9 @@ namespace api {
         }		
         is_disabled get_is_disabled() const {
             return m_is_disabled;
+        }		
+        enabled_until get_enabled_until() const {
+            return m_enabled_until;
         }		
         expiry_qty_avail get_expiry_qty_avail() const {
             return m_expiry_qty_avail;
@@ -576,6 +779,102 @@ namespace api {
         eff_stock_rate get_eff_stock_rate() const {
             return m_eff_stock_rate;
         }		
+        num_notices get_num_notices() const {
+            return m_num_notices;
+        }		
+        num_notice_sr get_num_notice_sr() const {
+            return m_num_notice_sr;
+        }		
+        num_notice_amex get_num_notice_amex() const {
+            return m_num_notice_amex;
+        }		
+        num_notice_bats get_num_notice_bats() const {
+            return m_num_notice_bats;
+        }		
+        num_notice_box get_num_notice_box() const {
+            return m_num_notice_box;
+        }		
+        num_notice_cboe get_num_notice_cboe() const {
+            return m_num_notice_cboe;
+        }		
+        num_notice_c2 get_num_notice_c2() const {
+            return m_num_notice_c2;
+        }		
+        num_notice_edgo get_num_notice_edgo() const {
+            return m_num_notice_edgo;
+        }		
+        num_notice_emld get_num_notice_emld() const {
+            return m_num_notice_emld;
+        }		
+        num_notice_gmni get_num_notice_gmni() const {
+            return m_num_notice_gmni;
+        }		
+        num_notice_ise get_num_notice_ise() const {
+            return m_num_notice_ise;
+        }		
+        num_notice_mcry get_num_notice_mcry() const {
+            return m_num_notice_mcry;
+        }		
+        num_notice_memx get_num_notice_memx() const {
+            return m_num_notice_memx;
+        }		
+        num_notice_miax get_num_notice_miax() const {
+            return m_num_notice_miax;
+        }		
+        num_notice_mprl get_num_notice_mprl() const {
+            return m_num_notice_mprl;
+        }		
+        num_notice_nyse get_num_notice_nyse() const {
+            return m_num_notice_nyse;
+        }		
+        num_notice_nqbx get_num_notice_nqbx() const {
+            return m_num_notice_nqbx;
+        }		
+        num_notice_nsdq get_num_notice_nsdq() const {
+            return m_num_notice_nsdq;
+        }		
+        num_notice_phlx get_num_notice_phlx() const {
+            return m_num_notice_phlx;
+        }		
+        num_notice_sphr get_num_notice_sphr() const {
+            return m_num_notice_sphr;
+        }		
+        resp_disabled_skips get_resp_disabled_skips() const {
+            return m_resp_disabled_skips;
+        }		
+        listed_flex_skips get_listed_flex_skips() const {
+            return m_listed_flex_skips;
+        }		
+        notice_price_skips get_notice_price_skips() const {
+            return m_notice_price_skips;
+        }		
+        size_limit_skips get_size_limit_skips() const {
+            return m_size_limit_skips;
+        }		
+        risk_group_limit_skips get_risk_group_limit_skips() const {
+            return m_risk_group_limit_skips;
+        }		
+        num_responses get_num_responses() const {
+            return m_num_responses;
+        }		
+        num_full_size get_num_full_size() const {
+            return m_num_full_size;
+        }		
+        num_alloc_size get_num_alloc_size() const {
+            return m_num_alloc_size;
+        }		
+        num_price_miss get_num_price_miss() const {
+            return m_num_price_miss;
+        }		
+        num_too_late get_num_too_late() const {
+            return m_num_too_late;
+        }		
+        num_other_miss get_num_other_miss() const {
+            return m_num_other_miss;
+        }		
+        num_did_not_trade get_num_did_not_trade() const {
+            return m_num_did_not_trade;
+        }		
         modified_by get_modified_by() const {
             return m_modified_by;
         }		
@@ -600,6 +899,9 @@ namespace api {
         }
         void set_is_disabled(const is_disabled& value)  {
             m_is_disabled = value;
+        }
+        void set_enabled_until(const enabled_until& value)  {
+            m_enabled_until = value;
         }
         void set_expiry_qty_avail(const expiry_qty_avail& value)  {
             m_expiry_qty_avail = value;
@@ -688,6 +990,102 @@ namespace api {
         void set_eff_stock_rate(const eff_stock_rate& value)  {
             m_eff_stock_rate = value;
         }
+        void set_num_notices(const num_notices& value)  {
+            m_num_notices = value;
+        }
+        void set_num_notice_sr(const num_notice_sr& value)  {
+            m_num_notice_sr = value;
+        }
+        void set_num_notice_amex(const num_notice_amex& value)  {
+            m_num_notice_amex = value;
+        }
+        void set_num_notice_bats(const num_notice_bats& value)  {
+            m_num_notice_bats = value;
+        }
+        void set_num_notice_box(const num_notice_box& value)  {
+            m_num_notice_box = value;
+        }
+        void set_num_notice_cboe(const num_notice_cboe& value)  {
+            m_num_notice_cboe = value;
+        }
+        void set_num_notice_c2(const num_notice_c2& value)  {
+            m_num_notice_c2 = value;
+        }
+        void set_num_notice_edgo(const num_notice_edgo& value)  {
+            m_num_notice_edgo = value;
+        }
+        void set_num_notice_emld(const num_notice_emld& value)  {
+            m_num_notice_emld = value;
+        }
+        void set_num_notice_gmni(const num_notice_gmni& value)  {
+            m_num_notice_gmni = value;
+        }
+        void set_num_notice_ise(const num_notice_ise& value)  {
+            m_num_notice_ise = value;
+        }
+        void set_num_notice_mcry(const num_notice_mcry& value)  {
+            m_num_notice_mcry = value;
+        }
+        void set_num_notice_memx(const num_notice_memx& value)  {
+            m_num_notice_memx = value;
+        }
+        void set_num_notice_miax(const num_notice_miax& value)  {
+            m_num_notice_miax = value;
+        }
+        void set_num_notice_mprl(const num_notice_mprl& value)  {
+            m_num_notice_mprl = value;
+        }
+        void set_num_notice_nyse(const num_notice_nyse& value)  {
+            m_num_notice_nyse = value;
+        }
+        void set_num_notice_nqbx(const num_notice_nqbx& value)  {
+            m_num_notice_nqbx = value;
+        }
+        void set_num_notice_nsdq(const num_notice_nsdq& value)  {
+            m_num_notice_nsdq = value;
+        }
+        void set_num_notice_phlx(const num_notice_phlx& value)  {
+            m_num_notice_phlx = value;
+        }
+        void set_num_notice_sphr(const num_notice_sphr& value)  {
+            m_num_notice_sphr = value;
+        }
+        void set_resp_disabled_skips(const resp_disabled_skips& value)  {
+            m_resp_disabled_skips = value;
+        }
+        void set_listed_flex_skips(const listed_flex_skips& value)  {
+            m_listed_flex_skips = value;
+        }
+        void set_notice_price_skips(const notice_price_skips& value)  {
+            m_notice_price_skips = value;
+        }
+        void set_size_limit_skips(const size_limit_skips& value)  {
+            m_size_limit_skips = value;
+        }
+        void set_risk_group_limit_skips(const risk_group_limit_skips& value)  {
+            m_risk_group_limit_skips = value;
+        }
+        void set_num_responses(const num_responses& value)  {
+            m_num_responses = value;
+        }
+        void set_num_full_size(const num_full_size& value)  {
+            m_num_full_size = value;
+        }
+        void set_num_alloc_size(const num_alloc_size& value)  {
+            m_num_alloc_size = value;
+        }
+        void set_num_price_miss(const num_price_miss& value)  {
+            m_num_price_miss = value;
+        }
+        void set_num_too_late(const num_too_late& value)  {
+            m_num_too_late = value;
+        }
+        void set_num_other_miss(const num_other_miss& value)  {
+            m_num_other_miss = value;
+        }
+        void set_num_did_not_trade(const num_did_not_trade& value)  {
+            m_num_did_not_trade = value;
+        }
         void set_modified_by(const modified_by& value)  {
             m_modified_by = value;
         }
@@ -716,6 +1114,9 @@ namespace api {
         }
         void set(const is_disabled & value) {
             set_is_disabled(value);
+        }
+        void set(const enabled_until & value) {
+            set_enabled_until(value);
         }
         void set(const expiry_qty_avail & value) {
             set_expiry_qty_avail(value);
@@ -804,6 +1205,102 @@ namespace api {
         void set(const eff_stock_rate & value) {
             set_eff_stock_rate(value);
         }
+        void set(const num_notices & value) {
+            set_num_notices(value);
+        }
+        void set(const num_notice_sr & value) {
+            set_num_notice_sr(value);
+        }
+        void set(const num_notice_amex & value) {
+            set_num_notice_amex(value);
+        }
+        void set(const num_notice_bats & value) {
+            set_num_notice_bats(value);
+        }
+        void set(const num_notice_box & value) {
+            set_num_notice_box(value);
+        }
+        void set(const num_notice_cboe & value) {
+            set_num_notice_cboe(value);
+        }
+        void set(const num_notice_c2 & value) {
+            set_num_notice_c2(value);
+        }
+        void set(const num_notice_edgo & value) {
+            set_num_notice_edgo(value);
+        }
+        void set(const num_notice_emld & value) {
+            set_num_notice_emld(value);
+        }
+        void set(const num_notice_gmni & value) {
+            set_num_notice_gmni(value);
+        }
+        void set(const num_notice_ise & value) {
+            set_num_notice_ise(value);
+        }
+        void set(const num_notice_mcry & value) {
+            set_num_notice_mcry(value);
+        }
+        void set(const num_notice_memx & value) {
+            set_num_notice_memx(value);
+        }
+        void set(const num_notice_miax & value) {
+            set_num_notice_miax(value);
+        }
+        void set(const num_notice_mprl & value) {
+            set_num_notice_mprl(value);
+        }
+        void set(const num_notice_nyse & value) {
+            set_num_notice_nyse(value);
+        }
+        void set(const num_notice_nqbx & value) {
+            set_num_notice_nqbx(value);
+        }
+        void set(const num_notice_nsdq & value) {
+            set_num_notice_nsdq(value);
+        }
+        void set(const num_notice_phlx & value) {
+            set_num_notice_phlx(value);
+        }
+        void set(const num_notice_sphr & value) {
+            set_num_notice_sphr(value);
+        }
+        void set(const resp_disabled_skips & value) {
+            set_resp_disabled_skips(value);
+        }
+        void set(const listed_flex_skips & value) {
+            set_listed_flex_skips(value);
+        }
+        void set(const notice_price_skips & value) {
+            set_notice_price_skips(value);
+        }
+        void set(const size_limit_skips & value) {
+            set_size_limit_skips(value);
+        }
+        void set(const risk_group_limit_skips & value) {
+            set_risk_group_limit_skips(value);
+        }
+        void set(const num_responses & value) {
+            set_num_responses(value);
+        }
+        void set(const num_full_size & value) {
+            set_num_full_size(value);
+        }
+        void set(const num_alloc_size & value) {
+            set_num_alloc_size(value);
+        }
+        void set(const num_price_miss & value) {
+            set_num_price_miss(value);
+        }
+        void set(const num_too_late & value) {
+            set_num_too_late(value);
+        }
+        void set(const num_other_miss & value) {
+            set_num_other_miss(value);
+        }
+        void set(const num_did_not_trade & value) {
+            set_num_did_not_trade(value);
+        }
         void set(const modified_by & value) {
             set_modified_by(value);
         }
@@ -819,6 +1316,7 @@ namespace api {
             set(value.m_pkey);
             set(value.m_ticker);
             set(value.m_is_disabled);
+            set(value.m_enabled_until);
             set(value.m_expiry_qty_avail);
             set(value.m_ticker_qty_avail);
             set(value.m_transact_fee);
@@ -848,6 +1346,38 @@ namespace api {
             set(value.m_limit_price);
             set(value.m_eff_stock_lend_pv);
             set(value.m_eff_stock_rate);
+            set(value.m_num_notices);
+            set(value.m_num_notice_sr);
+            set(value.m_num_notice_amex);
+            set(value.m_num_notice_bats);
+            set(value.m_num_notice_box);
+            set(value.m_num_notice_cboe);
+            set(value.m_num_notice_c2);
+            set(value.m_num_notice_edgo);
+            set(value.m_num_notice_emld);
+            set(value.m_num_notice_gmni);
+            set(value.m_num_notice_ise);
+            set(value.m_num_notice_mcry);
+            set(value.m_num_notice_memx);
+            set(value.m_num_notice_miax);
+            set(value.m_num_notice_mprl);
+            set(value.m_num_notice_nyse);
+            set(value.m_num_notice_nqbx);
+            set(value.m_num_notice_nsdq);
+            set(value.m_num_notice_phlx);
+            set(value.m_num_notice_sphr);
+            set(value.m_resp_disabled_skips);
+            set(value.m_listed_flex_skips);
+            set(value.m_notice_price_skips);
+            set(value.m_size_limit_skips);
+            set(value.m_risk_group_limit_skips);
+            set(value.m_num_responses);
+            set(value.m_num_full_size);
+            set(value.m_num_alloc_size);
+            set(value.m_num_price_miss);
+            set(value.m_num_too_late);
+            set(value.m_num_other_miss);
+            set(value.m_num_did_not_trade);
             set(value.m_modified_by);
             set(value.m_modified_in);
             set(value.m_timestamp);
@@ -911,6 +1441,9 @@ namespace api {
         }
         bool IncludeTicker() const {
             return (m_ticker.ByteSizeLong() > 0);
+        }
+        bool IncludeEnabledUntil() const {
+            return (m_enabled_until.time_since_epoch().count() != 0);
         }
         bool IncludeExpiryQtyAvail() const {
             return !(m_expiry_qty_avail == 0);
@@ -984,6 +1517,102 @@ namespace api {
         bool IncludeEffStockRate() const {
             return !(m_eff_stock_rate == 0.0);
         }
+        bool IncludeNumNotices() const {
+            return !(m_num_notices == 0);
+        }
+        bool IncludeNumNoticeSr() const {
+            return !(m_num_notice_sr == 0);
+        }
+        bool IncludeNumNoticeAmex() const {
+            return !(m_num_notice_amex == 0);
+        }
+        bool IncludeNumNoticeBats() const {
+            return !(m_num_notice_bats == 0);
+        }
+        bool IncludeNumNoticeBox() const {
+            return !(m_num_notice_box == 0);
+        }
+        bool IncludeNumNoticeCboe() const {
+            return !(m_num_notice_cboe == 0);
+        }
+        bool IncludeNumNoticeC2() const {
+            return !(m_num_notice_c2 == 0);
+        }
+        bool IncludeNumNoticeEdgo() const {
+            return !(m_num_notice_edgo == 0);
+        }
+        bool IncludeNumNoticeEmld() const {
+            return !(m_num_notice_emld == 0);
+        }
+        bool IncludeNumNoticeGmni() const {
+            return !(m_num_notice_gmni == 0);
+        }
+        bool IncludeNumNoticeIse() const {
+            return !(m_num_notice_ise == 0);
+        }
+        bool IncludeNumNoticeMcry() const {
+            return !(m_num_notice_mcry == 0);
+        }
+        bool IncludeNumNoticeMemx() const {
+            return !(m_num_notice_memx == 0);
+        }
+        bool IncludeNumNoticeMiax() const {
+            return !(m_num_notice_miax == 0);
+        }
+        bool IncludeNumNoticeMprl() const {
+            return !(m_num_notice_mprl == 0);
+        }
+        bool IncludeNumNoticeNyse() const {
+            return !(m_num_notice_nyse == 0);
+        }
+        bool IncludeNumNoticeNqbx() const {
+            return !(m_num_notice_nqbx == 0);
+        }
+        bool IncludeNumNoticeNsdq() const {
+            return !(m_num_notice_nsdq == 0);
+        }
+        bool IncludeNumNoticePhlx() const {
+            return !(m_num_notice_phlx == 0);
+        }
+        bool IncludeNumNoticeSphr() const {
+            return !(m_num_notice_sphr == 0);
+        }
+        bool IncludeRespDisabledSkips() const {
+            return !(m_resp_disabled_skips == 0);
+        }
+        bool IncludeListedFlexSkips() const {
+            return !(m_listed_flex_skips == 0);
+        }
+        bool IncludeNoticePriceSkips() const {
+            return !(m_notice_price_skips == 0);
+        }
+        bool IncludeSizeLimitSkips() const {
+            return !(m_size_limit_skips == 0);
+        }
+        bool IncludeRiskGroupLimitSkips() const {
+            return !(m_risk_group_limit_skips == 0);
+        }
+        bool IncludeNumResponses() const {
+            return !(m_num_responses == 0);
+        }
+        bool IncludeNumFullSize() const {
+            return !(m_num_full_size == 0);
+        }
+        bool IncludeNumAllocSize() const {
+            return !(m_num_alloc_size == 0);
+        }
+        bool IncludeNumPriceMiss() const {
+            return !(m_num_price_miss == 0);
+        }
+        bool IncludeNumTooLate() const {
+            return !(m_num_too_late == 0);
+        }
+        bool IncludeNumOtherMiss() const {
+            return !(m_num_other_miss == 0);
+        }
+        bool IncludeNumDidNotTrade() const {
+            return !(m_num_did_not_trade == 0);
+        }
         bool IncludeModifiedBy() const {
             return !(m_modified_by.empty());
         }
@@ -1010,6 +1639,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(100, tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_disabled)));
+            if ( IncludeEnabledUntil()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(134, m_enabled_until);
+            }
             if ( IncludeExpiryQtyAvail()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(102,m_expiry_qty_avail);
             }
@@ -1087,6 +1719,102 @@ namespace api {
             if ( IncludeEffStockRate()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(130,m_eff_stock_rate);
             }
+            if ( IncludeNumNotices()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(135,m_num_notices);
+            }
+            if ( IncludeNumNoticeSr()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(136,m_num_notice_sr);
+            }
+            if ( IncludeNumNoticeAmex()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(137,m_num_notice_amex);
+            }
+            if ( IncludeNumNoticeBats()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(138,m_num_notice_bats);
+            }
+            if ( IncludeNumNoticeBox()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(139,m_num_notice_box);
+            }
+            if ( IncludeNumNoticeCboe()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(140,m_num_notice_cboe);
+            }
+            if ( IncludeNumNoticeC2()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(141,m_num_notice_c2);
+            }
+            if ( IncludeNumNoticeEdgo()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(142,m_num_notice_edgo);
+            }
+            if ( IncludeNumNoticeEmld()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(143,m_num_notice_emld);
+            }
+            if ( IncludeNumNoticeGmni()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(144,m_num_notice_gmni);
+            }
+            if ( IncludeNumNoticeIse()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(145,m_num_notice_ise);
+            }
+            if ( IncludeNumNoticeMcry()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(146,m_num_notice_mcry);
+            }
+            if ( IncludeNumNoticeMemx()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(147,m_num_notice_memx);
+            }
+            if ( IncludeNumNoticeMiax()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(148,m_num_notice_miax);
+            }
+            if ( IncludeNumNoticeMprl()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(149,m_num_notice_mprl);
+            }
+            if ( IncludeNumNoticeNyse()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(150,m_num_notice_nyse);
+            }
+            if ( IncludeNumNoticeNqbx()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(151,m_num_notice_nqbx);
+            }
+            if ( IncludeNumNoticeNsdq()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(152,m_num_notice_nsdq);
+            }
+            if ( IncludeNumNoticePhlx()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(153,m_num_notice_phlx);
+            }
+            if ( IncludeNumNoticeSphr()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(154,m_num_notice_sphr);
+            }
+            if ( IncludeRespDisabledSkips()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(155,m_resp_disabled_skips);
+            }
+            if ( IncludeListedFlexSkips()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(156,m_listed_flex_skips);
+            }
+            if ( IncludeNoticePriceSkips()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(157,m_notice_price_skips);
+            }
+            if ( IncludeSizeLimitSkips()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(158,m_size_limit_skips);
+            }
+            if ( IncludeRiskGroupLimitSkips()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(159,m_risk_group_limit_skips);
+            }
+            if ( IncludeNumResponses()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(160,m_num_responses);
+            }
+            if ( IncludeNumFullSize()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(161,m_num_full_size);
+            }
+            if ( IncludeNumAllocSize()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(162,m_num_alloc_size);
+            }
+            if ( IncludeNumPriceMiss()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(163,m_num_price_miss);
+            }
+            if ( IncludeNumTooLate()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(164,m_num_too_late);
+            }
+            if ( IncludeNumOtherMiss()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(165,m_num_other_miss);
+            }
+            if ( IncludeNumDidNotTrade()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(166,m_num_did_not_trade);
+            }
             if ( IncludeModifiedBy()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(131,m_modified_by);
             }
@@ -1114,6 +1842,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 100, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_disabled)));
+            if ( IncludeEnabledUntil()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 134, m_enabled_until);
+            }
             if ( IncludeExpiryQtyAvail()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,102,m_expiry_qty_avail);
             }
@@ -1191,6 +1922,102 @@ namespace api {
             if ( IncludeEffStockRate()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,130,m_eff_stock_rate);
             }
+            if ( IncludeNumNotices()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,135,m_num_notices);
+            }
+            if ( IncludeNumNoticeSr()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,136,m_num_notice_sr);
+            }
+            if ( IncludeNumNoticeAmex()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,137,m_num_notice_amex);
+            }
+            if ( IncludeNumNoticeBats()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,138,m_num_notice_bats);
+            }
+            if ( IncludeNumNoticeBox()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,139,m_num_notice_box);
+            }
+            if ( IncludeNumNoticeCboe()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,140,m_num_notice_cboe);
+            }
+            if ( IncludeNumNoticeC2()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,141,m_num_notice_c2);
+            }
+            if ( IncludeNumNoticeEdgo()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,142,m_num_notice_edgo);
+            }
+            if ( IncludeNumNoticeEmld()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,143,m_num_notice_emld);
+            }
+            if ( IncludeNumNoticeGmni()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,144,m_num_notice_gmni);
+            }
+            if ( IncludeNumNoticeIse()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,145,m_num_notice_ise);
+            }
+            if ( IncludeNumNoticeMcry()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,146,m_num_notice_mcry);
+            }
+            if ( IncludeNumNoticeMemx()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,147,m_num_notice_memx);
+            }
+            if ( IncludeNumNoticeMiax()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,148,m_num_notice_miax);
+            }
+            if ( IncludeNumNoticeMprl()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,149,m_num_notice_mprl);
+            }
+            if ( IncludeNumNoticeNyse()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,150,m_num_notice_nyse);
+            }
+            if ( IncludeNumNoticeNqbx()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,151,m_num_notice_nqbx);
+            }
+            if ( IncludeNumNoticeNsdq()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,152,m_num_notice_nsdq);
+            }
+            if ( IncludeNumNoticePhlx()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,153,m_num_notice_phlx);
+            }
+            if ( IncludeNumNoticeSphr()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,154,m_num_notice_sphr);
+            }
+            if ( IncludeRespDisabledSkips()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,155,m_resp_disabled_skips);
+            }
+            if ( IncludeListedFlexSkips()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,156,m_listed_flex_skips);
+            }
+            if ( IncludeNoticePriceSkips()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,157,m_notice_price_skips);
+            }
+            if ( IncludeSizeLimitSkips()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,158,m_size_limit_skips);
+            }
+            if ( IncludeRiskGroupLimitSkips()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,159,m_risk_group_limit_skips);
+            }
+            if ( IncludeNumResponses()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,160,m_num_responses);
+            }
+            if ( IncludeNumFullSize()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,161,m_num_full_size);
+            }
+            if ( IncludeNumAllocSize()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,162,m_num_alloc_size);
+            }
+            if ( IncludeNumPriceMiss()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,163,m_num_price_miss);
+            }
+            if ( IncludeNumTooLate()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,164,m_num_too_late);
+            }
+            if ( IncludeNumOtherMiss()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,165,m_num_other_miss);
+            }
+            if ( IncludeNumDidNotTrade()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,166,m_num_did_not_trade);
+            }
             if ( IncludeModifiedBy()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,131,static_cast<string>(m_modified_by));
             }
@@ -1237,6 +2064,12 @@ namespace api {
                     }
                     case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_is_disabled = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 134: {
+                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
+                            m_enabled_until = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
@@ -1409,6 +2242,198 @@ namespace api {
                         }
                         break;
                     }
+                    case 135: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notices = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 136: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_sr = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 137: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_amex = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 138: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_bats = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 139: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_box = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 140: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_cboe = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 141: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_c2 = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 142: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_edgo = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 143: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_emld = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 144: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_gmni = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 145: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_ise = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 146: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_mcry = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 147: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_memx = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 148: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_miax = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 149: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_mprl = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 150: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_nyse = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 151: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_nqbx = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 152: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_nsdq = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 153: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_phlx = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 154: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_notice_sphr = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 155: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_resp_disabled_skips = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 156: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_listed_flex_skips = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 157: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_notice_price_skips = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 158: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_size_limit_skips = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 159: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_risk_group_limit_skips = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 160: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_responses = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 161: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_full_size = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 162: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_alloc_size = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 163: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_price_miss = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 164: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_too_late = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 165: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_other_miss = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 166: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_did_not_trade = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
                     case 131: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_modified_by = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -1439,6 +2464,7 @@ namespace api {
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::pkey>() const { return ResponderMarkupRC::pkey{ m_pkey}; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::ticker>() const { return ResponderMarkupRC::ticker{ m_ticker}; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::is_disabled>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_disabled)); }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::enabled_until>() const { return m_enabled_until; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::expiry_qty_avail>() const { return m_expiry_qty_avail; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::ticker_qty_avail>() const { return m_ticker_qty_avail; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::transact_fee>() const { return m_transact_fee; }
@@ -1468,13 +2494,44 @@ namespace api {
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::limit_price>() const { return m_limit_price; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::eff_stock_lend_pv>() const { return m_eff_stock_lend_pv; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::eff_stock_rate>() const { return m_eff_stock_rate; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notices>() const { return m_num_notices; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_sr>() const { return m_num_notice_sr; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_amex>() const { return m_num_notice_amex; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_bats>() const { return m_num_notice_bats; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_box>() const { return m_num_notice_box; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_cboe>() const { return m_num_notice_cboe; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_c2>() const { return m_num_notice_c2; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_edgo>() const { return m_num_notice_edgo; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_emld>() const { return m_num_notice_emld; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_gmni>() const { return m_num_notice_gmni; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_ise>() const { return m_num_notice_ise; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_mcry>() const { return m_num_notice_mcry; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_memx>() const { return m_num_notice_memx; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_miax>() const { return m_num_notice_miax; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_mprl>() const { return m_num_notice_mprl; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_nyse>() const { return m_num_notice_nyse; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_nqbx>() const { return m_num_notice_nqbx; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_nsdq>() const { return m_num_notice_nsdq; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_phlx>() const { return m_num_notice_phlx; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_notice_sphr>() const { return m_num_notice_sphr; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::resp_disabled_skips>() const { return m_resp_disabled_skips; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::listed_flex_skips>() const { return m_listed_flex_skips; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::notice_price_skips>() const { return m_notice_price_skips; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::size_limit_skips>() const { return m_size_limit_skips; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::risk_group_limit_skips>() const { return m_risk_group_limit_skips; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_responses>() const { return m_num_responses; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_full_size>() const { return m_num_full_size; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_alloc_size>() const { return m_num_alloc_size; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_price_miss>() const { return m_num_price_miss; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_too_late>() const { return m_num_too_late; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_other_miss>() const { return m_num_other_miss; }
+    template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::num_did_not_trade>() const { return m_num_did_not_trade; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::modified_by>() const { return m_modified_by; }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
     template<> inline const auto ResponderMarkupRC::get<ResponderMarkupRC::timestamp>() const { return m_timestamp; }
     template<> inline const auto ResponderMarkupRC_PKey::get<ResponderMarkupRC_PKey::accnt>() const { return m_accnt; }
     template<> inline const auto ResponderMarkupRC_PKey::get<ResponderMarkupRC_PKey::client_firm>() const { return m_client_firm; }
-    template<> inline const auto ResponderMarkupRC_PKey::get<ResponderMarkupRC_PKey::root>() const { return ResponderMarkupRC_PKey::root{m_root}; }
-    template<> inline const auto ResponderMarkupRC_PKey::get<ResponderMarkupRC_PKey::expiry>() const { return ResponderMarkupRC_PKey::expiry{m_expiry}; }
+    template<> inline const auto ResponderMarkupRC_PKey::get<ResponderMarkupRC_PKey::ekey>() const { return ResponderMarkupRC_PKey::ekey{m_ekey}; }
     template<> inline const auto ResponderMarkupRC_PKey::get<ResponderMarkupRC_PKey::resp_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side));}
     
     // ostream operators for all classes above, output should adhere to a JSON format
@@ -1482,8 +2539,7 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const ResponderMarkupRC_PKey& m) {
         o << "\"accnt\":\"" << m.get<ResponderMarkupRC_PKey::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<ResponderMarkupRC_PKey::client_firm>() << "\"";
-        o << ",\"root\":{" << m.get<ResponderMarkupRC_PKey::root>() << "}";
-        o << ",\"expiry\":{" << m.get<ResponderMarkupRC_PKey::expiry>() << "}";
+        o << ",\"ekey\":{" << m.get<ResponderMarkupRC_PKey::ekey>() << "}";
         o << ",\"resp_side\":" << (int64_t)m.get<ResponderMarkupRC_PKey::resp_side>();
         return o;
     }
@@ -1493,6 +2549,12 @@ namespace api {
         o << ",\"pkey\":{" << m.get<ResponderMarkupRC::pkey>() << "}";
         o << ",\"ticker\":{" << m.get<ResponderMarkupRC::ticker>() << "}";
         o << ",\"is_disabled\":" << (int64_t)m.get<ResponderMarkupRC::is_disabled>();
+        {
+            std::time_t tt = m.get<ResponderMarkupRC::enabled_until>().time_since_epoch().count() / 1'000'000'000;
+			struct tm tm1{};
+			localtime_s(&tm1, &tt);
+            o << ",\"enabled_until\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
+        }
         o << ",\"expiry_qty_avail\":" << m.get<ResponderMarkupRC::expiry_qty_avail>();
         o << ",\"ticker_qty_avail\":" << m.get<ResponderMarkupRC::ticker_qty_avail>();
         o << ",\"transact_fee\":" << m.get<ResponderMarkupRC::transact_fee>();
@@ -1522,6 +2584,38 @@ namespace api {
         o << ",\"limit_price\":" << m.get<ResponderMarkupRC::limit_price>();
         o << ",\"eff_stock_lend_pv\":" << m.get<ResponderMarkupRC::eff_stock_lend_pv>();
         o << ",\"eff_stock_rate\":" << m.get<ResponderMarkupRC::eff_stock_rate>();
+        o << ",\"num_notices\":" << m.get<ResponderMarkupRC::num_notices>();
+        o << ",\"num_notice_sr\":" << m.get<ResponderMarkupRC::num_notice_sr>();
+        o << ",\"num_notice_amex\":" << m.get<ResponderMarkupRC::num_notice_amex>();
+        o << ",\"num_notice_bats\":" << m.get<ResponderMarkupRC::num_notice_bats>();
+        o << ",\"num_notice_box\":" << m.get<ResponderMarkupRC::num_notice_box>();
+        o << ",\"num_notice_cboe\":" << m.get<ResponderMarkupRC::num_notice_cboe>();
+        o << ",\"num_notice_c2\":" << m.get<ResponderMarkupRC::num_notice_c2>();
+        o << ",\"num_notice_edgo\":" << m.get<ResponderMarkupRC::num_notice_edgo>();
+        o << ",\"num_notice_emld\":" << m.get<ResponderMarkupRC::num_notice_emld>();
+        o << ",\"num_notice_gmni\":" << m.get<ResponderMarkupRC::num_notice_gmni>();
+        o << ",\"num_notice_ise\":" << m.get<ResponderMarkupRC::num_notice_ise>();
+        o << ",\"num_notice_mcry\":" << m.get<ResponderMarkupRC::num_notice_mcry>();
+        o << ",\"num_notice_memx\":" << m.get<ResponderMarkupRC::num_notice_memx>();
+        o << ",\"num_notice_miax\":" << m.get<ResponderMarkupRC::num_notice_miax>();
+        o << ",\"num_notice_mprl\":" << m.get<ResponderMarkupRC::num_notice_mprl>();
+        o << ",\"num_notice_nyse\":" << m.get<ResponderMarkupRC::num_notice_nyse>();
+        o << ",\"num_notice_nqbx\":" << m.get<ResponderMarkupRC::num_notice_nqbx>();
+        o << ",\"num_notice_nsdq\":" << m.get<ResponderMarkupRC::num_notice_nsdq>();
+        o << ",\"num_notice_phlx\":" << m.get<ResponderMarkupRC::num_notice_phlx>();
+        o << ",\"num_notice_sphr\":" << m.get<ResponderMarkupRC::num_notice_sphr>();
+        o << ",\"resp_disabled_skips\":" << m.get<ResponderMarkupRC::resp_disabled_skips>();
+        o << ",\"listed_flex_skips\":" << m.get<ResponderMarkupRC::listed_flex_skips>();
+        o << ",\"notice_price_skips\":" << m.get<ResponderMarkupRC::notice_price_skips>();
+        o << ",\"size_limit_skips\":" << m.get<ResponderMarkupRC::size_limit_skips>();
+        o << ",\"risk_group_limit_skips\":" << m.get<ResponderMarkupRC::risk_group_limit_skips>();
+        o << ",\"num_responses\":" << m.get<ResponderMarkupRC::num_responses>();
+        o << ",\"num_full_size\":" << m.get<ResponderMarkupRC::num_full_size>();
+        o << ",\"num_alloc_size\":" << m.get<ResponderMarkupRC::num_alloc_size>();
+        o << ",\"num_price_miss\":" << m.get<ResponderMarkupRC::num_price_miss>();
+        o << ",\"num_too_late\":" << m.get<ResponderMarkupRC::num_too_late>();
+        o << ",\"num_other_miss\":" << m.get<ResponderMarkupRC::num_other_miss>();
+        o << ",\"num_did_not_trade\":" << m.get<ResponderMarkupRC::num_did_not_trade>();
         o << ",\"modified_by\":\"" << m.get<ResponderMarkupRC::modified_by>() << "\"";
         o << ",\"modified_in\":" << (int64_t)m.get<ResponderMarkupRC::modified_in>();
         {

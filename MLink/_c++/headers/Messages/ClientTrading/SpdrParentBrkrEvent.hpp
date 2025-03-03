@@ -115,6 +115,11 @@ namespace api {
     DECL_STRONG_TYPE(spdr_broker_status, spiderrock::protobuf::api::SpdrBrokerStatus);
     #endif//_spdr_broker_status__GUARD__
 
+    #ifndef _strategy_accnt__GUARD__
+    #define _strategy_accnt__GUARD__
+    DECL_STRONG_TYPE(strategy_accnt, string);
+    #endif//_strategy_accnt__GUARD__
+
     #ifndef _spdr_order_status__GUARD__
     #define _spdr_order_status__GUARD__
     DECL_STRONG_TYPE(spdr_order_status, spiderrock::protobuf::api::SpdrOrderStatus);
@@ -595,6 +600,7 @@ namespace api {
         using engine_name = spiderrock::protobuf::api::engine_name;
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using spdr_broker_status = spiderrock::protobuf::api::spdr_broker_status;
+        using strategy_accnt = spiderrock::protobuf::api::strategy_accnt;
         using spdr_order_status = spiderrock::protobuf::api::spdr_order_status;
         using spdr_close_reason = spiderrock::protobuf::api::spdr_close_reason;
         using spdr_reject_reason = spiderrock::protobuf::api::spdr_reject_reason;
@@ -686,6 +692,7 @@ namespace api {
         engine_name m_engine_name{};
         ticker m_ticker{};
         spdr_broker_status m_spdr_broker_status{};
+        strategy_accnt m_strategy_accnt{};
         spdr_order_status m_spdr_order_status{};
         spdr_close_reason m_spdr_close_reason{};
         spdr_reject_reason m_spdr_reject_reason{};
@@ -816,6 +823,9 @@ namespace api {
         }		
         spdr_broker_status get_spdr_broker_status() const {
             return m_spdr_broker_status;
+        }		
+        strategy_accnt get_strategy_accnt() const {
+            return m_strategy_accnt;
         }		
         spdr_order_status get_spdr_order_status() const {
             return m_spdr_order_status;
@@ -1087,6 +1097,9 @@ namespace api {
         }
         void set_spdr_broker_status(const spdr_broker_status& value)  {
             m_spdr_broker_status = value;
+        }
+        void set_strategy_accnt(const strategy_accnt& value)  {
+            m_strategy_accnt = value;
         }
         void set_spdr_order_status(const spdr_order_status& value)  {
             m_spdr_order_status = value;
@@ -1363,6 +1376,9 @@ namespace api {
         void set(const spdr_broker_status & value) {
             set_spdr_broker_status(value);
         }
+        void set(const strategy_accnt & value) {
+            set_strategy_accnt(value);
+        }
         void set(const spdr_order_status & value) {
             set_spdr_order_status(value);
         }
@@ -1594,6 +1610,7 @@ namespace api {
             set(value.m_engine_name);
             set(value.m_ticker);
             set(value.m_spdr_broker_status);
+            set(value.m_strategy_accnt);
             set(value.m_spdr_order_status);
             set(value.m_spdr_close_reason);
             set(value.m_spdr_reject_reason);
@@ -1754,6 +1771,9 @@ namespace api {
         }
         bool IncludeTicker() const {
             return (m_ticker.ByteSizeLong() > 0);
+        }
+        bool IncludeStrategyAccnt() const {
+            return !(m_strategy_accnt.empty());
         }
         bool IncludeSpdrComment() const {
             return !(m_spdr_comment.empty());
@@ -1971,6 +1991,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(142, tickerKeyLayout_ticker);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrBrokerStatus>(m_spdr_broker_status)));
+            if ( IncludeStrategyAccnt()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(373,m_strategy_accnt);
+            }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrOrderStatus>(m_spdr_order_status)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrCloseReason>(m_spdr_close_reason)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrRejectReason>(m_spdr_reject_reason)));
@@ -2206,6 +2229,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 142, tickerKeyLayout_ticker);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,145,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrBrokerStatus>(m_spdr_broker_status)));
+            if ( IncludeStrategyAccnt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,373,static_cast<string>(m_strategy_accnt));
+            }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,148,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrOrderStatus>(m_spdr_order_status)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrCloseReason>(m_spdr_close_reason)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrRejectReason>(m_spdr_reject_reason)));
@@ -2509,6 +2535,12 @@ namespace api {
                     }
                     case 145: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_spdr_broker_status = static_cast<spiderrock::protobuf::api::SpdrBrokerStatus>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 373: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_strategy_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -2944,6 +2976,7 @@ namespace api {
     template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::engine_name>() const { return m_engine_name; }
     template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::ticker>() const { return SpdrParentBrkrEvent::ticker{ m_ticker}; }
     template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::spdr_broker_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrBrokerStatus>( m_spdr_broker_status)); }
+    template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::strategy_accnt>() const { return m_strategy_accnt; }
     template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::spdr_order_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrOrderStatus>( m_spdr_order_status)); }
     template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::spdr_close_reason>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrCloseReason>( m_spdr_close_reason)); }
     template<> inline const auto SpdrParentBrkrEvent::get<SpdrParentBrkrEvent::spdr_reject_reason>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrRejectReason>( m_spdr_reject_reason)); }
@@ -3045,6 +3078,7 @@ namespace api {
         o << ",\"engine_name\":\"" << m.get<SpdrParentBrkrEvent::engine_name>() << "\"";
         o << ",\"ticker\":{" << m.get<SpdrParentBrkrEvent::ticker>() << "}";
         o << ",\"spdr_broker_status\":" << (int64_t)m.get<SpdrParentBrkrEvent::spdr_broker_status>();
+        o << ",\"strategy_accnt\":\"" << m.get<SpdrParentBrkrEvent::strategy_accnt>() << "\"";
         o << ",\"spdr_order_status\":" << (int64_t)m.get<SpdrParentBrkrEvent::spdr_order_status>();
         o << ",\"spdr_close_reason\":" << (int64_t)m.get<SpdrParentBrkrEvent::spdr_close_reason>();
         o << ",\"spdr_reject_reason\":" << (int64_t)m.get<SpdrParentBrkrEvent::spdr_reject_reason>();

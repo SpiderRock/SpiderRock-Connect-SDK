@@ -132,7 +132,7 @@ namespace api {
 
     #ifndef _spread_class__GUARD__
     #define _spread_class__GUARD__
-    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::SpreadClass);
     #endif//_spread_class__GUARD__
 
     #ifndef _contains_hedge__GUARD__
@@ -1618,7 +1618,7 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(151,m_num_opt_legs);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(296,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(299,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(297,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
             if ( IncludeLegBidPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(166,m_leg_bid_prc);
@@ -1758,7 +1758,7 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,151,m_num_opt_legs);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,157,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_user_defined)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,296,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,299,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,297,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
             if ( IncludeLegBidPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,166,m_leg_bid_prc);
@@ -1980,8 +1980,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 296: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 299: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_class = static_cast<spiderrock::protobuf::api::SpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2168,7 +2168,7 @@ namespace api {
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_fut_legs>() const { return m_num_fut_legs; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::num_opt_legs>() const { return m_num_opt_legs; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::user_defined>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_user_defined)); }
-    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
+    template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>( m_spread_class)); }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::contains_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_hedge)); }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_bid_prc>() const { return m_leg_bid_prc; }
     template<> inline const auto SpreadBookMarkup::get<SpreadBookMarkup::leg_ask_prc>() const { return m_leg_ask_prc; }

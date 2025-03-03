@@ -117,7 +117,7 @@ namespace api {
 
     #ifndef _spread_class__GUARD__
     #define _spread_class__GUARD__
-    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::SpreadClass);
     #endif//_spread_class__GUARD__
 
     #ifndef _spread_flavor__GUARD__
@@ -455,35 +455,35 @@ namespace api {
     DECL_STRONG_TYPE(s_vol_ok, spiderrock::protobuf::api::YesNo);
     #endif//_s_vol_ok__GUARD__
 
-    #ifndef _o_bid__GUARD__
-    #define _o_bid__GUARD__
-    DECL_STRONG_TYPE(o_bid, float);
-    #endif//_o_bid__GUARD__
+    #ifndef _bid__float__GUARD__
+    #define _bid__float__GUARD__
+    DECL_STRONG_TYPE(bid__float, float);
+    #endif//_bid__float__GUARD__
 
-    #ifndef _o_bid_sz__GUARD__
-    #define _o_bid_sz__GUARD__
-    DECL_STRONG_TYPE(o_bid_sz, int32);
-    #endif//_o_bid_sz__GUARD__
+    #ifndef _bid_sz__GUARD__
+    #define _bid_sz__GUARD__
+    DECL_STRONG_TYPE(bid_sz, int32);
+    #endif//_bid_sz__GUARD__
 
-    #ifndef _o_bid_mask__GUARD__
-    #define _o_bid_mask__GUARD__
-    DECL_STRONG_TYPE(o_bid_mask, uint32);
-    #endif//_o_bid_mask__GUARD__
+    #ifndef _bid_mask__GUARD__
+    #define _bid_mask__GUARD__
+    DECL_STRONG_TYPE(bid_mask, uint32);
+    #endif//_bid_mask__GUARD__
 
-    #ifndef _o_ask__GUARD__
-    #define _o_ask__GUARD__
-    DECL_STRONG_TYPE(o_ask, float);
-    #endif//_o_ask__GUARD__
+    #ifndef _ask__float__GUARD__
+    #define _ask__float__GUARD__
+    DECL_STRONG_TYPE(ask__float, float);
+    #endif//_ask__float__GUARD__
 
-    #ifndef _o_ask_sz__GUARD__
-    #define _o_ask_sz__GUARD__
-    DECL_STRONG_TYPE(o_ask_sz, int32);
-    #endif//_o_ask_sz__GUARD__
+    #ifndef _ask_sz__GUARD__
+    #define _ask_sz__GUARD__
+    DECL_STRONG_TYPE(ask_sz, int32);
+    #endif//_ask_sz__GUARD__
 
-    #ifndef _o_ask_mask__GUARD__
-    #define _o_ask_mask__GUARD__
-    DECL_STRONG_TYPE(o_ask_mask, uint32);
-    #endif//_o_ask_mask__GUARD__
+    #ifndef _ask_mask__GUARD__
+    #define _ask_mask__GUARD__
+    DECL_STRONG_TYPE(ask_mask, uint32);
+    #endif//_ask_mask__GUARD__
 
     
     class AuctionPrint_PKey {
@@ -591,12 +591,12 @@ namespace api {
         using th = spiderrock::protobuf::api::th;
         using ve = spiderrock::protobuf::api::ve;
         using s_vol_ok = spiderrock::protobuf::api::s_vol_ok;
-        using o_bid = spiderrock::protobuf::api::o_bid;
-        using o_bid_sz = spiderrock::protobuf::api::o_bid_sz;
-        using o_bid_mask = spiderrock::protobuf::api::o_bid_mask;
-        using o_ask = spiderrock::protobuf::api::o_ask;
-        using o_ask_sz = spiderrock::protobuf::api::o_ask_sz;
-        using o_ask_mask = spiderrock::protobuf::api::o_ask_mask;
+        using bid = spiderrock::protobuf::api::bid__float;
+        using bid_sz = spiderrock::protobuf::api::bid_sz;
+        using bid_mask = spiderrock::protobuf::api::bid_mask;
+        using ask = spiderrock::protobuf::api::ask__float;
+        using ask_sz = spiderrock::protobuf::api::ask_sz;
+        using ask_mask = spiderrock::protobuf::api::ask_mask;
 
         private:
         sec_key m_sec_key{};
@@ -620,12 +620,12 @@ namespace api {
         th m_th{};
         ve m_ve{};
         s_vol_ok m_s_vol_ok{};
-        o_bid m_o_bid{};
-        o_bid_sz m_o_bid_sz{};
-        o_bid_mask m_o_bid_mask{};
-        o_ask m_o_ask{};
-        o_ask_sz m_o_ask_sz{};
-        o_ask_mask m_o_ask_mask{};
+        bid m_bid{};
+        bid_sz m_bid_sz{};
+        bid_mask m_bid_mask{};
+        ask m_ask{};
+        ask_sz m_ask_sz{};
+        ask_mask m_ask_mask{};
 
         public:
 		sec_key get_sec_key() const {
@@ -691,23 +691,23 @@ namespace api {
         s_vol_ok get_s_vol_ok() const {
             return m_s_vol_ok;
         }
-        o_bid get_o_bid() const {
-            return m_o_bid;
+        bid get_bid() const {
+            return m_bid;
         }
-        o_bid_sz get_o_bid_sz() const {
-            return m_o_bid_sz;
+        bid_sz get_bid_sz() const {
+            return m_bid_sz;
         }
-        o_bid_mask get_o_bid_mask() const {
-            return m_o_bid_mask;
+        bid_mask get_bid_mask() const {
+            return m_bid_mask;
         }
-        o_ask get_o_ask() const {
-            return m_o_ask;
+        ask get_ask() const {
+            return m_ask;
         }
-        o_ask_sz get_o_ask_sz() const {
-            return m_o_ask_sz;
+        ask_sz get_ask_sz() const {
+            return m_ask_sz;
         }
-        o_ask_mask get_o_ask_mask() const {
-            return m_o_ask_mask;
+        ask_mask get_ask_mask() const {
+            return m_ask_mask;
         }
         void set_sec_key(const sec_key& value)  {
             m_sec_key = value;
@@ -772,23 +772,23 @@ namespace api {
         void set_s_vol_ok(const s_vol_ok& value)  {
             m_s_vol_ok = value;
         }
-        void set_o_bid(const o_bid& value)  {
-            m_o_bid = value;
+        void set_bid(const bid& value)  {
+            m_bid = value;
         }
-        void set_o_bid_sz(const o_bid_sz& value)  {
-            m_o_bid_sz = value;
+        void set_bid_sz(const bid_sz& value)  {
+            m_bid_sz = value;
         }
-        void set_o_bid_mask(const o_bid_mask& value)  {
-            m_o_bid_mask = value;
+        void set_bid_mask(const bid_mask& value)  {
+            m_bid_mask = value;
         }
-        void set_o_ask(const o_ask& value)  {
-            m_o_ask = value;
+        void set_ask(const ask& value)  {
+            m_ask = value;
         }
-        void set_o_ask_sz(const o_ask_sz& value)  {
-            m_o_ask_sz = value;
+        void set_ask_sz(const ask_sz& value)  {
+            m_ask_sz = value;
         }
-        void set_o_ask_mask(const o_ask_mask& value)  {
-            m_o_ask_mask = value;
+        void set_ask_mask(const ask_mask& value)  {
+            m_ask_mask = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
@@ -819,12 +819,12 @@ namespace api {
         void set(const th & value) { set_th(value); }
         void set(const ve & value) { set_ve(value); }
         void set(const s_vol_ok & value) { set_s_vol_ok(value); }
-        void set(const o_bid & value) { set_o_bid(value); }
-        void set(const o_bid_sz & value) { set_o_bid_sz(value); }
-        void set(const o_bid_mask & value) { set_o_bid_mask(value); }
-        void set(const o_ask & value) { set_o_ask(value); }
-        void set(const o_ask_sz & value) { set_o_ask_sz(value); }
-        void set(const o_ask_mask & value) { set_o_ask_mask(value); }
+        void set(const bid & value) { set_bid(value); }
+        void set(const bid_sz & value) { set_bid_sz(value); }
+        void set(const bid_mask & value) { set_bid_mask(value); }
+        void set(const ask & value) { set_ask(value); }
+        void set(const ask_sz & value) { set_ask_sz(value); }
+        void set(const ask_mask & value) { set_ask_mask(value); }
 
 
         AuctionPrint_OrderLegs() {}
@@ -867,12 +867,12 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(182,m_th);
             totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(183,m_ve);
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(184,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok)));
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(185,m_o_bid);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(186,m_o_bid_sz);
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(187,m_o_bid_mask);
-            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(188,m_o_ask);
-            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(189,m_o_ask_sz);
-            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(190,m_o_ask_mask);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(193,m_bid);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(194,m_bid_sz);
+            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(195,m_bid_mask);
+            totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(196,m_ask);
+            totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(197,m_ask_sz);
+            totalSize += SRProtobufCPP::FieldCodec::UIntFieldSize(198,m_ask_mask);
             return totalSize;
         }
 
@@ -900,12 +900,12 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,182,m_th);
             dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,183,m_ve);
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,184,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok)));
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,185,m_o_bid);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,186,m_o_bid_sz);
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,187,m_o_bid_mask);
-            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,188,m_o_ask);
-            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,189,m_o_ask_sz);
-            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,190,m_o_ask_mask);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,193,m_bid);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,194,m_bid_sz);
+            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,195,m_bid_mask);
+            dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,196,m_ask);
+            dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,197,m_ask_sz);
+            dest = SRProtobufCPP::FieldCodec::EncodeUInt(dest,198,m_ask_mask);
             return dest;
         }
 
@@ -987,22 +987,22 @@ namespace api {
                     case 184: {m_s_vol_ok = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
-                    case 185: {m_o_bid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 193: {m_bid = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 186: {m_o_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 194: {m_bid_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 187: {m_o_bid_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
+                    case 195: {m_bid_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
                         break;
                     }
-                    case 188: {m_o_ask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                    case 196: {m_ask = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         break;
                     }
-                    case 189: {m_o_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 197: {m_ask_sz = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         break;
                     }
-                    case 190: {m_o_ask_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
+                    case 198: {m_ask_mask = SRProtobufCPP::FieldCodec::DecodeUInt(pos,max);
                         break;
                     }
                 }
@@ -2103,7 +2103,7 @@ namespace api {
             if ( IncludeNumOptLegs()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(105,m_num_opt_legs);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(192,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
@@ -2289,7 +2289,7 @@ namespace api {
             if ( IncludeNumOptLegs()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,105,m_num_opt_legs);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,106,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,192,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,107,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>(m_spread_flavor)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_contains_flex)));
@@ -2551,8 +2551,8 @@ namespace api {
                         }
                         break;
                     }
-                    case 106: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 192: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_spread_class = static_cast<spiderrock::protobuf::api::SpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2858,7 +2858,7 @@ namespace api {
     template<> inline const auto AuctionPrint::get<AuctionPrint::cust_agent_mpid>() const { return m_cust_agent_mpid; }
     template<> inline const auto AuctionPrint::get<AuctionPrint::comm_enhancement>() const { return m_comm_enhancement; }
     template<> inline const auto AuctionPrint::get<AuctionPrint::num_opt_legs>() const { return m_num_opt_legs; }
-    template<> inline const auto AuctionPrint::get<AuctionPrint::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>( m_spread_class)); }
+    template<> inline const auto AuctionPrint::get<AuctionPrint::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>( m_spread_class)); }
     template<> inline const auto AuctionPrint::get<AuctionPrint::spread_flavor>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadFlavor>( m_spread_flavor)); }
     template<> inline const auto AuctionPrint::get<AuctionPrint::contains_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_hedge)); }
     template<> inline const auto AuctionPrint::get<AuctionPrint::contains_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_contains_flex)); }
@@ -2929,12 +2929,12 @@ namespace api {
     template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::th>() const { return m_th; }
     template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::ve>() const { return m_ve; }
     template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::s_vol_ok>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_s_vol_ok));}
-    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::o_bid>() const { return m_o_bid; }
-    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::o_bid_sz>() const { return m_o_bid_sz; }
-    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::o_bid_mask>() const { return m_o_bid_mask; }
-    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::o_ask>() const { return m_o_ask; }
-    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::o_ask_sz>() const { return m_o_ask_sz; }
-    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::o_ask_mask>() const { return m_o_ask_mask; }
+    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::bid>() const { return m_bid; }
+    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::bid_sz>() const { return m_bid_sz; }
+    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::bid_mask>() const { return m_bid_mask; }
+    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::ask>() const { return m_ask; }
+    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::ask_sz>() const { return m_ask_sz; }
+    template<> inline const auto AuctionPrint_OrderLegs::get<AuctionPrint_OrderLegs::ask_mask>() const { return m_ask_mask; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
@@ -2965,12 +2965,12 @@ namespace api {
         o << ",\"th\":" << m.get<AuctionPrint_OrderLegs::th>();
         o << ",\"ve\":" << m.get<AuctionPrint_OrderLegs::ve>();
         o << ",\"s_vol_ok\":" << (int64_t)m.get<AuctionPrint_OrderLegs::s_vol_ok>();
-        o << ",\"o_bid\":" << m.get<AuctionPrint_OrderLegs::o_bid>();
-        o << ",\"o_bid_sz\":" << m.get<AuctionPrint_OrderLegs::o_bid_sz>();
-        o << ",\"o_bid_mask\":" << m.get<AuctionPrint_OrderLegs::o_bid_mask>();
-        o << ",\"o_ask\":" << m.get<AuctionPrint_OrderLegs::o_ask>();
-        o << ",\"o_ask_sz\":" << m.get<AuctionPrint_OrderLegs::o_ask_sz>();
-        o << ",\"o_ask_mask\":" << m.get<AuctionPrint_OrderLegs::o_ask_mask>();
+        o << ",\"bid\":" << m.get<AuctionPrint_OrderLegs::bid>();
+        o << ",\"bid_sz\":" << m.get<AuctionPrint_OrderLegs::bid_sz>();
+        o << ",\"bid_mask\":" << m.get<AuctionPrint_OrderLegs::bid_mask>();
+        o << ",\"ask\":" << m.get<AuctionPrint_OrderLegs::ask>();
+        o << ",\"ask_sz\":" << m.get<AuctionPrint_OrderLegs::ask_sz>();
+        o << ",\"ask_mask\":" << m.get<AuctionPrint_OrderLegs::ask_mask>();
         return o;
     }
 

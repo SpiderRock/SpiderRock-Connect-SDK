@@ -195,6 +195,11 @@ namespace api {
     DECL_STRONG_TYPE(client_firm, string);
     #endif//_client_firm__GUARD__
 
+    #ifndef _strategy_accnt__GUARD__
+    #define _strategy_accnt__GUARD__
+    DECL_STRONG_TYPE(strategy_accnt, string);
+    #endif//_strategy_accnt__GUARD__
+
     #ifndef _spdr_source__GUARD__
     #define _spdr_source__GUARD__
     DECL_STRONG_TYPE(spdr_source, spiderrock::protobuf::api::SpdrSource);
@@ -1507,6 +1512,7 @@ namespace api {
         using origin_sec_key = spiderrock::protobuf::api::origin_sec_key;
         using accnt = spiderrock::protobuf::api::accnt;
         using client_firm = spiderrock::protobuf::api::client_firm;
+        using strategy_accnt = spiderrock::protobuf::api::strategy_accnt;
         using spdr_source = spiderrock::protobuf::api::spdr_source;
         using grouping_code = spiderrock::protobuf::api::grouping_code;
         using core_client_firm = spiderrock::protobuf::api::core_client_firm;
@@ -1781,6 +1787,7 @@ namespace api {
         origin_sec_key m_origin_sec_key{};
         accnt m_accnt{};
         client_firm m_client_firm{};
+        strategy_accnt m_strategy_accnt{};
         spdr_source m_spdr_source{};
         grouping_code m_grouping_code{};
         core_client_firm m_core_client_firm{};
@@ -2126,6 +2133,9 @@ namespace api {
         }		
         client_firm get_client_firm() const {
             return m_client_firm;
+        }		
+        strategy_accnt get_strategy_accnt() const {
+            return m_strategy_accnt;
         }		
         spdr_source get_spdr_source() const {
             return m_spdr_source;
@@ -2946,6 +2956,9 @@ namespace api {
         }
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
+        }
+        void set_strategy_accnt(const strategy_accnt& value)  {
+            m_strategy_accnt = value;
         }
         void set_spdr_source(const spdr_source& value)  {
             m_spdr_source = value;
@@ -3771,6 +3784,9 @@ namespace api {
         void set(const client_firm & value) {
             set_client_firm(value);
         }
+        void set(const strategy_accnt & value) {
+            set_strategy_accnt(value);
+        }
         void set(const spdr_source & value) {
             set_spdr_source(value);
         }
@@ -4519,6 +4535,7 @@ namespace api {
             set(value.m_origin_sec_key);
             set(value.m_accnt);
             set(value.m_client_firm);
+            set(value.m_strategy_accnt);
             set(value.m_spdr_source);
             set(value.m_grouping_code);
             set(value.m_core_client_firm);
@@ -4891,6 +4908,9 @@ namespace api {
         }
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
+        }
+        bool IncludeStrategyAccnt() const {
+            return !(m_strategy_accnt.empty());
         }
         bool IncludeGroupingCode() const {
             return !(m_grouping_code == 0);
@@ -5553,6 +5573,9 @@ namespace api {
             }
             if ( IncludeClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(193,m_client_firm);
+            }
+            if ( IncludeStrategyAccnt()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(848,m_strategy_accnt);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(196,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>(m_spdr_source)));
             if ( IncludeGroupingCode()) {
@@ -6269,6 +6292,9 @@ namespace api {
             }
             if ( IncludeClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,193,static_cast<string>(m_client_firm));
+            }
+            if ( IncludeStrategyAccnt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,848,static_cast<string>(m_strategy_accnt));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,196,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>(m_spdr_source)));
             if ( IncludeGroupingCode()) {
@@ -7101,6 +7127,12 @@ namespace api {
                     case 193: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 848: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_strategy_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -8519,6 +8551,7 @@ namespace api {
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::origin_sec_key>() const { return SpdrParentExecution::origin_sec_key{ m_origin_sec_key}; }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::accnt>() const { return m_accnt; }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::client_firm>() const { return m_client_firm; }
+    template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::strategy_accnt>() const { return m_strategy_accnt; }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::spdr_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrSource>( m_spdr_source)); }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::grouping_code>() const { return m_grouping_code; }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::core_client_firm>() const { return m_core_client_firm; }
@@ -8801,6 +8834,7 @@ namespace api {
         o << ",\"origin_sec_key\":{" << m.get<SpdrParentExecution::origin_sec_key>() << "}";
         o << ",\"accnt\":\"" << m.get<SpdrParentExecution::accnt>() << "\"";
         o << ",\"client_firm\":\"" << m.get<SpdrParentExecution::client_firm>() << "\"";
+        o << ",\"strategy_accnt\":\"" << m.get<SpdrParentExecution::strategy_accnt>() << "\"";
         o << ",\"spdr_source\":" << (int64_t)m.get<SpdrParentExecution::spdr_source>();
         o << ",\"grouping_code\":" << m.get<SpdrParentExecution::grouping_code>();
         o << ",\"core_client_firm\":\"" << m.get<SpdrParentExecution::core_client_firm>() << "\"";

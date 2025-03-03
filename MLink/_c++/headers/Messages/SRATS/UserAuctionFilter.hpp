@@ -277,7 +277,7 @@ namespace api {
 
     #ifndef _spread_class__GUARD__
     #define _spread_class__GUARD__
-    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::ToolSpreadClass);
+    DECL_STRONG_TYPE(spread_class, spiderrock::protobuf::api::SpreadClass);
     #endif//_spread_class__GUARD__
 
     
@@ -765,7 +765,7 @@ namespace api {
 
     };
     
-    class UserAuctionFilter_SpreadClass {
+    class UserAuctionFilter_SpreadClasses {
         public:
         //using statements for all types used in this class
         using spread_class = spiderrock::protobuf::api::spread_class;
@@ -782,18 +782,18 @@ namespace api {
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to UserAuctionFilter_SpreadClass::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to UserAuctionFilter_SpreadClasses::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
         template <typename T, size_t S = sizeof(T)>
-        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to UserAuctionFilter_SpreadClass::set()"); }  // specializations for valid types are listed below
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to UserAuctionFilter_SpreadClasses::set()"); }  // specializations for valid types are listed below
 
         //specializations for set functions for the valid types
         
         void set(const spread_class & value) { set_spread_class(value); }
 
 
-        UserAuctionFilter_SpreadClass() {}
+        UserAuctionFilter_SpreadClasses() {}
 
-        virtual ~UserAuctionFilter_SpreadClass() {
+        virtual ~UserAuctionFilter_SpreadClasses() {
         }
         //templatized set functions that can take multiple arguments simultaneously
         template <typename Arg>
@@ -808,12 +808,12 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(158,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             return totalSize;
         }
 
         uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,109,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,158,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class)));
             return dest;
         }
 
@@ -830,7 +830,7 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 109: {m_spread_class = static_cast<spiderrock::protobuf::api::ToolSpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 158: {m_spread_class = static_cast<spiderrock::protobuf::api::SpreadClass>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         break;
                     }
                 }
@@ -893,7 +893,7 @@ namespace api {
         using exclude_ticker = spiderrock::protobuf::api::UserAuctionFilter_ExcludeTicker;
         using include_ticker = spiderrock::protobuf::api::UserAuctionFilter_IncludeTicker;
         using industry = spiderrock::protobuf::api::UserAuctionFilter_Industry;
-        using spread_class = spiderrock::protobuf::api::UserAuctionFilter_SpreadClass;
+        using spread_classes = spiderrock::protobuf::api::UserAuctionFilter_SpreadClasses;
 
         private:
         _meta m__meta{};
@@ -945,7 +945,7 @@ namespace api {
         std::vector<exclude_ticker> m_exclude_ticker{};
         std::vector<include_ticker> m_include_ticker{};
         std::vector<industry> m_industry{};
-        std::vector<spread_class> m_spread_class{};
+        std::vector<spread_classes> m_spread_classes{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -1112,11 +1112,11 @@ namespace api {
         const industry& get_industry(const int i) const {
             return m_industry.at(i);
         }
-        const std::vector<spread_class>& get_spread_class_list() const {
-            return m_spread_class;
+        const std::vector<spread_classes>& get_spread_classes_list() const {
+            return m_spread_classes;
         }
-        const spread_class& get_spread_class(const int i) const {
-            return m_spread_class.at(i);
+        const spread_classes& get_spread_classes(const int i) const {
+            return m_spread_classes.at(i);
         }
         size_t getMLinkHeaderLength() const
         {
@@ -1284,11 +1284,11 @@ namespace api {
         void add_industry(const industry& item) {
             m_industry.emplace_back(item);
         }
-        void set_spread_class_list(const std::vector<spread_class>& list)  {
-            m_spread_class = list;
+        void set_spread_classes_list(const std::vector<spread_classes>& list)  {
+            m_spread_classes = list;
         }
-        void add_spread_class(const spread_class& item) {
-            m_spread_class.emplace_back(item);
+        void add_spread_classes(const spread_classes& item) {
+            m_spread_classes.emplace_back(item);
         }
 
         //templatized getters and setters
@@ -1451,8 +1451,8 @@ namespace api {
         void set(const industry & value) {
             add_industry(value);
         }
-        void set(const spread_class & value) {
-            add_spread_class(value);
+        void set(const spread_classes & value) {
+            add_spread_classes(value);
         }
 
         void set(const UserAuctionFilter & value) {
@@ -1499,7 +1499,7 @@ namespace api {
             set(value.m_net_vega_direction);
             set(value.m_modified_by);
             set(value.m_modified_in);
-            set(value.m_timestamp);set_auction_sources_list(value.m_auction_sources);set_auction_types_list(value.m_auction_types);set_exclude_ticker_list(value.m_exclude_ticker);set_include_ticker_list(value.m_include_ticker);set_industry_list(value.m_industry);set_spread_class_list(value.m_spread_class);
+            set(value.m_timestamp);set_auction_sources_list(value.m_auction_sources);set_auction_types_list(value.m_auction_types);set_exclude_ticker_list(value.m_exclude_ticker);set_include_ticker_list(value.m_include_ticker);set_industry_list(value.m_industry);set_spread_classes_list(value.m_spread_classes);
         }
 
         UserAuctionFilter() {
@@ -1627,8 +1627,8 @@ namespace api {
         bool IncludeIndustry() const {
             return (!m_industry.empty());
         }
-        bool IncludeSpreadClass() const {
-            return (!m_spread_class.empty());
+        bool IncludeSpreadClasses() const {
+            return (!m_spread_classes.empty());
         }
 
         size_t ByteSizeLong() const {
@@ -1757,9 +1757,9 @@ namespace api {
                     totalSize += item.ByteSizeLong();
                 }
             }
-            if ( IncludeSpreadClass()) {
-                for (auto& item : m_spread_class) {
-					totalSize += SRProtobufCPP::TagCodec::Size(108, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+            if ( IncludeSpreadClasses()) {
+                for (auto& item : m_spread_classes) {
+					totalSize += SRProtobufCPP::TagCodec::Size(157, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
                     totalSize += item.ByteSizeLong();
                 }
@@ -1891,9 +1891,9 @@ namespace api {
                     item.Encode(dest, max);
                 }
             }
-            if ( IncludeSpreadClass()) {
-                for (auto& item : m_spread_class) {
-                    dest = SRProtobufCPP::TagCodec::Encode(dest, 108, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+            if ( IncludeSpreadClasses()) {
+                for (auto& item : m_spread_classes) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 157, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                     dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
                     item.Encode(dest, max);
                 }
@@ -2201,12 +2201,12 @@ namespace api {
                         }
                         break;
                     }
-                    case 108: {
+                    case 157: {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
-                            spread_class item_spread_class;
-                            item_spread_class.Decode(pos, pos+length);  
-                            m_spread_class.emplace_back(item_spread_class);
+                            spread_classes item_spread_classes;
+                            item_spread_classes.Decode(pos, pos+length);  
+                            m_spread_classes.emplace_back(item_spread_classes);
                         }
                         break;
                     }
@@ -2273,8 +2273,8 @@ namespace api {
     template<> inline int UserAuctionFilter::count<UserAuctionFilter::include_ticker>() const { return static_cast<int>( m_include_ticker.size()); }
     template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::industry>(int i) const { return UserAuctionFilter::industry{ get_industry(i)}; }
     template<> inline int UserAuctionFilter::count<UserAuctionFilter::industry>() const { return static_cast<int>( m_industry.size()); }
-    template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::spread_class>(int i) const { return UserAuctionFilter::spread_class{ get_spread_class(i)}; }
-    template<> inline int UserAuctionFilter::count<UserAuctionFilter::spread_class>() const { return static_cast<int>( m_spread_class.size()); }
+    template<> inline const auto UserAuctionFilter::get<UserAuctionFilter::spread_classes>(int i) const { return UserAuctionFilter::spread_classes{ get_spread_classes(i)}; }
+    template<> inline int UserAuctionFilter::count<UserAuctionFilter::spread_classes>() const { return static_cast<int>( m_spread_classes.size()); }
     template<> inline const auto UserAuctionFilter_PKey::get<UserAuctionFilter_PKey::user_name>() const { return m_user_name; }
     template<> inline const auto UserAuctionFilter_PKey::get<UserAuctionFilter_PKey::filter_name>() const { return m_filter_name; }
     
@@ -2288,7 +2288,7 @@ namespace api {
     
     template<> inline const auto UserAuctionFilter_Industry::get<UserAuctionFilter_Industry::industry>() const { return m_industry; }
     
-    template<> inline const auto UserAuctionFilter_SpreadClass::get<UserAuctionFilter_SpreadClass::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ToolSpreadClass>(m_spread_class));}
+    template<> inline const auto UserAuctionFilter_SpreadClasses::get<UserAuctionFilter_SpreadClasses::spread_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpreadClass>(m_spread_class));}
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
@@ -2323,8 +2323,8 @@ namespace api {
         return o;
     }
 
-    inline std::ostream& operator<<(std::ostream &o, const UserAuctionFilter_SpreadClass& m) {
-        o << "\"spread_class\":" << (int64_t)m.get<UserAuctionFilter_SpreadClass::spread_class>();
+    inline std::ostream& operator<<(std::ostream &o, const UserAuctionFilter_SpreadClasses& m) {
+        o << "\"spread_class\":" << (int64_t)m.get<UserAuctionFilter_SpreadClasses::spread_class>();
         return o;
     }
 
@@ -2423,11 +2423,11 @@ namespace api {
             }
         }
         o << "]";
-        o << ",\"spread_class\":[";
+        o << ",\"spread_classes\":[";
         {
             const char *delim = "{";
-            for (int i=0; i<m.count<UserAuctionFilter::spread_class>(); ++i) {
-                o << delim << m.get<UserAuctionFilter::spread_class>(i) << '}';
+            for (int i=0; i<m.count<UserAuctionFilter::spread_classes>(); ++i) {
+                o << delim << m.get<UserAuctionFilter::spread_classes>(i) << '}';
                 delim = ",{";
             }
         }

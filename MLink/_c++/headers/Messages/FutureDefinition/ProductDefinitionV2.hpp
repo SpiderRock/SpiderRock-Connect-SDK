@@ -75,10 +75,10 @@ namespace api {
     DECL_STRONG_TYPE(security_group, string);
     #endif//_security_group__GUARD__
 
-    #ifndef _market_segment_id__GUARD__
-    #define _market_segment_id__GUARD__
-    DECL_STRONG_TYPE(market_segment_id, int32);
-    #endif//_market_segment_id__GUARD__
+    #ifndef _market_segment_id__int32__GUARD__
+    #define _market_segment_id__int32__GUARD__
+    DECL_STRONG_TYPE(market_segment_id__int32, int32);
+    #endif//_market_segment_id__int32__GUARD__
 
     #ifndef _ric_code__GUARD__
     #define _ric_code__GUARD__
@@ -577,7 +577,7 @@ namespace api {
         using und_type = spiderrock::protobuf::api::und_type;
         using product_group = spiderrock::protobuf::api::product_group;
         using security_group = spiderrock::protobuf::api::security_group;
-        using market_segment_id = spiderrock::protobuf::api::market_segment_id;
+        using market_segment_id = spiderrock::protobuf::api::market_segment_id__int32;
         using ric_code = spiderrock::protobuf::api::ric_code;
         using security_desc = spiderrock::protobuf::api::security_desc;
         using exchange = spiderrock::protobuf::api::exchange__string;
