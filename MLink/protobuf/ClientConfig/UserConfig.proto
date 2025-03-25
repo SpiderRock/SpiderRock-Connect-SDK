@@ -96,6 +96,7 @@ message UserConfig {
     string description = 133; // User record comment/description (if any)
     SRTimeZone display_time_zone = 136; // [custom:UserTimeZone] User timezone (affects date/time display in Tools)
     LogAmount mlink_activity_logging = 139; // Amount of user activity logging/archiving for MLink products. Complete --> Log Everything, Partial --> Take samples, None --> No non-error logging
+    int32 mlink_max_bytes_per_ms = 413; // maximum number of bytes sent in a given millisecond via mink
     ConfigAccess client_config_access = 160; // user can create new (pending approval) or edit existing client configuration records (SRAdmin, SponsorAdmin, ClientAdmin, or SRUser (any sysenv))
     AccountTypeControl account_type_control = 163;
     OrderAccess prod_order_access = 386;
@@ -113,6 +114,7 @@ message UserConfig {
     string contact_slack = 196; // Contact Slack Handle
     string contact_ice_chat = 199; // Contact ICE Handle
     string contact_bBerg_handle = 202; // Contact Bloomberg Handle (BBGID)
+    string contact_sym_chat = 412; // Contact Symphony Stream ID
     string chat_client_firm = 407; // ICE Gateway (Bot) responder client firm
     string chat_prod_accnt = 408; // ICE Gateway (Bot) prod responder accnt
     string chat_test_accnt = 409; // ICE Gateway (Bot) test responder accnt

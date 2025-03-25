@@ -52,6 +52,9 @@ message AuctionNoticeRC {
     YesNo cust_comm_paying = 124; // client is commission paying (to the responder)
     CustQtyCond cust_qty_cond = 125; // UpToQty, AllOrNone, QtyOrMore
     int32 auction_duration = 126; // [expected] auction duration (in milliseconds)
+    float pkg_surf_prc = 148; // SR Surface Price (entire package)
+    float pkg_bid_prc = 149; // leg market best way price (pkg bid)
+    float pkg_ask_prc = 150; // leg market worst way price (pkg ask)
     double u_bid = 127; // live stock price
     double u_ask = 128;
     double i_days = 129; // iDays = effective interest days [SR supplied]

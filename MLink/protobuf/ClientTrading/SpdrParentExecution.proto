@@ -51,6 +51,7 @@ message SpdrParentExecution {
     OptionKey origin_sec_key = 844; // Origin Parent Order SecKey (will only be set for Spiderrock regional composite orders)
     string accnt = 190; // SpiderRock trading accnt [broker pkey]
     string client_firm = 193; // SR client firm
+    string strategy_accnt = 848; // SR strategy account (optional; copied from parent order)
     SpdrSource spdr_source = 196; // SpiderRock parent order source code [broker pkey]
     int64 grouping_code = 199; // SpiderRock parent broker number [broker pkey]
     string core_client_firm = 809;

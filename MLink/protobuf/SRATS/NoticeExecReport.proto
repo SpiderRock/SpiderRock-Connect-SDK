@@ -36,10 +36,10 @@ message NoticeExecReport {
     string client_firm = 140; // SR ClientFirm
     google.protobuf.Timestamp notice_dttm = 141; // either notice create datetime or notice arrival@SR datetime (high precision)
     string response_id = 100; // from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
-    SpdrSource resp_origin = 142;
-    SpdrStageType stage_type = 101;
-    AuctionType auction_type = 143;
-    AuctionSource auction_source = 144; // source of the auction notice (eg. SRC, MIAX, etc.)
+    SpdrSource resp_origin = 142; // AutoResponder, MLINK, FIX, ICEChat, TradeAp responders
+    SpdrStageType stage_type = 101; // response staged or not
+    AuctionType auction_type = 143; // Exch Exposure, Exch Price Improve, Exch Facilitation, Exch Solicitation, SR ATS Block, SR ATS Flash
+    AuctionSource auction_source = 144; // Source of the auction notice (eg. SRC, CBOE, MIAX, etc.)
     google.protobuf.Timestamp resp_dttm = 127; // response arrival dttm (high precision)
     BuySell resp_side = 102;
     int32 resp_size = 103;
@@ -62,6 +62,12 @@ message NoticeExecReport {
     double avg_fill_price = 131; // pkg avgFillPrice if MLeg
     double add_latency = 148; // latency from notice arrival@SR to external response send (in seconds) OR latency from notice create to response accepted (in seconds) (SRC Auctions)
     double ack_latency = 149; // latency from external response send to external response ack (FRT) (in seconds) (external auctions only)
+    int32 num_opt_legs = 152; // number of option legs
+    SpreadClass spread_class = 153; // spread class (eg. Call, Put, RevCon, Box, JRoll, etc.)
+    SpreadFlavor spread_flavor = 154; // spread flavor (Normal, Flipped) of this order
+    YesNo contains_hedge = 155; // if this order contains a stock/future leg
+    YesNo contains_flex = 156; // if this order contains flex leg(s)
+    YesNo contains_multi_hedge = 157; // contains MultiHedge (corp action adjusted) options
     NoticeResult response_result = 132;
     int32 response_time = 133; // notice response arrival time (milliseconds since auction start)
     double prt_price = 134; // reported print price (pkgPrice if MLeg)

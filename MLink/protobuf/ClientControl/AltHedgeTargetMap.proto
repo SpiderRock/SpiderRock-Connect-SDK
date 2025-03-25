@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AltHedgeTargetMap {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11; // client enter order in this account
+        string client_firm = 12; // SR assigned client firm acronym
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey alt_hedge_target = 100; // examples: MSFT-NMS-EQT/Stock, @ES-CME-FUT/Stock, ES-CME-FUT-2025-07-18/Future
+    SpdrKeyType alt_hedge_target_sec_type = 101;
+    string modified_by = 102; // user who last modified this record
+    SysEnvironment modified_in = 103;
+    google.protobuf.Timestamp timestamp = 104; // timestamp of last modification
+}
+
+

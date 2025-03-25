@@ -67,6 +67,7 @@ message SpdrAutoHedgeControl {
     SpdrLimitType order_limit_type = 214;
     SpdrLimitClass take_limit_class = 217; // Simple = LimitPrice, Probability = BEST(LimitPrice, ProbLimit)
     SpdrLimitClass make_limit_class = 220; // Simple = LimitPrice, Probability = BEST(LimitPrice, ProbLimit)
+    YesNo hedge_fill_uMark_lmt_prc = 256; // set a price limit on the autohedge order based on the most recent option fillUMark
     double order_prc_limit = 223; // Applies if LimitType = Prc[]
     double order_prc_offset = 226; // default=0
     StateModel state_model = 229;

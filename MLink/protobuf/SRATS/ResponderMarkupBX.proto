@@ -13,8 +13,7 @@ message ResponderMarkupBX {
         
         string accnt = 10;
         string client_firm = 11;
-        TickerKey root = 12;
-        DateKey expiry = 13;
+        ExpiryKey ekey = 15;
         BuySell resp_side = 14; // auction responder side (your side) (Buy = Buy/Borrow Cash)
     }
 
@@ -37,6 +36,38 @@ message ResponderMarkupBX {
     YesNo is_div_control_disabled = 112; // yes if dividend control above is triggered
     double i_days = 113; // iDays = effective interest days [SR supplied]
     double i_years = 114; // iYears = iDays / 360.0
+    int64 num_notices = 118; // number of notices that match response bucket
+    int64 num_notice_sR = 119; // number of SR auction numNotices
+    int64 num_notice_aMEX = 120;
+    int64 num_notice_bATS = 121;
+    int64 num_notice_bOX = 122;
+    int64 num_notice_cBOE = 123;
+    int64 num_notice_c2 = 124;
+    int64 num_notice_eDGO = 125;
+    int64 num_notice_eMLD = 126;
+    int64 num_notice_gMNI = 127;
+    int64 num_notice_iSE = 128;
+    int64 num_notice_mCRY = 129;
+    int64 num_notice_mEMX = 130;
+    int64 num_notice_mIAX = 131;
+    int64 num_notice_mPRL = 132;
+    int64 num_notice_nYSE = 133;
+    int64 num_notice_nQBX = 134;
+    int64 num_notice_nSDQ = 135;
+    int64 num_notice_pHLX = 136;
+    int64 num_notice_sPHR = 137;
+    int64 num_disabled = 138; // number skipped from isDisabled
+    int64 num_listed_flex_miss = 139; // number skipped from flex/listed filter
+    int64 num_notice_price_miss = 140; // number skipped from limit price filter (exchange only)
+    int64 num_agg_size_limit = 141; // number skipped from aggregate contract/vega size limit
+    int64 num_risk_group_limit = 142; // number skipped from riskGroup limits
+    int64 num_responses = 143; // number of response attempts (number of parentOrders/NoticeExecReports)
+    int64 num_full_size = 144;
+    int64 num_alloc_size = 145;
+    int64 num_price_miss = 146;
+    int64 num_too_late = 147;
+    int64 num_other_miss = 148;
+    int64 num_did_not_trade = 149;
     string modified_by = 115; // user who last modified this record
     SysEnvironment modified_in = 116;
     google.protobuf.Timestamp timestamp = 117; // timestamp of last modification
