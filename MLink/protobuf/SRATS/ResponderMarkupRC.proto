@@ -13,8 +13,7 @@ message ResponderMarkupRC {
         
         string accnt = 10;
         string client_firm = 11;
-        TickerKey root = 12;
-        DateKey expiry = 13;
+        ExpiryKey ekey = 15;
         BuySell resp_side = 14; // auction responder side (your side); Buy = Buy Synthetic (Sell Shares)
     }
 
@@ -24,6 +23,7 @@ message ResponderMarkupRC {
     PKey pkey = 2;
     TickerKey ticker = 100;
     YesNo is_disabled = 101; // if Yes, this auto-responder record is disabled
+    google.protobuf.Timestamp enabled_until = 134; // will be enabled up until this time
     int32 expiry_qty_avail = 102; // revcons (contracts) available for responding (day total; this ticker/expiry; all strikes) [note: 1 contract = undPerCn underlier units]
     int32 ticker_qty_avail = 103; // revcons (contracts) available for responding (day total; this ticker; all strikes) [note: 1 contract = undPerCn underlier units]
     double transact_fee = 104; // (+ = you pay) / (- = you receive)
@@ -53,6 +53,38 @@ message ResponderMarkupRC {
     double limit_price = 128; // limitPrice = ROUND(effRevConLimit) [this is your response limit]
     double eff_stock_lend_pv = 129; // effStockLendPv = limitPrice - strikePv - ddivPv - rcEExPrem
     double eff_stock_rate = 130; // effStockRate = effStockLendPv / (uPrc * iYears)
+    int64 num_notices = 135; // number of notices that match response bucket
+    int64 num_notice_sR = 136; // number of SR auction numNotices
+    int64 num_notice_aMEX = 137;
+    int64 num_notice_bATS = 138;
+    int64 num_notice_bOX = 139;
+    int64 num_notice_cBOE = 140;
+    int64 num_notice_c2 = 141;
+    int64 num_notice_eDGO = 142;
+    int64 num_notice_eMLD = 143;
+    int64 num_notice_gMNI = 144;
+    int64 num_notice_iSE = 145;
+    int64 num_notice_mCRY = 146;
+    int64 num_notice_mEMX = 147;
+    int64 num_notice_mIAX = 148;
+    int64 num_notice_mPRL = 149;
+    int64 num_notice_nYSE = 150;
+    int64 num_notice_nQBX = 151;
+    int64 num_notice_nSDQ = 152;
+    int64 num_notice_pHLX = 153;
+    int64 num_notice_sPHR = 154;
+    int64 resp_disabled_skips = 155; // number skipped from isDisabled
+    int64 listed_flex_skips = 156; // number skipped from flex/listed filter
+    int64 notice_price_skips = 157; // number skipped from limit price filter (exchange only)
+    int64 size_limit_skips = 158; // number skipped from aggregate contract/vega size limit
+    int64 risk_group_limit_skips = 159; // number skipped from riskGroup limits
+    int64 num_responses = 160; // number of response attempts (number of parentOrders/NoticeExecReports)
+    int64 num_full_size = 161;
+    int64 num_alloc_size = 162;
+    int64 num_price_miss = 163;
+    int64 num_too_late = 164;
+    int64 num_other_miss = 165;
+    int64 num_did_not_trade = 166;
     string modified_by = 131; // user who last modified this record
     SysEnvironment modified_in = 132;
     google.protobuf.Timestamp timestamp = 133; // timestamp of last modification

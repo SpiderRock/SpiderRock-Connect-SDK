@@ -235,6 +235,7 @@ message SpdrParentReport {
     SpdrKeyType sec_type = 172;
     string accnt = 175; // SR trading account
     string client_firm = 178; // SR client firm
+    string strategy_accnt = 1100; // SR strategy account
     string core_client_firm = 1039;
     string sponsor_client_firm = 1040;
     string client_accnt = 181; // client assigned "long" account string (from AccountConfig) [used to map between client and SR account strings]

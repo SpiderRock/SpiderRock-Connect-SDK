@@ -63,7 +63,7 @@ message SpreadBookMarkup {
     int32 num_fut_legs = 148;
     int32 num_opt_legs = 151;
     YesNo user_defined = 157;
-    ToolSpreadClass spread_class = 296;
+    SpreadClass spread_class = 299;
     YesNo contains_hedge = 297;
     double leg_bid_prc = 166;
     double leg_ask_prc = 169;

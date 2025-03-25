@@ -66,6 +66,7 @@ message RootDefinition {
     AdjConvention adj_convention = 187;
     OptPriceInc opt_price_inc = 190;
     PriceFormat price_format = 193; // price display format
+    double min_tick_size = 226; // min tick size used for European native exchange options
     Currency trade_curr = 196;
     Currency settle_curr = 199;
     Currency strike_curr = 202;

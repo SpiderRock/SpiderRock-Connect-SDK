@@ -46,6 +46,7 @@ message NoticeResponse {
     string user_data1 = 112; // (optional) user data field (free text) (reflected on NoticeResponse)
     string locate_firm = 122;
     string locate_pool = 123;
+    ShortSaleFlag ssale_flag = 133; // Used to determine stock auto-hedge flags.
     YesNo req_aux_risk_group_ctrl = 124;
     AutoHedge auto_hedge = 125;
     HedgeInst hedge_instrument = 126;

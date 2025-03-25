@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    RegionalInstrumentId (internal only) records exist per security and provide symbology mapping. Eg for an option contract on Eurex the instid and marketsegid would be provided
+*/    
+message RegionalInstrumentId {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11; // -- Can be Option, Stock, Future
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string market_segment_id = 100;
+    string instrument_id = 101;
+    string product_complex = 102;
+    string ric = 103;
+    string bbg = 104;
+    string isin = 105;
+    string sedol = 106;
+    string cusip = 107;
+    string figi = 108;
+}
+
+

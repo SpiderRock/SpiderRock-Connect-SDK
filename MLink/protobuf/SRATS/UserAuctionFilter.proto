@@ -40,9 +40,9 @@ message UserAuctionFilter {
         string industry = 103; // industry string prefix (must match left edge)
     }
 
-    message SpreadClass {
+    message SpreadClasses {
         
-        ToolSpreadClass spread_class = 109;
+        SpreadClass spread_class = 158;
     }
 
 
@@ -96,7 +96,7 @@ message UserAuctionFilter {
     repeated ExcludeTicker exclude_ticker = 106;
     repeated IncludeTicker include_ticker = 104;
     repeated Industry industry = 102;
-    repeated SpreadClass spread_class = 108;
+    repeated SpreadClasses spread_classes = 157;
 }
 
 

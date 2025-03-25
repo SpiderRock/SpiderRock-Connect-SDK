@@ -70,8 +70,8 @@ message RiskCubeDetailV5 {
     int32 cn_closed = 226; // option contracts closed
     string opn_dir = 229; // open (start-of-day) direction (LN or SH)
     string pos_dir = 232; // current (start-of-day + trades) direction (LN or SH)
-    int32 unit_opn_pos = 235; // effective opening position (shares or cn * underlierPerCn) (start-of-day)
-    int32 unit_cur_pos = 238; // effective current position (shares or cn * underlierPerCn) (start-of-day + trades)
+    int32 unit_opn_pos = 235; // effective opening position (shares or cn * pointValue) (start-of-day)
+    int32 unit_cur_pos = 238; // effective current position (shares or cn * pointValue) (start-of-day + trades)
     int32 unit_qty_bot = 241; // effective shares bot (shares or cn * underlierPerCn)
     int32 unit_qty_sld = 244; // effective shares sld (shares or cn * underlierPerCn)
     float day_pnl = 247; // day pnl
@@ -98,7 +98,7 @@ message RiskCubeDetailV5 {
     float t_vol_move = 310; // LN(tVol / tVolPr)
     float t_edge_move = 313; // LN(tVol / iVol) - LN(tVolPr / iVolPr)
     float t_edge = 316; // LN(tVol / iVol)
-    float opn_pnl_de = 319; // open position * mult * hedgeDe * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
+    float opn_pnl_de = 319; // open position * mult * optDelta * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
     float opn_pnl_ga = 322; // open position * mult * 0.5 * optGamma * dUPrc * dUPrc
     float opn_pnl_th = 325; // open position * mult * optTheta * dTime
     float opn_pnl_ve = 328; // open position * mult * optVega * dVol
@@ -110,9 +110,9 @@ message RiskCubeDetailV5 {
     float opn_pnl_dDiv = 346; // open position * mult * optPhi * dDDv
     float opn_pnl_err = 349; // unattributed pnl: SR Vol Pnl - opnPnlDe - opnPnlGa - opnPnlTh - opnPnlVe - opnPnlRat - opnPnlSDiv - opnPnlDDiv
     float opn_edge_change = 352; // open position * mult * (tEdge - tEdgePr) (requires a theo model)
-    float pos_delta = 355; // live position * mult * hedgeDe
-    float pos_dDelta = 358; // live position * mult * hedgeDe * UPrc
-    float pos_dBeta = 361; // live position * mult * hedgeDe * beta * UPrc
+    float pos_delta = 355; // live position * mult * optDelta
+    float pos_dDelta = 358; // live position * mult * optDelta * UPrc
+    float pos_dBeta = 361; // live position * mult * optDelta * beta * UPrc
     float pos_gamma = 364; // live position * mult * optGamma
     float pos_dGamma = 367; // live position * mult * optGamma * uPrc * uPrc / 100
     float pos_vega = 370; // live position * mult * optVega
@@ -124,6 +124,10 @@ message RiskCubeDetailV5 {
     float pos_theta = 388; // live position * mult * optTheta
     float pos_rho = 391; // live position * mult * optRho
     float pos_phi = 394; // live position * mult * optPhi
+    float pos_hDelta = 503; // hedge delta (either ivol or tvol based;follows binary rules)
+    float pos_hDDelta = 504; // hedge delta (dollarized)
+    float pos_hGamma = 505; // hedge gamma (either ivol or tvol based;follows binary rules)
+    float pos_hDGaamma = 506; // hedge gamma (dollarized)
     float pos_notional = 397; // live position * mult * uPrc
     float pos_mkt_value = 400; // live position * mult * SR surface mark
     float pos_prem_oPar = 403; // live position * mult * premium over parity

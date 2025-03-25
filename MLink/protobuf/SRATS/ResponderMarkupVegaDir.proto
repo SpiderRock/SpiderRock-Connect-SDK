@@ -13,9 +13,9 @@ message ResponderMarkupVegaDir {
         
         string accnt = 10;
         string client_firm = 11;
-        TickerKey ticker = 12;
+        TickerKey root = 15;
         BuySell resp_side = 13; // auction responder side (your side)
-        int32 expiry_group = 14;
+        int32 responder_iD = 16; // client supplied responder ID (can be any number including zero)
     }
 
 
@@ -24,9 +24,11 @@ message ResponderMarkupVegaDir {
     PKey pkey = 2;
     string user_name = 100; // username used for responding to auction notices
     YesNo is_disabled = 101; // if Yes, this auto-responder record is disabled
+    google.protobuf.Timestamp enabled_until = 137; // will be enabled up until this time
     YesNo can_include_flex = 102; // if yes, can respond to auction notices that include flex option legs
     YesNo can_include_stock = 103; // if yes, can respond to auction notices that include a stock leg
     CallPut cp_flag = 104; // if not Pair must match all option legs
+    float min_net_vega_ratio = 138; // minimum ratio of abs(netVega)/totalVega to enable a response (hard lower limit of 0.25)
     float min_years = 105; // both markup.minYears and markup.maxYears must be between [minYears, maxYears]
     float max_years = 106;
     google.protobuf.Timestamp min_expiry = 107; // both markup.minExpiry and markup.maxExpiry must be between [minExpiry, maxExpiry]
@@ -50,11 +52,49 @@ message ResponderMarkupVegaDir {
     HedgeScope hedge_scope = 125; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 126; // time in force for the autohedge order (can be Day or ExtDay) [None defaults to pOrder.timeInForce]
     int64 risk_group_id = 127; // Default: 0 (none).  Required to be non-zero if `autoHedge` is something other than None.
-    int64 num_notices = 129;
-    int64 num_notices_pass = 130;
-    int64 num_responses = 131;
     int32 qty_traded = 132;
     double vega_traded = 133;
+    double wt_vega_traded = 177;
+    int64 num_notices = 129; // number of notices that match response bucket
+    int64 num_notice_sR = 139; // number of SR auction numNotices
+    int64 num_notice_aMEX = 140;
+    int64 num_notice_bATS = 141;
+    int64 num_notice_bOX = 142;
+    int64 num_notice_cBOE = 143;
+    int64 num_notice_c2 = 144;
+    int64 num_notice_eDGO = 145;
+    int64 num_notice_eMLD = 146;
+    int64 num_notice_gMNI = 147;
+    int64 num_notice_iSE = 148;
+    int64 num_notice_mCRY = 149;
+    int64 num_notice_mEMX = 150;
+    int64 num_notice_mIAX = 151;
+    int64 num_notice_mPRL = 152;
+    int64 num_notice_nYSE = 153;
+    int64 num_notice_nQBX = 154;
+    int64 num_notice_nSDQ = 155;
+    int64 num_notice_pHLX = 156;
+    int64 num_notice_sPHR = 157;
+    int64 resp_disabled_skips = 158; // number skipped from isDisabled
+    int64 stock_disabled_skips = 159; // number skipped from canIncludeStock != Yes
+    int64 cp_flag_skips = 160; // number skipped from cpFlag not matching notice legs CallPut
+    int64 expiry_range_skips = 161; // number skipped from out of range expiry value
+    int64 years_range_skips = 162; // number skipped from out of range years value
+    int64 listed_flex_skips = 163; // number skipped from flex/listed filter
+    int64 notice_price_skips = 164; // number skipped from limit price filter (exchange only)
+    int64 agg_size_limit_skips = 165; // number skipped from aggregate contract/vega size limit
+    int64 risk_group_limit_skips = 166; // number skipped from riskGroup limits
+    int64 root_skips = 167; // number skipped from leg root mismatch
+    int64 x_delta_range_skips = 168; // number skipped from out of range XDelta value
+    int64 strike_range_skips = 169; // number skipped from out of range strike
+    int64 min_vega_ratio_skips = 170; // number skipped from not qualifying ratio netVega/sum(abs(vega))
+    int64 num_responses = 131; // number of response attempts (number of parentOrders/NoticeExecReports)
+    int64 num_full_size = 171;
+    int64 num_alloc_size = 172;
+    int64 num_price_miss = 173;
+    int64 num_too_late = 174;
+    int64 num_other_miss = 175;
+    int64 num_did_not_trade = 176;
     string modified_by = 134; // user who last modified this record
     SysEnvironment modified_in = 135;
     google.protobuf.Timestamp timestamp = 136; // timestamp of last modification

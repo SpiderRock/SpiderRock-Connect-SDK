@@ -38,6 +38,7 @@ message SpdrParentBrkrEvent {
     string engine_name = 139; // server stripe
     TickerKey ticker = 142; // SpiderRock underlier stock key
     SpdrBrokerStatus spdr_broker_status = 145;
+    string strategy_accnt = 373; // SR strategy account (option; if exists will be validated)
     SpdrOrderStatus spdr_order_status = 148; // parent order status
     SpdrCloseReason spdr_close_reason = 151; // parent order close reason (if closed)
     SpdrRejectReason spdr_reject_reason = 154; // parent order reject reason (if any)
