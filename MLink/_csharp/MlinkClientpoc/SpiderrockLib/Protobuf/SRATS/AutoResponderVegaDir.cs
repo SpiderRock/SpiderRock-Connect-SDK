@@ -26,42 +26,46 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CilQcm90b2J1Zi9TUkFUUy9BdXRvUmVzcG9uZGVyVmVnYURpci5wcm90bxIT",
             "c3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8a",
-            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i1goKFEF1dG9SZXNw",
+            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ilwwKFEF1dG9SZXNw",
             "b25kZXJWZWdhRGlyEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90",
             "b2J1Zi5NZXNzYWdlTWV0YWRhdGESPAoEcGtleRgCIAEoCzIuLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuQXV0b1Jlc3BvbmRlclZlZ2FEaXIuUEtleRIRCgl1c2Vy",
             "X25hbWUYZCABKAkSLwoLaXNfZGlzYWJsZWQYZiABKA4yGi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlllc05vEjQKEGNhbl9pbmNsdWRlX2ZsZXgYZyABKA4yGi5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjUKEWNhbl9pbmNsdWRlX3N0b2Nr",
-            "GGggASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxItCgdjcF9mbGFn",
-            "GGkgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5DYWxsUHV0EhIKCm1pbl94",
-            "RGVsdGEYbiABKAISEgoKbWF4X3hEZWx0YRhvIAEoAhISCgptaW5fc3RyaWtl",
-            "GHAgASgBEhIKCm1heF9zdHJpa2UYcSABKAESGgoSbWluX3N1cmZfZWRnZV9w",
-            "cmVtGHIgASgCEhoKEW1pbl9zdXJmX2VkZ2Vfdm9sGIIBIAEoAhI1ChBpbmNf",
-            "ZmVlc19pbl9yZXNwGIMBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVz",
-            "Tm8SMwoKcm91bmRfcnVsZRiEASABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlJvdW5kUnVsZRIZChFtYXhfcmVzcG9uc2Vfc2l6ZRh1IAEoBRIaChFtYXhf",
-            "cmVzcG9uc2VfdmVnYRiFASABKAISHAoTdG90YWxfcmVzcG9uc2VfdmVnYRiG",
-            "ASABKAISHwoWdG90YWxfcmVzcG9uc2Vfd3RfdmVnYRiHASABKAISMgoKYXV0",
-            "b19oZWRnZRh3IAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQXV0b0hlZGdl",
-            "EjgKEGhlZGdlX2luc3RydW1lbnQYeCABKA4yHi5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkhlZGdlSW5zdBI1Cg1oZWRnZV9zZWNfa2V5GHkgASgLMh4uc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5FeHBpcnlLZXkSGAoQaGVkZ2VfYmV0YV9yYXRpbxh6",
-            "IAEoAhI0CgtoZWRnZV9zY29wZRh7IAEoDjIfLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuSGVkZ2VTY29wZRI5Cg1oZWRnZV9zZXNzaW9uGHwgASgOMiIuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5NYXJrZXRTZXNzaW9uEhUKDXJpc2tfZ3JvdXBfaWQY",
-            "fSABKAMSEwoLbW9kaWZpZWRfYnkYfyABKAkSOQoLbW9kaWZpZWRfaW4YgAEg",
-            "ASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNFbnZpcm9ubWVudBIuCgl0",
-            "aW1lc3RhbXAYgQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBq5",
-            "AQoEUEtleRINCgVhY2NudBgKIAEoCRITCgtjbGllbnRfZmlybRgOIAEoCRIu",
-            "CgZ0aWNrZXIYCyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktl",
-            "eRIsCgZleHBpcnkYDyABKAsyHC5zcGlkZXJyb2NrLnByb3RvYnVmLkRhdGVL",
-            "ZXkSLwoJcmVzcF9zaWRlGAwgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5C",
-            "dXlTZWxsYgZwcm90bzM="));
+            "LnByb3RvYnVmLlllc05vEjIKDWVuYWJsZWRfdW50aWwYiAEgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBI0ChBjYW5faW5jbHVkZV9mbGV4GGcg",
+            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI1ChFjYW5faW5jbHVk",
+            "ZV9zdG9jaxhoIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SLQoH",
+            "Y3BfZmxhZxhpIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuQ2FsbFB1dBIb",
+            "ChJtaW5fbmV0X3ZlZ2FfcmF0aW8YiQEgASgCEhIKCW1pbl95ZWFycxiKASAB",
+            "KAISEgoJbWF4X3llYXJzGIsBIAEoAhIvCgptaW5fZXhwaXJ5GIwBIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLwoKbWF4X2V4cGlyeRiNASAB",
+            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhIKCm1pbl94RGVsdGEY",
+            "biABKAISEgoKbWF4X3hEZWx0YRhvIAEoAhISCgptaW5fc3RyaWtlGHAgASgB",
+            "EhIKCm1heF9zdHJpa2UYcSABKAESGgoSbWluX3N1cmZfZWRnZV9wcmVtGHIg",
+            "ASgCEhoKEW1pbl9zdXJmX2VkZ2Vfdm9sGIIBIAEoAhI1ChBpbmNfZmVlc19p",
+            "bl9yZXNwGIMBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SMwoK",
+            "cm91bmRfcnVsZRiEASABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLlJvdW5k",
+            "UnVsZRIZChFtYXhfcmVzcG9uc2Vfc2l6ZRh1IAEoBRIaChFtYXhfcmVzcG9u",
+            "c2VfdmVnYRiFASABKAISHAoTdG90YWxfcmVzcG9uc2VfdmVnYRiGASABKAIS",
+            "HwoWdG90YWxfcmVzcG9uc2Vfd3RfdmVnYRiHASABKAISMgoKYXV0b19oZWRn",
+            "ZRh3IAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuQXV0b0hlZGdlEjgKEGhl",
+            "ZGdlX2luc3RydW1lbnQYeCABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkhl",
+            "ZGdlSW5zdBI1Cg1oZWRnZV9zZWNfa2V5GHkgASgLMh4uc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5FeHBpcnlLZXkSGAoQaGVkZ2VfYmV0YV9yYXRpbxh6IAEoAhI0",
+            "CgtoZWRnZV9zY29wZRh7IAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuSGVk",
+            "Z2VTY29wZRI5Cg1oZWRnZV9zZXNzaW9uGHwgASgOMiIuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5NYXJrZXRTZXNzaW9uEhUKDXJpc2tfZ3JvdXBfaWQYfSABKAMS",
+            "EwoLbW9kaWZpZWRfYnkYfyABKAkSOQoLbW9kaWZpZWRfaW4YgAEgASgOMiMu",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5TeXNFbnZpcm9ubWVudBIuCgl0aW1lc3Rh",
+            "bXAYgQEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBqfAQoEUEtl",
+            "eRINCgVhY2NudBgKIAEoCRITCgtjbGllbnRfZmlybRgOIAEoCRIsCgRyb290",
+            "GBAgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSLwoJcmVz",
+            "cF9zaWRlGAwgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxsEhQK",
+            "DHJlc3BvbmRlcl9pRBgRIAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderVegaDir), global::Spiderrock.Protobuf.AutoResponderVegaDir.Parser, new[]{ "Meta", "Pkey", "UserName", "IsDisabled", "CanIncludeFlex", "CanIncludeStock", "CpFlag", "MinXDelta", "MaxXDelta", "MinStrike", "MaxStrike", "MinSurfEdgePrem", "MinSurfEdgeVol", "IncFeesInResp", "RoundRule", "MaxResponseSize", "MaxResponseVega", "TotalResponseVega", "TotalResponseWtVega", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "RiskGroupId", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderVegaDir.Types.PKey), global::Spiderrock.Protobuf.AutoResponderVegaDir.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm", "Ticker", "Expiry", "RespSide" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderVegaDir), global::Spiderrock.Protobuf.AutoResponderVegaDir.Parser, new[]{ "Meta", "Pkey", "UserName", "IsDisabled", "EnabledUntil", "CanIncludeFlex", "CanIncludeStock", "CpFlag", "MinNetVegaRatio", "MinYears", "MaxYears", "MinExpiry", "MaxExpiry", "MinXDelta", "MaxXDelta", "MinStrike", "MaxStrike", "MinSurfEdgePrem", "MinSurfEdgeVol", "IncFeesInResp", "RoundRule", "MaxResponseSize", "MaxResponseVega", "TotalResponseVega", "TotalResponseWtVega", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "RiskGroupId", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderVegaDir.Types.PKey), global::Spiderrock.Protobuf.AutoResponderVegaDir.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm", "Root", "RespSide", "ResponderID" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -106,9 +110,15 @@ namespace Spiderrock.Protobuf {
       pkey_ = other.pkey_ != null ? other.pkey_.Clone() : null;
       userName_ = other.userName_;
       isDisabled_ = other.isDisabled_;
+      enabledUntil_ = other.enabledUntil_ != null ? other.enabledUntil_.Clone() : null;
       canIncludeFlex_ = other.canIncludeFlex_;
       canIncludeStock_ = other.canIncludeStock_;
       cpFlag_ = other.cpFlag_;
+      minNetVegaRatio_ = other.minNetVegaRatio_;
+      minYears_ = other.minYears_;
+      maxYears_ = other.maxYears_;
+      minExpiry_ = other.minExpiry_ != null ? other.minExpiry_.Clone() : null;
+      maxExpiry_ = other.maxExpiry_ != null ? other.maxExpiry_.Clone() : null;
       minXDelta_ = other.minXDelta_;
       maxXDelta_ = other.maxXDelta_;
       minStrike_ = other.minStrike_;
@@ -194,6 +204,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "enabled_until" field.</summary>
+    public const int EnabledUntilFieldNumber = 136;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp enabledUntil_;
+    /// <summary>
+    /// will be enabled up until this time
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp EnabledUntil {
+      get { return enabledUntil_; }
+      set {
+        enabledUntil_ = value;
+      }
+    }
+
     /// <summary>Field number for the "can_include_flex" field.</summary>
     public const int CanIncludeFlexFieldNumber = 103;
     private global::Spiderrock.Protobuf.YesNo canIncludeFlex_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
@@ -236,6 +261,75 @@ namespace Spiderrock.Protobuf {
       get { return cpFlag_; }
       set {
         cpFlag_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "min_net_vega_ratio" field.</summary>
+    public const int MinNetVegaRatioFieldNumber = 137;
+    private float minNetVegaRatio_;
+    /// <summary>
+    /// minimum ratio of abs(netVega)/totalVega to enable a response (hard lower limit of 0.25)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MinNetVegaRatio {
+      get { return minNetVegaRatio_; }
+      set {
+        minNetVegaRatio_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "min_years" field.</summary>
+    public const int MinYearsFieldNumber = 138;
+    private float minYears_;
+    /// <summary>
+    /// all leg years must be between [minYears, maxYears]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MinYears {
+      get { return minYears_; }
+      set {
+        minYears_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_years" field.</summary>
+    public const int MaxYearsFieldNumber = 139;
+    private float maxYears_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float MaxYears {
+      get { return maxYears_; }
+      set {
+        maxYears_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "min_expiry" field.</summary>
+    public const int MinExpiryFieldNumber = 140;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp minExpiry_;
+    /// <summary>
+    /// all leg expiries must be between [minExpiry, maxExpiry]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp MinExpiry {
+      get { return minExpiry_; }
+      set {
+        minExpiry_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_expiry" field.</summary>
+    public const int MaxExpiryFieldNumber = 141;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp maxExpiry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp MaxExpiry {
+      get { return maxExpiry_; }
+      set {
+        maxExpiry_ = value;
       }
     }
 
@@ -573,9 +667,15 @@ namespace Spiderrock.Protobuf {
       if (!object.Equals(Pkey, other.Pkey)) return false;
       if (UserName != other.UserName) return false;
       if (IsDisabled != other.IsDisabled) return false;
+      if (!object.Equals(EnabledUntil, other.EnabledUntil)) return false;
       if (CanIncludeFlex != other.CanIncludeFlex) return false;
       if (CanIncludeStock != other.CanIncludeStock) return false;
       if (CpFlag != other.CpFlag) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MinNetVegaRatio, other.MinNetVegaRatio)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MinYears, other.MinYears)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxYears, other.MaxYears)) return false;
+      if (!object.Equals(MinExpiry, other.MinExpiry)) return false;
+      if (!object.Equals(MaxExpiry, other.MaxExpiry)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MinXDelta, other.MinXDelta)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxXDelta, other.MaxXDelta)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MinStrike, other.MinStrike)) return false;
@@ -609,9 +709,15 @@ namespace Spiderrock.Protobuf {
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
       if (UserName.Length != 0) hash ^= UserName.GetHashCode();
       if (IsDisabled != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= IsDisabled.GetHashCode();
+      if (enabledUntil_ != null) hash ^= EnabledUntil.GetHashCode();
       if (CanIncludeFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= CanIncludeFlex.GetHashCode();
       if (CanIncludeStock != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= CanIncludeStock.GetHashCode();
       if (CpFlag != global::Spiderrock.Protobuf.CallPut.Unspecified) hash ^= CpFlag.GetHashCode();
+      if (MinNetVegaRatio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MinNetVegaRatio);
+      if (MinYears != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MinYears);
+      if (MaxYears != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxYears);
+      if (minExpiry_ != null) hash ^= MinExpiry.GetHashCode();
+      if (maxExpiry_ != null) hash ^= MaxExpiry.GetHashCode();
       if (MinXDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MinXDelta);
       if (MaxXDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxXDelta);
       if (MinStrike != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MinStrike);
@@ -768,6 +874,30 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(189, 8);
         output.WriteFloat(TotalResponseWtVega);
       }
+      if (enabledUntil_ != null) {
+        output.WriteRawTag(194, 8);
+        output.WriteMessage(EnabledUntil);
+      }
+      if (MinNetVegaRatio != 0F) {
+        output.WriteRawTag(205, 8);
+        output.WriteFloat(MinNetVegaRatio);
+      }
+      if (MinYears != 0F) {
+        output.WriteRawTag(213, 8);
+        output.WriteFloat(MinYears);
+      }
+      if (MaxYears != 0F) {
+        output.WriteRawTag(221, 8);
+        output.WriteFloat(MaxYears);
+      }
+      if (minExpiry_ != null) {
+        output.WriteRawTag(226, 8);
+        output.WriteMessage(MinExpiry);
+      }
+      if (maxExpiry_ != null) {
+        output.WriteRawTag(234, 8);
+        output.WriteMessage(MaxExpiry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -894,6 +1024,30 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(189, 8);
         output.WriteFloat(TotalResponseWtVega);
       }
+      if (enabledUntil_ != null) {
+        output.WriteRawTag(194, 8);
+        output.WriteMessage(EnabledUntil);
+      }
+      if (MinNetVegaRatio != 0F) {
+        output.WriteRawTag(205, 8);
+        output.WriteFloat(MinNetVegaRatio);
+      }
+      if (MinYears != 0F) {
+        output.WriteRawTag(213, 8);
+        output.WriteFloat(MinYears);
+      }
+      if (MaxYears != 0F) {
+        output.WriteRawTag(221, 8);
+        output.WriteFloat(MaxYears);
+      }
+      if (minExpiry_ != null) {
+        output.WriteRawTag(226, 8);
+        output.WriteMessage(MinExpiry);
+      }
+      if (maxExpiry_ != null) {
+        output.WriteRawTag(234, 8);
+        output.WriteMessage(MaxExpiry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -916,6 +1070,9 @@ namespace Spiderrock.Protobuf {
       if (IsDisabled != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) IsDisabled);
       }
+      if (enabledUntil_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(EnabledUntil);
+      }
       if (CanIncludeFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) CanIncludeFlex);
       }
@@ -924,6 +1081,21 @@ namespace Spiderrock.Protobuf {
       }
       if (CpFlag != global::Spiderrock.Protobuf.CallPut.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) CpFlag);
+      }
+      if (MinNetVegaRatio != 0F) {
+        size += 2 + 4;
+      }
+      if (MinYears != 0F) {
+        size += 2 + 4;
+      }
+      if (MaxYears != 0F) {
+        size += 2 + 4;
+      }
+      if (minExpiry_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MinExpiry);
+      }
+      if (maxExpiry_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MaxExpiry);
       }
       if (MinXDelta != 0F) {
         size += 2 + 4;
@@ -1021,6 +1193,12 @@ namespace Spiderrock.Protobuf {
       if (other.IsDisabled != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         IsDisabled = other.IsDisabled;
       }
+      if (other.enabledUntil_ != null) {
+        if (enabledUntil_ == null) {
+          EnabledUntil = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        EnabledUntil.MergeFrom(other.EnabledUntil);
+      }
       if (other.CanIncludeFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         CanIncludeFlex = other.CanIncludeFlex;
       }
@@ -1029,6 +1207,27 @@ namespace Spiderrock.Protobuf {
       }
       if (other.CpFlag != global::Spiderrock.Protobuf.CallPut.Unspecified) {
         CpFlag = other.CpFlag;
+      }
+      if (other.MinNetVegaRatio != 0F) {
+        MinNetVegaRatio = other.MinNetVegaRatio;
+      }
+      if (other.MinYears != 0F) {
+        MinYears = other.MinYears;
+      }
+      if (other.MaxYears != 0F) {
+        MaxYears = other.MaxYears;
+      }
+      if (other.minExpiry_ != null) {
+        if (minExpiry_ == null) {
+          MinExpiry = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        MinExpiry.MergeFrom(other.MinExpiry);
+      }
+      if (other.maxExpiry_ != null) {
+        if (maxExpiry_ == null) {
+          MaxExpiry = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        MaxExpiry.MergeFrom(other.MaxExpiry);
       }
       if (other.MinXDelta != 0F) {
         MinXDelta = other.MinXDelta;
@@ -1245,6 +1444,39 @@ namespace Spiderrock.Protobuf {
             TotalResponseWtVega = input.ReadFloat();
             break;
           }
+          case 1090: {
+            if (enabledUntil_ == null) {
+              EnabledUntil = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EnabledUntil);
+            break;
+          }
+          case 1101: {
+            MinNetVegaRatio = input.ReadFloat();
+            break;
+          }
+          case 1109: {
+            MinYears = input.ReadFloat();
+            break;
+          }
+          case 1117: {
+            MaxYears = input.ReadFloat();
+            break;
+          }
+          case 1122: {
+            if (minExpiry_ == null) {
+              MinExpiry = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(MinExpiry);
+            break;
+          }
+          case 1130: {
+            if (maxExpiry_ == null) {
+              MaxExpiry = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(MaxExpiry);
+            break;
+          }
         }
       }
     #endif
@@ -1388,6 +1620,39 @@ namespace Spiderrock.Protobuf {
             TotalResponseWtVega = input.ReadFloat();
             break;
           }
+          case 1090: {
+            if (enabledUntil_ == null) {
+              EnabledUntil = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EnabledUntil);
+            break;
+          }
+          case 1101: {
+            MinNetVegaRatio = input.ReadFloat();
+            break;
+          }
+          case 1109: {
+            MinYears = input.ReadFloat();
+            break;
+          }
+          case 1117: {
+            MaxYears = input.ReadFloat();
+            break;
+          }
+          case 1122: {
+            if (minExpiry_ == null) {
+              MinExpiry = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(MinExpiry);
+            break;
+          }
+          case 1130: {
+            if (maxExpiry_ == null) {
+              MaxExpiry = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(MaxExpiry);
+            break;
+          }
         }
       }
     }
@@ -1434,9 +1699,9 @@ namespace Spiderrock.Protobuf {
         public PKey(PKey other) : this() {
           accnt_ = other.accnt_;
           clientFirm_ = other.clientFirm_;
-          ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
-          expiry_ = other.expiry_ != null ? other.expiry_.Clone() : null;
+          root_ = other.root_ != null ? other.root_.Clone() : null;
           respSide_ = other.respSide_;
+          responderID_ = other.responderID_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1470,27 +1735,15 @@ namespace Spiderrock.Protobuf {
           }
         }
 
-        /// <summary>Field number for the "ticker" field.</summary>
-        public const int TickerFieldNumber = 11;
-        private global::Spiderrock.Protobuf.TickerKey ticker_;
+        /// <summary>Field number for the "root" field.</summary>
+        public const int RootFieldNumber = 16;
+        private global::Spiderrock.Protobuf.TickerKey root_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.TickerKey Ticker {
-          get { return ticker_; }
+        public global::Spiderrock.Protobuf.TickerKey Root {
+          get { return root_; }
           set {
-            ticker_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "expiry" field.</summary>
-        public const int ExpiryFieldNumber = 15;
-        private global::Spiderrock.Protobuf.DateKey expiry_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.DateKey Expiry {
-          get { return expiry_; }
-          set {
-            expiry_ = value;
+            root_ = value;
           }
         }
 
@@ -1506,6 +1759,21 @@ namespace Spiderrock.Protobuf {
           get { return respSide_; }
           set {
             respSide_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "responder_iD" field.</summary>
+        public const int ResponderIDFieldNumber = 17;
+        private int responderID_;
+        /// <summary>
+        /// client supplied responder ID (can be any number including zero)
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int ResponderID {
+          get { return responderID_; }
+          set {
+            responderID_ = value;
           }
         }
 
@@ -1526,9 +1794,9 @@ namespace Spiderrock.Protobuf {
           }
           if (Accnt != other.Accnt) return false;
           if (ClientFirm != other.ClientFirm) return false;
-          if (!object.Equals(Ticker, other.Ticker)) return false;
-          if (!object.Equals(Expiry, other.Expiry)) return false;
+          if (!object.Equals(Root, other.Root)) return false;
           if (RespSide != other.RespSide) return false;
+          if (ResponderID != other.ResponderID) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1538,9 +1806,9 @@ namespace Spiderrock.Protobuf {
           int hash = 1;
           if (Accnt.Length != 0) hash ^= Accnt.GetHashCode();
           if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
-          if (ticker_ != null) hash ^= Ticker.GetHashCode();
-          if (expiry_ != null) hash ^= Expiry.GetHashCode();
+          if (root_ != null) hash ^= Root.GetHashCode();
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) hash ^= RespSide.GetHashCode();
+          if (ResponderID != 0) hash ^= ResponderID.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1563,10 +1831,6 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(82);
             output.WriteString(Accnt);
           }
-          if (ticker_ != null) {
-            output.WriteRawTag(90);
-            output.WriteMessage(Ticker);
-          }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             output.WriteRawTag(96);
             output.WriteEnum((int) RespSide);
@@ -1575,9 +1839,13 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(114);
             output.WriteString(ClientFirm);
           }
-          if (expiry_ != null) {
-            output.WriteRawTag(122);
-            output.WriteMessage(Expiry);
+          if (root_ != null) {
+            output.WriteRawTag(130, 1);
+            output.WriteMessage(Root);
+          }
+          if (ResponderID != 0) {
+            output.WriteRawTag(136, 1);
+            output.WriteInt32(ResponderID);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -1593,10 +1861,6 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(82);
             output.WriteString(Accnt);
           }
-          if (ticker_ != null) {
-            output.WriteRawTag(90);
-            output.WriteMessage(Ticker);
-          }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             output.WriteRawTag(96);
             output.WriteEnum((int) RespSide);
@@ -1605,9 +1869,13 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(114);
             output.WriteString(ClientFirm);
           }
-          if (expiry_ != null) {
-            output.WriteRawTag(122);
-            output.WriteMessage(Expiry);
+          if (root_ != null) {
+            output.WriteRawTag(130, 1);
+            output.WriteMessage(Root);
+          }
+          if (ResponderID != 0) {
+            output.WriteRawTag(136, 1);
+            output.WriteInt32(ResponderID);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -1625,14 +1893,14 @@ namespace Spiderrock.Protobuf {
           if (ClientFirm.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
           }
-          if (ticker_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
-          }
-          if (expiry_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Expiry);
+          if (root_ != null) {
+            size += 2 + pb::CodedOutputStream.ComputeMessageSize(Root);
           }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RespSide);
+          }
+          if (ResponderID != 0) {
+            size += 2 + pb::CodedOutputStream.ComputeInt32Size(ResponderID);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1652,20 +1920,17 @@ namespace Spiderrock.Protobuf {
           if (other.ClientFirm.Length != 0) {
             ClientFirm = other.ClientFirm;
           }
-          if (other.ticker_ != null) {
-            if (ticker_ == null) {
-              Ticker = new global::Spiderrock.Protobuf.TickerKey();
+          if (other.root_ != null) {
+            if (root_ == null) {
+              Root = new global::Spiderrock.Protobuf.TickerKey();
             }
-            Ticker.MergeFrom(other.Ticker);
-          }
-          if (other.expiry_ != null) {
-            if (expiry_ == null) {
-              Expiry = new global::Spiderrock.Protobuf.DateKey();
-            }
-            Expiry.MergeFrom(other.Expiry);
+            Root.MergeFrom(other.Root);
           }
           if (other.RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             RespSide = other.RespSide;
+          }
+          if (other.ResponderID != 0) {
+            ResponderID = other.ResponderID;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1686,13 +1951,6 @@ namespace Spiderrock.Protobuf {
                 Accnt = input.ReadString();
                 break;
               }
-              case 90: {
-                if (ticker_ == null) {
-                  Ticker = new global::Spiderrock.Protobuf.TickerKey();
-                }
-                input.ReadMessage(Ticker);
-                break;
-              }
               case 96: {
                 RespSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
                 break;
@@ -1701,11 +1959,15 @@ namespace Spiderrock.Protobuf {
                 ClientFirm = input.ReadString();
                 break;
               }
-              case 122: {
-                if (expiry_ == null) {
-                  Expiry = new global::Spiderrock.Protobuf.DateKey();
+              case 130: {
+                if (root_ == null) {
+                  Root = new global::Spiderrock.Protobuf.TickerKey();
                 }
-                input.ReadMessage(Expiry);
+                input.ReadMessage(Root);
+                break;
+              }
+              case 136: {
+                ResponderID = input.ReadInt32();
                 break;
               }
             }
@@ -1727,13 +1989,6 @@ namespace Spiderrock.Protobuf {
                 Accnt = input.ReadString();
                 break;
               }
-              case 90: {
-                if (ticker_ == null) {
-                  Ticker = new global::Spiderrock.Protobuf.TickerKey();
-                }
-                input.ReadMessage(Ticker);
-                break;
-              }
               case 96: {
                 RespSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
                 break;
@@ -1742,11 +1997,15 @@ namespace Spiderrock.Protobuf {
                 ClientFirm = input.ReadString();
                 break;
               }
-              case 122: {
-                if (expiry_ == null) {
-                  Expiry = new global::Spiderrock.Protobuf.DateKey();
+              case 130: {
+                if (root_ == null) {
+                  Root = new global::Spiderrock.Protobuf.TickerKey();
                 }
-                input.ReadMessage(Expiry);
+                input.ReadMessage(Root);
+                break;
+              }
+              case 136: {
+                ResponderID = input.ReadInt32();
                 break;
               }
             }

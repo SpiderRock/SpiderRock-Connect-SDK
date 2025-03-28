@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CipQcm90b2J1Zi9DbGllbnRSaXNrL1Jpc2tDdWJlRGV0YWlsVjUucHJvdG8S",
             "E3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3Rv",
-            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIskdChBSaXNrQ3Vi",
+            "Gh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIqAeChBSaXNrQ3Vi",
             "ZURldGFpbFY1EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1",
             "Zi5NZXNzYWdlTWV0YWRhdGESOAoEcGtleRgCIAEoCzIqLnNwaWRlcnJvY2su",
             "cHJvdG9idWYuUmlza0N1YmVEZXRhaWxWNS5QS2V5EjUKB3ZlcnNpb24YZCAB",
@@ -81,41 +81,43 @@ namespace Spiderrock.Protobuf {
             "AhISCglwb3NfdFZlZ2EY+AIgASgCEhQKC3Bvc193dF92ZWdhGPsCIAEoAhIS",
             "Cglwb3Nfdm9sZ2EY/gIgASgCEhIKCXBvc192YW5uYRiBAyABKAISEgoJcG9z",
             "X3RoZXRhGIQDIAEoAhIQCgdwb3NfcmhvGIcDIAEoAhIQCgdwb3NfcGhpGIoD",
-            "IAEoAhIVCgxwb3Nfbm90aW9uYWwYjQMgASgCEhYKDXBvc19ta3RfdmFsdWUY",
-            "kAMgASgCEhYKDXBvc19wcmVtX29QYXIYkwMgASgCEhAKB2F0bV92b2wYlgMg",
-            "ASgCEhAKB3N5bV92b2wYmQMgASgCEhEKCHNyX3Nsb3BlGJwDIAEoAhIRCghw",
-            "cmNfc1ZvbBifAyABKAISEQoIcHJjX3RPcHgYogMgASgCEhEKCHByY195T3B4",
-            "GKUDIAEoAhIRCghwcmNfdVByYxioAyABKAISEgoJcHJjX3llYXJzGKsDIAEo",
-            "AhIRCghwcmNfcmF0ZRiuAyABKAISEQoIcHJjX3NkaXYYsQMgASgCEhEKCHBy",
-            "Y19kZGl2GLQDIAEoAhIUCgt1X3ByY19yYXRpbxi3AyABKAISEwoKdV9wcmNf",
-            "bW92ZRi6AyABKAISEwoKaV92b2xfbW92ZRi9AyABKAISEwoKZXhfZGl2X2Ft",
-            "dBjAAyABKAISFAoLYm9ycm93X3JhdGUYwwMgASgCEhMKCm1vZGVsX3R5cGUY",
-            "xgMgASgFEhoKEXVuZGVybGllcnNfcGVyX2NuGMkDIAEoBRI7Cg51bmRlcmxp",
-            "ZXJfdHlwZRjMAyABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlVuZGVybGll",
-            "clR5cGUSFAoLcG9pbnRfdmFsdWUYzwMgASgCEjYKDnBvaW50X2N1cnJlbmN5",
-            "GNIDIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kSEwoKdGlj",
-            "a192YWx1ZRjVAyABKAISNAoKbXVsdGloZWRnZRjYAyABKA4yHy5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLk11bHRpaGVkZ2USOgoRbXVsdGloZWRnZV9zb3VyY2UY",
-            "2wMgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSGwoSbXVs",
-            "dGloZWRnZV9wVlJhdGlvGN4DIAEoAhIYCg9zcGFuX3ByY19pbmNfdXAY4QMg",
-            "ASgCEhgKD3NwYW5fcHJjX2luY19kbhjkAyABKAISFQoMc3Bhbl92b2xfaW5j",
-            "GOcDIAEoAhI1Cg1wcmNfc3Bhbl90eXBlGOoDIAEoDjIdLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuU3BhblR5cGUSNQoNdm9sX3NwYW5fdHlwZRjtAyABKA4yHS5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLlNwYW5UeXBlEkIKEnNwYW5fcHJpY2luZ19t",
-            "b2RlbBjwAyABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVmLlNwYW5QcmljaW5n",
-            "TW9kZWwSNQoLbWFyZ2luX3R5cGUY8wMgASgOMh8uc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5NYXJnaW5UeXBlEi4KCXRpbWVzdGFtcBj2AyABKAsyGi5nb29nbGUu",
-            "cHJvdG9idWYuVGltZXN0YW1wGvUBCgRQS2V5Eg0KBWFjY250GAogASgJEi8K",
-            "B3NlY19rZXkYCyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktl",
-            "eRIuCghzZWNfdHlwZRgMIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuU2Vj",
-            "VHlwZRIwCgp0cmFkZV9kYXRlGA0gASgLMhwuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5EYXRlS2V5EjYKDHJpc2tfc2Vzc2lvbhgOIAEoDjIgLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuUmlza1Nlc3Npb24SEwoLY2xpZW50X2Zpcm0YDyABKAliBnBy",
-            "b3RvMw=="));
+            "IAEoAhITCgpwb3NfaERlbHRhGPcDIAEoAhIUCgtwb3NfaEREZWx0YRj4AyAB",
+            "KAISEwoKcG9zX2hHYW1tYRj5AyABKAISFQoMcG9zX2hER2FhbW1hGPoDIAEo",
+            "AhIVCgxwb3Nfbm90aW9uYWwYjQMgASgCEhYKDXBvc19ta3RfdmFsdWUYkAMg",
+            "ASgCEhYKDXBvc19wcmVtX29QYXIYkwMgASgCEhAKB2F0bV92b2wYlgMgASgC",
+            "EhAKB3N5bV92b2wYmQMgASgCEhEKCHNyX3Nsb3BlGJwDIAEoAhIRCghwcmNf",
+            "c1ZvbBifAyABKAISEQoIcHJjX3RPcHgYogMgASgCEhEKCHByY195T3B4GKUD",
+            "IAEoAhIRCghwcmNfdVByYxioAyABKAISEgoJcHJjX3llYXJzGKsDIAEoAhIR",
+            "CghwcmNfcmF0ZRiuAyABKAISEQoIcHJjX3NkaXYYsQMgASgCEhEKCHByY19k",
+            "ZGl2GLQDIAEoAhIUCgt1X3ByY19yYXRpbxi3AyABKAISEwoKdV9wcmNfbW92",
+            "ZRi6AyABKAISEwoKaV92b2xfbW92ZRi9AyABKAISEwoKZXhfZGl2X2FtdBjA",
+            "AyABKAISFAoLYm9ycm93X3JhdGUYwwMgASgCEhMKCm1vZGVsX3R5cGUYxgMg",
+            "ASgFEhoKEXVuZGVybGllcnNfcGVyX2NuGMkDIAEoBRI7Cg51bmRlcmxpZXJf",
+            "dHlwZRjMAyABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlVuZGVybGllclR5",
+            "cGUSFAoLcG9pbnRfdmFsdWUYzwMgASgCEjYKDnBvaW50X2N1cnJlbmN5GNID",
+            "IAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQ3VycmVuY3kSEwoKdGlja192",
+            "YWx1ZRjVAyABKAISNAoKbXVsdGloZWRnZRjYAyABKA4yHy5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLk11bHRpaGVkZ2USOgoRbXVsdGloZWRnZV9zb3VyY2UY2wMg",
+            "ASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkSGwoSbXVsdGlo",
+            "ZWRnZV9wVlJhdGlvGN4DIAEoAhIYCg9zcGFuX3ByY19pbmNfdXAY4QMgASgC",
+            "EhgKD3NwYW5fcHJjX2luY19kbhjkAyABKAISFQoMc3Bhbl92b2xfaW5jGOcD",
+            "IAEoAhI1Cg1wcmNfc3Bhbl90eXBlGOoDIAEoDjIdLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuU3BhblR5cGUSNQoNdm9sX3NwYW5fdHlwZRjtAyABKA4yHS5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlNwYW5UeXBlEkIKEnNwYW5fcHJpY2luZ19tb2Rl",
+            "bBjwAyABKA4yJS5zcGlkZXJyb2NrLnByb3RvYnVmLlNwYW5QcmljaW5nTW9k",
+            "ZWwSNQoLbWFyZ2luX3R5cGUY8wMgASgOMh8uc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5NYXJnaW5UeXBlEi4KCXRpbWVzdGFtcBj2AyABKAsyGi5nb29nbGUucHJv",
+            "dG9idWYuVGltZXN0YW1wGvUBCgRQS2V5Eg0KBWFjY250GAogASgJEi8KB3Nl",
+            "Y19rZXkYCyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRIu",
+            "CghzZWNfdHlwZRgMIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuU2VjVHlw",
+            "ZRIwCgp0cmFkZV9kYXRlGA0gASgLMhwuc3BpZGVycm9jay5wcm90b2J1Zi5E",
+            "YXRlS2V5EjYKDHJpc2tfc2Vzc2lvbhgOIAEoDjIgLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuUmlza1Nlc3Npb24SEwoLY2xpZW50X2Zpcm0YDyABKAliBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RiskCubeDetailV5), global::Spiderrock.Protobuf.RiskCubeDetailV5.Parser, new[]{ "Meta", "Pkey", "Version", "ClearingFirm", "ClearingAccnt", "RiskServerCode", "ViewGroup1", "ViewGroup2", "ViewGroup3", "Ticker", "RiskClass", "SymbolType", "Beta", "BetaSource", "Sector", "IndNum", "SubNum", "GrpNum", "NbrNum", "EDays", "DDays", "XDelta", "ExpCode", "SkewCode", "EDaysCode", "IVolRange", "SkewDD", "SkewDN", "SkewAT", "SkewUP", "SkewDU", "ShOpnPos", "FcOpnPos", "CnOpnPos", "CnAtmEquiv", "ShBot", "ShSld", "ShSldShrt", "FcBot", "FcSld", "CnBot", "CnSld", "CnOpened", "CnClosed", "OpnDir", "PosDir", "UnitOpnPos", "UnitCurPos", "UnitQtyBot", "UnitQtySld", "DayPnl", "DayDnPnl", "DayTrdDelta", "DayTrdDDelta", "DayTrdGamma", "DayTrdDGamma", "DayTrdVega", "DayTrdWVega", "DayTrdTVega", "DayTrdWtVega", "DayTrdTheta", "DayEdgeOpened", "DayEdgeClosed", "DayMnyBot", "DayMnySld", "OpnPnlVolMark", "OpnPnlMidMark", "OpnPnlClrMark", "OpnMarkBrkMny", "OpnTheoEdge", "PosTheoEdge", "TVolMove", "TEdgeMove", "TEdge", "OpnPnlDe", "OpnPnlGa", "OpnPnlTh", "OpnPnlVe", "OpnPnlVo", "OpnPnlVa", "OpnPnlSl", "OpnPnlRate", "OpnPnlSDiv", "OpnPnlDDiv", "OpnPnlErr", "OpnEdgeChange", "PosDelta", "PosDDelta", "PosDBeta", "PosGamma", "PosDGamma", "PosVega", "PosWVega", "PosTVega", "PosWtVega", "PosVolga", "PosVanna", "PosTheta", "PosRho", "PosPhi", "PosNotional", "PosMktValue", "PosPremOPar", "AtmVol", "SymVol", "SrSlope", "PrcSVol", "PrcTOpx", "PrcYOpx", "PrcUPrc", "PrcYears", "PrcRate", "PrcSdiv", "PrcDdiv", "UPrcRatio", "UPrcMove", "IVolMove", "ExDivAmt", "BorrowRate", "ModelType", "UnderliersPerCn", "UnderlierType", "PointValue", "PointCurrency", "TickValue", "Multihedge", "MultihedgeSource", "MultihedgePVRatio", "SpanPrcIncUp", "SpanPrcIncDn", "SpanVolInc", "PrcSpanType", "VolSpanType", "SpanPricingModel", "MarginType", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RiskCubeDetailV5.Types.PKey), global::Spiderrock.Protobuf.RiskCubeDetailV5.Types.PKey.Parser, new[]{ "Accnt", "SecKey", "SecType", "TradeDate", "RiskSession", "ClientFirm" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RiskCubeDetailV5), global::Spiderrock.Protobuf.RiskCubeDetailV5.Parser, new[]{ "Meta", "Pkey", "Version", "ClearingFirm", "ClearingAccnt", "RiskServerCode", "ViewGroup1", "ViewGroup2", "ViewGroup3", "Ticker", "RiskClass", "SymbolType", "Beta", "BetaSource", "Sector", "IndNum", "SubNum", "GrpNum", "NbrNum", "EDays", "DDays", "XDelta", "ExpCode", "SkewCode", "EDaysCode", "IVolRange", "SkewDD", "SkewDN", "SkewAT", "SkewUP", "SkewDU", "ShOpnPos", "FcOpnPos", "CnOpnPos", "CnAtmEquiv", "ShBot", "ShSld", "ShSldShrt", "FcBot", "FcSld", "CnBot", "CnSld", "CnOpened", "CnClosed", "OpnDir", "PosDir", "UnitOpnPos", "UnitCurPos", "UnitQtyBot", "UnitQtySld", "DayPnl", "DayDnPnl", "DayTrdDelta", "DayTrdDDelta", "DayTrdGamma", "DayTrdDGamma", "DayTrdVega", "DayTrdWVega", "DayTrdTVega", "DayTrdWtVega", "DayTrdTheta", "DayEdgeOpened", "DayEdgeClosed", "DayMnyBot", "DayMnySld", "OpnPnlVolMark", "OpnPnlMidMark", "OpnPnlClrMark", "OpnMarkBrkMny", "OpnTheoEdge", "PosTheoEdge", "TVolMove", "TEdgeMove", "TEdge", "OpnPnlDe", "OpnPnlGa", "OpnPnlTh", "OpnPnlVe", "OpnPnlVo", "OpnPnlVa", "OpnPnlSl", "OpnPnlRate", "OpnPnlSDiv", "OpnPnlDDiv", "OpnPnlErr", "OpnEdgeChange", "PosDelta", "PosDDelta", "PosDBeta", "PosGamma", "PosDGamma", "PosVega", "PosWVega", "PosTVega", "PosWtVega", "PosVolga", "PosVanna", "PosTheta", "PosRho", "PosPhi", "PosHDelta", "PosHDDelta", "PosHGamma", "PosHDGaamma", "PosNotional", "PosMktValue", "PosPremOPar", "AtmVol", "SymVol", "SrSlope", "PrcSVol", "PrcTOpx", "PrcYOpx", "PrcUPrc", "PrcYears", "PrcRate", "PrcSdiv", "PrcDdiv", "UPrcRatio", "UPrcMove", "IVolMove", "ExDivAmt", "BorrowRate", "ModelType", "UnderliersPerCn", "UnderlierType", "PointValue", "PointCurrency", "TickValue", "Multihedge", "MultihedgeSource", "MultihedgePVRatio", "SpanPrcIncUp", "SpanPrcIncDn", "SpanVolInc", "PrcSpanType", "VolSpanType", "SpanPricingModel", "MarginType", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.RiskCubeDetailV5.Types.PKey), global::Spiderrock.Protobuf.RiskCubeDetailV5.Types.PKey.Parser, new[]{ "Accnt", "SecKey", "SecType", "TradeDate", "RiskSession", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -261,6 +263,10 @@ namespace Spiderrock.Protobuf {
       posTheta_ = other.posTheta_;
       posRho_ = other.posRho_;
       posPhi_ = other.posPhi_;
+      posHDelta_ = other.posHDelta_;
+      posHDDelta_ = other.posHDDelta_;
+      posHGamma_ = other.posHGamma_;
+      posHDGaamma_ = other.posHDGaamma_;
       posNotional_ = other.posNotional_;
       posMktValue_ = other.posMktValue_;
       posPremOPar_ = other.posPremOPar_;
@@ -988,7 +994,7 @@ namespace Spiderrock.Protobuf {
     public const int UnitOpnPosFieldNumber = 235;
     private int unitOpnPos_;
     /// <summary>
-    /// effective opening position (shares or cn * underlierPerCn) (start-of-day)
+    /// effective opening position (shares or cn * pointValue) (start-of-day)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1003,7 +1009,7 @@ namespace Spiderrock.Protobuf {
     public const int UnitCurPosFieldNumber = 238;
     private int unitCurPos_;
     /// <summary>
-    /// effective current position (shares or cn * underlierPerCn) (start-of-day + trades)
+    /// effective current position (shares or cn * pointValue) (start-of-day + trades)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1408,7 +1414,7 @@ namespace Spiderrock.Protobuf {
     public const int OpnPnlDeFieldNumber = 319;
     private float opnPnlDe_;
     /// <summary>
-    /// open position * mult * hedgeDe * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
+    /// open position * mult * optDelta * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1588,7 +1594,7 @@ namespace Spiderrock.Protobuf {
     public const int PosDeltaFieldNumber = 355;
     private float posDelta_;
     /// <summary>
-    /// live position * mult * hedgeDe
+    /// live position * mult * optDelta
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1603,7 +1609,7 @@ namespace Spiderrock.Protobuf {
     public const int PosDDeltaFieldNumber = 358;
     private float posDDelta_;
     /// <summary>
-    /// live position * mult * hedgeDe * UPrc
+    /// live position * mult * optDelta * UPrc
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1618,7 +1624,7 @@ namespace Spiderrock.Protobuf {
     public const int PosDBetaFieldNumber = 361;
     private float posDBeta_;
     /// <summary>
-    /// live position * mult * hedgeDe * beta * UPrc
+    /// live position * mult * optDelta * beta * UPrc
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1791,6 +1797,66 @@ namespace Spiderrock.Protobuf {
       get { return posPhi_; }
       set {
         posPhi_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_hDelta" field.</summary>
+    public const int PosHDeltaFieldNumber = 503;
+    private float posHDelta_;
+    /// <summary>
+    /// hedge delta (either ivol or tvol based;follows binary rules)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PosHDelta {
+      get { return posHDelta_; }
+      set {
+        posHDelta_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_hDDelta" field.</summary>
+    public const int PosHDDeltaFieldNumber = 504;
+    private float posHDDelta_;
+    /// <summary>
+    /// hedge delta (dollarized)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PosHDDelta {
+      get { return posHDDelta_; }
+      set {
+        posHDDelta_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_hGamma" field.</summary>
+    public const int PosHGammaFieldNumber = 505;
+    private float posHGamma_;
+    /// <summary>
+    /// hedge gamma (either ivol or tvol based;follows binary rules)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PosHGamma {
+      get { return posHGamma_; }
+      set {
+        posHGamma_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_hDGaamma" field.</summary>
+    public const int PosHDGaammaFieldNumber = 506;
+    private float posHDGaamma_;
+    /// <summary>
+    /// hedge gamma (dollarized)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PosHDGaamma {
+      get { return posHDGaamma_; }
+      set {
+        posHDGaamma_ = value;
       }
     }
 
@@ -2440,6 +2506,10 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosTheta, other.PosTheta)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosRho, other.PosRho)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosPhi, other.PosPhi)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosHDelta, other.PosHDelta)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosHDDelta, other.PosHDDelta)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosHGamma, other.PosHGamma)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosHDGaamma, other.PosHDGaamma)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosNotional, other.PosNotional)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosMktValue, other.PosMktValue)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosPremOPar, other.PosPremOPar)) return false;
@@ -2583,6 +2653,10 @@ namespace Spiderrock.Protobuf {
       if (PosTheta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosTheta);
       if (PosRho != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosRho);
       if (PosPhi != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosPhi);
+      if (PosHDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosHDelta);
+      if (PosHDDelta != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosHDDelta);
+      if (PosHGamma != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosHGamma);
+      if (PosHDGaamma != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosHDGaamma);
       if (PosNotional != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosNotional);
       if (PosMktValue != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosMktValue);
       if (PosPremOPar != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosPremOPar);
@@ -3181,6 +3255,22 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(178, 31);
         output.WriteMessage(Timestamp);
       }
+      if (PosHDelta != 0F) {
+        output.WriteRawTag(189, 31);
+        output.WriteFloat(PosHDelta);
+      }
+      if (PosHDDelta != 0F) {
+        output.WriteRawTag(197, 31);
+        output.WriteFloat(PosHDDelta);
+      }
+      if (PosHGamma != 0F) {
+        output.WriteRawTag(205, 31);
+        output.WriteFloat(PosHGamma);
+      }
+      if (PosHDGaamma != 0F) {
+        output.WriteRawTag(213, 31);
+        output.WriteFloat(PosHDGaamma);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3735,6 +3825,22 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(178, 31);
         output.WriteMessage(Timestamp);
       }
+      if (PosHDelta != 0F) {
+        output.WriteRawTag(189, 31);
+        output.WriteFloat(PosHDelta);
+      }
+      if (PosHDDelta != 0F) {
+        output.WriteRawTag(197, 31);
+        output.WriteFloat(PosHDDelta);
+      }
+      if (PosHGamma != 0F) {
+        output.WriteRawTag(205, 31);
+        output.WriteFloat(PosHGamma);
+      }
+      if (PosHDGaamma != 0F) {
+        output.WriteRawTag(213, 31);
+        output.WriteFloat(PosHDGaamma);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4043,6 +4149,18 @@ namespace Spiderrock.Protobuf {
         size += 2 + 4;
       }
       if (PosPhi != 0F) {
+        size += 2 + 4;
+      }
+      if (PosHDelta != 0F) {
+        size += 2 + 4;
+      }
+      if (PosHDDelta != 0F) {
+        size += 2 + 4;
+      }
+      if (PosHGamma != 0F) {
+        size += 2 + 4;
+      }
+      if (PosHDGaamma != 0F) {
         size += 2 + 4;
       }
       if (PosNotional != 0F) {
@@ -4473,6 +4591,18 @@ namespace Spiderrock.Protobuf {
       }
       if (other.PosPhi != 0F) {
         PosPhi = other.PosPhi;
+      }
+      if (other.PosHDelta != 0F) {
+        PosHDelta = other.PosHDelta;
+      }
+      if (other.PosHDDelta != 0F) {
+        PosHDDelta = other.PosHDDelta;
+      }
+      if (other.PosHGamma != 0F) {
+        PosHGamma = other.PosHGamma;
+      }
+      if (other.PosHDGaamma != 0F) {
+        PosHDGaamma = other.PosHDGaamma;
       }
       if (other.PosNotional != 0F) {
         PosNotional = other.PosNotional;
@@ -5162,6 +5292,22 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 4029: {
+            PosHDelta = input.ReadFloat();
+            break;
+          }
+          case 4037: {
+            PosHDDelta = input.ReadFloat();
+            break;
+          }
+          case 4045: {
+            PosHGamma = input.ReadFloat();
+            break;
+          }
+          case 4053: {
+            PosHDGaamma = input.ReadFloat();
+            break;
+          }
         }
       }
     #endif
@@ -5734,6 +5880,22 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 4029: {
+            PosHDelta = input.ReadFloat();
+            break;
+          }
+          case 4037: {
+            PosHDDelta = input.ReadFloat();
+            break;
+          }
+          case 4045: {
+            PosHGamma = input.ReadFloat();
+            break;
+          }
+          case 4053: {
+            PosHDGaamma = input.ReadFloat();
             break;
           }
         }

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message HedgePolicyAlgoConfig {
+    message PKey {
+        
+        string client_firm = 10;
+        string exec_brkr_algo = 11; // display name of exec broker algo (should not have spaces)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exec_brkr_code = 100; // execBrkrCode
+    string exec_bkkr_tags = 101; // key/value set of algo tags that get forwarded to exec broker on order
+    YesNo eod_eligible = 102; // this algo can be used in EOD position hedging
+    string modified_by = 103; // user who last modified this record
+    SysEnvironment modified_in = 104;
+    google.protobuf.Timestamp timestamp = 105; // timestamp of last modification
+}
+
+

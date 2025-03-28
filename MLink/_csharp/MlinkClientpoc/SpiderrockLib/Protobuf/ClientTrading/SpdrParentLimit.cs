@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CixQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJQYXJlbnRMaW1pdC5wcm90",
             "bxITc3BpZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJv",
-            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i+RsKD1NwZHJQ",
+            "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i+h0KD1NwZHJQ",
             "YXJlbnRMaW1pdBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuTWVzc2FnZU1ldGFkYXRhEjcKBHBrZXkYAiABKAsyKS5zcGlkZXJyb2Nr",
             "LnByb3RvYnVmLlNwZHJQYXJlbnRMaW1pdC5QS2V5EjwKD3N5c19lbnZpcm9u",
@@ -92,25 +92,31 @@ namespace Spiderrock.Protobuf {
             "AhIgChdtYXhfZ3JwX2RheV9yTWV0cmljNF9sbhjaAiABKAISIAoXbWF4X2dy",
             "cF9kYXlfck1ldHJpYzRfc2gY3QIgASgCEiAKF21heF9ncnBfZGF5X3JNZXRy",
             "aWM1X2xuGOACIAEoAhIgChdtYXhfZ3JwX2RheV9yTWV0cmljNV9zaBjjAiAB",
-            "KAISHgoVc3ltX2VtYV9jeGxfZERlbHRhX2xuGO8CIAEoAhIeChVzeW1fZW1h",
-            "X2N4bF9kRGVsdGFfc2gY8gIgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ff",
-            "bG4Y9QIgASgCEh8KFnN5bV9lbWFfY3hsX3d0X3ZlZ2Ffc2gY+AIgASgCEhEK",
-            "CHRoZW9fdm9sGPsCIAEoAhIXCg5jbF9hcnJpdmVfbWFyaxj+AiABKAISEwoK",
-            "dXNlcl9kYXRhMRiBAyABKAkSEwoKdXNlcl9kYXRhMhiEAyABKAkSFwoOZXhl",
-            "Y19icmtyX2NvZGUYlwMgASgJEhQKC21vZGlmaWVkX2J5GIoDIAEoCRI5Cgtt",
-            "b2RpZmllZF9pbhiNAyABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vu",
-            "dmlyb25tZW50Ei4KCXRpbWVzdGFtcBiQAyABKAsyGi5nb29nbGUucHJvdG9i",
-            "dWYuVGltZXN0YW1wGo4CCgRQS2V5Eg0KBWFjY250GAogASgJEi8KB3NlY19r",
-            "ZXkYCyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRIyCghz",
-            "ZWNfdHlwZRgMIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5",
-            "cGUSNAoLc3Bkcl9zb3VyY2UYDSABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlNwZHJTb3VyY2USMAoKb3JkZXJfc2lkZRgOIAEoDjIcLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuQnV5U2VsbBIVCg1ncm91cGluZ19jb2RlGA8gASgDEhMKC2Ns",
-            "aWVudF9maXJtGBAgASgJYgZwcm90bzM="));
+            "KAISGwoSb3JkZXJfcmVmX3JNZXRyaWMxGJgDIAEoAhIbChJvcmRlcl9yZWZf",
+            "ck1ldHJpYzIYmQMgASgCEhsKEm9yZGVyX3JlZl9yTWV0cmljMxiaAyABKAIS",
+            "GwoSb3JkZXJfcmVmX3JNZXRyaWM0GJsDIAEoAhIbChJvcmRlcl9yZWZfck1l",
+            "dHJpYzUYnAMgASgCEhsKEm9yZGVyX3JlZl9yTWV0cmljNhidAyABKAISGwoS",
+            "b3JkZXJfcmVmX3JNZXRyaWM3GJ4DIAEoAhIeChVzeW1fZW1hX2N4bF9kRGVs",
+            "dGFfbG4Y7wIgASgCEh4KFXN5bV9lbWFfY3hsX2REZWx0YV9zaBjyAiABKAIS",
+            "HwoWc3ltX2VtYV9jeGxfd3RfdmVnYV9sbhj1AiABKAISHwoWc3ltX2VtYV9j",
+            "eGxfd3RfdmVnYV9zaBj4AiABKAISEQoIdGhlb192b2wY+wIgASgCEhcKDmNs",
+            "X2Fycml2ZV9tYXJrGP4CIAEoAhITCgp1c2VyX2RhdGExGIEDIAEoCRITCgp1",
+            "c2VyX2RhdGEyGIQDIAEoCRIXCg5leGVjX2Jya3JfY29kZRiXAyABKAkSNAoP",
+            "Y2xvc2VfaWZfZmlsbGVkGJ8DIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "WWVzTm8SFAoLbW9kaWZpZWRfYnkYigMgASgJEjkKC21vZGlmaWVkX2luGI0D",
+            "IAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYuU3lzRW52aXJvbm1lbnQSLgoJ",
+            "dGltZXN0YW1wGJADIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAa",
+            "jgIKBFBLZXkSDQoFYWNjbnQYCiABKAkSLwoHc2VjX2tleRgLIAEoCzIeLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjIKCHNlY190eXBlGAwgASgO",
+            "MiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyS2V5VHlwZRI0CgtzcGRyX3Nv",
+            "dXJjZRgNIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkclNvdXJjZRIw",
+            "CgpvcmRlcl9zaWRlGA4gASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlT",
+            "ZWxsEhUKDWdyb3VwaW5nX2NvZGUYDyABKAMSEwoLY2xpZW50X2Zpcm0YECAB",
+            "KAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit), global::Spiderrock.Protobuf.SpdrParentLimit.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "OrderActiveSize", "AddCumFillQuantity", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDelta", "OrderRefGamma", "OrderVolLimit", "RateOverride", "SdivOverride", "DdivOverride", "OverrideCode", "OrderPrcOffset", "StateModel", "UStateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidthOffset", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidthOffset", "OrderRefEventMult", "OrderRefEventDttm", "ExchMask", "CxlUPrcRange", "MinUBid", "MaxUAsk", "MinMaxType", "MinOptionPx", "StartDttm", "ActiveDuration", "ProgressExposeTime", "ExpDayWtVegaOffset", "MaxExpDayWtVegaLn", "MaxExpDayWtVegaSh", "MaxExpDayRMetric6Ln", "MaxExpDayRMetric6Sh", "SymDayDDeltaOffset", "MaxSymDayDDeltaLn", "MaxSymDayDDeltaSh", "SymDayVegaOffset", "MaxSymDayVegaLn", "MaxSymDayVegaSh", "SymDayWtVegaOffset", "MaxSymDayWtVegaLn", "MaxSymDayWtVegaSh", "MaxSymDayRMetric7Ln", "MaxSymDayRMetric7Sh", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "MaxGrpDayRMetric2Ln", "MaxGrpDayRMetric2Sh", "MaxGrpDayRMetric3Ln", "MaxGrpDayRMetric3Sh", "MaxGrpDayRMetric4Ln", "MaxGrpDayRMetric4Sh", "MaxGrpDayRMetric5Ln", "MaxGrpDayRMetric5Sh", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "TheoVol", "ClArriveMark", "UserData1", "UserData2", "ExecBrkrCode", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey), global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey.Parser, new[]{ "Accnt", "SecKey", "SecType", "SpdrSource", "OrderSide", "GroupingCode", "ClientFirm" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit), global::Spiderrock.Protobuf.SpdrParentLimit.Parser, new[]{ "Meta", "Pkey", "SysEnvironment", "RunStatus", "OrderActiveSize", "AddCumFillQuantity", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "OrderPrcLimit", "OrderRefUPrc", "OrderRefDelta", "OrderRefGamma", "OrderVolLimit", "RateOverride", "SdivOverride", "DdivOverride", "OverrideCode", "OrderPrcOffset", "StateModel", "UStateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "TakeSurfPrcOffset", "TakeSurfVolOffset", "TakeSurfWidthOffset", "MakeSurfPrcOffset", "MakeSurfVolOffset", "MakeSurfWidthOffset", "OrderRefEventMult", "OrderRefEventDttm", "ExchMask", "CxlUPrcRange", "MinUBid", "MaxUAsk", "MinMaxType", "MinOptionPx", "StartDttm", "ActiveDuration", "ProgressExposeTime", "ExpDayWtVegaOffset", "MaxExpDayWtVegaLn", "MaxExpDayWtVegaSh", "MaxExpDayRMetric6Ln", "MaxExpDayRMetric6Sh", "SymDayDDeltaOffset", "MaxSymDayDDeltaLn", "MaxSymDayDDeltaSh", "SymDayVegaOffset", "MaxSymDayVegaLn", "MaxSymDayVegaSh", "SymDayWtVegaOffset", "MaxSymDayWtVegaLn", "MaxSymDayWtVegaSh", "MaxSymDayRMetric7Ln", "MaxSymDayRMetric7Sh", "MaxGrpDayDDeltaLn", "MaxGrpDayDDeltaSh", "MaxGrpDayVegaLn", "MaxGrpDayVegaSh", "MaxGrpDayVegaAbs", "GrpDayVegaRatio", "MaxGrpDayContractsLn", "MaxGrpDayContractsSh", "MaxGrpDayContractsAbs", "MaxGrpDayRMetric1Ln", "MaxGrpDayRMetric1Sh", "MaxGrpDayRMetric1Abs", "GrpDayRMetric1Ratio", "MaxGrpDayRMetric2Ln", "MaxGrpDayRMetric2Sh", "MaxGrpDayRMetric3Ln", "MaxGrpDayRMetric3Sh", "MaxGrpDayRMetric4Ln", "MaxGrpDayRMetric4Sh", "MaxGrpDayRMetric5Ln", "MaxGrpDayRMetric5Sh", "OrderRefRMetric1", "OrderRefRMetric2", "OrderRefRMetric3", "OrderRefRMetric4", "OrderRefRMetric5", "OrderRefRMetric6", "OrderRefRMetric7", "SymEmaCxlDDeltaLn", "SymEmaCxlDDeltaSh", "SymEmaCxlWtVegaLn", "SymEmaCxlWtVegaSh", "TheoVol", "ClArriveMark", "UserData1", "UserData2", "ExecBrkrCode", "CloseIfFilled", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey), global::Spiderrock.Protobuf.SpdrParentLimit.Types.PKey.Parser, new[]{ "Accnt", "SecKey", "SecType", "SpdrSource", "OrderSide", "GroupingCode", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -236,6 +242,13 @@ namespace Spiderrock.Protobuf {
       maxGrpDayRMetric4Sh_ = other.maxGrpDayRMetric4Sh_;
       maxGrpDayRMetric5Ln_ = other.maxGrpDayRMetric5Ln_;
       maxGrpDayRMetric5Sh_ = other.maxGrpDayRMetric5Sh_;
+      orderRefRMetric1_ = other.orderRefRMetric1_;
+      orderRefRMetric2_ = other.orderRefRMetric2_;
+      orderRefRMetric3_ = other.orderRefRMetric3_;
+      orderRefRMetric4_ = other.orderRefRMetric4_;
+      orderRefRMetric5_ = other.orderRefRMetric5_;
+      orderRefRMetric6_ = other.orderRefRMetric6_;
+      orderRefRMetric7_ = other.orderRefRMetric7_;
       symEmaCxlDDeltaLn_ = other.symEmaCxlDDeltaLn_;
       symEmaCxlDDeltaSh_ = other.symEmaCxlDDeltaSh_;
       symEmaCxlWtVegaLn_ = other.symEmaCxlWtVegaLn_;
@@ -245,6 +258,7 @@ namespace Spiderrock.Protobuf {
       userData1_ = other.userData1_;
       userData2_ = other.userData2_;
       execBrkrCode_ = other.execBrkrCode_;
+      closeIfFilled_ = other.closeIfFilled_;
       modifiedBy_ = other.modifiedBy_;
       modifiedIn_ = other.modifiedIn_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
@@ -1448,6 +1462,111 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "order_ref_rMetric1" field.</summary>
+    public const int OrderRefRMetric1FieldNumber = 408;
+    private float orderRefRMetric1_;
+    /// <summary>
+    /// user supplied RMetric1 value (used in RiskGroupID risk controls) [netRMetric1 = sum(fillQty * orderRefRMetric1 * underlierPerCn)], src specified in parentorder
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric1 {
+      get { return orderRefRMetric1_; }
+      set {
+        orderRefRMetric1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "order_ref_rMetric2" field.</summary>
+    public const int OrderRefRMetric2FieldNumber = 409;
+    private float orderRefRMetric2_;
+    /// <summary>
+    /// user supplied RMetric2 value (used in RiskGroupID risk controls) [netRMetric2 = sum(fillQty * orderRefRMetric2 * underlierPerCn)], src specified in parentorder
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric2 {
+      get { return orderRefRMetric2_; }
+      set {
+        orderRefRMetric2_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "order_ref_rMetric3" field.</summary>
+    public const int OrderRefRMetric3FieldNumber = 410;
+    private float orderRefRMetric3_;
+    /// <summary>
+    /// user supplied RMetric3 value (used in RiskGroupID risk controls) [netRMetric3 = sum(fillQty * orderRefRMetric3 * underlierPerCn)], src specified in parentorder
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric3 {
+      get { return orderRefRMetric3_; }
+      set {
+        orderRefRMetric3_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "order_ref_rMetric4" field.</summary>
+    public const int OrderRefRMetric4FieldNumber = 411;
+    private float orderRefRMetric4_;
+    /// <summary>
+    /// user supplied RMetric4 value (used in RiskGroupID risk controls) [netRMetric4 = sum(fillQty * orderRefRMetric4 * underlierPerCn)], src specified in parentorder
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric4 {
+      get { return orderRefRMetric4_; }
+      set {
+        orderRefRMetric4_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "order_ref_rMetric5" field.</summary>
+    public const int OrderRefRMetric5FieldNumber = 412;
+    private float orderRefRMetric5_;
+    /// <summary>
+    /// user supplied RMetric5 value (used in RiskGroupID risk controls) [netRMetric5 = sum(fillQty * orderRefRMetric5 * underlierPerCn)], src specified in parentorder
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric5 {
+      get { return orderRefRMetric5_; }
+      set {
+        orderRefRMetric5_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "order_ref_rMetric6" field.</summary>
+    public const int OrderRefRMetric6FieldNumber = 413;
+    private float orderRefRMetric6_;
+    /// <summary>
+    /// user supplied RMetric6 value (used in ExpDay risk controls) [netRMetric6 = sum(fillQty * orderRefRMetric6 * underlierPerCn)]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric6 {
+      get { return orderRefRMetric6_; }
+      set {
+        orderRefRMetric6_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "order_ref_rMetric7" field.</summary>
+    public const int OrderRefRMetric7FieldNumber = 414;
+    private float orderRefRMetric7_;
+    /// <summary>
+    /// user supplied RMetric7 value (used in SymDay risk controls) [netRMetric7 = sum(fillQty * orderRefRMetric7 * underlierPerCn)]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float OrderRefRMetric7 {
+      get { return orderRefRMetric7_; }
+      set {
+        orderRefRMetric7_ = value;
+      }
+    }
+
     /// <summary>Field number for the "sym_ema_cxl_dDelta_ln" field.</summary>
     public const int SymEmaCxlDDeltaLnFieldNumber = 367;
     private float symEmaCxlDDeltaLn_;
@@ -1580,6 +1699,21 @@ namespace Spiderrock.Protobuf {
       get { return execBrkrCode_; }
       set {
         execBrkrCode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "close_if_filled" field.</summary>
+    public const int CloseIfFilledFieldNumber = 415;
+    private global::Spiderrock.Protobuf.YesNo closeIfFilled_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// close a SpdrAutohedgeServer sourced order if the order is filled
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo CloseIfFilled {
+      get { return closeIfFilled_; }
+      set {
+        closeIfFilled_ = value;
       }
     }
 
@@ -1721,6 +1855,13 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric4Sh, other.MaxGrpDayRMetric4Sh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric5Ln, other.MaxGrpDayRMetric5Ln)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MaxGrpDayRMetric5Sh, other.MaxGrpDayRMetric5Sh)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric1, other.OrderRefRMetric1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric2, other.OrderRefRMetric2)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric3, other.OrderRefRMetric3)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric4, other.OrderRefRMetric4)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric5, other.OrderRefRMetric5)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric6, other.OrderRefRMetric6)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OrderRefRMetric7, other.OrderRefRMetric7)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlDDeltaLn, other.SymEmaCxlDDeltaLn)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlDDeltaSh, other.SymEmaCxlDDeltaSh)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SymEmaCxlWtVegaLn, other.SymEmaCxlWtVegaLn)) return false;
@@ -1730,6 +1871,7 @@ namespace Spiderrock.Protobuf {
       if (UserData1 != other.UserData1) return false;
       if (UserData2 != other.UserData2) return false;
       if (ExecBrkrCode != other.ExecBrkrCode) return false;
+      if (CloseIfFilled != other.CloseIfFilled) return false;
       if (ModifiedBy != other.ModifiedBy) return false;
       if (ModifiedIn != other.ModifiedIn) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
@@ -1821,6 +1963,13 @@ namespace Spiderrock.Protobuf {
       if (MaxGrpDayRMetric4Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric4Sh);
       if (MaxGrpDayRMetric5Ln != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric5Ln);
       if (MaxGrpDayRMetric5Sh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MaxGrpDayRMetric5Sh);
+      if (OrderRefRMetric1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric1);
+      if (OrderRefRMetric2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric2);
+      if (OrderRefRMetric3 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric3);
+      if (OrderRefRMetric4 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric4);
+      if (OrderRefRMetric5 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric5);
+      if (OrderRefRMetric6 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric6);
+      if (OrderRefRMetric7 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OrderRefRMetric7);
       if (SymEmaCxlDDeltaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlDDeltaLn);
       if (SymEmaCxlDDeltaSh != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlDDeltaSh);
       if (SymEmaCxlWtVegaLn != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SymEmaCxlWtVegaLn);
@@ -1830,6 +1979,7 @@ namespace Spiderrock.Protobuf {
       if (UserData1.Length != 0) hash ^= UserData1.GetHashCode();
       if (UserData2.Length != 0) hash ^= UserData2.GetHashCode();
       if (ExecBrkrCode.Length != 0) hash ^= ExecBrkrCode.GetHashCode();
+      if (CloseIfFilled != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= CloseIfFilled.GetHashCode();
       if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
       if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) hash ^= ModifiedIn.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
@@ -2223,6 +2373,38 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 25);
         output.WriteString(ExecBrkrCode);
       }
+      if (OrderRefRMetric1 != 0F) {
+        output.WriteRawTag(197, 25);
+        output.WriteFloat(OrderRefRMetric1);
+      }
+      if (OrderRefRMetric2 != 0F) {
+        output.WriteRawTag(205, 25);
+        output.WriteFloat(OrderRefRMetric2);
+      }
+      if (OrderRefRMetric3 != 0F) {
+        output.WriteRawTag(213, 25);
+        output.WriteFloat(OrderRefRMetric3);
+      }
+      if (OrderRefRMetric4 != 0F) {
+        output.WriteRawTag(221, 25);
+        output.WriteFloat(OrderRefRMetric4);
+      }
+      if (OrderRefRMetric5 != 0F) {
+        output.WriteRawTag(229, 25);
+        output.WriteFloat(OrderRefRMetric5);
+      }
+      if (OrderRefRMetric6 != 0F) {
+        output.WriteRawTag(237, 25);
+        output.WriteFloat(OrderRefRMetric6);
+      }
+      if (OrderRefRMetric7 != 0F) {
+        output.WriteRawTag(245, 25);
+        output.WriteFloat(OrderRefRMetric7);
+      }
+      if (CloseIfFilled != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(248, 25);
+        output.WriteEnum((int) CloseIfFilled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2605,6 +2787,38 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(186, 25);
         output.WriteString(ExecBrkrCode);
       }
+      if (OrderRefRMetric1 != 0F) {
+        output.WriteRawTag(197, 25);
+        output.WriteFloat(OrderRefRMetric1);
+      }
+      if (OrderRefRMetric2 != 0F) {
+        output.WriteRawTag(205, 25);
+        output.WriteFloat(OrderRefRMetric2);
+      }
+      if (OrderRefRMetric3 != 0F) {
+        output.WriteRawTag(213, 25);
+        output.WriteFloat(OrderRefRMetric3);
+      }
+      if (OrderRefRMetric4 != 0F) {
+        output.WriteRawTag(221, 25);
+        output.WriteFloat(OrderRefRMetric4);
+      }
+      if (OrderRefRMetric5 != 0F) {
+        output.WriteRawTag(229, 25);
+        output.WriteFloat(OrderRefRMetric5);
+      }
+      if (OrderRefRMetric6 != 0F) {
+        output.WriteRawTag(237, 25);
+        output.WriteFloat(OrderRefRMetric6);
+      }
+      if (OrderRefRMetric7 != 0F) {
+        output.WriteRawTag(245, 25);
+        output.WriteFloat(OrderRefRMetric7);
+      }
+      if (CloseIfFilled != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(248, 25);
+        output.WriteEnum((int) CloseIfFilled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2858,6 +3072,27 @@ namespace Spiderrock.Protobuf {
       if (MaxGrpDayRMetric5Sh != 0F) {
         size += 2 + 4;
       }
+      if (OrderRefRMetric1 != 0F) {
+        size += 2 + 4;
+      }
+      if (OrderRefRMetric2 != 0F) {
+        size += 2 + 4;
+      }
+      if (OrderRefRMetric3 != 0F) {
+        size += 2 + 4;
+      }
+      if (OrderRefRMetric4 != 0F) {
+        size += 2 + 4;
+      }
+      if (OrderRefRMetric5 != 0F) {
+        size += 2 + 4;
+      }
+      if (OrderRefRMetric6 != 0F) {
+        size += 2 + 4;
+      }
+      if (OrderRefRMetric7 != 0F) {
+        size += 2 + 4;
+      }
       if (SymEmaCxlDDeltaLn != 0F) {
         size += 2 + 4;
       }
@@ -2884,6 +3119,9 @@ namespace Spiderrock.Protobuf {
       }
       if (ExecBrkrCode.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ExecBrkrCode);
+      }
+      if (CloseIfFilled != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) CloseIfFilled);
       }
       if (ModifiedBy.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
@@ -3161,6 +3399,27 @@ namespace Spiderrock.Protobuf {
       if (other.MaxGrpDayRMetric5Sh != 0F) {
         MaxGrpDayRMetric5Sh = other.MaxGrpDayRMetric5Sh;
       }
+      if (other.OrderRefRMetric1 != 0F) {
+        OrderRefRMetric1 = other.OrderRefRMetric1;
+      }
+      if (other.OrderRefRMetric2 != 0F) {
+        OrderRefRMetric2 = other.OrderRefRMetric2;
+      }
+      if (other.OrderRefRMetric3 != 0F) {
+        OrderRefRMetric3 = other.OrderRefRMetric3;
+      }
+      if (other.OrderRefRMetric4 != 0F) {
+        OrderRefRMetric4 = other.OrderRefRMetric4;
+      }
+      if (other.OrderRefRMetric5 != 0F) {
+        OrderRefRMetric5 = other.OrderRefRMetric5;
+      }
+      if (other.OrderRefRMetric6 != 0F) {
+        OrderRefRMetric6 = other.OrderRefRMetric6;
+      }
+      if (other.OrderRefRMetric7 != 0F) {
+        OrderRefRMetric7 = other.OrderRefRMetric7;
+      }
       if (other.SymEmaCxlDDeltaLn != 0F) {
         SymEmaCxlDDeltaLn = other.SymEmaCxlDDeltaLn;
       }
@@ -3187,6 +3446,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.ExecBrkrCode.Length != 0) {
         ExecBrkrCode = other.ExecBrkrCode;
+      }
+      if (other.CloseIfFilled != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        CloseIfFilled = other.CloseIfFilled;
       }
       if (other.ModifiedBy.Length != 0) {
         ModifiedBy = other.ModifiedBy;
@@ -3602,6 +3864,38 @@ namespace Spiderrock.Protobuf {
             ExecBrkrCode = input.ReadString();
             break;
           }
+          case 3269: {
+            OrderRefRMetric1 = input.ReadFloat();
+            break;
+          }
+          case 3277: {
+            OrderRefRMetric2 = input.ReadFloat();
+            break;
+          }
+          case 3285: {
+            OrderRefRMetric3 = input.ReadFloat();
+            break;
+          }
+          case 3293: {
+            OrderRefRMetric4 = input.ReadFloat();
+            break;
+          }
+          case 3301: {
+            OrderRefRMetric5 = input.ReadFloat();
+            break;
+          }
+          case 3309: {
+            OrderRefRMetric6 = input.ReadFloat();
+            break;
+          }
+          case 3317: {
+            OrderRefRMetric7 = input.ReadFloat();
+            break;
+          }
+          case 3320: {
+            CloseIfFilled = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -4002,6 +4296,38 @@ namespace Spiderrock.Protobuf {
           }
           case 3258: {
             ExecBrkrCode = input.ReadString();
+            break;
+          }
+          case 3269: {
+            OrderRefRMetric1 = input.ReadFloat();
+            break;
+          }
+          case 3277: {
+            OrderRefRMetric2 = input.ReadFloat();
+            break;
+          }
+          case 3285: {
+            OrderRefRMetric3 = input.ReadFloat();
+            break;
+          }
+          case 3293: {
+            OrderRefRMetric4 = input.ReadFloat();
+            break;
+          }
+          case 3301: {
+            OrderRefRMetric5 = input.ReadFloat();
+            break;
+          }
+          case 3309: {
+            OrderRefRMetric6 = input.ReadFloat();
+            break;
+          }
+          case 3317: {
+            OrderRefRMetric7 = input.ReadFloat();
+            break;
+          }
+          case 3320: {
+            CloseIfFilled = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }

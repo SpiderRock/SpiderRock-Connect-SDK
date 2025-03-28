@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "Ci1Qcm90b2J1Zi9TcHJlYWRNa3REYXRhL1NwcmVhZEJvb2tNYXJrdXAucHJv",
             "dG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnBy",
-            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIu4RChBTcHJl",
+            "b3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIuoRChBTcHJl",
             "YWRCb29rTWFya3VwEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90",
             "b2J1Zi5NZXNzYWdlTWV0YWRhdGESOAoEcGtleRgCIAEoCzIqLnNwaWRlcnJv",
             "Y2sucHJvdG9idWYuU3ByZWFkQm9va01hcmt1cC5QS2V5Ei4KBnRpY2tlchhk",
@@ -45,39 +45,39 @@ namespace Spiderrock.Protobuf {
             "Cgt1cGRhdGVfdHlwZRiOASABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLlVw",
             "ZGF0ZVR5cGUSFQoMbnVtX3N0a19sZWdzGJEBIAEoBRIVCgxudW1fZnV0X2xl",
             "Z3MYlAEgASgFEhUKDG51bV9vcHRfbGVncxiXASABKAUSMQoMdXNlcl9kZWZp",
-            "bmVkGJ0BIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SOwoMc3By",
-            "ZWFkX2NsYXNzGKgCIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuVG9vbFNw",
-            "cmVhZENsYXNzEjMKDmNvbnRhaW5zX2hlZGdlGKkCIAEoDjIaLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuWWVzTm8SFAoLbGVnX2JpZF9wcmMYpgEgASgBEhQKC2xl",
-            "Z19hc2tfcHJjGKkBIAEoARITCgpsZWdfYmlkX3N6GKwBIAEoBRITCgpsZWdf",
-            "YXNrX3N6GK8BIAEoBRIRCghzdXJmX3ByYxiyASABKAESEwoKc3VyZl9kZWx0",
-            "YRi1ASABKAISEwoKc3VyZl9nYW1tYRi4ASABKAISEgoJc3VyZl92ZWdhGLsB",
-            "IAEoAhIVCgxzdXJmX3d0X3ZlZ2EYvgEgASgCEhMKCnN1cmZfZXJyb3IYwQEg",
-            "ASgFEi8KCm1pbl9leHBpcnkYxAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
-            "bWVzdGFtcBIvCgptYXhfZXhwaXJ5GMcBIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASEgoJbWluX3llYXJzGMoBIAEoAhISCgltYXhfeWVhcnMY",
-            "zQEgASgCEhEKCHJlZl91UHJjGNABIAEoAhIUCgtwcmludF9wcmljZRjTASAB",
-            "KAISLwoKcHJpbnRfdGltZRjWASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wEhMKCnByaW50X3NpemUY2QEgASgFEhUKDHByaW50X3ZvbHVtZRjc",
-            "ASABKAUSEAoHZ3JwX251bRjfASABKAUSFgoNc2VjdXJpdHlfZGVzYxjiASAB",
-            "KAkSEgoJZmlsdGVyX2lkGOUBIAEoAxIuCgl0aW1lc3RhbXAY6AEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJGCgttYXJrdXBfbGVncxjrASAD",
-            "KAsyMC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwcmVhZEJvb2tNYXJrdXAuTWFy",
-            "a3VwTGVncxphCgRQS2V5EiwKBHNrZXkYCiABKAsyHi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlRpY2tlcktleRIrCgdpc190ZXN0GAsgASgOMhouc3BpZGVycm9j",
-            "ay5wcm90b2J1Zi5ZZXNObxqnBAoKTWFya3VwTGVncxI0CgtsZWdfc2VjX2tl",
-            "eRjuASABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRI3Cgxs",
-            "ZWdfc2VjX3R5cGUY8QEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRy",
-            "S2V5VHlwZRI7ChBsZWdfcHJpY2VfZm9ybWF0GPQBIAEoDjIgLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuUHJpY2VGb3JtYXQSGgoRbGVnX3NlY3VyaXR5X2Rlc2MY",
-            "9wEgASgJEi8KCGxlZ19zaWRlGPoBIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuQnV5U2VsbBISCglsZWdfcmF0aW8Y/QEgASgNEhYKDWxlZ19iaWRfcHJp",
-            "Y2UYgAIgASgBEhUKDGxlZ19iaWRfc2l6ZRiDAiABKAUSFgoNbGVnX2Fza19w",
-            "cmljZRiGAiABKAESFQoMbGVnX2Fza19zaXplGIkCIAEoBRISCglsZWdfeWVh",
-            "cnMYjAIgASgCEhEKCGxlZ191UHJjGI8CIAEoARIVCgxsZWdfc3VyZl92b2wY",
-            "mAIgASgCEhcKDmxlZ19zdXJmX3ByaWNlGJsCIAEoAhIUCgtsZWdfc3VyZl9k",
-            "ZRieAiABKAISFAoLbGVnX3N1cmZfZ2EYoQIgASgCEhQKC2xlZ19zdXJmX3Zl",
-            "GKQCIAEoAhIVCgxsZWdfc3VyZl9lcnIYpwIgASgFYgZwcm90bzM="));
+            "bmVkGJ0BIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNwoMc3By",
+            "ZWFkX2NsYXNzGKsCIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFk",
+            "Q2xhc3MSMwoOY29udGFpbnNfaGVkZ2UYqQIgASgOMhouc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5ZZXNObxIUCgtsZWdfYmlkX3ByYximASABKAESFAoLbGVnX2Fz",
+            "a19wcmMYqQEgASgBEhMKCmxlZ19iaWRfc3oYrAEgASgFEhMKCmxlZ19hc2tf",
+            "c3oYrwEgASgFEhEKCHN1cmZfcHJjGLIBIAEoARITCgpzdXJmX2RlbHRhGLUB",
+            "IAEoAhITCgpzdXJmX2dhbW1hGLgBIAEoAhISCglzdXJmX3ZlZ2EYuwEgASgC",
+            "EhUKDHN1cmZfd3RfdmVnYRi+ASABKAISEwoKc3VyZl9lcnJvchjBASABKAUS",
+            "LwoKbWluX2V4cGlyeRjEASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wEi8KCm1heF9leHBpcnkYxwEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
+            "bWVzdGFtcBISCgltaW5feWVhcnMYygEgASgCEhIKCW1heF95ZWFycxjNASAB",
+            "KAISEQoIcmVmX3VQcmMY0AEgASgCEhQKC3ByaW50X3ByaWNlGNMBIAEoAhIv",
+            "CgpwcmludF90aW1lGNYBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
+            "bXASEwoKcHJpbnRfc2l6ZRjZASABKAUSFQoMcHJpbnRfdm9sdW1lGNwBIAEo",
+            "BRIQCgdncnBfbnVtGN8BIAEoBRIWCg1zZWN1cml0eV9kZXNjGOIBIAEoCRIS",
+            "CglmaWx0ZXJfaWQY5QEgASgDEi4KCXRpbWVzdGFtcBjoASABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wEkYKC21hcmt1cF9sZWdzGOsBIAMoCzIw",
+            "LnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFkQm9va01hcmt1cC5NYXJrdXBM",
+            "ZWdzGmEKBFBLZXkSLAoEc2tleRgKIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuVGlja2VyS2V5EisKB2lzX3Rlc3QYCyABKA4yGi5zcGlkZXJyb2NrLnBy",
+            "b3RvYnVmLlllc05vGqcECgpNYXJrdXBMZWdzEjQKC2xlZ19zZWNfa2V5GO4B",
+            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjcKDGxlZ19z",
+            "ZWNfdHlwZRjxASABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlU",
+            "eXBlEjsKEGxlZ19wcmljZV9mb3JtYXQY9AEgASgOMiAuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5QcmljZUZvcm1hdBIaChFsZWdfc2VjdXJpdHlfZGVzYxj3ASAB",
+            "KAkSLwoIbGVnX3NpZGUY+gEgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5C",
+            "dXlTZWxsEhIKCWxlZ19yYXRpbxj9ASABKA0SFgoNbGVnX2JpZF9wcmljZRiA",
+            "AiABKAESFQoMbGVnX2JpZF9zaXplGIMCIAEoBRIWCg1sZWdfYXNrX3ByaWNl",
+            "GIYCIAEoARIVCgxsZWdfYXNrX3NpemUYiQIgASgFEhIKCWxlZ195ZWFycxiM",
+            "AiABKAISEQoIbGVnX3VQcmMYjwIgASgBEhUKDGxlZ19zdXJmX3ZvbBiYAiAB",
+            "KAISFwoObGVnX3N1cmZfcHJpY2UYmwIgASgCEhQKC2xlZ19zdXJmX2RlGJ4C",
+            "IAEoAhIUCgtsZWdfc3VyZl9nYRihAiABKAISFAoLbGVnX3N1cmZfdmUYpAIg",
+            "ASgCEhUKDGxlZ19zdXJmX2VychinAiABKAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -482,11 +482,11 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "spread_class" field.</summary>
-    public const int SpreadClassFieldNumber = 296;
-    private global::Spiderrock.Protobuf.ToolSpreadClass spreadClass_ = global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified;
+    public const int SpreadClassFieldNumber = 299;
+    private global::Spiderrock.Protobuf.SpreadClass spreadClass_ = global::Spiderrock.Protobuf.SpreadClass.Unspecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.ToolSpreadClass SpreadClass {
+    public global::Spiderrock.Protobuf.SpreadClass SpreadClass {
       get { return spreadClass_; }
       set {
         spreadClass_ = value;
@@ -905,7 +905,7 @@ namespace Spiderrock.Protobuf {
       if (NumFutLegs != 0) hash ^= NumFutLegs.GetHashCode();
       if (NumOptLegs != 0) hash ^= NumOptLegs.GetHashCode();
       if (UserDefined != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= UserDefined.GetHashCode();
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) hash ^= SpreadClass.GetHashCode();
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) hash ^= SpreadClass.GetHashCode();
       if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ContainsHedge.GetHashCode();
       if (LegBidPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LegBidPrc);
       if (LegAskPrc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LegAskPrc);
@@ -1126,10 +1126,6 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Timestamp);
       }
       markupLegs_.WriteTo(output, _repeated_markupLegs_codec);
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-        output.WriteRawTag(192, 18);
-        output.WriteEnum((int) SpreadClass);
-      }
       if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(200, 18);
         output.WriteEnum((int) ContainsHedge);
@@ -1137,6 +1133,10 @@ namespace Spiderrock.Protobuf {
       if (SRspreadID != 0L) {
         output.WriteRawTag(208, 18);
         output.WriteInt64(SRspreadID);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        output.WriteRawTag(216, 18);
+        output.WriteEnum((int) SpreadClass);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1325,10 +1325,6 @@ namespace Spiderrock.Protobuf {
         output.WriteMessage(Timestamp);
       }
       markupLegs_.WriteTo(ref output, _repeated_markupLegs_codec);
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-        output.WriteRawTag(192, 18);
-        output.WriteEnum((int) SpreadClass);
-      }
       if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         output.WriteRawTag(200, 18);
         output.WriteEnum((int) ContainsHedge);
@@ -1336,6 +1332,10 @@ namespace Spiderrock.Protobuf {
       if (SRspreadID != 0L) {
         output.WriteRawTag(208, 18);
         output.WriteInt64(SRspreadID);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        output.WriteRawTag(216, 18);
+        output.WriteEnum((int) SpreadClass);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1413,7 +1413,7 @@ namespace Spiderrock.Protobuf {
       if (UserDefined != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) UserDefined);
       }
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpreadClass);
       }
       if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -1582,7 +1582,7 @@ namespace Spiderrock.Protobuf {
       if (other.UserDefined != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         UserDefined = other.UserDefined;
       }
-      if (other.SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
+      if (other.SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
         SpreadClass = other.SpreadClass;
       }
       if (other.ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -1892,16 +1892,16 @@ namespace Spiderrock.Protobuf {
             markupLegs_.AddEntriesFrom(input, _repeated_markupLegs_codec);
             break;
           }
-          case 2368: {
-            SpreadClass = (global::Spiderrock.Protobuf.ToolSpreadClass) input.ReadEnum();
-            break;
-          }
           case 2376: {
             ContainsHedge = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
           case 2384: {
             SRspreadID = input.ReadInt64();
+            break;
+          }
+          case 2392: {
+            SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
             break;
           }
         }
@@ -2126,16 +2126,16 @@ namespace Spiderrock.Protobuf {
             markupLegs_.AddEntriesFrom(ref input, _repeated_markupLegs_codec);
             break;
           }
-          case 2368: {
-            SpreadClass = (global::Spiderrock.Protobuf.ToolSpreadClass) input.ReadEnum();
-            break;
-          }
           case 2376: {
             ContainsHedge = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
           case 2384: {
             SRspreadID = input.ReadInt64();
+            break;
+          }
+          case 2392: {
+            SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
             break;
           }
         }

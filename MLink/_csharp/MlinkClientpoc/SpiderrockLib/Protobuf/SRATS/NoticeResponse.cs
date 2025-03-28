@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiNQcm90b2J1Zi9TUkFUUy9Ob3RpY2VSZXNwb25zZS5wcm90bxITc3BpZGVy",
             "cm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aH2dvb2ds",
-            "ZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iywsKDk5vdGljZVJlc3BvbnNl",
+            "ZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8ihAwKDk5vdGljZVJlc3BvbnNl",
             "EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5NZXNzYWdl",
             "TWV0YWRhdGESNgoEcGtleRgCIAEoCzIoLnNwaWRlcnJvY2sucHJvdG9idWYu",
             "Tm90aWNlUmVzcG9uc2UuUEtleRIuCgZ0aWNrZXIYdyABKAsyHi5zcGlkZXJy",
@@ -40,30 +40,32 @@ namespace Spiderrock.Protobuf {
             "cmVjdGlvbhIQCghtaW5fdUJpZBhsIAEoAhIQCghtYXhfdUFzaxhtIAEoAhIV",
             "Cg1yaXNrX2dyb3VwX2lkGG4gASgDEhAKCHN0cmF0ZWd5GG8gASgJEhIKCnVz",
             "ZXJfZGF0YTEYcCABKAkSEwoLbG9jYXRlX2Zpcm0YeiABKAkSEwoLbG9jYXRl",
-            "X3Bvb2wYeyABKAkSOwoXcmVxX2F1eF9yaXNrX2dyb3VwX2N0cmwYfCABKA4y",
-            "Gi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjIKCmF1dG9faGVkZ2UYfSAB",
-            "KA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkF1dG9IZWRnZRI4ChBoZWRnZV9p",
-            "bnN0cnVtZW50GH4gASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5IZWRnZUlu",
-            "c3QSNQoNaGVkZ2Vfc2VjX2tleRh/IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuRXhwaXJ5S2V5EhkKEGhlZGdlX2JldGFfcmF0aW8YgAEgASgCEjUKC2hl",
-            "ZGdlX3Njb3BlGIEBIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYuSGVkZ2VT",
-            "Y29wZRI6Cg1oZWRnZV9zZXNzaW9uGIIBIAEoDjIiLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuTWFya2V0U2Vzc2lvbhIUCgttb2RpZmllZF9ieRiDASABKAkSOQoL",
-            "bW9kaWZpZWRfaW4YhAEgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5TeXNF",
-            "bnZpcm9ubWVudBItCgl0aW1lc3RhbXAYdiABKAsyGi5nb29nbGUucHJvdG9i",
-            "dWYuVGltZXN0YW1wEkEKCm9yZGVyX2xlZ3MYcSADKAsyLS5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLk5vdGljZVJlc3BvbnNlLk9yZGVyTGVncxpWCgRQS2V5EhUK",
-            "DW5vdGljZV9udW1iZXIYDSABKAMSDQoFYWNjbnQYCyABKAkSEwoLY2xpZW50",
-            "X2Zpcm0YDCABKAkSEwoLcmVzcG9uc2VfaWQYDiABKAka2QEKCU9yZGVyTGVn",
-            "cxIvCgdzZWNfa2V5GHIgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5PcHRp",
-            "b25LZXkSMgoIc2VjX3R5cGUYcyABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlNwZHJLZXlUeXBlEioKBHNpZGUYdCABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkJ1eVNlbGwSOwoNcG9zaXRpb25fdHlwZRh1IAEoDjIkLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuTGVnUG9zaXRpb25UeXBlYgZwcm90bzM="));
+            "X3Bvb2wYeyABKAkSNwoKc3NhbGVfZmxhZxiFASABKA4yIi5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlNob3J0U2FsZUZsYWcSOwoXcmVxX2F1eF9yaXNrX2dyb3Vw",
+            "X2N0cmwYfCABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjIKCmF1",
+            "dG9faGVkZ2UYfSABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkF1dG9IZWRn",
+            "ZRI4ChBoZWRnZV9pbnN0cnVtZW50GH4gASgOMh4uc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5IZWRnZUluc3QSNQoNaGVkZ2Vfc2VjX2tleRh/IAEoCzIeLnNwaWRl",
+            "cnJvY2sucHJvdG9idWYuRXhwaXJ5S2V5EhkKEGhlZGdlX2JldGFfcmF0aW8Y",
+            "gAEgASgCEjUKC2hlZGdlX3Njb3BlGIEBIAEoDjIfLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuSGVkZ2VTY29wZRI6Cg1oZWRnZV9zZXNzaW9uGIIBIAEoDjIiLnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuTWFya2V0U2Vzc2lvbhIUCgttb2RpZmllZF9i",
+            "eRiDASABKAkSOQoLbW9kaWZpZWRfaW4YhAEgASgOMiMuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5TeXNFbnZpcm9ubWVudBItCgl0aW1lc3RhbXAYdiABKAsyGi5n",
+            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEkEKCm9yZGVyX2xlZ3MYcSADKAsy",
+            "LS5zcGlkZXJyb2NrLnByb3RvYnVmLk5vdGljZVJlc3BvbnNlLk9yZGVyTGVn",
+            "cxpWCgRQS2V5EhUKDW5vdGljZV9udW1iZXIYDSABKAMSDQoFYWNjbnQYCyAB",
+            "KAkSEwoLY2xpZW50X2Zpcm0YDCABKAkSEwoLcmVzcG9uc2VfaWQYDiABKAka",
+            "2QEKCU9yZGVyTGVncxIvCgdzZWNfa2V5GHIgASgLMh4uc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5PcHRpb25LZXkSMgoIc2VjX3R5cGUYcyABKA4yIC5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEioKBHNpZGUYdCABKA4yHC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLkJ1eVNlbGwSOwoNcG9zaXRpb25fdHlwZRh1IAEo",
+            "DjIkLnNwaWRlcnJvY2sucHJvdG9idWYuTGVnUG9zaXRpb25UeXBlYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse), global::Spiderrock.Protobuf.NoticeResponse.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "StageType", "RespSide", "RespSize", "RespPrice", "RefUPrc", "RefDe", "RefGa", "DeltaAdj", "MinUBid", "MaxUAsk", "RiskGroupId", "Strategy", "UserData1", "LocateFirm", "LocatePool", "ReqAuxRiskGroupCtrl", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "ModifiedBy", "ModifiedIn", "Timestamp", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse.Types.PKey), global::Spiderrock.Protobuf.NoticeResponse.Types.PKey.Parser, new[]{ "NoticeNumber", "Accnt", "ClientFirm", "ResponseId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse), global::Spiderrock.Protobuf.NoticeResponse.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "StageType", "RespSide", "RespSize", "RespPrice", "RefUPrc", "RefDe", "RefGa", "DeltaAdj", "MinUBid", "MaxUAsk", "RiskGroupId", "Strategy", "UserData1", "LocateFirm", "LocatePool", "SsaleFlag", "ReqAuxRiskGroupCtrl", "AutoHedge", "HedgeInstrument", "HedgeSecKey", "HedgeBetaRatio", "HedgeScope", "HedgeSession", "ModifiedBy", "ModifiedIn", "Timestamp", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse.Types.PKey), global::Spiderrock.Protobuf.NoticeResponse.Types.PKey.Parser, new[]{ "NoticeNumber", "Accnt", "ClientFirm", "ResponseId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeResponse.Types.OrderLegs), global::Spiderrock.Protobuf.NoticeResponse.Types.OrderLegs.Parser, new[]{ "SecKey", "SecType", "Side", "PositionType" }, null, null, null, null)})
           }));
     }
@@ -124,6 +126,7 @@ namespace Spiderrock.Protobuf {
       userData1_ = other.userData1_;
       locateFirm_ = other.locateFirm_;
       locatePool_ = other.locatePool_;
+      ssaleFlag_ = other.ssaleFlag_;
       reqAuxRiskGroupCtrl_ = other.reqAuxRiskGroupCtrl_;
       autoHedge_ = other.autoHedge_;
       hedgeInstrument_ = other.hedgeInstrument_;
@@ -393,6 +396,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "ssale_flag" field.</summary>
+    public const int SsaleFlagFieldNumber = 133;
+    private global::Spiderrock.Protobuf.ShortSaleFlag ssaleFlag_ = global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified;
+    /// <summary>
+    /// Used to determine stock auto-hedge flags.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.ShortSaleFlag SsaleFlag {
+      get { return ssaleFlag_; }
+      set {
+        ssaleFlag_ = value;
+      }
+    }
+
     /// <summary>Field number for the "req_aux_risk_group_ctrl" field.</summary>
     public const int ReqAuxRiskGroupCtrlFieldNumber = 124;
     private global::Spiderrock.Protobuf.YesNo reqAuxRiskGroupCtrl_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
@@ -567,6 +585,7 @@ namespace Spiderrock.Protobuf {
       if (UserData1 != other.UserData1) return false;
       if (LocateFirm != other.LocateFirm) return false;
       if (LocatePool != other.LocatePool) return false;
+      if (SsaleFlag != other.SsaleFlag) return false;
       if (ReqAuxRiskGroupCtrl != other.ReqAuxRiskGroupCtrl) return false;
       if (AutoHedge != other.AutoHedge) return false;
       if (HedgeInstrument != other.HedgeInstrument) return false;
@@ -604,6 +623,7 @@ namespace Spiderrock.Protobuf {
       if (UserData1.Length != 0) hash ^= UserData1.GetHashCode();
       if (LocateFirm.Length != 0) hash ^= LocateFirm.GetHashCode();
       if (LocatePool.Length != 0) hash ^= LocatePool.GetHashCode();
+      if (SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) hash ^= SsaleFlag.GetHashCode();
       if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ReqAuxRiskGroupCtrl.GetHashCode();
       if (AutoHedge != global::Spiderrock.Protobuf.AutoHedge.Unspecified) hash ^= AutoHedge.GetHashCode();
       if (HedgeInstrument != global::Spiderrock.Protobuf.HedgeInst.Unspecified) hash ^= HedgeInstrument.GetHashCode();
@@ -750,6 +770,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(160, 8);
         output.WriteEnum((int) ModifiedIn);
       }
+      if (SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) {
+        output.WriteRawTag(168, 8);
+        output.WriteEnum((int) SsaleFlag);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -877,6 +901,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(160, 8);
         output.WriteEnum((int) ModifiedIn);
       }
+      if (SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) {
+        output.WriteRawTag(168, 8);
+        output.WriteEnum((int) SsaleFlag);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -943,6 +971,9 @@ namespace Spiderrock.Protobuf {
       }
       if (LocatePool.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(LocatePool);
+      }
+      if (SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SsaleFlag);
       }
       if (ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ReqAuxRiskGroupCtrl);
@@ -1055,6 +1086,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.LocatePool.Length != 0) {
         LocatePool = other.LocatePool;
+      }
+      if (other.SsaleFlag != global::Spiderrock.Protobuf.ShortSaleFlag.Unspecified) {
+        SsaleFlag = other.SsaleFlag;
       }
       if (other.ReqAuxRiskGroupCtrl != global::Spiderrock.Protobuf.YesNo.Unspecified) {
         ReqAuxRiskGroupCtrl = other.ReqAuxRiskGroupCtrl;
@@ -1246,6 +1280,10 @@ namespace Spiderrock.Protobuf {
             ModifiedIn = (global::Spiderrock.Protobuf.SysEnvironment) input.ReadEnum();
             break;
           }
+          case 1064: {
+            SsaleFlag = (global::Spiderrock.Protobuf.ShortSaleFlag) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -1397,6 +1435,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1056: {
             ModifiedIn = (global::Spiderrock.Protobuf.SysEnvironment) input.ReadEnum();
+            break;
+          }
+          case 1064: {
+            SsaleFlag = (global::Spiderrock.Protobuf.ShortSaleFlag) input.ReadEnum();
             break;
           }
         }

@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJQYXJlbnRCcmtyRXZlbnQu",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvItcYChNT",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvAYChNT",
             "cGRyUGFyZW50QnJrckV2ZW50EjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9j",
             "ay5wcm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOwoEcGtleRgCIAEoCzItLnNw",
             "aWRlcnJvY2sucHJvdG9idWYuU3BkclBhcmVudEJya3JFdmVudC5QS2V5Ei8K",
@@ -44,64 +44,64 @@ namespace Spiderrock.Protobuf {
             "KAMSFAoLZW5naW5lX25hbWUYiwEgASgJEi8KBnRpY2tlchiOASABKAsyHi5z",
             "cGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRJCChJzcGRyX2Jyb2tlcl9z",
             "dGF0dXMYkQEgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyQnJva2Vy",
-            "U3RhdHVzEkAKEXNwZHJfb3JkZXJfc3RhdHVzGJQBIAEoDjIkLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuU3Bkck9yZGVyU3RhdHVzEkAKEXNwZHJfY2xvc2VfcmVh",
-            "c29uGJcBIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkckNsb3NlUmVh",
-            "c29uEkIKEnNwZHJfcmVqZWN0X3JlYXNvbhiaASABKA4yJS5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlNwZHJSZWplY3RSZWFzb24SFQoMc3Bkcl9jb21tZW50GJ0B",
-            "IAEoCRIQCgdiaWRfcHJjGLIBIAEoARIQCgdhc2tfcHJjGLUBIAEoARIRCghi",
-            "aWRfaVZvbBi4ASABKAISEQoIYXNrX2lWb2wYuwEgASgCEhEKCGJpZF9zaXpl",
-            "GL4BIAEoBRIRCghhc2tfc2l6ZRjBASABKAUSDgoFdV9iaWQYxAEgASgBEg4K",
-            "BXVfYXNrGMcBIAEoARIUCgtzdXJmYWNlX3ByYxjKASABKAISFAoLc3VyZmFj",
-            "ZV92b2wYzQEgASgCEhQKC3N1cmZhY2VfeXJzGNABIAEoAhIVCgxzdXJmYWNl",
-            "X3NEaXYY0wEgASgCEhUKDHN1cmZhY2VfcmF0ZRjWASABKAISFQoMc3VyZmFj",
-            "ZV91UHJjGNkBIAEoAhITCgpzdXJmYWNlX2RlGNwBIAEoAhITCgpzdXJmYWNl",
-            "X2dhGN8BIAEoAhITCgpzdXJmYWNlX3RoGOIBIAEoAhITCgpzdXJmYWNlX3Zl",
-            "GOUBIAEoAhITCgpzdXJmYWNlX3JvGOgBIAEoAhITCgpzdXJmYWNlX3BoGOsB",
-            "IAEoAhIZChBhcnJpdmVfbmJib19zaXplGO4BIAEoBRI3ChBhcnJpdmVfbmJi",
-            "b19leGNoGPEBIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0RXhjaBIY",
-            "Cg9hcnJpdmVfY3VtX3NpemUY9AEgASgFEhgKD2Fycml2ZV9udW1fZXhjaBj3",
-            "ASABKAUSGgoRYXJyaXZlX2xpbWl0X3NpemUY+gEgASgFEhkKEGFycml2ZV9s",
-            "aW1pdF9wcmMY/QEgASgBEhUKDGF2Z19maWxsX3ByYxiAAiABKAESFgoNY3Vt",
-            "X2ZpbGxfcXVhbhiDAiABKAUSGQoQbnVtX2NoaWxkX29yZGVycxiGAiABKA0S",
-            "HQoUbnVtX2RheV9jaGlsZF9vcmRlcnMYiQIgASgNEhgKD29wZW5fb3JkZXJf",
-            "c2l6ZRiMAiABKAUSGgoRYWN0aW9uX29yZGVyX3NpemUYjwIgASgFEhgKD3Jp",
-            "c2tfbGltaXRfc2l6ZRiSAiABKAUSNwoPcmlza19saW1pdF9kZXNjGJUCIAEo",
-            "DjIdLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkclJpc2sSPQoQcmlza19saW1p",
-            "dF9sZXZlbBj0AiABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJSaXNr",
-            "TGV2ZWwSGgoRcmlza19saW1pdF9kZXRhaWwYmAIgASgJEhcKDmxpbWl0X3Jl",
-            "Zl91UHJjGJsCIAEoARIUCgtsaW1pdF9wcmljZRieAiABKAESEgoJbGltaXRf",
-            "dm9sGKECIAEoAhIZChBtYWtlX2xpbWl0X3ByaWNlGKQCIAEoARI4Cg5tYWtl",
-            "X2xpbWl0X2VychinAiABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLkxpbWl0",
-            "RXJyb3ISHAoTbWFrZV9saW1pdF9lcnJfZGVzYxiqAiABKAkSGQoQdGFrZV9s",
-            "aW1pdF9wcmljZRitAiABKAESOAoOdGFrZV9saW1pdF9lcnIYsAIgASgOMh8u",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5MaW1pdEVycm9yEhwKE3Rha2VfbGltaXRf",
-            "ZXJyX2Rlc2MYswIgASgJEjcKDGJyb2tlcl9zdGF0ZRi2AiABKA4yIC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLkJyb2tlclN0YXRlEjMKCm1ha2Vfc3RhdGUYuQIg",
-            "ASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5BbGdvU3RhdGUSMwoKdGFrZV9z",
-            "dGF0ZRi8AiABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkFsZ29TdGF0ZRI8",
-            "Cg9ta3RfY3Jvc3Nfc3RhdGUYvwIgASgOMiIuc3BpZGVycm9jay5wcm90b2J1",
-            "Zi5Na3RDcm9zc1N0YXRlEjoKEGxhc3RfY2hpbGRfZXZlbnQYwgIgASgOMh8u",
-            "c3BpZGVycm9jay5wcm90b2J1Zi5DaGlsZEV2ZW50Ej0KDnNwZHJfbWt0X3N0",
-            "YXRlGMUCIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bkck1hcmtldFN0",
-            "YXRlEhMKCm51bV9vcmRlcnMYyAIgASgFEhMKCmxlYXZlc19xdHkYywIgASgF",
-            "EhsKEmNoaWxkX29yZGVyX2xlYXZlcxjOAiABKAUSFQoMYXJyaXZhbF9zRGl2",
-            "GNECIAEoAhIVCgxhcnJpdmFsX3JhdGUY1AIgASgCEhUKDGFycml2YWxfZERp",
-            "dhjXAiABKAISNgoNaGVkZ2Vfc2VjX2tleRjaAiABKAsyHi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLkV4cGlyeUtleRI5Cg5oZWRnZV9zZWNfdHlwZRjdAiABKA4y",
-            "IC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJLZXlUeXBlEhEKCHRoZW9fb3B4",
-            "GOACIAEoAhIRCgh0aGVvX3ZvbBjjAiABKAISGQoQY2hpbGRfb3JkZXJfbWFz",
-            "axjmAiABKA0SNwoMcHJpY2VfZm9ybWF0GOkCIAEoDjIgLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuUHJpY2VGb3JtYXQSOQoOdV9wcmljZV9mb3JtYXQY7AIgASgO",
-            "MiAuc3BpZGVycm9jay5wcm90b2J1Zi5QcmljZUZvcm1hdBISCgl1c2VyX25h",
-            "bWUY7wIgASgJEi4KCXRpbWVzdGFtcBjyAiABKAsyGi5nb29nbGUucHJvdG9i",
-            "dWYuVGltZXN0YW1wGlIKBFBLZXkSFQoNcGFyZW50X251bWJlchgKIAEoAxIz",
-            "CghyZWNfdHlwZRgLIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuRXZlbnRS",
-            "ZWNUeXBlYgZwcm90bzM="));
+            "U3RhdHVzEhcKDnN0cmF0ZWd5X2FjY250GPUCIAEoCRJAChFzcGRyX29yZGVy",
+            "X3N0YXR1cxiUASABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJPcmRl",
+            "clN0YXR1cxJAChFzcGRyX2Nsb3NlX3JlYXNvbhiXASABKA4yJC5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlNwZHJDbG9zZVJlYXNvbhJCChJzcGRyX3JlamVjdF9y",
+            "ZWFzb24YmgEgASgOMiUuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyUmVqZWN0",
+            "UmVhc29uEhUKDHNwZHJfY29tbWVudBidASABKAkSEAoHYmlkX3ByYxiyASAB",
+            "KAESEAoHYXNrX3ByYxi1ASABKAESEQoIYmlkX2lWb2wYuAEgASgCEhEKCGFz",
+            "a19pVm9sGLsBIAEoAhIRCghiaWRfc2l6ZRi+ASABKAUSEQoIYXNrX3NpemUY",
+            "wQEgASgFEg4KBXVfYmlkGMQBIAEoARIOCgV1X2FzaxjHASABKAESFAoLc3Vy",
+            "ZmFjZV9wcmMYygEgASgCEhQKC3N1cmZhY2Vfdm9sGM0BIAEoAhIUCgtzdXJm",
+            "YWNlX3lycxjQASABKAISFQoMc3VyZmFjZV9zRGl2GNMBIAEoAhIVCgxzdXJm",
+            "YWNlX3JhdGUY1gEgASgCEhUKDHN1cmZhY2VfdVByYxjZASABKAISEwoKc3Vy",
+            "ZmFjZV9kZRjcASABKAISEwoKc3VyZmFjZV9nYRjfASABKAISEwoKc3VyZmFj",
+            "ZV90aBjiASABKAISEwoKc3VyZmFjZV92ZRjlASABKAISEwoKc3VyZmFjZV9y",
+            "bxjoASABKAISEwoKc3VyZmFjZV9waBjrASABKAISGQoQYXJyaXZlX25iYm9f",
+            "c2l6ZRjuASABKAUSNwoQYXJyaXZlX25iYm9fZXhjaBjxASABKA4yHC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLk9wdEV4Y2gSGAoPYXJyaXZlX2N1bV9zaXplGPQB",
+            "IAEoBRIYCg9hcnJpdmVfbnVtX2V4Y2gY9wEgASgFEhoKEWFycml2ZV9saW1p",
+            "dF9zaXplGPoBIAEoBRIZChBhcnJpdmVfbGltaXRfcHJjGP0BIAEoARIVCgxh",
+            "dmdfZmlsbF9wcmMYgAIgASgBEhYKDWN1bV9maWxsX3F1YW4YgwIgASgFEhkK",
+            "EG51bV9jaGlsZF9vcmRlcnMYhgIgASgNEh0KFG51bV9kYXlfY2hpbGRfb3Jk",
+            "ZXJzGIkCIAEoDRIYCg9vcGVuX29yZGVyX3NpemUYjAIgASgFEhoKEWFjdGlv",
+            "bl9vcmRlcl9zaXplGI8CIAEoBRIYCg9yaXNrX2xpbWl0X3NpemUYkgIgASgF",
+            "EjcKD3Jpc2tfbGltaXRfZGVzYxiVAiABKA4yHS5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlNwZHJSaXNrEj0KEHJpc2tfbGltaXRfbGV2ZWwY9AIgASgOMiIuc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5TcGRyUmlza0xldmVsEhoKEXJpc2tfbGltaXRf",
+            "ZGV0YWlsGJgCIAEoCRIXCg5saW1pdF9yZWZfdVByYxibAiABKAESFAoLbGlt",
+            "aXRfcHJpY2UYngIgASgBEhIKCWxpbWl0X3ZvbBihAiABKAISGQoQbWFrZV9s",
+            "aW1pdF9wcmljZRikAiABKAESOAoObWFrZV9saW1pdF9lcnIYpwIgASgOMh8u",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5MaW1pdEVycm9yEhwKE21ha2VfbGltaXRf",
+            "ZXJyX2Rlc2MYqgIgASgJEhkKEHRha2VfbGltaXRfcHJpY2UYrQIgASgBEjgK",
+            "DnRha2VfbGltaXRfZXJyGLACIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "TGltaXRFcnJvchIcChN0YWtlX2xpbWl0X2Vycl9kZXNjGLMCIAEoCRI3Cgxi",
+            "cm9rZXJfc3RhdGUYtgIgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5Ccm9r",
+            "ZXJTdGF0ZRIzCgptYWtlX3N0YXRlGLkCIAEoDjIeLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuQWxnb1N0YXRlEjMKCnRha2Vfc3RhdGUYvAIgASgOMh4uc3BpZGVy",
+            "cm9jay5wcm90b2J1Zi5BbGdvU3RhdGUSPAoPbWt0X2Nyb3NzX3N0YXRlGL8C",
+            "IAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuTWt0Q3Jvc3NTdGF0ZRI6ChBs",
+            "YXN0X2NoaWxkX2V2ZW50GMICIAEoDjIfLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "Q2hpbGRFdmVudBI9Cg5zcGRyX21rdF9zdGF0ZRjFAiABKA4yJC5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlNwZHJNYXJrZXRTdGF0ZRITCgpudW1fb3JkZXJzGMgC",
+            "IAEoBRITCgpsZWF2ZXNfcXR5GMsCIAEoBRIbChJjaGlsZF9vcmRlcl9sZWF2",
+            "ZXMYzgIgASgFEhUKDGFycml2YWxfc0RpdhjRAiABKAISFQoMYXJyaXZhbF9y",
+            "YXRlGNQCIAEoAhIVCgxhcnJpdmFsX2REaXYY1wIgASgCEjYKDWhlZGdlX3Nl",
+            "Y19rZXkY2gIgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5FeHBpcnlLZXkS",
+            "OQoOaGVkZ2Vfc2VjX3R5cGUY3QIgASgOMiAuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5TcGRyS2V5VHlwZRIRCgh0aGVvX29weBjgAiABKAISEQoIdGhlb192b2wY",
+            "4wIgASgCEhkKEGNoaWxkX29yZGVyX21hc2sY5gIgASgNEjcKDHByaWNlX2Zv",
+            "cm1hdBjpAiABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlByaWNlRm9ybWF0",
+            "EjkKDnVfcHJpY2VfZm9ybWF0GOwCIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuUHJpY2VGb3JtYXQSEgoJdXNlcl9uYW1lGO8CIAEoCRIuCgl0aW1lc3Rh",
+            "bXAY8gIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpSCgRQS2V5",
+            "EhUKDXBhcmVudF9udW1iZXIYCiABKAMSMwoIcmVjX3R5cGUYCyABKA4yIS5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLkV2ZW50UmVjVHlwZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentBrkrEvent), global::Spiderrock.Protobuf.SpdrParentBrkrEvent.Parser, new[]{ "Meta", "Pkey", "SecKey", "SecType", "Accnt", "SpdrSource", "GroupingCode", "OrderSide", "ClientFirm", "AltAccnt", "AltUserName", "EventNumber", "StageType", "StageReview", "BaseParentNumber", "PrevParentNumber", "EngineName", "Ticker", "SpdrBrokerStatus", "SpdrOrderStatus", "SpdrCloseReason", "SpdrRejectReason", "SpdrComment", "BidPrc", "AskPrc", "BidIVol", "AskIVol", "BidSize", "AskSize", "UBid", "UAsk", "SurfacePrc", "SurfaceVol", "SurfaceYrs", "SurfaceSDiv", "SurfaceRate", "SurfaceUPrc", "SurfaceDe", "SurfaceGa", "SurfaceTh", "SurfaceVe", "SurfaceRo", "SurfacePh", "ArriveNbboSize", "ArriveNbboExch", "ArriveCumSize", "ArriveNumExch", "ArriveLimitSize", "ArriveLimitPrc", "AvgFillPrc", "CumFillQuan", "NumChildOrders", "NumDayChildOrders", "OpenOrderSize", "ActionOrderSize", "RiskLimitSize", "RiskLimitDesc", "RiskLimitLevel", "RiskLimitDetail", "LimitRefUPrc", "LimitPrice", "LimitVol", "MakeLimitPrice", "MakeLimitErr", "MakeLimitErrDesc", "TakeLimitPrice", "TakeLimitErr", "TakeLimitErrDesc", "BrokerState", "MakeState", "TakeState", "MktCrossState", "LastChildEvent", "SpdrMktState", "NumOrders", "LeavesQty", "ChildOrderLeaves", "ArrivalSDiv", "ArrivalRate", "ArrivalDDiv", "HedgeSecKey", "HedgeSecType", "TheoOpx", "TheoVol", "ChildOrderMask", "PriceFormat", "UPriceFormat", "UserName", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentBrkrEvent.Types.PKey), global::Spiderrock.Protobuf.SpdrParentBrkrEvent.Types.PKey.Parser, new[]{ "ParentNumber", "RecType" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentBrkrEvent), global::Spiderrock.Protobuf.SpdrParentBrkrEvent.Parser, new[]{ "Meta", "Pkey", "SecKey", "SecType", "Accnt", "SpdrSource", "GroupingCode", "OrderSide", "ClientFirm", "AltAccnt", "AltUserName", "EventNumber", "StageType", "StageReview", "BaseParentNumber", "PrevParentNumber", "EngineName", "Ticker", "SpdrBrokerStatus", "StrategyAccnt", "SpdrOrderStatus", "SpdrCloseReason", "SpdrRejectReason", "SpdrComment", "BidPrc", "AskPrc", "BidIVol", "AskIVol", "BidSize", "AskSize", "UBid", "UAsk", "SurfacePrc", "SurfaceVol", "SurfaceYrs", "SurfaceSDiv", "SurfaceRate", "SurfaceUPrc", "SurfaceDe", "SurfaceGa", "SurfaceTh", "SurfaceVe", "SurfaceRo", "SurfacePh", "ArriveNbboSize", "ArriveNbboExch", "ArriveCumSize", "ArriveNumExch", "ArriveLimitSize", "ArriveLimitPrc", "AvgFillPrc", "CumFillQuan", "NumChildOrders", "NumDayChildOrders", "OpenOrderSize", "ActionOrderSize", "RiskLimitSize", "RiskLimitDesc", "RiskLimitLevel", "RiskLimitDetail", "LimitRefUPrc", "LimitPrice", "LimitVol", "MakeLimitPrice", "MakeLimitErr", "MakeLimitErrDesc", "TakeLimitPrice", "TakeLimitErr", "TakeLimitErrDesc", "BrokerState", "MakeState", "TakeState", "MktCrossState", "LastChildEvent", "SpdrMktState", "NumOrders", "LeavesQty", "ChildOrderLeaves", "ArrivalSDiv", "ArrivalRate", "ArrivalDDiv", "HedgeSecKey", "HedgeSecType", "TheoOpx", "TheoVol", "ChildOrderMask", "PriceFormat", "UPriceFormat", "UserName", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrParentBrkrEvent.Types.PKey), global::Spiderrock.Protobuf.SpdrParentBrkrEvent.Types.PKey.Parser, new[]{ "ParentNumber", "RecType" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -165,6 +165,7 @@ namespace Spiderrock.Protobuf {
       engineName_ = other.engineName_;
       ticker_ = other.ticker_ != null ? other.ticker_.Clone() : null;
       spdrBrokerStatus_ = other.spdrBrokerStatus_;
+      strategyAccnt_ = other.strategyAccnt_;
       spdrOrderStatus_ = other.spdrOrderStatus_;
       spdrCloseReason_ = other.spdrCloseReason_;
       spdrRejectReason_ = other.spdrRejectReason_;
@@ -493,6 +494,21 @@ namespace Spiderrock.Protobuf {
       get { return spdrBrokerStatus_; }
       set {
         spdrBrokerStatus_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "strategy_accnt" field.</summary>
+    public const int StrategyAccntFieldNumber = 373;
+    private string strategyAccnt_ = "";
+    /// <summary>
+    /// SR strategy account (option; if exists will be validated)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string StrategyAccnt {
+      get { return strategyAccnt_; }
+      set {
+        strategyAccnt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1580,6 +1596,7 @@ namespace Spiderrock.Protobuf {
       if (EngineName != other.EngineName) return false;
       if (!object.Equals(Ticker, other.Ticker)) return false;
       if (SpdrBrokerStatus != other.SpdrBrokerStatus) return false;
+      if (StrategyAccnt != other.StrategyAccnt) return false;
       if (SpdrOrderStatus != other.SpdrOrderStatus) return false;
       if (SpdrCloseReason != other.SpdrCloseReason) return false;
       if (SpdrRejectReason != other.SpdrRejectReason) return false;
@@ -1676,6 +1693,7 @@ namespace Spiderrock.Protobuf {
       if (EngineName.Length != 0) hash ^= EngineName.GetHashCode();
       if (ticker_ != null) hash ^= Ticker.GetHashCode();
       if (SpdrBrokerStatus != global::Spiderrock.Protobuf.SpdrBrokerStatus.Unspecified) hash ^= SpdrBrokerStatus.GetHashCode();
+      if (StrategyAccnt.Length != 0) hash ^= StrategyAccnt.GetHashCode();
       if (SpdrOrderStatus != global::Spiderrock.Protobuf.SpdrOrderStatus.Unspecified) hash ^= SpdrOrderStatus.GetHashCode();
       if (SpdrCloseReason != global::Spiderrock.Protobuf.SpdrCloseReason.Unspecified) hash ^= SpdrCloseReason.GetHashCode();
       if (SpdrRejectReason != global::Spiderrock.Protobuf.SpdrRejectReason.Unspecified) hash ^= SpdrRejectReason.GetHashCode();
@@ -2120,6 +2138,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(160, 23);
         output.WriteEnum((int) RiskLimitLevel);
       }
+      if (StrategyAccnt.Length != 0) {
+        output.WriteRawTag(170, 23);
+        output.WriteString(StrategyAccnt);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2486,6 +2508,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(160, 23);
         output.WriteEnum((int) RiskLimitLevel);
       }
+      if (StrategyAccnt.Length != 0) {
+        output.WriteRawTag(170, 23);
+        output.WriteString(StrategyAccnt);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2552,6 +2578,9 @@ namespace Spiderrock.Protobuf {
       }
       if (SpdrBrokerStatus != global::Spiderrock.Protobuf.SpdrBrokerStatus.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpdrBrokerStatus);
+      }
+      if (StrategyAccnt.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(StrategyAccnt);
       }
       if (SpdrOrderStatus != global::Spiderrock.Protobuf.SpdrOrderStatus.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpdrOrderStatus);
@@ -2843,6 +2872,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.SpdrBrokerStatus != global::Spiderrock.Protobuf.SpdrBrokerStatus.Unspecified) {
         SpdrBrokerStatus = other.SpdrBrokerStatus;
+      }
+      if (other.StrategyAccnt.Length != 0) {
+        StrategyAccnt = other.StrategyAccnt;
       }
       if (other.SpdrOrderStatus != global::Spiderrock.Protobuf.SpdrOrderStatus.Unspecified) {
         SpdrOrderStatus = other.SpdrOrderStatus;
@@ -3449,6 +3481,10 @@ namespace Spiderrock.Protobuf {
             RiskLimitLevel = (global::Spiderrock.Protobuf.SpdrRiskLevel) input.ReadEnum();
             break;
           }
+          case 2986: {
+            StrategyAccnt = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -3836,6 +3872,10 @@ namespace Spiderrock.Protobuf {
           }
           case 2976: {
             RiskLimitLevel = (global::Spiderrock.Protobuf.SpdrRiskLevel) input.ReadEnum();
+            break;
+          }
+          case 2986: {
+            StrategyAccnt = input.ReadString();
             break;
           }
         }

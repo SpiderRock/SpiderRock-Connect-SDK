@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjFQcm90b2J1Zi9DbGllbnRUcmFkaW5nL1NwZHJBdXRvSGVkZ2VDb250cm9s",
             "LnByb3RvEhNzcGlkZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1v",
-            "bi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLhEgoU",
+            "bi5wcm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKgEwoU",
             "U3BkckF1dG9IZWRnZUNvbnRyb2wSMwoFX21ldGEYASABKAsyJC5zcGlkZXJy",
             "b2NrLnByb3RvYnVmLk1lc3NhZ2VNZXRhZGF0YRI8CgRwa2V5GAIgASgLMi4u",
             "c3BpZGVycm9jay5wcm90b2J1Zi5TcGRyQXV0b0hlZGdlQ29udHJvbC5QS2V5",
@@ -67,24 +67,25 @@ namespace Spiderrock.Protobuf {
             "GNYBIAEoDjIiLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkckxpbWl0VHlwZRI+",
             "ChB0YWtlX2xpbWl0X2NsYXNzGNkBIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9i",
             "dWYuU3BkckxpbWl0Q2xhc3MSPgoQbWFrZV9saW1pdF9jbGFzcxjcASABKA4y",
-            "Iy5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJMaW1pdENsYXNzEhgKD29yZGVy",
-            "X3ByY19saW1pdBjfASABKAESGQoQb3JkZXJfcHJjX29mZnNldBjiASABKAES",
-            "NQoLc3RhdGVfbW9kZWwY5QEgASgOMh8uc3BpZGVycm9jay5wcm90b2J1Zi5T",
-            "dGF0ZU1vZGVsEjgKD3Rha2VfYWxwaGFfdHlwZRjoASABKA4yHi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLkFscGhhVHlwZRI4Cg9tYWtlX2FscGhhX3R5cGUY6wEg",
-            "ASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5BbHBoYVR5cGUSGgoRdGFrZV9h",
-            "bHBoYV9mYWN0b3IY7gEgASgCEhoKEW1ha2VfYWxwaGFfZmFjdG9yGPEBIAEo",
-            "AhIZChB0YWtlX3Byb2JhYmlsaXR5GPQBIAEoAhIZChBtYWtlX3Byb2JhYmls",
-            "aXR5GPcBIAEoAhIuCgl0aW1lc3RhbXAY+gEgASgLMhouZ29vZ2xlLnByb3Rv",
-            "YnVmLlRpbWVzdGFtcBqyAQoEUEtleRINCgVhY2NudBgKIAEoCRIVCg1yaXNr",
-            "X2dyb3VwX2lkGAsgASgDEjUKDWhlZGdlX3NlY19rZXkYDCABKAsyHi5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRI4Cg5oZWRnZV9zZWNfdHlwZRgN",
-            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3BkcktleVR5cGUSEwoLY2xp",
-            "ZW50X2Zpcm0YDiABKAliBnByb3RvMw=="));
+            "Iy5zcGlkZXJyb2NrLnByb3RvYnVmLlNwZHJMaW1pdENsYXNzEj0KGGhlZGdl",
+            "X2ZpbGxfdU1hcmtfbG10X3ByYxiAAiABKA4yGi5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlllc05vEhgKD29yZGVyX3ByY19saW1pdBjfASABKAESGQoQb3JkZXJf",
+            "cHJjX29mZnNldBjiASABKAESNQoLc3RhdGVfbW9kZWwY5QEgASgOMh8uc3Bp",
+            "ZGVycm9jay5wcm90b2J1Zi5TdGF0ZU1vZGVsEjgKD3Rha2VfYWxwaGFfdHlw",
+            "ZRjoASABKA4yHi5zcGlkZXJyb2NrLnByb3RvYnVmLkFscGhhVHlwZRI4Cg9t",
+            "YWtlX2FscGhhX3R5cGUY6wEgASgOMh4uc3BpZGVycm9jay5wcm90b2J1Zi5B",
+            "bHBoYVR5cGUSGgoRdGFrZV9hbHBoYV9mYWN0b3IY7gEgASgCEhoKEW1ha2Vf",
+            "YWxwaGFfZmFjdG9yGPEBIAEoAhIZChB0YWtlX3Byb2JhYmlsaXR5GPQBIAEo",
+            "AhIZChBtYWtlX3Byb2JhYmlsaXR5GPcBIAEoAhIuCgl0aW1lc3RhbXAY+gEg",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBqyAQoEUEtleRINCgVh",
+            "Y2NudBgKIAEoCRIVCg1yaXNrX2dyb3VwX2lkGAsgASgDEjUKDWhlZGdlX3Nl",
+            "Y19rZXkYDCABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLkV4cGlyeUtleRI4",
+            "Cg5oZWRnZV9zZWNfdHlwZRgNIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "U3BkcktleVR5cGUSEwoLY2xpZW50X2Zpcm0YDiABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAutoHedgeControl), global::Spiderrock.Protobuf.SpdrAutoHedgeControl.Parser, new[]{ "Meta", "Pkey", "AltOrderId", "AltAccnt", "AltUserName", "SrcRoutingCode", "ExecBrkrCode", "ExternExDest", "ExternParams", "Strategy", "UserName", "AutoHedge", "HedgeTarget", "MinHedgeDDelta", "MaxHedgeDDelta", "OrderSize", "SsaleFlag", "PositionType", "MaxExposureSize", "NumMakeExchanges", "PublicSize", "CanOverlapCxlRepl", "ProgressRule", "ProgressSliceCnt", "ProgressExposeTime", "VwapParticipation", "MinMktOnClosePct", "MaxMakeExchFee", "MaxTakeExchFee", "IncTakeExchFee", "IncMakeExchFee", "MakeExchRule", "MaxChildOrders", "ExchMask", "MarketSession", "StartDttm", "OrderDuration", "ActiveDuration", "GoodTillDttm", "ParentOrderHandling", "ParentBalanceHandling", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "OrderPrcLimit", "OrderPrcOffset", "StateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAutoHedgeControl.Types.PKey), global::Spiderrock.Protobuf.SpdrAutoHedgeControl.Types.PKey.Parser, new[]{ "Accnt", "RiskGroupId", "HedgeSecKey", "HedgeSecType", "ClientFirm" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAutoHedgeControl), global::Spiderrock.Protobuf.SpdrAutoHedgeControl.Parser, new[]{ "Meta", "Pkey", "AltOrderId", "AltAccnt", "AltUserName", "SrcRoutingCode", "ExecBrkrCode", "ExternExDest", "ExternParams", "Strategy", "UserName", "AutoHedge", "HedgeTarget", "MinHedgeDDelta", "MaxHedgeDDelta", "OrderSize", "SsaleFlag", "PositionType", "MaxExposureSize", "NumMakeExchanges", "PublicSize", "CanOverlapCxlRepl", "ProgressRule", "ProgressSliceCnt", "ProgressExposeTime", "VwapParticipation", "MinMktOnClosePct", "MaxMakeExchFee", "MaxTakeExchFee", "IncTakeExchFee", "IncMakeExchFee", "MakeExchRule", "MaxChildOrders", "ExchMask", "MarketSession", "StartDttm", "OrderDuration", "ActiveDuration", "GoodTillDttm", "ParentOrderHandling", "ParentBalanceHandling", "OrderLimitType", "TakeLimitClass", "MakeLimitClass", "HedgeFillUMarkLmtPrc", "OrderPrcLimit", "OrderPrcOffset", "StateModel", "TakeAlphaType", "MakeAlphaType", "TakeAlphaFactor", "MakeAlphaFactor", "TakeProbability", "MakeProbability", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.SpdrAutoHedgeControl.Types.PKey), global::Spiderrock.Protobuf.SpdrAutoHedgeControl.Types.PKey.Parser, new[]{ "Accnt", "RiskGroupId", "HedgeSecKey", "HedgeSecType", "ClientFirm" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -174,6 +175,7 @@ namespace Spiderrock.Protobuf {
       orderLimitType_ = other.orderLimitType_;
       takeLimitClass_ = other.takeLimitClass_;
       makeLimitClass_ = other.makeLimitClass_;
+      hedgeFillUMarkLmtPrc_ = other.hedgeFillUMarkLmtPrc_;
       orderPrcLimit_ = other.orderPrcLimit_;
       orderPrcOffset_ = other.orderPrcOffset_;
       stateModel_ = other.stateModel_;
@@ -823,6 +825,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "hedge_fill_uMark_lmt_prc" field.</summary>
+    public const int HedgeFillUMarkLmtPrcFieldNumber = 256;
+    private global::Spiderrock.Protobuf.YesNo hedgeFillUMarkLmtPrc_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// set a price limit on the autohedge order based on the most recent option fillUMark
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo HedgeFillUMarkLmtPrc {
+      get { return hedgeFillUMarkLmtPrc_; }
+      set {
+        hedgeFillUMarkLmtPrc_ = value;
+      }
+    }
+
     /// <summary>Field number for the "order_prc_limit" field.</summary>
     public const int OrderPrcLimitFieldNumber = 223;
     private double orderPrcLimit_;
@@ -1029,6 +1046,7 @@ namespace Spiderrock.Protobuf {
       if (OrderLimitType != other.OrderLimitType) return false;
       if (TakeLimitClass != other.TakeLimitClass) return false;
       if (MakeLimitClass != other.MakeLimitClass) return false;
+      if (HedgeFillUMarkLmtPrc != other.HedgeFillUMarkLmtPrc) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OrderPrcLimit, other.OrderPrcLimit)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OrderPrcOffset, other.OrderPrcOffset)) return false;
       if (StateModel != other.StateModel) return false;
@@ -1090,6 +1108,7 @@ namespace Spiderrock.Protobuf {
       if (OrderLimitType != global::Spiderrock.Protobuf.SpdrLimitType.Unspecified) hash ^= OrderLimitType.GetHashCode();
       if (TakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) hash ^= TakeLimitClass.GetHashCode();
       if (MakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) hash ^= MakeLimitClass.GetHashCode();
+      if (HedgeFillUMarkLmtPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= HedgeFillUMarkLmtPrc.GetHashCode();
       if (OrderPrcLimit != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OrderPrcLimit);
       if (OrderPrcOffset != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OrderPrcOffset);
       if (StateModel != global::Spiderrock.Protobuf.StateModel.Unspecified) hash ^= StateModel.GetHashCode();
@@ -1334,6 +1353,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(250, 15);
         output.WriteString(ExternExDest);
       }
+      if (HedgeFillUMarkLmtPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(128, 16);
+        output.WriteEnum((int) HedgeFillUMarkLmtPrc);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1560,6 +1583,10 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(250, 15);
         output.WriteString(ExternExDest);
       }
+      if (HedgeFillUMarkLmtPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(128, 16);
+        output.WriteEnum((int) HedgeFillUMarkLmtPrc);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1701,6 +1728,9 @@ namespace Spiderrock.Protobuf {
       }
       if (MakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) MakeLimitClass);
+      }
+      if (HedgeFillUMarkLmtPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) HedgeFillUMarkLmtPrc);
       }
       if (OrderPrcLimit != 0D) {
         size += 2 + 8;
@@ -1887,6 +1917,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.MakeLimitClass != global::Spiderrock.Protobuf.SpdrLimitClass.Unspecified) {
         MakeLimitClass = other.MakeLimitClass;
+      }
+      if (other.HedgeFillUMarkLmtPrc != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        HedgeFillUMarkLmtPrc = other.HedgeFillUMarkLmtPrc;
       }
       if (other.OrderPrcLimit != 0D) {
         OrderPrcLimit = other.OrderPrcLimit;
@@ -2167,6 +2200,10 @@ namespace Spiderrock.Protobuf {
             ExternExDest = input.ReadString();
             break;
           }
+          case 2048: {
+            HedgeFillUMarkLmtPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -2411,6 +2448,10 @@ namespace Spiderrock.Protobuf {
           }
           case 2042: {
             ExternExDest = input.ReadString();
+            break;
+          }
+          case 2048: {
+            HedgeFillUMarkLmtPrc = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }

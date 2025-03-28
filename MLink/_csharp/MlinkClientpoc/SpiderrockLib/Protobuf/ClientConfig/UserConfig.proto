@@ -96,6 +96,7 @@ message UserConfig {
     string description = 133; // User record comment/description (if any)
     SRTimeZone display_time_zone = 136; // [custom:UserTimeZone] User timezone (affects date/time display in Tools)
     LogAmount mlink_activity_logging = 139; // Amount of user activity logging/archiving for MLink products. Complete --> Log Everything, Partial --> Take samples, None --> No non-error logging
+    int32 mlink_max_bytes_per_ms = 413; // maximum number of bytes sent in a given millisecond via mink
     ConfigAccess client_config_access = 160; // user can create new (pending approval) or edit existing client configuration records (SRAdmin, SponsorAdmin, ClientAdmin, or SRUser (any sysenv))
     AccountTypeControl account_type_control = 163;
     OrderAccess prod_order_access = 386;

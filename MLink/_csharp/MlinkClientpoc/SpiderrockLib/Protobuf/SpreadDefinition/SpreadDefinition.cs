@@ -26,23 +26,23 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CjBQcm90b2J1Zi9TcHJlYWREZWZpbml0aW9uL1NwcmVhZERlZmluaXRpb24u",
             "cHJvdG8SE3NwaWRlcnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9u",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrwFChBT",
+            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIrgFChBT",
             "cHJlYWREZWZpbml0aW9uEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5w",
             "cm90b2J1Zi5NZXNzYWdlTWV0YWRhdGESOAoEcGtleRgCIAEoCzIqLnNwaWRl",
             "cnJvY2sucHJvdG9idWYuU3ByZWFkRGVmaW5pdGlvbi5QS2V5Ei4KBnRpY2tl",
-            "chhkIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EjoKDHNw",
-            "cmVhZF9jbGFzcxhlIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuVG9vbFNw",
-            "cmVhZENsYXNzEi0KCXRpbWVzdGFtcBhtIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASRwoNZXhjaF9zcHJfaV9kcxhrIAMoCzIwLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuU3ByZWFkRGVmaW5pdGlvbi5FeGNoU3BySURzEjgKBGxl",
-            "Z3MYZiADKAsyKi5zcGlkZXJyb2NrLnByb3RvYnVmLlNwcmVhZERlZmluaXRp",
-            "b24uTGVncxobCgRQS2V5EhMKC3NSc3ByZWFkX2lEGAsgASgDGiEKCkV4Y2hT",
-            "cHJJRHMSEwoLZXhjaF9zcHJfaUQYbCABKAka2gEKBExlZ3MSMwoLbGVnX3Nl",
-            "Y19rZXkYZyABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLk9wdGlvbktleRI2",
-            "CgxsZWdfc2VjX3R5cGUYaCABKA4yIC5zcGlkZXJyb2NrLnByb3RvYnVmLlNw",
-            "ZHJLZXlUeXBlEi4KCGxlZ19zaWRlGGkgASgOMhwuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5CdXlTZWxsEhEKCWxlZ19yYXRpbxhqIAEoDRIRCglyZWZfZGVsdGEY",
-            "biABKAISDwoHcmVmX3ByYxhvIAEoAWIGcHJvdG8z"));
+            "chhkIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5EjYKDHNw",
+            "cmVhZF9jbGFzcxhwIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFk",
+            "Q2xhc3MSLQoJdGltZXN0YW1wGG0gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
+            "bWVzdGFtcBJHCg1leGNoX3Nwcl9pX2RzGGsgAygLMjAuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5TcHJlYWREZWZpbml0aW9uLkV4Y2hTcHJJRHMSOAoEbGVncxhm",
+            "IAMoCzIqLnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFkRGVmaW5pdGlvbi5M",
+            "ZWdzGhsKBFBLZXkSEwoLc1JzcHJlYWRfaUQYCyABKAMaIQoKRXhjaFNwcklE",
+            "cxITCgtleGNoX3Nwcl9pRBhsIAEoCRraAQoETGVncxIzCgtsZWdfc2VjX2tl",
+            "eRhnIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjYKDGxl",
+            "Z19zZWNfdHlwZRhoIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3Bkcktl",
+            "eVR5cGUSLgoIbGVnX3NpZGUYaSABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVm",
+            "LkJ1eVNlbGwSEQoJbGVnX3JhdGlvGGogASgNEhEKCXJlZl9kZWx0YRhuIAEo",
+            "AhIPCgdyZWZfcHJjGG8gASgBYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -145,14 +145,14 @@ namespace Spiderrock.Protobuf {
     }
 
     /// <summary>Field number for the "spread_class" field.</summary>
-    public const int SpreadClassFieldNumber = 101;
-    private global::Spiderrock.Protobuf.ToolSpreadClass spreadClass_ = global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified;
+    public const int SpreadClassFieldNumber = 112;
+    private global::Spiderrock.Protobuf.SpreadClass spreadClass_ = global::Spiderrock.Protobuf.SpreadClass.Unspecified;
     /// <summary>
     /// option spread type
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Spiderrock.Protobuf.ToolSpreadClass SpreadClass {
+    public global::Spiderrock.Protobuf.SpreadClass SpreadClass {
       get { return spreadClass_; }
       set {
         spreadClass_ = value;
@@ -225,7 +225,7 @@ namespace Spiderrock.Protobuf {
       if (Meta_ != null) hash ^= Meta.GetHashCode();
       if (pkey_ != null) hash ^= Pkey.GetHashCode();
       if (ticker_ != null) hash ^= Ticker.GetHashCode();
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) hash ^= SpreadClass.GetHashCode();
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) hash ^= SpreadClass.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       hash ^= exchSprIDs_.GetHashCode();
       hash ^= legs_.GetHashCode();
@@ -259,15 +259,15 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Ticker);
       }
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) SpreadClass);
-      }
       legs_.WriteTo(output, _repeated_legs_codec);
       exchSprIDs_.WriteTo(output, _repeated_exchSprIDs_codec);
       if (timestamp_ != null) {
         output.WriteRawTag(234, 6);
         output.WriteMessage(Timestamp);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        output.WriteRawTag(128, 7);
+        output.WriteEnum((int) SpreadClass);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -291,15 +291,15 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(162, 6);
         output.WriteMessage(Ticker);
       }
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-        output.WriteRawTag(168, 6);
-        output.WriteEnum((int) SpreadClass);
-      }
       legs_.WriteTo(ref output, _repeated_legs_codec);
       exchSprIDs_.WriteTo(ref output, _repeated_exchSprIDs_codec);
       if (timestamp_ != null) {
         output.WriteRawTag(234, 6);
         output.WriteMessage(Timestamp);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        output.WriteRawTag(128, 7);
+        output.WriteEnum((int) SpreadClass);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -320,7 +320,7 @@ namespace Spiderrock.Protobuf {
       if (ticker_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Ticker);
       }
-      if (SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpreadClass);
       }
       if (timestamp_ != null) {
@@ -358,7 +358,7 @@ namespace Spiderrock.Protobuf {
         }
         Ticker.MergeFrom(other.Ticker);
       }
-      if (other.SpreadClass != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
+      if (other.SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
         SpreadClass = other.SpreadClass;
       }
       if (other.timestamp_ != null) {
@@ -405,10 +405,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 808: {
-            SpreadClass = (global::Spiderrock.Protobuf.ToolSpreadClass) input.ReadEnum();
-            break;
-          }
           case 818: {
             legs_.AddEntriesFrom(input, _repeated_legs_codec);
             break;
@@ -422,6 +418,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 896: {
+            SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
             break;
           }
         }
@@ -460,10 +460,6 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Ticker);
             break;
           }
-          case 808: {
-            SpreadClass = (global::Spiderrock.Protobuf.ToolSpreadClass) input.ReadEnum();
-            break;
-          }
           case 818: {
             legs_.AddEntriesFrom(ref input, _repeated_legs_codec);
             break;
@@ -477,6 +473,10 @@ namespace Spiderrock.Protobuf {
               Timestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(Timestamp);
+            break;
+          }
+          case 896: {
+            SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
             break;
           }
         }

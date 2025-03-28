@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiRQcm90b2J1Zi9TUkFUUy9BdXRvUmVzcG9uZGVyU04ucHJvdG8SE3NwaWRl",
             "cnJvY2sucHJvdG9idWYaF3NwaWRlcnJvY2tfY29tbW9uLnByb3RvGh9nb29n",
-            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIp4HCg9BdXRvUmVzcG9uZGVy",
+            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIvAGCg9BdXRvUmVzcG9uZGVy",
             "U04SMwoFX21ldGEYASABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1lc3Nh",
             "Z2VNZXRhZGF0YRI3CgRwa2V5GAIgASgLMikuc3BpZGVycm9jay5wcm90b2J1",
             "Zi5BdXRvUmVzcG9uZGVyU04uUEtleRIRCgl1c2VyX25hbWUYZCABKAkSLgoG",
@@ -43,15 +43,14 @@ namespace Spiderrock.Protobuf {
             "Z3JvdXBfaWQYcSABKAMSEwoLbW9kaWZpZWRfYnkYciABKAkSOAoLbW9kaWZp",
             "ZWRfaW4YcyABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vudmlyb25t",
             "ZW50Ei0KCXRpbWVzdGFtcBh0IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXAatwEKBFBLZXkSDQoFYWNjbnQYCiABKAkSEwoLY2xpZW50X2Zpcm0Y",
-            "CyABKAkSLAoEcm9vdBgMIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlj",
-            "a2VyS2V5EiwKBmV4cGlyeRgNIAEoCzIcLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "RGF0ZUtleRIvCglyZXNwX3NpZGUYDiABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
-            "YnVmLkJ1eVNlbGxiBnByb3RvMw=="));
+            "c3RhbXAaiQEKBFBLZXkSDQoFYWNjbnQYCiABKAkSEwoLY2xpZW50X2Zpcm0Y",
+            "CyABKAkSLAoEZWtleRgPIAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuRXhw",
+            "aXJ5S2V5Ei8KCXJlc3Bfc2lkZRgOIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9i",
+            "dWYuQnV5U2VsbGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderSN), global::Spiderrock.Protobuf.AutoResponderSN.Parser, new[]{ "Meta", "Pkey", "UserName", "Ticker", "IsDisabled", "ExpiryQtyAvail", "TickerQtyAvail", "RefUPrcType", "TransactFee", "StockRate", "MoneyRate", "DdivPv", "DivControl", "IncFeesInResp", "RoundRule", "RiskGroupId", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderSN.Types.PKey), global::Spiderrock.Protobuf.AutoResponderSN.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm", "Root", "Expiry", "RespSide" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderSN), global::Spiderrock.Protobuf.AutoResponderSN.Parser, new[]{ "Meta", "Pkey", "UserName", "Ticker", "IsDisabled", "ExpiryQtyAvail", "TickerQtyAvail", "RefUPrcType", "TransactFee", "StockRate", "MoneyRate", "DdivPv", "DivControl", "IncFeesInResp", "RoundRule", "RiskGroupId", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.AutoResponderSN.Types.PKey), global::Spiderrock.Protobuf.AutoResponderSN.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm", "Ekey", "RespSide" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -1027,8 +1026,7 @@ namespace Spiderrock.Protobuf {
         public PKey(PKey other) : this() {
           accnt_ = other.accnt_;
           clientFirm_ = other.clientFirm_;
-          root_ = other.root_ != null ? other.root_.Clone() : null;
-          expiry_ = other.expiry_ != null ? other.expiry_.Clone() : null;
+          ekey_ = other.ekey_ != null ? other.ekey_.Clone() : null;
           respSide_ = other.respSide_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -1063,27 +1061,15 @@ namespace Spiderrock.Protobuf {
           }
         }
 
-        /// <summary>Field number for the "root" field.</summary>
-        public const int RootFieldNumber = 12;
-        private global::Spiderrock.Protobuf.TickerKey root_;
+        /// <summary>Field number for the "ekey" field.</summary>
+        public const int EkeyFieldNumber = 15;
+        private global::Spiderrock.Protobuf.ExpiryKey ekey_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.TickerKey Root {
-          get { return root_; }
+        public global::Spiderrock.Protobuf.ExpiryKey Ekey {
+          get { return ekey_; }
           set {
-            root_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "expiry" field.</summary>
-        public const int ExpiryFieldNumber = 13;
-        private global::Spiderrock.Protobuf.DateKey expiry_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.DateKey Expiry {
-          get { return expiry_; }
-          set {
-            expiry_ = value;
+            ekey_ = value;
           }
         }
 
@@ -1119,8 +1105,7 @@ namespace Spiderrock.Protobuf {
           }
           if (Accnt != other.Accnt) return false;
           if (ClientFirm != other.ClientFirm) return false;
-          if (!object.Equals(Root, other.Root)) return false;
-          if (!object.Equals(Expiry, other.Expiry)) return false;
+          if (!object.Equals(Ekey, other.Ekey)) return false;
           if (RespSide != other.RespSide) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -1131,8 +1116,7 @@ namespace Spiderrock.Protobuf {
           int hash = 1;
           if (Accnt.Length != 0) hash ^= Accnt.GetHashCode();
           if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
-          if (root_ != null) hash ^= Root.GetHashCode();
-          if (expiry_ != null) hash ^= Expiry.GetHashCode();
+          if (ekey_ != null) hash ^= Ekey.GetHashCode();
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) hash ^= RespSide.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -1160,17 +1144,13 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(ClientFirm);
           }
-          if (root_ != null) {
-            output.WriteRawTag(98);
-            output.WriteMessage(Root);
-          }
-          if (expiry_ != null) {
-            output.WriteRawTag(106);
-            output.WriteMessage(Expiry);
-          }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             output.WriteRawTag(112);
             output.WriteEnum((int) RespSide);
+          }
+          if (ekey_ != null) {
+            output.WriteRawTag(122);
+            output.WriteMessage(Ekey);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -1190,17 +1170,13 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(ClientFirm);
           }
-          if (root_ != null) {
-            output.WriteRawTag(98);
-            output.WriteMessage(Root);
-          }
-          if (expiry_ != null) {
-            output.WriteRawTag(106);
-            output.WriteMessage(Expiry);
-          }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             output.WriteRawTag(112);
             output.WriteEnum((int) RespSide);
+          }
+          if (ekey_ != null) {
+            output.WriteRawTag(122);
+            output.WriteMessage(Ekey);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -1218,11 +1194,8 @@ namespace Spiderrock.Protobuf {
           if (ClientFirm.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
           }
-          if (root_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Root);
-          }
-          if (expiry_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Expiry);
+          if (ekey_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ekey);
           }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RespSide);
@@ -1245,17 +1218,11 @@ namespace Spiderrock.Protobuf {
           if (other.ClientFirm.Length != 0) {
             ClientFirm = other.ClientFirm;
           }
-          if (other.root_ != null) {
-            if (root_ == null) {
-              Root = new global::Spiderrock.Protobuf.TickerKey();
+          if (other.ekey_ != null) {
+            if (ekey_ == null) {
+              Ekey = new global::Spiderrock.Protobuf.ExpiryKey();
             }
-            Root.MergeFrom(other.Root);
-          }
-          if (other.expiry_ != null) {
-            if (expiry_ == null) {
-              Expiry = new global::Spiderrock.Protobuf.DateKey();
-            }
-            Expiry.MergeFrom(other.Expiry);
+            Ekey.MergeFrom(other.Ekey);
           }
           if (other.RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             RespSide = other.RespSide;
@@ -1283,22 +1250,15 @@ namespace Spiderrock.Protobuf {
                 ClientFirm = input.ReadString();
                 break;
               }
-              case 98: {
-                if (root_ == null) {
-                  Root = new global::Spiderrock.Protobuf.TickerKey();
-                }
-                input.ReadMessage(Root);
-                break;
-              }
-              case 106: {
-                if (expiry_ == null) {
-                  Expiry = new global::Spiderrock.Protobuf.DateKey();
-                }
-                input.ReadMessage(Expiry);
-                break;
-              }
               case 112: {
                 RespSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
+                break;
+              }
+              case 122: {
+                if (ekey_ == null) {
+                  Ekey = new global::Spiderrock.Protobuf.ExpiryKey();
+                }
+                input.ReadMessage(Ekey);
                 break;
               }
             }
@@ -1324,22 +1284,15 @@ namespace Spiderrock.Protobuf {
                 ClientFirm = input.ReadString();
                 break;
               }
-              case 98: {
-                if (root_ == null) {
-                  Root = new global::Spiderrock.Protobuf.TickerKey();
-                }
-                input.ReadMessage(Root);
-                break;
-              }
-              case 106: {
-                if (expiry_ == null) {
-                  Expiry = new global::Spiderrock.Protobuf.DateKey();
-                }
-                input.ReadMessage(Expiry);
-                break;
-              }
               case 112: {
                 RespSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
+                break;
+              }
+              case 122: {
+                if (ekey_ == null) {
+                  Ekey = new global::Spiderrock.Protobuf.ExpiryKey();
+                }
+                input.ReadMessage(Ekey);
                 break;
               }
             }

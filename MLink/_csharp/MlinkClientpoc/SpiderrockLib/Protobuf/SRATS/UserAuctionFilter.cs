@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiZQcm90b2J1Zi9TUkFUUy9Vc2VyQXVjdGlvbkZpbHRlci5wcm90bxITc3Bp",
             "ZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aH2dv",
-            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8izBUKEVVzZXJBdWN0aW9u",
+            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i0BUKEVVzZXJBdWN0aW9u",
             "RmlsdGVyEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5N",
             "ZXNzYWdlTWV0YWRhdGESOQoEcGtleRgCIAEoCzIrLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuVXNlckF1Y3Rpb25GaWx0ZXIuUEtleRITCgtjbGllbnRfZmlybRhk",
@@ -76,29 +76,29 @@ namespace Spiderrock.Protobuf {
             "ZXJBdWN0aW9uRmlsdGVyLkV4Y2x1ZGVUaWNrZXISTAoOaW5jbHVkZV90aWNr",
             "ZXIYaCADKAsyNC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJBdWN0aW9uRmls",
             "dGVyLkluY2x1ZGVUaWNrZXISQQoIaW5kdXN0cnkYZiADKAsyLy5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlVzZXJBdWN0aW9uRmlsdGVyLkluZHVzdHJ5EkgKDHNw",
-            "cmVhZF9jbGFzcxhsIAMoCzIyLnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckF1",
-            "Y3Rpb25GaWx0ZXIuU3ByZWFkQ2xhc3MaLgoEUEtleRIRCgl1c2VyX25hbWUY",
-            "CiABKAkSEwoLZmlsdGVyX25hbWUYCyABKAkaTAoOQXVjdGlvblNvdXJjZXMS",
-            "OgoOYXVjdGlvbl9zb3VyY2UYcSABKA4yIi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LkF1Y3Rpb25Tb3VyY2UaRgoMQXVjdGlvblR5cGVzEjYKDGF1Y3Rpb25fdHlw",
-            "ZRhvIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQXVjdGlvblR5cGUaPwoN",
-            "RXhjbHVkZVRpY2tlchIuCgZ0aWNrZXIYayABKAsyHi5zcGlkZXJyb2NrLnBy",
-            "b3RvYnVmLlRpY2tlcktleRo/Cg1JbmNsdWRlVGlja2VyEi4KBnRpY2tlchhp",
-            "IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuVGlja2VyS2V5GhwKCEluZHVz",
-            "dHJ5EhAKCGluZHVzdHJ5GGcgASgJGkkKC1NwcmVhZENsYXNzEjoKDHNwcmVh",
-            "ZF9jbGFzcxhtIAEoDjIkLnNwaWRlcnJvY2sucHJvdG9idWYuVG9vbFNwcmVh",
-            "ZENsYXNzYgZwcm90bzM="));
+            "b2NrLnByb3RvYnVmLlVzZXJBdWN0aW9uRmlsdGVyLkluZHVzdHJ5Ek0KDnNw",
+            "cmVhZF9jbGFzc2VzGJ0BIAMoCzI0LnNwaWRlcnJvY2sucHJvdG9idWYuVXNl",
+            "ckF1Y3Rpb25GaWx0ZXIuU3ByZWFkQ2xhc3NlcxouCgRQS2V5EhEKCXVzZXJf",
+            "bmFtZRgKIAEoCRITCgtmaWx0ZXJfbmFtZRgLIAEoCRpMCg5BdWN0aW9uU291",
+            "cmNlcxI6Cg5hdWN0aW9uX3NvdXJjZRhxIAEoDjIiLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuQXVjdGlvblNvdXJjZRpGCgxBdWN0aW9uVHlwZXMSNgoMYXVjdGlv",
+            "bl90eXBlGG8gASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5BdWN0aW9uVHlw",
+            "ZRo/Cg1FeGNsdWRlVGlja2VyEi4KBnRpY2tlchhrIAEoCzIeLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuVGlja2VyS2V5Gj8KDUluY2x1ZGVUaWNrZXISLgoGdGlj",
+            "a2VyGGkgASgLMh4uc3BpZGVycm9jay5wcm90b2J1Zi5UaWNrZXJLZXkaHAoI",
+            "SW5kdXN0cnkSEAoIaW5kdXN0cnkYZyABKAkaSAoNU3ByZWFkQ2xhc3NlcxI3",
+            "CgxzcHJlYWRfY2xhc3MYngEgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5T",
+            "cHJlYWRDbGFzc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter), global::Spiderrock.Protobuf.UserAuctionFilter.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "Disabled", "IncludeCovered", "IncludeETFs", "IncludeADRs", "IncludeIndexes", "MinUPrc", "HasUAvgDailyVlmFilter", "MinUAvgDailyVlm", "MaxUAvgDailyVlm", "MinSize", "MinAbsVega", "HasAbsDeltaFilter", "MinAbsDelta", "MaxAbsDelta", "HasXDeltaFilter", "MinXDelta", "MaxXDelta", "HasAtmSVolFilter", "MinAtmSVol", "MaxAtmSVol", "HasAtmSDivFilter", "MinAtmSDiv", "MaxAtmSDiv", "HasExpiryDays", "MinExpiryDays", "MaxExpiryDays", "IncludeZDte", "IncludeDaily", "IncludeWeekly", "IncludeRegular", "IncludeQuarterly", "IncludeLongTerm", "IncludeOtherExp", "IncludeFlex", "IncludeDirected", "IncludeCommPaying", "Direction", "NetVegaDirection", "ModifiedBy", "ModifiedIn", "Timestamp", "AuctionSources", "AuctionTypes", "ExcludeTicker", "IncludeTicker", "Industry", "SpreadClass" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.PKey), global::Spiderrock.Protobuf.UserAuctionFilter.Types.PKey.Parser, new[]{ "UserName", "FilterName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter), global::Spiderrock.Protobuf.UserAuctionFilter.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "Disabled", "IncludeCovered", "IncludeETFs", "IncludeADRs", "IncludeIndexes", "MinUPrc", "HasUAvgDailyVlmFilter", "MinUAvgDailyVlm", "MaxUAvgDailyVlm", "MinSize", "MinAbsVega", "HasAbsDeltaFilter", "MinAbsDelta", "MaxAbsDelta", "HasXDeltaFilter", "MinXDelta", "MaxXDelta", "HasAtmSVolFilter", "MinAtmSVol", "MaxAtmSVol", "HasAtmSDivFilter", "MinAtmSDiv", "MaxAtmSDiv", "HasExpiryDays", "MinExpiryDays", "MaxExpiryDays", "IncludeZDte", "IncludeDaily", "IncludeWeekly", "IncludeRegular", "IncludeQuarterly", "IncludeLongTerm", "IncludeOtherExp", "IncludeFlex", "IncludeDirected", "IncludeCommPaying", "Direction", "NetVegaDirection", "ModifiedBy", "ModifiedIn", "Timestamp", "AuctionSources", "AuctionTypes", "ExcludeTicker", "IncludeTicker", "Industry", "SpreadClasses" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.PKey), global::Spiderrock.Protobuf.UserAuctionFilter.Types.PKey.Parser, new[]{ "UserName", "FilterName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.AuctionSources), global::Spiderrock.Protobuf.UserAuctionFilter.Types.AuctionSources.Parser, new[]{ "AuctionSource" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.AuctionTypes), global::Spiderrock.Protobuf.UserAuctionFilter.Types.AuctionTypes.Parser, new[]{ "AuctionType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.ExcludeTicker), global::Spiderrock.Protobuf.UserAuctionFilter.Types.ExcludeTicker.Parser, new[]{ "Ticker" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.IncludeTicker), global::Spiderrock.Protobuf.UserAuctionFilter.Types.IncludeTicker.Parser, new[]{ "Ticker" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.Industry), global::Spiderrock.Protobuf.UserAuctionFilter.Types.Industry.Parser, new[]{ "Industry_" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass), global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass.Parser, new[]{ "SpreadClass_" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses), global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses.Parser, new[]{ "SpreadClass" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -188,7 +188,7 @@ namespace Spiderrock.Protobuf {
       excludeTicker_ = other.excludeTicker_.Clone();
       includeTicker_ = other.includeTicker_.Clone();
       industry_ = other.industry_.Clone();
-      spreadClass_ = other.spreadClass_.Clone();
+      spreadClasses_ = other.spreadClasses_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -877,15 +877,15 @@ namespace Spiderrock.Protobuf {
       get { return industry_; }
     }
 
-    /// <summary>Field number for the "spread_class" field.</summary>
-    public const int SpreadClassFieldNumber = 108;
-    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass> _repeated_spreadClass_codec
-        = pb::FieldCodec.ForMessage(866, global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass.Parser);
-    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass> spreadClass_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass>();
+    /// <summary>Field number for the "spread_classes" field.</summary>
+    public const int SpreadClassesFieldNumber = 157;
+    private static readonly pb::FieldCodec<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses> _repeated_spreadClasses_codec
+        = pb::FieldCodec.ForMessage(1258, global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses.Parser);
+    private readonly pbc::RepeatedField<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses> spreadClasses_ = new pbc::RepeatedField<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClass> SpreadClass {
-      get { return spreadClass_; }
+    public pbc::RepeatedField<global::Spiderrock.Protobuf.UserAuctionFilter.Types.SpreadClasses> SpreadClasses {
+      get { return spreadClasses_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -952,7 +952,7 @@ namespace Spiderrock.Protobuf {
       if(!excludeTicker_.Equals(other.excludeTicker_)) return false;
       if(!includeTicker_.Equals(other.includeTicker_)) return false;
       if(!industry_.Equals(other.industry_)) return false;
-      if(!spreadClass_.Equals(other.spreadClass_)) return false;
+      if(!spreadClasses_.Equals(other.spreadClasses_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1009,7 +1009,7 @@ namespace Spiderrock.Protobuf {
       hash ^= excludeTicker_.GetHashCode();
       hash ^= includeTicker_.GetHashCode();
       hash ^= industry_.GetHashCode();
-      hash ^= spreadClass_.GetHashCode();
+      hash ^= spreadClasses_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1043,7 +1043,6 @@ namespace Spiderrock.Protobuf {
       industry_.WriteTo(output, _repeated_industry_codec);
       includeTicker_.WriteTo(output, _repeated_includeTicker_codec);
       excludeTicker_.WriteTo(output, _repeated_excludeTicker_codec);
-      spreadClass_.WriteTo(output, _repeated_spreadClass_codec);
       auctionTypes_.WriteTo(output, _repeated_auctionTypes_codec);
       auctionSources_.WriteTo(output, _repeated_auctionSources_codec);
       if (IncludeCovered != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -1210,6 +1209,7 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 9);
         output.WriteEnum((int) IncludeDirected);
       }
+      spreadClasses_.WriteTo(output, _repeated_spreadClasses_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1235,7 +1235,6 @@ namespace Spiderrock.Protobuf {
       industry_.WriteTo(ref output, _repeated_industry_codec);
       includeTicker_.WriteTo(ref output, _repeated_includeTicker_codec);
       excludeTicker_.WriteTo(ref output, _repeated_excludeTicker_codec);
-      spreadClass_.WriteTo(ref output, _repeated_spreadClass_codec);
       auctionTypes_.WriteTo(ref output, _repeated_auctionTypes_codec);
       auctionSources_.WriteTo(ref output, _repeated_auctionSources_codec);
       if (IncludeCovered != global::Spiderrock.Protobuf.YesNo.Unspecified) {
@@ -1402,6 +1401,7 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(224, 9);
         output.WriteEnum((int) IncludeDirected);
       }
+      spreadClasses_.WriteTo(ref output, _repeated_spreadClasses_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1549,7 +1549,7 @@ namespace Spiderrock.Protobuf {
       size += excludeTicker_.CalculateSize(_repeated_excludeTicker_codec);
       size += includeTicker_.CalculateSize(_repeated_includeTicker_codec);
       size += industry_.CalculateSize(_repeated_industry_codec);
-      size += spreadClass_.CalculateSize(_repeated_spreadClass_codec);
+      size += spreadClasses_.CalculateSize(_repeated_spreadClasses_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1708,7 +1708,7 @@ namespace Spiderrock.Protobuf {
       excludeTicker_.Add(other.excludeTicker_);
       includeTicker_.Add(other.includeTicker_);
       industry_.Add(other.industry_);
-      spreadClass_.Add(other.spreadClass_);
+      spreadClasses_.Add(other.spreadClasses_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1752,10 +1752,6 @@ namespace Spiderrock.Protobuf {
           }
           case 850: {
             excludeTicker_.AddEntriesFrom(input, _repeated_excludeTicker_codec);
-            break;
-          }
-          case 866: {
-            spreadClass_.AddEntriesFrom(input, _repeated_spreadClass_codec);
             break;
           }
           case 882: {
@@ -1933,6 +1929,10 @@ namespace Spiderrock.Protobuf {
             IncludeDirected = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
+          case 1258: {
+            spreadClasses_.AddEntriesFrom(input, _repeated_spreadClasses_codec);
+            break;
+          }
         }
       }
     #endif
@@ -1976,10 +1976,6 @@ namespace Spiderrock.Protobuf {
           }
           case 850: {
             excludeTicker_.AddEntriesFrom(ref input, _repeated_excludeTicker_codec);
-            break;
-          }
-          case 866: {
-            spreadClass_.AddEntriesFrom(ref input, _repeated_spreadClass_codec);
             break;
           }
           case 882: {
@@ -2155,6 +2151,10 @@ namespace Spiderrock.Protobuf {
           }
           case 1248: {
             IncludeDirected = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1258: {
+            spreadClasses_.AddEntriesFrom(ref input, _repeated_spreadClasses_codec);
             break;
           }
         }
@@ -3359,16 +3359,16 @@ namespace Spiderrock.Protobuf {
 
       }
 
-      public sealed partial class SpreadClass : pb::IMessage<SpreadClass>
+      public sealed partial class SpreadClasses : pb::IMessage<SpreadClasses>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
       #endif
       {
-        private static readonly pb::MessageParser<SpreadClass> _parser = new pb::MessageParser<SpreadClass>(() => new SpreadClass());
+        private static readonly pb::MessageParser<SpreadClasses> _parser = new pb::MessageParser<SpreadClasses>(() => new SpreadClasses());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<SpreadClass> Parser { get { return _parser; } }
+        public static pb::MessageParser<SpreadClasses> Parser { get { return _parser; } }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3384,7 +3384,7 @@ namespace Spiderrock.Protobuf {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public SpreadClass() {
+        public SpreadClasses() {
           OnConstruction();
         }
 
@@ -3392,23 +3392,23 @@ namespace Spiderrock.Protobuf {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public SpreadClass(SpreadClass other) : this() {
+        public SpreadClasses(SpreadClasses other) : this() {
           spreadClass_ = other.spreadClass_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public SpreadClass Clone() {
-          return new SpreadClass(this);
+        public SpreadClasses Clone() {
+          return new SpreadClasses(this);
         }
 
         /// <summary>Field number for the "spread_class" field.</summary>
-        public const int SpreadClass_FieldNumber = 109;
-        private global::Spiderrock.Protobuf.ToolSpreadClass spreadClass_ = global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified;
+        public const int SpreadClassFieldNumber = 158;
+        private global::Spiderrock.Protobuf.SpreadClass spreadClass_ = global::Spiderrock.Protobuf.SpreadClass.Unspecified;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.ToolSpreadClass SpreadClass_ {
+        public global::Spiderrock.Protobuf.SpreadClass SpreadClass {
           get { return spreadClass_; }
           set {
             spreadClass_ = value;
@@ -3418,19 +3418,19 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
-          return Equals(other as SpreadClass);
+          return Equals(other as SpreadClasses);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(SpreadClass other) {
+        public bool Equals(SpreadClasses other) {
           if (ReferenceEquals(other, null)) {
             return false;
           }
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if (SpreadClass_ != other.SpreadClass_) return false;
+          if (SpreadClass != other.SpreadClass) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -3438,7 +3438,7 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
-          if (SpreadClass_ != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) hash ^= SpreadClass_.GetHashCode();
+          if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) hash ^= SpreadClass.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -3457,9 +3457,9 @@ namespace Spiderrock.Protobuf {
         #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           output.WriteRawMessage(this);
         #else
-          if (SpreadClass_ != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-            output.WriteRawTag(232, 6);
-            output.WriteEnum((int) SpreadClass_);
+          if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+            output.WriteRawTag(240, 9);
+            output.WriteEnum((int) SpreadClass);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -3471,9 +3471,9 @@ namespace Spiderrock.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (SpreadClass_ != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-            output.WriteRawTag(232, 6);
-            output.WriteEnum((int) SpreadClass_);
+          if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+            output.WriteRawTag(240, 9);
+            output.WriteEnum((int) SpreadClass);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -3485,8 +3485,8 @@ namespace Spiderrock.Protobuf {
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
-          if (SpreadClass_ != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpreadClass_);
+          if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+            size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpreadClass);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -3496,12 +3496,12 @@ namespace Spiderrock.Protobuf {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(SpreadClass other) {
+        public void MergeFrom(SpreadClasses other) {
           if (other == null) {
             return;
           }
-          if (other.SpreadClass_ != global::Spiderrock.Protobuf.ToolSpreadClass.Unspecified) {
-            SpreadClass_ = other.SpreadClass_;
+          if (other.SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+            SpreadClass = other.SpreadClass;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -3518,8 +3518,8 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 872: {
-                SpreadClass_ = (global::Spiderrock.Protobuf.ToolSpreadClass) input.ReadEnum();
+              case 1264: {
+                SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
                 break;
               }
             }
@@ -3537,8 +3537,8 @@ namespace Spiderrock.Protobuf {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
-              case 872: {
-                SpreadClass_ = (global::Spiderrock.Protobuf.ToolSpreadClass) input.ReadEnum();
+              case 1264: {
+                SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
                 break;
               }
             }

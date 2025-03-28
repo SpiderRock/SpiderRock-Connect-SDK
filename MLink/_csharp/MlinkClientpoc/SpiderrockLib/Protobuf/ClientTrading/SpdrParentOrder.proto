@@ -219,6 +219,7 @@ message SpdrParentOrder {
     MarketSession hedge_session = 1034; // market session for the autohedge order [defaults to pOrder.marketSession]
     string extern_hedge_ex_dest = 1041; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 415; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
+    YesNo hedge_fill_uMark_lmt_prc = 1046; // set a price limit on the autohedge order based on the most recent option fillUMark
     FirmType firm_type = 418; // used to override firmType in account config
     OrderCapacity order_capacity = 421;
     PositionType position_type = 424;

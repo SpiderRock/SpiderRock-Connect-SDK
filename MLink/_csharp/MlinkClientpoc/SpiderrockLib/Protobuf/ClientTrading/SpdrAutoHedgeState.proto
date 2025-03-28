@@ -32,6 +32,7 @@ message SpdrAutoHedgeState {
     HedgeGroupState hedge_state = 115;
     string hedge_text = 118;
     double u_prc = 121; // hedge target underlier price
+    float hedge_prc_lmt = 264; // price limit of the hedge order (if hedge is using hedgeFillUMarkLmtPrc)
     YesNo is_delta_mixed = 124;
     string accumulator_error = 127;
     double grp_delta_bot = 130; // option delta bot (in ctrlDe units)

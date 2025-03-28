@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiZQcm90b2J1Zi9TUkFUUy9SZXNwb25kZXJNYXJrdXBTTi5wcm90bxITc3Bp",
             "ZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aH2dv",
-            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i+QkKEVJlc3BvbmRlck1h",
+            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iiRAKEVJlc3BvbmRlck1h",
             "cmt1cFNOEjMKBV9tZXRhGAEgASgLMiQuc3BpZGVycm9jay5wcm90b2J1Zi5N",
             "ZXNzYWdlTWV0YWRhdGESOQoEcGtleRgCIAEoCzIrLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuUmVzcG9uZGVyTWFya3VwU04uUEtleRIuCgZ0aWNrZXIYZCABKAsy",
@@ -48,18 +48,35 @@ namespace Spiderrock.Protobuf {
             "ASgBEg4KBnN0cmlrZRh6IAEoARIRCglzdHJpa2VfcHYYeyABKAESFQoNc3Rv",
             "Y2tfbGVuZF9wdhh8IAEoARIWCg5zeW50aGV0aWNfcHJlbRh9IAEoARIbChNl",
             "ZmZfc3ludGhldGljX2xpbWl0GH4gASgBEhMKC2xpbWl0X3ByaWNlGH8gASgB",
-            "EhQKC21vZGlmaWVkX2J5GIABIAEoCRI5Cgttb2RpZmllZF9pbhiBASABKA4y",
-            "Iy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vudmlyb25tZW50Ei4KCXRpbWVz",
-            "dGFtcBiCASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wGrcBCgRQ",
-            "S2V5Eg0KBWFjY250GAogASgJEhMKC2NsaWVudF9maXJtGAsgASgJEiwKBHJv",
-            "b3QYDCABKAsyHi5zcGlkZXJyb2NrLnByb3RvYnVmLlRpY2tlcktleRIsCgZl",
-            "eHBpcnkYDSABKAsyHC5zcGlkZXJyb2NrLnByb3RvYnVmLkRhdGVLZXkSLwoJ",
-            "cmVzcF9zaWRlGA4gASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlTZWxs",
-            "YgZwcm90bzM="));
+            "EhQKC251bV9ub3RpY2VzGIMBIAEoAxIWCg1udW1fbm90aWNlX3NSGIQBIAEo",
+            "AxIYCg9udW1fbm90aWNlX2FNRVgYhQEgASgDEhgKD251bV9ub3RpY2VfYkFU",
+            "UxiGASABKAMSFwoObnVtX25vdGljZV9iT1gYhwEgASgDEhgKD251bV9ub3Rp",
+            "Y2VfY0JPRRiIASABKAMSFgoNbnVtX25vdGljZV9jMhiJASABKAMSGAoPbnVt",
+            "X25vdGljZV9lREdPGIoBIAEoAxIYCg9udW1fbm90aWNlX2VNTEQYiwEgASgD",
+            "EhgKD251bV9ub3RpY2VfZ01OSRiMASABKAMSFwoObnVtX25vdGljZV9pU0UY",
+            "jQEgASgDEhgKD251bV9ub3RpY2VfbUNSWRiOASABKAMSGAoPbnVtX25vdGlj",
+            "ZV9tRU1YGI8BIAEoAxIYCg9udW1fbm90aWNlX21JQVgYkAEgASgDEhgKD251",
+            "bV9ub3RpY2VfbVBSTBiRASABKAMSGAoPbnVtX25vdGljZV9uWVNFGJIBIAEo",
+            "AxIYCg9udW1fbm90aWNlX25RQlgYkwEgASgDEhgKD251bV9ub3RpY2VfblNE",
+            "URiUASABKAMSGAoPbnVtX25vdGljZV9wSExYGJUBIAEoAxIYCg9udW1fbm90",
+            "aWNlX3NQSFIYlgEgASgDEhUKDG51bV9kaXNhYmxlZBiXASABKAMSHQoUbnVt",
+            "X2xpc3RlZF9mbGV4X21pc3MYmAEgASgDEh4KFW51bV9ub3RpY2VfcHJpY2Vf",
+            "bWlzcxiZASABKAMSGwoSbnVtX2FnZ19zaXplX2xpbWl0GJoBIAEoAxIdChRu",
+            "dW1fcmlza19ncm91cF9saW1pdBibASABKAMSFgoNbnVtX3Jlc3BvbnNlcxic",
+            "ASABKAMSFgoNbnVtX2Z1bGxfc2l6ZRidASABKAMSFwoObnVtX2FsbG9jX3Np",
+            "emUYngEgASgDEhcKDm51bV9wcmljZV9taXNzGJ8BIAEoAxIVCgxudW1fdG9v",
+            "X2xhdGUYoAEgASgDEhcKDm51bV9vdGhlcl9taXNzGKEBIAEoAxIaChFudW1f",
+            "ZGlkX25vdF90cmFkZRiiASABKAMSFAoLbW9kaWZpZWRfYnkYgAEgASgJEjkK",
+            "C21vZGlmaWVkX2luGIEBIAEoDjIjLnNwaWRlcnJvY2sucHJvdG9idWYuU3lz",
+            "RW52aXJvbm1lbnQSLgoJdGltZXN0YW1wGIIBIAEoCzIaLmdvb2dsZS5wcm90",
+            "b2J1Zi5UaW1lc3RhbXAaiQEKBFBLZXkSDQoFYWNjbnQYCiABKAkSEwoLY2xp",
+            "ZW50X2Zpcm0YCyABKAkSLAoEZWtleRgPIAEoCzIeLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuRXhwaXJ5S2V5Ei8KCXJlc3Bfc2lkZRgOIAEoDjIcLnNwaWRlcnJv",
+            "Y2sucHJvdG9idWYuQnV5U2VsbGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ResponderMarkupSN), global::Spiderrock.Protobuf.ResponderMarkupSN.Parser, new[]{ "Meta", "Pkey", "Ticker", "IsDisabled", "ExpiryQtyAvail", "TickerQtyAvail", "RefUPrcType", "TransactFee", "StockRate", "MoneyRate", "DdivPv", "DivControl", "IncFeesInResp", "RoundRule", "OpenExpiryQty", "OpenTickerQty", "CumExpiryQty", "CumExpiryMoney", "AvgExpiryPrice", "IsDivControlDisabled", "UBid", "UAsk", "IDays", "IYears", "Strike", "StrikePv", "StockLendPv", "SyntheticPrem", "EffSyntheticLimit", "LimitPrice", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ResponderMarkupSN.Types.PKey), global::Spiderrock.Protobuf.ResponderMarkupSN.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm", "Root", "Expiry", "RespSide" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ResponderMarkupSN), global::Spiderrock.Protobuf.ResponderMarkupSN.Parser, new[]{ "Meta", "Pkey", "Ticker", "IsDisabled", "ExpiryQtyAvail", "TickerQtyAvail", "RefUPrcType", "TransactFee", "StockRate", "MoneyRate", "DdivPv", "DivControl", "IncFeesInResp", "RoundRule", "OpenExpiryQty", "OpenTickerQty", "CumExpiryQty", "CumExpiryMoney", "AvgExpiryPrice", "IsDivControlDisabled", "UBid", "UAsk", "IDays", "IYears", "Strike", "StrikePv", "StockLendPv", "SyntheticPrem", "EffSyntheticLimit", "LimitPrice", "NumNotices", "NumNoticeSR", "NumNoticeAMEX", "NumNoticeBATS", "NumNoticeBOX", "NumNoticeCBOE", "NumNoticeC2", "NumNoticeEDGO", "NumNoticeEMLD", "NumNoticeGMNI", "NumNoticeISE", "NumNoticeMCRY", "NumNoticeMEMX", "NumNoticeMIAX", "NumNoticeMPRL", "NumNoticeNYSE", "NumNoticeNQBX", "NumNoticeNSDQ", "NumNoticePHLX", "NumNoticeSPHR", "NumDisabled", "NumListedFlexMiss", "NumNoticePriceMiss", "NumAggSizeLimit", "NumRiskGroupLimit", "NumResponses", "NumFullSize", "NumAllocSize", "NumPriceMiss", "NumTooLate", "NumOtherMiss", "NumDidNotTrade", "ModifiedBy", "ModifiedIn", "Timestamp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.ResponderMarkupSN.Types.PKey), global::Spiderrock.Protobuf.ResponderMarkupSN.Types.PKey.Parser, new[]{ "Accnt", "ClientFirm", "Ekey", "RespSide" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -130,6 +147,38 @@ namespace Spiderrock.Protobuf {
       syntheticPrem_ = other.syntheticPrem_;
       effSyntheticLimit_ = other.effSyntheticLimit_;
       limitPrice_ = other.limitPrice_;
+      numNotices_ = other.numNotices_;
+      numNoticeSR_ = other.numNoticeSR_;
+      numNoticeAMEX_ = other.numNoticeAMEX_;
+      numNoticeBATS_ = other.numNoticeBATS_;
+      numNoticeBOX_ = other.numNoticeBOX_;
+      numNoticeCBOE_ = other.numNoticeCBOE_;
+      numNoticeC2_ = other.numNoticeC2_;
+      numNoticeEDGO_ = other.numNoticeEDGO_;
+      numNoticeEMLD_ = other.numNoticeEMLD_;
+      numNoticeGMNI_ = other.numNoticeGMNI_;
+      numNoticeISE_ = other.numNoticeISE_;
+      numNoticeMCRY_ = other.numNoticeMCRY_;
+      numNoticeMEMX_ = other.numNoticeMEMX_;
+      numNoticeMIAX_ = other.numNoticeMIAX_;
+      numNoticeMPRL_ = other.numNoticeMPRL_;
+      numNoticeNYSE_ = other.numNoticeNYSE_;
+      numNoticeNQBX_ = other.numNoticeNQBX_;
+      numNoticeNSDQ_ = other.numNoticeNSDQ_;
+      numNoticePHLX_ = other.numNoticePHLX_;
+      numNoticeSPHR_ = other.numNoticeSPHR_;
+      numDisabled_ = other.numDisabled_;
+      numListedFlexMiss_ = other.numListedFlexMiss_;
+      numNoticePriceMiss_ = other.numNoticePriceMiss_;
+      numAggSizeLimit_ = other.numAggSizeLimit_;
+      numRiskGroupLimit_ = other.numRiskGroupLimit_;
+      numResponses_ = other.numResponses_;
+      numFullSize_ = other.numFullSize_;
+      numAllocSize_ = other.numAllocSize_;
+      numPriceMiss_ = other.numPriceMiss_;
+      numTooLate_ = other.numTooLate_;
+      numOtherMiss_ = other.numOtherMiss_;
+      numDidNotTrade_ = other.numDidNotTrade_;
       modifiedBy_ = other.modifiedBy_;
       modifiedIn_ = other.modifiedIn_;
       timestamp_ = other.timestamp_ != null ? other.timestamp_.Clone() : null;
@@ -580,6 +629,414 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "num_notices" field.</summary>
+    public const int NumNoticesFieldNumber = 131;
+    private long numNotices_;
+    /// <summary>
+    /// number of notices that match response bucket
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNotices {
+      get { return numNotices_; }
+      set {
+        numNotices_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_sR" field.</summary>
+    public const int NumNoticeSRFieldNumber = 132;
+    private long numNoticeSR_;
+    /// <summary>
+    /// number of SR auction numNotices
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeSR {
+      get { return numNoticeSR_; }
+      set {
+        numNoticeSR_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_aMEX" field.</summary>
+    public const int NumNoticeAMEXFieldNumber = 133;
+    private long numNoticeAMEX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeAMEX {
+      get { return numNoticeAMEX_; }
+      set {
+        numNoticeAMEX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_bATS" field.</summary>
+    public const int NumNoticeBATSFieldNumber = 134;
+    private long numNoticeBATS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeBATS {
+      get { return numNoticeBATS_; }
+      set {
+        numNoticeBATS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_bOX" field.</summary>
+    public const int NumNoticeBOXFieldNumber = 135;
+    private long numNoticeBOX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeBOX {
+      get { return numNoticeBOX_; }
+      set {
+        numNoticeBOX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_cBOE" field.</summary>
+    public const int NumNoticeCBOEFieldNumber = 136;
+    private long numNoticeCBOE_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeCBOE {
+      get { return numNoticeCBOE_; }
+      set {
+        numNoticeCBOE_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_c2" field.</summary>
+    public const int NumNoticeC2FieldNumber = 137;
+    private long numNoticeC2_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeC2 {
+      get { return numNoticeC2_; }
+      set {
+        numNoticeC2_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_eDGO" field.</summary>
+    public const int NumNoticeEDGOFieldNumber = 138;
+    private long numNoticeEDGO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeEDGO {
+      get { return numNoticeEDGO_; }
+      set {
+        numNoticeEDGO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_eMLD" field.</summary>
+    public const int NumNoticeEMLDFieldNumber = 139;
+    private long numNoticeEMLD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeEMLD {
+      get { return numNoticeEMLD_; }
+      set {
+        numNoticeEMLD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_gMNI" field.</summary>
+    public const int NumNoticeGMNIFieldNumber = 140;
+    private long numNoticeGMNI_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeGMNI {
+      get { return numNoticeGMNI_; }
+      set {
+        numNoticeGMNI_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_iSE" field.</summary>
+    public const int NumNoticeISEFieldNumber = 141;
+    private long numNoticeISE_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeISE {
+      get { return numNoticeISE_; }
+      set {
+        numNoticeISE_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_mCRY" field.</summary>
+    public const int NumNoticeMCRYFieldNumber = 142;
+    private long numNoticeMCRY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeMCRY {
+      get { return numNoticeMCRY_; }
+      set {
+        numNoticeMCRY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_mEMX" field.</summary>
+    public const int NumNoticeMEMXFieldNumber = 143;
+    private long numNoticeMEMX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeMEMX {
+      get { return numNoticeMEMX_; }
+      set {
+        numNoticeMEMX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_mIAX" field.</summary>
+    public const int NumNoticeMIAXFieldNumber = 144;
+    private long numNoticeMIAX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeMIAX {
+      get { return numNoticeMIAX_; }
+      set {
+        numNoticeMIAX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_mPRL" field.</summary>
+    public const int NumNoticeMPRLFieldNumber = 145;
+    private long numNoticeMPRL_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeMPRL {
+      get { return numNoticeMPRL_; }
+      set {
+        numNoticeMPRL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_nYSE" field.</summary>
+    public const int NumNoticeNYSEFieldNumber = 146;
+    private long numNoticeNYSE_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeNYSE {
+      get { return numNoticeNYSE_; }
+      set {
+        numNoticeNYSE_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_nQBX" field.</summary>
+    public const int NumNoticeNQBXFieldNumber = 147;
+    private long numNoticeNQBX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeNQBX {
+      get { return numNoticeNQBX_; }
+      set {
+        numNoticeNQBX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_nSDQ" field.</summary>
+    public const int NumNoticeNSDQFieldNumber = 148;
+    private long numNoticeNSDQ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeNSDQ {
+      get { return numNoticeNSDQ_; }
+      set {
+        numNoticeNSDQ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_pHLX" field.</summary>
+    public const int NumNoticePHLXFieldNumber = 149;
+    private long numNoticePHLX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticePHLX {
+      get { return numNoticePHLX_; }
+      set {
+        numNoticePHLX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_sPHR" field.</summary>
+    public const int NumNoticeSPHRFieldNumber = 150;
+    private long numNoticeSPHR_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticeSPHR {
+      get { return numNoticeSPHR_; }
+      set {
+        numNoticeSPHR_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_disabled" field.</summary>
+    public const int NumDisabledFieldNumber = 151;
+    private long numDisabled_;
+    /// <summary>
+    /// number skipped from isDisabled
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumDisabled {
+      get { return numDisabled_; }
+      set {
+        numDisabled_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_listed_flex_miss" field.</summary>
+    public const int NumListedFlexMissFieldNumber = 152;
+    private long numListedFlexMiss_;
+    /// <summary>
+    /// number skipped from flex/listed filter
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumListedFlexMiss {
+      get { return numListedFlexMiss_; }
+      set {
+        numListedFlexMiss_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_notice_price_miss" field.</summary>
+    public const int NumNoticePriceMissFieldNumber = 153;
+    private long numNoticePriceMiss_;
+    /// <summary>
+    /// number skipped from limit price filter (exchange only)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumNoticePriceMiss {
+      get { return numNoticePriceMiss_; }
+      set {
+        numNoticePriceMiss_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_agg_size_limit" field.</summary>
+    public const int NumAggSizeLimitFieldNumber = 154;
+    private long numAggSizeLimit_;
+    /// <summary>
+    /// number skipped from aggregate contract/vega size limit
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumAggSizeLimit {
+      get { return numAggSizeLimit_; }
+      set {
+        numAggSizeLimit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_risk_group_limit" field.</summary>
+    public const int NumRiskGroupLimitFieldNumber = 155;
+    private long numRiskGroupLimit_;
+    /// <summary>
+    /// number skipped from riskGroup limits
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumRiskGroupLimit {
+      get { return numRiskGroupLimit_; }
+      set {
+        numRiskGroupLimit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_responses" field.</summary>
+    public const int NumResponsesFieldNumber = 156;
+    private long numResponses_;
+    /// <summary>
+    /// number of response attempts (number of parentOrders/NoticeExecReports)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumResponses {
+      get { return numResponses_; }
+      set {
+        numResponses_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_full_size" field.</summary>
+    public const int NumFullSizeFieldNumber = 157;
+    private long numFullSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumFullSize {
+      get { return numFullSize_; }
+      set {
+        numFullSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_alloc_size" field.</summary>
+    public const int NumAllocSizeFieldNumber = 158;
+    private long numAllocSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumAllocSize {
+      get { return numAllocSize_; }
+      set {
+        numAllocSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_price_miss" field.</summary>
+    public const int NumPriceMissFieldNumber = 159;
+    private long numPriceMiss_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumPriceMiss {
+      get { return numPriceMiss_; }
+      set {
+        numPriceMiss_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_too_late" field.</summary>
+    public const int NumTooLateFieldNumber = 160;
+    private long numTooLate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumTooLate {
+      get { return numTooLate_; }
+      set {
+        numTooLate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_other_miss" field.</summary>
+    public const int NumOtherMissFieldNumber = 161;
+    private long numOtherMiss_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumOtherMiss {
+      get { return numOtherMiss_; }
+      set {
+        numOtherMiss_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "num_did_not_trade" field.</summary>
+    public const int NumDidNotTradeFieldNumber = 162;
+    private long numDidNotTrade_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NumDidNotTrade {
+      get { return numDidNotTrade_; }
+      set {
+        numDidNotTrade_ = value;
+      }
+    }
+
     /// <summary>Field number for the "modified_by" field.</summary>
     public const int ModifiedByFieldNumber = 128;
     private string modifiedBy_ = "";
@@ -667,6 +1124,38 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(SyntheticPrem, other.SyntheticPrem)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(EffSyntheticLimit, other.EffSyntheticLimit)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LimitPrice, other.LimitPrice)) return false;
+      if (NumNotices != other.NumNotices) return false;
+      if (NumNoticeSR != other.NumNoticeSR) return false;
+      if (NumNoticeAMEX != other.NumNoticeAMEX) return false;
+      if (NumNoticeBATS != other.NumNoticeBATS) return false;
+      if (NumNoticeBOX != other.NumNoticeBOX) return false;
+      if (NumNoticeCBOE != other.NumNoticeCBOE) return false;
+      if (NumNoticeC2 != other.NumNoticeC2) return false;
+      if (NumNoticeEDGO != other.NumNoticeEDGO) return false;
+      if (NumNoticeEMLD != other.NumNoticeEMLD) return false;
+      if (NumNoticeGMNI != other.NumNoticeGMNI) return false;
+      if (NumNoticeISE != other.NumNoticeISE) return false;
+      if (NumNoticeMCRY != other.NumNoticeMCRY) return false;
+      if (NumNoticeMEMX != other.NumNoticeMEMX) return false;
+      if (NumNoticeMIAX != other.NumNoticeMIAX) return false;
+      if (NumNoticeMPRL != other.NumNoticeMPRL) return false;
+      if (NumNoticeNYSE != other.NumNoticeNYSE) return false;
+      if (NumNoticeNQBX != other.NumNoticeNQBX) return false;
+      if (NumNoticeNSDQ != other.NumNoticeNSDQ) return false;
+      if (NumNoticePHLX != other.NumNoticePHLX) return false;
+      if (NumNoticeSPHR != other.NumNoticeSPHR) return false;
+      if (NumDisabled != other.NumDisabled) return false;
+      if (NumListedFlexMiss != other.NumListedFlexMiss) return false;
+      if (NumNoticePriceMiss != other.NumNoticePriceMiss) return false;
+      if (NumAggSizeLimit != other.NumAggSizeLimit) return false;
+      if (NumRiskGroupLimit != other.NumRiskGroupLimit) return false;
+      if (NumResponses != other.NumResponses) return false;
+      if (NumFullSize != other.NumFullSize) return false;
+      if (NumAllocSize != other.NumAllocSize) return false;
+      if (NumPriceMiss != other.NumPriceMiss) return false;
+      if (NumTooLate != other.NumTooLate) return false;
+      if (NumOtherMiss != other.NumOtherMiss) return false;
+      if (NumDidNotTrade != other.NumDidNotTrade) return false;
       if (ModifiedBy != other.ModifiedBy) return false;
       if (ModifiedIn != other.ModifiedIn) return false;
       if (!object.Equals(Timestamp, other.Timestamp)) return false;
@@ -707,6 +1196,38 @@ namespace Spiderrock.Protobuf {
       if (SyntheticPrem != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(SyntheticPrem);
       if (EffSyntheticLimit != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(EffSyntheticLimit);
       if (LimitPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LimitPrice);
+      if (NumNotices != 0L) hash ^= NumNotices.GetHashCode();
+      if (NumNoticeSR != 0L) hash ^= NumNoticeSR.GetHashCode();
+      if (NumNoticeAMEX != 0L) hash ^= NumNoticeAMEX.GetHashCode();
+      if (NumNoticeBATS != 0L) hash ^= NumNoticeBATS.GetHashCode();
+      if (NumNoticeBOX != 0L) hash ^= NumNoticeBOX.GetHashCode();
+      if (NumNoticeCBOE != 0L) hash ^= NumNoticeCBOE.GetHashCode();
+      if (NumNoticeC2 != 0L) hash ^= NumNoticeC2.GetHashCode();
+      if (NumNoticeEDGO != 0L) hash ^= NumNoticeEDGO.GetHashCode();
+      if (NumNoticeEMLD != 0L) hash ^= NumNoticeEMLD.GetHashCode();
+      if (NumNoticeGMNI != 0L) hash ^= NumNoticeGMNI.GetHashCode();
+      if (NumNoticeISE != 0L) hash ^= NumNoticeISE.GetHashCode();
+      if (NumNoticeMCRY != 0L) hash ^= NumNoticeMCRY.GetHashCode();
+      if (NumNoticeMEMX != 0L) hash ^= NumNoticeMEMX.GetHashCode();
+      if (NumNoticeMIAX != 0L) hash ^= NumNoticeMIAX.GetHashCode();
+      if (NumNoticeMPRL != 0L) hash ^= NumNoticeMPRL.GetHashCode();
+      if (NumNoticeNYSE != 0L) hash ^= NumNoticeNYSE.GetHashCode();
+      if (NumNoticeNQBX != 0L) hash ^= NumNoticeNQBX.GetHashCode();
+      if (NumNoticeNSDQ != 0L) hash ^= NumNoticeNSDQ.GetHashCode();
+      if (NumNoticePHLX != 0L) hash ^= NumNoticePHLX.GetHashCode();
+      if (NumNoticeSPHR != 0L) hash ^= NumNoticeSPHR.GetHashCode();
+      if (NumDisabled != 0L) hash ^= NumDisabled.GetHashCode();
+      if (NumListedFlexMiss != 0L) hash ^= NumListedFlexMiss.GetHashCode();
+      if (NumNoticePriceMiss != 0L) hash ^= NumNoticePriceMiss.GetHashCode();
+      if (NumAggSizeLimit != 0L) hash ^= NumAggSizeLimit.GetHashCode();
+      if (NumRiskGroupLimit != 0L) hash ^= NumRiskGroupLimit.GetHashCode();
+      if (NumResponses != 0L) hash ^= NumResponses.GetHashCode();
+      if (NumFullSize != 0L) hash ^= NumFullSize.GetHashCode();
+      if (NumAllocSize != 0L) hash ^= NumAllocSize.GetHashCode();
+      if (NumPriceMiss != 0L) hash ^= NumPriceMiss.GetHashCode();
+      if (NumTooLate != 0L) hash ^= NumTooLate.GetHashCode();
+      if (NumOtherMiss != 0L) hash ^= NumOtherMiss.GetHashCode();
+      if (NumDidNotTrade != 0L) hash ^= NumDidNotTrade.GetHashCode();
       if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
       if (ModifiedIn != global::Spiderrock.Protobuf.SysEnvironment.Unspecified) hash ^= ModifiedIn.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
@@ -860,6 +1381,134 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(146, 8);
         output.WriteMessage(Timestamp);
       }
+      if (NumNotices != 0L) {
+        output.WriteRawTag(152, 8);
+        output.WriteInt64(NumNotices);
+      }
+      if (NumNoticeSR != 0L) {
+        output.WriteRawTag(160, 8);
+        output.WriteInt64(NumNoticeSR);
+      }
+      if (NumNoticeAMEX != 0L) {
+        output.WriteRawTag(168, 8);
+        output.WriteInt64(NumNoticeAMEX);
+      }
+      if (NumNoticeBATS != 0L) {
+        output.WriteRawTag(176, 8);
+        output.WriteInt64(NumNoticeBATS);
+      }
+      if (NumNoticeBOX != 0L) {
+        output.WriteRawTag(184, 8);
+        output.WriteInt64(NumNoticeBOX);
+      }
+      if (NumNoticeCBOE != 0L) {
+        output.WriteRawTag(192, 8);
+        output.WriteInt64(NumNoticeCBOE);
+      }
+      if (NumNoticeC2 != 0L) {
+        output.WriteRawTag(200, 8);
+        output.WriteInt64(NumNoticeC2);
+      }
+      if (NumNoticeEDGO != 0L) {
+        output.WriteRawTag(208, 8);
+        output.WriteInt64(NumNoticeEDGO);
+      }
+      if (NumNoticeEMLD != 0L) {
+        output.WriteRawTag(216, 8);
+        output.WriteInt64(NumNoticeEMLD);
+      }
+      if (NumNoticeGMNI != 0L) {
+        output.WriteRawTag(224, 8);
+        output.WriteInt64(NumNoticeGMNI);
+      }
+      if (NumNoticeISE != 0L) {
+        output.WriteRawTag(232, 8);
+        output.WriteInt64(NumNoticeISE);
+      }
+      if (NumNoticeMCRY != 0L) {
+        output.WriteRawTag(240, 8);
+        output.WriteInt64(NumNoticeMCRY);
+      }
+      if (NumNoticeMEMX != 0L) {
+        output.WriteRawTag(248, 8);
+        output.WriteInt64(NumNoticeMEMX);
+      }
+      if (NumNoticeMIAX != 0L) {
+        output.WriteRawTag(128, 9);
+        output.WriteInt64(NumNoticeMIAX);
+      }
+      if (NumNoticeMPRL != 0L) {
+        output.WriteRawTag(136, 9);
+        output.WriteInt64(NumNoticeMPRL);
+      }
+      if (NumNoticeNYSE != 0L) {
+        output.WriteRawTag(144, 9);
+        output.WriteInt64(NumNoticeNYSE);
+      }
+      if (NumNoticeNQBX != 0L) {
+        output.WriteRawTag(152, 9);
+        output.WriteInt64(NumNoticeNQBX);
+      }
+      if (NumNoticeNSDQ != 0L) {
+        output.WriteRawTag(160, 9);
+        output.WriteInt64(NumNoticeNSDQ);
+      }
+      if (NumNoticePHLX != 0L) {
+        output.WriteRawTag(168, 9);
+        output.WriteInt64(NumNoticePHLX);
+      }
+      if (NumNoticeSPHR != 0L) {
+        output.WriteRawTag(176, 9);
+        output.WriteInt64(NumNoticeSPHR);
+      }
+      if (NumDisabled != 0L) {
+        output.WriteRawTag(184, 9);
+        output.WriteInt64(NumDisabled);
+      }
+      if (NumListedFlexMiss != 0L) {
+        output.WriteRawTag(192, 9);
+        output.WriteInt64(NumListedFlexMiss);
+      }
+      if (NumNoticePriceMiss != 0L) {
+        output.WriteRawTag(200, 9);
+        output.WriteInt64(NumNoticePriceMiss);
+      }
+      if (NumAggSizeLimit != 0L) {
+        output.WriteRawTag(208, 9);
+        output.WriteInt64(NumAggSizeLimit);
+      }
+      if (NumRiskGroupLimit != 0L) {
+        output.WriteRawTag(216, 9);
+        output.WriteInt64(NumRiskGroupLimit);
+      }
+      if (NumResponses != 0L) {
+        output.WriteRawTag(224, 9);
+        output.WriteInt64(NumResponses);
+      }
+      if (NumFullSize != 0L) {
+        output.WriteRawTag(232, 9);
+        output.WriteInt64(NumFullSize);
+      }
+      if (NumAllocSize != 0L) {
+        output.WriteRawTag(240, 9);
+        output.WriteInt64(NumAllocSize);
+      }
+      if (NumPriceMiss != 0L) {
+        output.WriteRawTag(248, 9);
+        output.WriteInt64(NumPriceMiss);
+      }
+      if (NumTooLate != 0L) {
+        output.WriteRawTag(128, 10);
+        output.WriteInt64(NumTooLate);
+      }
+      if (NumOtherMiss != 0L) {
+        output.WriteRawTag(136, 10);
+        output.WriteInt64(NumOtherMiss);
+      }
+      if (NumDidNotTrade != 0L) {
+        output.WriteRawTag(144, 10);
+        output.WriteInt64(NumDidNotTrade);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1002,6 +1651,134 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(146, 8);
         output.WriteMessage(Timestamp);
       }
+      if (NumNotices != 0L) {
+        output.WriteRawTag(152, 8);
+        output.WriteInt64(NumNotices);
+      }
+      if (NumNoticeSR != 0L) {
+        output.WriteRawTag(160, 8);
+        output.WriteInt64(NumNoticeSR);
+      }
+      if (NumNoticeAMEX != 0L) {
+        output.WriteRawTag(168, 8);
+        output.WriteInt64(NumNoticeAMEX);
+      }
+      if (NumNoticeBATS != 0L) {
+        output.WriteRawTag(176, 8);
+        output.WriteInt64(NumNoticeBATS);
+      }
+      if (NumNoticeBOX != 0L) {
+        output.WriteRawTag(184, 8);
+        output.WriteInt64(NumNoticeBOX);
+      }
+      if (NumNoticeCBOE != 0L) {
+        output.WriteRawTag(192, 8);
+        output.WriteInt64(NumNoticeCBOE);
+      }
+      if (NumNoticeC2 != 0L) {
+        output.WriteRawTag(200, 8);
+        output.WriteInt64(NumNoticeC2);
+      }
+      if (NumNoticeEDGO != 0L) {
+        output.WriteRawTag(208, 8);
+        output.WriteInt64(NumNoticeEDGO);
+      }
+      if (NumNoticeEMLD != 0L) {
+        output.WriteRawTag(216, 8);
+        output.WriteInt64(NumNoticeEMLD);
+      }
+      if (NumNoticeGMNI != 0L) {
+        output.WriteRawTag(224, 8);
+        output.WriteInt64(NumNoticeGMNI);
+      }
+      if (NumNoticeISE != 0L) {
+        output.WriteRawTag(232, 8);
+        output.WriteInt64(NumNoticeISE);
+      }
+      if (NumNoticeMCRY != 0L) {
+        output.WriteRawTag(240, 8);
+        output.WriteInt64(NumNoticeMCRY);
+      }
+      if (NumNoticeMEMX != 0L) {
+        output.WriteRawTag(248, 8);
+        output.WriteInt64(NumNoticeMEMX);
+      }
+      if (NumNoticeMIAX != 0L) {
+        output.WriteRawTag(128, 9);
+        output.WriteInt64(NumNoticeMIAX);
+      }
+      if (NumNoticeMPRL != 0L) {
+        output.WriteRawTag(136, 9);
+        output.WriteInt64(NumNoticeMPRL);
+      }
+      if (NumNoticeNYSE != 0L) {
+        output.WriteRawTag(144, 9);
+        output.WriteInt64(NumNoticeNYSE);
+      }
+      if (NumNoticeNQBX != 0L) {
+        output.WriteRawTag(152, 9);
+        output.WriteInt64(NumNoticeNQBX);
+      }
+      if (NumNoticeNSDQ != 0L) {
+        output.WriteRawTag(160, 9);
+        output.WriteInt64(NumNoticeNSDQ);
+      }
+      if (NumNoticePHLX != 0L) {
+        output.WriteRawTag(168, 9);
+        output.WriteInt64(NumNoticePHLX);
+      }
+      if (NumNoticeSPHR != 0L) {
+        output.WriteRawTag(176, 9);
+        output.WriteInt64(NumNoticeSPHR);
+      }
+      if (NumDisabled != 0L) {
+        output.WriteRawTag(184, 9);
+        output.WriteInt64(NumDisabled);
+      }
+      if (NumListedFlexMiss != 0L) {
+        output.WriteRawTag(192, 9);
+        output.WriteInt64(NumListedFlexMiss);
+      }
+      if (NumNoticePriceMiss != 0L) {
+        output.WriteRawTag(200, 9);
+        output.WriteInt64(NumNoticePriceMiss);
+      }
+      if (NumAggSizeLimit != 0L) {
+        output.WriteRawTag(208, 9);
+        output.WriteInt64(NumAggSizeLimit);
+      }
+      if (NumRiskGroupLimit != 0L) {
+        output.WriteRawTag(216, 9);
+        output.WriteInt64(NumRiskGroupLimit);
+      }
+      if (NumResponses != 0L) {
+        output.WriteRawTag(224, 9);
+        output.WriteInt64(NumResponses);
+      }
+      if (NumFullSize != 0L) {
+        output.WriteRawTag(232, 9);
+        output.WriteInt64(NumFullSize);
+      }
+      if (NumAllocSize != 0L) {
+        output.WriteRawTag(240, 9);
+        output.WriteInt64(NumAllocSize);
+      }
+      if (NumPriceMiss != 0L) {
+        output.WriteRawTag(248, 9);
+        output.WriteInt64(NumPriceMiss);
+      }
+      if (NumTooLate != 0L) {
+        output.WriteRawTag(128, 10);
+        output.WriteInt64(NumTooLate);
+      }
+      if (NumOtherMiss != 0L) {
+        output.WriteRawTag(136, 10);
+        output.WriteInt64(NumOtherMiss);
+      }
+      if (NumDidNotTrade != 0L) {
+        output.WriteRawTag(144, 10);
+        output.WriteInt64(NumDidNotTrade);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1101,6 +1878,102 @@ namespace Spiderrock.Protobuf {
       }
       if (LimitPrice != 0D) {
         size += 2 + 8;
+      }
+      if (NumNotices != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNotices);
+      }
+      if (NumNoticeSR != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeSR);
+      }
+      if (NumNoticeAMEX != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeAMEX);
+      }
+      if (NumNoticeBATS != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeBATS);
+      }
+      if (NumNoticeBOX != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeBOX);
+      }
+      if (NumNoticeCBOE != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeCBOE);
+      }
+      if (NumNoticeC2 != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeC2);
+      }
+      if (NumNoticeEDGO != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeEDGO);
+      }
+      if (NumNoticeEMLD != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeEMLD);
+      }
+      if (NumNoticeGMNI != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeGMNI);
+      }
+      if (NumNoticeISE != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeISE);
+      }
+      if (NumNoticeMCRY != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeMCRY);
+      }
+      if (NumNoticeMEMX != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeMEMX);
+      }
+      if (NumNoticeMIAX != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeMIAX);
+      }
+      if (NumNoticeMPRL != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeMPRL);
+      }
+      if (NumNoticeNYSE != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeNYSE);
+      }
+      if (NumNoticeNQBX != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeNQBX);
+      }
+      if (NumNoticeNSDQ != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeNSDQ);
+      }
+      if (NumNoticePHLX != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticePHLX);
+      }
+      if (NumNoticeSPHR != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticeSPHR);
+      }
+      if (NumDisabled != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumDisabled);
+      }
+      if (NumListedFlexMiss != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumListedFlexMiss);
+      }
+      if (NumNoticePriceMiss != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumNoticePriceMiss);
+      }
+      if (NumAggSizeLimit != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumAggSizeLimit);
+      }
+      if (NumRiskGroupLimit != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumRiskGroupLimit);
+      }
+      if (NumResponses != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumResponses);
+      }
+      if (NumFullSize != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumFullSize);
+      }
+      if (NumAllocSize != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumAllocSize);
+      }
+      if (NumPriceMiss != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumPriceMiss);
+      }
+      if (NumTooLate != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumTooLate);
+      }
+      if (NumOtherMiss != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumOtherMiss);
+      }
+      if (NumDidNotTrade != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumDidNotTrade);
       }
       if (ModifiedBy.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
@@ -1221,6 +2094,102 @@ namespace Spiderrock.Protobuf {
       }
       if (other.LimitPrice != 0D) {
         LimitPrice = other.LimitPrice;
+      }
+      if (other.NumNotices != 0L) {
+        NumNotices = other.NumNotices;
+      }
+      if (other.NumNoticeSR != 0L) {
+        NumNoticeSR = other.NumNoticeSR;
+      }
+      if (other.NumNoticeAMEX != 0L) {
+        NumNoticeAMEX = other.NumNoticeAMEX;
+      }
+      if (other.NumNoticeBATS != 0L) {
+        NumNoticeBATS = other.NumNoticeBATS;
+      }
+      if (other.NumNoticeBOX != 0L) {
+        NumNoticeBOX = other.NumNoticeBOX;
+      }
+      if (other.NumNoticeCBOE != 0L) {
+        NumNoticeCBOE = other.NumNoticeCBOE;
+      }
+      if (other.NumNoticeC2 != 0L) {
+        NumNoticeC2 = other.NumNoticeC2;
+      }
+      if (other.NumNoticeEDGO != 0L) {
+        NumNoticeEDGO = other.NumNoticeEDGO;
+      }
+      if (other.NumNoticeEMLD != 0L) {
+        NumNoticeEMLD = other.NumNoticeEMLD;
+      }
+      if (other.NumNoticeGMNI != 0L) {
+        NumNoticeGMNI = other.NumNoticeGMNI;
+      }
+      if (other.NumNoticeISE != 0L) {
+        NumNoticeISE = other.NumNoticeISE;
+      }
+      if (other.NumNoticeMCRY != 0L) {
+        NumNoticeMCRY = other.NumNoticeMCRY;
+      }
+      if (other.NumNoticeMEMX != 0L) {
+        NumNoticeMEMX = other.NumNoticeMEMX;
+      }
+      if (other.NumNoticeMIAX != 0L) {
+        NumNoticeMIAX = other.NumNoticeMIAX;
+      }
+      if (other.NumNoticeMPRL != 0L) {
+        NumNoticeMPRL = other.NumNoticeMPRL;
+      }
+      if (other.NumNoticeNYSE != 0L) {
+        NumNoticeNYSE = other.NumNoticeNYSE;
+      }
+      if (other.NumNoticeNQBX != 0L) {
+        NumNoticeNQBX = other.NumNoticeNQBX;
+      }
+      if (other.NumNoticeNSDQ != 0L) {
+        NumNoticeNSDQ = other.NumNoticeNSDQ;
+      }
+      if (other.NumNoticePHLX != 0L) {
+        NumNoticePHLX = other.NumNoticePHLX;
+      }
+      if (other.NumNoticeSPHR != 0L) {
+        NumNoticeSPHR = other.NumNoticeSPHR;
+      }
+      if (other.NumDisabled != 0L) {
+        NumDisabled = other.NumDisabled;
+      }
+      if (other.NumListedFlexMiss != 0L) {
+        NumListedFlexMiss = other.NumListedFlexMiss;
+      }
+      if (other.NumNoticePriceMiss != 0L) {
+        NumNoticePriceMiss = other.NumNoticePriceMiss;
+      }
+      if (other.NumAggSizeLimit != 0L) {
+        NumAggSizeLimit = other.NumAggSizeLimit;
+      }
+      if (other.NumRiskGroupLimit != 0L) {
+        NumRiskGroupLimit = other.NumRiskGroupLimit;
+      }
+      if (other.NumResponses != 0L) {
+        NumResponses = other.NumResponses;
+      }
+      if (other.NumFullSize != 0L) {
+        NumFullSize = other.NumFullSize;
+      }
+      if (other.NumAllocSize != 0L) {
+        NumAllocSize = other.NumAllocSize;
+      }
+      if (other.NumPriceMiss != 0L) {
+        NumPriceMiss = other.NumPriceMiss;
+      }
+      if (other.NumTooLate != 0L) {
+        NumTooLate = other.NumTooLate;
+      }
+      if (other.NumOtherMiss != 0L) {
+        NumOtherMiss = other.NumOtherMiss;
+      }
+      if (other.NumDidNotTrade != 0L) {
+        NumDidNotTrade = other.NumDidNotTrade;
       }
       if (other.ModifiedBy.Length != 0) {
         ModifiedBy = other.ModifiedBy;
@@ -1393,6 +2362,134 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 1048: {
+            NumNotices = input.ReadInt64();
+            break;
+          }
+          case 1056: {
+            NumNoticeSR = input.ReadInt64();
+            break;
+          }
+          case 1064: {
+            NumNoticeAMEX = input.ReadInt64();
+            break;
+          }
+          case 1072: {
+            NumNoticeBATS = input.ReadInt64();
+            break;
+          }
+          case 1080: {
+            NumNoticeBOX = input.ReadInt64();
+            break;
+          }
+          case 1088: {
+            NumNoticeCBOE = input.ReadInt64();
+            break;
+          }
+          case 1096: {
+            NumNoticeC2 = input.ReadInt64();
+            break;
+          }
+          case 1104: {
+            NumNoticeEDGO = input.ReadInt64();
+            break;
+          }
+          case 1112: {
+            NumNoticeEMLD = input.ReadInt64();
+            break;
+          }
+          case 1120: {
+            NumNoticeGMNI = input.ReadInt64();
+            break;
+          }
+          case 1128: {
+            NumNoticeISE = input.ReadInt64();
+            break;
+          }
+          case 1136: {
+            NumNoticeMCRY = input.ReadInt64();
+            break;
+          }
+          case 1144: {
+            NumNoticeMEMX = input.ReadInt64();
+            break;
+          }
+          case 1152: {
+            NumNoticeMIAX = input.ReadInt64();
+            break;
+          }
+          case 1160: {
+            NumNoticeMPRL = input.ReadInt64();
+            break;
+          }
+          case 1168: {
+            NumNoticeNYSE = input.ReadInt64();
+            break;
+          }
+          case 1176: {
+            NumNoticeNQBX = input.ReadInt64();
+            break;
+          }
+          case 1184: {
+            NumNoticeNSDQ = input.ReadInt64();
+            break;
+          }
+          case 1192: {
+            NumNoticePHLX = input.ReadInt64();
+            break;
+          }
+          case 1200: {
+            NumNoticeSPHR = input.ReadInt64();
+            break;
+          }
+          case 1208: {
+            NumDisabled = input.ReadInt64();
+            break;
+          }
+          case 1216: {
+            NumListedFlexMiss = input.ReadInt64();
+            break;
+          }
+          case 1224: {
+            NumNoticePriceMiss = input.ReadInt64();
+            break;
+          }
+          case 1232: {
+            NumAggSizeLimit = input.ReadInt64();
+            break;
+          }
+          case 1240: {
+            NumRiskGroupLimit = input.ReadInt64();
+            break;
+          }
+          case 1248: {
+            NumResponses = input.ReadInt64();
+            break;
+          }
+          case 1256: {
+            NumFullSize = input.ReadInt64();
+            break;
+          }
+          case 1264: {
+            NumAllocSize = input.ReadInt64();
+            break;
+          }
+          case 1272: {
+            NumPriceMiss = input.ReadInt64();
+            break;
+          }
+          case 1280: {
+            NumTooLate = input.ReadInt64();
+            break;
+          }
+          case 1288: {
+            NumOtherMiss = input.ReadInt64();
+            break;
+          }
+          case 1296: {
+            NumDidNotTrade = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1552,6 +2649,134 @@ namespace Spiderrock.Protobuf {
             input.ReadMessage(Timestamp);
             break;
           }
+          case 1048: {
+            NumNotices = input.ReadInt64();
+            break;
+          }
+          case 1056: {
+            NumNoticeSR = input.ReadInt64();
+            break;
+          }
+          case 1064: {
+            NumNoticeAMEX = input.ReadInt64();
+            break;
+          }
+          case 1072: {
+            NumNoticeBATS = input.ReadInt64();
+            break;
+          }
+          case 1080: {
+            NumNoticeBOX = input.ReadInt64();
+            break;
+          }
+          case 1088: {
+            NumNoticeCBOE = input.ReadInt64();
+            break;
+          }
+          case 1096: {
+            NumNoticeC2 = input.ReadInt64();
+            break;
+          }
+          case 1104: {
+            NumNoticeEDGO = input.ReadInt64();
+            break;
+          }
+          case 1112: {
+            NumNoticeEMLD = input.ReadInt64();
+            break;
+          }
+          case 1120: {
+            NumNoticeGMNI = input.ReadInt64();
+            break;
+          }
+          case 1128: {
+            NumNoticeISE = input.ReadInt64();
+            break;
+          }
+          case 1136: {
+            NumNoticeMCRY = input.ReadInt64();
+            break;
+          }
+          case 1144: {
+            NumNoticeMEMX = input.ReadInt64();
+            break;
+          }
+          case 1152: {
+            NumNoticeMIAX = input.ReadInt64();
+            break;
+          }
+          case 1160: {
+            NumNoticeMPRL = input.ReadInt64();
+            break;
+          }
+          case 1168: {
+            NumNoticeNYSE = input.ReadInt64();
+            break;
+          }
+          case 1176: {
+            NumNoticeNQBX = input.ReadInt64();
+            break;
+          }
+          case 1184: {
+            NumNoticeNSDQ = input.ReadInt64();
+            break;
+          }
+          case 1192: {
+            NumNoticePHLX = input.ReadInt64();
+            break;
+          }
+          case 1200: {
+            NumNoticeSPHR = input.ReadInt64();
+            break;
+          }
+          case 1208: {
+            NumDisabled = input.ReadInt64();
+            break;
+          }
+          case 1216: {
+            NumListedFlexMiss = input.ReadInt64();
+            break;
+          }
+          case 1224: {
+            NumNoticePriceMiss = input.ReadInt64();
+            break;
+          }
+          case 1232: {
+            NumAggSizeLimit = input.ReadInt64();
+            break;
+          }
+          case 1240: {
+            NumRiskGroupLimit = input.ReadInt64();
+            break;
+          }
+          case 1248: {
+            NumResponses = input.ReadInt64();
+            break;
+          }
+          case 1256: {
+            NumFullSize = input.ReadInt64();
+            break;
+          }
+          case 1264: {
+            NumAllocSize = input.ReadInt64();
+            break;
+          }
+          case 1272: {
+            NumPriceMiss = input.ReadInt64();
+            break;
+          }
+          case 1280: {
+            NumTooLate = input.ReadInt64();
+            break;
+          }
+          case 1288: {
+            NumOtherMiss = input.ReadInt64();
+            break;
+          }
+          case 1296: {
+            NumDidNotTrade = input.ReadInt64();
+            break;
+          }
         }
       }
     }
@@ -1598,8 +2823,7 @@ namespace Spiderrock.Protobuf {
         public PKey(PKey other) : this() {
           accnt_ = other.accnt_;
           clientFirm_ = other.clientFirm_;
-          root_ = other.root_ != null ? other.root_.Clone() : null;
-          expiry_ = other.expiry_ != null ? other.expiry_.Clone() : null;
+          ekey_ = other.ekey_ != null ? other.ekey_.Clone() : null;
           respSide_ = other.respSide_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -1634,27 +2858,15 @@ namespace Spiderrock.Protobuf {
           }
         }
 
-        /// <summary>Field number for the "root" field.</summary>
-        public const int RootFieldNumber = 12;
-        private global::Spiderrock.Protobuf.TickerKey root_;
+        /// <summary>Field number for the "ekey" field.</summary>
+        public const int EkeyFieldNumber = 15;
+        private global::Spiderrock.Protobuf.ExpiryKey ekey_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.TickerKey Root {
-          get { return root_; }
+        public global::Spiderrock.Protobuf.ExpiryKey Ekey {
+          get { return ekey_; }
           set {
-            root_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "expiry" field.</summary>
-        public const int ExpiryFieldNumber = 13;
-        private global::Spiderrock.Protobuf.DateKey expiry_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Spiderrock.Protobuf.DateKey Expiry {
-          get { return expiry_; }
-          set {
-            expiry_ = value;
+            ekey_ = value;
           }
         }
 
@@ -1690,8 +2902,7 @@ namespace Spiderrock.Protobuf {
           }
           if (Accnt != other.Accnt) return false;
           if (ClientFirm != other.ClientFirm) return false;
-          if (!object.Equals(Root, other.Root)) return false;
-          if (!object.Equals(Expiry, other.Expiry)) return false;
+          if (!object.Equals(Ekey, other.Ekey)) return false;
           if (RespSide != other.RespSide) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -1702,8 +2913,7 @@ namespace Spiderrock.Protobuf {
           int hash = 1;
           if (Accnt.Length != 0) hash ^= Accnt.GetHashCode();
           if (ClientFirm.Length != 0) hash ^= ClientFirm.GetHashCode();
-          if (root_ != null) hash ^= Root.GetHashCode();
-          if (expiry_ != null) hash ^= Expiry.GetHashCode();
+          if (ekey_ != null) hash ^= Ekey.GetHashCode();
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) hash ^= RespSide.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -1731,17 +2941,13 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(ClientFirm);
           }
-          if (root_ != null) {
-            output.WriteRawTag(98);
-            output.WriteMessage(Root);
-          }
-          if (expiry_ != null) {
-            output.WriteRawTag(106);
-            output.WriteMessage(Expiry);
-          }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             output.WriteRawTag(112);
             output.WriteEnum((int) RespSide);
+          }
+          if (ekey_ != null) {
+            output.WriteRawTag(122);
+            output.WriteMessage(Ekey);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -1761,17 +2967,13 @@ namespace Spiderrock.Protobuf {
             output.WriteRawTag(90);
             output.WriteString(ClientFirm);
           }
-          if (root_ != null) {
-            output.WriteRawTag(98);
-            output.WriteMessage(Root);
-          }
-          if (expiry_ != null) {
-            output.WriteRawTag(106);
-            output.WriteMessage(Expiry);
-          }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             output.WriteRawTag(112);
             output.WriteEnum((int) RespSide);
+          }
+          if (ekey_ != null) {
+            output.WriteRawTag(122);
+            output.WriteMessage(Ekey);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -1789,11 +2991,8 @@ namespace Spiderrock.Protobuf {
           if (ClientFirm.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientFirm);
           }
-          if (root_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Root);
-          }
-          if (expiry_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Expiry);
+          if (ekey_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ekey);
           }
           if (RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RespSide);
@@ -1816,17 +3015,11 @@ namespace Spiderrock.Protobuf {
           if (other.ClientFirm.Length != 0) {
             ClientFirm = other.ClientFirm;
           }
-          if (other.root_ != null) {
-            if (root_ == null) {
-              Root = new global::Spiderrock.Protobuf.TickerKey();
+          if (other.ekey_ != null) {
+            if (ekey_ == null) {
+              Ekey = new global::Spiderrock.Protobuf.ExpiryKey();
             }
-            Root.MergeFrom(other.Root);
-          }
-          if (other.expiry_ != null) {
-            if (expiry_ == null) {
-              Expiry = new global::Spiderrock.Protobuf.DateKey();
-            }
-            Expiry.MergeFrom(other.Expiry);
+            Ekey.MergeFrom(other.Ekey);
           }
           if (other.RespSide != global::Spiderrock.Protobuf.BuySell.Unspecified) {
             RespSide = other.RespSide;
@@ -1854,22 +3047,15 @@ namespace Spiderrock.Protobuf {
                 ClientFirm = input.ReadString();
                 break;
               }
-              case 98: {
-                if (root_ == null) {
-                  Root = new global::Spiderrock.Protobuf.TickerKey();
-                }
-                input.ReadMessage(Root);
-                break;
-              }
-              case 106: {
-                if (expiry_ == null) {
-                  Expiry = new global::Spiderrock.Protobuf.DateKey();
-                }
-                input.ReadMessage(Expiry);
-                break;
-              }
               case 112: {
                 RespSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
+                break;
+              }
+              case 122: {
+                if (ekey_ == null) {
+                  Ekey = new global::Spiderrock.Protobuf.ExpiryKey();
+                }
+                input.ReadMessage(Ekey);
                 break;
               }
             }
@@ -1895,22 +3081,15 @@ namespace Spiderrock.Protobuf {
                 ClientFirm = input.ReadString();
                 break;
               }
-              case 98: {
-                if (root_ == null) {
-                  Root = new global::Spiderrock.Protobuf.TickerKey();
-                }
-                input.ReadMessage(Root);
-                break;
-              }
-              case 106: {
-                if (expiry_ == null) {
-                  Expiry = new global::Spiderrock.Protobuf.DateKey();
-                }
-                input.ReadMessage(Expiry);
-                break;
-              }
               case 112: {
                 RespSide = (global::Spiderrock.Protobuf.BuySell) input.ReadEnum();
+                break;
+              }
+              case 122: {
+                if (ekey_ == null) {
+                  Ekey = new global::Spiderrock.Protobuf.ExpiryKey();
+                }
+                input.ReadMessage(Ekey);
                 break;
               }
             }

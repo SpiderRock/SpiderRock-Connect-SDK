@@ -26,7 +26,7 @@ namespace Spiderrock.Protobuf {
           string.Concat(
             "CiVQcm90b2J1Zi9TUkFUUy9Ob3RpY2VFeGVjUmVwb3J0LnByb3RvEhNzcGlk",
             "ZXJyb2NrLnByb3RvYnVmGhdzcGlkZXJyb2NrX2NvbW1vbi5wcm90bxofZ29v",
-            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKgDgoQTm90aWNlRXhlY1Jl",
+            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLPEAoQTm90aWNlRXhlY1Jl",
             "cG9ydBIzCgVfbWV0YRgBIAEoCzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVz",
             "c2FnZU1ldGFkYXRhEjgKBHBrZXkYAiABKAsyKi5zcGlkZXJyb2NrLnByb3Rv",
             "YnVmLk5vdGljZUV4ZWNSZXBvcnQuUEtleRIuCgZ0aWNrZXIYfSABKAsyHi5z",
@@ -52,26 +52,33 @@ namespace Spiderrock.Protobuf {
             "cmMYkQEgASgBEhcKDmxhc3RfdHJpYWxfcHJjGJIBIAEoARITCgpsZWF2ZXNf",
             "cXR5GJMBIAEoBRIVCgxjdW1fZmlsbF9xdHkYggEgASgFEhcKDmF2Z19maWxs",
             "X3ByaWNlGIMBIAEoARIUCgthZGRfbGF0ZW5jeRiUASABKAESFAoLYWNrX2xh",
-            "dGVuY3kYlQEgASgBEjsKD3Jlc3BvbnNlX3Jlc3VsdBiEASABKA4yIS5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLk5vdGljZVJlc3VsdBIWCg1yZXNwb25zZV90aW1l",
-            "GIUBIAEoBRISCglwcnRfcHJpY2UYhgEgASgBEhEKCHBydF9zaXplGIcBIAEo",
-            "BRItCghwcnRfdGltZRiIASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wEhEKCHBydF91QmlkGJYBIAEoARIRCghwcnRfdUFzaxiXASABKAESLQoJ",
-            "dGltZXN0YW1wGHwgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJD",
-            "CgpvcmRlcl9sZWdzGHQgAygLMi8uc3BpZGVycm9jay5wcm90b2J1Zi5Ob3Rp",
-            "Y2VFeGVjUmVwb3J0Lk9yZGVyTGVncxo5CgRQS2V5EhUKDW5vdGljZV9udW1i",
-            "ZXIYDSABKAMSGgoSYmFzZV9wYXJlbnRfbnVtYmVyGA4gASgDGp4CCglPcmRl",
-            "ckxlZ3MSLwoHc2VjX2tleRh1IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "T3B0aW9uS2V5EjIKCHNlY190eXBlGHYgASgOMiAuc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5TcGRyS2V5VHlwZRIqCgRzaWRlGHcgASgOMhwuc3BpZGVycm9jay5w",
-            "cm90b2J1Zi5CdXlTZWxsEg0KBXJhdGlvGHggASgFEjsKDXBvc2l0aW9uX3R5",
-            "cGUYeSABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLkxlZ1Bvc2l0aW9uVHlw",
-            "ZRIYChBsZWdfY3VtX2ZpbGxfcXR5GHogASgFEhoKEmxlZ19hdmdfZmlsbF9w",
-            "cmljZRh7IAEoAWIGcHJvdG8z"));
+            "dGVuY3kYlQEgASgBEhUKDG51bV9vcHRfbGVncxiYASABKAUSNwoMc3ByZWFk",
+            "X2NsYXNzGJkBIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuU3ByZWFkQ2xh",
+            "c3MSOQoNc3ByZWFkX2ZsYXZvchiaASABKA4yIS5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlNwcmVhZEZsYXZvchIzCg5jb250YWluc19oZWRnZRibASABKA4yGi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjIKDWNvbnRhaW5zX2ZsZXgYnAEg",
+            "ASgOMhouc3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxI5ChRjb250YWluc19t",
+            "dWx0aV9oZWRnZRidASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05v",
+            "EjsKD3Jlc3BvbnNlX3Jlc3VsdBiEASABKA4yIS5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLk5vdGljZVJlc3VsdBIWCg1yZXNwb25zZV90aW1lGIUBIAEoBRISCglw",
+            "cnRfcHJpY2UYhgEgASgBEhEKCHBydF9zaXplGIcBIAEoBRItCghwcnRfdGlt",
+            "ZRiIASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhEKCHBydF91",
+            "QmlkGJYBIAEoARIRCghwcnRfdUFzaxiXASABKAESLQoJdGltZXN0YW1wGHwg",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJDCgpvcmRlcl9sZWdz",
+            "GHQgAygLMi8uc3BpZGVycm9jay5wcm90b2J1Zi5Ob3RpY2VFeGVjUmVwb3J0",
+            "Lk9yZGVyTGVncxo5CgRQS2V5EhUKDW5vdGljZV9udW1iZXIYDSABKAMSGgoS",
+            "YmFzZV9wYXJlbnRfbnVtYmVyGA4gASgDGp4CCglPcmRlckxlZ3MSLwoHc2Vj",
+            "X2tleRh1IAEoCzIeLnNwaWRlcnJvY2sucHJvdG9idWYuT3B0aW9uS2V5EjIK",
+            "CHNlY190eXBlGHYgASgOMiAuc3BpZGVycm9jay5wcm90b2J1Zi5TcGRyS2V5",
+            "VHlwZRIqCgRzaWRlGHcgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5CdXlT",
+            "ZWxsEg0KBXJhdGlvGHggASgFEjsKDXBvc2l0aW9uX3R5cGUYeSABKA4yJC5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLkxlZ1Bvc2l0aW9uVHlwZRIYChBsZWdfY3Vt",
+            "X2ZpbGxfcXR5GHogASgFEhoKEmxlZ19hdmdfZmlsbF9wcmljZRh7IAEoAWIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeExecReport), global::Spiderrock.Protobuf.NoticeExecReport.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "Accnt", "ClientFirm", "NoticeDttm", "ResponseId", "RespOrigin", "StageType", "AuctionType", "AuctionSource", "RespDttm", "RespSide", "RespSize", "RespActiveSize", "RespPrice", "RefUPrc", "RefDe", "RefGa", "RoundRule", "StepUpIncr", "RiskGroupId", "Strategy", "UserData1", "RespStatus", "RespDetail", "LastUPrc", "LastTrialPrc", "LeavesQty", "CumFillQty", "AvgFillPrice", "AddLatency", "AckLatency", "ResponseResult", "ResponseTime", "PrtPrice", "PrtSize", "PrtTime", "PrtUBid", "PrtUAsk", "Timestamp", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeExecReport.Types.PKey), global::Spiderrock.Protobuf.NoticeExecReport.Types.PKey.Parser, new[]{ "NoticeNumber", "BaseParentNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeExecReport), global::Spiderrock.Protobuf.NoticeExecReport.Parser, new[]{ "Meta", "Pkey", "Ticker", "TradeDate", "Accnt", "ClientFirm", "NoticeDttm", "ResponseId", "RespOrigin", "StageType", "AuctionType", "AuctionSource", "RespDttm", "RespSide", "RespSize", "RespActiveSize", "RespPrice", "RefUPrc", "RefDe", "RefGa", "RoundRule", "StepUpIncr", "RiskGroupId", "Strategy", "UserData1", "RespStatus", "RespDetail", "LastUPrc", "LastTrialPrc", "LeavesQty", "CumFillQty", "AvgFillPrice", "AddLatency", "AckLatency", "NumOptLegs", "SpreadClass", "SpreadFlavor", "ContainsHedge", "ContainsFlex", "ContainsMultiHedge", "ResponseResult", "ResponseTime", "PrtPrice", "PrtSize", "PrtTime", "PrtUBid", "PrtUAsk", "Timestamp", "OrderLegs" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeExecReport.Types.PKey), global::Spiderrock.Protobuf.NoticeExecReport.Types.PKey.Parser, new[]{ "NoticeNumber", "BaseParentNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.NoticeExecReport.Types.OrderLegs), global::Spiderrock.Protobuf.NoticeExecReport.Types.OrderLegs.Parser, new[]{ "SecKey", "SecType", "Side", "Ratio", "PositionType", "LegCumFillQty", "LegAvgFillPrice" }, null, null, null, null)})
           }));
     }
@@ -147,6 +154,12 @@ namespace Spiderrock.Protobuf {
       avgFillPrice_ = other.avgFillPrice_;
       addLatency_ = other.addLatency_;
       ackLatency_ = other.ackLatency_;
+      numOptLegs_ = other.numOptLegs_;
+      spreadClass_ = other.spreadClass_;
+      spreadFlavor_ = other.spreadFlavor_;
+      containsHedge_ = other.containsHedge_;
+      containsFlex_ = other.containsFlex_;
+      containsMultiHedge_ = other.containsMultiHedge_;
       responseResult_ = other.responseResult_;
       responseTime_ = other.responseTime_;
       prtPrice_ = other.prtPrice_;
@@ -279,6 +292,9 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "resp_origin" field.</summary>
     public const int RespOriginFieldNumber = 142;
     private global::Spiderrock.Protobuf.SpdrSource respOrigin_ = global::Spiderrock.Protobuf.SpdrSource.Unspecified;
+    /// <summary>
+    /// AutoResponder, MLINK, FIX, ICEChat, TradeAp responders
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Spiderrock.Protobuf.SpdrSource RespOrigin {
@@ -291,6 +307,9 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "stage_type" field.</summary>
     public const int StageTypeFieldNumber = 101;
     private global::Spiderrock.Protobuf.SpdrStageType stageType_ = global::Spiderrock.Protobuf.SpdrStageType.Unspecified;
+    /// <summary>
+    /// response staged or not
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Spiderrock.Protobuf.SpdrStageType StageType {
@@ -303,6 +322,9 @@ namespace Spiderrock.Protobuf {
     /// <summary>Field number for the "auction_type" field.</summary>
     public const int AuctionTypeFieldNumber = 143;
     private global::Spiderrock.Protobuf.AuctionType auctionType_ = global::Spiderrock.Protobuf.AuctionType.Unspecified;
+    /// <summary>
+    /// Exch Exposure, Exch Price Improve, Exch Facilitation, Exch Solicitation, SR ATS Block, SR ATS Flash
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Spiderrock.Protobuf.AuctionType AuctionType {
@@ -316,7 +338,7 @@ namespace Spiderrock.Protobuf {
     public const int AuctionSourceFieldNumber = 144;
     private global::Spiderrock.Protobuf.AuctionSource auctionSource_ = global::Spiderrock.Protobuf.AuctionSource.Unspecified;
     /// <summary>
-    /// source of the auction notice (eg. SRC, MIAX, etc.)
+    /// Source of the auction notice (eg. SRC, CBOE, MIAX, etc.)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -645,6 +667,96 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "num_opt_legs" field.</summary>
+    public const int NumOptLegsFieldNumber = 152;
+    private int numOptLegs_;
+    /// <summary>
+    /// number of option legs
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int NumOptLegs {
+      get { return numOptLegs_; }
+      set {
+        numOptLegs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "spread_class" field.</summary>
+    public const int SpreadClassFieldNumber = 153;
+    private global::Spiderrock.Protobuf.SpreadClass spreadClass_ = global::Spiderrock.Protobuf.SpreadClass.Unspecified;
+    /// <summary>
+    /// spread class (eg. Call, Put, RevCon, Box, JRoll, etc.)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.SpreadClass SpreadClass {
+      get { return spreadClass_; }
+      set {
+        spreadClass_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "spread_flavor" field.</summary>
+    public const int SpreadFlavorFieldNumber = 154;
+    private global::Spiderrock.Protobuf.SpreadFlavor spreadFlavor_ = global::Spiderrock.Protobuf.SpreadFlavor.Unspecified;
+    /// <summary>
+    /// spread flavor (Normal, Flipped) of this order
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.SpreadFlavor SpreadFlavor {
+      get { return spreadFlavor_; }
+      set {
+        spreadFlavor_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "contains_hedge" field.</summary>
+    public const int ContainsHedgeFieldNumber = 155;
+    private global::Spiderrock.Protobuf.YesNo containsHedge_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// if this order contains a stock/future leg
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ContainsHedge {
+      get { return containsHedge_; }
+      set {
+        containsHedge_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "contains_flex" field.</summary>
+    public const int ContainsFlexFieldNumber = 156;
+    private global::Spiderrock.Protobuf.YesNo containsFlex_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// if this order contains flex leg(s)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ContainsFlex {
+      get { return containsFlex_; }
+      set {
+        containsFlex_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "contains_multi_hedge" field.</summary>
+    public const int ContainsMultiHedgeFieldNumber = 157;
+    private global::Spiderrock.Protobuf.YesNo containsMultiHedge_ = global::Spiderrock.Protobuf.YesNo.Unspecified;
+    /// <summary>
+    /// contains MultiHedge (corp action adjusted) options
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Spiderrock.Protobuf.YesNo ContainsMultiHedge {
+      get { return containsMultiHedge_; }
+      set {
+        containsMultiHedge_ = value;
+      }
+    }
+
     /// <summary>Field number for the "response_result" field.</summary>
     public const int ResponseResultFieldNumber = 132;
     private global::Spiderrock.Protobuf.NoticeResult responseResult_ = global::Spiderrock.Protobuf.NoticeResult.Unspecified;
@@ -819,6 +931,12 @@ namespace Spiderrock.Protobuf {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(AvgFillPrice, other.AvgFillPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(AddLatency, other.AddLatency)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(AckLatency, other.AckLatency)) return false;
+      if (NumOptLegs != other.NumOptLegs) return false;
+      if (SpreadClass != other.SpreadClass) return false;
+      if (SpreadFlavor != other.SpreadFlavor) return false;
+      if (ContainsHedge != other.ContainsHedge) return false;
+      if (ContainsFlex != other.ContainsFlex) return false;
+      if (ContainsMultiHedge != other.ContainsMultiHedge) return false;
       if (ResponseResult != other.ResponseResult) return false;
       if (ResponseTime != other.ResponseTime) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(PrtPrice, other.PrtPrice)) return false;
@@ -869,6 +987,12 @@ namespace Spiderrock.Protobuf {
       if (AvgFillPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(AvgFillPrice);
       if (AddLatency != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(AddLatency);
       if (AckLatency != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(AckLatency);
+      if (NumOptLegs != 0) hash ^= NumOptLegs.GetHashCode();
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) hash ^= SpreadClass.GetHashCode();
+      if (SpreadFlavor != global::Spiderrock.Protobuf.SpreadFlavor.Unspecified) hash ^= SpreadFlavor.GetHashCode();
+      if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ContainsHedge.GetHashCode();
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ContainsFlex.GetHashCode();
+      if (ContainsMultiHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) hash ^= ContainsMultiHedge.GetHashCode();
       if (ResponseResult != global::Spiderrock.Protobuf.NoticeResult.Unspecified) hash ^= ResponseResult.GetHashCode();
       if (ResponseTime != 0) hash ^= ResponseTime.GetHashCode();
       if (PrtPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(PrtPrice);
@@ -1065,6 +1189,30 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(185, 9);
         output.WriteDouble(PrtUAsk);
       }
+      if (NumOptLegs != 0) {
+        output.WriteRawTag(192, 9);
+        output.WriteInt32(NumOptLegs);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        output.WriteRawTag(200, 9);
+        output.WriteEnum((int) SpreadClass);
+      }
+      if (SpreadFlavor != global::Spiderrock.Protobuf.SpreadFlavor.Unspecified) {
+        output.WriteRawTag(208, 9);
+        output.WriteEnum((int) SpreadFlavor);
+      }
+      if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(216, 9);
+        output.WriteEnum((int) ContainsHedge);
+      }
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(224, 9);
+        output.WriteEnum((int) ContainsFlex);
+      }
+      if (ContainsMultiHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(232, 9);
+        output.WriteEnum((int) ContainsMultiHedge);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1244,6 +1392,30 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(185, 9);
         output.WriteDouble(PrtUAsk);
       }
+      if (NumOptLegs != 0) {
+        output.WriteRawTag(192, 9);
+        output.WriteInt32(NumOptLegs);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        output.WriteRawTag(200, 9);
+        output.WriteEnum((int) SpreadClass);
+      }
+      if (SpreadFlavor != global::Spiderrock.Protobuf.SpreadFlavor.Unspecified) {
+        output.WriteRawTag(208, 9);
+        output.WriteEnum((int) SpreadFlavor);
+      }
+      if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(216, 9);
+        output.WriteEnum((int) ContainsHedge);
+      }
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(224, 9);
+        output.WriteEnum((int) ContainsFlex);
+      }
+      if (ContainsMultiHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        output.WriteRawTag(232, 9);
+        output.WriteEnum((int) ContainsMultiHedge);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1355,6 +1527,24 @@ namespace Spiderrock.Protobuf {
       }
       if (AckLatency != 0D) {
         size += 2 + 8;
+      }
+      if (NumOptLegs != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(NumOptLegs);
+      }
+      if (SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpreadClass);
+      }
+      if (SpreadFlavor != global::Spiderrock.Protobuf.SpreadFlavor.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SpreadFlavor);
+      }
+      if (ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ContainsHedge);
+      }
+      if (ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ContainsFlex);
+      }
+      if (ContainsMultiHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ContainsMultiHedge);
       }
       if (ResponseResult != global::Spiderrock.Protobuf.NoticeResult.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ResponseResult);
@@ -1512,6 +1702,24 @@ namespace Spiderrock.Protobuf {
       }
       if (other.AckLatency != 0D) {
         AckLatency = other.AckLatency;
+      }
+      if (other.NumOptLegs != 0) {
+        NumOptLegs = other.NumOptLegs;
+      }
+      if (other.SpreadClass != global::Spiderrock.Protobuf.SpreadClass.Unspecified) {
+        SpreadClass = other.SpreadClass;
+      }
+      if (other.SpreadFlavor != global::Spiderrock.Protobuf.SpreadFlavor.Unspecified) {
+        SpreadFlavor = other.SpreadFlavor;
+      }
+      if (other.ContainsHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ContainsHedge = other.ContainsHedge;
+      }
+      if (other.ContainsFlex != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ContainsFlex = other.ContainsFlex;
+      }
+      if (other.ContainsMultiHedge != global::Spiderrock.Protobuf.YesNo.Unspecified) {
+        ContainsMultiHedge = other.ContainsMultiHedge;
       }
       if (other.ResponseResult != global::Spiderrock.Protobuf.NoticeResult.Unspecified) {
         ResponseResult = other.ResponseResult;
@@ -1755,6 +1963,30 @@ namespace Spiderrock.Protobuf {
             PrtUAsk = input.ReadDouble();
             break;
           }
+          case 1216: {
+            NumOptLegs = input.ReadInt32();
+            break;
+          }
+          case 1224: {
+            SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
+            break;
+          }
+          case 1232: {
+            SpreadFlavor = (global::Spiderrock.Protobuf.SpreadFlavor) input.ReadEnum();
+            break;
+          }
+          case 1240: {
+            ContainsHedge = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1248: {
+            ContainsFlex = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1256: {
+            ContainsMultiHedge = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -1964,6 +2196,30 @@ namespace Spiderrock.Protobuf {
           }
           case 1209: {
             PrtUAsk = input.ReadDouble();
+            break;
+          }
+          case 1216: {
+            NumOptLegs = input.ReadInt32();
+            break;
+          }
+          case 1224: {
+            SpreadClass = (global::Spiderrock.Protobuf.SpreadClass) input.ReadEnum();
+            break;
+          }
+          case 1232: {
+            SpreadFlavor = (global::Spiderrock.Protobuf.SpreadFlavor) input.ReadEnum();
+            break;
+          }
+          case 1240: {
+            ContainsHedge = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1248: {
+            ContainsFlex = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
+            break;
+          }
+          case 1256: {
+            ContainsMultiHedge = (global::Spiderrock.Protobuf.YesNo) input.ReadEnum();
             break;
           }
         }

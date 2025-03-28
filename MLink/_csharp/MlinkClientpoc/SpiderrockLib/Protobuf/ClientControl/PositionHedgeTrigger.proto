@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message PositionHedgeTrigger {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float sym_hedge_band_dD = 100; // individual symbol hedge band ($delta)
+    float sym_hedge_band_gR = 101; // individual symbol hedge band (gamma ratio)
+    YesNo balance_symbols = 102; // target net delta symbol balance
+    HedgeAlgo hedge_algo = 103;
+    string exec_brkr_code = 104; // required if ALT_BROKER
+    string exec_brkr_algo = 105; // display name of exec broker algo (should not have spaces)
+    string exec_bkkr_tags = 106; // key/value set of algo tags that get forwarded to exec broker on order
+    string modified_by = 107; // user who last modified this record
+    SysEnvironment modified_in = 108;
+    google.protobuf.Timestamp timestamp = 109; // timestamp of last modification
+}
+
+

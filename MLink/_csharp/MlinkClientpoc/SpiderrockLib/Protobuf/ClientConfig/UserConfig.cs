@@ -27,7 +27,7 @@ namespace Spiderrock.Protobuf {
             "CiZQcm90b2J1Zi9DbGllbnRDb25maWcvVXNlckNvbmZpZy5wcm90bxITc3Bp",
             "ZGVycm9jay5wcm90b2J1ZhoXc3BpZGVycm9ja19jb21tb24ucHJvdG8aHmdv",
             "b2dsZS9wcm90b2J1Zi9kdXJhdGlvbi5wcm90bxofZ29vZ2xlL3Byb3RvYnVm",
-            "L3RpbWVzdGFtcC5wcm90byKIMAoKVXNlckNvbmZpZxIzCgVfbWV0YRgBIAEo",
+            "L3RpbWVzdGFtcC5wcm90byLEMAoKVXNlckNvbmZpZxIzCgVfbWV0YRgBIAEo",
             "CzIkLnNwaWRlcnJvY2sucHJvdG9idWYuTWVzc2FnZU1ldGFkYXRhEjIKBHBr",
             "ZXkYAiABKAsyJC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuUEtl",
             "eRITCgtjbGllbnRfZmlybRhkIAEoCRIwCgl1c2VyX3R5cGUYZyABKA4yHS5z",
@@ -45,130 +45,131 @@ namespace Spiderrock.Protobuf {
             "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASFAoLZGVzY3JpcHRpb24YhQEgASgJ",
             "EjsKEWRpc3BsYXlfdGltZV96b25lGIgBIAEoDjIfLnNwaWRlcnJvY2sucHJv",
             "dG9idWYuU1JUaW1lWm9uZRI/ChZtbGlua19hY3Rpdml0eV9sb2dnaW5nGIsB",
-            "IAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuTG9nQW1vdW50EkAKFGNsaWVu",
-            "dF9jb25maWdfYWNjZXNzGKABIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "Q29uZmlnQWNjZXNzEkYKFGFjY291bnRfdHlwZV9jb250cm9sGKMBIAEoDjIn",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuQWNjb3VudFR5cGVDb250cm9sEjwKEXBy",
-            "b2Rfb3JkZXJfYWNjZXNzGIIDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYu",
-            "T3JkZXJBY2Nlc3MSPAoRdGVzdF9vcmRlcl9hY2Nlc3MYgwMgASgOMiAuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5PcmRlckFjY2VzcxI7ChZjYW5fY2FuY2VsX3By",
-            "b2Rfb3JkZXJzGIQDIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
-            "OwoWY2FuX2NhbmNlbF90ZXN0X29yZGVycxiFAyABKA4yGi5zcGlkZXJyb2Nr",
-            "LnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29rX3Byb2RfZXhlY3V0aW9ucxiG",
-            "AyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29r",
-            "X3Rlc3RfZXhlY3V0aW9ucxiHAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "Llllc05vEjYKEWNhbl9lZGl0X21hcl9yaXNrGK8BIAEoDjIaLnNwaWRlcnJv",
-            "Y2sucHJvdG9idWYuWWVzTm8SPgoZY2FuX2VkaXRfc3VwZXJ2aXNvcnlfcmlz",
-            "axi1ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj8KGmNhbl9l",
-            "ZGl0X3N0b2NrX2xvY2F0ZV9saXN0GLgBIAEoDjIaLnNwaWRlcnJvY2sucHJv",
-            "dG9idWYuWWVzTm8SFQoMZGlzcGxheV9uYW1lGLsBIAEoCRIWCg1jb250YWN0",
-            "X2VtYWlsGL4BIAEoCRIWCg1jb250YWN0X3Bob25lGMEBIAEoCRIWCg1jb250",
-            "YWN0X3NsYWNrGMQBIAEoCRIZChBjb250YWN0X2ljZV9jaGF0GMcBIAEoCRId",
-            "ChRjb250YWN0X2JCZXJnX2hhbmRsZRjKASABKAkSGQoQY2hhdF9jbGllbnRf",
-            "ZmlybRiXAyABKAkSGAoPY2hhdF9wcm9kX2FjY250GJgDIAEoCRIYCg9jaGF0",
-            "X3Rlc3RfYWNjbnQYmQMgASgJEjMKDmNoYXRfc2hvd19yaXNrGJoDIAEoDjIa",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNwoMYXVjdGlvbl92aWV3GJsD",
-            "IAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQXVjdGlvblZpZXcSMQoJYXV0",
-            "aF90eXBlGM0BIAEoDjIdLnNwaWRlcnJvY2sucHJvdG9idWYuQXV0aFR5cGUS",
-            "GQoQYXV0aF9leHRlcm5fbmFtZRjQASABKAkSGwoSYXV0aF9leHRlcm5fcGFy",
-            "YW1zGNMBIAEoCRIWCg1kZWZhdWx0X2FjY250GNYBIAEoCRIWCg1hbHRfdXNl",
-            "cl9uYW1lGNkBIAEoCRIWCg1jbWVfdHJhZGVyX2lkGNwBIAEoCRIVCgxjbWVf",
-            "bG9jYXRpb24Y3wEgASgJEhYKDWNmZV90cmFkZXJfaWQY4gEgASgJEh8KFmNm",
-            "ZV9mcmVxdWVudF90cmFkZXJfaWQY5QEgASgJEhUKDGNmZV9sb2NhdGlvbhjo",
-            "ASABKAkSFgoNaWNlX3RyYWRlcl9pZBjrASABKAkSFQoMaWNlX3Bhc3N3b3Jk",
-            "GO4BIAEoCRIXCg5pY2VfY29tcGFueV9pZBjxASABKAkSFQoMaWNlX3N1Yl9y",
-            "b29tGI8DIAEoCRIXCg5jYm9lX3RyYWRlcl9pZBj0ASABKAkSOAoTZmlybV9w",
-            "b3NfdmlzaWJpbGl0eRj3ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlll",
-            "c05vEjoKFWFsbG93X3JhbmRvbV9zdHJhdGVneRj6ASABKA4yGi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlllc05vEj4KEHRvb2xfc2VydmVyX2NvZGUYgAIgASgO",
-            "MiMuc3BpZGVycm9jay5wcm90b2J1Zi5Ub29sU2VydmVyQ29kZRIZChB0b29s",
-            "X3NlcnZlcl9ob3N0GIMCIAEoCRIZChB0b29sX3NlcnZlcl9wb3J0GIYCIAEo",
-            "BRI4ChN0b29sc19hdXRvX3NodXRkb3duGIkCIAEoDjIaLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuWWVzTm8SPAoYdG9vbHNfYXV0b19zaHV0ZG93bl90aW1lGIwC",
-            "IAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlvbhIWCg1zcnNlX3B3ZF9o",
-            "YXNoGI8CIAEoCRIXCg5zcnNlX251bV9jb3JlcxiYAiABKAUSIgoZc3JzZV9t",
-            "YXhfY29ubmVjdHNfcGVyX2RheRibAiABKAUSJQocc3JzZV9tYXhfY29uY3Vy",
-            "cmVudF9jb25uZWN0cxieAiABKAUSGwoSc3JzZV9tYXhfcm93X2NhY2hlGKEC",
-            "IAEoBRIcChNzcnNlX21heF9uZXdfb3JkZXJzGKQCIAEoBRIkChtzcnNlX21h",
-            "eF9uZXdfb3JkZXJzX3Blcl9zZWMYpwIgASgFEioKIXNyc2VfbWF4X25ld19v",
-            "cmRlcnNfcGVyX3N0YXRlbWVudBiqAiABKAUSEgoJbm1zX2JhZGdlGIsDIAEo",
-            "CRISCgljZmVfYmFkZ2UYjAMgASgJEhIKCWNtZV9iYWRnZRiNAyABKAkSEgoJ",
-            "aWNlX2JhZGdlGI4DIAEoCRIQCgdhcGlfa2V5GOMCIAEoCRI0Cg9hcGlfa2V5",
-            "X2V4cGlyZXMY5gIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI3",
-            "ChJoYXNfYXBpX2tleV9hY2Nlc3MYkAMgASgOMhouc3BpZGVycm9jay5wcm90",
-            "b2J1Zi5ZZXNObxIWCg1wYXNzd29yZF9oYXNoGOkCIAEoCRI1ChBwYXNzd29y",
-            "ZF9leHBpcmVzGOwCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
-            "GwoSdGVtcF9wYXNzd29yZF9oYXNoGO8CIAEoCRI6ChV0ZW1wX3Bhc3N3b3Jk",
-            "X2V4cGlyZXMY8gIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIe",
-            "ChV0ZW1wX3Bhc3N3b3JkX2NvdW50ZXIY9QIgASgFEhMKCm1mYV9zZWNyZXQY",
-            "+AIgASgJEhQKC21vZGlmaWVkX2J5GPsCIAEoCRI5Cgttb2RpZmllZF9pbhj+",
-            "AiABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5c0Vudmlyb25tZW50Ei4K",
-            "CXRpbWVzdGFtcBiBAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
-            "Eh0KFGNsaWVudF9maXJtX2xpc3RfX3Y3GIgnIAEoCRIZChBiaWxsaW5nX2Zp",
-            "cm1fX3Y3GIknIAEoCRIXCg5maXJzdF9uYW1lX192NxiKJyABKAkSFgoNbGFz",
-            "dF9uYW1lX192NxiLJyABKAkSFgoNdHJhZGVyX2lkX192NxiMJyABKAkSGgoR",
-            "aWNlX3RyYWRlcl9pZF9fdjcYjScgASgJEhkKEGljZV9wYXNzd29yZF9fdjcY",
-            "jicgASgJEhsKEmljZV9jb21wYW55X2lkX192NxiPJyABKAkSGwoSc3JfYWNj",
-            "ZXNzX2hhc2hfX3Y3GJAnIAEoCRIaChFleGVjX3VzZXJuYW1lX192NxiRJyAB",
-            "KAkSFwoOdXNlcl9ncm91cF9fdjcYkicgASgJEhcKDmFjY250X2xpc3RfX3Y3",
-            "GJMnIAEoCRI2ChF2aWV3X2luYWN0aXZlX192NxiUJyABKA4yGi5zcGlkZXJy",
-            "b2NrLnByb3RvYnVmLlllc05vEh0KFHRvb2xfcHJvZHVjdF9hY2xfX3Y3GJUn",
-            "IAEoCRIgChdlbGFzdGljX3Byb2R1Y3RfYWNsX192NxiWJyABKAkSHAoTbWFy",
-            "a2V0X2RhdGFfYWNsX192NxiXJyABKAkSHQoUc3JzZV9wcm9kdWN0X2FjbF9f",
-            "djcYmCcgASgJEiAKF3Nyc2VfaGlzdG9yaWNhbF9hY2xfX3Y3GJknIAEoCRIX",
-            "Cg5jb250YWN0X2lNX192NxiaJyABKAkSVQoWYWNjb3VudF9hY2Nlc3NfY29u",
-            "dHJvbBiXASADKAsyNC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcu",
-            "QWNjb3VudEFjY2Vzc0NvbnRyb2wSOgoIYXBpX2tleXMYkQMgAygLMicuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLkFwaUtleXMSVQoWY2l0cml4",
-            "X3Byb2R1Y3RfY29udHJvbBj7ASADKAsyNC5zcGlkZXJyb2NrLnByb3RvYnVm",
-            "LlVzZXJDb25maWcuQ2l0cml4UHJvZHVjdENvbnRyb2wSXQobY2xpZW50X2Zp",
-            "cm1fdmlld19hY2Nlc3NfX3Y3GJsnIAMoCzI3LnNwaWRlcnJvY2sucHJvdG9i",
-            "dWYuVXNlckNvbmZpZy5DbGllbnRGaXJtVmlld0FjY2Vzc19WNxJFCg5tX2xp",
-            "bmtfY29udHJvbBi8AiADKAsyLC5zcGlkZXJyb2NrLnByb3RvYnVmLlVzZXJD",
-            "b25maWcuTUxpbmtDb250cm9sEk8KE21hcmtldF9kYXRhX2NvbnRyb2wYzgIg",
-            "AygLMjEuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLk1hcmtldERh",
-            "dGFDb250cm9sElcKF3Nyc2VfaGlzdG9yaWNhbF9jb250cm9sGJUCIAMoCzI1",
-            "LnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZpZy5TcnNlSGlzdG9yaWNh",
-            "bENvbnRyb2wSUQoUc3JzZV9wcm9kdWN0X2NvbnRyb2wYkgIgAygLMjIuc3Bp",
-            "ZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLlNyc2VQcm9kdWN0Q29udHJv",
-            "bBJPChN3ZWJfcHJvZHVjdF9jb250cm9sGLACIAMoCzIxLnNwaWRlcnJvY2su",
-            "cHJvdG9idWYuVXNlckNvbmZpZy5XZWJQcm9kdWN0Q29udHJvbBoZCgRQS2V5",
-            "EhEKCXVzZXJfbmFtZRgKIAEoCRpkChRBY2NvdW50QWNjZXNzQ29udHJvbBIO",
-            "CgVhY2NudBiaASABKAkSPAoLYWNjZXNzX3R5cGUYnQEgASgOMiYuc3BpZGVy",
-            "cm9jay5wcm90b2J1Zi5BY2NvdW50QWNjZXNzVHlwZRqRAQoHQXBpS2V5cxIL",
-            "CgJpZBiSAyABKAUSDQoEaGFzaBiTAyABKAkSLAoHZXhwaXJlcxiUAyABKAsy",
-            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiwKB2NyZWF0ZWQYlQMgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIOCgVsYWJlbBiWAyABKAka",
-            "gwEKFENpdHJpeFByb2R1Y3RDb250cm9sEj0KDHByb2R1Y3RfY29kZRj8ASAB",
-            "KA4yJi5zcGlkZXJyb2NrLnByb3RvYnVmLkNpdHJpeFByb2R1Y3RDb2RlEiwK",
-            "B2V4cGlyZXMY/QEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpl",
-            "ChdDbGllbnRGaXJtVmlld0FjY2Vzc19WNxIYCg9jbGllbnRfZmlybV9fdjcY",
-            "nCcgASgJEjAKC2V4cGlyZXNfX3Y3GJ0nIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXAagAIKDE1MaW5rQ29udHJvbBIvCgV0b2tlbhi/AiABKA4y",
-            "Hy5zcGlkZXJyb2NrLnByb3RvYnVmLk1MaW5rVG9rZW4SLAoHZXhwaXJlcxjC",
-            "AiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8KCHN0a19leGNo",
-            "GMUCIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYuU3RrRXhjaBIvCghmdXRf",
-            "ZXhjaBjIAiABKA4yHC5zcGlkZXJyb2NrLnByb3RvYnVmLkZ1dEV4Y2gSLwoI",
-            "b3B0X2V4Y2gYywIgASgOMhwuc3BpZGVycm9jay5wcm90b2J1Zi5PcHRFeGNo",
-            "GukBChFNYXJrZXREYXRhQ29udHJvbBI0CgV0b2tlbhjRAiABKA4yJC5zcGlk",
-            "ZXJyb2NrLnByb3RvYnVmLk1hcmtldERhdGFUb2tlbhI0CgVzY29wZRjUAiAB",
-            "KA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtldERhdGFTY29wZRI6Cg5j",
-            "bGFzc2lmaWNhdGlvbhjXAiABKA4yIS5zcGlkZXJyb2NrLnByb3RvYnVmLk1r",
-            "dERhdGFDbGFzcxIsCgdleHBpcmVzGNoCIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXAaggEKFVNyc2VIaXN0b3JpY2FsQ29udHJvbBI7Cgxwcm9k",
-            "dWN0X2NvZGUYlgIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5TcnNlUHJv",
-            "ZHVjdENvZGUSLAoHZXhwaXJlcxiXAiABKAsyGi5nb29nbGUucHJvdG9idWYu",
-            "VGltZXN0YW1wGn8KElNyc2VQcm9kdWN0Q29udHJvbBI7Cgxwcm9kdWN0X2Nv",
-            "ZGUYkwIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1Zi5TcnNlUHJvZHVjdENv",
-            "ZGUSLAoHZXhwaXJlcxiUAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wGocBChFXZWJQcm9kdWN0Q29udHJvbBI0CgV0b2tlbhizAiABKA4yJC5z",
-            "cGlkZXJyb2NrLnByb3RvYnVmLldlYlByb2R1Y3RUb2tlbhIsCgdleHBpcmVz",
-            "GLYCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDgoFdmFsdWUY",
-            "uQIgASgJYgZwcm90bzM="));
+            "IAEoDjIeLnNwaWRlcnJvY2sucHJvdG9idWYuTG9nQW1vdW50Eh8KFm1saW5r",
+            "X21heF9ieXRlc19wZXJfbXMYnQMgASgFEkAKFGNsaWVudF9jb25maWdfYWNj",
+            "ZXNzGKABIAEoDjIhLnNwaWRlcnJvY2sucHJvdG9idWYuQ29uZmlnQWNjZXNz",
+            "EkYKFGFjY291bnRfdHlwZV9jb250cm9sGKMBIAEoDjInLnNwaWRlcnJvY2su",
+            "cHJvdG9idWYuQWNjb3VudFR5cGVDb250cm9sEjwKEXByb2Rfb3JkZXJfYWNj",
+            "ZXNzGIIDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuT3JkZXJBY2Nlc3MS",
+            "PAoRdGVzdF9vcmRlcl9hY2Nlc3MYgwMgASgOMiAuc3BpZGVycm9jay5wcm90",
+            "b2J1Zi5PcmRlckFjY2VzcxI7ChZjYW5fY2FuY2VsX3Byb2Rfb3JkZXJzGIQD",
+            "IAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SOwoWY2FuX2NhbmNl",
+            "bF90ZXN0X29yZGVycxiFAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlll",
+            "c05vEj0KGGNhbl9ib29rX3Byb2RfZXhlY3V0aW9ucxiGAyABKA4yGi5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlllc05vEj0KGGNhbl9ib29rX3Rlc3RfZXhlY3V0",
+            "aW9ucxiHAyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEjYKEWNh",
+            "bl9lZGl0X21hcl9yaXNrGK8BIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "WWVzTm8SPgoZY2FuX2VkaXRfc3VwZXJ2aXNvcnlfcmlzaxi1ASABKA4yGi5z",
+            "cGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj8KGmNhbl9lZGl0X3N0b2NrX2xv",
+            "Y2F0ZV9saXN0GLgBIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8S",
+            "FQoMZGlzcGxheV9uYW1lGLsBIAEoCRIWCg1jb250YWN0X2VtYWlsGL4BIAEo",
+            "CRIWCg1jb250YWN0X3Bob25lGMEBIAEoCRIWCg1jb250YWN0X3NsYWNrGMQB",
+            "IAEoCRIZChBjb250YWN0X2ljZV9jaGF0GMcBIAEoCRIdChRjb250YWN0X2JC",
+            "ZXJnX2hhbmRsZRjKASABKAkSGQoQY29udGFjdF9zeW1fY2hhdBicAyABKAkS",
+            "GQoQY2hhdF9jbGllbnRfZmlybRiXAyABKAkSGAoPY2hhdF9wcm9kX2FjY250",
+            "GJgDIAEoCRIYCg9jaGF0X3Rlc3RfYWNjbnQYmQMgASgJEjMKDmNoYXRfc2hv",
+            "d19yaXNrGJoDIAEoDjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SNwoM",
+            "YXVjdGlvbl92aWV3GJsDIAEoDjIgLnNwaWRlcnJvY2sucHJvdG9idWYuQXVj",
+            "dGlvblZpZXcSMQoJYXV0aF90eXBlGM0BIAEoDjIdLnNwaWRlcnJvY2sucHJv",
+            "dG9idWYuQXV0aFR5cGUSGQoQYXV0aF9leHRlcm5fbmFtZRjQASABKAkSGwoS",
+            "YXV0aF9leHRlcm5fcGFyYW1zGNMBIAEoCRIWCg1kZWZhdWx0X2FjY250GNYB",
+            "IAEoCRIWCg1hbHRfdXNlcl9uYW1lGNkBIAEoCRIWCg1jbWVfdHJhZGVyX2lk",
+            "GNwBIAEoCRIVCgxjbWVfbG9jYXRpb24Y3wEgASgJEhYKDWNmZV90cmFkZXJf",
+            "aWQY4gEgASgJEh8KFmNmZV9mcmVxdWVudF90cmFkZXJfaWQY5QEgASgJEhUK",
+            "DGNmZV9sb2NhdGlvbhjoASABKAkSFgoNaWNlX3RyYWRlcl9pZBjrASABKAkS",
+            "FQoMaWNlX3Bhc3N3b3JkGO4BIAEoCRIXCg5pY2VfY29tcGFueV9pZBjxASAB",
+            "KAkSFQoMaWNlX3N1Yl9yb29tGI8DIAEoCRIXCg5jYm9lX3RyYWRlcl9pZBj0",
+            "ASABKAkSOAoTZmlybV9wb3NfdmlzaWJpbGl0eRj3ASABKA4yGi5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLlllc05vEjoKFWFsbG93X3JhbmRvbV9zdHJhdGVneRj6",
+            "ASABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEj4KEHRvb2xfc2Vy",
+            "dmVyX2NvZGUYgAIgASgOMiMuc3BpZGVycm9jay5wcm90b2J1Zi5Ub29sU2Vy",
+            "dmVyQ29kZRIZChB0b29sX3NlcnZlcl9ob3N0GIMCIAEoCRIZChB0b29sX3Nl",
+            "cnZlcl9wb3J0GIYCIAEoBRI4ChN0b29sc19hdXRvX3NodXRkb3duGIkCIAEo",
+            "DjIaLnNwaWRlcnJvY2sucHJvdG9idWYuWWVzTm8SPAoYdG9vbHNfYXV0b19z",
+            "aHV0ZG93bl90aW1lGIwCIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJhdGlv",
+            "bhIWCg1zcnNlX3B3ZF9oYXNoGI8CIAEoCRIXCg5zcnNlX251bV9jb3JlcxiY",
+            "AiABKAUSIgoZc3JzZV9tYXhfY29ubmVjdHNfcGVyX2RheRibAiABKAUSJQoc",
+            "c3JzZV9tYXhfY29uY3VycmVudF9jb25uZWN0cxieAiABKAUSGwoSc3JzZV9t",
+            "YXhfcm93X2NhY2hlGKECIAEoBRIcChNzcnNlX21heF9uZXdfb3JkZXJzGKQC",
+            "IAEoBRIkChtzcnNlX21heF9uZXdfb3JkZXJzX3Blcl9zZWMYpwIgASgFEioK",
+            "IXNyc2VfbWF4X25ld19vcmRlcnNfcGVyX3N0YXRlbWVudBiqAiABKAUSEgoJ",
+            "bm1zX2JhZGdlGIsDIAEoCRISCgljZmVfYmFkZ2UYjAMgASgJEhIKCWNtZV9i",
+            "YWRnZRiNAyABKAkSEgoJaWNlX2JhZGdlGI4DIAEoCRIQCgdhcGlfa2V5GOMC",
+            "IAEoCRI0Cg9hcGlfa2V5X2V4cGlyZXMY5gIgASgLMhouZ29vZ2xlLnByb3Rv",
+            "YnVmLlRpbWVzdGFtcBI3ChJoYXNfYXBpX2tleV9hY2Nlc3MYkAMgASgOMhou",
+            "c3BpZGVycm9jay5wcm90b2J1Zi5ZZXNObxIWCg1wYXNzd29yZF9oYXNoGOkC",
+            "IAEoCRI1ChBwYXNzd29yZF9leHBpcmVzGOwCIAEoCzIaLmdvb2dsZS5wcm90",
+            "b2J1Zi5UaW1lc3RhbXASGwoSdGVtcF9wYXNzd29yZF9oYXNoGO8CIAEoCRI6",
+            "ChV0ZW1wX3Bhc3N3b3JkX2V4cGlyZXMY8gIgASgLMhouZ29vZ2xlLnByb3Rv",
+            "YnVmLlRpbWVzdGFtcBIeChV0ZW1wX3Bhc3N3b3JkX2NvdW50ZXIY9QIgASgF",
+            "EhMKCm1mYV9zZWNyZXQY+AIgASgJEhQKC21vZGlmaWVkX2J5GPsCIAEoCRI5",
+            "Cgttb2RpZmllZF9pbhj+AiABKA4yIy5zcGlkZXJyb2NrLnByb3RvYnVmLlN5",
+            "c0Vudmlyb25tZW50Ei4KCXRpbWVzdGFtcBiBAyABKAsyGi5nb29nbGUucHJv",
+            "dG9idWYuVGltZXN0YW1wEh0KFGNsaWVudF9maXJtX2xpc3RfX3Y3GIgnIAEo",
+            "CRIZChBiaWxsaW5nX2Zpcm1fX3Y3GIknIAEoCRIXCg5maXJzdF9uYW1lX192",
+            "NxiKJyABKAkSFgoNbGFzdF9uYW1lX192NxiLJyABKAkSFgoNdHJhZGVyX2lk",
+            "X192NxiMJyABKAkSGgoRaWNlX3RyYWRlcl9pZF9fdjcYjScgASgJEhkKEGlj",
+            "ZV9wYXNzd29yZF9fdjcYjicgASgJEhsKEmljZV9jb21wYW55X2lkX192NxiP",
+            "JyABKAkSGwoSc3JfYWNjZXNzX2hhc2hfX3Y3GJAnIAEoCRIaChFleGVjX3Vz",
+            "ZXJuYW1lX192NxiRJyABKAkSFwoOdXNlcl9ncm91cF9fdjcYkicgASgJEhcK",
+            "DmFjY250X2xpc3RfX3Y3GJMnIAEoCRI2ChF2aWV3X2luYWN0aXZlX192NxiU",
+            "JyABKA4yGi5zcGlkZXJyb2NrLnByb3RvYnVmLlllc05vEh0KFHRvb2xfcHJv",
+            "ZHVjdF9hY2xfX3Y3GJUnIAEoCRIgChdlbGFzdGljX3Byb2R1Y3RfYWNsX192",
+            "NxiWJyABKAkSHAoTbWFya2V0X2RhdGFfYWNsX192NxiXJyABKAkSHQoUc3Jz",
+            "ZV9wcm9kdWN0X2FjbF9fdjcYmCcgASgJEiAKF3Nyc2VfaGlzdG9yaWNhbF9h",
+            "Y2xfX3Y3GJknIAEoCRIXCg5jb250YWN0X2lNX192NxiaJyABKAkSVQoWYWNj",
+            "b3VudF9hY2Nlc3NfY29udHJvbBiXASADKAsyNC5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLlVzZXJDb25maWcuQWNjb3VudEFjY2Vzc0NvbnRyb2wSOgoIYXBpX2tl",
+            "eXMYkQMgAygLMicuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLkFw",
+            "aUtleXMSVQoWY2l0cml4X3Byb2R1Y3RfY29udHJvbBj7ASADKAsyNC5zcGlk",
+            "ZXJyb2NrLnByb3RvYnVmLlVzZXJDb25maWcuQ2l0cml4UHJvZHVjdENvbnRy",
+            "b2wSXQobY2xpZW50X2Zpcm1fdmlld19hY2Nlc3NfX3Y3GJsnIAMoCzI3LnNw",
+            "aWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZpZy5DbGllbnRGaXJtVmlld0Fj",
+            "Y2Vzc19WNxJFCg5tX2xpbmtfY29udHJvbBi8AiADKAsyLC5zcGlkZXJyb2Nr",
+            "LnByb3RvYnVmLlVzZXJDb25maWcuTUxpbmtDb250cm9sEk8KE21hcmtldF9k",
+            "YXRhX2NvbnRyb2wYzgIgAygLMjEuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2Vy",
+            "Q29uZmlnLk1hcmtldERhdGFDb250cm9sElcKF3Nyc2VfaGlzdG9yaWNhbF9j",
+            "b250cm9sGJUCIAMoCzI1LnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZp",
+            "Zy5TcnNlSGlzdG9yaWNhbENvbnRyb2wSUQoUc3JzZV9wcm9kdWN0X2NvbnRy",
+            "b2wYkgIgAygLMjIuc3BpZGVycm9jay5wcm90b2J1Zi5Vc2VyQ29uZmlnLlNy",
+            "c2VQcm9kdWN0Q29udHJvbBJPChN3ZWJfcHJvZHVjdF9jb250cm9sGLACIAMo",
+            "CzIxLnNwaWRlcnJvY2sucHJvdG9idWYuVXNlckNvbmZpZy5XZWJQcm9kdWN0",
+            "Q29udHJvbBoZCgRQS2V5EhEKCXVzZXJfbmFtZRgKIAEoCRpkChRBY2NvdW50",
+            "QWNjZXNzQ29udHJvbBIOCgVhY2NudBiaASABKAkSPAoLYWNjZXNzX3R5cGUY",
+            "nQEgASgOMiYuc3BpZGVycm9jay5wcm90b2J1Zi5BY2NvdW50QWNjZXNzVHlw",
+            "ZRqRAQoHQXBpS2V5cxILCgJpZBiSAyABKAUSDQoEaGFzaBiTAyABKAkSLAoH",
+            "ZXhwaXJlcxiUAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiwK",
+            "B2NyZWF0ZWQYlQMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIO",
+            "CgVsYWJlbBiWAyABKAkagwEKFENpdHJpeFByb2R1Y3RDb250cm9sEj0KDHBy",
+            "b2R1Y3RfY29kZRj8ASABKA4yJi5zcGlkZXJyb2NrLnByb3RvYnVmLkNpdHJp",
+            "eFByb2R1Y3RDb2RlEiwKB2V4cGlyZXMY/QEgASgLMhouZ29vZ2xlLnByb3Rv",
+            "YnVmLlRpbWVzdGFtcBplChdDbGllbnRGaXJtVmlld0FjY2Vzc19WNxIYCg9j",
+            "bGllbnRfZmlybV9fdjcYnCcgASgJEjAKC2V4cGlyZXNfX3Y3GJ0nIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAagAIKDE1MaW5rQ29udHJvbBIv",
+            "CgV0b2tlbhi/AiABKA4yHy5zcGlkZXJyb2NrLnByb3RvYnVmLk1MaW5rVG9r",
+            "ZW4SLAoHZXhwaXJlcxjCAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wEi8KCHN0a19leGNoGMUCIAEoDjIcLnNwaWRlcnJvY2sucHJvdG9idWYu",
+            "U3RrRXhjaBIvCghmdXRfZXhjaBjIAiABKA4yHC5zcGlkZXJyb2NrLnByb3Rv",
+            "YnVmLkZ1dEV4Y2gSLwoIb3B0X2V4Y2gYywIgASgOMhwuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5PcHRFeGNoGukBChFNYXJrZXREYXRhQ29udHJvbBI0CgV0b2tl",
+            "bhjRAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtldERhdGFUb2tl",
+            "bhI0CgVzY29wZRjUAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLk1hcmtl",
+            "dERhdGFTY29wZRI6Cg5jbGFzc2lmaWNhdGlvbhjXAiABKA4yIS5zcGlkZXJy",
+            "b2NrLnByb3RvYnVmLk1rdERhdGFDbGFzcxIsCgdleHBpcmVzGNoCIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAaggEKFVNyc2VIaXN0b3JpY2Fs",
+            "Q29udHJvbBI7Cgxwcm9kdWN0X2NvZGUYlgIgASgOMiQuc3BpZGVycm9jay5w",
+            "cm90b2J1Zi5TcnNlUHJvZHVjdENvZGUSLAoHZXhwaXJlcxiXAiABKAsyGi5n",
+            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wGn8KElNyc2VQcm9kdWN0Q29udHJv",
+            "bBI7Cgxwcm9kdWN0X2NvZGUYkwIgASgOMiQuc3BpZGVycm9jay5wcm90b2J1",
+            "Zi5TcnNlUHJvZHVjdENvZGUSLAoHZXhwaXJlcxiUAiABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuVGltZXN0YW1wGocBChFXZWJQcm9kdWN0Q29udHJvbBI0CgV0",
+            "b2tlbhizAiABKA4yJC5zcGlkZXJyb2NrLnByb3RvYnVmLldlYlByb2R1Y3RU",
+            "b2tlbhIsCgdleHBpcmVzGLYCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASDgoFdmFsdWUYuQIgASgJYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Spiderrock.Protobuf.SpiderrockCommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig), global::Spiderrock.Protobuf.UserConfig.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "UserType", "UserStatus", "UserStatusDttm", "UserToBeFrozen", "UserToBeFrozenDttm", "UserAuthAction", "UserAuthState", "UserAuthError", "LastInviteTimestamp", "LastAcceptTimestamp", "Description", "DisplayTimeZone", "MlinkActivityLogging", "ClientConfigAccess", "AccountTypeControl", "ProdOrderAccess", "TestOrderAccess", "CanCancelProdOrders", "CanCancelTestOrders", "CanBookProdExecutions", "CanBookTestExecutions", "CanEditMarRisk", "CanEditSupervisoryRisk", "CanEditStockLocateList", "DisplayName", "ContactEmail", "ContactPhone", "ContactSlack", "ContactIceChat", "ContactBBergHandle", "ChatClientFirm", "ChatProdAccnt", "ChatTestAccnt", "ChatShowRisk", "AuctionView", "AuthType", "AuthExternName", "AuthExternParams", "DefaultAccnt", "AltUserName", "CmeTraderId", "CmeLocation", "CfeTraderId", "CfeFrequentTraderId", "CfeLocation", "IceTraderId", "IcePassword", "IceCompanyId", "IceSubRoom", "CboeTraderId", "FirmPosVisibility", "AllowRandomStrategy", "ToolServerCode", "ToolServerHost", "ToolServerPort", "ToolsAutoShutdown", "ToolsAutoShutdownTime", "SrsePwdHash", "SrseNumCores", "SrseMaxConnectsPerDay", "SrseMaxConcurrentConnects", "SrseMaxRowCache", "SrseMaxNewOrders", "SrseMaxNewOrdersPerSec", "SrseMaxNewOrdersPerStatement", "NmsBadge", "CfeBadge", "CmeBadge", "IceBadge", "ApiKey", "ApiKeyExpires", "HasApiKeyAccess", "PasswordHash", "PasswordExpires", "TempPasswordHash", "TempPasswordExpires", "TempPasswordCounter", "MfaSecret", "ModifiedBy", "ModifiedIn", "Timestamp", "ClientFirmListV7", "BillingFirmV7", "FirstNameV7", "LastNameV7", "TraderIdV7", "IceTraderIdV7", "IcePasswordV7", "IceCompanyIdV7", "SrAccessHashV7", "ExecUsernameV7", "UserGroupV7", "AccntListV7", "ViewInactiveV7", "ToolProductAclV7", "ElasticProductAclV7", "MarketDataAclV7", "SrseProductAclV7", "SrseHistoricalAclV7", "ContactIMV7", "AccountAccessControl", "ApiKeys", "CitrixProductControl", "ClientFirmViewAccessV7", "MLinkControl", "MarketDataControl", "SrseHistoricalControl", "SrseProductControl", "WebProductControl" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.PKey), global::Spiderrock.Protobuf.UserConfig.Types.PKey.Parser, new[]{ "UserName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig), global::Spiderrock.Protobuf.UserConfig.Parser, new[]{ "Meta", "Pkey", "ClientFirm", "UserType", "UserStatus", "UserStatusDttm", "UserToBeFrozen", "UserToBeFrozenDttm", "UserAuthAction", "UserAuthState", "UserAuthError", "LastInviteTimestamp", "LastAcceptTimestamp", "Description", "DisplayTimeZone", "MlinkActivityLogging", "MlinkMaxBytesPerMs", "ClientConfigAccess", "AccountTypeControl", "ProdOrderAccess", "TestOrderAccess", "CanCancelProdOrders", "CanCancelTestOrders", "CanBookProdExecutions", "CanBookTestExecutions", "CanEditMarRisk", "CanEditSupervisoryRisk", "CanEditStockLocateList", "DisplayName", "ContactEmail", "ContactPhone", "ContactSlack", "ContactIceChat", "ContactBBergHandle", "ContactSymChat", "ChatClientFirm", "ChatProdAccnt", "ChatTestAccnt", "ChatShowRisk", "AuctionView", "AuthType", "AuthExternName", "AuthExternParams", "DefaultAccnt", "AltUserName", "CmeTraderId", "CmeLocation", "CfeTraderId", "CfeFrequentTraderId", "CfeLocation", "IceTraderId", "IcePassword", "IceCompanyId", "IceSubRoom", "CboeTraderId", "FirmPosVisibility", "AllowRandomStrategy", "ToolServerCode", "ToolServerHost", "ToolServerPort", "ToolsAutoShutdown", "ToolsAutoShutdownTime", "SrsePwdHash", "SrseNumCores", "SrseMaxConnectsPerDay", "SrseMaxConcurrentConnects", "SrseMaxRowCache", "SrseMaxNewOrders", "SrseMaxNewOrdersPerSec", "SrseMaxNewOrdersPerStatement", "NmsBadge", "CfeBadge", "CmeBadge", "IceBadge", "ApiKey", "ApiKeyExpires", "HasApiKeyAccess", "PasswordHash", "PasswordExpires", "TempPasswordHash", "TempPasswordExpires", "TempPasswordCounter", "MfaSecret", "ModifiedBy", "ModifiedIn", "Timestamp", "ClientFirmListV7", "BillingFirmV7", "FirstNameV7", "LastNameV7", "TraderIdV7", "IceTraderIdV7", "IcePasswordV7", "IceCompanyIdV7", "SrAccessHashV7", "ExecUsernameV7", "UserGroupV7", "AccntListV7", "ViewInactiveV7", "ToolProductAclV7", "ElasticProductAclV7", "MarketDataAclV7", "SrseProductAclV7", "SrseHistoricalAclV7", "ContactIMV7", "AccountAccessControl", "ApiKeys", "CitrixProductControl", "ClientFirmViewAccessV7", "MLinkControl", "MarketDataControl", "SrseHistoricalControl", "SrseProductControl", "WebProductControl" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.PKey), global::Spiderrock.Protobuf.UserConfig.Types.PKey.Parser, new[]{ "UserName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.AccountAccessControl), global::Spiderrock.Protobuf.UserConfig.Types.AccountAccessControl.Parser, new[]{ "Accnt", "AccessType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys), global::Spiderrock.Protobuf.UserConfig.Types.ApiKeys.Parser, new[]{ "Id", "Hash", "Expires", "Created", "Label" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl), global::Spiderrock.Protobuf.UserConfig.Types.CitrixProductControl.Parser, new[]{ "ProductCode", "Expires" }, null, null, null, null),
@@ -234,6 +235,7 @@ namespace Spiderrock.Protobuf {
       description_ = other.description_;
       displayTimeZone_ = other.displayTimeZone_;
       mlinkActivityLogging_ = other.mlinkActivityLogging_;
+      mlinkMaxBytesPerMs_ = other.mlinkMaxBytesPerMs_;
       clientConfigAccess_ = other.clientConfigAccess_;
       accountTypeControl_ = other.accountTypeControl_;
       prodOrderAccess_ = other.prodOrderAccess_;
@@ -251,6 +253,7 @@ namespace Spiderrock.Protobuf {
       contactSlack_ = other.contactSlack_;
       contactIceChat_ = other.contactIceChat_;
       contactBBergHandle_ = other.contactBBergHandle_;
+      contactSymChat_ = other.contactSymChat_;
       chatClientFirm_ = other.chatClientFirm_;
       chatProdAccnt_ = other.chatProdAccnt_;
       chatTestAccnt_ = other.chatTestAccnt_;
@@ -564,6 +567,21 @@ namespace Spiderrock.Protobuf {
       }
     }
 
+    /// <summary>Field number for the "mlink_max_bytes_per_ms" field.</summary>
+    public const int MlinkMaxBytesPerMsFieldNumber = 413;
+    private int mlinkMaxBytesPerMs_;
+    /// <summary>
+    /// maximum number of bytes sent in a given millisecond via mink
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MlinkMaxBytesPerMs {
+      get { return mlinkMaxBytesPerMs_; }
+      set {
+        mlinkMaxBytesPerMs_ = value;
+      }
+    }
+
     /// <summary>Field number for the "client_config_access" field.</summary>
     public const int ClientConfigAccessFieldNumber = 160;
     private global::Spiderrock.Protobuf.ConfigAccess clientConfigAccess_ = global::Spiderrock.Protobuf.ConfigAccess.Unspecified;
@@ -798,6 +816,21 @@ namespace Spiderrock.Protobuf {
       get { return contactBBergHandle_; }
       set {
         contactBBergHandle_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "contact_sym_chat" field.</summary>
+    public const int ContactSymChatFieldNumber = 412;
+    private string contactSymChat_ = "";
+    /// <summary>
+    /// Contact Symphony Stream ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ContactSymChat {
+      get { return contactSymChat_; }
+      set {
+        contactSymChat_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1975,6 +2008,7 @@ namespace Spiderrock.Protobuf {
       if (Description != other.Description) return false;
       if (DisplayTimeZone != other.DisplayTimeZone) return false;
       if (MlinkActivityLogging != other.MlinkActivityLogging) return false;
+      if (MlinkMaxBytesPerMs != other.MlinkMaxBytesPerMs) return false;
       if (ClientConfigAccess != other.ClientConfigAccess) return false;
       if (AccountTypeControl != other.AccountTypeControl) return false;
       if (ProdOrderAccess != other.ProdOrderAccess) return false;
@@ -1992,6 +2026,7 @@ namespace Spiderrock.Protobuf {
       if (ContactSlack != other.ContactSlack) return false;
       if (ContactIceChat != other.ContactIceChat) return false;
       if (ContactBBergHandle != other.ContactBBergHandle) return false;
+      if (ContactSymChat != other.ContactSymChat) return false;
       if (ChatClientFirm != other.ChatClientFirm) return false;
       if (ChatProdAccnt != other.ChatProdAccnt) return false;
       if (ChatTestAccnt != other.ChatTestAccnt) return false;
@@ -2094,6 +2129,7 @@ namespace Spiderrock.Protobuf {
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (DisplayTimeZone != global::Spiderrock.Protobuf.SRTimeZone.Unspecified) hash ^= DisplayTimeZone.GetHashCode();
       if (MlinkActivityLogging != global::Spiderrock.Protobuf.LogAmount.Unspecified) hash ^= MlinkActivityLogging.GetHashCode();
+      if (MlinkMaxBytesPerMs != 0) hash ^= MlinkMaxBytesPerMs.GetHashCode();
       if (ClientConfigAccess != global::Spiderrock.Protobuf.ConfigAccess.Unspecified) hash ^= ClientConfigAccess.GetHashCode();
       if (AccountTypeControl != global::Spiderrock.Protobuf.AccountTypeControl.Unspecified) hash ^= AccountTypeControl.GetHashCode();
       if (ProdOrderAccess != global::Spiderrock.Protobuf.OrderAccess.Unspecified) hash ^= ProdOrderAccess.GetHashCode();
@@ -2111,6 +2147,7 @@ namespace Spiderrock.Protobuf {
       if (ContactSlack.Length != 0) hash ^= ContactSlack.GetHashCode();
       if (ContactIceChat.Length != 0) hash ^= ContactIceChat.GetHashCode();
       if (ContactBBergHandle.Length != 0) hash ^= ContactBBergHandle.GetHashCode();
+      if (ContactSymChat.Length != 0) hash ^= ContactSymChat.GetHashCode();
       if (ChatClientFirm.Length != 0) hash ^= ChatClientFirm.GetHashCode();
       if (ChatProdAccnt.Length != 0) hash ^= ChatProdAccnt.GetHashCode();
       if (ChatTestAccnt.Length != 0) hash ^= ChatTestAccnt.GetHashCode();
@@ -2552,6 +2589,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(216, 25);
         output.WriteEnum((int) AuctionView);
       }
+      if (ContactSymChat.Length != 0) {
+        output.WriteRawTag(226, 25);
+        output.WriteString(ContactSymChat);
+      }
+      if (MlinkMaxBytesPerMs != 0) {
+        output.WriteRawTag(232, 25);
+        output.WriteInt32(MlinkMaxBytesPerMs);
+      }
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(ClientFirmListV7);
@@ -2983,6 +3028,14 @@ namespace Spiderrock.Protobuf {
         output.WriteRawTag(216, 25);
         output.WriteEnum((int) AuctionView);
       }
+      if (ContactSymChat.Length != 0) {
+        output.WriteRawTag(226, 25);
+        output.WriteString(ContactSymChat);
+      }
+      if (MlinkMaxBytesPerMs != 0) {
+        output.WriteRawTag(232, 25);
+        output.WriteInt32(MlinkMaxBytesPerMs);
+      }
       if (ClientFirmListV7.Length != 0) {
         output.WriteRawTag(194, 184, 2);
         output.WriteString(ClientFirmListV7);
@@ -3118,6 +3171,9 @@ namespace Spiderrock.Protobuf {
       if (MlinkActivityLogging != global::Spiderrock.Protobuf.LogAmount.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) MlinkActivityLogging);
       }
+      if (MlinkMaxBytesPerMs != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(MlinkMaxBytesPerMs);
+      }
       if (ClientConfigAccess != global::Spiderrock.Protobuf.ConfigAccess.Unspecified) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ClientConfigAccess);
       }
@@ -3168,6 +3224,9 @@ namespace Spiderrock.Protobuf {
       }
       if (ContactBBergHandle.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ContactBBergHandle);
+      }
+      if (ContactSymChat.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ContactSymChat);
       }
       if (ChatClientFirm.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ChatClientFirm);
@@ -3466,6 +3525,9 @@ namespace Spiderrock.Protobuf {
       if (other.MlinkActivityLogging != global::Spiderrock.Protobuf.LogAmount.Unspecified) {
         MlinkActivityLogging = other.MlinkActivityLogging;
       }
+      if (other.MlinkMaxBytesPerMs != 0) {
+        MlinkMaxBytesPerMs = other.MlinkMaxBytesPerMs;
+      }
       if (other.ClientConfigAccess != global::Spiderrock.Protobuf.ConfigAccess.Unspecified) {
         ClientConfigAccess = other.ClientConfigAccess;
       }
@@ -3516,6 +3578,9 @@ namespace Spiderrock.Protobuf {
       }
       if (other.ContactBBergHandle.Length != 0) {
         ContactBBergHandle = other.ContactBBergHandle;
+      }
+      if (other.ContactSymChat.Length != 0) {
+        ContactSymChat = other.ContactSymChat;
       }
       if (other.ChatClientFirm.Length != 0) {
         ChatClientFirm = other.ChatClientFirm;
@@ -4167,6 +4232,14 @@ namespace Spiderrock.Protobuf {
             AuctionView = (global::Spiderrock.Protobuf.AuctionView) input.ReadEnum();
             break;
           }
+          case 3298: {
+            ContactSymChat = input.ReadString();
+            break;
+          }
+          case 3304: {
+            MlinkMaxBytesPerMs = input.ReadInt32();
+            break;
+          }
           case 40002: {
             ClientFirmListV7 = input.ReadString();
             break;
@@ -4661,6 +4734,14 @@ namespace Spiderrock.Protobuf {
           }
           case 3288: {
             AuctionView = (global::Spiderrock.Protobuf.AuctionView) input.ReadEnum();
+            break;
+          }
+          case 3298: {
+            ContactSymChat = input.ReadString();
+            break;
+          }
+          case 3304: {
+            MlinkMaxBytesPerMs = input.ReadInt32();
             break;
           }
           case 40002: {
