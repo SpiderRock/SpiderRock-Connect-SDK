@@ -84,5 +84,6 @@ public enum AdjConvention : byte { None=0,Original=1,OSI=2,SpcOnly=3,OSIAlt=4 };
  public enum UnderlierMode : byte { None=0,Actual=1,FrontMonth=2,UPrcAdj=3 };		
  public enum UpdateType : byte { None=0,PrcChange=1,SizeOnly=2,PrevPeriod=3 };		
  public enum VolumeTier : byte { None=0,Top50=1 };		
+ public enum YellowKey : byte { None=0,Govt=1,Corp=2,Mtge=3,MMkt=4,Muni=5,Pfd=6,Equity=7,Comdty=8,Index=9,Curncy=10 };		
  public enum YesNo : byte { None=0,Yes=1,No=2 };		
 

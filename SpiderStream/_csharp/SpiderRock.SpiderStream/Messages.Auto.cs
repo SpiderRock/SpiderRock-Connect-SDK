@@ -5803,9 +5803,12 @@ public partial class RootDefinition : IMessage
 		public Currency strikeCurr;
 		public TickerKeyLayout defaultSurfaceRoot;
 		public FixedString6Layout ricRoot;
+		public FixedString6Layout bbgRoot;
+		public YellowKey bbgGroup;
 		public TickerKeyLayout regionalCompositeRoot;
 		public DateTimeLayout timestamp;
 		public PricingSource_V7 pricingSource_V7;
+		public FixedString6Layout ricCode_V7;
     }
 
     internal BodyLayout body;
@@ -5890,12 +5893,18 @@ public partial class RootDefinition : IMessage
     public TickerKey DefaultSurfaceRoot { get => TickerKey.GetCreateTickerKey(body.defaultSurfaceRoot); set => body.defaultSurfaceRoot = value.Layout; }
      /// <summary>RIC Root</summary>
     public string RicRoot { get => body.ricRoot; set => body.ricRoot = value; }
+     /// <summary>Bloomberg root</summary>
+    public string BbgRoot { get => body.bbgRoot; set => body.bbgRoot = value; }
+     /// <summary>Bloomberg Yellow Key</summary>
+    public YellowKey BbgGroup { get => body.bbgGroup; set => body.bbgGroup = value; }
      /// <summary>regional composite ticker - set on European contributor products only</summary>
     public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
     public PricingSource_V7 PricingSource_V7 { get => body.pricingSource_V7; set => body.pricingSource_V7 = value; }
+     /// <summary>only V7</summary>
+    public string RicCode_V7 { get => body.ricCode_V7; set => body.ricCode_V7 = value; }
 
 
 } // RootDefinition
