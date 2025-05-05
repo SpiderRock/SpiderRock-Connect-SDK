@@ -240,7 +240,7 @@ public partial struct MessageType
             Type = 4365,
             Name = nameof(RootDefinition),
             IsCore = true,
-            SchemaHash = 0x4784e53f4ab757b4
+            SchemaHash = 0x39c82d60dc1aa3d7
         };
 
         attributes[2525] = new()

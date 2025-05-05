@@ -1198,6 +1198,21 @@ namespace SpiderRock
 			Top50=1
 		};
 
+ 		enum class YellowKey : Enum 
+		{
+			None=0,
+			Govt=1,
+			Corp=2,
+			Mtge=3,
+			MMkt=4,
+			Muni=5,
+			Pfd=6,
+			Equity=7,
+			Comdty=8,
+			Index=9,
+			Curncy=10
+		};
+
  		enum class YesNo : Enum 
 		{
 			None=0,

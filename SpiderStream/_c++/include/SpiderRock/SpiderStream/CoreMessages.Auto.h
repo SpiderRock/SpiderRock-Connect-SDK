@@ -2350,9 +2350,12 @@ private:
 		Currency strikeCurr;
 		TickerKey defaultSurfaceRoot;
 		String<6> ricRoot;
+		String<6> bbgRoot;
+		YellowKey bbgGroup;
 		TickerKey regionalCompositeRoot;
 		DateTime timestamp;
 		PricingSource_V7 pricingSource_V7;
+		String<6> ricCode_V7;
 	};
 	
 	Header header_;
@@ -2408,9 +2411,12 @@ public:
 	inline Currency strikeCurr() const { return layout_.strikeCurr; }
 	inline const TickerKey& defaultSurfaceRoot() const { return layout_.defaultSurfaceRoot; }
 	inline const String<6>& ricRoot() const { return layout_.ricRoot; }
+	inline const String<6>& bbgRoot() const { return layout_.bbgRoot; }
+	inline YellowKey bbgGroup() const { return layout_.bbgGroup; }
 	inline const TickerKey& regionalCompositeRoot() const { return layout_.regionalCompositeRoot; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	inline PricingSource_V7 pricingSource_V7() const { return layout_.pricingSource_V7; }
+	inline const String<6>& ricCode_V7() const { return layout_.ricCode_V7; }
 	
 	inline void Decode(Header* buf) 
 	{
