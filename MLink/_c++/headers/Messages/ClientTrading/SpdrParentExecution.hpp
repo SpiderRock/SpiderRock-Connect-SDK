@@ -955,6 +955,11 @@ namespace api {
     DECL_STRONG_TYPE(fill_exch_detail, string);
     #endif//_fill_exch_detail__GUARD__
 
+    #ifndef _cross_side__GUARD__
+    #define _cross_side__GUARD__
+    DECL_STRONG_TYPE(cross_side, spiderrock::protobuf::api::CrossSide);
+    #endif//_cross_side__GUARD__
+
     #ifndef _is_cross_breakup_fill__GUARD__
     #define _is_cross_breakup_fill__GUARD__
     DECL_STRONG_TYPE(is_cross_breakup_fill, spiderrock::protobuf::api::YesNo);
@@ -1664,6 +1669,7 @@ namespace api {
         using spdr_liquidity_tag = spiderrock::protobuf::api::spdr_liquidity_tag;
         using exch_liquidity_tag = spiderrock::protobuf::api::exch_liquidity_tag;
         using fill_exch_detail = spiderrock::protobuf::api::fill_exch_detail;
+        using cross_side = spiderrock::protobuf::api::cross_side;
         using is_cross_breakup_fill = spiderrock::protobuf::api::is_cross_breakup_fill;
         using last_capacity = spiderrock::protobuf::api::last_capacity;
         using exch_firm_type = spiderrock::protobuf::api::exch_firm_type;
@@ -1939,6 +1945,7 @@ namespace api {
         spdr_liquidity_tag m_spdr_liquidity_tag{};
         exch_liquidity_tag m_exch_liquidity_tag{};
         fill_exch_detail m_fill_exch_detail{};
+        cross_side m_cross_side{};
         is_cross_breakup_fill m_is_cross_breakup_fill{};
         last_capacity m_last_capacity{};
         exch_firm_type m_exch_firm_type{};
@@ -2589,6 +2596,9 @@ namespace api {
         }		
         fill_exch_detail get_fill_exch_detail() const {
             return m_fill_exch_detail;
+        }		
+        cross_side get_cross_side() const {
+            return m_cross_side;
         }		
         is_cross_breakup_fill get_is_cross_breakup_fill() const {
             return m_is_cross_breakup_fill;
@@ -3412,6 +3422,9 @@ namespace api {
         }
         void set_fill_exch_detail(const fill_exch_detail& value)  {
             m_fill_exch_detail = value;
+        }
+        void set_cross_side(const cross_side& value)  {
+            m_cross_side = value;
         }
         void set_is_cross_breakup_fill(const is_cross_breakup_fill& value)  {
             m_is_cross_breakup_fill = value;
@@ -4240,6 +4253,9 @@ namespace api {
         void set(const fill_exch_detail & value) {
             set_fill_exch_detail(value);
         }
+        void set(const cross_side & value) {
+            set_cross_side(value);
+        }
         void set(const is_cross_breakup_fill & value) {
             set_is_cross_breakup_fill(value);
         }
@@ -4687,6 +4703,7 @@ namespace api {
             set(value.m_spdr_liquidity_tag);
             set(value.m_exch_liquidity_tag);
             set(value.m_fill_exch_detail);
+            set(value.m_cross_side);
             set(value.m_is_cross_breakup_fill);
             set(value.m_last_capacity);
             set(value.m_exch_firm_type);
@@ -5980,6 +5997,7 @@ namespace api {
             if ( IncludeFillExchDetail()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(625,m_fill_exch_detail);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(849,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CrossSide>(m_cross_side)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(847,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_cross_breakup_fill)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(628,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OrderCapacity>(m_last_capacity)));
             if ( IncludeExchFirmType()) {
@@ -6699,6 +6717,7 @@ namespace api {
             if ( IncludeFillExchDetail()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,625,static_cast<string>(m_fill_exch_detail));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,849,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CrossSide>(m_cross_side)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,847,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_cross_breakup_fill)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,628,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OrderCapacity>(m_last_capacity)));
             if ( IncludeExchFirmType()) {
@@ -8017,6 +8036,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 849: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_cross_side = static_cast<spiderrock::protobuf::api::CrossSide>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 847: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_is_cross_breakup_fill = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -8703,6 +8727,7 @@ namespace api {
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::spdr_liquidity_tag>() const { return m_spdr_liquidity_tag; }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::exch_liquidity_tag>() const { return m_exch_liquidity_tag; }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::fill_exch_detail>() const { return m_fill_exch_detail; }
+    template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::cross_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CrossSide>( m_cross_side)); }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::is_cross_breakup_fill>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_cross_breakup_fill)); }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::last_capacity>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OrderCapacity>( m_last_capacity)); }
     template<> inline const auto SpdrParentExecution::get<SpdrParentExecution::exch_firm_type>() const { return m_exch_firm_type; }
@@ -9001,6 +9026,7 @@ namespace api {
         o << ",\"spdr_liquidity_tag\":\"" << m.get<SpdrParentExecution::spdr_liquidity_tag>() << "\"";
         o << ",\"exch_liquidity_tag\":\"" << m.get<SpdrParentExecution::exch_liquidity_tag>() << "\"";
         o << ",\"fill_exch_detail\":\"" << m.get<SpdrParentExecution::fill_exch_detail>() << "\"";
+        o << ",\"cross_side\":" << (int64_t)m.get<SpdrParentExecution::cross_side>();
         o << ",\"is_cross_breakup_fill\":" << (int64_t)m.get<SpdrParentExecution::is_cross_breakup_fill>();
         o << ",\"last_capacity\":" << (int64_t)m.get<SpdrParentExecution::last_capacity>();
         o << ",\"exch_firm_type\":\"" << m.get<SpdrParentExecution::exch_firm_type>() << "\"";

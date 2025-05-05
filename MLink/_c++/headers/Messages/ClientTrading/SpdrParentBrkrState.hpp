@@ -430,6 +430,11 @@ namespace api {
     DECL_STRONG_TYPE(extern_hedge_params, string);
     #endif//_extern_hedge_params__GUARD__
 
+    #ifndef _hedge_fill_umark_lmt_prc__GUARD__
+    #define _hedge_fill_umark_lmt_prc__GUARD__
+    DECL_STRONG_TYPE(hedge_fill_umark_lmt_prc, spiderrock::protobuf::api::YesNo);
+    #endif//_hedge_fill_umark_lmt_prc__GUARD__
+
     #ifndef _user_data1__GUARD__
     #define _user_data1__GUARD__
     DECL_STRONG_TYPE(user_data1, string);
@@ -1120,6 +1125,7 @@ namespace api {
         using hedge_session = spiderrock::protobuf::api::hedge_session;
         using extern_hedge_ex_dest = spiderrock::protobuf::api::extern_hedge_ex_dest;
         using extern_hedge_params = spiderrock::protobuf::api::extern_hedge_params;
+        using hedge_fill_umark_lmt_prc = spiderrock::protobuf::api::hedge_fill_umark_lmt_prc;
         using user_data1 = spiderrock::protobuf::api::user_data1;
         using user_data2 = spiderrock::protobuf::api::user_data2;
         using max_progress = spiderrock::protobuf::api::max_progress;
@@ -1279,6 +1285,7 @@ namespace api {
         hedge_session m_hedge_session{};
         extern_hedge_ex_dest m_extern_hedge_ex_dest{};
         extern_hedge_params m_extern_hedge_params{};
+        hedge_fill_umark_lmt_prc m_hedge_fill_umark_lmt_prc{};
         user_data1 m_user_data1{};
         user_data2 m_user_data2{};
         max_progress m_max_progress{};
@@ -1603,6 +1610,9 @@ namespace api {
         }		
         extern_hedge_params get_extern_hedge_params() const {
             return m_extern_hedge_params;
+        }		
+        hedge_fill_umark_lmt_prc get_hedge_fill_umark_lmt_prc() const {
+            return m_hedge_fill_umark_lmt_prc;
         }		
         user_data1 get_user_data1() const {
             return m_user_data1;
@@ -2078,6 +2088,9 @@ namespace api {
         }
         void set_extern_hedge_params(const extern_hedge_params& value)  {
             m_extern_hedge_params = value;
+        }
+        void set_hedge_fill_umark_lmt_prc(const hedge_fill_umark_lmt_prc& value)  {
+            m_hedge_fill_umark_lmt_prc = value;
         }
         void set_user_data1(const user_data1& value)  {
             m_user_data1 = value;
@@ -2558,6 +2571,9 @@ namespace api {
         void set(const extern_hedge_params & value) {
             set_extern_hedge_params(value);
         }
+        void set(const hedge_fill_umark_lmt_prc & value) {
+            set_hedge_fill_umark_lmt_prc(value);
+        }
         void set(const user_data1 & value) {
             set_user_data1(value);
         }
@@ -2867,6 +2883,7 @@ namespace api {
             set(value.m_hedge_session);
             set(value.m_extern_hedge_ex_dest);
             set(value.m_extern_hedge_params);
+            set(value.m_hedge_fill_umark_lmt_prc);
             set(value.m_user_data1);
             set(value.m_user_data2);
             set(value.m_max_progress);
@@ -3589,6 +3606,7 @@ namespace api {
             if ( IncludeExternHedgeParams()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(313,m_extern_hedge_params);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(609,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             if ( IncludeUserData1()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(316,m_user_data1);
             }
@@ -4008,6 +4026,7 @@ namespace api {
             if ( IncludeExternHedgeParams()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,313,static_cast<string>(m_extern_hedge_params));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,609,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             if ( IncludeUserData1()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,316,static_cast<string>(m_user_data1));
             }
@@ -4700,6 +4719,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 609: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_fill_umark_lmt_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 316: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_user_data1 = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -5228,6 +5252,7 @@ namespace api {
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::hedge_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>( m_hedge_session)); }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::extern_hedge_ex_dest>() const { return m_extern_hedge_ex_dest; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::extern_hedge_params>() const { return m_extern_hedge_params; }
+    template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::hedge_fill_umark_lmt_prc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_hedge_fill_umark_lmt_prc)); }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::user_data1>() const { return m_user_data1; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::user_data2>() const { return m_user_data2; }
     template<> inline const auto SpdrParentBrkrState::get<SpdrParentBrkrState::max_progress>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MaxProgress>( m_max_progress)); }
@@ -5427,6 +5452,7 @@ namespace api {
         o << ",\"hedge_session\":" << (int64_t)m.get<SpdrParentBrkrState::hedge_session>();
         o << ",\"extern_hedge_ex_dest\":\"" << m.get<SpdrParentBrkrState::extern_hedge_ex_dest>() << "\"";
         o << ",\"extern_hedge_params\":\"" << m.get<SpdrParentBrkrState::extern_hedge_params>() << "\"";
+        o << ",\"hedge_fill_umark_lmt_prc\":" << (int64_t)m.get<SpdrParentBrkrState::hedge_fill_umark_lmt_prc>();
         o << ",\"user_data1\":\"" << m.get<SpdrParentBrkrState::user_data1>() << "\"";
         o << ",\"user_data2\":\"" << m.get<SpdrParentBrkrState::user_data2>() << "\"";
         o << ",\"max_progress\":" << (int64_t)m.get<SpdrParentBrkrState::max_progress>();

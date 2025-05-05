@@ -30,15 +30,15 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _grouping_code__GUARD__
-    #define _grouping_code__GUARD__
-    DECL_STRONG_TYPE(grouping_code, int64);
-    #endif//_grouping_code__GUARD__
+    #ifndef _hedge_sec_key__GUARD__
+    #define _hedge_sec_key__GUARD__
+    DECL_STRONG_TYPE(hedge_sec_key, ExpiryKey);
+    #endif//_hedge_sec_key__GUARD__
 
-    #ifndef _ticker__TickerKey__GUARD__
-    #define _ticker__TickerKey__GUARD__
-    DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
-    #endif//_ticker__TickerKey__GUARD__
+    #ifndef _hedge_sec_type__GUARD__
+    #define _hedge_sec_type__GUARD__
+    DECL_STRONG_TYPE(hedge_sec_type, spiderrock::protobuf::api::SpdrKeyType);
+    #endif//_hedge_sec_type__GUARD__
 
     #ifndef _security_desc__GUARD__
     #define _security_desc__GUARD__
@@ -55,10 +55,10 @@ namespace api {
     DECL_STRONG_TYPE(position_type__PositionType, spiderrock::protobuf::api::PositionType);
     #endif//_position_type__PositionType__GUARD__
 
-    #ifndef _hedge_state__HedgeGroupState__GUARD__
-    #define _hedge_state__HedgeGroupState__GUARD__
-    DECL_STRONG_TYPE(hedge_state__HedgeGroupState, spiderrock::protobuf::api::HedgeGroupState);
-    #endif//_hedge_state__HedgeGroupState__GUARD__
+    #ifndef _hedge_state__HedgePolicyState__GUARD__
+    #define _hedge_state__HedgePolicyState__GUARD__
+    DECL_STRONG_TYPE(hedge_state__HedgePolicyState, spiderrock::protobuf::api::HedgePolicyState);
+    #endif//_hedge_state__HedgePolicyState__GUARD__
 
     #ifndef _hedge_text__GUARD__
     #define _hedge_text__GUARD__
@@ -69,11 +69,6 @@ namespace api {
     #define _u_prc__double__GUARD__
     DECL_STRONG_TYPE(u_prc__double, double);
     #endif//_u_prc__double__GUARD__
-
-    #ifndef _hedge_prc_lmt__GUARD__
-    #define _hedge_prc_lmt__GUARD__
-    DECL_STRONG_TYPE(hedge_prc_lmt, float);
-    #endif//_hedge_prc_lmt__GUARD__
 
     #ifndef _is_delta_mixed__GUARD__
     #define _is_delta_mixed__GUARD__
@@ -310,25 +305,15 @@ namespace api {
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
     #endif//_timestamp__GUARD__
 
+    #ifndef _hedge_target__TickerKey__GUARD__
+    #define _hedge_target__TickerKey__GUARD__
+    DECL_STRONG_TYPE(hedge_target__TickerKey, TickerKey);
+    #endif//_hedge_target__TickerKey__GUARD__
+
     #ifndef _accnt__GUARD__
     #define _accnt__GUARD__
     DECL_STRONG_TYPE(accnt, string);
     #endif//_accnt__GUARD__
-
-    #ifndef _risk_group_id__GUARD__
-    #define _risk_group_id__GUARD__
-    DECL_STRONG_TYPE(risk_group_id, int64);
-    #endif//_risk_group_id__GUARD__
-
-    #ifndef _hedge_sec_key__GUARD__
-    #define _hedge_sec_key__GUARD__
-    DECL_STRONG_TYPE(hedge_sec_key, ExpiryKey);
-    #endif//_hedge_sec_key__GUARD__
-
-    #ifndef _hedge_sec_type__GUARD__
-    #define _hedge_sec_type__GUARD__
-    DECL_STRONG_TYPE(hedge_sec_type, spiderrock::protobuf::api::SpdrKeyType);
-    #endif//_hedge_sec_type__GUARD__
 
     #ifndef _client_firm__GUARD__
     #define _client_firm__GUARD__
@@ -336,71 +321,53 @@ namespace api {
     #endif//_client_firm__GUARD__
 
     
-    class SpdrAutoHedgeState_PKey {
+    class SpdrHedgePolicyState_PKey {
         public:
         //using statements for all types used in this class
+        using hedge_target = spiderrock::protobuf::api::hedge_target__TickerKey;
         using accnt = spiderrock::protobuf::api::accnt;
-        using risk_group_id = spiderrock::protobuf::api::risk_group_id;
-        using hedge_sec_key = spiderrock::protobuf::api::hedge_sec_key;
-        using hedge_sec_type = spiderrock::protobuf::api::hedge_sec_type;
         using client_firm = spiderrock::protobuf::api::client_firm;
 
         private:
+        hedge_target m_hedge_target{};
         accnt m_accnt{};
-        risk_group_id m_risk_group_id{};
-        hedge_sec_key m_hedge_sec_key{};
-        hedge_sec_type m_hedge_sec_type{};
         client_firm m_client_firm{};
 
         public:
+		hedge_target get_hedge_target() const {
+            return m_hedge_target;
+        }
         accnt get_accnt() const {
             return m_accnt;
-        }
-        risk_group_id get_risk_group_id() const {
-            return m_risk_group_id;
-        }
-		hedge_sec_key get_hedge_sec_key() const {
-            return m_hedge_sec_key;
-        }
-        hedge_sec_type get_hedge_sec_type() const {
-            return m_hedge_sec_type;
         }
         client_firm get_client_firm() const {
             return m_client_firm;
         }
+        void set_hedge_target(const hedge_target& value)  {
+            m_hedge_target = value;
+        }
         void set_accnt(const accnt& value)  {
             m_accnt = value;
-        }
-        void set_risk_group_id(const risk_group_id& value)  {
-            m_risk_group_id = value;
-        }
-        void set_hedge_sec_key(const hedge_sec_key& value)  {
-            m_hedge_sec_key = value;
-        }
-        void set_hedge_sec_type(const hedge_sec_type& value)  {
-            m_hedge_sec_type = value;
         }
         void set_client_firm(const client_firm& value)  {
             m_client_firm = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpdrAutoHedgeState_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpdrHedgePolicyState_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
         template <typename T, size_t S = sizeof(T)>
-        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to SpdrAutoHedgeState_PKey::set()"); }  // specializations for valid types are listed below
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to SpdrHedgePolicyState_PKey::set()"); }  // specializations for valid types are listed below
 
         //specializations for set functions for the valid types
         
+        void set(const hedge_target & value) { set_hedge_target(value); }
         void set(const accnt & value) { set_accnt(value); }
-        void set(const risk_group_id & value) { set_risk_group_id(value); }
-        void set(const hedge_sec_key & value) { set_hedge_sec_key(value); }
-        void set(const hedge_sec_type & value) { set_hedge_sec_type(value); }
         void set(const client_firm & value) { set_client_firm(value); }
 
 
-        SpdrAutoHedgeState_PKey() {}
+        SpdrHedgePolicyState_PKey() {}
 
-        virtual ~SpdrAutoHedgeState_PKey() {
+        virtual ~SpdrHedgePolicyState_PKey() {
         }
         //templatized set functions that can take multiple arguments simultaneously
         template <typename Arg>
@@ -412,14 +379,11 @@ namespace api {
             set(arg);
             set_params(args...);
         }
+        bool IncludeHedgeTarget() const {
+            return (m_hedge_target.ByteSizeLong() > 0);
+        }
         bool IncludeAccnt() const {
             return !(m_accnt.empty());
-        }
-        bool IncludeRiskGroupId() const {
-            return !(m_risk_group_id == 0);
-        }
-        bool IncludeHedgeSecKey() const {
-            return (m_hedge_sec_key.ByteSizeLong() > 0);
         }
         bool IncludeClientFirm() const {
             return !(m_client_firm.empty());
@@ -428,39 +392,31 @@ namespace api {
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
+            if ( IncludeHedgeTarget()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_hedge_target;
+                m_hedge_target.setCodecTickerKey(tickerKeyLayout_hedge_target);
+                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_hedge_target);
+            }
             if ( IncludeAccnt()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(10,m_accnt);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_accnt);
             }
-            if ( IncludeRiskGroupId()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(11,m_risk_group_id);
-            }
-            if ( IncludeHedgeSecKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key;
-                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
-                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(12,expiryKeyLayout_hedge_sec_key);
-            }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(13,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_hedge_sec_type)));
             if ( IncludeClientFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(14,m_client_firm);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(12,m_client_firm);
             }
             return totalSize;
         }
 
         void Encode(uint8_t*& dest, uint8_t* max) const {
+            if ( IncludeHedgeTarget()) {
+                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_hedge_target;
+                m_hedge_target.setCodecTickerKey(tickerKeyLayout_hedge_target);
+                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_hedge_target);
+            }
             if ( IncludeAccnt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,10,static_cast<string>(m_accnt));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_accnt));
             }
-            if ( IncludeRiskGroupId()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,11,m_risk_group_id);
-            }
-            if ( IncludeHedgeSecKey()) {
-                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key;
-                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
-                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 12, expiryKeyLayout_hedge_sec_key);
-            }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,13,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_hedge_sec_type)));
             if ( IncludeClientFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,14,static_cast<string>(m_client_firm));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,12,static_cast<string>(m_client_firm));
             }
         }
 
@@ -477,20 +433,15 @@ namespace api {
                         // Add unknown tag field number logging
                         SRProtobufCPP::Skipper::Skip(pos, tagType, max);
                         break;
-                    case 10: {m_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 10: {
+                        auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
+                        m_hedge_target.setFromCodec(tickerKey);
                         break;
                     }
-                    case 11: {m_risk_group_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                    case 11: {m_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 12: {auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
-                        m_hedge_sec_key.setFromCodec(expiryKey);
-                        break;
-                    }
-                    case 13: {m_hedge_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
-                        break;
-                    }
-                    case 14: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 12: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -500,21 +451,20 @@ namespace api {
     };
     
 
-    class SpdrAutoHedgeState {
+    class SpdrHedgePolicyState {
         public:
         //using statements for all types used in this class
     
         using _meta = spiderrock::protobuf::api::_meta;
-        using pkey = spiderrock::protobuf::api::SpdrAutoHedgeState_PKey;
-        using grouping_code = spiderrock::protobuf::api::grouping_code;
-        using ticker = spiderrock::protobuf::api::ticker__TickerKey;
+        using pkey = spiderrock::protobuf::api::SpdrHedgePolicyState_PKey;
+        using hedge_sec_key = spiderrock::protobuf::api::hedge_sec_key;
+        using hedge_sec_type = spiderrock::protobuf::api::hedge_sec_type;
         using security_desc = spiderrock::protobuf::api::security_desc;
         using ssale_flag = spiderrock::protobuf::api::ssale_flag;
         using position_type = spiderrock::protobuf::api::position_type__PositionType;
-        using hedge_state = spiderrock::protobuf::api::hedge_state__HedgeGroupState;
+        using hedge_state = spiderrock::protobuf::api::hedge_state__HedgePolicyState;
         using hedge_text = spiderrock::protobuf::api::hedge_text;
         using u_prc = spiderrock::protobuf::api::u_prc__double;
-        using hedge_prc_lmt = spiderrock::protobuf::api::hedge_prc_lmt;
         using is_delta_mixed = spiderrock::protobuf::api::is_delta_mixed;
         using accumulator_error = spiderrock::protobuf::api::accumulator_error;
         using grp_delta_bot = spiderrock::protobuf::api::grp_delta_bot;
@@ -566,15 +516,14 @@ namespace api {
         private:
         _meta m__meta{};
         pkey m_pkey{};
-        grouping_code m_grouping_code{};
-        ticker m_ticker{};
+        hedge_sec_key m_hedge_sec_key{};
+        hedge_sec_type m_hedge_sec_type{};
         security_desc m_security_desc{};
         ssale_flag m_ssale_flag{};
         position_type m_position_type{};
         hedge_state m_hedge_state{};
         hedge_text m_hedge_text{};
         u_prc m_u_prc{};
-        hedge_prc_lmt m_hedge_prc_lmt{};
         is_delta_mixed m_is_delta_mixed{};
         accumulator_error m_accumulator_error{};
         grp_delta_bot m_grp_delta_bot{};
@@ -632,11 +581,11 @@ namespace api {
         pkey get_pkey() const {
             return m_pkey;
         }		
-        grouping_code get_grouping_code() const {
-            return m_grouping_code;
+        hedge_sec_key get_hedge_sec_key() const {
+            return m_hedge_sec_key;
         }		
-        ticker get_ticker() const {
-            return m_ticker;
+        hedge_sec_type get_hedge_sec_type() const {
+            return m_hedge_sec_type;
         }		
         security_desc get_security_desc() const {
             return m_security_desc;
@@ -655,9 +604,6 @@ namespace api {
         }		
         u_prc get_u_prc() const {
             return m_u_prc;
-        }		
-        hedge_prc_lmt get_hedge_prc_lmt() const {
-            return m_hedge_prc_lmt;
         }		
         is_delta_mixed get_is_delta_mixed() const {
             return m_is_delta_mixed;
@@ -810,11 +756,11 @@ namespace api {
         void set_pkey(const pkey& value)  {
             m_pkey = value;
         }
-        void set_grouping_code(const grouping_code& value)  {
-            m_grouping_code = value;
+        void set_hedge_sec_key(const hedge_sec_key& value)  {
+            m_hedge_sec_key = value;
         }
-        void set_ticker(const ticker& value)  {
-            m_ticker = value;
+        void set_hedge_sec_type(const hedge_sec_type& value)  {
+            m_hedge_sec_type = value;
         }
         void set_security_desc(const security_desc& value)  {
             m_security_desc = value;
@@ -833,9 +779,6 @@ namespace api {
         }
         void set_u_prc(const u_prc& value)  {
             m_u_prc = value;
-        }
-        void set_hedge_prc_lmt(const hedge_prc_lmt& value)  {
-            m_hedge_prc_lmt = value;
         }
         void set_is_delta_mixed(const is_delta_mixed& value)  {
             m_is_delta_mixed = value;
@@ -982,7 +925,7 @@ namespace api {
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpdrAutoHedgeState::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to SpdrHedgePolicyState::get()"); return T{}; }  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -992,11 +935,11 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
-        void set(const grouping_code & value) {
-            set_grouping_code(value);
+        void set(const hedge_sec_key & value) {
+            set_hedge_sec_key(value);
         }
-        void set(const ticker & value) {
-            set_ticker(value);
+        void set(const hedge_sec_type & value) {
+            set_hedge_sec_type(value);
         }
         void set(const security_desc & value) {
             set_security_desc(value);
@@ -1015,9 +958,6 @@ namespace api {
         }
         void set(const u_prc & value) {
             set_u_prc(value);
-        }
-        void set(const hedge_prc_lmt & value) {
-            set_hedge_prc_lmt(value);
         }
         void set(const is_delta_mixed & value) {
             set_is_delta_mixed(value);
@@ -1161,18 +1101,17 @@ namespace api {
             set_timestamp(value);
         }
 
-        void set(const SpdrAutoHedgeState & value) {
+        void set(const SpdrHedgePolicyState & value) {
             set(value.m__meta);
             set(value.m_pkey);
-            set(value.m_grouping_code);
-            set(value.m_ticker);
+            set(value.m_hedge_sec_key);
+            set(value.m_hedge_sec_type);
             set(value.m_security_desc);
             set(value.m_ssale_flag);
             set(value.m_position_type);
             set(value.m_hedge_state);
             set(value.m_hedge_text);
             set(value.m_u_prc);
-            set(value.m_hedge_prc_lmt);
             set(value.m_is_delta_mixed);
             set(value.m_accumulator_error);
             set(value.m_grp_delta_bot);
@@ -1222,8 +1161,8 @@ namespace api {
             set(value.m_timestamp);
         }
 
-        SpdrAutoHedgeState() {
-            m__meta.set_message_type("SpdrAutoHedgeState");
+        SpdrHedgePolicyState() {
+            m__meta.set_message_type("SpdrHedgePolicyState");
         }
 
 
@@ -1241,7 +1180,7 @@ namespace api {
         bool SerializeToArray(void* data, size_t size) const  {
             size_t length = ByteSizeLong();
             if (size <  _mlinkHeaderLength + length) return false;
-            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 5300, length);
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 5280, length);
             //Encode the message
             uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
             auto max = encodePos + length;
@@ -1253,7 +1192,7 @@ namespace api {
         bool SerializeToString(std::string *s) const {
             size_t length = ByteSizeLong();
             s->resize( _mlinkHeaderLength + length);
-            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 5300, length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 5280, length);
             return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 
@@ -1270,7 +1209,7 @@ namespace api {
         }
 
         void Clear() {
-             *this = SpdrAutoHedgeState{};
+             *this = SpdrHedgePolicyState{};
         }
         bool IncludeMeta() const {
             return (m__meta.ByteSizeLong() > 0);
@@ -1278,11 +1217,8 @@ namespace api {
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
         }
-        bool IncludeGroupingCode() const {
-            return !(m_grouping_code == 0);
-        }
-        bool IncludeTicker() const {
-            return (m_ticker.ByteSizeLong() > 0);
+        bool IncludeHedgeSecKey() const {
+            return (m_hedge_sec_key.ByteSizeLong() > 0);
         }
         bool IncludeSecurityDesc() const {
             return !(m_security_desc.empty());
@@ -1292,9 +1228,6 @@ namespace api {
         }
         bool IncludeUPrc() const {
             return !(m_u_prc == 0.0);
-        }
-        bool IncludeHedgePrcLmt() const {
-            return !(m_hedge_prc_lmt == 0.0);
         }
         bool IncludeAccumulatorError() const {
             return !(m_accumulator_error.empty());
@@ -1442,163 +1375,158 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
-            if ( IncludeGroupingCode()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(100,m_grouping_code);
+            if ( IncludeHedgeSecKey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key{};
+                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
+                totalSize += SRProtobufCPP::FieldCodec::ExpiryKeyFieldSize(100, expiryKeyLayout_hedge_sec_key);
             }
-            if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(106, tickerKeyLayout_ticker);
-            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_hedge_sec_type)));
             if ( IncludeSecurityDesc()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_security_desc);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(102,m_security_desc);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(263,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeGroupState>(m_hedge_state)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgePolicyState>(m_hedge_state)));
             if ( IncludeHedgeText()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(118,m_hedge_text);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_hedge_text);
             }
             if ( IncludeUPrc()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(121,m_u_prc);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(107,m_u_prc);
             }
-            if ( IncludeHedgePrcLmt()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(264,m_hedge_prc_lmt);
-            }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_delta_mixed)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_delta_mixed)));
             if ( IncludeAccumulatorError()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(127,m_accumulator_error);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(109,m_accumulator_error);
             }
             if ( IncludeGrpDeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(130,m_grp_delta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(110,m_grp_delta_bot);
             }
             if ( IncludeGrpDeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(133,m_grp_delta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(111,m_grp_delta_sld);
             }
             if ( IncludeGrpDdeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(136,m_grp_ddelta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(112,m_grp_ddelta_bot);
             }
             if ( IncludeGrpDdeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(139,m_grp_ddelta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(113,m_grp_ddelta_sld);
             }
             if ( IncludeLastGrpFillDttm()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(142, m_last_grp_fill_dttm);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(114, m_last_grp_fill_dttm);
             }
             if ( IncludeCtrlDeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(145,m_ctrl_delta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(115,m_ctrl_delta_bot);
             }
             if ( IncludeCtrlDeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(148,m_ctrl_delta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(116,m_ctrl_delta_sld);
             }
             if ( IncludeCtrlDdeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(151,m_ctrl_ddelta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(117,m_ctrl_ddelta_bot);
             }
             if ( IncludeCtrlDdeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(154,m_ctrl_ddelta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(118,m_ctrl_ddelta_sld);
             }
             if ( IncludeLastCtrlFillDttm()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(157, m_last_ctrl_fill_dttm);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(119, m_last_ctrl_fill_dttm);
             }
             if ( IncludeAbsOptCn()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(160,m_abs_opt_cn);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(120,m_abs_opt_cn);
             }
             if ( IncludeNetDelta()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(163,m_net_delta);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(121,m_net_delta);
             }
             if ( IncludeNetDdelta()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(166,m_net_ddelta);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(122,m_net_ddelta);
             }
             if ( IncludeOpenHedgeTime()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(169,m_open_hedge_time);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(123,m_open_hedge_time);
             }
             if ( IncludeHedgeTargetVol()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(172,m_hedge_target_vol);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(124,m_hedge_target_vol);
             }
             if ( IncludeExpectedPrcRange()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(175,m_expected_prc_range);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(125,m_expected_prc_range);
             }
             if ( IncludeOpnDeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(178,m_opn_delta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(126,m_opn_delta_bot);
             }
             if ( IncludeOpnDeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(181,m_opn_delta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(127,m_opn_delta_sld);
             }
             if ( IncludeOpnDdeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(184,m_opn_ddelta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(128,m_opn_ddelta_bot);
             }
             if ( IncludeOpnDdeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(187,m_opn_ddelta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(129,m_opn_ddelta_sld);
             }
             if ( IncludeClsDeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(190,m_cls_delta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(130,m_cls_delta_bot);
             }
             if ( IncludeClsDeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(193,m_cls_delta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(131,m_cls_delta_sld);
             }
             if ( IncludeClsDdeltaBot()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(196,m_cls_ddelta_bot);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(132,m_cls_ddelta_bot);
             }
             if ( IncludeClsDdeltaSld()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(199,m_cls_ddelta_sld);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(133,m_cls_ddelta_sld);
             }
             if ( IncludeSlippagePnL()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(202,m_slippage_pn_l);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(134,m_slippage_pn_l);
             }
             if ( IncludeSlippageUnitPnL()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(205,m_slippage_unit_pn_l);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(135,m_slippage_unit_pn_l);
             }
             if ( IncludeSlippageNormPnL()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(208,m_slippage_norm_pn_l);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(136,m_slippage_norm_pn_l);
             }
             if ( IncludeMinDdeltaBand()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(211,m_min_ddelta_band);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(137,m_min_ddelta_band);
             }
             if ( IncludeMaxDdeltaBand()) {
-                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(214,m_max_ddelta_band);
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(138,m_max_ddelta_band);
             }
             if ( IncludeBParentNumber()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(217,m_b_parent_number);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(139,m_b_parent_number);
             }
             if ( IncludeBActiveSize()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(220,m_b_active_size);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(140,m_b_active_size);
             }
             if ( IncludeBBrkrStatus()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(223,m_b_brkr_status);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(141,m_b_brkr_status);
             }
             if ( IncludeBBrkrError()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(226,m_b_brkr_error);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(142,m_b_brkr_error);
             }
             if ( IncludeSParentNumber()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(229,m_s_parent_number);
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(143,m_s_parent_number);
             }
             if ( IncludeSActiveSize()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(232,m_s_active_size);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(144,m_s_active_size);
             }
             if ( IncludeSBrkrStatus()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(235,m_s_brkr_status);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(145,m_s_brkr_status);
             }
             if ( IncludeSBrkrError()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(238,m_s_brkr_error);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(146,m_s_brkr_error);
             }
             if ( IncludeDdMult()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(241,m_dd_mult);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(147,m_dd_mult);
             }
             if ( IncludeUnderliersPerCn()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(244,m_underliers_per_cn);
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(148,m_underliers_per_cn);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(247,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>(m_underlier_type)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(149,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>(m_underlier_type)));
             if ( IncludePointValue()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(250,m_point_value);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(150,m_point_value);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(253,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_point_currency)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_point_currency)));
             if ( IncludeLiveHedgeMark()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(256,m_live_hedge_mark);
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(152,m_live_hedge_mark);
             }
             if ( IncludeUpdtReason()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(259,m_updt_reason);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(153,m_updt_reason);
             }
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(262, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(154, m_timestamp);
             }
             return totalSize;
         }
@@ -1614,163 +1542,158 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
-            if ( IncludeGroupingCode()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,100,m_grouping_code);
+            if ( IncludeHedgeSecKey()) {
+                SRProtobufCPP::ExpiryKeyLayout expiryKeyLayout_hedge_sec_key{};
+                m_hedge_sec_key.setCodecExpiryKey(expiryKeyLayout_hedge_sec_key);
+                dest = SRProtobufCPP::FieldCodec::EncodeExpiryKey(dest, 100, expiryKeyLayout_hedge_sec_key);
             }
-            if ( IncludeTicker()) {
-                SRProtobufCPP::TickerKeyLayout tickerKeyLayout_ticker{};
-                m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
-                dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 106, tickerKeyLayout_ticker);
-            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_hedge_sec_type)));
             if ( IncludeSecurityDesc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_security_desc));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,102,static_cast<string>(m_security_desc));
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,263,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeGroupState>(m_hedge_state)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>(m_ssale_flag)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgePolicyState>(m_hedge_state)));
             if ( IncludeHedgeText()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,118,static_cast<string>(m_hedge_text));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_hedge_text));
             }
             if ( IncludeUPrc()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,121,m_u_prc);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,107,m_u_prc);
             }
-            if ( IncludeHedgePrcLmt()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,264,m_hedge_prc_lmt);
-            }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,124,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_delta_mixed)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,108,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_is_delta_mixed)));
             if ( IncludeAccumulatorError()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,127,static_cast<string>(m_accumulator_error));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,109,static_cast<string>(m_accumulator_error));
             }
             if ( IncludeGrpDeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,130,m_grp_delta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,110,m_grp_delta_bot);
             }
             if ( IncludeGrpDeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,133,m_grp_delta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,111,m_grp_delta_sld);
             }
             if ( IncludeGrpDdeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,136,m_grp_ddelta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,112,m_grp_ddelta_bot);
             }
             if ( IncludeGrpDdeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,139,m_grp_ddelta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,113,m_grp_ddelta_sld);
             }
             if ( IncludeLastGrpFillDttm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 142, m_last_grp_fill_dttm);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 114, m_last_grp_fill_dttm);
             }
             if ( IncludeCtrlDeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,145,m_ctrl_delta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,115,m_ctrl_delta_bot);
             }
             if ( IncludeCtrlDeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,148,m_ctrl_delta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,116,m_ctrl_delta_sld);
             }
             if ( IncludeCtrlDdeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,151,m_ctrl_ddelta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,117,m_ctrl_ddelta_bot);
             }
             if ( IncludeCtrlDdeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,154,m_ctrl_ddelta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,118,m_ctrl_ddelta_sld);
             }
             if ( IncludeLastCtrlFillDttm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 157, m_last_ctrl_fill_dttm);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 119, m_last_ctrl_fill_dttm);
             }
             if ( IncludeAbsOptCn()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,160,m_abs_opt_cn);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,120,m_abs_opt_cn);
             }
             if ( IncludeNetDelta()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,163,m_net_delta);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,121,m_net_delta);
             }
             if ( IncludeNetDdelta()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,166,m_net_ddelta);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,122,m_net_ddelta);
             }
             if ( IncludeOpenHedgeTime()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,169,m_open_hedge_time);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,123,m_open_hedge_time);
             }
             if ( IncludeHedgeTargetVol()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,172,m_hedge_target_vol);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,124,m_hedge_target_vol);
             }
             if ( IncludeExpectedPrcRange()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,175,m_expected_prc_range);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,125,m_expected_prc_range);
             }
             if ( IncludeOpnDeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,178,m_opn_delta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,126,m_opn_delta_bot);
             }
             if ( IncludeOpnDeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,181,m_opn_delta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,127,m_opn_delta_sld);
             }
             if ( IncludeOpnDdeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,184,m_opn_ddelta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,128,m_opn_ddelta_bot);
             }
             if ( IncludeOpnDdeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,187,m_opn_ddelta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,129,m_opn_ddelta_sld);
             }
             if ( IncludeClsDeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,190,m_cls_delta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,130,m_cls_delta_bot);
             }
             if ( IncludeClsDeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,193,m_cls_delta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,131,m_cls_delta_sld);
             }
             if ( IncludeClsDdeltaBot()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,196,m_cls_ddelta_bot);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,132,m_cls_ddelta_bot);
             }
             if ( IncludeClsDdeltaSld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,199,m_cls_ddelta_sld);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,133,m_cls_ddelta_sld);
             }
             if ( IncludeSlippagePnL()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,202,m_slippage_pn_l);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,134,m_slippage_pn_l);
             }
             if ( IncludeSlippageUnitPnL()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,205,m_slippage_unit_pn_l);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,135,m_slippage_unit_pn_l);
             }
             if ( IncludeSlippageNormPnL()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,208,m_slippage_norm_pn_l);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,136,m_slippage_norm_pn_l);
             }
             if ( IncludeMinDdeltaBand()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,211,m_min_ddelta_band);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,137,m_min_ddelta_band);
             }
             if ( IncludeMaxDdeltaBand()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,214,m_max_ddelta_band);
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,138,m_max_ddelta_band);
             }
             if ( IncludeBParentNumber()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,217,m_b_parent_number);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,139,m_b_parent_number);
             }
             if ( IncludeBActiveSize()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,220,m_b_active_size);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,140,m_b_active_size);
             }
             if ( IncludeBBrkrStatus()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,223,static_cast<string>(m_b_brkr_status));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,141,static_cast<string>(m_b_brkr_status));
             }
             if ( IncludeBBrkrError()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,226,static_cast<string>(m_b_brkr_error));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,142,static_cast<string>(m_b_brkr_error));
             }
             if ( IncludeSParentNumber()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,229,m_s_parent_number);
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,143,m_s_parent_number);
             }
             if ( IncludeSActiveSize()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,232,m_s_active_size);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,144,m_s_active_size);
             }
             if ( IncludeSBrkrStatus()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,235,static_cast<string>(m_s_brkr_status));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,145,static_cast<string>(m_s_brkr_status));
             }
             if ( IncludeSBrkrError()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,238,static_cast<string>(m_s_brkr_error));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,146,static_cast<string>(m_s_brkr_error));
             }
             if ( IncludeDdMult()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,241,m_dd_mult);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,147,m_dd_mult);
             }
             if ( IncludeUnderliersPerCn()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,244,m_underliers_per_cn);
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,148,m_underliers_per_cn);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,247,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>(m_underlier_type)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,149,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>(m_underlier_type)));
             if ( IncludePointValue()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,250,m_point_value);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,150,m_point_value);
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,253,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_point_currency)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>(m_point_currency)));
             if ( IncludeLiveHedgeMark()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,256,m_live_hedge_mark);
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,152,m_live_hedge_mark);
             }
             if ( IncludeUpdtReason()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,259,static_cast<string>(m_updt_reason));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,153,static_cast<string>(m_updt_reason));
             }
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 262, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 154, m_timestamp);
             }
         }
 
@@ -1803,331 +1726,324 @@ namespace api {
                         break;
                     }
                     case 100: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_grouping_code = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        if (tagType == SRProtobufCPP::ExpiryKeyCodec::TagType) {
+                            auto expiryKey = SRProtobufCPP::FieldCodec::DecodeExpiryKey(pos,max);
+                            m_hedge_sec_key.setFromCodec(expiryKey);
                         }
                         break;
                     }
-                    case 106: {
-                        if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
-                            auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
-                            m_ticker.setFromCodec(tickerKey);
+                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_sec_type = static_cast<spiderrock::protobuf::api::SpdrKeyType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 109: {
+                    case 102: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_security_desc = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_ssale_flag = static_cast<spiderrock::protobuf::api::ShortSaleFlag>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 263: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 104: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_position_type = static_cast<spiderrock::protobuf::api::PositionType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 115: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_hedge_state = static_cast<spiderrock::protobuf::api::HedgeGroupState>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 105: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_state = static_cast<spiderrock::protobuf::api::HedgePolicyState>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 118: {
+                    case 106: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_hedge_text = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 121: {
+                    case 107: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_u_prc = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 264: {
-                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
-                            m_hedge_prc_lmt = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
-                        }
-                        break;
-                    }
-                    case 124: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 108: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_is_delta_mixed = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 127: {
+                    case 109: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_accumulator_error = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 130: {
+                    case 110: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_grp_delta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 133: {
+                    case 111: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_grp_delta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 136: {
+                    case 112: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_grp_ddelta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 139: {
+                    case 113: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_grp_ddelta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 114: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_last_grp_fill_dttm = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 145: {
+                    case 115: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_ctrl_delta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 148: {
+                    case 116: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_ctrl_delta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 151: {
+                    case 117: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_ctrl_ddelta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 154: {
+                    case 118: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_ctrl_ddelta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 157: {
+                    case 119: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_last_ctrl_fill_dttm = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
                         break;
                     }
-                    case 160: {
+                    case 120: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_abs_opt_cn = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 163: {
+                    case 121: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_net_delta = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 166: {
+                    case 122: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_net_ddelta = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 169: {
+                    case 123: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_open_hedge_time = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 172: {
+                    case 124: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_hedge_target_vol = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 175: {
+                    case 125: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_expected_prc_range = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 178: {
+                    case 126: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_opn_delta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 181: {
+                    case 127: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_opn_delta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 184: {
+                    case 128: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_opn_ddelta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 187: {
+                    case 129: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_opn_ddelta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 190: {
+                    case 130: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_cls_delta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 193: {
+                    case 131: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_cls_delta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 196: {
+                    case 132: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_cls_ddelta_bot = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 199: {
+                    case 133: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_cls_ddelta_sld = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 202: {
+                    case 134: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_slippage_pn_l = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 205: {
+                    case 135: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_slippage_unit_pn_l = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 208: {
+                    case 136: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_slippage_norm_pn_l = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 211: {
+                    case 137: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_min_ddelta_band = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 214: {
+                    case 138: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_max_ddelta_band = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
                         }
                         break;
                     }
-                    case 217: {
+                    case 139: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_b_parent_number = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 220: {
+                    case 140: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_b_active_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 223: {
+                    case 141: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_b_brkr_status = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 226: {
+                    case 142: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_b_brkr_error = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 229: {
+                    case 143: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_s_parent_number = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 232: {
+                    case 144: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_s_active_size = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 235: {
+                    case 145: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_s_brkr_status = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 238: {
+                    case 146: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_s_brkr_error = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 241: {
+                    case 147: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_dd_mult = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 244: {
+                    case 148: {
                         if (tagType == SRProtobufCPP::IntCodec::TagType) {
                             m_underliers_per_cn = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
                         }
                         break;
                     }
-                    case 247: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 149: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_underlier_type = static_cast<spiderrock::protobuf::api::UnderlierType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 250: {
+                    case 150: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_point_value = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 253: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 151: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_point_currency = static_cast<spiderrock::protobuf::api::Currency>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 256: {
+                    case 152: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_live_hedge_mark = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
                         }
                         break;
                     }
-                    case 259: {
+                    case 153: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_updt_reason = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 262: {
+                    case 154: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
@@ -2142,151 +2058,145 @@ namespace api {
 
     // getter definitions for all classes above, both inner and outer classes
 
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::_meta>() const { return SpdrAutoHedgeState::_meta{ m__meta}; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::pkey>() const { return SpdrAutoHedgeState::pkey{ m_pkey}; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::grouping_code>() const { return m_grouping_code; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::ticker>() const { return SpdrAutoHedgeState::ticker{ m_ticker}; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::security_desc>() const { return m_security_desc; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::ssale_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>( m_ssale_flag)); }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::position_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>( m_position_type)); }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::hedge_state>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeGroupState>( m_hedge_state)); }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::hedge_text>() const { return m_hedge_text; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::u_prc>() const { return m_u_prc; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::hedge_prc_lmt>() const { return m_hedge_prc_lmt; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::is_delta_mixed>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_delta_mixed)); }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::accumulator_error>() const { return m_accumulator_error; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::grp_delta_bot>() const { return m_grp_delta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::grp_delta_sld>() const { return m_grp_delta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::grp_ddelta_bot>() const { return m_grp_ddelta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::grp_ddelta_sld>() const { return m_grp_ddelta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::last_grp_fill_dttm>() const { return m_last_grp_fill_dttm; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::ctrl_delta_bot>() const { return m_ctrl_delta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::ctrl_delta_sld>() const { return m_ctrl_delta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::ctrl_ddelta_bot>() const { return m_ctrl_ddelta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::ctrl_ddelta_sld>() const { return m_ctrl_ddelta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::last_ctrl_fill_dttm>() const { return m_last_ctrl_fill_dttm; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::abs_opt_cn>() const { return m_abs_opt_cn; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::net_delta>() const { return m_net_delta; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::net_ddelta>() const { return m_net_ddelta; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::open_hedge_time>() const { return m_open_hedge_time; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::hedge_target_vol>() const { return m_hedge_target_vol; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::expected_prc_range>() const { return m_expected_prc_range; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::opn_delta_bot>() const { return m_opn_delta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::opn_delta_sld>() const { return m_opn_delta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::opn_ddelta_bot>() const { return m_opn_ddelta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::opn_ddelta_sld>() const { return m_opn_ddelta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::cls_delta_bot>() const { return m_cls_delta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::cls_delta_sld>() const { return m_cls_delta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::cls_ddelta_bot>() const { return m_cls_ddelta_bot; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::cls_ddelta_sld>() const { return m_cls_ddelta_sld; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::slippage_pn_l>() const { return m_slippage_pn_l; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::slippage_unit_pn_l>() const { return m_slippage_unit_pn_l; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::slippage_norm_pn_l>() const { return m_slippage_norm_pn_l; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::min_ddelta_band>() const { return m_min_ddelta_band; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::max_ddelta_band>() const { return m_max_ddelta_band; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::b_parent_number>() const { return m_b_parent_number; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::b_active_size>() const { return m_b_active_size; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::b_brkr_status>() const { return m_b_brkr_status; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::b_brkr_error>() const { return m_b_brkr_error; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::s_parent_number>() const { return m_s_parent_number; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::s_active_size>() const { return m_s_active_size; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::s_brkr_status>() const { return m_s_brkr_status; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::s_brkr_error>() const { return m_s_brkr_error; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::dd_mult>() const { return m_dd_mult; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::underliers_per_cn>() const { return m_underliers_per_cn; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::underlier_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>( m_underlier_type)); }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::point_value>() const { return m_point_value; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::point_currency>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_point_currency)); }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::live_hedge_mark>() const { return m_live_hedge_mark; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::updt_reason>() const { return m_updt_reason; }
-    template<> inline const auto SpdrAutoHedgeState::get<SpdrAutoHedgeState::timestamp>() const { return m_timestamp; }
-    template<> inline const auto SpdrAutoHedgeState_PKey::get<SpdrAutoHedgeState_PKey::accnt>() const { return m_accnt; }
-    template<> inline const auto SpdrAutoHedgeState_PKey::get<SpdrAutoHedgeState_PKey::risk_group_id>() const { return m_risk_group_id; }
-    template<> inline const auto SpdrAutoHedgeState_PKey::get<SpdrAutoHedgeState_PKey::hedge_sec_key>() const { return SpdrAutoHedgeState_PKey::hedge_sec_key{m_hedge_sec_key}; }
-    template<> inline const auto SpdrAutoHedgeState_PKey::get<SpdrAutoHedgeState_PKey::hedge_sec_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>(m_hedge_sec_type));}
-    template<> inline const auto SpdrAutoHedgeState_PKey::get<SpdrAutoHedgeState_PKey::client_firm>() const { return m_client_firm; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::_meta>() const { return SpdrHedgePolicyState::_meta{ m__meta}; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::pkey>() const { return SpdrHedgePolicyState::pkey{ m_pkey}; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::hedge_sec_key>() const { return SpdrHedgePolicyState::hedge_sec_key{ m_hedge_sec_key}; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::hedge_sec_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrKeyType>( m_hedge_sec_type)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::security_desc>() const { return m_security_desc; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::ssale_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::ShortSaleFlag>( m_ssale_flag)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::position_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>( m_position_type)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::hedge_state>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgePolicyState>( m_hedge_state)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::hedge_text>() const { return m_hedge_text; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::u_prc>() const { return m_u_prc; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::is_delta_mixed>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_is_delta_mixed)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::accumulator_error>() const { return m_accumulator_error; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::grp_delta_bot>() const { return m_grp_delta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::grp_delta_sld>() const { return m_grp_delta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::grp_ddelta_bot>() const { return m_grp_ddelta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::grp_ddelta_sld>() const { return m_grp_ddelta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::last_grp_fill_dttm>() const { return m_last_grp_fill_dttm; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::ctrl_delta_bot>() const { return m_ctrl_delta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::ctrl_delta_sld>() const { return m_ctrl_delta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::ctrl_ddelta_bot>() const { return m_ctrl_ddelta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::ctrl_ddelta_sld>() const { return m_ctrl_ddelta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::last_ctrl_fill_dttm>() const { return m_last_ctrl_fill_dttm; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::abs_opt_cn>() const { return m_abs_opt_cn; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::net_delta>() const { return m_net_delta; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::net_ddelta>() const { return m_net_ddelta; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::open_hedge_time>() const { return m_open_hedge_time; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::hedge_target_vol>() const { return m_hedge_target_vol; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::expected_prc_range>() const { return m_expected_prc_range; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::opn_delta_bot>() const { return m_opn_delta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::opn_delta_sld>() const { return m_opn_delta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::opn_ddelta_bot>() const { return m_opn_ddelta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::opn_ddelta_sld>() const { return m_opn_ddelta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::cls_delta_bot>() const { return m_cls_delta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::cls_delta_sld>() const { return m_cls_delta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::cls_ddelta_bot>() const { return m_cls_ddelta_bot; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::cls_ddelta_sld>() const { return m_cls_ddelta_sld; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::slippage_pn_l>() const { return m_slippage_pn_l; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::slippage_unit_pn_l>() const { return m_slippage_unit_pn_l; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::slippage_norm_pn_l>() const { return m_slippage_norm_pn_l; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::min_ddelta_band>() const { return m_min_ddelta_band; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::max_ddelta_band>() const { return m_max_ddelta_band; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::b_parent_number>() const { return m_b_parent_number; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::b_active_size>() const { return m_b_active_size; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::b_brkr_status>() const { return m_b_brkr_status; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::b_brkr_error>() const { return m_b_brkr_error; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::s_parent_number>() const { return m_s_parent_number; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::s_active_size>() const { return m_s_active_size; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::s_brkr_status>() const { return m_s_brkr_status; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::s_brkr_error>() const { return m_s_brkr_error; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::dd_mult>() const { return m_dd_mult; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::underliers_per_cn>() const { return m_underliers_per_cn; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::underlier_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::UnderlierType>( m_underlier_type)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::point_value>() const { return m_point_value; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::point_currency>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_point_currency)); }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::live_hedge_mark>() const { return m_live_hedge_mark; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::updt_reason>() const { return m_updt_reason; }
+    template<> inline const auto SpdrHedgePolicyState::get<SpdrHedgePolicyState::timestamp>() const { return m_timestamp; }
+    template<> inline const auto SpdrHedgePolicyState_PKey::get<SpdrHedgePolicyState_PKey::hedge_target>() const { return SpdrHedgePolicyState_PKey::hedge_target{m_hedge_target}; }
+    template<> inline const auto SpdrHedgePolicyState_PKey::get<SpdrHedgePolicyState_PKey::accnt>() const { return m_accnt; }
+    template<> inline const auto SpdrHedgePolicyState_PKey::get<SpdrHedgePolicyState_PKey::client_firm>() const { return m_client_firm; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
-    inline std::ostream& operator<<(std::ostream &o, const SpdrAutoHedgeState_PKey& m) {
-        o << "\"accnt\":\"" << m.get<SpdrAutoHedgeState_PKey::accnt>() << "\"";
-        o << ",\"risk_group_id\":" << m.get<SpdrAutoHedgeState_PKey::risk_group_id>();
-        o << ",\"hedge_sec_key\":{" << m.get<SpdrAutoHedgeState_PKey::hedge_sec_key>() << "}";
-        o << ",\"hedge_sec_type\":" << (int64_t)m.get<SpdrAutoHedgeState_PKey::hedge_sec_type>();
-        o << ",\"client_firm\":\"" << m.get<SpdrAutoHedgeState_PKey::client_firm>() << "\"";
+    inline std::ostream& operator<<(std::ostream &o, const SpdrHedgePolicyState_PKey& m) {
+        o << "\"hedge_target\":{" << m.get<SpdrHedgePolicyState_PKey::hedge_target>() << "}";
+        o << ",\"accnt\":\"" << m.get<SpdrHedgePolicyState_PKey::accnt>() << "\"";
+        o << ",\"client_firm\":\"" << m.get<SpdrHedgePolicyState_PKey::client_firm>() << "\"";
         return o;
     }
 
-    inline std::ostream& operator<<(std::ostream &o, const SpdrAutoHedgeState& m) {
-        o << "\"_meta\":{" << m.get<SpdrAutoHedgeState::_meta>() << "}";
-        o << ",\"pkey\":{" << m.get<SpdrAutoHedgeState::pkey>() << "}";
-        o << ",\"grouping_code\":" << m.get<SpdrAutoHedgeState::grouping_code>();
-        o << ",\"ticker\":{" << m.get<SpdrAutoHedgeState::ticker>() << "}";
-        o << ",\"security_desc\":\"" << m.get<SpdrAutoHedgeState::security_desc>() << "\"";
-        o << ",\"ssale_flag\":" << (int64_t)m.get<SpdrAutoHedgeState::ssale_flag>();
-        o << ",\"position_type\":" << (int64_t)m.get<SpdrAutoHedgeState::position_type>();
-        o << ",\"hedge_state\":" << (int64_t)m.get<SpdrAutoHedgeState::hedge_state>();
-        o << ",\"hedge_text\":\"" << m.get<SpdrAutoHedgeState::hedge_text>() << "\"";
-        o << ",\"u_prc\":" << m.get<SpdrAutoHedgeState::u_prc>();
-        o << ",\"hedge_prc_lmt\":" << m.get<SpdrAutoHedgeState::hedge_prc_lmt>();
-        o << ",\"is_delta_mixed\":" << (int64_t)m.get<SpdrAutoHedgeState::is_delta_mixed>();
-        o << ",\"accumulator_error\":\"" << m.get<SpdrAutoHedgeState::accumulator_error>() << "\"";
-        o << ",\"grp_delta_bot\":" << m.get<SpdrAutoHedgeState::grp_delta_bot>();
-        o << ",\"grp_delta_sld\":" << m.get<SpdrAutoHedgeState::grp_delta_sld>();
-        o << ",\"grp_ddelta_bot\":" << m.get<SpdrAutoHedgeState::grp_ddelta_bot>();
-        o << ",\"grp_ddelta_sld\":" << m.get<SpdrAutoHedgeState::grp_ddelta_sld>();
+    inline std::ostream& operator<<(std::ostream &o, const SpdrHedgePolicyState& m) {
+        o << "\"_meta\":{" << m.get<SpdrHedgePolicyState::_meta>() << "}";
+        o << ",\"pkey\":{" << m.get<SpdrHedgePolicyState::pkey>() << "}";
+        o << ",\"hedge_sec_key\":{" << m.get<SpdrHedgePolicyState::hedge_sec_key>() << "}";
+        o << ",\"hedge_sec_type\":" << (int64_t)m.get<SpdrHedgePolicyState::hedge_sec_type>();
+        o << ",\"security_desc\":\"" << m.get<SpdrHedgePolicyState::security_desc>() << "\"";
+        o << ",\"ssale_flag\":" << (int64_t)m.get<SpdrHedgePolicyState::ssale_flag>();
+        o << ",\"position_type\":" << (int64_t)m.get<SpdrHedgePolicyState::position_type>();
+        o << ",\"hedge_state\":" << (int64_t)m.get<SpdrHedgePolicyState::hedge_state>();
+        o << ",\"hedge_text\":\"" << m.get<SpdrHedgePolicyState::hedge_text>() << "\"";
+        o << ",\"u_prc\":" << m.get<SpdrHedgePolicyState::u_prc>();
+        o << ",\"is_delta_mixed\":" << (int64_t)m.get<SpdrHedgePolicyState::is_delta_mixed>();
+        o << ",\"accumulator_error\":\"" << m.get<SpdrHedgePolicyState::accumulator_error>() << "\"";
+        o << ",\"grp_delta_bot\":" << m.get<SpdrHedgePolicyState::grp_delta_bot>();
+        o << ",\"grp_delta_sld\":" << m.get<SpdrHedgePolicyState::grp_delta_sld>();
+        o << ",\"grp_ddelta_bot\":" << m.get<SpdrHedgePolicyState::grp_ddelta_bot>();
+        o << ",\"grp_ddelta_sld\":" << m.get<SpdrHedgePolicyState::grp_ddelta_sld>();
         {
-            std::time_t tt = m.get<SpdrAutoHedgeState::last_grp_fill_dttm>().time_since_epoch().count() / 1'000'000'000;
+            std::time_t tt = m.get<SpdrHedgePolicyState::last_grp_fill_dttm>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"last_grp_fill_dttm\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
-        o << ",\"ctrl_delta_bot\":" << m.get<SpdrAutoHedgeState::ctrl_delta_bot>();
-        o << ",\"ctrl_delta_sld\":" << m.get<SpdrAutoHedgeState::ctrl_delta_sld>();
-        o << ",\"ctrl_ddelta_bot\":" << m.get<SpdrAutoHedgeState::ctrl_ddelta_bot>();
-        o << ",\"ctrl_ddelta_sld\":" << m.get<SpdrAutoHedgeState::ctrl_ddelta_sld>();
+        o << ",\"ctrl_delta_bot\":" << m.get<SpdrHedgePolicyState::ctrl_delta_bot>();
+        o << ",\"ctrl_delta_sld\":" << m.get<SpdrHedgePolicyState::ctrl_delta_sld>();
+        o << ",\"ctrl_ddelta_bot\":" << m.get<SpdrHedgePolicyState::ctrl_ddelta_bot>();
+        o << ",\"ctrl_ddelta_sld\":" << m.get<SpdrHedgePolicyState::ctrl_ddelta_sld>();
         {
-            std::time_t tt = m.get<SpdrAutoHedgeState::last_ctrl_fill_dttm>().time_since_epoch().count() / 1'000'000'000;
+            std::time_t tt = m.get<SpdrHedgePolicyState::last_ctrl_fill_dttm>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"last_ctrl_fill_dttm\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
-        o << ",\"abs_opt_cn\":" << m.get<SpdrAutoHedgeState::abs_opt_cn>();
-        o << ",\"net_delta\":" << m.get<SpdrAutoHedgeState::net_delta>();
-        o << ",\"net_ddelta\":" << m.get<SpdrAutoHedgeState::net_ddelta>();
-        o << ",\"open_hedge_time\":" << m.get<SpdrAutoHedgeState::open_hedge_time>();
-        o << ",\"hedge_target_vol\":" << m.get<SpdrAutoHedgeState::hedge_target_vol>();
-        o << ",\"expected_prc_range\":" << m.get<SpdrAutoHedgeState::expected_prc_range>();
-        o << ",\"opn_delta_bot\":" << m.get<SpdrAutoHedgeState::opn_delta_bot>();
-        o << ",\"opn_delta_sld\":" << m.get<SpdrAutoHedgeState::opn_delta_sld>();
-        o << ",\"opn_ddelta_bot\":" << m.get<SpdrAutoHedgeState::opn_ddelta_bot>();
-        o << ",\"opn_ddelta_sld\":" << m.get<SpdrAutoHedgeState::opn_ddelta_sld>();
-        o << ",\"cls_delta_bot\":" << m.get<SpdrAutoHedgeState::cls_delta_bot>();
-        o << ",\"cls_delta_sld\":" << m.get<SpdrAutoHedgeState::cls_delta_sld>();
-        o << ",\"cls_ddelta_bot\":" << m.get<SpdrAutoHedgeState::cls_ddelta_bot>();
-        o << ",\"cls_ddelta_sld\":" << m.get<SpdrAutoHedgeState::cls_ddelta_sld>();
-        o << ",\"slippage_pn_l\":" << m.get<SpdrAutoHedgeState::slippage_pn_l>();
-        o << ",\"slippage_unit_pn_l\":" << m.get<SpdrAutoHedgeState::slippage_unit_pn_l>();
-        o << ",\"slippage_norm_pn_l\":" << m.get<SpdrAutoHedgeState::slippage_norm_pn_l>();
-        o << ",\"min_ddelta_band\":" << m.get<SpdrAutoHedgeState::min_ddelta_band>();
-        o << ",\"max_ddelta_band\":" << m.get<SpdrAutoHedgeState::max_ddelta_band>();
-        o << ",\"b_parent_number\":" << m.get<SpdrAutoHedgeState::b_parent_number>();
-        o << ",\"b_active_size\":" << m.get<SpdrAutoHedgeState::b_active_size>();
-        o << ",\"b_brkr_status\":\"" << m.get<SpdrAutoHedgeState::b_brkr_status>() << "\"";
-        o << ",\"b_brkr_error\":\"" << m.get<SpdrAutoHedgeState::b_brkr_error>() << "\"";
-        o << ",\"s_parent_number\":" << m.get<SpdrAutoHedgeState::s_parent_number>();
-        o << ",\"s_active_size\":" << m.get<SpdrAutoHedgeState::s_active_size>();
-        o << ",\"s_brkr_status\":\"" << m.get<SpdrAutoHedgeState::s_brkr_status>() << "\"";
-        o << ",\"s_brkr_error\":\"" << m.get<SpdrAutoHedgeState::s_brkr_error>() << "\"";
-        o << ",\"dd_mult\":" << m.get<SpdrAutoHedgeState::dd_mult>();
-        o << ",\"underliers_per_cn\":" << m.get<SpdrAutoHedgeState::underliers_per_cn>();
-        o << ",\"underlier_type\":" << (int64_t)m.get<SpdrAutoHedgeState::underlier_type>();
-        o << ",\"point_value\":" << m.get<SpdrAutoHedgeState::point_value>();
-        o << ",\"point_currency\":" << (int64_t)m.get<SpdrAutoHedgeState::point_currency>();
-        o << ",\"live_hedge_mark\":" << m.get<SpdrAutoHedgeState::live_hedge_mark>();
-        o << ",\"updt_reason\":\"" << m.get<SpdrAutoHedgeState::updt_reason>() << "\"";
+        o << ",\"abs_opt_cn\":" << m.get<SpdrHedgePolicyState::abs_opt_cn>();
+        o << ",\"net_delta\":" << m.get<SpdrHedgePolicyState::net_delta>();
+        o << ",\"net_ddelta\":" << m.get<SpdrHedgePolicyState::net_ddelta>();
+        o << ",\"open_hedge_time\":" << m.get<SpdrHedgePolicyState::open_hedge_time>();
+        o << ",\"hedge_target_vol\":" << m.get<SpdrHedgePolicyState::hedge_target_vol>();
+        o << ",\"expected_prc_range\":" << m.get<SpdrHedgePolicyState::expected_prc_range>();
+        o << ",\"opn_delta_bot\":" << m.get<SpdrHedgePolicyState::opn_delta_bot>();
+        o << ",\"opn_delta_sld\":" << m.get<SpdrHedgePolicyState::opn_delta_sld>();
+        o << ",\"opn_ddelta_bot\":" << m.get<SpdrHedgePolicyState::opn_ddelta_bot>();
+        o << ",\"opn_ddelta_sld\":" << m.get<SpdrHedgePolicyState::opn_ddelta_sld>();
+        o << ",\"cls_delta_bot\":" << m.get<SpdrHedgePolicyState::cls_delta_bot>();
+        o << ",\"cls_delta_sld\":" << m.get<SpdrHedgePolicyState::cls_delta_sld>();
+        o << ",\"cls_ddelta_bot\":" << m.get<SpdrHedgePolicyState::cls_ddelta_bot>();
+        o << ",\"cls_ddelta_sld\":" << m.get<SpdrHedgePolicyState::cls_ddelta_sld>();
+        o << ",\"slippage_pn_l\":" << m.get<SpdrHedgePolicyState::slippage_pn_l>();
+        o << ",\"slippage_unit_pn_l\":" << m.get<SpdrHedgePolicyState::slippage_unit_pn_l>();
+        o << ",\"slippage_norm_pn_l\":" << m.get<SpdrHedgePolicyState::slippage_norm_pn_l>();
+        o << ",\"min_ddelta_band\":" << m.get<SpdrHedgePolicyState::min_ddelta_band>();
+        o << ",\"max_ddelta_band\":" << m.get<SpdrHedgePolicyState::max_ddelta_band>();
+        o << ",\"b_parent_number\":" << m.get<SpdrHedgePolicyState::b_parent_number>();
+        o << ",\"b_active_size\":" << m.get<SpdrHedgePolicyState::b_active_size>();
+        o << ",\"b_brkr_status\":\"" << m.get<SpdrHedgePolicyState::b_brkr_status>() << "\"";
+        o << ",\"b_brkr_error\":\"" << m.get<SpdrHedgePolicyState::b_brkr_error>() << "\"";
+        o << ",\"s_parent_number\":" << m.get<SpdrHedgePolicyState::s_parent_number>();
+        o << ",\"s_active_size\":" << m.get<SpdrHedgePolicyState::s_active_size>();
+        o << ",\"s_brkr_status\":\"" << m.get<SpdrHedgePolicyState::s_brkr_status>() << "\"";
+        o << ",\"s_brkr_error\":\"" << m.get<SpdrHedgePolicyState::s_brkr_error>() << "\"";
+        o << ",\"dd_mult\":" << m.get<SpdrHedgePolicyState::dd_mult>();
+        o << ",\"underliers_per_cn\":" << m.get<SpdrHedgePolicyState::underliers_per_cn>();
+        o << ",\"underlier_type\":" << (int64_t)m.get<SpdrHedgePolicyState::underlier_type>();
+        o << ",\"point_value\":" << m.get<SpdrHedgePolicyState::point_value>();
+        o << ",\"point_currency\":" << (int64_t)m.get<SpdrHedgePolicyState::point_currency>();
+        o << ",\"live_hedge_mark\":" << m.get<SpdrHedgePolicyState::live_hedge_mark>();
+        o << ",\"updt_reason\":\"" << m.get<SpdrHedgePolicyState::updt_reason>() << "\"";
         {
-            std::time_t tt = m.get<SpdrAutoHedgeState::timestamp>().time_since_epoch().count() / 1'000'000'000;
+            std::time_t tt = m.get<SpdrHedgePolicyState::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";

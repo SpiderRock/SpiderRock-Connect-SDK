@@ -30,21 +30,6 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _trade_date__GUARD__
-    #define _trade_date__GUARD__
-    DECL_STRONG_TYPE(trade_date, DateKey);
-    #endif//_trade_date__GUARD__
-
-    #ifndef _locate_firm__GUARD__
-    #define _locate_firm__GUARD__
-    DECL_STRONG_TYPE(locate_firm, string);
-    #endif//_locate_firm__GUARD__
-
-    #ifndef _locate_pool__GUARD__
-    #define _locate_pool__GUARD__
-    DECL_STRONG_TYPE(locate_pool, string);
-    #endif//_locate_pool__GUARD__
-
     #ifndef _request_quan__GUARD__
     #define _request_quan__GUARD__
     DECL_STRONG_TYPE(request_quan, int32);
@@ -95,6 +80,21 @@ namespace api {
     DECL_STRONG_TYPE(core_client_firm, string);
     #endif//_core_client_firm__GUARD__
 
+    #ifndef _locate_firm__GUARD__
+    #define _locate_firm__GUARD__
+    DECL_STRONG_TYPE(locate_firm, string);
+    #endif//_locate_firm__GUARD__
+
+    #ifndef _locate_pool__GUARD__
+    #define _locate_pool__GUARD__
+    DECL_STRONG_TYPE(locate_pool, string);
+    #endif//_locate_pool__GUARD__
+
+    #ifndef _trade_date__GUARD__
+    #define _trade_date__GUARD__
+    DECL_STRONG_TYPE(trade_date, DateKey);
+    #endif//_trade_date__GUARD__
+
     #ifndef _request_id__int64__GUARD__
     #define _request_id__int64__GUARD__
     DECL_STRONG_TYPE(request_id__int64, int64);
@@ -106,11 +106,17 @@ namespace api {
         //using statements for all types used in this class
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
         using core_client_firm = spiderrock::protobuf::api::core_client_firm;
+        using locate_firm = spiderrock::protobuf::api::locate_firm;
+        using locate_pool = spiderrock::protobuf::api::locate_pool;
+        using trade_date = spiderrock::protobuf::api::trade_date;
         using request_id = spiderrock::protobuf::api::request_id__int64;
 
         private:
         ticker m_ticker{};
         core_client_firm m_core_client_firm{};
+        locate_firm m_locate_firm{};
+        locate_pool m_locate_pool{};
+        trade_date m_trade_date{};
         request_id m_request_id{};
 
         public:
@@ -120,6 +126,15 @@ namespace api {
         core_client_firm get_core_client_firm() const {
             return m_core_client_firm;
         }
+        locate_firm get_locate_firm() const {
+            return m_locate_firm;
+        }
+        locate_pool get_locate_pool() const {
+            return m_locate_pool;
+        }
+		trade_date get_trade_date() const {
+            return m_trade_date;
+        }
         request_id get_request_id() const {
             return m_request_id;
         }
@@ -128,6 +143,15 @@ namespace api {
         }
         void set_core_client_firm(const core_client_firm& value)  {
             m_core_client_firm = value;
+        }
+        void set_locate_firm(const locate_firm& value)  {
+            m_locate_firm = value;
+        }
+        void set_locate_pool(const locate_pool& value)  {
+            m_locate_pool = value;
+        }
+        void set_trade_date(const trade_date& value)  {
+            m_trade_date = value;
         }
         void set_request_id(const request_id& value)  {
             m_request_id = value;
@@ -142,6 +166,9 @@ namespace api {
         
         void set(const ticker & value) { set_ticker(value); }
         void set(const core_client_firm & value) { set_core_client_firm(value); }
+        void set(const locate_firm & value) { set_locate_firm(value); }
+        void set(const locate_pool & value) { set_locate_pool(value); }
+        void set(const trade_date & value) { set_trade_date(value); }
         void set(const request_id & value) { set_request_id(value); }
 
 
@@ -165,6 +192,15 @@ namespace api {
         bool IncludeCoreClientFirm() const {
             return !(m_core_client_firm.empty());
         }
+        bool IncludeLocateFirm() const {
+            return !(m_locate_firm.empty());
+        }
+        bool IncludeLocatePool() const {
+            return !(m_locate_pool.empty());
+        }
+        bool IncludeTradeDate() const {
+            return (m_trade_date.ByteSizeLong() > 0);
+        }
         bool IncludeRequestId() const {
             return !(m_request_id == 0);
         }
@@ -180,6 +216,15 @@ namespace api {
             if ( IncludeCoreClientFirm()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_core_client_firm);
             }
+            if ( IncludeLocateFirm()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(18,m_locate_firm);
+            }
+            if ( IncludeLocatePool()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(19,m_locate_pool);
+            }
+            if ( IncludeTradeDate()) {
+                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(20, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
+            }
             if ( IncludeRequestId()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(17,m_request_id);
             }
@@ -194,6 +239,15 @@ namespace api {
             }
             if ( IncludeCoreClientFirm()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_core_client_firm));
+            }
+            if ( IncludeLocateFirm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,18,static_cast<string>(m_locate_firm));
+            }
+            if ( IncludeLocatePool()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,19,static_cast<string>(m_locate_pool));
+            }
+            if ( IncludeTradeDate()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,20, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
             }
             if ( IncludeRequestId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,17,m_request_id);
@@ -221,6 +275,19 @@ namespace api {
                     case 11: {m_core_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
+                    case 18: {m_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                    case 19: {m_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                    case 20: {
+                        auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
+                        m_trade_date.set_year(dateKey.year());
+                        m_trade_date.set_month(dateKey.month());
+                        m_trade_date.set_day(dateKey.day());
+                        break;
+                    }
                     case 17: {m_request_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         break;
                     }
@@ -237,9 +304,6 @@ namespace api {
     
         using _meta = spiderrock::protobuf::api::_meta;
         using pkey = spiderrock::protobuf::api::StockLocateResponse_PKey;
-        using trade_date = spiderrock::protobuf::api::trade_date;
-        using locate_firm = spiderrock::protobuf::api::locate_firm;
-        using locate_pool = spiderrock::protobuf::api::locate_pool;
         using request_quan = spiderrock::protobuf::api::request_quan;
         using locate_quan = spiderrock::protobuf::api::locate_quan;
         using locate_status = spiderrock::protobuf::api::locate_status;
@@ -252,9 +316,6 @@ namespace api {
         private:
         _meta m__meta{};
         pkey m_pkey{};
-        trade_date m_trade_date{};
-        locate_firm m_locate_firm{};
-        locate_pool m_locate_pool{};
         request_quan m_request_quan{};
         locate_quan m_locate_quan{};
         locate_status m_locate_status{};
@@ -272,15 +333,6 @@ namespace api {
         }		
         pkey get_pkey() const {
             return m_pkey;
-        }		
-        trade_date get_trade_date() const {
-            return m_trade_date;
-        }		
-        locate_firm get_locate_firm() const {
-            return m_locate_firm;
-        }		
-        locate_pool get_locate_pool() const {
-            return m_locate_pool;
         }		
         request_quan get_request_quan() const {
             return m_request_quan;
@@ -315,15 +367,6 @@ namespace api {
         }
         void set_pkey(const pkey& value)  {
             m_pkey = value;
-        }
-        void set_trade_date(const trade_date& value)  {
-            m_trade_date = value;
-        }
-        void set_locate_firm(const locate_firm& value)  {
-            m_locate_firm = value;
-        }
-        void set_locate_pool(const locate_pool& value)  {
-            m_locate_pool = value;
         }
         void set_request_quan(const request_quan& value)  {
             m_request_quan = value;
@@ -363,15 +406,6 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
-        void set(const trade_date & value) {
-            set_trade_date(value);
-        }
-        void set(const locate_firm & value) {
-            set_locate_firm(value);
-        }
-        void set(const locate_pool & value) {
-            set_locate_pool(value);
-        }
         void set(const request_quan & value) {
             set_request_quan(value);
         }
@@ -400,9 +434,6 @@ namespace api {
         void set(const StockLocateResponse & value) {
             set(value.m__meta);
             set(value.m_pkey);
-            set(value.m_trade_date);
-            set(value.m_locate_firm);
-            set(value.m_locate_pool);
             set(value.m_request_quan);
             set(value.m_locate_quan);
             set(value.m_locate_status);
@@ -469,15 +500,6 @@ namespace api {
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
         }
-        bool IncludeTradeDate() const {
-            return (m_trade_date.ByteSizeLong() > 0);
-        }
-        bool IncludeLocateFirm() const {
-            return !(m_locate_firm.empty());
-        }
-        bool IncludeLocatePool() const {
-            return !(m_locate_pool.empty());
-        }
         bool IncludeRequestQuan() const {
             return !(m_request_quan == 0);
         }
@@ -506,15 +528,6 @@ namespace api {
                 totalSize += SRProtobufCPP::TagCodec::Size(2, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
-            }
-            if ( IncludeTradeDate()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateKeyFieldSize(134, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
-            }
-            if ( IncludeLocateFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(135,m_locate_firm);
-            }
-            if ( IncludeLocatePool()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(136,m_locate_pool);
             }
             if ( IncludeRequestQuan()) {
                 totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(103,m_request_quan);
@@ -547,15 +560,6 @@ namespace api {
                 dest = SRProtobufCPP::TagCodec::Encode(dest,2, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
-            }
-            if ( IncludeTradeDate()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateKey(dest,134, m_trade_date.get_year(), m_trade_date.get_month(), m_trade_date.get_day());
-            }
-            if ( IncludeLocateFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,135,static_cast<string>(m_locate_firm));
-            }
-            if ( IncludeLocatePool()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,136,static_cast<string>(m_locate_pool));
             }
             if ( IncludeRequestQuan()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,103,m_request_quan);
@@ -602,27 +606,6 @@ namespace api {
                         if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
                             const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
                             m_pkey.Decode(pos, pos + std::min(max - pos, static_cast<std::ptrdiff_t>(length)));
-                        }
-                        break;
-                    }
-                    case 134: {
-                        if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
-                            auto dateKey = SRProtobufCPP::FieldCodec::DecodeDateKey(pos,max);
-                            m_trade_date.set_year(dateKey.year());
-                            m_trade_date.set_month(dateKey.month());
-                            m_trade_date.set_day(dateKey.day());
-                        }
-                        break;
-                    }
-                    case 135: {
-                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
-                            m_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        }
-                        break;
-                    }
-                    case 136: {
-                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
-                            m_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -682,9 +665,6 @@ namespace api {
 
     template<> inline const auto StockLocateResponse::get<StockLocateResponse::_meta>() const { return StockLocateResponse::_meta{ m__meta}; }
     template<> inline const auto StockLocateResponse::get<StockLocateResponse::pkey>() const { return StockLocateResponse::pkey{ m_pkey}; }
-    template<> inline const auto StockLocateResponse::get<StockLocateResponse::trade_date>() const { return StockLocateResponse::trade_date{ m_trade_date}; }
-    template<> inline const auto StockLocateResponse::get<StockLocateResponse::locate_firm>() const { return m_locate_firm; }
-    template<> inline const auto StockLocateResponse::get<StockLocateResponse::locate_pool>() const { return m_locate_pool; }
     template<> inline const auto StockLocateResponse::get<StockLocateResponse::request_quan>() const { return m_request_quan; }
     template<> inline const auto StockLocateResponse::get<StockLocateResponse::locate_quan>() const { return m_locate_quan; }
     template<> inline const auto StockLocateResponse::get<StockLocateResponse::locate_status>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::LocateStatus>( m_locate_status)); }
@@ -695,6 +675,9 @@ namespace api {
     template<> inline const auto StockLocateResponse::get<StockLocateResponse::timestamp>() const { return m_timestamp; }
     template<> inline const auto StockLocateResponse_PKey::get<StockLocateResponse_PKey::ticker>() const { return StockLocateResponse_PKey::ticker{m_ticker}; }
     template<> inline const auto StockLocateResponse_PKey::get<StockLocateResponse_PKey::core_client_firm>() const { return m_core_client_firm; }
+    template<> inline const auto StockLocateResponse_PKey::get<StockLocateResponse_PKey::locate_firm>() const { return m_locate_firm; }
+    template<> inline const auto StockLocateResponse_PKey::get<StockLocateResponse_PKey::locate_pool>() const { return m_locate_pool; }
+    template<> inline const auto StockLocateResponse_PKey::get<StockLocateResponse_PKey::trade_date>() const { return StockLocateResponse_PKey::trade_date{m_trade_date}; }
     template<> inline const auto StockLocateResponse_PKey::get<StockLocateResponse_PKey::request_id>() const { return m_request_id; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
@@ -702,6 +685,9 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const StockLocateResponse_PKey& m) {
         o << "\"ticker\":{" << m.get<StockLocateResponse_PKey::ticker>() << "}";
         o << ",\"core_client_firm\":\"" << m.get<StockLocateResponse_PKey::core_client_firm>() << "\"";
+        o << ",\"locate_firm\":\"" << m.get<StockLocateResponse_PKey::locate_firm>() << "\"";
+        o << ",\"locate_pool\":\"" << m.get<StockLocateResponse_PKey::locate_pool>() << "\"";
+        o << ",\"trade_date\":{" << m.get<StockLocateResponse_PKey::trade_date>() << "}";
         o << ",\"request_id\":" << m.get<StockLocateResponse_PKey::request_id>();
         return o;
     }
@@ -709,9 +695,6 @@ namespace api {
     inline std::ostream& operator<<(std::ostream &o, const StockLocateResponse& m) {
         o << "\"_meta\":{" << m.get<StockLocateResponse::_meta>() << "}";
         o << ",\"pkey\":{" << m.get<StockLocateResponse::pkey>() << "}";
-        o << ",\"trade_date\":{" << m.get<StockLocateResponse::trade_date>() << "}";
-        o << ",\"locate_firm\":\"" << m.get<StockLocateResponse::locate_firm>() << "\"";
-        o << ",\"locate_pool\":\"" << m.get<StockLocateResponse::locate_pool>() << "\"";
         o << ",\"request_quan\":" << m.get<StockLocateResponse::request_quan>();
         o << ",\"locate_quan\":" << m.get<StockLocateResponse::locate_quan>();
         o << ",\"locate_status\":" << (int64_t)m.get<StockLocateResponse::locate_status>();

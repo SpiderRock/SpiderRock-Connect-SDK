@@ -965,6 +965,11 @@ namespace api {
     DECL_STRONG_TYPE(extern_hedge_params, string);
     #endif//_extern_hedge_params__GUARD__
 
+    #ifndef _hedge_fill_umark_lmt_prc__GUARD__
+    #define _hedge_fill_umark_lmt_prc__GUARD__
+    DECL_STRONG_TYPE(hedge_fill_umark_lmt_prc, spiderrock::protobuf::api::YesNo);
+    #endif//_hedge_fill_umark_lmt_prc__GUARD__
+
     #ifndef _best_way_prc__GUARD__
     #define _best_way_prc__GUARD__
     DECL_STRONG_TYPE(best_way_prc, float);
@@ -1928,6 +1933,7 @@ namespace api {
         using hedge_scope = spiderrock::protobuf::api::hedge_scope;
         using extern_hedge_ex_dest = spiderrock::protobuf::api::extern_hedge_ex_dest;
         using extern_hedge_params = spiderrock::protobuf::api::extern_hedge_params;
+        using hedge_fill_umark_lmt_prc = spiderrock::protobuf::api::hedge_fill_umark_lmt_prc;
         using best_way_prc = spiderrock::protobuf::api::best_way_prc;
         using wrst_way_prc = spiderrock::protobuf::api::wrst_way_prc;
         using best_way_sz = spiderrock::protobuf::api::best_way_sz;
@@ -2231,6 +2237,7 @@ namespace api {
         hedge_scope m_hedge_scope{};
         extern_hedge_ex_dest m_extern_hedge_ex_dest{};
         extern_hedge_params m_extern_hedge_params{};
+        hedge_fill_umark_lmt_prc m_hedge_fill_umark_lmt_prc{};
         best_way_prc m_best_way_prc{};
         wrst_way_prc m_wrst_way_prc{};
         best_way_sz m_best_way_sz{};
@@ -2913,6 +2920,9 @@ namespace api {
         }		
         extern_hedge_params get_extern_hedge_params() const {
             return m_extern_hedge_params;
+        }		
+        hedge_fill_umark_lmt_prc get_hedge_fill_umark_lmt_prc() const {
+            return m_hedge_fill_umark_lmt_prc;
         }		
         best_way_prc get_best_way_prc() const {
             return m_best_way_prc;
@@ -3820,6 +3830,9 @@ namespace api {
         }
         void set_extern_hedge_params(const extern_hedge_params& value)  {
             m_extern_hedge_params = value;
+        }
+        void set_hedge_fill_umark_lmt_prc(const hedge_fill_umark_lmt_prc& value)  {
+            m_hedge_fill_umark_lmt_prc = value;
         }
         void set_best_way_prc(const best_way_prc& value)  {
             m_best_way_prc = value;
@@ -4732,6 +4745,9 @@ namespace api {
         void set(const extern_hedge_params & value) {
             set_extern_hedge_params(value);
         }
+        void set(const hedge_fill_umark_lmt_prc & value) {
+            set_hedge_fill_umark_lmt_prc(value);
+        }
         void set(const best_way_prc & value) {
             set_best_way_prc(value);
         }
@@ -5259,6 +5275,7 @@ namespace api {
             set(value.m_hedge_scope);
             set(value.m_extern_hedge_ex_dest);
             set(value.m_extern_hedge_params);
+            set(value.m_hedge_fill_umark_lmt_prc);
             set(value.m_best_way_prc);
             set(value.m_wrst_way_prc);
             set(value.m_best_way_sz);
@@ -6627,6 +6644,7 @@ namespace api {
             if ( IncludeExternHedgeParams()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(643,m_extern_hedge_params);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1058,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             if ( IncludeBestWayPrc()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(646,m_best_way_prc);
             }
@@ -7424,6 +7442,7 @@ namespace api {
             if ( IncludeExternHedgeParams()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,643,static_cast<string>(m_extern_hedge_params));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1058,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             if ( IncludeBestWayPrc()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,646,m_best_way_prc);
             }
@@ -8839,6 +8858,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 1058: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_fill_umark_lmt_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 646: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_best_way_prc = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -9693,6 +9717,7 @@ namespace api {
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::hedge_scope>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeScope>( m_hedge_scope)); }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::extern_hedge_ex_dest>() const { return m_extern_hedge_ex_dest; }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::extern_hedge_params>() const { return m_extern_hedge_params; }
+    template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::hedge_fill_umark_lmt_prc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_hedge_fill_umark_lmt_prc)); }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::best_way_prc>() const { return m_best_way_prc; }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::wrst_way_prc>() const { return m_wrst_way_prc; }
     template<> inline const auto SpdrMLegBrkrState::get<SpdrMLegBrkrState::best_way_sz>() const { return m_best_way_sz; }
@@ -10029,6 +10054,7 @@ namespace api {
         o << ",\"hedge_scope\":" << (int64_t)m.get<SpdrMLegBrkrState::hedge_scope>();
         o << ",\"extern_hedge_ex_dest\":\"" << m.get<SpdrMLegBrkrState::extern_hedge_ex_dest>() << "\"";
         o << ",\"extern_hedge_params\":\"" << m.get<SpdrMLegBrkrState::extern_hedge_params>() << "\"";
+        o << ",\"hedge_fill_umark_lmt_prc\":" << (int64_t)m.get<SpdrMLegBrkrState::hedge_fill_umark_lmt_prc>();
         o << ",\"best_way_prc\":" << m.get<SpdrMLegBrkrState::best_way_prc>();
         o << ",\"wrst_way_prc\":" << m.get<SpdrMLegBrkrState::wrst_way_prc>();
         o << ",\"best_way_sz\":" << m.get<SpdrMLegBrkrState::best_way_sz>();

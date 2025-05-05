@@ -55,6 +55,16 @@ namespace api {
     DECL_STRONG_TYPE(can_include_stock, spiderrock::protobuf::api::YesNo);
     #endif//_can_include_stock__GUARD__
 
+    #ifndef _can_respond_sr__GUARD__
+    #define _can_respond_sr__GUARD__
+    DECL_STRONG_TYPE(can_respond_sr, spiderrock::protobuf::api::YesNo);
+    #endif//_can_respond_sr__GUARD__
+
+    #ifndef _can_respond_exch__GUARD__
+    #define _can_respond_exch__GUARD__
+    DECL_STRONG_TYPE(can_respond_exch, spiderrock::protobuf::api::YesNo);
+    #endif//_can_respond_exch__GUARD__
+
     #ifndef _cp_flag__GUARD__
     #define _cp_flag__GUARD__
     DECL_STRONG_TYPE(cp_flag, spiderrock::protobuf::api::CallPut);
@@ -115,6 +125,11 @@ namespace api {
     DECL_STRONG_TYPE(min_surf_edge_vol, float);
     #endif//_min_surf_edge_vol__GUARD__
 
+    #ifndef _min_probability__GUARD__
+    #define _min_probability__GUARD__
+    DECL_STRONG_TYPE(min_probability, float);
+    #endif//_min_probability__GUARD__
+
     #ifndef _inc_fees_in_resp__GUARD__
     #define _inc_fees_in_resp__GUARD__
     DECL_STRONG_TYPE(inc_fees_in_resp, spiderrock::protobuf::api::YesNo);
@@ -144,6 +159,46 @@ namespace api {
     #define _total_response_wt_vega__GUARD__
     DECL_STRONG_TYPE(total_response_wt_vega, float);
     #endif//_total_response_wt_vega__GUARD__
+
+    #ifndef _not_mkt_penny__GUARD__
+    #define _not_mkt_penny__GUARD__
+    DECL_STRONG_TYPE(not_mkt_penny, spiderrock::protobuf::api::YesNo);
+    #endif//_not_mkt_penny__GUARD__
+
+    #ifndef _mkt_penny1__GUARD__
+    #define _mkt_penny1__GUARD__
+    DECL_STRONG_TYPE(mkt_penny1, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_penny1__GUARD__
+
+    #ifndef _mkt_penny2__GUARD__
+    #define _mkt_penny2__GUARD__
+    DECL_STRONG_TYPE(mkt_penny2, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_penny2__GUARD__
+
+    #ifndef _mkt_penny3p__GUARD__
+    #define _mkt_penny3p__GUARD__
+    DECL_STRONG_TYPE(mkt_penny3p, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_penny3p__GUARD__
+
+    #ifndef _not_mkt_nickle__GUARD__
+    #define _not_mkt_nickle__GUARD__
+    DECL_STRONG_TYPE(not_mkt_nickle, spiderrock::protobuf::api::YesNo);
+    #endif//_not_mkt_nickle__GUARD__
+
+    #ifndef _mkt_nickle1__GUARD__
+    #define _mkt_nickle1__GUARD__
+    DECL_STRONG_TYPE(mkt_nickle1, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_nickle1__GUARD__
+
+    #ifndef _mkt_nickle2__GUARD__
+    #define _mkt_nickle2__GUARD__
+    DECL_STRONG_TYPE(mkt_nickle2, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_nickle2__GUARD__
+
+    #ifndef _mkt_nickle3p__GUARD__
+    #define _mkt_nickle3p__GUARD__
+    DECL_STRONG_TYPE(mkt_nickle3p, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_nickle3p__GUARD__
 
     #ifndef _auto_hedge__GUARD__
     #define _auto_hedge__GUARD__
@@ -219,6 +274,16 @@ namespace api {
     #define _responder_id__GUARD__
     DECL_STRONG_TYPE(responder_id, int32);
     #endif//_responder_id__GUARD__
+
+    #ifndef _inititor_cfirm__GUARD__
+    #define _inititor_cfirm__GUARD__
+    DECL_STRONG_TYPE(inititor_cfirm, string);
+    #endif//_inititor_cfirm__GUARD__
+
+    #ifndef _inititor_cfirm__GUARD__
+    #define _inititor_cfirm__GUARD__
+    DECL_STRONG_TYPE(inititor_cfirm, string);
+    #endif//_inititor_cfirm__GUARD__
 
     
     class AutoResponderVegaDir_PKey {
@@ -385,6 +450,154 @@ namespace api {
 
     };
     
+    class AutoResponderVegaDir_CFirmExclFilter {
+        public:
+        //using statements for all types used in this class
+        using inititor_cfirm = spiderrock::protobuf::api::inititor_cfirm;
+
+        private:
+        inititor_cfirm m_inititor_cfirm{};
+
+        public:
+        inititor_cfirm get_inititor_cfirm() const {
+            return m_inititor_cfirm;
+        }
+        void set_inititor_cfirm(const inititor_cfirm& value)  {
+            m_inititor_cfirm = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir_CFirmExclFilter::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir_CFirmExclFilter::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const inititor_cfirm & value) { set_inititor_cfirm(value); }
+
+
+        AutoResponderVegaDir_CFirmExclFilter() {}
+
+        virtual ~AutoResponderVegaDir_CFirmExclFilter() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(147,m_inititor_cfirm);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,147,static_cast<string>(m_inititor_cfirm));
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 147: {m_inititor_cfirm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
+    
+    class AutoResponderVegaDir_CFirmInclFilter {
+        public:
+        //using statements for all types used in this class
+        using inititor_cfirm = spiderrock::protobuf::api::inititor_cfirm;
+
+        private:
+        inititor_cfirm m_inititor_cfirm{};
+
+        public:
+        inititor_cfirm get_inititor_cfirm() const {
+            return m_inititor_cfirm;
+        }
+        void set_inititor_cfirm(const inititor_cfirm& value)  {
+            m_inititor_cfirm = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir_CFirmInclFilter::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir_CFirmInclFilter::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const inititor_cfirm & value) { set_inititor_cfirm(value); }
+
+
+        AutoResponderVegaDir_CFirmInclFilter() {}
+
+        virtual ~AutoResponderVegaDir_CFirmInclFilter() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(145,m_inititor_cfirm);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,145,static_cast<string>(m_inititor_cfirm));
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 145: {m_inititor_cfirm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
+    
 
     class AutoResponderVegaDir {
         public:
@@ -397,6 +610,8 @@ namespace api {
         using enabled_until = spiderrock::protobuf::api::enabled_until;
         using can_include_flex = spiderrock::protobuf::api::can_include_flex;
         using can_include_stock = spiderrock::protobuf::api::can_include_stock;
+        using can_respond_sr = spiderrock::protobuf::api::can_respond_sr;
+        using can_respond_exch = spiderrock::protobuf::api::can_respond_exch;
         using cp_flag = spiderrock::protobuf::api::cp_flag;
         using min_net_vega_ratio = spiderrock::protobuf::api::min_net_vega_ratio;
         using min_years = spiderrock::protobuf::api::min_years;
@@ -409,12 +624,21 @@ namespace api {
         using max_strike = spiderrock::protobuf::api::max_strike;
         using min_surf_edge_prem = spiderrock::protobuf::api::min_surf_edge_prem;
         using min_surf_edge_vol = spiderrock::protobuf::api::min_surf_edge_vol;
+        using min_probability = spiderrock::protobuf::api::min_probability;
         using inc_fees_in_resp = spiderrock::protobuf::api::inc_fees_in_resp;
         using round_rule = spiderrock::protobuf::api::round_rule;
         using max_response_size = spiderrock::protobuf::api::max_response_size;
         using max_response_vega = spiderrock::protobuf::api::max_response_vega;
         using total_response_vega = spiderrock::protobuf::api::total_response_vega;
         using total_response_wt_vega = spiderrock::protobuf::api::total_response_wt_vega;
+        using not_mkt_penny = spiderrock::protobuf::api::not_mkt_penny;
+        using mkt_penny1 = spiderrock::protobuf::api::mkt_penny1;
+        using mkt_penny2 = spiderrock::protobuf::api::mkt_penny2;
+        using mkt_penny3p = spiderrock::protobuf::api::mkt_penny3p;
+        using not_mkt_nickle = spiderrock::protobuf::api::not_mkt_nickle;
+        using mkt_nickle1 = spiderrock::protobuf::api::mkt_nickle1;
+        using mkt_nickle2 = spiderrock::protobuf::api::mkt_nickle2;
+        using mkt_nickle3p = spiderrock::protobuf::api::mkt_nickle3p;
         using auto_hedge = spiderrock::protobuf::api::auto_hedge;
         using hedge_instrument = spiderrock::protobuf::api::hedge_instrument;
         using hedge_sec_key = spiderrock::protobuf::api::hedge_sec_key;
@@ -425,6 +649,8 @@ namespace api {
         using modified_by = spiderrock::protobuf::api::modified_by;
         using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
+        using c_firm_excl_filter = spiderrock::protobuf::api::AutoResponderVegaDir_CFirmExclFilter;
+        using c_firm_incl_filter = spiderrock::protobuf::api::AutoResponderVegaDir_CFirmInclFilter;
 
         private:
         _meta m__meta{};
@@ -434,6 +660,8 @@ namespace api {
         enabled_until m_enabled_until{};
         can_include_flex m_can_include_flex{};
         can_include_stock m_can_include_stock{};
+        can_respond_sr m_can_respond_sr{};
+        can_respond_exch m_can_respond_exch{};
         cp_flag m_cp_flag{};
         min_net_vega_ratio m_min_net_vega_ratio{};
         min_years m_min_years{};
@@ -446,12 +674,21 @@ namespace api {
         max_strike m_max_strike{};
         min_surf_edge_prem m_min_surf_edge_prem{};
         min_surf_edge_vol m_min_surf_edge_vol{};
+        min_probability m_min_probability{};
         inc_fees_in_resp m_inc_fees_in_resp{};
         round_rule m_round_rule{};
         max_response_size m_max_response_size{};
         max_response_vega m_max_response_vega{};
         total_response_vega m_total_response_vega{};
         total_response_wt_vega m_total_response_wt_vega{};
+        not_mkt_penny m_not_mkt_penny{};
+        mkt_penny1 m_mkt_penny1{};
+        mkt_penny2 m_mkt_penny2{};
+        mkt_penny3p m_mkt_penny3p{};
+        not_mkt_nickle m_not_mkt_nickle{};
+        mkt_nickle1 m_mkt_nickle1{};
+        mkt_nickle2 m_mkt_nickle2{};
+        mkt_nickle3p m_mkt_nickle3p{};
         auto_hedge m_auto_hedge{};
         hedge_instrument m_hedge_instrument{};
         hedge_sec_key m_hedge_sec_key{};
@@ -462,6 +699,8 @@ namespace api {
         modified_by m_modified_by{};
         modified_in m_modified_in{};
         timestamp m_timestamp{};
+        std::vector<c_firm_excl_filter> m_c_firm_excl_filter{};
+        std::vector<c_firm_incl_filter> m_c_firm_incl_filter{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -486,6 +725,12 @@ namespace api {
         }		
         can_include_stock get_can_include_stock() const {
             return m_can_include_stock;
+        }		
+        can_respond_sr get_can_respond_sr() const {
+            return m_can_respond_sr;
+        }		
+        can_respond_exch get_can_respond_exch() const {
+            return m_can_respond_exch;
         }		
         cp_flag get_cp_flag() const {
             return m_cp_flag;
@@ -523,6 +768,9 @@ namespace api {
         min_surf_edge_vol get_min_surf_edge_vol() const {
             return m_min_surf_edge_vol;
         }		
+        min_probability get_min_probability() const {
+            return m_min_probability;
+        }		
         inc_fees_in_resp get_inc_fees_in_resp() const {
             return m_inc_fees_in_resp;
         }		
@@ -540,6 +788,30 @@ namespace api {
         }		
         total_response_wt_vega get_total_response_wt_vega() const {
             return m_total_response_wt_vega;
+        }		
+        not_mkt_penny get_not_mkt_penny() const {
+            return m_not_mkt_penny;
+        }		
+        mkt_penny1 get_mkt_penny1() const {
+            return m_mkt_penny1;
+        }		
+        mkt_penny2 get_mkt_penny2() const {
+            return m_mkt_penny2;
+        }		
+        mkt_penny3p get_mkt_penny3p() const {
+            return m_mkt_penny3p;
+        }		
+        not_mkt_nickle get_not_mkt_nickle() const {
+            return m_not_mkt_nickle;
+        }		
+        mkt_nickle1 get_mkt_nickle1() const {
+            return m_mkt_nickle1;
+        }		
+        mkt_nickle2 get_mkt_nickle2() const {
+            return m_mkt_nickle2;
+        }		
+        mkt_nickle3p get_mkt_nickle3p() const {
+            return m_mkt_nickle3p;
         }		
         auto_hedge get_auto_hedge() const {
             return m_auto_hedge;
@@ -571,6 +843,18 @@ namespace api {
         timestamp get_timestamp() const {
             return m_timestamp;
         }
+        const std::vector<c_firm_excl_filter>& get_c_firm_excl_filter_list() const {
+            return m_c_firm_excl_filter;
+        }
+        const c_firm_excl_filter& get_c_firm_excl_filter(const int i) const {
+            return m_c_firm_excl_filter.at(i);
+        }
+        const std::vector<c_firm_incl_filter>& get_c_firm_incl_filter_list() const {
+            return m_c_firm_incl_filter;
+        }
+        const c_firm_incl_filter& get_c_firm_incl_filter(const int i) const {
+            return m_c_firm_incl_filter.at(i);
+        }
         size_t getMLinkHeaderLength() const
         {
             return _mlinkHeaderLength;
@@ -595,6 +879,12 @@ namespace api {
         }
         void set_can_include_stock(const can_include_stock& value)  {
             m_can_include_stock = value;
+        }
+        void set_can_respond_sr(const can_respond_sr& value)  {
+            m_can_respond_sr = value;
+        }
+        void set_can_respond_exch(const can_respond_exch& value)  {
+            m_can_respond_exch = value;
         }
         void set_cp_flag(const cp_flag& value)  {
             m_cp_flag = value;
@@ -632,6 +922,9 @@ namespace api {
         void set_min_surf_edge_vol(const min_surf_edge_vol& value)  {
             m_min_surf_edge_vol = value;
         }
+        void set_min_probability(const min_probability& value)  {
+            m_min_probability = value;
+        }
         void set_inc_fees_in_resp(const inc_fees_in_resp& value)  {
             m_inc_fees_in_resp = value;
         }
@@ -649,6 +942,30 @@ namespace api {
         }
         void set_total_response_wt_vega(const total_response_wt_vega& value)  {
             m_total_response_wt_vega = value;
+        }
+        void set_not_mkt_penny(const not_mkt_penny& value)  {
+            m_not_mkt_penny = value;
+        }
+        void set_mkt_penny1(const mkt_penny1& value)  {
+            m_mkt_penny1 = value;
+        }
+        void set_mkt_penny2(const mkt_penny2& value)  {
+            m_mkt_penny2 = value;
+        }
+        void set_mkt_penny3p(const mkt_penny3p& value)  {
+            m_mkt_penny3p = value;
+        }
+        void set_not_mkt_nickle(const not_mkt_nickle& value)  {
+            m_not_mkt_nickle = value;
+        }
+        void set_mkt_nickle1(const mkt_nickle1& value)  {
+            m_mkt_nickle1 = value;
+        }
+        void set_mkt_nickle2(const mkt_nickle2& value)  {
+            m_mkt_nickle2 = value;
+        }
+        void set_mkt_nickle3p(const mkt_nickle3p& value)  {
+            m_mkt_nickle3p = value;
         }
         void set_auto_hedge(const auto_hedge& value)  {
             m_auto_hedge = value;
@@ -680,11 +997,29 @@ namespace api {
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
         }
+        void set_c_firm_excl_filter_list(const std::vector<c_firm_excl_filter>& list)  {
+            m_c_firm_excl_filter = list;
+        }
+        void add_c_firm_excl_filter(const c_firm_excl_filter& item) {
+            m_c_firm_excl_filter.emplace_back(item);
+        }
+        void set_c_firm_incl_filter_list(const std::vector<c_firm_incl_filter>& list)  {
+            m_c_firm_incl_filter = list;
+        }
+        void add_c_firm_incl_filter(const c_firm_incl_filter& item) {
+            m_c_firm_incl_filter.emplace_back(item);
+        }
 
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
         const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        const auto get(int i) const { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir::get(int)"); return T{};}  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        int count() const { static_assert(sizeof(T) == -1, "Unexpected type in call to AutoResponderVegaDir::count()"); return 0;}  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -708,6 +1043,12 @@ namespace api {
         }
         void set(const can_include_stock & value) {
             set_can_include_stock(value);
+        }
+        void set(const can_respond_sr & value) {
+            set_can_respond_sr(value);
+        }
+        void set(const can_respond_exch & value) {
+            set_can_respond_exch(value);
         }
         void set(const cp_flag & value) {
             set_cp_flag(value);
@@ -745,6 +1086,9 @@ namespace api {
         void set(const min_surf_edge_vol & value) {
             set_min_surf_edge_vol(value);
         }
+        void set(const min_probability & value) {
+            set_min_probability(value);
+        }
         void set(const inc_fees_in_resp & value) {
             set_inc_fees_in_resp(value);
         }
@@ -762,6 +1106,30 @@ namespace api {
         }
         void set(const total_response_wt_vega & value) {
             set_total_response_wt_vega(value);
+        }
+        void set(const not_mkt_penny & value) {
+            set_not_mkt_penny(value);
+        }
+        void set(const mkt_penny1 & value) {
+            set_mkt_penny1(value);
+        }
+        void set(const mkt_penny2 & value) {
+            set_mkt_penny2(value);
+        }
+        void set(const mkt_penny3p & value) {
+            set_mkt_penny3p(value);
+        }
+        void set(const not_mkt_nickle & value) {
+            set_not_mkt_nickle(value);
+        }
+        void set(const mkt_nickle1 & value) {
+            set_mkt_nickle1(value);
+        }
+        void set(const mkt_nickle2 & value) {
+            set_mkt_nickle2(value);
+        }
+        void set(const mkt_nickle3p & value) {
+            set_mkt_nickle3p(value);
         }
         void set(const auto_hedge & value) {
             set_auto_hedge(value);
@@ -793,6 +1161,12 @@ namespace api {
         void set(const timestamp & value) {
             set_timestamp(value);
         }
+        void set(const c_firm_excl_filter & value) {
+            add_c_firm_excl_filter(value);
+        }
+        void set(const c_firm_incl_filter & value) {
+            add_c_firm_incl_filter(value);
+        }
 
         void set(const AutoResponderVegaDir & value) {
             set(value.m__meta);
@@ -802,6 +1176,8 @@ namespace api {
             set(value.m_enabled_until);
             set(value.m_can_include_flex);
             set(value.m_can_include_stock);
+            set(value.m_can_respond_sr);
+            set(value.m_can_respond_exch);
             set(value.m_cp_flag);
             set(value.m_min_net_vega_ratio);
             set(value.m_min_years);
@@ -814,12 +1190,21 @@ namespace api {
             set(value.m_max_strike);
             set(value.m_min_surf_edge_prem);
             set(value.m_min_surf_edge_vol);
+            set(value.m_min_probability);
             set(value.m_inc_fees_in_resp);
             set(value.m_round_rule);
             set(value.m_max_response_size);
             set(value.m_max_response_vega);
             set(value.m_total_response_vega);
             set(value.m_total_response_wt_vega);
+            set(value.m_not_mkt_penny);
+            set(value.m_mkt_penny1);
+            set(value.m_mkt_penny2);
+            set(value.m_mkt_penny3p);
+            set(value.m_not_mkt_nickle);
+            set(value.m_mkt_nickle1);
+            set(value.m_mkt_nickle2);
+            set(value.m_mkt_nickle3p);
             set(value.m_auto_hedge);
             set(value.m_hedge_instrument);
             set(value.m_hedge_sec_key);
@@ -829,7 +1214,7 @@ namespace api {
             set(value.m_risk_group_id);
             set(value.m_modified_by);
             set(value.m_modified_in);
-            set(value.m_timestamp);
+            set(value.m_timestamp);set_c_firm_excl_filter_list(value.m_c_firm_excl_filter);set_c_firm_incl_filter_list(value.m_c_firm_incl_filter);
         }
 
         AutoResponderVegaDir() {
@@ -927,6 +1312,9 @@ namespace api {
         bool IncludeMinSurfEdgeVol() const {
             return !(m_min_surf_edge_vol == 0.0);
         }
+        bool IncludeMinProbability() const {
+            return !(m_min_probability == 0.0);
+        }
         bool IncludeMaxResponseSize() const {
             return !(m_max_response_size == 0);
         }
@@ -954,6 +1342,12 @@ namespace api {
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
+        bool IncludeCFirmExclFilter() const {
+            return (!m_c_firm_excl_filter.empty());
+        }
+        bool IncludeCFirmInclFilter() const {
+            return (!m_c_firm_incl_filter.empty());
+        }
 
         size_t ByteSizeLong() const {
             size_t totalSize = 0;
@@ -977,6 +1371,8 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_flex)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_stock)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_sr)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(143,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_exch)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_cp_flag)));
             if ( IncludeMinNetVegaRatio()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(137,m_min_net_vega_ratio);
@@ -1011,6 +1407,9 @@ namespace api {
             if ( IncludeMinSurfEdgeVol()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(130,m_min_surf_edge_vol);
             }
+            if ( IncludeMinProbability()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(148,m_min_probability);
+            }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(131,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_fees_in_resp)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(132,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RoundRule>(m_round_rule)));
             if ( IncludeMaxResponseSize()) {
@@ -1025,6 +1424,14 @@ namespace api {
             if ( IncludeTotalResponseWtVega()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(135,m_total_response_wt_vega);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(149,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_penny)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(150,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny1)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny2)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(152,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny3p)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(153,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_nickle)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle1)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(155,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle2)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(156,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle3p)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(119,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(120,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
@@ -1046,6 +1453,20 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(128,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(129, m_timestamp);
+            }
+            if ( IncludeCFirmExclFilter()) {
+                for (auto& item : m_c_firm_excl_filter) {
+					totalSize += SRProtobufCPP::TagCodec::Size(146, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
+            }
+            if ( IncludeCFirmInclFilter()) {
+                for (auto& item : m_c_firm_incl_filter) {
+					totalSize += SRProtobufCPP::TagCodec::Size(144, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
             }
             return totalSize;
         }
@@ -1070,6 +1491,8 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_flex)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_stock)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,142,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_sr)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,143,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_exch)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,105,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_cp_flag)));
             if ( IncludeMinNetVegaRatio()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,137,m_min_net_vega_ratio);
@@ -1104,6 +1527,9 @@ namespace api {
             if ( IncludeMinSurfEdgeVol()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,130,m_min_surf_edge_vol);
             }
+            if ( IncludeMinProbability()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,148,m_min_probability);
+            }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,131,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_fees_in_resp)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,132,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RoundRule>(m_round_rule)));
             if ( IncludeMaxResponseSize()) {
@@ -1118,6 +1544,14 @@ namespace api {
             if ( IncludeTotalResponseWtVega()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,135,m_total_response_wt_vega);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,149,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_penny)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,150,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny1)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,151,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny2)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,152,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny3p)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,153,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_nickle)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,154,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle1)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,155,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle2)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,156,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle3p)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,119,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,120,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
@@ -1139,6 +1573,20 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,128,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 129, m_timestamp);
+            }
+            if ( IncludeCFirmExclFilter()) {
+                for (auto& item : m_c_firm_excl_filter) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 146, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
+            }
+            if ( IncludeCFirmInclFilter()) {
+                for (auto& item : m_c_firm_incl_filter) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 144, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
             }
         }
 
@@ -1194,6 +1642,16 @@ namespace api {
                     }
                     case 104: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_can_include_stock = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 142: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_can_respond_sr = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 143: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_can_respond_exch = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1268,6 +1726,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 148: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_min_probability = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 131: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_inc_fees_in_resp = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -1299,6 +1763,46 @@ namespace api {
                     case 135: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_total_response_wt_vega = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 149: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_not_mkt_penny = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 150: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_penny1 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 151: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_penny2 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 152: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_penny3p = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 153: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_not_mkt_nickle = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 154: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_nickle1 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 155: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_nickle2 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 156: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_nickle3p = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -1358,6 +1862,24 @@ namespace api {
                         }
                         break;
                     }
+                    case 146: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            c_firm_excl_filter item_c_firm_excl_filter;
+                            item_c_firm_excl_filter.Decode(pos, pos+length);  
+                            m_c_firm_excl_filter.emplace_back(item_c_firm_excl_filter);
+                        }
+                        break;
+                    }
+                    case 144: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            c_firm_incl_filter item_c_firm_incl_filter;
+                            item_c_firm_incl_filter.Decode(pos, pos+length);  
+                            m_c_firm_incl_filter.emplace_back(item_c_firm_incl_filter);
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -1374,6 +1896,8 @@ namespace api {
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::enabled_until>() const { return m_enabled_until; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::can_include_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_include_flex)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::can_include_stock>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_include_stock)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::can_respond_sr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_respond_sr)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::can_respond_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_respond_exch)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::cp_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>( m_cp_flag)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_net_vega_ratio>() const { return m_min_net_vega_ratio; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_years>() const { return m_min_years; }
@@ -1386,12 +1910,21 @@ namespace api {
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::max_strike>() const { return m_max_strike; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_surf_edge_prem>() const { return m_min_surf_edge_prem; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_surf_edge_vol>() const { return m_min_surf_edge_vol; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::min_probability>() const { return m_min_probability; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::inc_fees_in_resp>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_inc_fees_in_resp)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::round_rule>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RoundRule>( m_round_rule)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::max_response_size>() const { return m_max_response_size; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::max_response_vega>() const { return m_max_response_vega; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::total_response_vega>() const { return m_total_response_vega; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::total_response_wt_vega>() const { return m_total_response_wt_vega; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::not_mkt_penny>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_not_mkt_penny)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::mkt_penny1>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_penny1)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::mkt_penny2>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_penny2)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::mkt_penny3p>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_penny3p)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::not_mkt_nickle>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_not_mkt_nickle)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::mkt_nickle1>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_nickle1)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::mkt_nickle2>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_nickle2)); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::mkt_nickle3p>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_nickle3p)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::auto_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>( m_auto_hedge)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::hedge_instrument>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>( m_hedge_instrument)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::hedge_sec_key>() const { return AutoResponderVegaDir::hedge_sec_key{ m_hedge_sec_key}; }
@@ -1402,11 +1935,19 @@ namespace api {
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::modified_by>() const { return m_modified_by; }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
     template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::timestamp>() const { return m_timestamp; }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::c_firm_excl_filter>(int i) const { return AutoResponderVegaDir::c_firm_excl_filter{ get_c_firm_excl_filter(i)}; }
+    template<> inline int AutoResponderVegaDir::count<AutoResponderVegaDir::c_firm_excl_filter>() const { return static_cast<int>( m_c_firm_excl_filter.size()); }
+    template<> inline const auto AutoResponderVegaDir::get<AutoResponderVegaDir::c_firm_incl_filter>(int i) const { return AutoResponderVegaDir::c_firm_incl_filter{ get_c_firm_incl_filter(i)}; }
+    template<> inline int AutoResponderVegaDir::count<AutoResponderVegaDir::c_firm_incl_filter>() const { return static_cast<int>( m_c_firm_incl_filter.size()); }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::accnt>() const { return m_accnt; }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::client_firm>() const { return m_client_firm; }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::root>() const { return AutoResponderVegaDir_PKey::root{m_root}; }
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::resp_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side));}
     template<> inline const auto AutoResponderVegaDir_PKey::get<AutoResponderVegaDir_PKey::responder_id>() const { return m_responder_id; }
+    
+    template<> inline const auto AutoResponderVegaDir_CFirmExclFilter::get<AutoResponderVegaDir_CFirmExclFilter::inititor_cfirm>() const { return m_inititor_cfirm; }
+    
+    template<> inline const auto AutoResponderVegaDir_CFirmInclFilter::get<AutoResponderVegaDir_CFirmInclFilter::inititor_cfirm>() const { return m_inititor_cfirm; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
@@ -1416,6 +1957,16 @@ namespace api {
         o << ",\"root\":{" << m.get<AutoResponderVegaDir_PKey::root>() << "}";
         o << ",\"resp_side\":" << (int64_t)m.get<AutoResponderVegaDir_PKey::resp_side>();
         o << ",\"responder_id\":" << m.get<AutoResponderVegaDir_PKey::responder_id>();
+        return o;
+    }
+
+    inline std::ostream& operator<<(std::ostream &o, const AutoResponderVegaDir_CFirmExclFilter& m) {
+        o << "\"inititor_cfirm\":\"" << m.get<AutoResponderVegaDir_CFirmExclFilter::inititor_cfirm>() << "\"";
+        return o;
+    }
+
+    inline std::ostream& operator<<(std::ostream &o, const AutoResponderVegaDir_CFirmInclFilter& m) {
+        o << "\"inititor_cfirm\":\"" << m.get<AutoResponderVegaDir_CFirmInclFilter::inititor_cfirm>() << "\"";
         return o;
     }
 
@@ -1432,6 +1983,8 @@ namespace api {
         }
         o << ",\"can_include_flex\":" << (int64_t)m.get<AutoResponderVegaDir::can_include_flex>();
         o << ",\"can_include_stock\":" << (int64_t)m.get<AutoResponderVegaDir::can_include_stock>();
+        o << ",\"can_respond_sr\":" << (int64_t)m.get<AutoResponderVegaDir::can_respond_sr>();
+        o << ",\"can_respond_exch\":" << (int64_t)m.get<AutoResponderVegaDir::can_respond_exch>();
         o << ",\"cp_flag\":" << (int64_t)m.get<AutoResponderVegaDir::cp_flag>();
         o << ",\"min_net_vega_ratio\":" << m.get<AutoResponderVegaDir::min_net_vega_ratio>();
         o << ",\"min_years\":" << m.get<AutoResponderVegaDir::min_years>();
@@ -1454,12 +2007,21 @@ namespace api {
         o << ",\"max_strike\":" << m.get<AutoResponderVegaDir::max_strike>();
         o << ",\"min_surf_edge_prem\":" << m.get<AutoResponderVegaDir::min_surf_edge_prem>();
         o << ",\"min_surf_edge_vol\":" << m.get<AutoResponderVegaDir::min_surf_edge_vol>();
+        o << ",\"min_probability\":" << m.get<AutoResponderVegaDir::min_probability>();
         o << ",\"inc_fees_in_resp\":" << (int64_t)m.get<AutoResponderVegaDir::inc_fees_in_resp>();
         o << ",\"round_rule\":" << (int64_t)m.get<AutoResponderVegaDir::round_rule>();
         o << ",\"max_response_size\":" << m.get<AutoResponderVegaDir::max_response_size>();
         o << ",\"max_response_vega\":" << m.get<AutoResponderVegaDir::max_response_vega>();
         o << ",\"total_response_vega\":" << m.get<AutoResponderVegaDir::total_response_vega>();
         o << ",\"total_response_wt_vega\":" << m.get<AutoResponderVegaDir::total_response_wt_vega>();
+        o << ",\"not_mkt_penny\":" << (int64_t)m.get<AutoResponderVegaDir::not_mkt_penny>();
+        o << ",\"mkt_penny1\":" << (int64_t)m.get<AutoResponderVegaDir::mkt_penny1>();
+        o << ",\"mkt_penny2\":" << (int64_t)m.get<AutoResponderVegaDir::mkt_penny2>();
+        o << ",\"mkt_penny3p\":" << (int64_t)m.get<AutoResponderVegaDir::mkt_penny3p>();
+        o << ",\"not_mkt_nickle\":" << (int64_t)m.get<AutoResponderVegaDir::not_mkt_nickle>();
+        o << ",\"mkt_nickle1\":" << (int64_t)m.get<AutoResponderVegaDir::mkt_nickle1>();
+        o << ",\"mkt_nickle2\":" << (int64_t)m.get<AutoResponderVegaDir::mkt_nickle2>();
+        o << ",\"mkt_nickle3p\":" << (int64_t)m.get<AutoResponderVegaDir::mkt_nickle3p>();
         o << ",\"auto_hedge\":" << (int64_t)m.get<AutoResponderVegaDir::auto_hedge>();
         o << ",\"hedge_instrument\":" << (int64_t)m.get<AutoResponderVegaDir::hedge_instrument>();
         o << ",\"hedge_sec_key\":{" << m.get<AutoResponderVegaDir::hedge_sec_key>() << "}";
@@ -1475,6 +2037,24 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"c_firm_excl_filter\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<AutoResponderVegaDir::c_firm_excl_filter>(); ++i) {
+                o << delim << m.get<AutoResponderVegaDir::c_firm_excl_filter>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
+        o << ",\"c_firm_incl_filter\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<AutoResponderVegaDir::c_firm_incl_filter>(); ++i) {
+                o << delim << m.get<AutoResponderVegaDir::c_firm_incl_filter>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
         return o;
     }
 
