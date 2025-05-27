@@ -106,6 +106,7 @@ message SpdrParentBrkrState {
     MarketSession hedge_session = 603; // market session for the autohedge order
     string extern_hedge_ex_dest = 607; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 313; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
+    YesNo hedge_fill_uMark_lmt_prc = 609; // set a price limit on the autohedge order based on the most recent option fillUMark
     string user_data1 = 316; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 319; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     MaxProgress max_progress = 322; // maximum point of progress for most recent parent order

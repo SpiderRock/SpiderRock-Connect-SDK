@@ -7,7 +7,11 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    SpdrTheoExpSurface records reprent a client theoretical volatility surface for a ExpiryKey (ticker + expiration).  These records can either directly specify parameters to be used in a parameterized surface function or can link to a record (eg. SpdrTheoExp2PtCurve) containing x/y points sampling a client constructed curve.  Alternatively, they can specify that a SpiderRock implied skew curve should be used along with client supplied atm volatilities.
+    Surface dynamics can be specified in multiple ways with these records and a number of pricing parameter overrides are also available.
+    See the technical note on client supplied theoretical surfaces for more details.
+*/    
 message SpdrTheoExpSurface {
     message PKey {
         

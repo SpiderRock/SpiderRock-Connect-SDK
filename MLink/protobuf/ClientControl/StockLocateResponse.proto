@@ -17,6 +17,9 @@ message StockLocateResponse {
         
         TickerKey ticker = 10;
         string core_client_firm = 11;
+        string locate_firm = 18; // typically a clearing firm (or 3rd party locate desk)
+        string locate_pool = 19; // locate pool @ firm granting the locate
+        DateKey trade_date = 20;
         int64 request_iD = 17; // ID used to make locate requests (SR generated request ID)
     }
 
@@ -24,9 +27,6 @@ message StockLocateResponse {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    DateKey trade_date = 134;
-    string locate_firm = 135; // typically a clearing firm (or 3rd party locate desk)
-    string locate_pool = 136; // locate pool @ firm granting the locate
     int32 request_quan = 103; // original request quantity for requestID
     int32 locate_quan = 106;
     LocateStatus locate_status = 109;

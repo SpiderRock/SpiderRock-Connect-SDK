@@ -18,6 +18,16 @@ message AutoResponderVegaDir {
         int32 responder_iD = 17; // client supplied responder ID (can be any number including zero)
     }
 
+    message CFirmExclFilter {
+        
+        string inititor_cFirm = 147; // <missing> will not exclude any initiating client firms; non-empty will only respond if (none of) matches initiator ClientFirm
+    }
+
+    message CFirmInclFilter {
+        
+        string inititor_cFirm = 145; // <missing> will respond to all initiating client firms; non-empty will only respond if (one of) matches initiator ClientFirm
+    }
+
 
     MessageMetadata _meta = 1;
     
@@ -27,6 +37,8 @@ message AutoResponderVegaDir {
     google.protobuf.Timestamp enabled_until = 136; // will be enabled up until this time
     YesNo can_include_flex = 103; // if yes, can respond to auction notices that include flex option legs
     YesNo can_include_stock = 104; // if yes, can respond to auction notices that include a stock leg
+    YesNo can_respond_sR = 142; // if yes, can respond to auction notices from SR
+    YesNo can_respond_exch = 143; // if yes, can respond to auction notices from exchanges
     CallPut cp_flag = 105; // if not Pair must match all option legs
     float min_net_vega_ratio = 137; // minimum ratio of abs(netVega)/totalVega to enable a response (hard lower limit of 0.25)
     float min_years = 138; // all leg years must be between [minYears, maxYears]
@@ -39,12 +51,21 @@ message AutoResponderVegaDir {
     double max_strike = 113;
     float min_surf_edge_prem = 114; // spread surface edge (in premium) (+ = through surface; - = behind surface)
     float min_surf_edge_vol = 130; // spread surface edge (in vol) (0.01 = 1.0 vol pts) (+ = through surface; - = behind surface)
+    float min_probability = 148; // option response probability must be >= minProbability
     YesNo inc_fees_in_resp = 131; // include all estimated responder fees in final response price
     RoundRule round_rule = 132;
     int32 max_response_size = 117; // maximum number of contracts per response (will respond for 100% if auction size <= maxResponseSize)
     float max_response_vega = 133; // maximum total vega per response
     float total_response_vega = 134; // maximum vega (filled) all day
     float total_response_wt_vega = 135; // maximum wtVega (filled) all day
+    YesNo not_mkt_penny = 149; // None or Yes will respond to non-marketable penny name orders
+    YesNo mkt_penny1 = 150; // None or Yes will respond to marketable (mkt 1 tick wide) penny name orders
+    YesNo mkt_penny2 = 151; // None or Yes will respond to marketable (mkt 2 tick wide) penny name orders
+    YesNo mkt_penny3p = 152; // None or Yes will respond to marketable (mkt 3+ tick wide) penny name orders
+    YesNo not_mkt_nickle = 153; // None or Yes will respond to non-marketable nickle/dime name orders
+    YesNo mkt_nickle1 = 154; // None or Yes will respond to marketable (mkt 1 tick wide) nickel/dime name orders
+    YesNo mkt_nickle2 = 155; // None or Yes will respond to marketable (mkt 2 tick wide) nickel/dime name orders
+    YesNo mkt_nickle3p = 156; // None or Yes will respond to marketable (mkt 3+ tick wide) nickel/dime name orders
     AutoHedge auto_hedge = 119;
     HedgeInst hedge_instrument = 120; // Default=actual underlier (EQT or FUT) [IndexOptions use ETF]; FrontMonth=actual underlier (EQT) or front month (FUT) [IndexOptions use FM Fut]; Stock=hedgeSecKey.TickerKey; Future=hedgeSecKey.ExpiryKey
     ExpiryKey hedge_sec_key = 121; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
@@ -55,6 +76,8 @@ message AutoResponderVegaDir {
     string modified_by = 127; // user who last modified this record
     SysEnvironment modified_in = 128;
     google.protobuf.Timestamp timestamp = 129; // timestamp of last modification
+    repeated CFirmExclFilter c_firm_excl_filter = 146;
+    repeated CFirmInclFilter c_firm_incl_filter = 144;
 }
 
 

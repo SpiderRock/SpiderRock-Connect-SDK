@@ -127,7 +127,7 @@ message RiskCubeDetailV5 {
     float pos_hDelta = 503; // hedge delta (either ivol or tvol based;follows binary rules)
     float pos_hDDelta = 504; // hedge delta (dollarized)
     float pos_hGamma = 505; // hedge gamma (either ivol or tvol based;follows binary rules)
-    float pos_hDGaamma = 506; // hedge gamma (dollarized)
+    float pos_hDGamma = 507; // hedge gamma (dollarized)
     float pos_notional = 397; // live position * mult * uPrc
     float pos_mkt_value = 400; // live position * mult * SR surface mark
     float pos_prem_oPar = 403; // live position * mult * premium over parity
