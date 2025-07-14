@@ -55,6 +55,16 @@ namespace api {
     DECL_STRONG_TYPE(can_include_stock, spiderrock::protobuf::api::YesNo);
     #endif//_can_include_stock__GUARD__
 
+    #ifndef _can_respond_sr__GUARD__
+    #define _can_respond_sr__GUARD__
+    DECL_STRONG_TYPE(can_respond_sr, spiderrock::protobuf::api::YesNo);
+    #endif//_can_respond_sr__GUARD__
+
+    #ifndef _can_respond_exch__GUARD__
+    #define _can_respond_exch__GUARD__
+    DECL_STRONG_TYPE(can_respond_exch, spiderrock::protobuf::api::YesNo);
+    #endif//_can_respond_exch__GUARD__
+
     #ifndef _cp_flag__GUARD__
     #define _cp_flag__GUARD__
     DECL_STRONG_TYPE(cp_flag, spiderrock::protobuf::api::CallPut);
@@ -115,6 +125,11 @@ namespace api {
     DECL_STRONG_TYPE(min_surf_edge_vol, float);
     #endif//_min_surf_edge_vol__GUARD__
 
+    #ifndef _min_probability__GUARD__
+    #define _min_probability__GUARD__
+    DECL_STRONG_TYPE(min_probability, float);
+    #endif//_min_probability__GUARD__
+
     #ifndef _inc_fees_in_resp__GUARD__
     #define _inc_fees_in_resp__GUARD__
     DECL_STRONG_TYPE(inc_fees_in_resp, spiderrock::protobuf::api::YesNo);
@@ -144,6 +159,46 @@ namespace api {
     #define _total_response_wt_vega__GUARD__
     DECL_STRONG_TYPE(total_response_wt_vega, float);
     #endif//_total_response_wt_vega__GUARD__
+
+    #ifndef _not_mkt_penny__GUARD__
+    #define _not_mkt_penny__GUARD__
+    DECL_STRONG_TYPE(not_mkt_penny, spiderrock::protobuf::api::YesNo);
+    #endif//_not_mkt_penny__GUARD__
+
+    #ifndef _mkt_penny1__GUARD__
+    #define _mkt_penny1__GUARD__
+    DECL_STRONG_TYPE(mkt_penny1, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_penny1__GUARD__
+
+    #ifndef _mkt_penny2__GUARD__
+    #define _mkt_penny2__GUARD__
+    DECL_STRONG_TYPE(mkt_penny2, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_penny2__GUARD__
+
+    #ifndef _mkt_penny3p__GUARD__
+    #define _mkt_penny3p__GUARD__
+    DECL_STRONG_TYPE(mkt_penny3p, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_penny3p__GUARD__
+
+    #ifndef _not_mkt_nickle__GUARD__
+    #define _not_mkt_nickle__GUARD__
+    DECL_STRONG_TYPE(not_mkt_nickle, spiderrock::protobuf::api::YesNo);
+    #endif//_not_mkt_nickle__GUARD__
+
+    #ifndef _mkt_nickle1__GUARD__
+    #define _mkt_nickle1__GUARD__
+    DECL_STRONG_TYPE(mkt_nickle1, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_nickle1__GUARD__
+
+    #ifndef _mkt_nickle2__GUARD__
+    #define _mkt_nickle2__GUARD__
+    DECL_STRONG_TYPE(mkt_nickle2, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_nickle2__GUARD__
+
+    #ifndef _mkt_nickle3p__GUARD__
+    #define _mkt_nickle3p__GUARD__
+    DECL_STRONG_TYPE(mkt_nickle3p, spiderrock::protobuf::api::YesNo);
+    #endif//_mkt_nickle3p__GUARD__
 
     #ifndef _auto_hedge__GUARD__
     #define _auto_hedge__GUARD__
@@ -180,120 +235,70 @@ namespace api {
     DECL_STRONG_TYPE(risk_group_id, int64);
     #endif//_risk_group_id__GUARD__
 
-    #ifndef _qty_traded__GUARD__
-    #define _qty_traded__GUARD__
-    DECL_STRONG_TYPE(qty_traded, int32);
-    #endif//_qty_traded__GUARD__
-
-    #ifndef _vega_traded__GUARD__
-    #define _vega_traded__GUARD__
-    DECL_STRONG_TYPE(vega_traded, double);
-    #endif//_vega_traded__GUARD__
-
-    #ifndef _wt_vega_traded__GUARD__
-    #define _wt_vega_traded__GUARD__
-    DECL_STRONG_TYPE(wt_vega_traded, double);
-    #endif//_wt_vega_traded__GUARD__
-
     #ifndef _num_notices__GUARD__
     #define _num_notices__GUARD__
     DECL_STRONG_TYPE(num_notices, int64);
     #endif//_num_notices__GUARD__
 
-    #ifndef _num_notice_sr__GUARD__
-    #define _num_notice_sr__GUARD__
-    DECL_STRONG_TYPE(num_notice_sr, int64);
-    #endif//_num_notice_sr__GUARD__
+    #ifndef _num_notice_block__GUARD__
+    #define _num_notice_block__GUARD__
+    DECL_STRONG_TYPE(num_notice_block, int64);
+    #endif//_num_notice_block__GUARD__
 
-    #ifndef _num_notice_amex__GUARD__
-    #define _num_notice_amex__GUARD__
-    DECL_STRONG_TYPE(num_notice_amex, int64);
-    #endif//_num_notice_amex__GUARD__
+    #ifndef _num_notice_flash__GUARD__
+    #define _num_notice_flash__GUARD__
+    DECL_STRONG_TYPE(num_notice_flash, int64);
+    #endif//_num_notice_flash__GUARD__
 
-    #ifndef _num_notice_bats__GUARD__
-    #define _num_notice_bats__GUARD__
-    DECL_STRONG_TYPE(num_notice_bats, int64);
-    #endif//_num_notice_bats__GUARD__
+    #ifndef _num_notice_exch_pi__GUARD__
+    #define _num_notice_exch_pi__GUARD__
+    DECL_STRONG_TYPE(num_notice_exch_pi, int64);
+    #endif//_num_notice_exch_pi__GUARD__
 
-    #ifndef _num_notice_box__GUARD__
-    #define _num_notice_box__GUARD__
-    DECL_STRONG_TYPE(num_notice_box, int64);
-    #endif//_num_notice_box__GUARD__
+    #ifndef _num_notice_exch_ex__GUARD__
+    #define _num_notice_exch_ex__GUARD__
+    DECL_STRONG_TYPE(num_notice_exch_ex, int64);
+    #endif//_num_notice_exch_ex__GUARD__
 
-    #ifndef _num_notice_cboe__GUARD__
-    #define _num_notice_cboe__GUARD__
-    DECL_STRONG_TYPE(num_notice_cboe, int64);
-    #endif//_num_notice_cboe__GUARD__
+    #ifndef _num_not_mkt_penny__GUARD__
+    #define _num_not_mkt_penny__GUARD__
+    DECL_STRONG_TYPE(num_not_mkt_penny, int64);
+    #endif//_num_not_mkt_penny__GUARD__
 
-    #ifndef _num_notice_c2__GUARD__
-    #define _num_notice_c2__GUARD__
-    DECL_STRONG_TYPE(num_notice_c2, int64);
-    #endif//_num_notice_c2__GUARD__
+    #ifndef _num_mkt_penny1__GUARD__
+    #define _num_mkt_penny1__GUARD__
+    DECL_STRONG_TYPE(num_mkt_penny1, int64);
+    #endif//_num_mkt_penny1__GUARD__
 
-    #ifndef _num_notice_edgo__GUARD__
-    #define _num_notice_edgo__GUARD__
-    DECL_STRONG_TYPE(num_notice_edgo, int64);
-    #endif//_num_notice_edgo__GUARD__
+    #ifndef _num_mkt_penny2__GUARD__
+    #define _num_mkt_penny2__GUARD__
+    DECL_STRONG_TYPE(num_mkt_penny2, int64);
+    #endif//_num_mkt_penny2__GUARD__
 
-    #ifndef _num_notice_emld__GUARD__
-    #define _num_notice_emld__GUARD__
-    DECL_STRONG_TYPE(num_notice_emld, int64);
-    #endif//_num_notice_emld__GUARD__
+    #ifndef _num_mkt_penny3p__GUARD__
+    #define _num_mkt_penny3p__GUARD__
+    DECL_STRONG_TYPE(num_mkt_penny3p, int64);
+    #endif//_num_mkt_penny3p__GUARD__
 
-    #ifndef _num_notice_gmni__GUARD__
-    #define _num_notice_gmni__GUARD__
-    DECL_STRONG_TYPE(num_notice_gmni, int64);
-    #endif//_num_notice_gmni__GUARD__
+    #ifndef _num_not_mkt_nickle__GUARD__
+    #define _num_not_mkt_nickle__GUARD__
+    DECL_STRONG_TYPE(num_not_mkt_nickle, int64);
+    #endif//_num_not_mkt_nickle__GUARD__
 
-    #ifndef _num_notice_ise__GUARD__
-    #define _num_notice_ise__GUARD__
-    DECL_STRONG_TYPE(num_notice_ise, int64);
-    #endif//_num_notice_ise__GUARD__
+    #ifndef _num_mkt_nickle1__GUARD__
+    #define _num_mkt_nickle1__GUARD__
+    DECL_STRONG_TYPE(num_mkt_nickle1, int64);
+    #endif//_num_mkt_nickle1__GUARD__
 
-    #ifndef _num_notice_mcry__GUARD__
-    #define _num_notice_mcry__GUARD__
-    DECL_STRONG_TYPE(num_notice_mcry, int64);
-    #endif//_num_notice_mcry__GUARD__
+    #ifndef _num_mkt_nickle2__GUARD__
+    #define _num_mkt_nickle2__GUARD__
+    DECL_STRONG_TYPE(num_mkt_nickle2, int64);
+    #endif//_num_mkt_nickle2__GUARD__
 
-    #ifndef _num_notice_memx__GUARD__
-    #define _num_notice_memx__GUARD__
-    DECL_STRONG_TYPE(num_notice_memx, int64);
-    #endif//_num_notice_memx__GUARD__
-
-    #ifndef _num_notice_miax__GUARD__
-    #define _num_notice_miax__GUARD__
-    DECL_STRONG_TYPE(num_notice_miax, int64);
-    #endif//_num_notice_miax__GUARD__
-
-    #ifndef _num_notice_mprl__GUARD__
-    #define _num_notice_mprl__GUARD__
-    DECL_STRONG_TYPE(num_notice_mprl, int64);
-    #endif//_num_notice_mprl__GUARD__
-
-    #ifndef _num_notice_nyse__GUARD__
-    #define _num_notice_nyse__GUARD__
-    DECL_STRONG_TYPE(num_notice_nyse, int64);
-    #endif//_num_notice_nyse__GUARD__
-
-    #ifndef _num_notice_nqbx__GUARD__
-    #define _num_notice_nqbx__GUARD__
-    DECL_STRONG_TYPE(num_notice_nqbx, int64);
-    #endif//_num_notice_nqbx__GUARD__
-
-    #ifndef _num_notice_nsdq__GUARD__
-    #define _num_notice_nsdq__GUARD__
-    DECL_STRONG_TYPE(num_notice_nsdq, int64);
-    #endif//_num_notice_nsdq__GUARD__
-
-    #ifndef _num_notice_phlx__GUARD__
-    #define _num_notice_phlx__GUARD__
-    DECL_STRONG_TYPE(num_notice_phlx, int64);
-    #endif//_num_notice_phlx__GUARD__
-
-    #ifndef _num_notice_sphr__GUARD__
-    #define _num_notice_sphr__GUARD__
-    DECL_STRONG_TYPE(num_notice_sphr, int64);
-    #endif//_num_notice_sphr__GUARD__
+    #ifndef _num_mkt_nickle3p__GUARD__
+    #define _num_mkt_nickle3p__GUARD__
+    DECL_STRONG_TYPE(num_mkt_nickle3p, int64);
+    #endif//_num_mkt_nickle3p__GUARD__
 
     #ifndef _resp_disabled_skips__GUARD__
     #define _resp_disabled_skips__GUARD__
@@ -360,10 +365,35 @@ namespace api {
     DECL_STRONG_TYPE(min_vega_ratio_skips, int64);
     #endif//_min_vega_ratio_skips__GUARD__
 
+    #ifndef _probability_skips__GUARD__
+    #define _probability_skips__GUARD__
+    DECL_STRONG_TYPE(probability_skips, int64);
+    #endif//_probability_skips__GUARD__
+
     #ifndef _num_responses__int64__GUARD__
     #define _num_responses__int64__GUARD__
     DECL_STRONG_TYPE(num_responses__int64, int64);
     #endif//_num_responses__int64__GUARD__
+
+    #ifndef _num_responds_block__GUARD__
+    #define _num_responds_block__GUARD__
+    DECL_STRONG_TYPE(num_responds_block, int64);
+    #endif//_num_responds_block__GUARD__
+
+    #ifndef _num_responds_flash__GUARD__
+    #define _num_responds_flash__GUARD__
+    DECL_STRONG_TYPE(num_responds_flash, int64);
+    #endif//_num_responds_flash__GUARD__
+
+    #ifndef _num_responses_exch_pi__GUARD__
+    #define _num_responses_exch_pi__GUARD__
+    DECL_STRONG_TYPE(num_responses_exch_pi, int64);
+    #endif//_num_responses_exch_pi__GUARD__
+
+    #ifndef _num_responses_exch_ex__GUARD__
+    #define _num_responses_exch_ex__GUARD__
+    DECL_STRONG_TYPE(num_responses_exch_ex, int64);
+    #endif//_num_responses_exch_ex__GUARD__
 
     #ifndef _num_full_size__GUARD__
     #define _num_full_size__GUARD__
@@ -394,6 +424,66 @@ namespace api {
     #define _num_did_not_trade__GUARD__
     DECL_STRONG_TYPE(num_did_not_trade, int64);
     #endif//_num_did_not_trade__GUARD__
+
+    #ifndef _num_traded__GUARD__
+    #define _num_traded__GUARD__
+    DECL_STRONG_TYPE(num_traded, int32);
+    #endif//_num_traded__GUARD__
+
+    #ifndef _qty_traded__GUARD__
+    #define _qty_traded__GUARD__
+    DECL_STRONG_TYPE(qty_traded, int32);
+    #endif//_qty_traded__GUARD__
+
+    #ifndef _vega_traded__GUARD__
+    #define _vega_traded__GUARD__
+    DECL_STRONG_TYPE(vega_traded, double);
+    #endif//_vega_traded__GUARD__
+
+    #ifndef _wt_vega_traded__GUARD__
+    #define _wt_vega_traded__GUARD__
+    DECL_STRONG_TYPE(wt_vega_traded, double);
+    #endif//_wt_vega_traded__GUARD__
+
+    #ifndef _sum_width_traded__GUARD__
+    #define _sum_width_traded__GUARD__
+    DECL_STRONG_TYPE(sum_width_traded, double);
+    #endif//_sum_width_traded__GUARD__
+
+    #ifndef _sum_surf_edge_traded__GUARD__
+    #define _sum_surf_edge_traded__GUARD__
+    DECL_STRONG_TYPE(sum_surf_edge_traded, double);
+    #endif//_sum_surf_edge_traded__GUARD__
+
+    #ifndef _sum_m1_pn_ltraded__GUARD__
+    #define _sum_m1_pn_ltraded__GUARD__
+    DECL_STRONG_TYPE(sum_m1_pn_ltraded, double);
+    #endif//_sum_m1_pn_ltraded__GUARD__
+
+    #ifndef _sum_m10_pn_ltraded__GUARD__
+    #define _sum_m10_pn_ltraded__GUARD__
+    DECL_STRONG_TYPE(sum_m10_pn_ltraded, double);
+    #endif//_sum_m10_pn_ltraded__GUARD__
+
+    #ifndef _num_traded_block__GUARD__
+    #define _num_traded_block__GUARD__
+    DECL_STRONG_TYPE(num_traded_block, int64);
+    #endif//_num_traded_block__GUARD__
+
+    #ifndef _num_traded_flash__GUARD__
+    #define _num_traded_flash__GUARD__
+    DECL_STRONG_TYPE(num_traded_flash, int64);
+    #endif//_num_traded_flash__GUARD__
+
+    #ifndef _num_traded_exch_pi__GUARD__
+    #define _num_traded_exch_pi__GUARD__
+    DECL_STRONG_TYPE(num_traded_exch_pi, int64);
+    #endif//_num_traded_exch_pi__GUARD__
+
+    #ifndef _num_traded_exch_ex__GUARD__
+    #define _num_traded_exch_ex__GUARD__
+    DECL_STRONG_TYPE(num_traded_exch_ex, int64);
+    #endif//_num_traded_exch_ex__GUARD__
 
     #ifndef _modified_by__GUARD__
     #define _modified_by__GUARD__
@@ -434,6 +524,16 @@ namespace api {
     #define _responder_id__GUARD__
     DECL_STRONG_TYPE(responder_id, int32);
     #endif//_responder_id__GUARD__
+
+    #ifndef _inititor_cfirm__GUARD__
+    #define _inititor_cfirm__GUARD__
+    DECL_STRONG_TYPE(inititor_cfirm, string);
+    #endif//_inititor_cfirm__GUARD__
+
+    #ifndef _inititor_cfirm__GUARD__
+    #define _inititor_cfirm__GUARD__
+    DECL_STRONG_TYPE(inititor_cfirm, string);
+    #endif//_inititor_cfirm__GUARD__
 
     
     class ResponderMarkupVegaDir_PKey {
@@ -600,6 +700,154 @@ namespace api {
 
     };
     
+    class ResponderMarkupVegaDir_CFirmExclFilter {
+        public:
+        //using statements for all types used in this class
+        using inititor_cfirm = spiderrock::protobuf::api::inititor_cfirm;
+
+        private:
+        inititor_cfirm m_inititor_cfirm{};
+
+        public:
+        inititor_cfirm get_inititor_cfirm() const {
+            return m_inititor_cfirm;
+        }
+        void set_inititor_cfirm(const inititor_cfirm& value)  {
+            m_inititor_cfirm = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir_CFirmExclFilter::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir_CFirmExclFilter::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const inititor_cfirm & value) { set_inititor_cfirm(value); }
+
+
+        ResponderMarkupVegaDir_CFirmExclFilter() {}
+
+        virtual ~ResponderMarkupVegaDir_CFirmExclFilter() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(183,m_inititor_cfirm);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,183,static_cast<string>(m_inititor_cfirm));
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 183: {m_inititor_cfirm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
+    
+    class ResponderMarkupVegaDir_CFirmInclFilter {
+        public:
+        //using statements for all types used in this class
+        using inititor_cfirm = spiderrock::protobuf::api::inititor_cfirm;
+
+        private:
+        inititor_cfirm m_inititor_cfirm{};
+
+        public:
+        inititor_cfirm get_inititor_cfirm() const {
+            return m_inititor_cfirm;
+        }
+        void set_inititor_cfirm(const inititor_cfirm& value)  {
+            m_inititor_cfirm = value;
+        }
+        //templatized getters and setters
+        template <typename T, size_t S = sizeof(T)>
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir_CFirmInclFilter::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        template <typename T, size_t S = sizeof(T)>
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir_CFirmInclFilter::set()"); }  // specializations for valid types are listed below
+
+        //specializations for set functions for the valid types
+        
+        void set(const inititor_cfirm & value) { set_inititor_cfirm(value); }
+
+
+        ResponderMarkupVegaDir_CFirmInclFilter() {}
+
+        virtual ~ResponderMarkupVegaDir_CFirmInclFilter() {
+        }
+        //templatized set functions that can take multiple arguments simultaneously
+        template <typename Arg>
+        void set_params(Arg && arg) {
+            set(arg);
+        }
+        template <typename Arg, typename... Args>
+        void set_params(Arg && arg, Args &&... args) {
+            set(arg);
+            set_params(args...);
+        }
+
+        size_t ByteSizeLong() const {
+            size_t totalSize = 0;
+            totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(181,m_inititor_cfirm);
+            return totalSize;
+        }
+
+        uint8_t* Encode(uint8_t*& dest, uint8_t* max) const {
+            dest = SRProtobufCPP::FieldCodec::EncodeString(dest,181,static_cast<string>(m_inititor_cfirm));
+            return dest;
+        }
+
+        const void Decode(const  uint8_t*& pos, const  uint8_t* max) {
+            uint32_t tag = 0;
+            int fieldNumber;
+            SRProtobufCPP::TagCodecEnums::TagType tagType;
+            while (pos < max && (tag = SRProtobufCPP::TagCodec::Decode(pos, max)) != 0) {
+                auto tagDecomposed = SRProtobufCPP::TagCodec::Decompose(tag);
+                tagType = tagDecomposed.second;
+                fieldNumber = tagDecomposed.first;
+                switch (fieldNumber) {
+                    default:
+                        // Add unknown tag field number logging
+                        SRProtobufCPP::Skipper::Skip(pos, tagType, max);
+                        break;
+                    case 181: {m_inititor_cfirm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        break;
+                    }
+                }
+            }
+        }
+
+    };
+    
 
     class ResponderMarkupVegaDir {
         public:
@@ -612,6 +860,8 @@ namespace api {
         using enabled_until = spiderrock::protobuf::api::enabled_until;
         using can_include_flex = spiderrock::protobuf::api::can_include_flex;
         using can_include_stock = spiderrock::protobuf::api::can_include_stock;
+        using can_respond_sr = spiderrock::protobuf::api::can_respond_sr;
+        using can_respond_exch = spiderrock::protobuf::api::can_respond_exch;
         using cp_flag = spiderrock::protobuf::api::cp_flag;
         using min_net_vega_ratio = spiderrock::protobuf::api::min_net_vega_ratio;
         using min_years = spiderrock::protobuf::api::min_years;
@@ -624,12 +874,21 @@ namespace api {
         using max_strike = spiderrock::protobuf::api::max_strike;
         using min_surf_edge_prem = spiderrock::protobuf::api::min_surf_edge_prem;
         using min_surf_edge_vol = spiderrock::protobuf::api::min_surf_edge_vol;
+        using min_probability = spiderrock::protobuf::api::min_probability;
         using inc_fees_in_resp = spiderrock::protobuf::api::inc_fees_in_resp;
         using round_rule = spiderrock::protobuf::api::round_rule;
         using max_response_size = spiderrock::protobuf::api::max_response_size;
         using max_response_vega = spiderrock::protobuf::api::max_response_vega;
         using total_response_vega = spiderrock::protobuf::api::total_response_vega;
         using total_response_wt_vega = spiderrock::protobuf::api::total_response_wt_vega;
+        using not_mkt_penny = spiderrock::protobuf::api::not_mkt_penny;
+        using mkt_penny1 = spiderrock::protobuf::api::mkt_penny1;
+        using mkt_penny2 = spiderrock::protobuf::api::mkt_penny2;
+        using mkt_penny3p = spiderrock::protobuf::api::mkt_penny3p;
+        using not_mkt_nickle = spiderrock::protobuf::api::not_mkt_nickle;
+        using mkt_nickle1 = spiderrock::protobuf::api::mkt_nickle1;
+        using mkt_nickle2 = spiderrock::protobuf::api::mkt_nickle2;
+        using mkt_nickle3p = spiderrock::protobuf::api::mkt_nickle3p;
         using auto_hedge = spiderrock::protobuf::api::auto_hedge;
         using hedge_instrument = spiderrock::protobuf::api::hedge_instrument;
         using hedge_sec_key = spiderrock::protobuf::api::hedge_sec_key;
@@ -637,29 +896,19 @@ namespace api {
         using hedge_scope = spiderrock::protobuf::api::hedge_scope;
         using hedge_session = spiderrock::protobuf::api::hedge_session;
         using risk_group_id = spiderrock::protobuf::api::risk_group_id;
-        using qty_traded = spiderrock::protobuf::api::qty_traded;
-        using vega_traded = spiderrock::protobuf::api::vega_traded;
-        using wt_vega_traded = spiderrock::protobuf::api::wt_vega_traded;
         using num_notices = spiderrock::protobuf::api::num_notices;
-        using num_notice_sr = spiderrock::protobuf::api::num_notice_sr;
-        using num_notice_amex = spiderrock::protobuf::api::num_notice_amex;
-        using num_notice_bats = spiderrock::protobuf::api::num_notice_bats;
-        using num_notice_box = spiderrock::protobuf::api::num_notice_box;
-        using num_notice_cboe = spiderrock::protobuf::api::num_notice_cboe;
-        using num_notice_c2 = spiderrock::protobuf::api::num_notice_c2;
-        using num_notice_edgo = spiderrock::protobuf::api::num_notice_edgo;
-        using num_notice_emld = spiderrock::protobuf::api::num_notice_emld;
-        using num_notice_gmni = spiderrock::protobuf::api::num_notice_gmni;
-        using num_notice_ise = spiderrock::protobuf::api::num_notice_ise;
-        using num_notice_mcry = spiderrock::protobuf::api::num_notice_mcry;
-        using num_notice_memx = spiderrock::protobuf::api::num_notice_memx;
-        using num_notice_miax = spiderrock::protobuf::api::num_notice_miax;
-        using num_notice_mprl = spiderrock::protobuf::api::num_notice_mprl;
-        using num_notice_nyse = spiderrock::protobuf::api::num_notice_nyse;
-        using num_notice_nqbx = spiderrock::protobuf::api::num_notice_nqbx;
-        using num_notice_nsdq = spiderrock::protobuf::api::num_notice_nsdq;
-        using num_notice_phlx = spiderrock::protobuf::api::num_notice_phlx;
-        using num_notice_sphr = spiderrock::protobuf::api::num_notice_sphr;
+        using num_notice_block = spiderrock::protobuf::api::num_notice_block;
+        using num_notice_flash = spiderrock::protobuf::api::num_notice_flash;
+        using num_notice_exch_pi = spiderrock::protobuf::api::num_notice_exch_pi;
+        using num_notice_exch_ex = spiderrock::protobuf::api::num_notice_exch_ex;
+        using num_not_mkt_penny = spiderrock::protobuf::api::num_not_mkt_penny;
+        using num_mkt_penny1 = spiderrock::protobuf::api::num_mkt_penny1;
+        using num_mkt_penny2 = spiderrock::protobuf::api::num_mkt_penny2;
+        using num_mkt_penny3p = spiderrock::protobuf::api::num_mkt_penny3p;
+        using num_not_mkt_nickle = spiderrock::protobuf::api::num_not_mkt_nickle;
+        using num_mkt_nickle1 = spiderrock::protobuf::api::num_mkt_nickle1;
+        using num_mkt_nickle2 = spiderrock::protobuf::api::num_mkt_nickle2;
+        using num_mkt_nickle3p = spiderrock::protobuf::api::num_mkt_nickle3p;
         using resp_disabled_skips = spiderrock::protobuf::api::resp_disabled_skips;
         using stock_disabled_skips = spiderrock::protobuf::api::stock_disabled_skips;
         using cp_flag_skips = spiderrock::protobuf::api::cp_flag_skips;
@@ -673,16 +922,35 @@ namespace api {
         using x_delta_range_skips = spiderrock::protobuf::api::x_delta_range_skips;
         using strike_range_skips = spiderrock::protobuf::api::strike_range_skips;
         using min_vega_ratio_skips = spiderrock::protobuf::api::min_vega_ratio_skips;
+        using probability_skips = spiderrock::protobuf::api::probability_skips;
         using num_responses = spiderrock::protobuf::api::num_responses__int64;
+        using num_responds_block = spiderrock::protobuf::api::num_responds_block;
+        using num_responds_flash = spiderrock::protobuf::api::num_responds_flash;
+        using num_responses_exch_pi = spiderrock::protobuf::api::num_responses_exch_pi;
+        using num_responses_exch_ex = spiderrock::protobuf::api::num_responses_exch_ex;
         using num_full_size = spiderrock::protobuf::api::num_full_size;
         using num_alloc_size = spiderrock::protobuf::api::num_alloc_size;
         using num_price_miss = spiderrock::protobuf::api::num_price_miss;
         using num_too_late = spiderrock::protobuf::api::num_too_late;
         using num_other_miss = spiderrock::protobuf::api::num_other_miss;
         using num_did_not_trade = spiderrock::protobuf::api::num_did_not_trade;
+        using num_traded = spiderrock::protobuf::api::num_traded;
+        using qty_traded = spiderrock::protobuf::api::qty_traded;
+        using vega_traded = spiderrock::protobuf::api::vega_traded;
+        using wt_vega_traded = spiderrock::protobuf::api::wt_vega_traded;
+        using sum_width_traded = spiderrock::protobuf::api::sum_width_traded;
+        using sum_surf_edge_traded = spiderrock::protobuf::api::sum_surf_edge_traded;
+        using sum_m1_pn_ltraded = spiderrock::protobuf::api::sum_m1_pn_ltraded;
+        using sum_m10_pn_ltraded = spiderrock::protobuf::api::sum_m10_pn_ltraded;
+        using num_traded_block = spiderrock::protobuf::api::num_traded_block;
+        using num_traded_flash = spiderrock::protobuf::api::num_traded_flash;
+        using num_traded_exch_pi = spiderrock::protobuf::api::num_traded_exch_pi;
+        using num_traded_exch_ex = spiderrock::protobuf::api::num_traded_exch_ex;
         using modified_by = spiderrock::protobuf::api::modified_by;
         using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
+        using c_firm_excl_filter = spiderrock::protobuf::api::ResponderMarkupVegaDir_CFirmExclFilter;
+        using c_firm_incl_filter = spiderrock::protobuf::api::ResponderMarkupVegaDir_CFirmInclFilter;
 
         private:
         _meta m__meta{};
@@ -692,6 +960,8 @@ namespace api {
         enabled_until m_enabled_until{};
         can_include_flex m_can_include_flex{};
         can_include_stock m_can_include_stock{};
+        can_respond_sr m_can_respond_sr{};
+        can_respond_exch m_can_respond_exch{};
         cp_flag m_cp_flag{};
         min_net_vega_ratio m_min_net_vega_ratio{};
         min_years m_min_years{};
@@ -704,12 +974,21 @@ namespace api {
         max_strike m_max_strike{};
         min_surf_edge_prem m_min_surf_edge_prem{};
         min_surf_edge_vol m_min_surf_edge_vol{};
+        min_probability m_min_probability{};
         inc_fees_in_resp m_inc_fees_in_resp{};
         round_rule m_round_rule{};
         max_response_size m_max_response_size{};
         max_response_vega m_max_response_vega{};
         total_response_vega m_total_response_vega{};
         total_response_wt_vega m_total_response_wt_vega{};
+        not_mkt_penny m_not_mkt_penny{};
+        mkt_penny1 m_mkt_penny1{};
+        mkt_penny2 m_mkt_penny2{};
+        mkt_penny3p m_mkt_penny3p{};
+        not_mkt_nickle m_not_mkt_nickle{};
+        mkt_nickle1 m_mkt_nickle1{};
+        mkt_nickle2 m_mkt_nickle2{};
+        mkt_nickle3p m_mkt_nickle3p{};
         auto_hedge m_auto_hedge{};
         hedge_instrument m_hedge_instrument{};
         hedge_sec_key m_hedge_sec_key{};
@@ -717,29 +996,19 @@ namespace api {
         hedge_scope m_hedge_scope{};
         hedge_session m_hedge_session{};
         risk_group_id m_risk_group_id{};
-        qty_traded m_qty_traded{};
-        vega_traded m_vega_traded{};
-        wt_vega_traded m_wt_vega_traded{};
         num_notices m_num_notices{};
-        num_notice_sr m_num_notice_sr{};
-        num_notice_amex m_num_notice_amex{};
-        num_notice_bats m_num_notice_bats{};
-        num_notice_box m_num_notice_box{};
-        num_notice_cboe m_num_notice_cboe{};
-        num_notice_c2 m_num_notice_c2{};
-        num_notice_edgo m_num_notice_edgo{};
-        num_notice_emld m_num_notice_emld{};
-        num_notice_gmni m_num_notice_gmni{};
-        num_notice_ise m_num_notice_ise{};
-        num_notice_mcry m_num_notice_mcry{};
-        num_notice_memx m_num_notice_memx{};
-        num_notice_miax m_num_notice_miax{};
-        num_notice_mprl m_num_notice_mprl{};
-        num_notice_nyse m_num_notice_nyse{};
-        num_notice_nqbx m_num_notice_nqbx{};
-        num_notice_nsdq m_num_notice_nsdq{};
-        num_notice_phlx m_num_notice_phlx{};
-        num_notice_sphr m_num_notice_sphr{};
+        num_notice_block m_num_notice_block{};
+        num_notice_flash m_num_notice_flash{};
+        num_notice_exch_pi m_num_notice_exch_pi{};
+        num_notice_exch_ex m_num_notice_exch_ex{};
+        num_not_mkt_penny m_num_not_mkt_penny{};
+        num_mkt_penny1 m_num_mkt_penny1{};
+        num_mkt_penny2 m_num_mkt_penny2{};
+        num_mkt_penny3p m_num_mkt_penny3p{};
+        num_not_mkt_nickle m_num_not_mkt_nickle{};
+        num_mkt_nickle1 m_num_mkt_nickle1{};
+        num_mkt_nickle2 m_num_mkt_nickle2{};
+        num_mkt_nickle3p m_num_mkt_nickle3p{};
         resp_disabled_skips m_resp_disabled_skips{};
         stock_disabled_skips m_stock_disabled_skips{};
         cp_flag_skips m_cp_flag_skips{};
@@ -753,16 +1022,35 @@ namespace api {
         x_delta_range_skips m_x_delta_range_skips{};
         strike_range_skips m_strike_range_skips{};
         min_vega_ratio_skips m_min_vega_ratio_skips{};
+        probability_skips m_probability_skips{};
         num_responses m_num_responses{};
+        num_responds_block m_num_responds_block{};
+        num_responds_flash m_num_responds_flash{};
+        num_responses_exch_pi m_num_responses_exch_pi{};
+        num_responses_exch_ex m_num_responses_exch_ex{};
         num_full_size m_num_full_size{};
         num_alloc_size m_num_alloc_size{};
         num_price_miss m_num_price_miss{};
         num_too_late m_num_too_late{};
         num_other_miss m_num_other_miss{};
         num_did_not_trade m_num_did_not_trade{};
+        num_traded m_num_traded{};
+        qty_traded m_qty_traded{};
+        vega_traded m_vega_traded{};
+        wt_vega_traded m_wt_vega_traded{};
+        sum_width_traded m_sum_width_traded{};
+        sum_surf_edge_traded m_sum_surf_edge_traded{};
+        sum_m1_pn_ltraded m_sum_m1_pn_ltraded{};
+        sum_m10_pn_ltraded m_sum_m10_pn_ltraded{};
+        num_traded_block m_num_traded_block{};
+        num_traded_flash m_num_traded_flash{};
+        num_traded_exch_pi m_num_traded_exch_pi{};
+        num_traded_exch_ex m_num_traded_exch_ex{};
         modified_by m_modified_by{};
         modified_in m_modified_in{};
         timestamp m_timestamp{};
+        std::vector<c_firm_excl_filter> m_c_firm_excl_filter{};
+        std::vector<c_firm_incl_filter> m_c_firm_incl_filter{};
 
         static constexpr int _mlinkHeaderLength = 14;
 
@@ -787,6 +1075,12 @@ namespace api {
         }		
         can_include_stock get_can_include_stock() const {
             return m_can_include_stock;
+        }		
+        can_respond_sr get_can_respond_sr() const {
+            return m_can_respond_sr;
+        }		
+        can_respond_exch get_can_respond_exch() const {
+            return m_can_respond_exch;
         }		
         cp_flag get_cp_flag() const {
             return m_cp_flag;
@@ -824,6 +1118,9 @@ namespace api {
         min_surf_edge_vol get_min_surf_edge_vol() const {
             return m_min_surf_edge_vol;
         }		
+        min_probability get_min_probability() const {
+            return m_min_probability;
+        }		
         inc_fees_in_resp get_inc_fees_in_resp() const {
             return m_inc_fees_in_resp;
         }		
@@ -841,6 +1138,30 @@ namespace api {
         }		
         total_response_wt_vega get_total_response_wt_vega() const {
             return m_total_response_wt_vega;
+        }		
+        not_mkt_penny get_not_mkt_penny() const {
+            return m_not_mkt_penny;
+        }		
+        mkt_penny1 get_mkt_penny1() const {
+            return m_mkt_penny1;
+        }		
+        mkt_penny2 get_mkt_penny2() const {
+            return m_mkt_penny2;
+        }		
+        mkt_penny3p get_mkt_penny3p() const {
+            return m_mkt_penny3p;
+        }		
+        not_mkt_nickle get_not_mkt_nickle() const {
+            return m_not_mkt_nickle;
+        }		
+        mkt_nickle1 get_mkt_nickle1() const {
+            return m_mkt_nickle1;
+        }		
+        mkt_nickle2 get_mkt_nickle2() const {
+            return m_mkt_nickle2;
+        }		
+        mkt_nickle3p get_mkt_nickle3p() const {
+            return m_mkt_nickle3p;
         }		
         auto_hedge get_auto_hedge() const {
             return m_auto_hedge;
@@ -863,74 +1184,44 @@ namespace api {
         risk_group_id get_risk_group_id() const {
             return m_risk_group_id;
         }		
-        qty_traded get_qty_traded() const {
-            return m_qty_traded;
-        }		
-        vega_traded get_vega_traded() const {
-            return m_vega_traded;
-        }		
-        wt_vega_traded get_wt_vega_traded() const {
-            return m_wt_vega_traded;
-        }		
         num_notices get_num_notices() const {
             return m_num_notices;
         }		
-        num_notice_sr get_num_notice_sr() const {
-            return m_num_notice_sr;
+        num_notice_block get_num_notice_block() const {
+            return m_num_notice_block;
         }		
-        num_notice_amex get_num_notice_amex() const {
-            return m_num_notice_amex;
+        num_notice_flash get_num_notice_flash() const {
+            return m_num_notice_flash;
         }		
-        num_notice_bats get_num_notice_bats() const {
-            return m_num_notice_bats;
+        num_notice_exch_pi get_num_notice_exch_pi() const {
+            return m_num_notice_exch_pi;
         }		
-        num_notice_box get_num_notice_box() const {
-            return m_num_notice_box;
+        num_notice_exch_ex get_num_notice_exch_ex() const {
+            return m_num_notice_exch_ex;
         }		
-        num_notice_cboe get_num_notice_cboe() const {
-            return m_num_notice_cboe;
+        num_not_mkt_penny get_num_not_mkt_penny() const {
+            return m_num_not_mkt_penny;
         }		
-        num_notice_c2 get_num_notice_c2() const {
-            return m_num_notice_c2;
+        num_mkt_penny1 get_num_mkt_penny1() const {
+            return m_num_mkt_penny1;
         }		
-        num_notice_edgo get_num_notice_edgo() const {
-            return m_num_notice_edgo;
+        num_mkt_penny2 get_num_mkt_penny2() const {
+            return m_num_mkt_penny2;
         }		
-        num_notice_emld get_num_notice_emld() const {
-            return m_num_notice_emld;
+        num_mkt_penny3p get_num_mkt_penny3p() const {
+            return m_num_mkt_penny3p;
         }		
-        num_notice_gmni get_num_notice_gmni() const {
-            return m_num_notice_gmni;
+        num_not_mkt_nickle get_num_not_mkt_nickle() const {
+            return m_num_not_mkt_nickle;
         }		
-        num_notice_ise get_num_notice_ise() const {
-            return m_num_notice_ise;
+        num_mkt_nickle1 get_num_mkt_nickle1() const {
+            return m_num_mkt_nickle1;
         }		
-        num_notice_mcry get_num_notice_mcry() const {
-            return m_num_notice_mcry;
+        num_mkt_nickle2 get_num_mkt_nickle2() const {
+            return m_num_mkt_nickle2;
         }		
-        num_notice_memx get_num_notice_memx() const {
-            return m_num_notice_memx;
-        }		
-        num_notice_miax get_num_notice_miax() const {
-            return m_num_notice_miax;
-        }		
-        num_notice_mprl get_num_notice_mprl() const {
-            return m_num_notice_mprl;
-        }		
-        num_notice_nyse get_num_notice_nyse() const {
-            return m_num_notice_nyse;
-        }		
-        num_notice_nqbx get_num_notice_nqbx() const {
-            return m_num_notice_nqbx;
-        }		
-        num_notice_nsdq get_num_notice_nsdq() const {
-            return m_num_notice_nsdq;
-        }		
-        num_notice_phlx get_num_notice_phlx() const {
-            return m_num_notice_phlx;
-        }		
-        num_notice_sphr get_num_notice_sphr() const {
-            return m_num_notice_sphr;
+        num_mkt_nickle3p get_num_mkt_nickle3p() const {
+            return m_num_mkt_nickle3p;
         }		
         resp_disabled_skips get_resp_disabled_skips() const {
             return m_resp_disabled_skips;
@@ -971,8 +1262,23 @@ namespace api {
         min_vega_ratio_skips get_min_vega_ratio_skips() const {
             return m_min_vega_ratio_skips;
         }		
+        probability_skips get_probability_skips() const {
+            return m_probability_skips;
+        }		
         num_responses get_num_responses() const {
             return m_num_responses;
+        }		
+        num_responds_block get_num_responds_block() const {
+            return m_num_responds_block;
+        }		
+        num_responds_flash get_num_responds_flash() const {
+            return m_num_responds_flash;
+        }		
+        num_responses_exch_pi get_num_responses_exch_pi() const {
+            return m_num_responses_exch_pi;
+        }		
+        num_responses_exch_ex get_num_responses_exch_ex() const {
+            return m_num_responses_exch_ex;
         }		
         num_full_size get_num_full_size() const {
             return m_num_full_size;
@@ -992,6 +1298,42 @@ namespace api {
         num_did_not_trade get_num_did_not_trade() const {
             return m_num_did_not_trade;
         }		
+        num_traded get_num_traded() const {
+            return m_num_traded;
+        }		
+        qty_traded get_qty_traded() const {
+            return m_qty_traded;
+        }		
+        vega_traded get_vega_traded() const {
+            return m_vega_traded;
+        }		
+        wt_vega_traded get_wt_vega_traded() const {
+            return m_wt_vega_traded;
+        }		
+        sum_width_traded get_sum_width_traded() const {
+            return m_sum_width_traded;
+        }		
+        sum_surf_edge_traded get_sum_surf_edge_traded() const {
+            return m_sum_surf_edge_traded;
+        }		
+        sum_m1_pn_ltraded get_sum_m1_pn_ltraded() const {
+            return m_sum_m1_pn_ltraded;
+        }		
+        sum_m10_pn_ltraded get_sum_m10_pn_ltraded() const {
+            return m_sum_m10_pn_ltraded;
+        }		
+        num_traded_block get_num_traded_block() const {
+            return m_num_traded_block;
+        }		
+        num_traded_flash get_num_traded_flash() const {
+            return m_num_traded_flash;
+        }		
+        num_traded_exch_pi get_num_traded_exch_pi() const {
+            return m_num_traded_exch_pi;
+        }		
+        num_traded_exch_ex get_num_traded_exch_ex() const {
+            return m_num_traded_exch_ex;
+        }		
         modified_by get_modified_by() const {
             return m_modified_by;
         }		
@@ -1000,6 +1342,18 @@ namespace api {
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
+        }
+        const std::vector<c_firm_excl_filter>& get_c_firm_excl_filter_list() const {
+            return m_c_firm_excl_filter;
+        }
+        const c_firm_excl_filter& get_c_firm_excl_filter(const int i) const {
+            return m_c_firm_excl_filter.at(i);
+        }
+        const std::vector<c_firm_incl_filter>& get_c_firm_incl_filter_list() const {
+            return m_c_firm_incl_filter;
+        }
+        const c_firm_incl_filter& get_c_firm_incl_filter(const int i) const {
+            return m_c_firm_incl_filter.at(i);
         }
         size_t getMLinkHeaderLength() const
         {
@@ -1025,6 +1379,12 @@ namespace api {
         }
         void set_can_include_stock(const can_include_stock& value)  {
             m_can_include_stock = value;
+        }
+        void set_can_respond_sr(const can_respond_sr& value)  {
+            m_can_respond_sr = value;
+        }
+        void set_can_respond_exch(const can_respond_exch& value)  {
+            m_can_respond_exch = value;
         }
         void set_cp_flag(const cp_flag& value)  {
             m_cp_flag = value;
@@ -1062,6 +1422,9 @@ namespace api {
         void set_min_surf_edge_vol(const min_surf_edge_vol& value)  {
             m_min_surf_edge_vol = value;
         }
+        void set_min_probability(const min_probability& value)  {
+            m_min_probability = value;
+        }
         void set_inc_fees_in_resp(const inc_fees_in_resp& value)  {
             m_inc_fees_in_resp = value;
         }
@@ -1079,6 +1442,30 @@ namespace api {
         }
         void set_total_response_wt_vega(const total_response_wt_vega& value)  {
             m_total_response_wt_vega = value;
+        }
+        void set_not_mkt_penny(const not_mkt_penny& value)  {
+            m_not_mkt_penny = value;
+        }
+        void set_mkt_penny1(const mkt_penny1& value)  {
+            m_mkt_penny1 = value;
+        }
+        void set_mkt_penny2(const mkt_penny2& value)  {
+            m_mkt_penny2 = value;
+        }
+        void set_mkt_penny3p(const mkt_penny3p& value)  {
+            m_mkt_penny3p = value;
+        }
+        void set_not_mkt_nickle(const not_mkt_nickle& value)  {
+            m_not_mkt_nickle = value;
+        }
+        void set_mkt_nickle1(const mkt_nickle1& value)  {
+            m_mkt_nickle1 = value;
+        }
+        void set_mkt_nickle2(const mkt_nickle2& value)  {
+            m_mkt_nickle2 = value;
+        }
+        void set_mkt_nickle3p(const mkt_nickle3p& value)  {
+            m_mkt_nickle3p = value;
         }
         void set_auto_hedge(const auto_hedge& value)  {
             m_auto_hedge = value;
@@ -1101,74 +1488,44 @@ namespace api {
         void set_risk_group_id(const risk_group_id& value)  {
             m_risk_group_id = value;
         }
-        void set_qty_traded(const qty_traded& value)  {
-            m_qty_traded = value;
-        }
-        void set_vega_traded(const vega_traded& value)  {
-            m_vega_traded = value;
-        }
-        void set_wt_vega_traded(const wt_vega_traded& value)  {
-            m_wt_vega_traded = value;
-        }
         void set_num_notices(const num_notices& value)  {
             m_num_notices = value;
         }
-        void set_num_notice_sr(const num_notice_sr& value)  {
-            m_num_notice_sr = value;
+        void set_num_notice_block(const num_notice_block& value)  {
+            m_num_notice_block = value;
         }
-        void set_num_notice_amex(const num_notice_amex& value)  {
-            m_num_notice_amex = value;
+        void set_num_notice_flash(const num_notice_flash& value)  {
+            m_num_notice_flash = value;
         }
-        void set_num_notice_bats(const num_notice_bats& value)  {
-            m_num_notice_bats = value;
+        void set_num_notice_exch_pi(const num_notice_exch_pi& value)  {
+            m_num_notice_exch_pi = value;
         }
-        void set_num_notice_box(const num_notice_box& value)  {
-            m_num_notice_box = value;
+        void set_num_notice_exch_ex(const num_notice_exch_ex& value)  {
+            m_num_notice_exch_ex = value;
         }
-        void set_num_notice_cboe(const num_notice_cboe& value)  {
-            m_num_notice_cboe = value;
+        void set_num_not_mkt_penny(const num_not_mkt_penny& value)  {
+            m_num_not_mkt_penny = value;
         }
-        void set_num_notice_c2(const num_notice_c2& value)  {
-            m_num_notice_c2 = value;
+        void set_num_mkt_penny1(const num_mkt_penny1& value)  {
+            m_num_mkt_penny1 = value;
         }
-        void set_num_notice_edgo(const num_notice_edgo& value)  {
-            m_num_notice_edgo = value;
+        void set_num_mkt_penny2(const num_mkt_penny2& value)  {
+            m_num_mkt_penny2 = value;
         }
-        void set_num_notice_emld(const num_notice_emld& value)  {
-            m_num_notice_emld = value;
+        void set_num_mkt_penny3p(const num_mkt_penny3p& value)  {
+            m_num_mkt_penny3p = value;
         }
-        void set_num_notice_gmni(const num_notice_gmni& value)  {
-            m_num_notice_gmni = value;
+        void set_num_not_mkt_nickle(const num_not_mkt_nickle& value)  {
+            m_num_not_mkt_nickle = value;
         }
-        void set_num_notice_ise(const num_notice_ise& value)  {
-            m_num_notice_ise = value;
+        void set_num_mkt_nickle1(const num_mkt_nickle1& value)  {
+            m_num_mkt_nickle1 = value;
         }
-        void set_num_notice_mcry(const num_notice_mcry& value)  {
-            m_num_notice_mcry = value;
+        void set_num_mkt_nickle2(const num_mkt_nickle2& value)  {
+            m_num_mkt_nickle2 = value;
         }
-        void set_num_notice_memx(const num_notice_memx& value)  {
-            m_num_notice_memx = value;
-        }
-        void set_num_notice_miax(const num_notice_miax& value)  {
-            m_num_notice_miax = value;
-        }
-        void set_num_notice_mprl(const num_notice_mprl& value)  {
-            m_num_notice_mprl = value;
-        }
-        void set_num_notice_nyse(const num_notice_nyse& value)  {
-            m_num_notice_nyse = value;
-        }
-        void set_num_notice_nqbx(const num_notice_nqbx& value)  {
-            m_num_notice_nqbx = value;
-        }
-        void set_num_notice_nsdq(const num_notice_nsdq& value)  {
-            m_num_notice_nsdq = value;
-        }
-        void set_num_notice_phlx(const num_notice_phlx& value)  {
-            m_num_notice_phlx = value;
-        }
-        void set_num_notice_sphr(const num_notice_sphr& value)  {
-            m_num_notice_sphr = value;
+        void set_num_mkt_nickle3p(const num_mkt_nickle3p& value)  {
+            m_num_mkt_nickle3p = value;
         }
         void set_resp_disabled_skips(const resp_disabled_skips& value)  {
             m_resp_disabled_skips = value;
@@ -1209,8 +1566,23 @@ namespace api {
         void set_min_vega_ratio_skips(const min_vega_ratio_skips& value)  {
             m_min_vega_ratio_skips = value;
         }
+        void set_probability_skips(const probability_skips& value)  {
+            m_probability_skips = value;
+        }
         void set_num_responses(const num_responses& value)  {
             m_num_responses = value;
+        }
+        void set_num_responds_block(const num_responds_block& value)  {
+            m_num_responds_block = value;
+        }
+        void set_num_responds_flash(const num_responds_flash& value)  {
+            m_num_responds_flash = value;
+        }
+        void set_num_responses_exch_pi(const num_responses_exch_pi& value)  {
+            m_num_responses_exch_pi = value;
+        }
+        void set_num_responses_exch_ex(const num_responses_exch_ex& value)  {
+            m_num_responses_exch_ex = value;
         }
         void set_num_full_size(const num_full_size& value)  {
             m_num_full_size = value;
@@ -1230,6 +1602,42 @@ namespace api {
         void set_num_did_not_trade(const num_did_not_trade& value)  {
             m_num_did_not_trade = value;
         }
+        void set_num_traded(const num_traded& value)  {
+            m_num_traded = value;
+        }
+        void set_qty_traded(const qty_traded& value)  {
+            m_qty_traded = value;
+        }
+        void set_vega_traded(const vega_traded& value)  {
+            m_vega_traded = value;
+        }
+        void set_wt_vega_traded(const wt_vega_traded& value)  {
+            m_wt_vega_traded = value;
+        }
+        void set_sum_width_traded(const sum_width_traded& value)  {
+            m_sum_width_traded = value;
+        }
+        void set_sum_surf_edge_traded(const sum_surf_edge_traded& value)  {
+            m_sum_surf_edge_traded = value;
+        }
+        void set_sum_m1_pn_ltraded(const sum_m1_pn_ltraded& value)  {
+            m_sum_m1_pn_ltraded = value;
+        }
+        void set_sum_m10_pn_ltraded(const sum_m10_pn_ltraded& value)  {
+            m_sum_m10_pn_ltraded = value;
+        }
+        void set_num_traded_block(const num_traded_block& value)  {
+            m_num_traded_block = value;
+        }
+        void set_num_traded_flash(const num_traded_flash& value)  {
+            m_num_traded_flash = value;
+        }
+        void set_num_traded_exch_pi(const num_traded_exch_pi& value)  {
+            m_num_traded_exch_pi = value;
+        }
+        void set_num_traded_exch_ex(const num_traded_exch_ex& value)  {
+            m_num_traded_exch_ex = value;
+        }
         void set_modified_by(const modified_by& value)  {
             m_modified_by = value;
         }
@@ -1239,11 +1647,29 @@ namespace api {
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
         }
+        void set_c_firm_excl_filter_list(const std::vector<c_firm_excl_filter>& list)  {
+            m_c_firm_excl_filter = list;
+        }
+        void add_c_firm_excl_filter(const c_firm_excl_filter& item) {
+            m_c_firm_excl_filter.emplace_back(item);
+        }
+        void set_c_firm_incl_filter_list(const std::vector<c_firm_incl_filter>& list)  {
+            m_c_firm_incl_filter = list;
+        }
+        void add_c_firm_incl_filter(const c_firm_incl_filter& item) {
+            m_c_firm_incl_filter.emplace_back(item);
+        }
 
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
         const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        const auto get(int i) const { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir::get(int)"); return T{};}  // specializations for valid types are listed below the class definition
+
+        template <typename T, size_t S = sizeof(T)>
+        int count() const { static_assert(sizeof(T) == -1, "Unexpected type in call to ResponderMarkupVegaDir::count()"); return 0;}  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -1267,6 +1693,12 @@ namespace api {
         }
         void set(const can_include_stock & value) {
             set_can_include_stock(value);
+        }
+        void set(const can_respond_sr & value) {
+            set_can_respond_sr(value);
+        }
+        void set(const can_respond_exch & value) {
+            set_can_respond_exch(value);
         }
         void set(const cp_flag & value) {
             set_cp_flag(value);
@@ -1304,6 +1736,9 @@ namespace api {
         void set(const min_surf_edge_vol & value) {
             set_min_surf_edge_vol(value);
         }
+        void set(const min_probability & value) {
+            set_min_probability(value);
+        }
         void set(const inc_fees_in_resp & value) {
             set_inc_fees_in_resp(value);
         }
@@ -1321,6 +1756,30 @@ namespace api {
         }
         void set(const total_response_wt_vega & value) {
             set_total_response_wt_vega(value);
+        }
+        void set(const not_mkt_penny & value) {
+            set_not_mkt_penny(value);
+        }
+        void set(const mkt_penny1 & value) {
+            set_mkt_penny1(value);
+        }
+        void set(const mkt_penny2 & value) {
+            set_mkt_penny2(value);
+        }
+        void set(const mkt_penny3p & value) {
+            set_mkt_penny3p(value);
+        }
+        void set(const not_mkt_nickle & value) {
+            set_not_mkt_nickle(value);
+        }
+        void set(const mkt_nickle1 & value) {
+            set_mkt_nickle1(value);
+        }
+        void set(const mkt_nickle2 & value) {
+            set_mkt_nickle2(value);
+        }
+        void set(const mkt_nickle3p & value) {
+            set_mkt_nickle3p(value);
         }
         void set(const auto_hedge & value) {
             set_auto_hedge(value);
@@ -1343,74 +1802,44 @@ namespace api {
         void set(const risk_group_id & value) {
             set_risk_group_id(value);
         }
-        void set(const qty_traded & value) {
-            set_qty_traded(value);
-        }
-        void set(const vega_traded & value) {
-            set_vega_traded(value);
-        }
-        void set(const wt_vega_traded & value) {
-            set_wt_vega_traded(value);
-        }
         void set(const num_notices & value) {
             set_num_notices(value);
         }
-        void set(const num_notice_sr & value) {
-            set_num_notice_sr(value);
+        void set(const num_notice_block & value) {
+            set_num_notice_block(value);
         }
-        void set(const num_notice_amex & value) {
-            set_num_notice_amex(value);
+        void set(const num_notice_flash & value) {
+            set_num_notice_flash(value);
         }
-        void set(const num_notice_bats & value) {
-            set_num_notice_bats(value);
+        void set(const num_notice_exch_pi & value) {
+            set_num_notice_exch_pi(value);
         }
-        void set(const num_notice_box & value) {
-            set_num_notice_box(value);
+        void set(const num_notice_exch_ex & value) {
+            set_num_notice_exch_ex(value);
         }
-        void set(const num_notice_cboe & value) {
-            set_num_notice_cboe(value);
+        void set(const num_not_mkt_penny & value) {
+            set_num_not_mkt_penny(value);
         }
-        void set(const num_notice_c2 & value) {
-            set_num_notice_c2(value);
+        void set(const num_mkt_penny1 & value) {
+            set_num_mkt_penny1(value);
         }
-        void set(const num_notice_edgo & value) {
-            set_num_notice_edgo(value);
+        void set(const num_mkt_penny2 & value) {
+            set_num_mkt_penny2(value);
         }
-        void set(const num_notice_emld & value) {
-            set_num_notice_emld(value);
+        void set(const num_mkt_penny3p & value) {
+            set_num_mkt_penny3p(value);
         }
-        void set(const num_notice_gmni & value) {
-            set_num_notice_gmni(value);
+        void set(const num_not_mkt_nickle & value) {
+            set_num_not_mkt_nickle(value);
         }
-        void set(const num_notice_ise & value) {
-            set_num_notice_ise(value);
+        void set(const num_mkt_nickle1 & value) {
+            set_num_mkt_nickle1(value);
         }
-        void set(const num_notice_mcry & value) {
-            set_num_notice_mcry(value);
+        void set(const num_mkt_nickle2 & value) {
+            set_num_mkt_nickle2(value);
         }
-        void set(const num_notice_memx & value) {
-            set_num_notice_memx(value);
-        }
-        void set(const num_notice_miax & value) {
-            set_num_notice_miax(value);
-        }
-        void set(const num_notice_mprl & value) {
-            set_num_notice_mprl(value);
-        }
-        void set(const num_notice_nyse & value) {
-            set_num_notice_nyse(value);
-        }
-        void set(const num_notice_nqbx & value) {
-            set_num_notice_nqbx(value);
-        }
-        void set(const num_notice_nsdq & value) {
-            set_num_notice_nsdq(value);
-        }
-        void set(const num_notice_phlx & value) {
-            set_num_notice_phlx(value);
-        }
-        void set(const num_notice_sphr & value) {
-            set_num_notice_sphr(value);
+        void set(const num_mkt_nickle3p & value) {
+            set_num_mkt_nickle3p(value);
         }
         void set(const resp_disabled_skips & value) {
             set_resp_disabled_skips(value);
@@ -1451,8 +1880,23 @@ namespace api {
         void set(const min_vega_ratio_skips & value) {
             set_min_vega_ratio_skips(value);
         }
+        void set(const probability_skips & value) {
+            set_probability_skips(value);
+        }
         void set(const num_responses & value) {
             set_num_responses(value);
+        }
+        void set(const num_responds_block & value) {
+            set_num_responds_block(value);
+        }
+        void set(const num_responds_flash & value) {
+            set_num_responds_flash(value);
+        }
+        void set(const num_responses_exch_pi & value) {
+            set_num_responses_exch_pi(value);
+        }
+        void set(const num_responses_exch_ex & value) {
+            set_num_responses_exch_ex(value);
         }
         void set(const num_full_size & value) {
             set_num_full_size(value);
@@ -1472,6 +1916,42 @@ namespace api {
         void set(const num_did_not_trade & value) {
             set_num_did_not_trade(value);
         }
+        void set(const num_traded & value) {
+            set_num_traded(value);
+        }
+        void set(const qty_traded & value) {
+            set_qty_traded(value);
+        }
+        void set(const vega_traded & value) {
+            set_vega_traded(value);
+        }
+        void set(const wt_vega_traded & value) {
+            set_wt_vega_traded(value);
+        }
+        void set(const sum_width_traded & value) {
+            set_sum_width_traded(value);
+        }
+        void set(const sum_surf_edge_traded & value) {
+            set_sum_surf_edge_traded(value);
+        }
+        void set(const sum_m1_pn_ltraded & value) {
+            set_sum_m1_pn_ltraded(value);
+        }
+        void set(const sum_m10_pn_ltraded & value) {
+            set_sum_m10_pn_ltraded(value);
+        }
+        void set(const num_traded_block & value) {
+            set_num_traded_block(value);
+        }
+        void set(const num_traded_flash & value) {
+            set_num_traded_flash(value);
+        }
+        void set(const num_traded_exch_pi & value) {
+            set_num_traded_exch_pi(value);
+        }
+        void set(const num_traded_exch_ex & value) {
+            set_num_traded_exch_ex(value);
+        }
         void set(const modified_by & value) {
             set_modified_by(value);
         }
@@ -1480,6 +1960,12 @@ namespace api {
         }
         void set(const timestamp & value) {
             set_timestamp(value);
+        }
+        void set(const c_firm_excl_filter & value) {
+            add_c_firm_excl_filter(value);
+        }
+        void set(const c_firm_incl_filter & value) {
+            add_c_firm_incl_filter(value);
         }
 
         void set(const ResponderMarkupVegaDir & value) {
@@ -1490,6 +1976,8 @@ namespace api {
             set(value.m_enabled_until);
             set(value.m_can_include_flex);
             set(value.m_can_include_stock);
+            set(value.m_can_respond_sr);
+            set(value.m_can_respond_exch);
             set(value.m_cp_flag);
             set(value.m_min_net_vega_ratio);
             set(value.m_min_years);
@@ -1502,12 +1990,21 @@ namespace api {
             set(value.m_max_strike);
             set(value.m_min_surf_edge_prem);
             set(value.m_min_surf_edge_vol);
+            set(value.m_min_probability);
             set(value.m_inc_fees_in_resp);
             set(value.m_round_rule);
             set(value.m_max_response_size);
             set(value.m_max_response_vega);
             set(value.m_total_response_vega);
             set(value.m_total_response_wt_vega);
+            set(value.m_not_mkt_penny);
+            set(value.m_mkt_penny1);
+            set(value.m_mkt_penny2);
+            set(value.m_mkt_penny3p);
+            set(value.m_not_mkt_nickle);
+            set(value.m_mkt_nickle1);
+            set(value.m_mkt_nickle2);
+            set(value.m_mkt_nickle3p);
             set(value.m_auto_hedge);
             set(value.m_hedge_instrument);
             set(value.m_hedge_sec_key);
@@ -1515,29 +2012,19 @@ namespace api {
             set(value.m_hedge_scope);
             set(value.m_hedge_session);
             set(value.m_risk_group_id);
-            set(value.m_qty_traded);
-            set(value.m_vega_traded);
-            set(value.m_wt_vega_traded);
             set(value.m_num_notices);
-            set(value.m_num_notice_sr);
-            set(value.m_num_notice_amex);
-            set(value.m_num_notice_bats);
-            set(value.m_num_notice_box);
-            set(value.m_num_notice_cboe);
-            set(value.m_num_notice_c2);
-            set(value.m_num_notice_edgo);
-            set(value.m_num_notice_emld);
-            set(value.m_num_notice_gmni);
-            set(value.m_num_notice_ise);
-            set(value.m_num_notice_mcry);
-            set(value.m_num_notice_memx);
-            set(value.m_num_notice_miax);
-            set(value.m_num_notice_mprl);
-            set(value.m_num_notice_nyse);
-            set(value.m_num_notice_nqbx);
-            set(value.m_num_notice_nsdq);
-            set(value.m_num_notice_phlx);
-            set(value.m_num_notice_sphr);
+            set(value.m_num_notice_block);
+            set(value.m_num_notice_flash);
+            set(value.m_num_notice_exch_pi);
+            set(value.m_num_notice_exch_ex);
+            set(value.m_num_not_mkt_penny);
+            set(value.m_num_mkt_penny1);
+            set(value.m_num_mkt_penny2);
+            set(value.m_num_mkt_penny3p);
+            set(value.m_num_not_mkt_nickle);
+            set(value.m_num_mkt_nickle1);
+            set(value.m_num_mkt_nickle2);
+            set(value.m_num_mkt_nickle3p);
             set(value.m_resp_disabled_skips);
             set(value.m_stock_disabled_skips);
             set(value.m_cp_flag_skips);
@@ -1551,16 +2038,33 @@ namespace api {
             set(value.m_x_delta_range_skips);
             set(value.m_strike_range_skips);
             set(value.m_min_vega_ratio_skips);
+            set(value.m_probability_skips);
             set(value.m_num_responses);
+            set(value.m_num_responds_block);
+            set(value.m_num_responds_flash);
+            set(value.m_num_responses_exch_pi);
+            set(value.m_num_responses_exch_ex);
             set(value.m_num_full_size);
             set(value.m_num_alloc_size);
             set(value.m_num_price_miss);
             set(value.m_num_too_late);
             set(value.m_num_other_miss);
             set(value.m_num_did_not_trade);
+            set(value.m_num_traded);
+            set(value.m_qty_traded);
+            set(value.m_vega_traded);
+            set(value.m_wt_vega_traded);
+            set(value.m_sum_width_traded);
+            set(value.m_sum_surf_edge_traded);
+            set(value.m_sum_m1_pn_ltraded);
+            set(value.m_sum_m10_pn_ltraded);
+            set(value.m_num_traded_block);
+            set(value.m_num_traded_flash);
+            set(value.m_num_traded_exch_pi);
+            set(value.m_num_traded_exch_ex);
             set(value.m_modified_by);
             set(value.m_modified_in);
-            set(value.m_timestamp);
+            set(value.m_timestamp);set_c_firm_excl_filter_list(value.m_c_firm_excl_filter);set_c_firm_incl_filter_list(value.m_c_firm_incl_filter);
         }
 
         ResponderMarkupVegaDir() {
@@ -1658,6 +2162,9 @@ namespace api {
         bool IncludeMinSurfEdgeVol() const {
             return !(m_min_surf_edge_vol == 0.0);
         }
+        bool IncludeMinProbability() const {
+            return !(m_min_probability == 0.0);
+        }
         bool IncludeMaxResponseSize() const {
             return !(m_max_response_size == 0);
         }
@@ -1679,74 +2186,44 @@ namespace api {
         bool IncludeRiskGroupId() const {
             return !(m_risk_group_id == 0);
         }
-        bool IncludeQtyTraded() const {
-            return !(m_qty_traded == 0);
-        }
-        bool IncludeVegaTraded() const {
-            return !(m_vega_traded == 0.0);
-        }
-        bool IncludeWtVegaTraded() const {
-            return !(m_wt_vega_traded == 0.0);
-        }
         bool IncludeNumNotices() const {
             return !(m_num_notices == 0);
         }
-        bool IncludeNumNoticeSr() const {
-            return !(m_num_notice_sr == 0);
+        bool IncludeNumNoticeBlock() const {
+            return !(m_num_notice_block == 0);
         }
-        bool IncludeNumNoticeAmex() const {
-            return !(m_num_notice_amex == 0);
+        bool IncludeNumNoticeFlash() const {
+            return !(m_num_notice_flash == 0);
         }
-        bool IncludeNumNoticeBats() const {
-            return !(m_num_notice_bats == 0);
+        bool IncludeNumNoticeExchPi() const {
+            return !(m_num_notice_exch_pi == 0);
         }
-        bool IncludeNumNoticeBox() const {
-            return !(m_num_notice_box == 0);
+        bool IncludeNumNoticeExchEx() const {
+            return !(m_num_notice_exch_ex == 0);
         }
-        bool IncludeNumNoticeCboe() const {
-            return !(m_num_notice_cboe == 0);
+        bool IncludeNumNotMktPenny() const {
+            return !(m_num_not_mkt_penny == 0);
         }
-        bool IncludeNumNoticeC2() const {
-            return !(m_num_notice_c2 == 0);
+        bool IncludeNumMktPenny1() const {
+            return !(m_num_mkt_penny1 == 0);
         }
-        bool IncludeNumNoticeEdgo() const {
-            return !(m_num_notice_edgo == 0);
+        bool IncludeNumMktPenny2() const {
+            return !(m_num_mkt_penny2 == 0);
         }
-        bool IncludeNumNoticeEmld() const {
-            return !(m_num_notice_emld == 0);
+        bool IncludeNumMktPenny3p() const {
+            return !(m_num_mkt_penny3p == 0);
         }
-        bool IncludeNumNoticeGmni() const {
-            return !(m_num_notice_gmni == 0);
+        bool IncludeNumNotMktNickle() const {
+            return !(m_num_not_mkt_nickle == 0);
         }
-        bool IncludeNumNoticeIse() const {
-            return !(m_num_notice_ise == 0);
+        bool IncludeNumMktNickle1() const {
+            return !(m_num_mkt_nickle1 == 0);
         }
-        bool IncludeNumNoticeMcry() const {
-            return !(m_num_notice_mcry == 0);
+        bool IncludeNumMktNickle2() const {
+            return !(m_num_mkt_nickle2 == 0);
         }
-        bool IncludeNumNoticeMemx() const {
-            return !(m_num_notice_memx == 0);
-        }
-        bool IncludeNumNoticeMiax() const {
-            return !(m_num_notice_miax == 0);
-        }
-        bool IncludeNumNoticeMprl() const {
-            return !(m_num_notice_mprl == 0);
-        }
-        bool IncludeNumNoticeNyse() const {
-            return !(m_num_notice_nyse == 0);
-        }
-        bool IncludeNumNoticeNqbx() const {
-            return !(m_num_notice_nqbx == 0);
-        }
-        bool IncludeNumNoticeNsdq() const {
-            return !(m_num_notice_nsdq == 0);
-        }
-        bool IncludeNumNoticePhlx() const {
-            return !(m_num_notice_phlx == 0);
-        }
-        bool IncludeNumNoticeSphr() const {
-            return !(m_num_notice_sphr == 0);
+        bool IncludeNumMktNickle3p() const {
+            return !(m_num_mkt_nickle3p == 0);
         }
         bool IncludeRespDisabledSkips() const {
             return !(m_resp_disabled_skips == 0);
@@ -1787,8 +2264,23 @@ namespace api {
         bool IncludeMinVegaRatioSkips() const {
             return !(m_min_vega_ratio_skips == 0);
         }
+        bool IncludeProbabilitySkips() const {
+            return !(m_probability_skips == 0);
+        }
         bool IncludeNumResponses() const {
             return !(m_num_responses == 0);
+        }
+        bool IncludeNumRespondsBlock() const {
+            return !(m_num_responds_block == 0);
+        }
+        bool IncludeNumRespondsFlash() const {
+            return !(m_num_responds_flash == 0);
+        }
+        bool IncludeNumResponsesExchPi() const {
+            return !(m_num_responses_exch_pi == 0);
+        }
+        bool IncludeNumResponsesExchEx() const {
+            return !(m_num_responses_exch_ex == 0);
         }
         bool IncludeNumFullSize() const {
             return !(m_num_full_size == 0);
@@ -1808,11 +2300,53 @@ namespace api {
         bool IncludeNumDidNotTrade() const {
             return !(m_num_did_not_trade == 0);
         }
+        bool IncludeNumTraded() const {
+            return !(m_num_traded == 0);
+        }
+        bool IncludeQtyTraded() const {
+            return !(m_qty_traded == 0);
+        }
+        bool IncludeVegaTraded() const {
+            return !(m_vega_traded == 0.0);
+        }
+        bool IncludeWtVegaTraded() const {
+            return !(m_wt_vega_traded == 0.0);
+        }
+        bool IncludeSumWidthTraded() const {
+            return !(m_sum_width_traded == 0.0);
+        }
+        bool IncludeSumSurfEdgeTraded() const {
+            return !(m_sum_surf_edge_traded == 0.0);
+        }
+        bool IncludeSumM1PnLtraded() const {
+            return !(m_sum_m1_pn_ltraded == 0.0);
+        }
+        bool IncludeSumM10PnLtraded() const {
+            return !(m_sum_m10_pn_ltraded == 0.0);
+        }
+        bool IncludeNumTradedBlock() const {
+            return !(m_num_traded_block == 0);
+        }
+        bool IncludeNumTradedFlash() const {
+            return !(m_num_traded_flash == 0);
+        }
+        bool IncludeNumTradedExchPi() const {
+            return !(m_num_traded_exch_pi == 0);
+        }
+        bool IncludeNumTradedExchEx() const {
+            return !(m_num_traded_exch_ex == 0);
+        }
         bool IncludeModifiedBy() const {
             return !(m_modified_by.empty());
         }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
+        }
+        bool IncludeCFirmExclFilter() const {
+            return (!m_c_firm_excl_filter.empty());
+        }
+        bool IncludeCFirmInclFilter() const {
+            return (!m_c_firm_incl_filter.empty());
         }
 
         size_t ByteSizeLong() const {
@@ -1837,6 +2371,8 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_flex)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_stock)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(178,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_sr)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(179,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_exch)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_cp_flag)));
             if ( IncludeMinNetVegaRatio()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(138,m_min_net_vega_ratio);
@@ -1871,6 +2407,9 @@ namespace api {
             if ( IncludeMinSurfEdgeVol()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(114,m_min_surf_edge_vol);
             }
+            if ( IncludeMinProbability()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(184,m_min_probability);
+            }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_fees_in_resp)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(116,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RoundRule>(m_round_rule)));
             if ( IncludeMaxResponseSize()) {
@@ -1885,6 +2424,14 @@ namespace api {
             if ( IncludeTotalResponseWtVega()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(120,m_total_response_wt_vega);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(185,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_penny)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(186,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny1)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny2)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(188,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny3p)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(189,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_nickle)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle1)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(191,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle2)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(192,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle3p)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(122,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
@@ -1900,74 +2447,44 @@ namespace api {
             if ( IncludeRiskGroupId()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(127,m_risk_group_id);
             }
-            if ( IncludeQtyTraded()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(132,m_qty_traded);
-            }
-            if ( IncludeVegaTraded()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(133,m_vega_traded);
-            }
-            if ( IncludeWtVegaTraded()) {
-                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(177,m_wt_vega_traded);
-            }
             if ( IncludeNumNotices()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(129,m_num_notices);
             }
-            if ( IncludeNumNoticeSr()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(139,m_num_notice_sr);
+            if ( IncludeNumNoticeBlock()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(193,m_num_notice_block);
             }
-            if ( IncludeNumNoticeAmex()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(140,m_num_notice_amex);
+            if ( IncludeNumNoticeFlash()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(194,m_num_notice_flash);
             }
-            if ( IncludeNumNoticeBats()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(141,m_num_notice_bats);
+            if ( IncludeNumNoticeExchPi()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(195,m_num_notice_exch_pi);
             }
-            if ( IncludeNumNoticeBox()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(142,m_num_notice_box);
+            if ( IncludeNumNoticeExchEx()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(196,m_num_notice_exch_ex);
             }
-            if ( IncludeNumNoticeCboe()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(143,m_num_notice_cboe);
+            if ( IncludeNumNotMktPenny()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(197,m_num_not_mkt_penny);
             }
-            if ( IncludeNumNoticeC2()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(144,m_num_notice_c2);
+            if ( IncludeNumMktPenny1()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(198,m_num_mkt_penny1);
             }
-            if ( IncludeNumNoticeEdgo()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(145,m_num_notice_edgo);
+            if ( IncludeNumMktPenny2()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(199,m_num_mkt_penny2);
             }
-            if ( IncludeNumNoticeEmld()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(146,m_num_notice_emld);
+            if ( IncludeNumMktPenny3p()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(200,m_num_mkt_penny3p);
             }
-            if ( IncludeNumNoticeGmni()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(147,m_num_notice_gmni);
+            if ( IncludeNumNotMktNickle()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(201,m_num_not_mkt_nickle);
             }
-            if ( IncludeNumNoticeIse()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(148,m_num_notice_ise);
+            if ( IncludeNumMktNickle1()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(202,m_num_mkt_nickle1);
             }
-            if ( IncludeNumNoticeMcry()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(149,m_num_notice_mcry);
+            if ( IncludeNumMktNickle2()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(203,m_num_mkt_nickle2);
             }
-            if ( IncludeNumNoticeMemx()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(150,m_num_notice_memx);
-            }
-            if ( IncludeNumNoticeMiax()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(151,m_num_notice_miax);
-            }
-            if ( IncludeNumNoticeMprl()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(152,m_num_notice_mprl);
-            }
-            if ( IncludeNumNoticeNyse()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(153,m_num_notice_nyse);
-            }
-            if ( IncludeNumNoticeNqbx()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(154,m_num_notice_nqbx);
-            }
-            if ( IncludeNumNoticeNsdq()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(155,m_num_notice_nsdq);
-            }
-            if ( IncludeNumNoticePhlx()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(156,m_num_notice_phlx);
-            }
-            if ( IncludeNumNoticeSphr()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(157,m_num_notice_sphr);
+            if ( IncludeNumMktNickle3p()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(204,m_num_mkt_nickle3p);
             }
             if ( IncludeRespDisabledSkips()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(158,m_resp_disabled_skips);
@@ -2008,8 +2525,23 @@ namespace api {
             if ( IncludeMinVegaRatioSkips()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(170,m_min_vega_ratio_skips);
             }
+            if ( IncludeProbabilitySkips()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(205,m_probability_skips);
+            }
             if ( IncludeNumResponses()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(131,m_num_responses);
+            }
+            if ( IncludeNumRespondsBlock()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(206,m_num_responds_block);
+            }
+            if ( IncludeNumRespondsFlash()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(207,m_num_responds_flash);
+            }
+            if ( IncludeNumResponsesExchPi()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(208,m_num_responses_exch_pi);
+            }
+            if ( IncludeNumResponsesExchEx()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(209,m_num_responses_exch_ex);
             }
             if ( IncludeNumFullSize()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(171,m_num_full_size);
@@ -2029,12 +2561,62 @@ namespace api {
             if ( IncludeNumDidNotTrade()) {
                 totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(176,m_num_did_not_trade);
             }
+            if ( IncludeNumTraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(210,m_num_traded);
+            }
+            if ( IncludeQtyTraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(132,m_qty_traded);
+            }
+            if ( IncludeVegaTraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(133,m_vega_traded);
+            }
+            if ( IncludeWtVegaTraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(177,m_wt_vega_traded);
+            }
+            if ( IncludeSumWidthTraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(211,m_sum_width_traded);
+            }
+            if ( IncludeSumSurfEdgeTraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(212,m_sum_surf_edge_traded);
+            }
+            if ( IncludeSumM1PnLtraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(213,m_sum_m1_pn_ltraded);
+            }
+            if ( IncludeSumM10PnLtraded()) {
+                totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(214,m_sum_m10_pn_ltraded);
+            }
+            if ( IncludeNumTradedBlock()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(215,m_num_traded_block);
+            }
+            if ( IncludeNumTradedFlash()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(216,m_num_traded_flash);
+            }
+            if ( IncludeNumTradedExchPi()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(217,m_num_traded_exch_pi);
+            }
+            if ( IncludeNumTradedExchEx()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(218,m_num_traded_exch_ex);
+            }
             if ( IncludeModifiedBy()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(134,m_modified_by);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(135,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(136, m_timestamp);
+            }
+            if ( IncludeCFirmExclFilter()) {
+                for (auto& item : m_c_firm_excl_filter) {
+					totalSize += SRProtobufCPP::TagCodec::Size(182, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
+            }
+            if ( IncludeCFirmInclFilter()) {
+                for (auto& item : m_c_firm_incl_filter) {
+					totalSize += SRProtobufCPP::TagCodec::Size(180, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    totalSize += SRProtobufCPP::LengthCodec::Size((int)item.ByteSizeLong());
+                    totalSize += item.ByteSizeLong();
+                }
             }
             return totalSize;
         }
@@ -2059,6 +2641,8 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,102,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_flex)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_include_stock)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,178,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_sr)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,179,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_can_respond_exch)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,104,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>(m_cp_flag)));
             if ( IncludeMinNetVegaRatio()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,138,m_min_net_vega_ratio);
@@ -2093,6 +2677,9 @@ namespace api {
             if ( IncludeMinSurfEdgeVol()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,114,m_min_surf_edge_vol);
             }
+            if ( IncludeMinProbability()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,184,m_min_probability);
+            }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,115,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_inc_fees_in_resp)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,116,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RoundRule>(m_round_rule)));
             if ( IncludeMaxResponseSize()) {
@@ -2107,6 +2694,14 @@ namespace api {
             if ( IncludeTotalResponseWtVega()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,120,m_total_response_wt_vega);
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,185,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_penny)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,186,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny1)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,187,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny2)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,188,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_penny3p)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,189,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_not_mkt_nickle)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,190,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle1)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,191,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle2)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,192,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_mkt_nickle3p)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,121,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>(m_auto_hedge)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,122,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>(m_hedge_instrument)));
             if ( IncludeHedgeSecKey()) {
@@ -2122,74 +2717,44 @@ namespace api {
             if ( IncludeRiskGroupId()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,127,m_risk_group_id);
             }
-            if ( IncludeQtyTraded()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,132,m_qty_traded);
-            }
-            if ( IncludeVegaTraded()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,133,m_vega_traded);
-            }
-            if ( IncludeWtVegaTraded()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,177,m_wt_vega_traded);
-            }
             if ( IncludeNumNotices()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,129,m_num_notices);
             }
-            if ( IncludeNumNoticeSr()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,139,m_num_notice_sr);
+            if ( IncludeNumNoticeBlock()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,193,m_num_notice_block);
             }
-            if ( IncludeNumNoticeAmex()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,140,m_num_notice_amex);
+            if ( IncludeNumNoticeFlash()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,194,m_num_notice_flash);
             }
-            if ( IncludeNumNoticeBats()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,141,m_num_notice_bats);
+            if ( IncludeNumNoticeExchPi()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,195,m_num_notice_exch_pi);
             }
-            if ( IncludeNumNoticeBox()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,142,m_num_notice_box);
+            if ( IncludeNumNoticeExchEx()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,196,m_num_notice_exch_ex);
             }
-            if ( IncludeNumNoticeCboe()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,143,m_num_notice_cboe);
+            if ( IncludeNumNotMktPenny()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,197,m_num_not_mkt_penny);
             }
-            if ( IncludeNumNoticeC2()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,144,m_num_notice_c2);
+            if ( IncludeNumMktPenny1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,198,m_num_mkt_penny1);
             }
-            if ( IncludeNumNoticeEdgo()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,145,m_num_notice_edgo);
+            if ( IncludeNumMktPenny2()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,199,m_num_mkt_penny2);
             }
-            if ( IncludeNumNoticeEmld()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,146,m_num_notice_emld);
+            if ( IncludeNumMktPenny3p()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,200,m_num_mkt_penny3p);
             }
-            if ( IncludeNumNoticeGmni()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,147,m_num_notice_gmni);
+            if ( IncludeNumNotMktNickle()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,201,m_num_not_mkt_nickle);
             }
-            if ( IncludeNumNoticeIse()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,148,m_num_notice_ise);
+            if ( IncludeNumMktNickle1()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,202,m_num_mkt_nickle1);
             }
-            if ( IncludeNumNoticeMcry()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,149,m_num_notice_mcry);
+            if ( IncludeNumMktNickle2()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,203,m_num_mkt_nickle2);
             }
-            if ( IncludeNumNoticeMemx()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,150,m_num_notice_memx);
-            }
-            if ( IncludeNumNoticeMiax()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,151,m_num_notice_miax);
-            }
-            if ( IncludeNumNoticeMprl()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,152,m_num_notice_mprl);
-            }
-            if ( IncludeNumNoticeNyse()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,153,m_num_notice_nyse);
-            }
-            if ( IncludeNumNoticeNqbx()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,154,m_num_notice_nqbx);
-            }
-            if ( IncludeNumNoticeNsdq()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,155,m_num_notice_nsdq);
-            }
-            if ( IncludeNumNoticePhlx()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,156,m_num_notice_phlx);
-            }
-            if ( IncludeNumNoticeSphr()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,157,m_num_notice_sphr);
+            if ( IncludeNumMktNickle3p()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,204,m_num_mkt_nickle3p);
             }
             if ( IncludeRespDisabledSkips()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,158,m_resp_disabled_skips);
@@ -2230,8 +2795,23 @@ namespace api {
             if ( IncludeMinVegaRatioSkips()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,170,m_min_vega_ratio_skips);
             }
+            if ( IncludeProbabilitySkips()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,205,m_probability_skips);
+            }
             if ( IncludeNumResponses()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,131,m_num_responses);
+            }
+            if ( IncludeNumRespondsBlock()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,206,m_num_responds_block);
+            }
+            if ( IncludeNumRespondsFlash()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,207,m_num_responds_flash);
+            }
+            if ( IncludeNumResponsesExchPi()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,208,m_num_responses_exch_pi);
+            }
+            if ( IncludeNumResponsesExchEx()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,209,m_num_responses_exch_ex);
             }
             if ( IncludeNumFullSize()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,171,m_num_full_size);
@@ -2251,12 +2831,62 @@ namespace api {
             if ( IncludeNumDidNotTrade()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,176,m_num_did_not_trade);
             }
+            if ( IncludeNumTraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,210,m_num_traded);
+            }
+            if ( IncludeQtyTraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,132,m_qty_traded);
+            }
+            if ( IncludeVegaTraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,133,m_vega_traded);
+            }
+            if ( IncludeWtVegaTraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,177,m_wt_vega_traded);
+            }
+            if ( IncludeSumWidthTraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,211,m_sum_width_traded);
+            }
+            if ( IncludeSumSurfEdgeTraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,212,m_sum_surf_edge_traded);
+            }
+            if ( IncludeSumM1PnLtraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,213,m_sum_m1_pn_ltraded);
+            }
+            if ( IncludeSumM10PnLtraded()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,214,m_sum_m10_pn_ltraded);
+            }
+            if ( IncludeNumTradedBlock()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,215,m_num_traded_block);
+            }
+            if ( IncludeNumTradedFlash()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,216,m_num_traded_flash);
+            }
+            if ( IncludeNumTradedExchPi()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,217,m_num_traded_exch_pi);
+            }
+            if ( IncludeNumTradedExchEx()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,218,m_num_traded_exch_ex);
+            }
             if ( IncludeModifiedBy()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,134,static_cast<string>(m_modified_by));
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,135,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 136, m_timestamp);
+            }
+            if ( IncludeCFirmExclFilter()) {
+                for (auto& item : m_c_firm_excl_filter) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 182, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
+            }
+            if ( IncludeCFirmInclFilter()) {
+                for (auto& item : m_c_firm_incl_filter) {
+                    dest = SRProtobufCPP::TagCodec::Encode(dest, 180, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
+                    dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(item.ByteSizeLong()));
+                    item.Encode(dest, max);
+                }
             }
         }
 
@@ -2312,6 +2942,16 @@ namespace api {
                     }
                     case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_can_include_stock = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 178: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_can_respond_sr = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 179: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_can_respond_exch = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2386,6 +3026,12 @@ namespace api {
                         }
                         break;
                     }
+                    case 184: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_min_probability = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 115: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_inc_fees_in_resp = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -2417,6 +3063,46 @@ namespace api {
                     case 120: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_total_response_wt_vega = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 185: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_not_mkt_penny = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 186: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_penny1 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 187: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_penny2 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 188: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_penny3p = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 189: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_not_mkt_nickle = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 190: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_nickle1 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 191: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_nickle2 = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 192: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_mkt_nickle3p = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
@@ -2459,141 +3145,81 @@ namespace api {
                         }
                         break;
                     }
-                    case 132: {
-                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
-                            m_qty_traded = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
-                        }
-                        break;
-                    }
-                    case 133: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_vega_traded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
-                        }
-                        break;
-                    }
-                    case 177: {
-                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
-                            m_wt_vega_traded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
-                        }
-                        break;
-                    }
                     case 129: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_num_notices = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 139: {
+                    case 193: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_sr = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_notice_block = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 140: {
+                    case 194: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_amex = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_notice_flash = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 141: {
+                    case 195: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_bats = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_notice_exch_pi = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 142: {
+                    case 196: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_box = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_notice_exch_ex = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 143: {
+                    case 197: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_cboe = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_not_mkt_penny = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 144: {
+                    case 198: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_c2 = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_mkt_penny1 = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 145: {
+                    case 199: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_edgo = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_mkt_penny2 = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 146: {
+                    case 200: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_emld = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_mkt_penny3p = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 147: {
+                    case 201: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_gmni = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_not_mkt_nickle = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 148: {
+                    case 202: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_ise = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_mkt_nickle1 = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 149: {
+                    case 203: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_mcry = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_mkt_nickle2 = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
-                    case 150: {
+                    case 204: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_memx = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 151: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_miax = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 152: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_mprl = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 153: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_nyse = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 154: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_nqbx = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 155: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_nsdq = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 156: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_phlx = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
-                        }
-                        break;
-                    }
-                    case 157: {
-                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
-                            m_num_notice_sphr = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                            m_num_mkt_nickle3p = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
@@ -2675,9 +3301,39 @@ namespace api {
                         }
                         break;
                     }
+                    case 205: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_probability_skips = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
                     case 131: {
                         if (tagType == SRProtobufCPP::LongCodec::TagType) {
                             m_num_responses = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 206: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_responds_block = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 207: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_responds_flash = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 208: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_responses_exch_pi = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 209: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_responses_exch_ex = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
                         }
                         break;
                     }
@@ -2717,6 +3373,78 @@ namespace api {
                         }
                         break;
                     }
+                    case 210: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_num_traded = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 132: {
+                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
+                            m_qty_traded = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                        }
+                        break;
+                    }
+                    case 133: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_vega_traded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 177: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_wt_vega_traded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 211: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_sum_width_traded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 212: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_sum_surf_edge_traded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 213: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_sum_m1_pn_ltraded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 214: {
+                        if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
+                            m_sum_m10_pn_ltraded = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
+                        }
+                        break;
+                    }
+                    case 215: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_traded_block = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 216: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_traded_flash = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 217: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_traded_exch_pi = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 218: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_num_traded_exch_ex = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
                     case 134: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_modified_by = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -2731,6 +3459,24 @@ namespace api {
                     case 136: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
+                        }
+                        break;
+                    }
+                    case 182: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            c_firm_excl_filter item_c_firm_excl_filter;
+                            item_c_firm_excl_filter.Decode(pos, pos+length);  
+                            m_c_firm_excl_filter.emplace_back(item_c_firm_excl_filter);
+                        }
+                        break;
+                    }
+                    case 180: {
+                        if (tagType == SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited) {
+                            const int length = SRProtobufCPP::LengthCodec::Decode(pos, max);
+                            c_firm_incl_filter item_c_firm_incl_filter;
+                            item_c_firm_incl_filter.Decode(pos, pos+length);  
+                            m_c_firm_incl_filter.emplace_back(item_c_firm_incl_filter);
                         }
                         break;
                     }
@@ -2750,6 +3496,8 @@ namespace api {
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::enabled_until>() const { return m_enabled_until; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::can_include_flex>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_include_flex)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::can_include_stock>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_include_stock)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::can_respond_sr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_respond_sr)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::can_respond_exch>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_can_respond_exch)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::cp_flag>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CallPut>( m_cp_flag)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::min_net_vega_ratio>() const { return m_min_net_vega_ratio; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::min_years>() const { return m_min_years; }
@@ -2762,12 +3510,21 @@ namespace api {
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::max_strike>() const { return m_max_strike; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::min_surf_edge_prem>() const { return m_min_surf_edge_prem; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::min_surf_edge_vol>() const { return m_min_surf_edge_vol; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::min_probability>() const { return m_min_probability; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::inc_fees_in_resp>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_inc_fees_in_resp)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::round_rule>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RoundRule>( m_round_rule)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::max_response_size>() const { return m_max_response_size; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::max_response_vega>() const { return m_max_response_vega; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::total_response_vega>() const { return m_total_response_vega; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::total_response_wt_vega>() const { return m_total_response_wt_vega; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::not_mkt_penny>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_not_mkt_penny)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::mkt_penny1>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_penny1)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::mkt_penny2>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_penny2)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::mkt_penny3p>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_penny3p)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::not_mkt_nickle>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_not_mkt_nickle)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::mkt_nickle1>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_nickle1)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::mkt_nickle2>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_nickle2)); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::mkt_nickle3p>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_mkt_nickle3p)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::auto_hedge>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AutoHedge>( m_auto_hedge)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::hedge_instrument>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeInst>( m_hedge_instrument)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::hedge_sec_key>() const { return ResponderMarkupVegaDir::hedge_sec_key{ m_hedge_sec_key}; }
@@ -2775,29 +3532,19 @@ namespace api {
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::hedge_scope>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::HedgeScope>( m_hedge_scope)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::hedge_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>( m_hedge_session)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::risk_group_id>() const { return m_risk_group_id; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::qty_traded>() const { return m_qty_traded; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::vega_traded>() const { return m_vega_traded; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::wt_vega_traded>() const { return m_wt_vega_traded; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notices>() const { return m_num_notices; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_sr>() const { return m_num_notice_sr; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_amex>() const { return m_num_notice_amex; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_bats>() const { return m_num_notice_bats; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_box>() const { return m_num_notice_box; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_cboe>() const { return m_num_notice_cboe; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_c2>() const { return m_num_notice_c2; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_edgo>() const { return m_num_notice_edgo; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_emld>() const { return m_num_notice_emld; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_gmni>() const { return m_num_notice_gmni; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_ise>() const { return m_num_notice_ise; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_mcry>() const { return m_num_notice_mcry; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_memx>() const { return m_num_notice_memx; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_miax>() const { return m_num_notice_miax; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_mprl>() const { return m_num_notice_mprl; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_nyse>() const { return m_num_notice_nyse; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_nqbx>() const { return m_num_notice_nqbx; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_nsdq>() const { return m_num_notice_nsdq; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_phlx>() const { return m_num_notice_phlx; }
-    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_sphr>() const { return m_num_notice_sphr; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_block>() const { return m_num_notice_block; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_flash>() const { return m_num_notice_flash; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_exch_pi>() const { return m_num_notice_exch_pi; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_notice_exch_ex>() const { return m_num_notice_exch_ex; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_not_mkt_penny>() const { return m_num_not_mkt_penny; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_mkt_penny1>() const { return m_num_mkt_penny1; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_mkt_penny2>() const { return m_num_mkt_penny2; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_mkt_penny3p>() const { return m_num_mkt_penny3p; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_not_mkt_nickle>() const { return m_num_not_mkt_nickle; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_mkt_nickle1>() const { return m_num_mkt_nickle1; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_mkt_nickle2>() const { return m_num_mkt_nickle2; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_mkt_nickle3p>() const { return m_num_mkt_nickle3p; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::resp_disabled_skips>() const { return m_resp_disabled_skips; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::stock_disabled_skips>() const { return m_stock_disabled_skips; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::cp_flag_skips>() const { return m_cp_flag_skips; }
@@ -2811,21 +3558,46 @@ namespace api {
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::x_delta_range_skips>() const { return m_x_delta_range_skips; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::strike_range_skips>() const { return m_strike_range_skips; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::min_vega_ratio_skips>() const { return m_min_vega_ratio_skips; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::probability_skips>() const { return m_probability_skips; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_responses>() const { return m_num_responses; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_responds_block>() const { return m_num_responds_block; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_responds_flash>() const { return m_num_responds_flash; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_responses_exch_pi>() const { return m_num_responses_exch_pi; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_responses_exch_ex>() const { return m_num_responses_exch_ex; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_full_size>() const { return m_num_full_size; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_alloc_size>() const { return m_num_alloc_size; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_price_miss>() const { return m_num_price_miss; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_too_late>() const { return m_num_too_late; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_other_miss>() const { return m_num_other_miss; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_did_not_trade>() const { return m_num_did_not_trade; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_traded>() const { return m_num_traded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::qty_traded>() const { return m_qty_traded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::vega_traded>() const { return m_vega_traded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::wt_vega_traded>() const { return m_wt_vega_traded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::sum_width_traded>() const { return m_sum_width_traded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::sum_surf_edge_traded>() const { return m_sum_surf_edge_traded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::sum_m1_pn_ltraded>() const { return m_sum_m1_pn_ltraded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::sum_m10_pn_ltraded>() const { return m_sum_m10_pn_ltraded; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_traded_block>() const { return m_num_traded_block; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_traded_flash>() const { return m_num_traded_flash; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_traded_exch_pi>() const { return m_num_traded_exch_pi; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::num_traded_exch_ex>() const { return m_num_traded_exch_ex; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::modified_by>() const { return m_modified_by; }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
     template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::timestamp>() const { return m_timestamp; }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::c_firm_excl_filter>(int i) const { return ResponderMarkupVegaDir::c_firm_excl_filter{ get_c_firm_excl_filter(i)}; }
+    template<> inline int ResponderMarkupVegaDir::count<ResponderMarkupVegaDir::c_firm_excl_filter>() const { return static_cast<int>( m_c_firm_excl_filter.size()); }
+    template<> inline const auto ResponderMarkupVegaDir::get<ResponderMarkupVegaDir::c_firm_incl_filter>(int i) const { return ResponderMarkupVegaDir::c_firm_incl_filter{ get_c_firm_incl_filter(i)}; }
+    template<> inline int ResponderMarkupVegaDir::count<ResponderMarkupVegaDir::c_firm_incl_filter>() const { return static_cast<int>( m_c_firm_incl_filter.size()); }
     template<> inline const auto ResponderMarkupVegaDir_PKey::get<ResponderMarkupVegaDir_PKey::accnt>() const { return m_accnt; }
     template<> inline const auto ResponderMarkupVegaDir_PKey::get<ResponderMarkupVegaDir_PKey::client_firm>() const { return m_client_firm; }
     template<> inline const auto ResponderMarkupVegaDir_PKey::get<ResponderMarkupVegaDir_PKey::root>() const { return ResponderMarkupVegaDir_PKey::root{m_root}; }
     template<> inline const auto ResponderMarkupVegaDir_PKey::get<ResponderMarkupVegaDir_PKey::resp_side>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::BuySell>(m_resp_side));}
     template<> inline const auto ResponderMarkupVegaDir_PKey::get<ResponderMarkupVegaDir_PKey::responder_id>() const { return m_responder_id; }
+    
+    template<> inline const auto ResponderMarkupVegaDir_CFirmExclFilter::get<ResponderMarkupVegaDir_CFirmExclFilter::inititor_cfirm>() const { return m_inititor_cfirm; }
+    
+    template<> inline const auto ResponderMarkupVegaDir_CFirmInclFilter::get<ResponderMarkupVegaDir_CFirmInclFilter::inititor_cfirm>() const { return m_inititor_cfirm; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
@@ -2835,6 +3607,16 @@ namespace api {
         o << ",\"root\":{" << m.get<ResponderMarkupVegaDir_PKey::root>() << "}";
         o << ",\"resp_side\":" << (int64_t)m.get<ResponderMarkupVegaDir_PKey::resp_side>();
         o << ",\"responder_id\":" << m.get<ResponderMarkupVegaDir_PKey::responder_id>();
+        return o;
+    }
+
+    inline std::ostream& operator<<(std::ostream &o, const ResponderMarkupVegaDir_CFirmExclFilter& m) {
+        o << "\"inititor_cfirm\":\"" << m.get<ResponderMarkupVegaDir_CFirmExclFilter::inititor_cfirm>() << "\"";
+        return o;
+    }
+
+    inline std::ostream& operator<<(std::ostream &o, const ResponderMarkupVegaDir_CFirmInclFilter& m) {
+        o << "\"inititor_cfirm\":\"" << m.get<ResponderMarkupVegaDir_CFirmInclFilter::inititor_cfirm>() << "\"";
         return o;
     }
 
@@ -2851,6 +3633,8 @@ namespace api {
         }
         o << ",\"can_include_flex\":" << (int64_t)m.get<ResponderMarkupVegaDir::can_include_flex>();
         o << ",\"can_include_stock\":" << (int64_t)m.get<ResponderMarkupVegaDir::can_include_stock>();
+        o << ",\"can_respond_sr\":" << (int64_t)m.get<ResponderMarkupVegaDir::can_respond_sr>();
+        o << ",\"can_respond_exch\":" << (int64_t)m.get<ResponderMarkupVegaDir::can_respond_exch>();
         o << ",\"cp_flag\":" << (int64_t)m.get<ResponderMarkupVegaDir::cp_flag>();
         o << ",\"min_net_vega_ratio\":" << m.get<ResponderMarkupVegaDir::min_net_vega_ratio>();
         o << ",\"min_years\":" << m.get<ResponderMarkupVegaDir::min_years>();
@@ -2873,12 +3657,21 @@ namespace api {
         o << ",\"max_strike\":" << m.get<ResponderMarkupVegaDir::max_strike>();
         o << ",\"min_surf_edge_prem\":" << m.get<ResponderMarkupVegaDir::min_surf_edge_prem>();
         o << ",\"min_surf_edge_vol\":" << m.get<ResponderMarkupVegaDir::min_surf_edge_vol>();
+        o << ",\"min_probability\":" << m.get<ResponderMarkupVegaDir::min_probability>();
         o << ",\"inc_fees_in_resp\":" << (int64_t)m.get<ResponderMarkupVegaDir::inc_fees_in_resp>();
         o << ",\"round_rule\":" << (int64_t)m.get<ResponderMarkupVegaDir::round_rule>();
         o << ",\"max_response_size\":" << m.get<ResponderMarkupVegaDir::max_response_size>();
         o << ",\"max_response_vega\":" << m.get<ResponderMarkupVegaDir::max_response_vega>();
         o << ",\"total_response_vega\":" << m.get<ResponderMarkupVegaDir::total_response_vega>();
         o << ",\"total_response_wt_vega\":" << m.get<ResponderMarkupVegaDir::total_response_wt_vega>();
+        o << ",\"not_mkt_penny\":" << (int64_t)m.get<ResponderMarkupVegaDir::not_mkt_penny>();
+        o << ",\"mkt_penny1\":" << (int64_t)m.get<ResponderMarkupVegaDir::mkt_penny1>();
+        o << ",\"mkt_penny2\":" << (int64_t)m.get<ResponderMarkupVegaDir::mkt_penny2>();
+        o << ",\"mkt_penny3p\":" << (int64_t)m.get<ResponderMarkupVegaDir::mkt_penny3p>();
+        o << ",\"not_mkt_nickle\":" << (int64_t)m.get<ResponderMarkupVegaDir::not_mkt_nickle>();
+        o << ",\"mkt_nickle1\":" << (int64_t)m.get<ResponderMarkupVegaDir::mkt_nickle1>();
+        o << ",\"mkt_nickle2\":" << (int64_t)m.get<ResponderMarkupVegaDir::mkt_nickle2>();
+        o << ",\"mkt_nickle3p\":" << (int64_t)m.get<ResponderMarkupVegaDir::mkt_nickle3p>();
         o << ",\"auto_hedge\":" << (int64_t)m.get<ResponderMarkupVegaDir::auto_hedge>();
         o << ",\"hedge_instrument\":" << (int64_t)m.get<ResponderMarkupVegaDir::hedge_instrument>();
         o << ",\"hedge_sec_key\":{" << m.get<ResponderMarkupVegaDir::hedge_sec_key>() << "}";
@@ -2886,29 +3679,19 @@ namespace api {
         o << ",\"hedge_scope\":" << (int64_t)m.get<ResponderMarkupVegaDir::hedge_scope>();
         o << ",\"hedge_session\":" << (int64_t)m.get<ResponderMarkupVegaDir::hedge_session>();
         o << ",\"risk_group_id\":" << m.get<ResponderMarkupVegaDir::risk_group_id>();
-        o << ",\"qty_traded\":" << m.get<ResponderMarkupVegaDir::qty_traded>();
-        o << ",\"vega_traded\":" << m.get<ResponderMarkupVegaDir::vega_traded>();
-        o << ",\"wt_vega_traded\":" << m.get<ResponderMarkupVegaDir::wt_vega_traded>();
         o << ",\"num_notices\":" << m.get<ResponderMarkupVegaDir::num_notices>();
-        o << ",\"num_notice_sr\":" << m.get<ResponderMarkupVegaDir::num_notice_sr>();
-        o << ",\"num_notice_amex\":" << m.get<ResponderMarkupVegaDir::num_notice_amex>();
-        o << ",\"num_notice_bats\":" << m.get<ResponderMarkupVegaDir::num_notice_bats>();
-        o << ",\"num_notice_box\":" << m.get<ResponderMarkupVegaDir::num_notice_box>();
-        o << ",\"num_notice_cboe\":" << m.get<ResponderMarkupVegaDir::num_notice_cboe>();
-        o << ",\"num_notice_c2\":" << m.get<ResponderMarkupVegaDir::num_notice_c2>();
-        o << ",\"num_notice_edgo\":" << m.get<ResponderMarkupVegaDir::num_notice_edgo>();
-        o << ",\"num_notice_emld\":" << m.get<ResponderMarkupVegaDir::num_notice_emld>();
-        o << ",\"num_notice_gmni\":" << m.get<ResponderMarkupVegaDir::num_notice_gmni>();
-        o << ",\"num_notice_ise\":" << m.get<ResponderMarkupVegaDir::num_notice_ise>();
-        o << ",\"num_notice_mcry\":" << m.get<ResponderMarkupVegaDir::num_notice_mcry>();
-        o << ",\"num_notice_memx\":" << m.get<ResponderMarkupVegaDir::num_notice_memx>();
-        o << ",\"num_notice_miax\":" << m.get<ResponderMarkupVegaDir::num_notice_miax>();
-        o << ",\"num_notice_mprl\":" << m.get<ResponderMarkupVegaDir::num_notice_mprl>();
-        o << ",\"num_notice_nyse\":" << m.get<ResponderMarkupVegaDir::num_notice_nyse>();
-        o << ",\"num_notice_nqbx\":" << m.get<ResponderMarkupVegaDir::num_notice_nqbx>();
-        o << ",\"num_notice_nsdq\":" << m.get<ResponderMarkupVegaDir::num_notice_nsdq>();
-        o << ",\"num_notice_phlx\":" << m.get<ResponderMarkupVegaDir::num_notice_phlx>();
-        o << ",\"num_notice_sphr\":" << m.get<ResponderMarkupVegaDir::num_notice_sphr>();
+        o << ",\"num_notice_block\":" << m.get<ResponderMarkupVegaDir::num_notice_block>();
+        o << ",\"num_notice_flash\":" << m.get<ResponderMarkupVegaDir::num_notice_flash>();
+        o << ",\"num_notice_exch_pi\":" << m.get<ResponderMarkupVegaDir::num_notice_exch_pi>();
+        o << ",\"num_notice_exch_ex\":" << m.get<ResponderMarkupVegaDir::num_notice_exch_ex>();
+        o << ",\"num_not_mkt_penny\":" << m.get<ResponderMarkupVegaDir::num_not_mkt_penny>();
+        o << ",\"num_mkt_penny1\":" << m.get<ResponderMarkupVegaDir::num_mkt_penny1>();
+        o << ",\"num_mkt_penny2\":" << m.get<ResponderMarkupVegaDir::num_mkt_penny2>();
+        o << ",\"num_mkt_penny3p\":" << m.get<ResponderMarkupVegaDir::num_mkt_penny3p>();
+        o << ",\"num_not_mkt_nickle\":" << m.get<ResponderMarkupVegaDir::num_not_mkt_nickle>();
+        o << ",\"num_mkt_nickle1\":" << m.get<ResponderMarkupVegaDir::num_mkt_nickle1>();
+        o << ",\"num_mkt_nickle2\":" << m.get<ResponderMarkupVegaDir::num_mkt_nickle2>();
+        o << ",\"num_mkt_nickle3p\":" << m.get<ResponderMarkupVegaDir::num_mkt_nickle3p>();
         o << ",\"resp_disabled_skips\":" << m.get<ResponderMarkupVegaDir::resp_disabled_skips>();
         o << ",\"stock_disabled_skips\":" << m.get<ResponderMarkupVegaDir::stock_disabled_skips>();
         o << ",\"cp_flag_skips\":" << m.get<ResponderMarkupVegaDir::cp_flag_skips>();
@@ -2922,13 +3705,30 @@ namespace api {
         o << ",\"x_delta_range_skips\":" << m.get<ResponderMarkupVegaDir::x_delta_range_skips>();
         o << ",\"strike_range_skips\":" << m.get<ResponderMarkupVegaDir::strike_range_skips>();
         o << ",\"min_vega_ratio_skips\":" << m.get<ResponderMarkupVegaDir::min_vega_ratio_skips>();
+        o << ",\"probability_skips\":" << m.get<ResponderMarkupVegaDir::probability_skips>();
         o << ",\"num_responses\":" << m.get<ResponderMarkupVegaDir::num_responses>();
+        o << ",\"num_responds_block\":" << m.get<ResponderMarkupVegaDir::num_responds_block>();
+        o << ",\"num_responds_flash\":" << m.get<ResponderMarkupVegaDir::num_responds_flash>();
+        o << ",\"num_responses_exch_pi\":" << m.get<ResponderMarkupVegaDir::num_responses_exch_pi>();
+        o << ",\"num_responses_exch_ex\":" << m.get<ResponderMarkupVegaDir::num_responses_exch_ex>();
         o << ",\"num_full_size\":" << m.get<ResponderMarkupVegaDir::num_full_size>();
         o << ",\"num_alloc_size\":" << m.get<ResponderMarkupVegaDir::num_alloc_size>();
         o << ",\"num_price_miss\":" << m.get<ResponderMarkupVegaDir::num_price_miss>();
         o << ",\"num_too_late\":" << m.get<ResponderMarkupVegaDir::num_too_late>();
         o << ",\"num_other_miss\":" << m.get<ResponderMarkupVegaDir::num_other_miss>();
         o << ",\"num_did_not_trade\":" << m.get<ResponderMarkupVegaDir::num_did_not_trade>();
+        o << ",\"num_traded\":" << m.get<ResponderMarkupVegaDir::num_traded>();
+        o << ",\"qty_traded\":" << m.get<ResponderMarkupVegaDir::qty_traded>();
+        o << ",\"vega_traded\":" << m.get<ResponderMarkupVegaDir::vega_traded>();
+        o << ",\"wt_vega_traded\":" << m.get<ResponderMarkupVegaDir::wt_vega_traded>();
+        o << ",\"sum_width_traded\":" << m.get<ResponderMarkupVegaDir::sum_width_traded>();
+        o << ",\"sum_surf_edge_traded\":" << m.get<ResponderMarkupVegaDir::sum_surf_edge_traded>();
+        o << ",\"sum_m1_pn_ltraded\":" << m.get<ResponderMarkupVegaDir::sum_m1_pn_ltraded>();
+        o << ",\"sum_m10_pn_ltraded\":" << m.get<ResponderMarkupVegaDir::sum_m10_pn_ltraded>();
+        o << ",\"num_traded_block\":" << m.get<ResponderMarkupVegaDir::num_traded_block>();
+        o << ",\"num_traded_flash\":" << m.get<ResponderMarkupVegaDir::num_traded_flash>();
+        o << ",\"num_traded_exch_pi\":" << m.get<ResponderMarkupVegaDir::num_traded_exch_pi>();
+        o << ",\"num_traded_exch_ex\":" << m.get<ResponderMarkupVegaDir::num_traded_exch_ex>();
         o << ",\"modified_by\":\"" << m.get<ResponderMarkupVegaDir::modified_by>() << "\"";
         o << ",\"modified_in\":" << (int64_t)m.get<ResponderMarkupVegaDir::modified_in>();
         {
@@ -2937,6 +3737,24 @@ namespace api {
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
+        o << ",\"c_firm_excl_filter\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<ResponderMarkupVegaDir::c_firm_excl_filter>(); ++i) {
+                o << delim << m.get<ResponderMarkupVegaDir::c_firm_excl_filter>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
+        o << ",\"c_firm_incl_filter\":[";
+        {
+            const char *delim = "{";
+            for (int i=0; i<m.count<ResponderMarkupVegaDir::c_firm_incl_filter>(); ++i) {
+                o << delim << m.get<ResponderMarkupVegaDir::c_firm_incl_filter>(i) << '}';
+                delim = ",{";
+            }
+        }
+        o << "]";
         return o;
     }
 

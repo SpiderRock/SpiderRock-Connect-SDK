@@ -212,6 +212,7 @@ message SpdrMLegBrkrState {
     HedgeScope hedge_scope = 637; // hedge group scope [RiskGroup or Accnt]
     string extern_hedge_ex_dest = 1055; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 643; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
+    YesNo hedge_fill_uMark_lmt_prc = 1058; // set a price limit on the autohedge order based on the most recent option fillUMark
     float best_way_prc = 646; // current leg market nbbo (at time of record publish)
     float wrst_way_prc = 649; // current leg market nbbo ask (at time of record publish)
     int32 best_way_sz = 652; // current leg market nbbo cum bid size (at time of record publish)
