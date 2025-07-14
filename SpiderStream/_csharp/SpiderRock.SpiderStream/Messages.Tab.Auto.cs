@@ -1646,7 +1646,7 @@ public partial class RootDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tExchange\tUnderlying";
+    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tbbgRoot\tbbgGroup\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tricCode_V7\tExchange\tUnderlying";
 
     public string TabRecord
     {
@@ -1739,11 +1739,17 @@ public partial class RootDefinition
             recordBuilder.Append('\t');
             recordBuilder.Append(RicRoot);
             recordBuilder.Append('\t');
+            recordBuilder.Append(BbgRoot);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(BbgGroup);
+            recordBuilder.Append('\t');
             recordBuilder.Append(RegionalCompositeRoot);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
             recordBuilder.Append('\t');
             recordBuilder.Append(PricingSource_V7);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(RicCode_V7);
 
             return recordBuilder.ToString();
         }
