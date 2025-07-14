@@ -566,13 +566,23 @@ namespace SpiderRock
 			EU2C=48,
 			EU2D=49,
 			EU2E=50,
-			EU3A=51,
-			EU3B=52,
-			EU3C=53,
-			EU3D=54,
-			EU3E=55,
-			EU4A=57,
-			EU5A=58
+			EU2F=51,
+			EU3A=52,
+			EU3B=53,
+			EU3C=54,
+			EU3D=55,
+			EU3E=56,
+			EU3F=57,
+			EU3G=58,
+			EU3H=59,
+			EU3I=60,
+			EU3J=61,
+			EU4A=62,
+			EU4B=63,
+			EU4C=64,
+			EU5A=65,
+			EU5B=66,
+			V16=67
 		};
 
  		enum class PriceQuoteType : Enum 
