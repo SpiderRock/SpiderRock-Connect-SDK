@@ -29,8 +29,8 @@ namespace SRProtobufCPP {
 			pos = FieldCodec::EncodeInt(pos, 4, static_cast<int>(value.SenderId));
 			pos = FieldCodec::EncodeBool(pos, 5, value.FromBridge);
 			pos = FieldCodec::EncodeBool(pos, 6, value.FromCache);
-	        pos = FieldCodec::EncodeBool(pos, 7, value.EncodedTime);
-	        pos = FieldCodec::EncodeBool(pos, 8, value.ServerRcvdTime);
+	        pos = FieldCodec::EncodeLong(pos, 7, value.EncodedTime);
+	        pos = FieldCodec::EncodeLong(pos, 8, value.ServerRcvdTime);
             return pos;
 		}
 
