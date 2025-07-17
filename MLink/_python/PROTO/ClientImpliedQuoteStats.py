@@ -178,7 +178,7 @@ def fetchData(params, label=''):
 if __name__ == "__main__":
     bytes_per_ms_all_runs = []
 
-    for i in range(10):
+    for i in range(100):
         print(f"\n Run {i + 1}")
         timestamp = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
         print(f"Start Time: {timestamp}")
