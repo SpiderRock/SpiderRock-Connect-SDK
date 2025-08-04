@@ -37,46 +37,58 @@ from compiledProto.OptAnalytics.LiveImpliedQuote_pb2 import LiveImpliedQuote
 
 
 uri = 'wss://mlink-live.nms.saturn.spiderrockconnect.com/mlink/proto'  
-authentication_key = 'INSERT API KEY HERE' 
+authentication_key = '' 
 
 async def query_mlinkstream(uri, authentication_key):
-    async with websockets.connect(uri, additional_headers={"Authorization": f"Bearer {authentication_key}"}) as websocket:
+    async with websockets.connect(uri, extra_headers={"Authorization": f"Bearer {authentication_key}"}) as websocket:
         full_admin_response = await websocket.recv()
         admin_proto_message = full_admin_response[14:]
         admin_response = MLinkAdmin()
         admin_response.ParseFromString(admin_proto_message)
         print(admin_response)
 
+        # Build the MLinkSubscribe message
         mlink_subscribe = MLinkSubscribe()
         mlink_subscribe.do_reset = False
         mlink_subscribe.active_latency = 1
 
-        v = mlink_subscribe.view.add()
-        v.msg_name = 'LiveImpliedQuote'
-        v.view = 'obidIv|oaskIv'
+        # Set the view
+        view = mlink_subscribe.view.add()
+        view.msg_name = 'LiveImpliedQuote'
+        view.view = 'obidIv|oaskIv'
 
-        sub = mlink_subscribe.subscribe.add()
-        sub.msg_name = 'LiveImpliedQuote'
-        sub.msg_pKey = 'AAPL-NMS-EQT-2025-02-14-180-C'
+        # List of PKEYS to subscribe to
+        symbols = [
+            'AAPL-NMS-EQT-2025-06-20-180-C',
+            'AAPL-NMS-EQT-2025-06-20-180-P',
+            'AAPL-NMS-EQT-2025-06-20-185-C',
+            'AAPL-NMS-EQT-2025-06-20-185-P'
+        ]
 
-        mt = spiderrock_common_pb2.MessageMetadata()
+        for symbol in symbols:
+            sub = mlink_subscribe.subscribe.add()
+            sub.msg_name = 'LiveImpliedQuote'
+            sub.msg_pKey = symbol
+            sub.highwater_ts = 0  
+
+        # Set message type metadata
         mlink_subscribe._meta.message_type = 'MLinkSubscribe'
 
+        # Serialize and send the message
         serialized_msg = mlink_subscribe.SerializeToString()
-
         header = f'\r\nP{3386:05d}{len(serialized_msg):06d}'.encode()
         await websocket.send(header + serialized_msg)
 
+        # Listen for responses
         while True:
             response = await websocket.recv()
-
-            parts = list(filter(None,response.split(b'\r\n')))
+            parts = list(filter(None, response.split(b'\r\n')))
             for msg in parts:
                 header, message = msg[:12], msg[12:]
                 message_type = int(header[2:6])
 
-                if message_type == 1015:  
-                    live_implied_quote = LiveImpliedQuote() 
+                if message_type == 1015:
+                    live_implied_quote = LiveImpliedQuote()
                     live_implied_quote.ParseFromString(message)
                     print("LiveImpliedQuote:", live_implied_quote)
                 elif message_type == 3368:
@@ -86,7 +98,7 @@ async def query_mlinkstream(uri, authentication_key):
                 elif message_type == 3387:
                     mlink_sub_ack = MLinkSubscribeAck()
                     mlink_sub_ack.ParseFromString(message)
-                    print("MLinkSubscribeAck:", mlink_sub_ack)    
+                    print("MLinkSubscribeAck:", mlink_sub_ack)
                 else:
                     print("Unknown message type:", message_type)
 

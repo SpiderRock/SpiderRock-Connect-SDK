@@ -520,6 +520,26 @@ namespace api {
     DECL_STRONG_TYPE(pos_phi, float);
     #endif//_pos_phi__GUARD__
 
+    #ifndef _pos_hdelta__GUARD__
+    #define _pos_hdelta__GUARD__
+    DECL_STRONG_TYPE(pos_hdelta, float);
+    #endif//_pos_hdelta__GUARD__
+
+    #ifndef _pos_hddelta__GUARD__
+    #define _pos_hddelta__GUARD__
+    DECL_STRONG_TYPE(pos_hddelta, float);
+    #endif//_pos_hddelta__GUARD__
+
+    #ifndef _pos_hgamma__GUARD__
+    #define _pos_hgamma__GUARD__
+    DECL_STRONG_TYPE(pos_hgamma, float);
+    #endif//_pos_hgamma__GUARD__
+
+    #ifndef _pos_hdgamma__GUARD__
+    #define _pos_hdgamma__GUARD__
+    DECL_STRONG_TYPE(pos_hdgamma, float);
+    #endif//_pos_hdgamma__GUARD__
+
     #ifndef _pos_notional__GUARD__
     #define _pos_notional__GUARD__
     DECL_STRONG_TYPE(pos_notional, float);
@@ -1018,6 +1038,10 @@ namespace api {
         using pos_theta = spiderrock::protobuf::api::pos_theta;
         using pos_rho = spiderrock::protobuf::api::pos_rho;
         using pos_phi = spiderrock::protobuf::api::pos_phi;
+        using pos_hdelta = spiderrock::protobuf::api::pos_hdelta;
+        using pos_hddelta = spiderrock::protobuf::api::pos_hddelta;
+        using pos_hgamma = spiderrock::protobuf::api::pos_hgamma;
+        using pos_hdgamma = spiderrock::protobuf::api::pos_hdgamma;
         using pos_notional = spiderrock::protobuf::api::pos_notional;
         using pos_mkt_value = spiderrock::protobuf::api::pos_mkt_value;
         using pos_prem_opar = spiderrock::protobuf::api::pos_prem_opar;
@@ -1156,6 +1180,10 @@ namespace api {
         pos_theta m_pos_theta{};
         pos_rho m_pos_rho{};
         pos_phi m_pos_phi{};
+        pos_hdelta m_pos_hdelta{};
+        pos_hddelta m_pos_hddelta{};
+        pos_hgamma m_pos_hgamma{};
+        pos_hdgamma m_pos_hdgamma{};
         pos_notional m_pos_notional{};
         pos_mkt_value m_pos_mkt_value{};
         pos_prem_opar m_pos_prem_opar{};
@@ -1495,6 +1523,18 @@ namespace api {
         }		
         pos_phi get_pos_phi() const {
             return m_pos_phi;
+        }		
+        pos_hdelta get_pos_hdelta() const {
+            return m_pos_hdelta;
+        }		
+        pos_hddelta get_pos_hddelta() const {
+            return m_pos_hddelta;
+        }		
+        pos_hgamma get_pos_hgamma() const {
+            return m_pos_hgamma;
+        }		
+        pos_hdgamma get_pos_hdgamma() const {
+            return m_pos_hdgamma;
         }		
         pos_notional get_pos_notional() const {
             return m_pos_notional;
@@ -1907,6 +1947,18 @@ namespace api {
         }
         void set_pos_phi(const pos_phi& value)  {
             m_pos_phi = value;
+        }
+        void set_pos_hdelta(const pos_hdelta& value)  {
+            m_pos_hdelta = value;
+        }
+        void set_pos_hddelta(const pos_hddelta& value)  {
+            m_pos_hddelta = value;
+        }
+        void set_pos_hgamma(const pos_hgamma& value)  {
+            m_pos_hgamma = value;
+        }
+        void set_pos_hdgamma(const pos_hdgamma& value)  {
+            m_pos_hdgamma = value;
         }
         void set_pos_notional(const pos_notional& value)  {
             m_pos_notional = value;
@@ -2324,6 +2376,18 @@ namespace api {
         void set(const pos_phi & value) {
             set_pos_phi(value);
         }
+        void set(const pos_hdelta & value) {
+            set_pos_hdelta(value);
+        }
+        void set(const pos_hddelta & value) {
+            set_pos_hddelta(value);
+        }
+        void set(const pos_hgamma & value) {
+            set_pos_hgamma(value);
+        }
+        void set(const pos_hdgamma & value) {
+            set_pos_hdgamma(value);
+        }
         void set(const pos_notional & value) {
             set_pos_notional(value);
         }
@@ -2534,6 +2598,10 @@ namespace api {
             set(value.m_pos_theta);
             set(value.m_pos_rho);
             set(value.m_pos_phi);
+            set(value.m_pos_hdelta);
+            set(value.m_pos_hddelta);
+            set(value.m_pos_hgamma);
+            set(value.m_pos_hdgamma);
             set(value.m_pos_notional);
             set(value.m_pos_mkt_value);
             set(value.m_pos_prem_opar);
@@ -2900,6 +2968,18 @@ namespace api {
         }
         bool IncludePosPhi() const {
             return !(m_pos_phi == 0.0);
+        }
+        bool IncludePosHdelta() const {
+            return !(m_pos_hdelta == 0.0);
+        }
+        bool IncludePosHddelta() const {
+            return !(m_pos_hddelta == 0.0);
+        }
+        bool IncludePosHgamma() const {
+            return !(m_pos_hgamma == 0.0);
+        }
+        bool IncludePosHdgamma() const {
+            return !(m_pos_hdgamma == 0.0);
         }
         bool IncludePosNotional() const {
             return !(m_pos_notional == 0.0);
@@ -3283,6 +3363,18 @@ namespace api {
             }
             if ( IncludePosPhi()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(394,m_pos_phi);
+            }
+            if ( IncludePosHdelta()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(503,m_pos_hdelta);
+            }
+            if ( IncludePosHddelta()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(504,m_pos_hddelta);
+            }
+            if ( IncludePosHgamma()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(505,m_pos_hgamma);
+            }
+            if ( IncludePosHdgamma()) {
+                totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(507,m_pos_hdgamma);
             }
             if ( IncludePosNotional()) {
                 totalSize += SRProtobufCPP::FieldCodec::FloatFieldSize(397,m_pos_notional);
@@ -3675,6 +3767,18 @@ namespace api {
             }
             if ( IncludePosPhi()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,394,m_pos_phi);
+            }
+            if ( IncludePosHdelta()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,503,m_pos_hdelta);
+            }
+            if ( IncludePosHddelta()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,504,m_pos_hddelta);
+            }
+            if ( IncludePosHgamma()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,505,m_pos_hgamma);
+            }
+            if ( IncludePosHdgamma()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,507,m_pos_hdgamma);
             }
             if ( IncludePosNotional()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeFloat(dest,397,m_pos_notional);
@@ -4384,6 +4488,30 @@ namespace api {
                         }
                         break;
                     }
+                    case 503: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pos_hdelta = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 504: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pos_hddelta = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 505: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pos_hgamma = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
+                    case 507: {
+                        if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
+                            m_pos_hdgamma = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
+                        }
+                        break;
+                    }
                     case 397: {
                         if (tagType == SRProtobufCPP::FloatCodec::TagType)  {
                             m_pos_notional = SRProtobufCPP::FieldCodec::DecodeFloat(pos,max);
@@ -4703,6 +4831,10 @@ namespace api {
     template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_theta>() const { return m_pos_theta; }
     template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_rho>() const { return m_pos_rho; }
     template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_phi>() const { return m_pos_phi; }
+    template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_hdelta>() const { return m_pos_hdelta; }
+    template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_hddelta>() const { return m_pos_hddelta; }
+    template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_hgamma>() const { return m_pos_hgamma; }
+    template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_hdgamma>() const { return m_pos_hdgamma; }
     template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_notional>() const { return m_pos_notional; }
     template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_mkt_value>() const { return m_pos_mkt_value; }
     template<> inline const auto RiskCubeDetailV5::get<RiskCubeDetailV5::pos_prem_opar>() const { return m_pos_prem_opar; }
@@ -4859,6 +4991,10 @@ namespace api {
         o << ",\"pos_theta\":" << m.get<RiskCubeDetailV5::pos_theta>();
         o << ",\"pos_rho\":" << m.get<RiskCubeDetailV5::pos_rho>();
         o << ",\"pos_phi\":" << m.get<RiskCubeDetailV5::pos_phi>();
+        o << ",\"pos_hdelta\":" << m.get<RiskCubeDetailV5::pos_hdelta>();
+        o << ",\"pos_hddelta\":" << m.get<RiskCubeDetailV5::pos_hddelta>();
+        o << ",\"pos_hgamma\":" << m.get<RiskCubeDetailV5::pos_hgamma>();
+        o << ",\"pos_hdgamma\":" << m.get<RiskCubeDetailV5::pos_hdgamma>();
         o << ",\"pos_notional\":" << m.get<RiskCubeDetailV5::pos_notional>();
         o << ",\"pos_mkt_value\":" << m.get<RiskCubeDetailV5::pos_mkt_value>();
         o << ",\"pos_prem_opar\":" << m.get<RiskCubeDetailV5::pos_prem_opar>();

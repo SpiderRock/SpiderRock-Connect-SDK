@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    SpdrTheoExp2PtCurve records are used along side SpdrTheoExpSurface records to provide a complete x/y specification of a theoretical skew curve. Spline interpolation is used for values between x/y points
+*/    
 message SpdrTheoExp2PtCurve {
     message PKey {
         

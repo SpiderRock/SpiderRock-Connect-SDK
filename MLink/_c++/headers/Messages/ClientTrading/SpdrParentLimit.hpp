@@ -505,6 +505,11 @@ namespace api {
     DECL_STRONG_TYPE(exec_brkr_code, string);
     #endif//_exec_brkr_code__GUARD__
 
+    #ifndef _close_if_filled__GUARD__
+    #define _close_if_filled__GUARD__
+    DECL_STRONG_TYPE(close_if_filled, spiderrock::protobuf::api::YesNo);
+    #endif//_close_if_filled__GUARD__
+
     #ifndef _modified_by__GUARD__
     #define _modified_by__GUARD__
     DECL_STRONG_TYPE(modified_by, string);
@@ -850,6 +855,7 @@ namespace api {
         using user_data1 = spiderrock::protobuf::api::user_data1;
         using user_data2 = spiderrock::protobuf::api::user_data2;
         using exec_brkr_code = spiderrock::protobuf::api::exec_brkr_code;
+        using close_if_filled = spiderrock::protobuf::api::close_if_filled;
         using modified_by = spiderrock::protobuf::api::modified_by;
         using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
@@ -952,6 +958,7 @@ namespace api {
         user_data1 m_user_data1{};
         user_data2 m_user_data2{};
         exec_brkr_code m_exec_brkr_code{};
+        close_if_filled m_close_if_filled{};
         modified_by m_modified_by{};
         modified_in m_modified_in{};
         timestamp m_timestamp{};
@@ -1249,6 +1256,9 @@ namespace api {
         }		
         exec_brkr_code get_exec_brkr_code() const {
             return m_exec_brkr_code;
+        }		
+        close_if_filled get_close_if_filled() const {
+            return m_close_if_filled;
         }		
         modified_by get_modified_by() const {
             return m_modified_by;
@@ -1553,6 +1563,9 @@ namespace api {
         }
         void set_exec_brkr_code(const exec_brkr_code& value)  {
             m_exec_brkr_code = value;
+        }
+        void set_close_if_filled(const close_if_filled& value)  {
+            m_close_if_filled = value;
         }
         void set_modified_by(const modified_by& value)  {
             m_modified_by = value;
@@ -1862,6 +1875,9 @@ namespace api {
         void set(const exec_brkr_code & value) {
             set_exec_brkr_code(value);
         }
+        void set(const close_if_filled & value) {
+            set_close_if_filled(value);
+        }
         void set(const modified_by & value) {
             set_modified_by(value);
         }
@@ -1970,6 +1986,7 @@ namespace api {
             set(value.m_user_data1);
             set(value.m_user_data2);
             set(value.m_exec_brkr_code);
+            set(value.m_close_if_filled);
             set(value.m_modified_by);
             set(value.m_modified_in);
             set(value.m_timestamp);
@@ -2556,6 +2573,7 @@ namespace api {
             if ( IncludeExecBrkrCode()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(407,m_exec_brkr_code);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(415,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_close_if_filled)));
             if ( IncludeModifiedBy()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(394,m_modified_by);
             }
@@ -2836,6 +2854,7 @@ namespace api {
             if ( IncludeExecBrkrCode()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,407,static_cast<string>(m_exec_brkr_code));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,415,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_close_if_filled)));
             if ( IncludeModifiedBy()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,394,static_cast<string>(m_modified_by));
             }
@@ -3430,6 +3449,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 415: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_close_if_filled = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 394: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_modified_by = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
@@ -3553,6 +3577,7 @@ namespace api {
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::user_data1>() const { return m_user_data1; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::user_data2>() const { return m_user_data2; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::exec_brkr_code>() const { return m_exec_brkr_code; }
+    template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::close_if_filled>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_close_if_filled)); }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::modified_by>() const { return m_modified_by; }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
     template<> inline const auto SpdrParentLimit::get<SpdrParentLimit::timestamp>() const { return m_timestamp; }
@@ -3685,6 +3710,7 @@ namespace api {
         o << ",\"user_data1\":\"" << m.get<SpdrParentLimit::user_data1>() << "\"";
         o << ",\"user_data2\":\"" << m.get<SpdrParentLimit::user_data2>() << "\"";
         o << ",\"exec_brkr_code\":\"" << m.get<SpdrParentLimit::exec_brkr_code>() << "\"";
+        o << ",\"close_if_filled\":" << (int64_t)m.get<SpdrParentLimit::close_if_filled>();
         o << ",\"modified_by\":\"" << m.get<SpdrParentLimit::modified_by>() << "\"";
         o << ",\"modified_in\":" << (int64_t)m.get<SpdrParentLimit::modified_in>();
         {

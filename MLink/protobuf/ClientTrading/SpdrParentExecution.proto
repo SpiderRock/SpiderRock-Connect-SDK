@@ -203,6 +203,7 @@ message SpdrParentExecution {
     string spdr_liquidity_tag = 619; // SpiderRock normalized liquidity tag
     string exch_liquidity_tag = 622; // liquidity tag as reported by downstream venue (if any)
     string fill_exch_detail = 625; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    CrossSide cross_side = 849; // indicates if this order was the initiator or responder of the cross fill (None if not cross)
     YesNo is_cross_breakup_fill = 847; // cross order was broken up on exchange, and this execution was filled by party not specified on the original cross order
     OrderCapacity last_capacity = 628; // child order capacity
     string exch_firm_type = 631; // used to reflect field from a downstread execution back up to upstream fill report

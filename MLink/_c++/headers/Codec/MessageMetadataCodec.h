@@ -28,7 +28,9 @@ namespace SRProtobufCPP {
 			pos = FieldCodec::EncodeLong(pos, 3, value.TimeSent);
 			pos = FieldCodec::EncodeInt(pos, 4, static_cast<int>(value.SenderId));
 			pos = FieldCodec::EncodeBool(pos, 5, value.FromBridge);
-			pos = FieldCodec::EncodeBool(pos, 6, value.FromCache);	  
+			pos = FieldCodec::EncodeBool(pos, 6, value.FromCache);
+	        pos = FieldCodec::EncodeLong(pos, 7, value.EncodedTime);
+	        pos = FieldCodec::EncodeLong(pos, 8, value.ServerRcvdTime);
             return pos;
 		}
 
@@ -76,7 +78,20 @@ namespace SRProtobufCPP {
 
 				case 6:
 					mbusInfo.FromCache = FieldCodec::DecodeBool(pos, max);                    
-					break;					
+					break;
+
+                case 7:
+                    if (tagType == SRProtobufCPP::LongCodec::TagType)
+                    {
+                        mbusInfo.EncodedTime = FieldCodec::DecodeLong(pos, max);
+                    }
+                    break;
+                case 8:
+                    if (tagType == SRProtobufCPP::LongCodec::TagType)
+                    {
+                        mbusInfo.ServerRcvdTime = FieldCodec::DecodeLong(pos, max);
+                    }
+                    break;
 				}
 			}
 			
@@ -90,8 +105,11 @@ namespace SRProtobufCPP {
                 FieldCodec::LongFieldSize(3, value.TimeSent) +
                 FieldCodec::IntFieldSize(4, static_cast<int>(value.SenderId)) +
                 FieldCodec::BoolFieldSize(5, value.FromBridge) +
-                FieldCodec::BoolFieldSize(6, value.FromCache);
+                FieldCodec::BoolFieldSize(6, value.FromCache) +
+                FieldCodec::LongFieldSize(7, value.EncodedTime) + 
+                FieldCodec::LongFieldSize(8, value.ServerRcvdTime);
 			
 		}
 	};
 }
+

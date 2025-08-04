@@ -81,9 +81,9 @@ message AuctionPrint {
     float pkg_bid_prc = 162; // pkg bid price (best way price) (entire package)
     float pkg_ask_prc = 163; // pkg ask price (best way price) (entire package)
     double prt_price = 121; // reported OPRA print price (pkgPrice if MLeg)
-    double prt_price2 = 122; // if reported as 2 separate prints at different prices (ie, partial size improvement)
-    int32 prt_size = 123; // reported OPRA print size (pgkSize if MLeg)
-    int32 prt_size2 = 124; // reported OPRA print size (pgkSize if MLeg)
+    double prt_price2 = 122; // if reported as 2 separate prints at different prices (ie, partial size improvement, multiple responders)
+    int32 prt_size = 123; // reported OPRA print size (pkgSize if MLeg)
+    int32 prt_size2 = 124; // reported OPRA print size (pkgSize if MLeg)
     google.protobuf.Timestamp prt_time = 125; // reported OPRA print time (1st print if MLeg) (high precision)
     PrtType prt_type = 126; // reported OPRA print type
     double prt_uBid = 127; // best estimate of uBid @ auction print time

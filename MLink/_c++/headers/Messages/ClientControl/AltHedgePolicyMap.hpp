@@ -30,20 +30,15 @@ namespace api {
     DECL_STRONG_TYPE(_meta, MessageMetadata);
     #endif//__meta__GUARD__
 
-    #ifndef _request_quan__GUARD__
-    #define _request_quan__GUARD__
-    DECL_STRONG_TYPE(request_quan, int32);
-    #endif//_request_quan__GUARD__
+    #ifndef _trade_hedge_policy__GUARD__
+    #define _trade_hedge_policy__GUARD__
+    DECL_STRONG_TYPE(trade_hedge_policy, spiderrock::protobuf::api::TradeHedgePolicy);
+    #endif//_trade_hedge_policy__GUARD__
 
-    #ifndef _request_origin__GUARD__
-    #define _request_origin__GUARD__
-    DECL_STRONG_TYPE(request_origin, spiderrock::protobuf::api::RequestOrigin);
-    #endif//_request_origin__GUARD__
-
-    #ifndef _request_machine__GUARD__
-    #define _request_machine__GUARD__
-    DECL_STRONG_TYPE(request_machine, string);
-    #endif//_request_machine__GUARD__
+    #ifndef _position_hedge_policy__GUARD__
+    #define _position_hedge_policy__GUARD__
+    DECL_STRONG_TYPE(position_hedge_policy, spiderrock::protobuf::api::PositionHedgePolicy);
+    #endif//_position_hedge_policy__GUARD__
 
     #ifndef _modified_by__GUARD__
     #define _modified_by__GUARD__
@@ -65,92 +60,64 @@ namespace api {
     DECL_STRONG_TYPE(ticker__TickerKey, TickerKey);
     #endif//_ticker__TickerKey__GUARD__
 
-    #ifndef _core_client_firm__GUARD__
-    #define _core_client_firm__GUARD__
-    DECL_STRONG_TYPE(core_client_firm, string);
-    #endif//_core_client_firm__GUARD__
+    #ifndef _accnt__GUARD__
+    #define _accnt__GUARD__
+    DECL_STRONG_TYPE(accnt, string);
+    #endif//_accnt__GUARD__
 
-    #ifndef _locate_firm__GUARD__
-    #define _locate_firm__GUARD__
-    DECL_STRONG_TYPE(locate_firm, string);
-    #endif//_locate_firm__GUARD__
-
-    #ifndef _locate_pool__GUARD__
-    #define _locate_pool__GUARD__
-    DECL_STRONG_TYPE(locate_pool, string);
-    #endif//_locate_pool__GUARD__
-
-    #ifndef _request_id__int64__GUARD__
-    #define _request_id__int64__GUARD__
-    DECL_STRONG_TYPE(request_id__int64, int64);
-    #endif//_request_id__int64__GUARD__
+    #ifndef _client_firm__GUARD__
+    #define _client_firm__GUARD__
+    DECL_STRONG_TYPE(client_firm, string);
+    #endif//_client_firm__GUARD__
 
     
-    class StockLocateRequest_PKey {
+    class AltHedgePolicyMap_PKey {
         public:
         //using statements for all types used in this class
         using ticker = spiderrock::protobuf::api::ticker__TickerKey;
-        using core_client_firm = spiderrock::protobuf::api::core_client_firm;
-        using locate_firm = spiderrock::protobuf::api::locate_firm;
-        using locate_pool = spiderrock::protobuf::api::locate_pool;
-        using request_id = spiderrock::protobuf::api::request_id__int64;
+        using accnt = spiderrock::protobuf::api::accnt;
+        using client_firm = spiderrock::protobuf::api::client_firm;
 
         private:
         ticker m_ticker{};
-        core_client_firm m_core_client_firm{};
-        locate_firm m_locate_firm{};
-        locate_pool m_locate_pool{};
-        request_id m_request_id{};
+        accnt m_accnt{};
+        client_firm m_client_firm{};
 
         public:
 		ticker get_ticker() const {
             return m_ticker;
         }
-        core_client_firm get_core_client_firm() const {
-            return m_core_client_firm;
+        accnt get_accnt() const {
+            return m_accnt;
         }
-        locate_firm get_locate_firm() const {
-            return m_locate_firm;
-        }
-        locate_pool get_locate_pool() const {
-            return m_locate_pool;
-        }
-        request_id get_request_id() const {
-            return m_request_id;
+        client_firm get_client_firm() const {
+            return m_client_firm;
         }
         void set_ticker(const ticker& value)  {
             m_ticker = value;
         }
-        void set_core_client_firm(const core_client_firm& value)  {
-            m_core_client_firm = value;
+        void set_accnt(const accnt& value)  {
+            m_accnt = value;
         }
-        void set_locate_firm(const locate_firm& value)  {
-            m_locate_firm = value;
-        }
-        void set_locate_pool(const locate_pool& value)  {
-            m_locate_pool = value;
-        }
-        void set_request_id(const request_id& value)  {
-            m_request_id = value;
+        void set_client_firm(const client_firm& value)  {
+            m_client_firm = value;
         }
         //templatized getters and setters
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to StockLocateRequest_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to AltHedgePolicyMap_PKey::get()"); return T{}; }  // specializations for valid types are listed below the outer class definition
         template <typename T, size_t S = sizeof(T)>
-        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to StockLocateRequest_PKey::set()"); }  // specializations for valid types are listed below
+        void set(const T& value) { static_assert(sizeof(T) == -1, "Unexpected type in call to AltHedgePolicyMap_PKey::set()"); }  // specializations for valid types are listed below
 
         //specializations for set functions for the valid types
         
         void set(const ticker & value) { set_ticker(value); }
-        void set(const core_client_firm & value) { set_core_client_firm(value); }
-        void set(const locate_firm & value) { set_locate_firm(value); }
-        void set(const locate_pool & value) { set_locate_pool(value); }
-        void set(const request_id & value) { set_request_id(value); }
+        void set(const accnt & value) { set_accnt(value); }
+        void set(const client_firm & value) { set_client_firm(value); }
 
 
-        StockLocateRequest_PKey() {}
+        AltHedgePolicyMap_PKey() {}
 
-        virtual ~StockLocateRequest_PKey() {
+        virtual ~AltHedgePolicyMap_PKey() {
         }
         //templatized set functions that can take multiple arguments simultaneously
         template <typename Arg>
@@ -165,17 +132,11 @@ namespace api {
         bool IncludeTicker() const {
             return (m_ticker.ByteSizeLong() > 0);
         }
-        bool IncludeCoreClientFirm() const {
-            return !(m_core_client_firm.empty());
+        bool IncludeAccnt() const {
+            return !(m_accnt.empty());
         }
-        bool IncludeLocateFirm() const {
-            return !(m_locate_firm.empty());
-        }
-        bool IncludeLocatePool() const {
-            return !(m_locate_pool.empty());
-        }
-        bool IncludeRequestId() const {
-            return !(m_request_id == 0);
+        bool IncludeClientFirm() const {
+            return !(m_client_firm.empty());
         }
 
 
@@ -186,17 +147,11 @@ namespace api {
                 m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
                 totalSize += SRProtobufCPP::FieldCodec::TickerKeyFieldSize(10,tickerKeyLayout_ticker);
             }
-            if ( IncludeCoreClientFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_core_client_firm);
+            if ( IncludeAccnt()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(11,m_accnt);
             }
-            if ( IncludeLocateFirm()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(15,m_locate_firm);
-            }
-            if ( IncludeLocatePool()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(16,m_locate_pool);
-            }
-            if ( IncludeRequestId()) {
-                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(14,m_request_id);
+            if ( IncludeClientFirm()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(12,m_client_firm);
             }
             return totalSize;
         }
@@ -207,17 +162,11 @@ namespace api {
                 m_ticker.setCodecTickerKey(tickerKeyLayout_ticker);
                 dest = SRProtobufCPP::FieldCodec::EncodeTickerKey(dest, 10, tickerKeyLayout_ticker);
             }
-            if ( IncludeCoreClientFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_core_client_firm));
+            if ( IncludeAccnt()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,11,static_cast<string>(m_accnt));
             }
-            if ( IncludeLocateFirm()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,15,static_cast<string>(m_locate_firm));
-            }
-            if ( IncludeLocatePool()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,16,static_cast<string>(m_locate_pool));
-            }
-            if ( IncludeRequestId()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,14,m_request_id);
+            if ( IncludeClientFirm()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,12,static_cast<string>(m_client_firm));
             }
         }
 
@@ -239,16 +188,10 @@ namespace api {
                         m_ticker.setFromCodec(tickerKey);
                         break;
                     }
-                    case 11: {m_core_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                    case 11: {m_accnt = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
-                    case 15: {m_locate_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        break;
-                    }
-                    case 16: {m_locate_pool = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        break;
-                    }
-                    case 14: {m_request_id = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                    case 12: {m_client_firm = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         break;
                     }
                 }
@@ -258,15 +201,14 @@ namespace api {
     };
     
 
-    class StockLocateRequest {
+    class AltHedgePolicyMap {
         public:
         //using statements for all types used in this class
     
         using _meta = spiderrock::protobuf::api::_meta;
-        using pkey = spiderrock::protobuf::api::StockLocateRequest_PKey;
-        using request_quan = spiderrock::protobuf::api::request_quan;
-        using request_origin = spiderrock::protobuf::api::request_origin;
-        using request_machine = spiderrock::protobuf::api::request_machine;
+        using pkey = spiderrock::protobuf::api::AltHedgePolicyMap_PKey;
+        using trade_hedge_policy = spiderrock::protobuf::api::trade_hedge_policy;
+        using position_hedge_policy = spiderrock::protobuf::api::position_hedge_policy;
         using modified_by = spiderrock::protobuf::api::modified_by;
         using modified_in = spiderrock::protobuf::api::modified_in;
         using timestamp = spiderrock::protobuf::api::timestamp;
@@ -274,9 +216,8 @@ namespace api {
         private:
         _meta m__meta{};
         pkey m_pkey{};
-        request_quan m_request_quan{};
-        request_origin m_request_origin{};
-        request_machine m_request_machine{};
+        trade_hedge_policy m_trade_hedge_policy{};
+        position_hedge_policy m_position_hedge_policy{};
         modified_by m_modified_by{};
         modified_in m_modified_in{};
         timestamp m_timestamp{};
@@ -290,14 +231,11 @@ namespace api {
         pkey get_pkey() const {
             return m_pkey;
         }		
-        request_quan get_request_quan() const {
-            return m_request_quan;
+        trade_hedge_policy get_trade_hedge_policy() const {
+            return m_trade_hedge_policy;
         }		
-        request_origin get_request_origin() const {
-            return m_request_origin;
-        }		
-        request_machine get_request_machine() const {
-            return m_request_machine;
+        position_hedge_policy get_position_hedge_policy() const {
+            return m_position_hedge_policy;
         }		
         modified_by get_modified_by() const {
             return m_modified_by;
@@ -318,14 +256,11 @@ namespace api {
         void set_pkey(const pkey& value)  {
             m_pkey = value;
         }
-        void set_request_quan(const request_quan& value)  {
-            m_request_quan = value;
+        void set_trade_hedge_policy(const trade_hedge_policy& value)  {
+            m_trade_hedge_policy = value;
         }
-        void set_request_origin(const request_origin& value)  {
-            m_request_origin = value;
-        }
-        void set_request_machine(const request_machine& value)  {
-            m_request_machine = value;
+        void set_position_hedge_policy(const position_hedge_policy& value)  {
+            m_position_hedge_policy = value;
         }
         void set_modified_by(const modified_by& value)  {
             m_modified_by = value;
@@ -340,7 +275,7 @@ namespace api {
         //templatized getters and setters
 
         template <typename T, size_t S = sizeof(T)>
-        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to StockLocateRequest::get()"); return T{}; }  // specializations for valid types are listed below the class definition
+        const auto get() const { static_assert(sizeof(T) == -1, "Unexpected type in call to AltHedgePolicyMap::get()"); return T{}; }  // specializations for valid types are listed below the class definition
 
         //specializations for set functions for the valid types
     
@@ -350,14 +285,11 @@ namespace api {
         void set(const pkey & value) {
             set_pkey(value);
         }
-        void set(const request_quan & value) {
-            set_request_quan(value);
+        void set(const trade_hedge_policy & value) {
+            set_trade_hedge_policy(value);
         }
-        void set(const request_origin & value) {
-            set_request_origin(value);
-        }
-        void set(const request_machine & value) {
-            set_request_machine(value);
+        void set(const position_hedge_policy & value) {
+            set_position_hedge_policy(value);
         }
         void set(const modified_by & value) {
             set_modified_by(value);
@@ -369,19 +301,18 @@ namespace api {
             set_timestamp(value);
         }
 
-        void set(const StockLocateRequest & value) {
+        void set(const AltHedgePolicyMap & value) {
             set(value.m__meta);
             set(value.m_pkey);
-            set(value.m_request_quan);
-            set(value.m_request_origin);
-            set(value.m_request_machine);
+            set(value.m_trade_hedge_policy);
+            set(value.m_position_hedge_policy);
             set(value.m_modified_by);
             set(value.m_modified_in);
             set(value.m_timestamp);
         }
 
-        StockLocateRequest() {
-            m__meta.set_message_type("StockLocateRequest");
+        AltHedgePolicyMap() {
+            m__meta.set_message_type("AltHedgePolicyMap");
         }
 
 
@@ -399,7 +330,7 @@ namespace api {
         bool SerializeToArray(void* data, size_t size) const  {
             size_t length = ByteSizeLong();
             if (size <  _mlinkHeaderLength + length) return false;
-            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 1735, length);
+            std::snprintf(reinterpret_cast<char*>(data), size, "\r\nP%05d%06zd", 1814, length);
             //Encode the message
             uint8_t* encodePos = reinterpret_cast<uint8_t*>(static_cast<char*>(data) +  _mlinkHeaderLength);
             auto max = encodePos + length;
@@ -411,7 +342,7 @@ namespace api {
         bool SerializeToString(std::string *s) const {
             size_t length = ByteSizeLong();
             s->resize( _mlinkHeaderLength + length);
-            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 1735, length);
+            std::snprintf(const_cast<char*>(s->data()), s->size(), "\r\nP%05d%06zd", 1814, length);
             return SerializeToArray(const_cast<char*>(s->data()) + _mlinkHeaderLength, length);
         }
 
@@ -428,19 +359,13 @@ namespace api {
         }
 
         void Clear() {
-             *this = StockLocateRequest{};
+             *this = AltHedgePolicyMap{};
         }
         bool IncludeMeta() const {
             return (m__meta.ByteSizeLong() > 0);
         }
         bool IncludePkey() const {
             return (m_pkey.ByteSizeLong() > 0);
-        }
-        bool IncludeRequestQuan() const {
-            return !(m_request_quan == 0);
-        }
-        bool IncludeRequestMachine() const {
-            return !(m_request_machine.empty());
         }
         bool IncludeModifiedBy() const {
             return !(m_modified_by.empty());
@@ -462,19 +387,14 @@ namespace api {
                 totalSize += SRProtobufCPP::LengthCodec::Size(static_cast<int>(pKeyLength));
                 totalSize += pKeyLength;
             }
-            if ( IncludeRequestQuan()) {
-                totalSize += SRProtobufCPP::FieldCodec::IntFieldSize(100,m_request_quan);
-            }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RequestOrigin>(m_request_origin)));
-            if ( IncludeRequestMachine()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(106,m_request_machine);
-            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeHedgePolicy>(m_trade_hedge_policy)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionHedgePolicy>(m_position_hedge_policy)));
             if ( IncludeModifiedBy()) {
-                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(118,m_modified_by);
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(102,m_modified_by);
             }
-            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
-                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(115, m_timestamp);
+                totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(104, m_timestamp);
             }
             return totalSize;
         }
@@ -490,19 +410,14 @@ namespace api {
                 dest = SRProtobufCPP::LengthCodec::Encode(dest,static_cast<int>(m_pkey.ByteSizeLong()));
                 m_pkey.Encode(dest,max);
             }
-            if ( IncludeRequestQuan()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeInt(dest,100,m_request_quan);
-            }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RequestOrigin>(m_request_origin)));
-            if ( IncludeRequestMachine()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,106,static_cast<string>(m_request_machine));
-            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,100,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeHedgePolicy>(m_trade_hedge_policy)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,101,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionHedgePolicy>(m_position_hedge_policy)));
             if ( IncludeModifiedBy()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,118,static_cast<string>(m_modified_by));
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,102,static_cast<string>(m_modified_by));
             }
-            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,112,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,103,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>(m_modified_in)));
             if ( IncludeTimestamp()) {
-                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 115, m_timestamp);
+                dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 104, m_timestamp);
             }
         }
 
@@ -534,35 +449,28 @@ namespace api {
                         }
                         break;
                     }
-                    case 100: {
-                        if (tagType == SRProtobufCPP::IntCodec::TagType) {
-                            m_request_quan = SRProtobufCPP::FieldCodec::DecodeInt(pos,max);
+                    case 100: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_trade_hedge_policy = static_cast<spiderrock::protobuf::api::TradeHedgePolicy>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
-                            m_request_origin = static_cast<spiderrock::protobuf::api::RequestOrigin>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                    case 101: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_position_hedge_policy = static_cast<spiderrock::protobuf::api::PositionHedgePolicy>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 106: {
-                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
-                            m_request_machine = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
-                        }
-                        break;
-                    }
-                    case 118: {
+                    case 102: {
                         if (tagType == SRProtobufCPP::StringCodec::TagType) {
                             m_modified_by = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
-                    case 112: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                    case 103: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_modified_in = static_cast<spiderrock::protobuf::api::SysEnvironment>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
                         break;
                     }
-                    case 115: {
+                    case 104: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
                         }
@@ -577,41 +485,35 @@ namespace api {
 
     // getter definitions for all classes above, both inner and outer classes
 
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::_meta>() const { return StockLocateRequest::_meta{ m__meta}; }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::pkey>() const { return StockLocateRequest::pkey{ m_pkey}; }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::request_quan>() const { return m_request_quan; }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::request_origin>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::RequestOrigin>( m_request_origin)); }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::request_machine>() const { return m_request_machine; }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::modified_by>() const { return m_modified_by; }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
-    template<> inline const auto StockLocateRequest::get<StockLocateRequest::timestamp>() const { return m_timestamp; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::ticker>() const { return StockLocateRequest_PKey::ticker{m_ticker}; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::core_client_firm>() const { return m_core_client_firm; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::locate_firm>() const { return m_locate_firm; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::locate_pool>() const { return m_locate_pool; }
-    template<> inline const auto StockLocateRequest_PKey::get<StockLocateRequest_PKey::request_id>() const { return m_request_id; }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::_meta>() const { return AltHedgePolicyMap::_meta{ m__meta}; }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::pkey>() const { return AltHedgePolicyMap::pkey{ m_pkey}; }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::trade_hedge_policy>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::TradeHedgePolicy>( m_trade_hedge_policy)); }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::position_hedge_policy>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionHedgePolicy>( m_position_hedge_policy)); }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::modified_by>() const { return m_modified_by; }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::modified_in>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SysEnvironment>( m_modified_in)); }
+    template<> inline const auto AltHedgePolicyMap::get<AltHedgePolicyMap::timestamp>() const { return m_timestamp; }
+    template<> inline const auto AltHedgePolicyMap_PKey::get<AltHedgePolicyMap_PKey::ticker>() const { return AltHedgePolicyMap_PKey::ticker{m_ticker}; }
+    template<> inline const auto AltHedgePolicyMap_PKey::get<AltHedgePolicyMap_PKey::accnt>() const { return m_accnt; }
+    template<> inline const auto AltHedgePolicyMap_PKey::get<AltHedgePolicyMap_PKey::client_firm>() const { return m_client_firm; }
     
     // ostream operators for all classes above, output should adhere to a JSON format
 
-    inline std::ostream& operator<<(std::ostream &o, const StockLocateRequest_PKey& m) {
-        o << "\"ticker\":{" << m.get<StockLocateRequest_PKey::ticker>() << "}";
-        o << ",\"core_client_firm\":\"" << m.get<StockLocateRequest_PKey::core_client_firm>() << "\"";
-        o << ",\"locate_firm\":\"" << m.get<StockLocateRequest_PKey::locate_firm>() << "\"";
-        o << ",\"locate_pool\":\"" << m.get<StockLocateRequest_PKey::locate_pool>() << "\"";
-        o << ",\"request_id\":" << m.get<StockLocateRequest_PKey::request_id>();
+    inline std::ostream& operator<<(std::ostream &o, const AltHedgePolicyMap_PKey& m) {
+        o << "\"ticker\":{" << m.get<AltHedgePolicyMap_PKey::ticker>() << "}";
+        o << ",\"accnt\":\"" << m.get<AltHedgePolicyMap_PKey::accnt>() << "\"";
+        o << ",\"client_firm\":\"" << m.get<AltHedgePolicyMap_PKey::client_firm>() << "\"";
         return o;
     }
 
-    inline std::ostream& operator<<(std::ostream &o, const StockLocateRequest& m) {
-        o << "\"_meta\":{" << m.get<StockLocateRequest::_meta>() << "}";
-        o << ",\"pkey\":{" << m.get<StockLocateRequest::pkey>() << "}";
-        o << ",\"request_quan\":" << m.get<StockLocateRequest::request_quan>();
-        o << ",\"request_origin\":" << (int64_t)m.get<StockLocateRequest::request_origin>();
-        o << ",\"request_machine\":\"" << m.get<StockLocateRequest::request_machine>() << "\"";
-        o << ",\"modified_by\":\"" << m.get<StockLocateRequest::modified_by>() << "\"";
-        o << ",\"modified_in\":" << (int64_t)m.get<StockLocateRequest::modified_in>();
+    inline std::ostream& operator<<(std::ostream &o, const AltHedgePolicyMap& m) {
+        o << "\"_meta\":{" << m.get<AltHedgePolicyMap::_meta>() << "}";
+        o << ",\"pkey\":{" << m.get<AltHedgePolicyMap::pkey>() << "}";
+        o << ",\"trade_hedge_policy\":" << (int64_t)m.get<AltHedgePolicyMap::trade_hedge_policy>();
+        o << ",\"position_hedge_policy\":" << (int64_t)m.get<AltHedgePolicyMap::position_hedge_policy>();
+        o << ",\"modified_by\":\"" << m.get<AltHedgePolicyMap::modified_by>() << "\"";
+        o << ",\"modified_in\":" << (int64_t)m.get<AltHedgePolicyMap::modified_in>();
         {
-            std::time_t tt = m.get<StockLocateRequest::timestamp>().time_since_epoch().count() / 1'000'000'000;
+            std::time_t tt = m.get<AltHedgePolicyMap::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
 			localtime_s(&tm1, &tt);
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";

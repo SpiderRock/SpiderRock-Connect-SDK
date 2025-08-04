@@ -18,6 +18,16 @@ message ResponderMarkupVegaDir {
         int32 responder_iD = 16; // client supplied responder ID (can be any number including zero)
     }
 
+    message CFirmExclFilter {
+        
+        string inititor_cFirm = 183; // <missing> will not exclude any initiating client firms; non-empty will only respond if (none of) matches initiator ClientFirm
+    }
+
+    message CFirmInclFilter {
+        
+        string inititor_cFirm = 181; // <missing> will respond to all initiating client firms; non-empty will only respond if (one of) matches initiator ClientFirm
+    }
+
 
     MessageMetadata _meta = 1;
     
@@ -27,6 +37,8 @@ message ResponderMarkupVegaDir {
     google.protobuf.Timestamp enabled_until = 137; // will be enabled up until this time
     YesNo can_include_flex = 102; // if yes, can respond to auction notices that include flex option legs
     YesNo can_include_stock = 103; // if yes, can respond to auction notices that include a stock leg
+    YesNo can_respond_sR = 178; // if yes, can respond to auction notices from SR
+    YesNo can_respond_exch = 179; // if yes, can respond to auction notices from exchanges
     CallPut cp_flag = 104; // if not Pair must match all option legs
     float min_net_vega_ratio = 138; // minimum ratio of abs(netVega)/totalVega to enable a response (hard lower limit of 0.25)
     float min_years = 105; // both markup.minYears and markup.maxYears must be between [minYears, maxYears]
@@ -39,12 +51,21 @@ message ResponderMarkupVegaDir {
     double max_strike = 112;
     float min_surf_edge_prem = 113; // spread surface edge (in premium) (+ = through surface; - = behind surface)
     float min_surf_edge_vol = 114; // spread surface edge (in vol) (0.01 = 1.0 vol pts) (+ = through surface; - = behind surface)
+    float min_probability = 184; // option response probability must be >= minProbability
     YesNo inc_fees_in_resp = 115; // include all estimated responder fees in final response price
     RoundRule round_rule = 116;
     int32 max_response_size = 117; // maximum number of contracts per response (will respond for 100% if auction size <= maxResponseSize)
     float max_response_vega = 118; // maximum total vega per response
     float total_response_vega = 119; // maximum vega (filled) all day
     float total_response_wt_vega = 120; // maximum wtVega (filled) all day
+    YesNo not_mkt_penny = 185; // None or Yes will respond to non-marketable penny name orders
+    YesNo mkt_penny1 = 186; // None or Yes will respond to marketable (mkt 1 tick wide) penny name orders
+    YesNo mkt_penny2 = 187; // None or Yes will respond to marketable (mkt 2 tick wide) penny name orders
+    YesNo mkt_penny3p = 188; // None or Yes will respond to marketable (mkt 3+ tick wide) penny name orders
+    YesNo not_mkt_nickle = 189; // None or Yes will respond to non-marketable nickle/dime name orders
+    YesNo mkt_nickle1 = 190; // None or Yes will respond to marketable (mkt 1 tick wide) nickel/dime name orders
+    YesNo mkt_nickle2 = 191; // None or Yes will respond to marketable (mkt 2 tick wide) nickel/dime name orders
+    YesNo mkt_nickle3p = 192; // None or Yes will respond to marketable (mkt 3+ tick wide) nickel/dime name orders
     AutoHedge auto_hedge = 121;
     HedgeInst hedge_instrument = 122; // Default=actual underlier (EQT or FUT) [IndexOptions use ETF]; FrontMonth=actual underlier (EQT) or front month (FUT) [IndexOptions use FM Fut]; Stock=hedgeSecKey.TickerKey; Future=hedgeSecKey.ExpiryKey
     ExpiryKey hedge_sec_key = 123; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
@@ -52,29 +73,19 @@ message ResponderMarkupVegaDir {
     HedgeScope hedge_scope = 125; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 126; // time in force for the autohedge order (can be Day or ExtDay) [None defaults to pOrder.timeInForce]
     int64 risk_group_id = 127; // Default: 0 (none).  Required to be non-zero if `autoHedge` is something other than None.
-    int32 qty_traded = 132;
-    double vega_traded = 133;
-    double wt_vega_traded = 177;
     int64 num_notices = 129; // number of notices that match response bucket
-    int64 num_notice_sR = 139; // number of SR auction numNotices
-    int64 num_notice_aMEX = 140;
-    int64 num_notice_bATS = 141;
-    int64 num_notice_bOX = 142;
-    int64 num_notice_cBOE = 143;
-    int64 num_notice_c2 = 144;
-    int64 num_notice_eDGO = 145;
-    int64 num_notice_eMLD = 146;
-    int64 num_notice_gMNI = 147;
-    int64 num_notice_iSE = 148;
-    int64 num_notice_mCRY = 149;
-    int64 num_notice_mEMX = 150;
-    int64 num_notice_mIAX = 151;
-    int64 num_notice_mPRL = 152;
-    int64 num_notice_nYSE = 153;
-    int64 num_notice_nQBX = 154;
-    int64 num_notice_nSDQ = 155;
-    int64 num_notice_pHLX = 156;
-    int64 num_notice_sPHR = 157;
+    int64 num_notice_block = 193; // number of SR block auction numNotices
+    int64 num_notice_flash = 194; // number of SR flash auction numNotices
+    int64 num_notice_exch_pI = 195; // number of Exch Price Improvement auction numNotices
+    int64 num_notice_exch_eX = 196; // number of Exch Exposure auction numNotices
+    int64 num_not_mkt_penny = 197; // number auction numNotices
+    int64 num_mkt_penny1 = 198; // number auction numNotices
+    int64 num_mkt_penny2 = 199; // number auction numNotices
+    int64 num_mkt_penny3p = 200; // number auction numNotices
+    int64 num_not_mkt_nickle = 201; // number auction numNotices
+    int64 num_mkt_nickle1 = 202; // number auction numNotices
+    int64 num_mkt_nickle2 = 203; // number auction numNotices
+    int64 num_mkt_nickle3p = 204; // number auction numNotices
     int64 resp_disabled_skips = 158; // number skipped from isDisabled
     int64 stock_disabled_skips = 159; // number skipped from canIncludeStock != Yes
     int64 cp_flag_skips = 160; // number skipped from cpFlag not matching notice legs CallPut
@@ -88,16 +99,35 @@ message ResponderMarkupVegaDir {
     int64 x_delta_range_skips = 168; // number skipped from out of range XDelta value
     int64 strike_range_skips = 169; // number skipped from out of range strike
     int64 min_vega_ratio_skips = 170; // number skipped from not qualifying ratio netVega/sum(abs(vega))
+    int64 probability_skips = 205; // number skipped from min probability threshold not being met
     int64 num_responses = 131; // number of response attempts (number of parentOrders/NoticeExecReports)
+    int64 num_responds_block = 206; // number of SR block auction responses
+    int64 num_responds_flash = 207; // number of SR flash auction responses
+    int64 num_responses_exch_pI = 208; // number of Exch Price Improvement auction responses
+    int64 num_responses_exch_eX = 209; // number of Exch Exposure auction responses
     int64 num_full_size = 171;
     int64 num_alloc_size = 172;
     int64 num_price_miss = 173;
     int64 num_too_late = 174;
     int64 num_other_miss = 175;
     int64 num_did_not_trade = 176;
+    int32 num_traded = 210;
+    int32 qty_traded = 132;
+    double vega_traded = 133;
+    double wt_vega_traded = 177;
+    double sum_width_traded = 211; // SUM: marketWidth * trdQty      => AvgMktWidth = sumWidthTraded / qtyTraded
+    double sum_surf_edge_traded = 212; // SUM: printEdge * trdQty        => AvgPrintEdge = sumSurfEdgeTraded / qtyTraded
+    double sum_m1_pn_lTraded = 213; // SUM: M1PnL * trdQty            => AvgM1PnL = sumM1PnLTraded / qtyTraded
+    double sum_m10_pn_lTraded = 214; // SUM: M10PnL * trdQty           => AvgM10PnL = sumM10PnLTraded / qtyTraded
+    int64 num_traded_block = 215; // number of SR block auctions traded
+    int64 num_traded_flash = 216; // number of SR flash auctions traded
+    int64 num_traded_exch_pI = 217; // number of Exch Price Improvement auctions traded
+    int64 num_traded_exch_eX = 218; // number of Exch Exposure auctions traded
     string modified_by = 134; // user who last modified this record
     SysEnvironment modified_in = 135;
     google.protobuf.Timestamp timestamp = 136; // timestamp of last modification
+    repeated CFirmExclFilter c_firm_excl_filter = 182;
+    repeated CFirmInclFilter c_firm_incl_filter = 180;
 }
 
 

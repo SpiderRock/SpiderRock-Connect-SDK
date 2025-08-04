@@ -565,6 +565,11 @@ namespace api {
     DECL_STRONG_TYPE(extern_hedge_params, string);
     #endif//_extern_hedge_params__GUARD__
 
+    #ifndef _hedge_fill_umark_lmt_prc__GUARD__
+    #define _hedge_fill_umark_lmt_prc__GUARD__
+    DECL_STRONG_TYPE(hedge_fill_umark_lmt_prc, spiderrock::protobuf::api::YesNo);
+    #endif//_hedge_fill_umark_lmt_prc__GUARD__
+
     #ifndef _firm_type__GUARD__
     #define _firm_type__GUARD__
     DECL_STRONG_TYPE(firm_type, spiderrock::protobuf::api::FirmType);
@@ -2891,6 +2896,7 @@ namespace api {
         using hedge_session = spiderrock::protobuf::api::hedge_session;
         using extern_hedge_ex_dest = spiderrock::protobuf::api::extern_hedge_ex_dest;
         using extern_hedge_params = spiderrock::protobuf::api::extern_hedge_params;
+        using hedge_fill_umark_lmt_prc = spiderrock::protobuf::api::hedge_fill_umark_lmt_prc;
         using firm_type = spiderrock::protobuf::api::firm_type;
         using order_capacity = spiderrock::protobuf::api::order_capacity;
         using position_type = spiderrock::protobuf::api::position_type__PositionType;
@@ -3085,6 +3091,7 @@ namespace api {
         hedge_session m_hedge_session{};
         extern_hedge_ex_dest m_extern_hedge_ex_dest{};
         extern_hedge_params m_extern_hedge_params{};
+        hedge_fill_umark_lmt_prc m_hedge_fill_umark_lmt_prc{};
         firm_type m_firm_type{};
         order_capacity m_order_capacity{};
         position_type m_position_type{};
@@ -3498,6 +3505,9 @@ namespace api {
         }		
         extern_hedge_params get_extern_hedge_params() const {
             return m_extern_hedge_params;
+        }		
+        hedge_fill_umark_lmt_prc get_hedge_fill_umark_lmt_prc() const {
+            return m_hedge_fill_umark_lmt_prc;
         }		
         firm_type get_firm_type() const {
             return m_firm_type;
@@ -4084,6 +4094,9 @@ namespace api {
         }
         void set_extern_hedge_params(const extern_hedge_params& value)  {
             m_extern_hedge_params = value;
+        }
+        void set_hedge_fill_umark_lmt_prc(const hedge_fill_umark_lmt_prc& value)  {
+            m_hedge_fill_umark_lmt_prc = value;
         }
         void set_firm_type(const firm_type& value)  {
             m_firm_type = value;
@@ -4681,6 +4694,9 @@ namespace api {
         void set(const extern_hedge_params & value) {
             set_extern_hedge_params(value);
         }
+        void set(const hedge_fill_umark_lmt_prc & value) {
+            set_hedge_fill_umark_lmt_prc(value);
+        }
         void set(const firm_type & value) {
             set_firm_type(value);
         }
@@ -5041,6 +5057,7 @@ namespace api {
             set(value.m_hedge_session);
             set(value.m_extern_hedge_ex_dest);
             set(value.m_extern_hedge_params);
+            set(value.m_hedge_fill_umark_lmt_prc);
             set(value.m_firm_type);
             set(value.m_order_capacity);
             set(value.m_position_type);
@@ -5852,6 +5869,7 @@ namespace api {
             if ( IncludeExternHedgeParams()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(415,m_extern_hedge_params);
             }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(1046,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(418,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_firm_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(421,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OrderCapacity>(m_order_capacity)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(424,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
@@ -6342,6 +6360,7 @@ namespace api {
             if ( IncludeExternHedgeParams()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,415,static_cast<string>(m_extern_hedge_params));
             }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,1046,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,418,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>(m_firm_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,421,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OrderCapacity>(m_order_capacity)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,424,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>(m_position_type)));
@@ -7206,6 +7225,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 1046: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_fill_umark_lmt_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 418: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_firm_type = static_cast<spiderrock::protobuf::api::FirmType>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
                         }
@@ -7814,6 +7838,7 @@ namespace api {
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::hedge_session>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::MarketSession>( m_hedge_session)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::extern_hedge_ex_dest>() const { return m_extern_hedge_ex_dest; }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::extern_hedge_params>() const { return m_extern_hedge_params; }
+    template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::hedge_fill_umark_lmt_prc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_hedge_fill_umark_lmt_prc)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::firm_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::FirmType>( m_firm_type)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::order_capacity>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::OrderCapacity>( m_order_capacity)); }
     template<> inline const auto SpdrParentOrder::get<SpdrParentOrder::position_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PositionType>( m_position_type)); }
@@ -8212,6 +8237,7 @@ namespace api {
         o << ",\"hedge_session\":" << (int64_t)m.get<SpdrParentOrder::hedge_session>();
         o << ",\"extern_hedge_ex_dest\":\"" << m.get<SpdrParentOrder::extern_hedge_ex_dest>() << "\"";
         o << ",\"extern_hedge_params\":\"" << m.get<SpdrParentOrder::extern_hedge_params>() << "\"";
+        o << ",\"hedge_fill_umark_lmt_prc\":" << (int64_t)m.get<SpdrParentOrder::hedge_fill_umark_lmt_prc>();
         o << ",\"firm_type\":" << (int64_t)m.get<SpdrParentOrder::firm_type>();
         o << ",\"order_capacity\":" << (int64_t)m.get<SpdrParentOrder::order_capacity>();
         o << ",\"position_type\":" << (int64_t)m.get<SpdrParentOrder::position_type>();

@@ -230,6 +230,16 @@ namespace api {
     DECL_STRONG_TYPE(ric_root, string);
     #endif//_ric_root__GUARD__
 
+    #ifndef _bbg_root__GUARD__
+    #define _bbg_root__GUARD__
+    DECL_STRONG_TYPE(bbg_root, string);
+    #endif//_bbg_root__GUARD__
+
+    #ifndef _bbg_group__GUARD__
+    #define _bbg_group__GUARD__
+    DECL_STRONG_TYPE(bbg_group, spiderrock::protobuf::api::YellowKey);
+    #endif//_bbg_group__GUARD__
+
     #ifndef _regional_composite_root__GUARD__
     #define _regional_composite_root__GUARD__
     DECL_STRONG_TYPE(regional_composite_root, TickerKey);
@@ -244,6 +254,11 @@ namespace api {
     #define _pricing_source__v7__GUARD__
     DECL_STRONG_TYPE(pricing_source__v7, spiderrock::protobuf::api::PricingSource_V7);
     #endif//_pricing_source__v7__GUARD__
+
+    #ifndef _ric_code__v7__GUARD__
+    #define _ric_code__v7__GUARD__
+    DECL_STRONG_TYPE(ric_code__v7, string);
+    #endif//_ric_code__v7__GUARD__
 
     #ifndef _root__GUARD__
     #define _root__GUARD__
@@ -593,9 +608,12 @@ namespace api {
         using strike_curr = spiderrock::protobuf::api::strike_curr;
         using default_surface_root = spiderrock::protobuf::api::default_surface_root;
         using ric_root = spiderrock::protobuf::api::ric_root;
+        using bbg_root = spiderrock::protobuf::api::bbg_root;
+        using bbg_group = spiderrock::protobuf::api::bbg_group;
         using regional_composite_root = spiderrock::protobuf::api::regional_composite_root;
         using timestamp = spiderrock::protobuf::api::timestamp;
         using pricing_source__v7 = spiderrock::protobuf::api::pricing_source__v7;
+        using ric_code__v7 = spiderrock::protobuf::api::ric_code__v7;
         using exchange = spiderrock::protobuf::api::RootDefinition_Exchange;
         using underlying = spiderrock::protobuf::api::RootDefinition_Underlying;
 
@@ -642,9 +660,12 @@ namespace api {
         strike_curr m_strike_curr{};
         default_surface_root m_default_surface_root{};
         ric_root m_ric_root{};
+        bbg_root m_bbg_root{};
+        bbg_group m_bbg_group{};
         regional_composite_root m_regional_composite_root{};
         timestamp m_timestamp{};
         pricing_source__v7 m_pricing_source__v7{};
+        ric_code__v7 m_ric_code__v7{};
         std::vector<exchange> m_exchange{};
         std::vector<underlying> m_underlying{};
 
@@ -777,6 +798,12 @@ namespace api {
         ric_root get_ric_root() const {
             return m_ric_root;
         }		
+        bbg_root get_bbg_root() const {
+            return m_bbg_root;
+        }		
+        bbg_group get_bbg_group() const {
+            return m_bbg_group;
+        }		
         regional_composite_root get_regional_composite_root() const {
             return m_regional_composite_root;
         }		
@@ -785,6 +812,9 @@ namespace api {
         }		
         pricing_source__v7 get_pricing_source__v7() const {
             return m_pricing_source__v7;
+        }		
+        ric_code__v7 get_ric_code__v7() const {
+            return m_ric_code__v7;
         }
         const std::vector<exchange>& get_exchange_list() const {
             return m_exchange;
@@ -928,6 +958,12 @@ namespace api {
         void set_ric_root(const ric_root& value)  {
             m_ric_root = value;
         }
+        void set_bbg_root(const bbg_root& value)  {
+            m_bbg_root = value;
+        }
+        void set_bbg_group(const bbg_group& value)  {
+            m_bbg_group = value;
+        }
         void set_regional_composite_root(const regional_composite_root& value)  {
             m_regional_composite_root = value;
         }
@@ -936,6 +972,9 @@ namespace api {
         }
         void set_pricing_source__v7(const pricing_source__v7& value)  {
             m_pricing_source__v7 = value;
+        }
+        void set_ric_code__v7(const ric_code__v7& value)  {
+            m_ric_code__v7 = value;
         }
         void set_exchange_list(const std::vector<exchange>& list)  {
             m_exchange = list;
@@ -1089,6 +1128,12 @@ namespace api {
         void set(const ric_root & value) {
             set_ric_root(value);
         }
+        void set(const bbg_root & value) {
+            set_bbg_root(value);
+        }
+        void set(const bbg_group & value) {
+            set_bbg_group(value);
+        }
         void set(const regional_composite_root & value) {
             set_regional_composite_root(value);
         }
@@ -1097,6 +1142,9 @@ namespace api {
         }
         void set(const pricing_source__v7 & value) {
             set_pricing_source__v7(value);
+        }
+        void set(const ric_code__v7 & value) {
+            set_ric_code__v7(value);
         }
         void set(const exchange & value) {
             add_exchange(value);
@@ -1148,9 +1196,12 @@ namespace api {
             set(value.m_strike_curr);
             set(value.m_default_surface_root);
             set(value.m_ric_root);
+            set(value.m_bbg_root);
+            set(value.m_bbg_group);
             set(value.m_regional_composite_root);
             set(value.m_timestamp);
-            set(value.m_pricing_source__v7);set_exchange_list(value.m_exchange);set_underlying_list(value.m_underlying);
+            set(value.m_pricing_source__v7);
+            set(value.m_ric_code__v7);set_exchange_list(value.m_exchange);set_underlying_list(value.m_underlying);
         }
 
         RootDefinition() {
@@ -1263,11 +1314,17 @@ namespace api {
         bool IncludeRicRoot() const {
             return !(m_ric_root.empty());
         }
+        bool IncludeBbgRoot() const {
+            return !(m_bbg_root.empty());
+        }
         bool IncludeRegionalCompositeRoot() const {
             return (m_regional_composite_root.ByteSizeLong() > 0);
         }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
+        }
+        bool IncludeRicCodeV7() const {
+            return !(m_ric_code__v7.empty());
         }
         bool IncludeExchange() const {
             return (!m_exchange.empty());
@@ -1375,6 +1432,10 @@ namespace api {
             if ( IncludeRicRoot()) {
                 totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(218,m_ric_root);
             }
+            if ( IncludeBbgRoot()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(227,m_bbg_root);
+            }
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(228,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YellowKey>(m_bbg_group)));
             if ( IncludeRegionalCompositeRoot()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_root{};
                 m_regional_composite_root.setCodecTickerKey(tickerKeyLayout_regional_composite_root);
@@ -1384,6 +1445,9 @@ namespace api {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
+            if ( IncludeRicCodeV7()) {
+                totalSize += SRProtobufCPP::FieldCodec::StringFieldSize(5001,m_ric_code__v7);
+            }
             if ( IncludeExchange()) {
                 for (auto& item : m_exchange) {
 					totalSize += SRProtobufCPP::TagCodec::Size(219, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
@@ -1498,6 +1562,10 @@ namespace api {
             if ( IncludeRicRoot()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeString(dest,218,static_cast<string>(m_ric_root));
             }
+            if ( IncludeBbgRoot()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,227,static_cast<string>(m_bbg_root));
+            }
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,228,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YellowKey>(m_bbg_group)));
             if ( IncludeRegionalCompositeRoot()) {
                 SRProtobufCPP::TickerKeyLayout tickerKeyLayout_regional_composite_root{};
                 m_regional_composite_root.setCodecTickerKey(tickerKeyLayout_regional_composite_root);
@@ -1507,6 +1575,9 @@ namespace api {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,5000,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>(m_pricing_source__v7)));
+            if ( IncludeRicCodeV7()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeString(dest,5001,static_cast<string>(m_ric_code__v7));
+            }
             if ( IncludeExchange()) {
                 for (auto& item : m_exchange) {
                     dest = SRProtobufCPP::TagCodec::Encode(dest, 219, SRProtobufCPP::TagCodecEnums::TagType::LengthDelimited);
@@ -1774,6 +1845,17 @@ namespace api {
                         }
                         break;
                     }
+                    case 227: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_bbg_root = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
+                        }
+                        break;
+                    }
+                    case 228: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_bbg_group = static_cast<spiderrock::protobuf::api::YellowKey>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 225: {
                         if (tagType == SRProtobufCPP::TickerKeyCodec::TagType){
                             auto tickerKey = SRProtobufCPP::FieldCodec::DecodeTickerKey(pos,max);
@@ -1789,6 +1871,12 @@ namespace api {
                     }
                     case 5000: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
                             m_pricing_source__v7 = static_cast<spiderrock::protobuf::api::PricingSource_V7>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
+                    case 5001: {
+                        if (tagType == SRProtobufCPP::StringCodec::TagType) {
+                            m_ric_code__v7 = SRProtobufCPP::FieldCodec::DecodeString(pos,max);
                         }
                         break;
                     }
@@ -1861,9 +1949,12 @@ namespace api {
     template<> inline const auto RootDefinition::get<RootDefinition::strike_curr>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::Currency>( m_strike_curr)); }
     template<> inline const auto RootDefinition::get<RootDefinition::default_surface_root>() const { return RootDefinition::default_surface_root{ m_default_surface_root}; }
     template<> inline const auto RootDefinition::get<RootDefinition::ric_root>() const { return m_ric_root; }
+    template<> inline const auto RootDefinition::get<RootDefinition::bbg_root>() const { return m_bbg_root; }
+    template<> inline const auto RootDefinition::get<RootDefinition::bbg_group>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YellowKey>( m_bbg_group)); }
     template<> inline const auto RootDefinition::get<RootDefinition::regional_composite_root>() const { return RootDefinition::regional_composite_root{ m_regional_composite_root}; }
     template<> inline const auto RootDefinition::get<RootDefinition::timestamp>() const { return m_timestamp; }
     template<> inline const auto RootDefinition::get<RootDefinition::pricing_source__v7>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::PricingSource_V7>( m_pricing_source__v7)); }
+    template<> inline const auto RootDefinition::get<RootDefinition::ric_code__v7>() const { return m_ric_code__v7; }
     template<> inline const auto RootDefinition::get<RootDefinition::exchange>(int i) const { return RootDefinition::exchange{ get_exchange(i)}; }
     template<> inline int RootDefinition::count<RootDefinition::exchange>() const { return static_cast<int>( m_exchange.size()); }
     template<> inline const auto RootDefinition::get<RootDefinition::underlying>(int i) const { return RootDefinition::underlying{ get_underlying(i)}; }
@@ -1938,6 +2029,8 @@ namespace api {
         o << ",\"strike_curr\":" << (int64_t)m.get<RootDefinition::strike_curr>();
         o << ",\"default_surface_root\":{" << m.get<RootDefinition::default_surface_root>() << "}";
         o << ",\"ric_root\":\"" << m.get<RootDefinition::ric_root>() << "\"";
+        o << ",\"bbg_root\":\"" << m.get<RootDefinition::bbg_root>() << "\"";
+        o << ",\"bbg_group\":" << (int64_t)m.get<RootDefinition::bbg_group>();
         o << ",\"regional_composite_root\":{" << m.get<RootDefinition::regional_composite_root>() << "}";
         {
             std::time_t tt = m.get<RootDefinition::timestamp>().time_since_epoch().count() / 1'000'000'000;
@@ -1946,6 +2039,7 @@ namespace api {
             o << ",\"timestamp\":\"" << std::put_time(&tm1, "%a %b %e %T %Y") << "\"";
         }
         o << ",\"pricing_source__v7\":" << (int64_t)m.get<RootDefinition::pricing_source__v7>();
+        o << ",\"ric_code__v7\":\"" << m.get<RootDefinition::ric_code__v7>() << "\"";
         o << ",\"exchange\":[";
         {
             const char *delim = "{";

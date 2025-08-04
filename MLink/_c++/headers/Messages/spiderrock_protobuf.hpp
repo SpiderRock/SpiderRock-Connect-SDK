@@ -7,6 +7,8 @@
 
 #include "spiderrock_common.hpp"
 #include "ClientControl/AccountRouteConfig.hpp"
+#include "ClientControl/AltHedgePolicyMap.hpp"
+#include "ClientControl/AltHedgeTargetMap.hpp"
 #include "ClientControl/AltSymbolMap.hpp"
 #include "ClientControl/AssetAccountControl.hpp"
 #include "ClientControl/AvailableStockLocates.hpp"
@@ -18,11 +20,14 @@
 #include "ClientControl/ExpirationControl.hpp"
 #include "ClientControl/FutureControl.hpp"
 #include "ClientControl/GlobalRiskControl.hpp"
+#include "ClientControl/HedgePolicyAlgoConfig.hpp"
 #include "ClientControl/IndustryControl.hpp"
 #include "ClientControl/MarRiskComposite.hpp"
 #include "ClientControl/MarRiskControl.hpp"
 #include "ClientControl/MarRiskControlTkOverride.hpp"
 #include "ClientControl/MarRiskCounter.hpp"
+#include "ClientControl/PositionHedgePolicyConfig.hpp"
+#include "ClientControl/PositionHedgeTrigger.hpp"
 #include "ClientControl/RiskClassControl.hpp"
 #include "ClientControl/SectorControl.hpp"
 #include "ClientControl/SpdrRiskControl.hpp"
@@ -32,6 +37,7 @@
 #include "ClientControl/StockPoolBorrowRate.hpp"
 #include "ClientControl/StockThreshold.hpp"
 #include "ClientControl/SymbolControl.hpp"
+#include "ClientControl/TradeHedgePolicyConfig.hpp"
 #include "ClientControl/UserDividendOverride.hpp"
 #include "ClientControl/UserRateOverride.hpp"
 #include "ClientLive/IndexQuote.hpp"
@@ -104,6 +110,7 @@
 #include "ClientTrading/SpdrExchRiskReset.hpp"
 #include "ClientTrading/SpdrExecutionAllocation.hpp"
 #include "ClientTrading/SpdrExecutionAllocationStatus.hpp"
+#include "ClientTrading/SpdrHedgePolicyState.hpp"
 #include "ClientTrading/SpdrMLegBrkrEvent.hpp"
 #include "ClientTrading/SpdrMLegBrkrState.hpp"
 #include "ClientTrading/SpdrOmniOrder.hpp"
@@ -125,7 +132,6 @@
 #include "ClientTrading/SpdrRiskGroupControl.hpp"
 #include "ClientTrading/SpdrRouteCancel.hpp"
 #include "ClientTrading/SpdrSecKeyCancel.hpp"
-#include "ClientTrading/SpdrSetActiveSize.hpp"
 #include "ClientTrading/SpdrStripeTrigger.hpp"
 #include "ClientTrading/SpdrSweepDetail.hpp"
 #include "ClientTrading/SpdrSweepExchDetail.hpp"
@@ -146,7 +152,6 @@
 #include "EqtSummaryData/StockMinuteBar.hpp"
 #include "EquityDefinition/RegionalUnderlierComposite.hpp"
 #include "EquityDefinition/TickerDefinition.hpp"
-#include "EquityDefinition/TickerDefinitionExt.hpp"
 #include "FutAnalytics/FuturePrintMarkup.hpp"
 #include "FutAnalytics/FuturePrintSet.hpp"
 #include "FutMarkData/FutureCloseMark.hpp"
@@ -212,6 +217,7 @@
 #include "OptSummaryData/OptionMarketSummary.hpp"
 #include "OptSurface/HistoricalVolatilities.hpp"
 #include "OptSurface/LiveAtmVol.hpp"
+#include "OptSurface/LiveSurfaceAtm.hpp"
 #include "OptSurface/LiveSurfaceCurve.hpp"
 #include "OptSurface/LiveSurfaceFixedGrid.hpp"
 #include "OptSurface/LiveSurfaceFixedTerm.hpp"
@@ -257,7 +263,6 @@
 #include "SRMLinkAnalytics/LiveExpiryAtm.hpp"
 #include "SRMLinkAnalytics/LiveExpirySurface.hpp"
 #include "SRMLinkAnalytics/LiveIVarSwapFixedTerm.hpp"
-#include "SRMLinkAnalytics/LiveSurfaceAtm.hpp"
 #include "SRMLinkAnalytics/LiveSurfacePerf.hpp"
 #include "SRMLinkAnalytics/OptionLookback.hpp"
 #include "SRMLinkAnalytics/OptionOpenVega.hpp"
@@ -279,6 +284,8 @@ namespace api {
 template <typename Derived>
 class Observer {
     AccountRouteConfig msgAccountRouteConfig{};
+    AltHedgePolicyMap msgAltHedgePolicyMap{};
+    AltHedgeTargetMap msgAltHedgeTargetMap{};
     AltSymbolMap msgAltSymbolMap{};
     AssetAccountControl msgAssetAccountControl{};
     AvailableStockLocates msgAvailableStockLocates{};
@@ -290,11 +297,14 @@ class Observer {
     ExpirationControl msgExpirationControl{};
     FutureControl msgFutureControl{};
     GlobalRiskControl msgGlobalRiskControl{};
+    HedgePolicyAlgoConfig msgHedgePolicyAlgoConfig{};
     IndustryControl msgIndustryControl{};
     MarRiskComposite msgMarRiskComposite{};
     MarRiskControl msgMarRiskControl{};
     MarRiskControlTkOverride msgMarRiskControlTkOverride{};
     MarRiskCounter msgMarRiskCounter{};
+    PositionHedgePolicyConfig msgPositionHedgePolicyConfig{};
+    PositionHedgeTrigger msgPositionHedgeTrigger{};
     RiskClassControl msgRiskClassControl{};
     SectorControl msgSectorControl{};
     SpdrRiskControl msgSpdrRiskControl{};
@@ -304,6 +314,7 @@ class Observer {
     StockPoolBorrowRate msgStockPoolBorrowRate{};
     StockThreshold msgStockThreshold{};
     SymbolControl msgSymbolControl{};
+    TradeHedgePolicyConfig msgTradeHedgePolicyConfig{};
     UserDividendOverride msgUserDividendOverride{};
     UserRateOverride msgUserRateOverride{};
     IndexQuote msgIndexQuote{};
@@ -376,6 +387,7 @@ class Observer {
     SpdrExchRiskReset msgSpdrExchRiskReset{};
     SpdrExecutionAllocation msgSpdrExecutionAllocation{};
     SpdrExecutionAllocationStatus msgSpdrExecutionAllocationStatus{};
+    SpdrHedgePolicyState msgSpdrHedgePolicyState{};
     SpdrMLegBrkrEvent msgSpdrMLegBrkrEvent{};
     SpdrMLegBrkrState msgSpdrMLegBrkrState{};
     SpdrOmniOrder msgSpdrOmniOrder{};
@@ -397,7 +409,6 @@ class Observer {
     SpdrRiskGroupControl msgSpdrRiskGroupControl{};
     SpdrRouteCancel msgSpdrRouteCancel{};
     SpdrSecKeyCancel msgSpdrSecKeyCancel{};
-    SpdrSetActiveSize msgSpdrSetActiveSize{};
     SpdrStripeTrigger msgSpdrStripeTrigger{};
     SpdrSweepDetail msgSpdrSweepDetail{};
     SpdrSweepExchDetail msgSpdrSweepExchDetail{};
@@ -418,7 +429,6 @@ class Observer {
     StockMinuteBar msgStockMinuteBar{};
     RegionalUnderlierComposite msgRegionalUnderlierComposite{};
     TickerDefinition msgTickerDefinition{};
-    TickerDefinitionExt msgTickerDefinitionExt{};
     FuturePrintMarkup msgFuturePrintMarkup{};
     FuturePrintSet msgFuturePrintSet{};
     FutureCloseMark msgFutureCloseMark{};
@@ -484,6 +494,7 @@ class Observer {
     OptionMarketSummary msgOptionMarketSummary{};
     HistoricalVolatilities msgHistoricalVolatilities{};
     LiveAtmVol msgLiveAtmVol{};
+    LiveSurfaceAtm msgLiveSurfaceAtm{};
     LiveSurfaceCurve msgLiveSurfaceCurve{};
     LiveSurfaceFixedGrid msgLiveSurfaceFixedGrid{};
     LiveSurfaceFixedTerm msgLiveSurfaceFixedTerm{};
@@ -529,7 +540,6 @@ class Observer {
     LiveExpiryAtm msgLiveExpiryAtm{};
     LiveExpirySurface msgLiveExpirySurface{};
     LiveIVarSwapFixedTerm msgLiveIVarSwapFixedTerm{};
-    LiveSurfaceAtm msgLiveSurfaceAtm{};
     LiveSurfacePerf msgLiveSurfacePerf{};
     OptionLookback msgOptionLookback{};
     OptionOpenVega msgOptionOpenVega{};
@@ -600,6 +610,18 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const AccountRouteConfig &)msgAccountRouteConfig);
                 break;
             }
+            case 1814: {  // AltHedgePolicyMap
+			    msgAltHedgePolicyMap.Clear();
+                msgAltHedgePolicyMap.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AltHedgePolicyMap &)msgAltHedgePolicyMap);
+                break;
+            }
+            case 1811: {  // AltHedgeTargetMap
+			    msgAltHedgeTargetMap.Clear();
+                msgAltHedgeTargetMap.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const AltHedgeTargetMap &)msgAltHedgeTargetMap);
+                break;
+            }
             case 1815: {  // AltSymbolMap
 			    msgAltSymbolMap.Clear();
                 msgAltSymbolMap.ParseFromArray(buf, len);
@@ -666,6 +688,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const GlobalRiskControl &)msgGlobalRiskControl);
                 break;
             }
+            case 1817: {  // HedgePolicyAlgoConfig
+			    msgHedgePolicyAlgoConfig.Clear();
+                msgHedgePolicyAlgoConfig.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const HedgePolicyAlgoConfig &)msgHedgePolicyAlgoConfig);
+                break;
+            }
             case 1655: {  // IndustryControl
 			    msgIndustryControl.Clear();
                 msgIndustryControl.ParseFromArray(buf, len);
@@ -694,6 +722,18 @@ class Observer {
 			    msgMarRiskCounter.Clear();
                 msgMarRiskCounter.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const MarRiskCounter &)msgMarRiskCounter);
+                break;
+            }
+            case 1813: {  // PositionHedgePolicyConfig
+			    msgPositionHedgePolicyConfig.Clear();
+                msgPositionHedgePolicyConfig.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const PositionHedgePolicyConfig &)msgPositionHedgePolicyConfig);
+                break;
+            }
+            case 1816: {  // PositionHedgeTrigger
+			    msgPositionHedgeTrigger.Clear();
+                msgPositionHedgeTrigger.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const PositionHedgeTrigger &)msgPositionHedgeTrigger);
                 break;
             }
             case 1660: {  // RiskClassControl
@@ -748,6 +788,12 @@ class Observer {
 			    msgSymbolControl.Clear();
                 msgSymbolControl.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const SymbolControl &)msgSymbolControl);
+                break;
+            }
+            case 1812: {  // TradeHedgePolicyConfig
+			    msgTradeHedgePolicyConfig.Clear();
+                msgTradeHedgePolicyConfig.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const TradeHedgePolicyConfig &)msgTradeHedgePolicyConfig);
                 break;
             }
             case 3630: {  // UserDividendOverride
@@ -1182,6 +1228,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const SpdrExecutionAllocationStatus &)msgSpdrExecutionAllocationStatus);
                 break;
             }
+            case 5280: {  // SpdrHedgePolicyState
+			    msgSpdrHedgePolicyState.Clear();
+                msgSpdrHedgePolicyState.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const SpdrHedgePolicyState &)msgSpdrHedgePolicyState);
+                break;
+            }
             case 4025: {  // SpdrMLegBrkrEvent
 			    msgSpdrMLegBrkrEvent.Clear();
                 msgSpdrMLegBrkrEvent.ParseFromArray(buf, len);
@@ -1308,12 +1360,6 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const SpdrSecKeyCancel &)msgSpdrSecKeyCancel);
                 break;
             }
-            case 4120: {  // SpdrSetActiveSize
-			    msgSpdrSetActiveSize.Clear();
-                msgSpdrSetActiveSize.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const SpdrSetActiveSize &)msgSpdrSetActiveSize);
-                break;
-            }
             case 4135: {  // SpdrStripeTrigger
 			    msgSpdrStripeTrigger.Clear();
                 msgSpdrStripeTrigger.ParseFromArray(buf, len);
@@ -1432,12 +1478,6 @@ class Observer {
 			    msgTickerDefinition.Clear();
                 msgTickerDefinition.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const TickerDefinition &)msgTickerDefinition);
-                break;
-            }
-            case 4380: {  // TickerDefinitionExt
-			    msgTickerDefinitionExt.Clear();
-                msgTickerDefinitionExt.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const TickerDefinitionExt &)msgTickerDefinitionExt);
                 break;
             }
             case 2605: {  // FuturePrintMarkup
@@ -1830,6 +1870,12 @@ class Observer {
                 static_cast<Derived*>(this)->handle((const LiveAtmVol &)msgLiveAtmVol);
                 break;
             }
+            case 1030: {  // LiveSurfaceAtm
+			    msgLiveSurfaceAtm.Clear();
+                msgLiveSurfaceAtm.ParseFromArray(buf, len);
+                static_cast<Derived*>(this)->handle((const LiveSurfaceAtm &)msgLiveSurfaceAtm);
+                break;
+            }
             case 1035: {  // LiveSurfaceCurve
 			    msgLiveSurfaceCurve.Clear();
                 msgLiveSurfaceCurve.ParseFromArray(buf, len);
@@ -2098,12 +2144,6 @@ class Observer {
 			    msgLiveIVarSwapFixedTerm.Clear();
                 msgLiveIVarSwapFixedTerm.ParseFromArray(buf, len);
                 static_cast<Derived*>(this)->handle((const LiveIVarSwapFixedTerm &)msgLiveIVarSwapFixedTerm);
-                break;
-            }
-            case 1030: {  // LiveSurfaceAtm
-			    msgLiveSurfaceAtm.Clear();
-                msgLiveSurfaceAtm.ParseFromArray(buf, len);
-                static_cast<Derived*>(this)->handle((const LiveSurfaceAtm &)msgLiveSurfaceAtm);
                 break;
             }
             case 1055: {  // LiveSurfacePerf

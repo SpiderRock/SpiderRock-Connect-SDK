@@ -72,9 +72,12 @@ message RootDefinition {
     Currency strike_curr = 202;
     TickerKey default_surface_root = 205; // fallback ticker to use for option surfaces if no native surfaces are available
     string ric_root = 218; // RIC Root
+    string bbg_root = 227; // Bloomberg root
+    YellowKey bbg_group = 228; // Bloomberg Yellow Key
     TickerKey regional_composite_root = 225; // regional composite ticker - set on European contributor products only
     google.protobuf.Timestamp timestamp = 208;
     PricingSource_V7 pricing_source__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]
+    string ric_code__v7 = 5001; // only V7
     repeated Exchange exchange = 219;
     repeated Underlying underlying = 211;
 }

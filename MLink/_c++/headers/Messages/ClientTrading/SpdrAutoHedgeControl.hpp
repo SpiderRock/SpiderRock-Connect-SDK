@@ -80,10 +80,10 @@ namespace api {
     DECL_STRONG_TYPE(auto_hedge, spiderrock::protobuf::api::AutoHedge);
     #endif//_auto_hedge__GUARD__
 
-    #ifndef _hedge_target__GUARD__
-    #define _hedge_target__GUARD__
-    DECL_STRONG_TYPE(hedge_target, spiderrock::protobuf::api::HedgeTarget);
-    #endif//_hedge_target__GUARD__
+    #ifndef _hedge_target__HedgeTarget__GUARD__
+    #define _hedge_target__HedgeTarget__GUARD__
+    DECL_STRONG_TYPE(hedge_target__HedgeTarget, spiderrock::protobuf::api::HedgeTarget);
+    #endif//_hedge_target__HedgeTarget__GUARD__
 
     #ifndef _min_hedge_ddelta__GUARD__
     #define _min_hedge_ddelta__GUARD__
@@ -239,6 +239,11 @@ namespace api {
     #define _make_limit_class__GUARD__
     DECL_STRONG_TYPE(make_limit_class, spiderrock::protobuf::api::SpdrLimitClass);
     #endif//_make_limit_class__GUARD__
+
+    #ifndef _hedge_fill_umark_lmt_prc__GUARD__
+    #define _hedge_fill_umark_lmt_prc__GUARD__
+    DECL_STRONG_TYPE(hedge_fill_umark_lmt_prc, spiderrock::protobuf::api::YesNo);
+    #endif//_hedge_fill_umark_lmt_prc__GUARD__
 
     #ifndef _order_prc_limit__GUARD__
     #define _order_prc_limit__GUARD__
@@ -496,7 +501,7 @@ namespace api {
         using strategy = spiderrock::protobuf::api::strategy;
         using user_name = spiderrock::protobuf::api::user_name;
         using auto_hedge = spiderrock::protobuf::api::auto_hedge;
-        using hedge_target = spiderrock::protobuf::api::hedge_target;
+        using hedge_target = spiderrock::protobuf::api::hedge_target__HedgeTarget;
         using min_hedge_ddelta = spiderrock::protobuf::api::min_hedge_ddelta;
         using max_hedge_ddelta = spiderrock::protobuf::api::max_hedge_ddelta;
         using order_size = spiderrock::protobuf::api::order_size;
@@ -528,6 +533,7 @@ namespace api {
         using order_limit_type = spiderrock::protobuf::api::order_limit_type;
         using take_limit_class = spiderrock::protobuf::api::take_limit_class;
         using make_limit_class = spiderrock::protobuf::api::make_limit_class;
+        using hedge_fill_umark_lmt_prc = spiderrock::protobuf::api::hedge_fill_umark_lmt_prc;
         using order_prc_limit = spiderrock::protobuf::api::order_prc_limit;
         using order_prc_offset = spiderrock::protobuf::api::order_prc_offset;
         using state_model = spiderrock::protobuf::api::state_model;
@@ -584,6 +590,7 @@ namespace api {
         order_limit_type m_order_limit_type{};
         take_limit_class m_take_limit_class{};
         make_limit_class m_make_limit_class{};
+        hedge_fill_umark_lmt_prc m_hedge_fill_umark_lmt_prc{};
         order_prc_limit m_order_prc_limit{};
         order_prc_offset m_order_prc_offset{};
         state_model m_state_model{};
@@ -729,6 +736,9 @@ namespace api {
         }		
         make_limit_class get_make_limit_class() const {
             return m_make_limit_class;
+        }		
+        hedge_fill_umark_lmt_prc get_hedge_fill_umark_lmt_prc() const {
+            return m_hedge_fill_umark_lmt_prc;
         }		
         order_prc_limit get_order_prc_limit() const {
             return m_order_prc_limit;
@@ -895,6 +905,9 @@ namespace api {
         }
         void set_make_limit_class(const make_limit_class& value)  {
             m_make_limit_class = value;
+        }
+        void set_hedge_fill_umark_lmt_prc(const hedge_fill_umark_lmt_prc& value)  {
+            m_hedge_fill_umark_lmt_prc = value;
         }
         void set_order_prc_limit(const order_prc_limit& value)  {
             m_order_prc_limit = value;
@@ -1066,6 +1079,9 @@ namespace api {
         void set(const make_limit_class & value) {
             set_make_limit_class(value);
         }
+        void set(const hedge_fill_umark_lmt_prc & value) {
+            set_hedge_fill_umark_lmt_prc(value);
+        }
         void set(const order_prc_limit & value) {
             set_order_prc_limit(value);
         }
@@ -1142,6 +1158,7 @@ namespace api {
             set(value.m_order_limit_type);
             set(value.m_take_limit_class);
             set(value.m_make_limit_class);
+            set(value.m_hedge_fill_umark_lmt_prc);
             set(value.m_order_prc_limit);
             set(value.m_order_prc_offset);
             set(value.m_state_model);
@@ -1417,6 +1434,7 @@ namespace api {
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(214,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitType>(m_order_limit_type)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(217,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitClass>(m_take_limit_class)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitClass>(m_make_limit_class)));
+            totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(256,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             if ( IncludeOrderPrcLimit()) {
                 totalSize += SRProtobufCPP::FieldCodec::DoubleFieldSize(223,m_order_prc_limit);
             }
@@ -1549,6 +1567,7 @@ namespace api {
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,214,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitType>(m_order_limit_type)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,217,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitClass>(m_take_limit_class)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,220,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitClass>(m_make_limit_class)));
+            dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,256,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>(m_hedge_fill_umark_lmt_prc)));
             if ( IncludeOrderPrcLimit()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDouble(dest,223,m_order_prc_limit);
             }
@@ -1839,6 +1858,11 @@ namespace api {
                         }
                         break;
                     }
+                    case 256: {if (tagType == SRProtobufCPP::EnumCodec::TagType) {
+                            m_hedge_fill_umark_lmt_prc = static_cast<spiderrock::protobuf::api::YesNo>(SRProtobufCPP::FieldCodec::DecodeEnum(pos,max));
+                        }
+                        break;
+                    }
                     case 223: {
                         if (tagType == SRProtobufCPP::DoubleCodec::TagType) {
                             m_order_prc_limit = SRProtobufCPP::FieldCodec::DecodeDouble(pos,max);
@@ -1949,6 +1973,7 @@ namespace api {
     template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::order_limit_type>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitType>( m_order_limit_type)); }
     template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::take_limit_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitClass>( m_take_limit_class)); }
     template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::make_limit_class>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::SpdrLimitClass>( m_make_limit_class)); }
+    template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::hedge_fill_umark_lmt_prc>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::YesNo>( m_hedge_fill_umark_lmt_prc)); }
     template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::order_prc_limit>() const { return m_order_prc_limit; }
     template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::order_prc_offset>() const { return m_order_prc_offset; }
     template<> inline const auto SpdrAutoHedgeControl::get<SpdrAutoHedgeControl::state_model>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::StateModel>( m_state_model)); }
@@ -2031,6 +2056,7 @@ namespace api {
         o << ",\"order_limit_type\":" << (int64_t)m.get<SpdrAutoHedgeControl::order_limit_type>();
         o << ",\"take_limit_class\":" << (int64_t)m.get<SpdrAutoHedgeControl::take_limit_class>();
         o << ",\"make_limit_class\":" << (int64_t)m.get<SpdrAutoHedgeControl::make_limit_class>();
+        o << ",\"hedge_fill_umark_lmt_prc\":" << (int64_t)m.get<SpdrAutoHedgeControl::hedge_fill_umark_lmt_prc>();
         o << ",\"order_prc_limit\":" << m.get<SpdrAutoHedgeControl::order_prc_limit>();
         o << ",\"order_prc_offset\":" << m.get<SpdrAutoHedgeControl::order_prc_offset>();
         o << ",\"state_model\":" << (int64_t)m.get<SpdrAutoHedgeControl::state_model>();

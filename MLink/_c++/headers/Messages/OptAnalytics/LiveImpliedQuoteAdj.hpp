@@ -210,6 +210,16 @@ namespace api {
     DECL_STRONG_TYPE(u_prc_adj_result, spiderrock::protobuf::api::AdjResult);
     #endif//_u_prc_adj_result__GUARD__
 
+    #ifndef _src_timestamp__GUARD__
+    #define _src_timestamp__GUARD__
+    DECL_STRONG_TYPE(src_timestamp, int64);
+    #endif//_src_timestamp__GUARD__
+
+    #ifndef _net_timestamp__GUARD__
+    #define _net_timestamp__GUARD__
+    DECL_STRONG_TYPE(net_timestamp, int64);
+    #endif//_net_timestamp__GUARD__
+
     #ifndef _timestamp__GUARD__
     #define _timestamp__GUARD__
     DECL_STRONG_TYPE(timestamp, std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>);
@@ -351,6 +361,8 @@ namespace api {
         using calc_err = spiderrock::protobuf::api::calc_err__string;
         using calc_source = spiderrock::protobuf::api::calc_source;
         using u_prc_adj_result = spiderrock::protobuf::api::u_prc_adj_result;
+        using src_timestamp = spiderrock::protobuf::api::src_timestamp;
+        using net_timestamp = spiderrock::protobuf::api::net_timestamp;
         using timestamp = spiderrock::protobuf::api::timestamp;
 
         private:
@@ -392,6 +404,8 @@ namespace api {
         calc_err m_calc_err{};
         calc_source m_calc_source{};
         u_prc_adj_result m_u_prc_adj_result{};
+        src_timestamp m_src_timestamp{};
+        net_timestamp m_net_timestamp{};
         timestamp m_timestamp{};
 
         static constexpr int _mlinkHeaderLength = 14;
@@ -510,6 +524,12 @@ namespace api {
         }		
         u_prc_adj_result get_u_prc_adj_result() const {
             return m_u_prc_adj_result;
+        }		
+        src_timestamp get_src_timestamp() const {
+            return m_src_timestamp;
+        }		
+        net_timestamp get_net_timestamp() const {
+            return m_net_timestamp;
         }		
         timestamp get_timestamp() const {
             return m_timestamp;
@@ -631,6 +651,12 @@ namespace api {
         }
         void set_u_prc_adj_result(const u_prc_adj_result& value)  {
             m_u_prc_adj_result = value;
+        }
+        void set_src_timestamp(const src_timestamp& value)  {
+            m_src_timestamp = value;
+        }
+        void set_net_timestamp(const net_timestamp& value)  {
+            m_net_timestamp = value;
         }
         void set_timestamp(const timestamp& value)  {
             m_timestamp = value;
@@ -757,6 +783,12 @@ namespace api {
         void set(const u_prc_adj_result & value) {
             set_u_prc_adj_result(value);
         }
+        void set(const src_timestamp & value) {
+            set_src_timestamp(value);
+        }
+        void set(const net_timestamp & value) {
+            set_net_timestamp(value);
+        }
         void set(const timestamp & value) {
             set_timestamp(value);
         }
@@ -800,6 +832,8 @@ namespace api {
             set(value.m_calc_err);
             set(value.m_calc_source);
             set(value.m_u_prc_adj_result);
+            set(value.m_src_timestamp);
+            set(value.m_net_timestamp);
             set(value.m_timestamp);
         }
 
@@ -958,6 +992,12 @@ namespace api {
         bool IncludeCalcErr() const {
             return !(m_calc_err.empty());
         }
+        bool IncludeSrcTimestamp() const {
+            return !(m_src_timestamp == 0);
+        }
+        bool IncludeNetTimestamp() const {
+            return !(m_net_timestamp == 0);
+        }
         bool IncludeTimestamp() const {
             return (m_timestamp.time_since_epoch().count() != 0);
         }
@@ -1079,6 +1119,12 @@ namespace api {
             }
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcSource>(m_calc_source)));
             totalSize += SRProtobufCPP::FieldCodec::EnumFieldSize(205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjResult>(m_u_prc_adj_result)));
+            if ( IncludeSrcTimestamp()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(209,m_src_timestamp);
+            }
+            if ( IncludeNetTimestamp()) {
+                totalSize += SRProtobufCPP::FieldCodec::LongFieldSize(210,m_net_timestamp);
+            }
             if ( IncludeTimestamp()) {
                 totalSize += SRProtobufCPP::FieldCodec::DateTimeFieldSize(208, m_timestamp);
             }
@@ -1200,6 +1246,12 @@ namespace api {
             }
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,202,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcSource>(m_calc_source)));
             dest = SRProtobufCPP::FieldCodec::EncodeEnum(dest,205,static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjResult>(m_u_prc_adj_result)));
+            if ( IncludeSrcTimestamp()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,209,m_src_timestamp);
+            }
+            if ( IncludeNetTimestamp()) {
+                dest = SRProtobufCPP::FieldCodec::EncodeLong(dest,210,m_net_timestamp);
+            }
             if ( IncludeTimestamp()) {
                 dest = SRProtobufCPP::FieldCodec::EncodeDateTime(dest, 208, m_timestamp);
             }
@@ -1447,6 +1499,18 @@ namespace api {
                         }
                         break;
                     }
+                    case 209: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_src_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
+                    case 210: {
+                        if (tagType == SRProtobufCPP::LongCodec::TagType) {
+                            m_net_timestamp = SRProtobufCPP::FieldCodec::DecodeLong(pos,max);
+                        }
+                        break;
+                    }
                     case 208: {
                         if (tagType == SRProtobufCPP::DateKeyCodec::TagType) {
                             m_timestamp = SRProtobufCPP::FieldCodec::DecodeDateTime(pos,max);
@@ -1500,6 +1564,8 @@ namespace api {
     template<> inline const auto LiveImpliedQuoteAdj::get<LiveImpliedQuoteAdj::calc_err>() const { return m_calc_err; }
     template<> inline const auto LiveImpliedQuoteAdj::get<LiveImpliedQuoteAdj::calc_source>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::CalcSource>( m_calc_source)); }
     template<> inline const auto LiveImpliedQuoteAdj::get<LiveImpliedQuoteAdj::u_prc_adj_result>() const { return static_cast<uint8_t>(static_cast<spiderrock::protobuf::api::AdjResult>( m_u_prc_adj_result)); }
+    template<> inline const auto LiveImpliedQuoteAdj::get<LiveImpliedQuoteAdj::src_timestamp>() const { return m_src_timestamp; }
+    template<> inline const auto LiveImpliedQuoteAdj::get<LiveImpliedQuoteAdj::net_timestamp>() const { return m_net_timestamp; }
     template<> inline const auto LiveImpliedQuoteAdj::get<LiveImpliedQuoteAdj::timestamp>() const { return m_timestamp; }
     template<> inline const auto LiveImpliedQuoteAdj_PKey::get<LiveImpliedQuoteAdj_PKey::okey>() const { return LiveImpliedQuoteAdj_PKey::okey{m_okey}; }
     
@@ -1549,6 +1615,8 @@ namespace api {
         o << ",\"calc_err\":\"" << m.get<LiveImpliedQuoteAdj::calc_err>() << "\"";
         o << ",\"calc_source\":" << (int64_t)m.get<LiveImpliedQuoteAdj::calc_source>();
         o << ",\"u_prc_adj_result\":" << (int64_t)m.get<LiveImpliedQuoteAdj::u_prc_adj_result>();
+        o << ",\"src_timestamp\":" << m.get<LiveImpliedQuoteAdj::src_timestamp>();
+        o << ",\"net_timestamp\":" << m.get<LiveImpliedQuoteAdj::net_timestamp>();
         {
             std::time_t tt = m.get<LiveImpliedQuoteAdj::timestamp>().time_since_epoch().count() / 1'000'000'000;
 			struct tm tm1{};
