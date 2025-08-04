@@ -1430,8 +1430,8 @@ private:
 		Int cumAskSize;
 		OptExch bidExch;
 		OptExch askExch;
-		UInt bidMask;
-		UInt askMask;
+		Long bidMask;
+		Long askMask;
 		OptMktType bidMktType;
 		OptMktType askMktType;
 		Float bidPrice2;
@@ -1465,8 +1465,8 @@ public:
 	inline Int cumAskSize() const { return layout_.cumAskSize; }
 	inline OptExch bidExch() const { return layout_.bidExch; }
 	inline OptExch askExch() const { return layout_.askExch; }
-	inline UInt bidMask() const { return layout_.bidMask; }
-	inline UInt askMask() const { return layout_.askMask; }
+	inline Long bidMask() const { return layout_.bidMask; }
+	inline Long askMask() const { return layout_.askMask; }
 	inline OptMktType bidMktType() const { return layout_.bidMktType; }
 	inline OptMktType askMktType() const { return layout_.askMktType; }
 	inline Float bidPrice2() const { return layout_.bidPrice2; }
@@ -1610,8 +1610,8 @@ private:
 		Int cumAskSize;
 		Int cumBidSize2;
 		Int cumAskSize2;
-		UInt bidMask;
-		UInt askMask;
+		Long bidMask;
+		Long askMask;
 		PrtSide prtSide;
 		Long prtTimestamp;
 		Long netTimestamp;
@@ -1660,8 +1660,8 @@ public:
 	inline Int cumAskSize() const { return layout_.cumAskSize; }
 	inline Int cumBidSize2() const { return layout_.cumBidSize2; }
 	inline Int cumAskSize2() const { return layout_.cumAskSize2; }
-	inline UInt bidMask() const { return layout_.bidMask; }
-	inline UInt askMask() const { return layout_.askMask; }
+	inline Long bidMask() const { return layout_.bidMask; }
+	inline Long askMask() const { return layout_.askMask; }
 	inline PrtSide prtSide() const { return layout_.prtSide; }
 	inline Long prtTimestamp() const { return layout_.prtTimestamp; }
 	inline Long netTimestamp() const { return layout_.netTimestamp; }
@@ -2350,9 +2350,13 @@ private:
 		Currency strikeCurr;
 		TickerKey defaultSurfaceRoot;
 		String<6> ricRoot;
+		String<6> bbgRoot;
+		BbgYrCode bbgYrCode;
+		YellowKey bbgGroup;
 		TickerKey regionalCompositeRoot;
 		DateTime timestamp;
 		PricingSource_V7 pricingSource_V7;
+		String<6> ricCode_V7;
 	};
 	
 	Header header_;
@@ -2408,9 +2412,13 @@ public:
 	inline Currency strikeCurr() const { return layout_.strikeCurr; }
 	inline const TickerKey& defaultSurfaceRoot() const { return layout_.defaultSurfaceRoot; }
 	inline const String<6>& ricRoot() const { return layout_.ricRoot; }
+	inline const String<6>& bbgRoot() const { return layout_.bbgRoot; }
+	inline BbgYrCode bbgYrCode() const { return layout_.bbgYrCode; }
+	inline YellowKey bbgGroup() const { return layout_.bbgGroup; }
 	inline const TickerKey& regionalCompositeRoot() const { return layout_.regionalCompositeRoot; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	inline PricingSource_V7 pricingSource_V7() const { return layout_.pricingSource_V7; }
+	inline const String<6>& ricCode_V7() const { return layout_.ricCode_V7; }
 	
 	inline void Decode(Header* buf) 
 	{
@@ -2660,8 +2668,8 @@ private:
 		Int askSize2;
 		OptExch bidExch1;
 		OptExch askExch1;
-		UInt bidMask1;
-		UInt askMask1;
+		Long bidMask1;
+		Long askMask1;
 		DateTime bidTime;
 		DateTime askTime;
 		Int printVolume;
@@ -2699,8 +2707,8 @@ public:
 	inline Int askSize2() const { return layout_.askSize2; }
 	inline OptExch bidExch1() const { return layout_.bidExch1; }
 	inline OptExch askExch1() const { return layout_.askExch1; }
-	inline UInt bidMask1() const { return layout_.bidMask1; }
-	inline UInt askMask1() const { return layout_.askMask1; }
+	inline Long bidMask1() const { return layout_.bidMask1; }
+	inline Long askMask1() const { return layout_.askMask1; }
 	inline DateTime bidTime() const { return layout_.bidTime; }
 	inline DateTime askTime() const { return layout_.askTime; }
 	inline Int printVolume() const { return layout_.printVolume; }
@@ -3215,20 +3223,20 @@ private:
 		Float bidPrice1;
 		Int bidSize1;
 		StkExch bidExch1;
-		UInt bidMask1;
+		Long bidMask1;
 		Float askPrice1;
 		Int askSize1;
 		StkExch askExch1;
-		UInt askMask1;
+		Long askMask1;
 		Float bidPrice2;
 		Int bidSize2;
 		StkExch bidExch2;
-		UInt bidMask2;
+		Long bidMask2;
 		Float askPrice2;
 		Int askSize2;
 		StkExch askExch2;
-		UInt askMask2;
-		UInt haltMask;
+		Long askMask2;
+		Long haltMask;
 		Long srcTimestamp;
 		Long netTimestamp;
 	};
@@ -3250,20 +3258,20 @@ public:
 	inline Float bidPrice1() const { return layout_.bidPrice1; }
 	inline Int bidSize1() const { return layout_.bidSize1; }
 	inline StkExch bidExch1() const { return layout_.bidExch1; }
-	inline UInt bidMask1() const { return layout_.bidMask1; }
+	inline Long bidMask1() const { return layout_.bidMask1; }
 	inline Float askPrice1() const { return layout_.askPrice1; }
 	inline Int askSize1() const { return layout_.askSize1; }
 	inline StkExch askExch1() const { return layout_.askExch1; }
-	inline UInt askMask1() const { return layout_.askMask1; }
+	inline Long askMask1() const { return layout_.askMask1; }
 	inline Float bidPrice2() const { return layout_.bidPrice2; }
 	inline Int bidSize2() const { return layout_.bidSize2; }
 	inline StkExch bidExch2() const { return layout_.bidExch2; }
-	inline UInt bidMask2() const { return layout_.bidMask2; }
+	inline Long bidMask2() const { return layout_.bidMask2; }
 	inline Float askPrice2() const { return layout_.askPrice2; }
 	inline Int askSize2() const { return layout_.askSize2; }
 	inline StkExch askExch2() const { return layout_.askExch2; }
-	inline UInt askMask2() const { return layout_.askMask2; }
-	inline UInt haltMask() const { return layout_.haltMask; }
+	inline Long askMask2() const { return layout_.askMask2; }
+	inline Long haltMask() const { return layout_.haltMask; }
 	inline Long srcTimestamp() const { return layout_.srcTimestamp; }
 	inline Long netTimestamp() const { return layout_.netTimestamp; }
 	
@@ -3986,6 +3994,7 @@ private:
 		String<8> exchString;
 		YesNo hasOptions;
 		Int numOptions;
+		Int roundlot;
 		Long sharesOutstanding;
 		OTCPrimaryMarket otcPrimaryMarket;
 		OTCTier otcTier;
@@ -4047,6 +4056,7 @@ public:
 	inline const String<8>& exchString() const { return layout_.exchString; }
 	inline YesNo hasOptions() const { return layout_.hasOptions; }
 	inline Int numOptions() const { return layout_.numOptions; }
+	inline Int roundlot() const { return layout_.roundlot; }
 	inline Long sharesOutstanding() const { return layout_.sharesOutstanding; }
 	inline OTCPrimaryMarket otcPrimaryMarket() const { return layout_.otcPrimaryMarket; }
 	inline OTCTier otcTier() const { return layout_.otcTier; }

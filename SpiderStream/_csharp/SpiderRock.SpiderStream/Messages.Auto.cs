@@ -1791,7 +1791,7 @@ public partial class LiveRevConQuote : IMessage
     public double UPrc { get => body.uPrc; set => body.uPrc = value; }
      
     public float AtmVol { get => body.atmVol; set => body.atmVol = value; }
-     /// <summary>number of volatility years to exiry date (volatility time metric)</summary>
+     /// <summary>number of volatility years to expiry date (volatility time metric)</summary>
     public float Years { get => body.years; set => body.years = value; }
      /// <summary>global rate (average discount rate) to expiry date</summary>
     public float GlobalRate { get => body.globalRate; set => body.globalRate = value; }
@@ -3601,8 +3601,8 @@ public partial class OptionNbboQuote : IMessage
 		public int cumAskSize;
 		public OptExch bidExch;
 		public OptExch askExch;
-		public uint bidMask;
-		public uint askMask;
+		public long bidMask;
+		public long askMask;
 		public OptMktType bidMktType;
 		public OptMktType askMktType;
 		public float bidPrice2;
@@ -3636,9 +3636,9 @@ public partial class OptionNbboQuote : IMessage
      /// <summary>first (or largest remaining) exchange at ask price</summary>
     public OptExch AskExch { get => body.askExch; set => body.askExch = value; }
      /// <summary>exchange bid bit mask</summary>
-    public uint BidMask { get => body.bidMask; set => body.bidMask = value; }
+    public long BidMask { get => body.bidMask; set => body.bidMask = value; }
      /// <summary>exchange ask bit mask</summary>
-    public uint AskMask { get => body.askMask; set => body.askMask = value; }
+    public long AskMask { get => body.askMask; set => body.askMask = value; }
      /// <summary>bid side quote flags (if any)</summary>
     public OptMktType BidMktType { get => body.bidMktType; set => body.bidMktType = value; }
      /// <summary>ask side quote flags (if any)</summary>
@@ -4084,8 +4084,8 @@ public partial class OptionPrint : IMessage
 		public int cumAskSize;
 		public int cumBidSize2;
 		public int cumAskSize2;
-		public uint bidMask;
-		public uint askMask;
+		public long bidMask;
+		public long askMask;
 		public PrtSide prtSide;
 		public long prtTimestamp;
 		public long netTimestamp;
@@ -4154,9 +4154,9 @@ public partial class OptionPrint : IMessage
      /// <summary>cumulative size at 2nd price</summary>
     public int CumAskSize2 { get => body.cumAskSize2; set => body.cumAskSize2 = value; }
      /// <summary>exchange bid bit mask</summary>
-    public uint BidMask { get => body.bidMask; set => body.bidMask = value; }
+    public long BidMask { get => body.bidMask; set => body.bidMask = value; }
      /// <summary>exchange ask bit mask</summary>
-    public uint AskMask { get => body.askMask; set => body.askMask = value; }
+    public long AskMask { get => body.askMask; set => body.askMask = value; }
      /// <summary>implied print side (based on ebid/eask and nbbo market)</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
      /// <summary>exchange high precision timestamp (if available)</summary>
@@ -5803,9 +5803,13 @@ public partial class RootDefinition : IMessage
 		public Currency strikeCurr;
 		public TickerKeyLayout defaultSurfaceRoot;
 		public FixedString6Layout ricRoot;
+		public FixedString6Layout bbgRoot;
+		public BbgYrCode bbgYrCode;
+		public YellowKey bbgGroup;
 		public TickerKeyLayout regionalCompositeRoot;
 		public DateTimeLayout timestamp;
 		public PricingSource_V7 pricingSource_V7;
+		public FixedString6Layout ricCode_V7;
     }
 
     internal BodyLayout body;
@@ -5890,12 +5894,20 @@ public partial class RootDefinition : IMessage
     public TickerKey DefaultSurfaceRoot { get => TickerKey.GetCreateTickerKey(body.defaultSurfaceRoot); set => body.defaultSurfaceRoot = value.Layout; }
      /// <summary>RIC Root</summary>
     public string RicRoot { get => body.ricRoot; set => body.ricRoot = value; }
+     /// <summary>Bloomberg root</summary>
+    public string BbgRoot { get => body.bbgRoot; set => body.bbgRoot = value; }
+     /// <summary>Format for the year field in the Bloomberg Code</summary>
+    public BbgYrCode BbgYrCode { get => body.bbgYrCode; set => body.bbgYrCode = value; }
+     /// <summary>Bloomberg Yellow Key</summary>
+    public YellowKey BbgGroup { get => body.bbgGroup; set => body.bbgGroup = value; }
      /// <summary>regional composite ticker - set on European contributor products only</summary>
     public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
     public PricingSource_V7 PricingSource_V7 { get => body.pricingSource_V7; set => body.pricingSource_V7 = value; }
+     /// <summary>only V7</summary>
+    public string RicCode_V7 { get => body.ricCode_V7; set => body.ricCode_V7 = value; }
 
 
 } // RootDefinition
@@ -6471,8 +6483,8 @@ public partial class SpreadBookQuote : IMessage
 		public int askSize2;
 		public OptExch bidExch1;
 		public OptExch askExch1;
-		public uint bidMask1;
-		public uint askMask1;
+		public long bidMask1;
+		public long askMask1;
 		public DateTimeLayout bidTime;
 		public DateTimeLayout askTime;
 		public int printVolume;
@@ -6517,9 +6529,9 @@ public partial class SpreadBookQuote : IMessage
      /// <summary>exchange at ask price with the largest size (if any)</summary>
     public OptExch AskExch1 { get => body.askExch1; set => body.askExch1 = value; }
      /// <summary>exchange bid bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)</summary>
-    public uint BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
+    public long BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
      /// <summary>exchange ask bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)</summary>
-    public uint AskMask1 { get => body.askMask1; set => body.askMask1 = value; }
+    public long AskMask1 { get => body.askMask1; set => body.askMask1 = value; }
      /// <summary>last bid price or size change</summary>
     public DateTime BidTime { get => body.bidTime; set => body.bidTime = value; }
      /// <summary>last ask price or size change</summary>
@@ -7885,20 +7897,20 @@ public partial class StockBookQuote : IMessage
 		public float bidPrice1;
 		public int bidSize1;
 		public StkExch bidExch1;
-		public uint bidMask1;
+		public long bidMask1;
 		public float askPrice1;
 		public int askSize1;
 		public StkExch askExch1;
-		public uint askMask1;
+		public long askMask1;
 		public float bidPrice2;
 		public int bidSize2;
 		public StkExch bidExch2;
-		public uint bidMask2;
+		public long bidMask2;
 		public float askPrice2;
 		public int askSize2;
 		public StkExch askExch2;
-		public uint askMask2;
-		public uint haltMask;
+		public long askMask2;
+		public long haltMask;
 		public long srcTimestamp;
 		public long netTimestamp;
     }
@@ -7916,7 +7928,7 @@ public partial class StockBookQuote : IMessage
      
     public StkExch BidExch1 { get => body.bidExch1; set => body.bidExch1 = value; }
      /// <summary>bid exchange bit mask for best bid price level</summary>
-    public uint BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
+    public long BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
      /// <summary>ask price for best price level</summary>
     public float AskPrice1 { get => body.askPrice1; set => body.askPrice1 = value; }
      /// <summary>ask size for best price level</summary>
@@ -7924,7 +7936,7 @@ public partial class StockBookQuote : IMessage
      /// <summary>exchange</summary>
     public StkExch AskExch1 { get => body.askExch1; set => body.askExch1 = value; }
      /// <summary>ask exchange bit mask for best ask price level</summary>
-    public uint AskMask1 { get => body.askMask1; set => body.askMask1 = value; }
+    public long AskMask1 { get => body.askMask1; set => body.askMask1 = value; }
      /// <summary>bid price for next best price level</summary>
     public float BidPrice2 { get => body.bidPrice2; set => body.bidPrice2 = value; }
      /// <summary>bid size for next best price level</summary>
@@ -7932,7 +7944,7 @@ public partial class StockBookQuote : IMessage
      /// <summary>exchange</summary>
     public StkExch BidExch2 { get => body.bidExch2; set => body.bidExch2 = value; }
      /// <summary>bid exchange bit mask for next best bid price level</summary>
-    public uint BidMask2 { get => body.bidMask2; set => body.bidMask2 = value; }
+    public long BidMask2 { get => body.bidMask2; set => body.bidMask2 = value; }
      /// <summary>ask price for next best price level</summary>
     public float AskPrice2 { get => body.askPrice2; set => body.askPrice2 = value; }
      /// <summary>ask size for next best price level</summary>
@@ -7940,9 +7952,9 @@ public partial class StockBookQuote : IMessage
      /// <summary>exchange</summary>
     public StkExch AskExch2 { get => body.askExch2; set => body.askExch2 = value; }
      /// <summary>ask exchange bit mask for next best ask price level</summary>
-    public uint AskMask2 { get => body.askMask2; set => body.askMask2 = value; }
+    public long AskMask2 { get => body.askMask2; set => body.askMask2 = value; }
      /// <summary>bit mask of halted exchanges</summary>
-    public uint HaltMask { get => body.haltMask; set => body.haltMask = value; }
+    public long HaltMask { get => body.haltMask; set => body.haltMask = value; }
      /// <summary>source high precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
      /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
@@ -9916,6 +9928,7 @@ public partial class TickerDefinitionExt : IMessage
 		public FixedString8Layout exchString;
 		public YesNo hasOptions;
 		public int numOptions;
+		public int roundlot;
 		public long sharesOutstanding;
 		public OTCPrimaryMarket otcPrimaryMarket;
 		public OTCTier otcTier;
@@ -10003,6 +10016,8 @@ public partial class TickerDefinitionExt : IMessage
     public YesNo HasOptions { get => body.hasOptions; set => body.hasOptions = value; }
      /// <summary>total number of listed options</summary>
     public int NumOptions { get => body.numOptions; set => body.numOptions = value; }
+     /// <summary>round lot</summary>
+    public int Roundlot { get => body.roundlot; set => body.roundlot = value; }
      /// <summary>symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)</summary>
     public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
      
