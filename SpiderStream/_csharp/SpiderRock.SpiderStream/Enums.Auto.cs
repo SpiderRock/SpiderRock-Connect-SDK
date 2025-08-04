@@ -14,6 +14,7 @@ public enum AdjConvention : byte { None=0,Original=1,OSI=2,SpcOnly=3,OSIAlt=4 };
  public enum AuctionReason : byte { None=0,Open=1,Market=2,Halt=3,Closing=4,RegulatoryImbalance=5 };		
  public enum AuctionStatus : byte { None=0,WillRunOpenAndClose=1,WillRunInterest=2,WillNotRunImbalance=3,WillNotRunClsAuction=4 };		
  public enum AuctionType : byte { None=0,Exposure=1,Improvement=2,Facilitation=3,Solicitation=4,Opening=5,Closing=6,RFQ=7,Block=8,Flash=9 };		
+ public enum BbgYrCode : byte { None=0,OneDigit=1,TwoDigit=2,FourDigit=3,OneDigitWeekly=4,TwoDigitWeekly=5,FourDigitWeekly=6,OneDigitDec=7,TwoDigitDec=8,FourDigitDec=9,OneDigitWeeklyDec=10,TwoDigitWeeklyDec=11,FourDigitWeeklyDec=12 };		
  public enum BuySell : byte { None=0,Buy=1,Sell=2 };		
  public enum CalcPriceType : byte { None=0,Equity=1,Future=2 };		
  public enum CalcSource : byte { None=0,Tick=1,Loop=2 };		
