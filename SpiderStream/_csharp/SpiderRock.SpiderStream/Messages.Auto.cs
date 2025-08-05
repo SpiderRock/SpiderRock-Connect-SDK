@@ -5898,7 +5898,6 @@ public partial class RootDefinition : IMessage
     public string BbgRoot { get => body.bbgRoot; set => body.bbgRoot = value; }
      /// <summary>Format for the year field in the Bloomberg Code</summary>
     public BbgYrCode BbgYrCode { get => body.bbgYrCode; set => body.bbgYrCode = value; }
-
      /// <summary>Bloomberg Yellow Key</summary>
     public YellowKey BbgGroup { get => body.bbgGroup; set => body.bbgGroup = value; }
      /// <summary>regional composite ticker - set on European contributor products only</summary>
