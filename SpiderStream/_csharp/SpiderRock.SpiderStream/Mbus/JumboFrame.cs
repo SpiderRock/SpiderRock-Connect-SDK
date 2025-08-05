@@ -25,6 +25,7 @@ internal sealed class JumboFrame : IDisposable
     int appId;
     int id;
     int count;
+    int offset;
 
     public JumboFrame(string channel)
     {
@@ -78,11 +79,12 @@ internal sealed class JumboFrame : IDisposable
             {
                 // dispatch
 
-                int msgLength = header.index * Fragment.MaxPayloadLength + payload.Length;
+                payload.CopyTo(fragments[offset..]);
 
-                payload.CopyTo(fragments[(Unsafe.SizeOf<Fragment>() * header.index)..]);
+                offset += payload.Length;
 
-                fullFrame = buffer.Memory.Span[..msgLength];
+                fullFrame = buffer.Memory.Span[..offset];
+
                 return true;
             }
             else
@@ -90,36 +92,31 @@ internal sealed class JumboFrame : IDisposable
                 SRTrace.Net.JumboFrames.TraceError($"Received out-of-order fragment from app ID {appId} on channel {channel} [expected={{{GetStateSnapshot()}}}, fromHeader={{{GetStateSnapshot(ref header)}}}]");
             }
         }
-        else if (frameFragment.Length == Unsafe.SizeOf<Fragment>())
+        else if (header.index == 0)
         {
-            // append
+            appId = header.appID;
+            pid = header.pid;
+            id = header.id;
+            count = header.count - 1;
 
-            if (header.index == 0)
-            {
-                appId = header.appID;
-                pid = header.pid;
-                id = header.id;
-                count = header.count - 1;
+            payload.CopyTo(fragments);
+            offset = payload.Length;
+        }
+        else if (header.pid == pid && header.id == id)
+        {
+            count -= 1;
 
-                payload.CopyTo(fragments);
-            }
-            else if (header.pid == pid && header.id == id)
-            {
-                count -= 1;
+            payload.CopyTo(fragments[offset..]);
 
-                payload.CopyTo(fragments[(Unsafe.SizeOf<Fragment>() * header.index)..]);
-            }
-            else
-            {
-                SRTrace.Net.JumboFrames.TraceError($"Received mismatched PID/message ID from app ID {appId} on channel {channel} [expected={{{GetStateSnapshot()}}}, fromHeader={{{GetStateSnapshot(ref header)}}}]");
-            }
+            offset += payload.Length;
         }
         else
         {
-            SRTrace.Net.JumboFrames.TraceError($"Received tail fragment with unexpected index/count from app ID {appId} on channel {channel} [expected={{{GetStateSnapshot()}}}, fromHeader={{{GetStateSnapshot(ref header)}}}]");
+            SRTrace.Net.JumboFrames.TraceError($"Received mismatched PID/message ID from app ID {appId} on channel {channel} [expected={{{GetStateSnapshot()}}}, fromHeader={{{GetStateSnapshot(ref header)}}}]");
         }
 
         fullFrame = default;
+
         return false;
     }
 
