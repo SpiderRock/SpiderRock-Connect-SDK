@@ -49,7 +49,7 @@ message AuctionNoticeBX {
     FirmType cust_firm_type = 117; // cust firm type (if disclosed)
     string cust_agent_mPID = 118; // cust agent exchange member initiating the auction (if disclosed)
     string cust_client_firm = 119; // cust client firm (if disclosed)
-    float comm_enhancement = 120; // additional commission (if any) paid by responder
+    float notice_commission = 146; // total responder auction commission (flash only)
     YesNo cust_comm_paying = 121; // client is commission paying (to the responder)
     CustQtyCond cust_qty_cond = 122; // UpToQty, AllOrNone, QtyOrMore
     int32 auction_duration = 123; // [expected] auction duration (in milliseconds)

@@ -37,8 +37,8 @@ message SpreadBookQuote {
     int32 ask_size2 = 136; // cumulative size at 2nd price
     OptExch bid_exch1 = 139; // exchange at bid price with the largest size (if any)
     OptExch ask_exch1 = 142; // exchange at ask price with the largest size (if any)
-    uint32 bid_mask1 = 145; // exchange bid bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
-    uint32 ask_mask1 = 148; // exchange ask bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
+    int64 bid_mask1 = 169; // exchange bid bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
+    int64 ask_mask1 = 170; // exchange ask bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
     google.protobuf.Timestamp bid_time = 151; // last bid price or size change
     google.protobuf.Timestamp ask_time = 154; // last ask price or size change
     int32 print_volume = 168;

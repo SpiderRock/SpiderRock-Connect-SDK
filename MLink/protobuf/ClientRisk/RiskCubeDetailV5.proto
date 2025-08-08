@@ -147,6 +147,7 @@ message RiskCubeDetailV5 {
     float i_vol_move = 445; // Implied vol change (fixed strike ivol change from prior period)
     float ex_div_amt = 448; // estimated exDiv amount (if any)
     float borrow_rate = 451; // estimated stock borrow rate (if any)
+    double cur_mid_mark = 508; // current mid market price
     int32 model_type = 454; // SRPricingLib.CalcModelType
     int32 underliers_per_cn = 457; // underliers per contract
     UnderlierType underlier_type = 460; // underlier type (used for option pricing)

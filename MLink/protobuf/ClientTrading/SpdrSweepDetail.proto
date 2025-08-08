@@ -40,16 +40,16 @@ message SpdrSweepDetail {
     int32 nbbo_ask_size1 = 151;
     int32 nbbo_bid_cnt1 = 154;
     int32 nbbo_ask_cnt1 = 157;
-    uint32 nbbo_bid_mask1 = 160;
-    uint32 nbbo_ask_mask1 = 163;
+    int64 nbbo_bid_mask1 = 195;
+    int64 nbbo_ask_mask1 = 196;
     double nbbo_bid2 = 166;
     double nbbo_ask2 = 169;
     int32 nbbo_bid_size2 = 172;
     int32 nbbo_ask_size2 = 175;
     int32 nbbo_bid_cnt2 = 178;
     int32 nbbo_ask_cnt2 = 181;
-    uint32 nbbo_bid_mask2 = 184;
-    uint32 nbbo_ask_mask2 = 187;
+    int64 nbbo_bid_mask2 = 197;
+    int64 nbbo_ask_mask2 = 198;
     int64 net_timestamp = 190;
     google.protobuf.Timestamp timestamp = 193;
 }

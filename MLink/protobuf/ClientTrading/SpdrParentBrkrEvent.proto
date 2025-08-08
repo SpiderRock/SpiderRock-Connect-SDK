@@ -104,7 +104,7 @@ message SpdrParentBrkrEvent {
     SpdrKeyType hedge_sec_type = 349; // auto-hedge sec type
     float theo_opx = 352; // option theo prc (from theoVol)
     float theo_vol = 355; // option theo vol (from theoModel;if any)
-    uint32 child_order_mask = 358; // bit-mask of all exchange for which a child order was generated
+    int64 child_order_mask = 374; // bit-mask of all exchange for which a child order was generated
     PriceFormat price_format = 361; // price display format code
     PriceFormat u_price_format = 364; // underlier price display format code
     string user_name = 367; // user associated with the most recent parent order

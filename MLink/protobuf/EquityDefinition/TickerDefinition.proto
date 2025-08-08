@@ -31,7 +31,7 @@ message TickerDefinition {
     string name = 106; // Symbol name
     string country = 109; // ISO Issuer Country Code
     Currency primary_currency = 254;
-    RateCurve rate_curve = 255;
+    RateSource rate_source = 264;
     float par_value = 112; // Security Parvalue
     string par_value_currency = 115; // Security Parvalue currency
     float point_value = 118;
@@ -63,6 +63,7 @@ message TickerDefinition {
     string bbg_composite_global_iD = 196; // Bloomberg Composite Global ID
     string bbg_global_iD = 199; // Bloomberg Global ID
     string bbg_currency = 202; // Bloomberg Trading Currency
+    int32 roundlot = 265; // round lot
     OTCPrimaryMarket otc_primary_market = 205;
     OTCTier otc_tier = 208;
     string otc_reporting_status = 211;
@@ -84,6 +85,7 @@ message TickerDefinition {
     TradingPeriod trading_period = 259; // trading period code (defines 24-hour trading period start/stop)
     TickerKey regional_composite_ticker = 263; // regional composite ticker - set on European contributor products only
     google.protobuf.Timestamp timestamp = 253;
+    string default_root = 266; // Default Root selected for Index Options
     repeated Exchange exchange = 260;
 }
 

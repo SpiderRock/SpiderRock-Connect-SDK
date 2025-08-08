@@ -30,6 +30,11 @@ message UserAuctionFilter {
         TickerKey ticker = 107;
     }
 
+    message Expiries {
+        
+        DateKey expiry = 163; // must match one of expirations included in repeating group, if Expiries repeating group is non-empty
+    }
+
     message IncludeTicker {
         
         TickerKey ticker = 105;
@@ -73,6 +78,9 @@ message UserAuctionFilter {
     YesNo has_atm_sDiv_filter = 133; // if Yes use fields: minAtmSDiv, maxAtmSDiv
     float min_atm_sDiv = 134;
     float max_atm_sDiv = 135;
+    YesNo has_strike_filters = 159; // if Yes use fields: minStrike, maxStrike
+    double min_strike = 160;
+    double max_strike = 161;
     YesNo has_expiry_days = 136; // if Yes use fields: minExpiryDays, maxExpiryDays
     int32 min_expiry_days = 137; // min days to expiration
     int32 max_expiry_days = 138; // max days to expiration
@@ -94,6 +102,7 @@ message UserAuctionFilter {
     repeated AuctionSources auction_sources = 112;
     repeated AuctionTypes auction_types = 110;
     repeated ExcludeTicker exclude_ticker = 106;
+    repeated Expiries expiries = 162;
     repeated IncludeTicker include_ticker = 104;
     repeated Industry industry = 102;
     repeated SpreadClasses spread_classes = 157;

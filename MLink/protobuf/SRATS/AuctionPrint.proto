@@ -39,10 +39,10 @@ message AuctionPrint {
         YesNo s_vol_ok = 184; // Yes if live market and sVol are tracking as expected
         float bid = 193; // Leg bid price
         int32 bid_sz = 194; // cumulative leg bid size
-        uint32 bid_mask = 195; // bit-mask of participating exchanges
+        int64 bid_mask = 201; // bit-mask of participating exchanges
         float ask = 196; // leg ask price
         int32 ask_sz = 197; // cumulative leg ask size
-        uint32 ask_mask = 198; // bit-mask of participating exchanges
+        int64 ask_mask = 202; // bit-mask of participating exchanges
     }
 
 
@@ -77,9 +77,9 @@ message AuctionPrint {
     float net_ga = 143;
     float net_th = 144;
     float net_ve = 145;
-    float pkg_surf_prc = 161; // SR Surface Price (entire package)
-    float pkg_bid_prc = 162; // pkg bid price (best way price) (entire package)
-    float pkg_ask_prc = 163; // pkg ask price (best way price) (entire package)
+    float pkg_surf_prc = 161; // SR Surface Price (entire package) from AuctionNotice
+    float pkg_bid_prc = 162; // pkg bid price (best way price) (entire package) from AuctionNotice
+    float pkg_ask_prc = 163; // pkg ask price (best way price) (entire package) from AuctionNotice
     double prt_price = 121; // reported OPRA print price (pkgPrice if MLeg)
     double prt_price2 = 122; // if reported as 2 separate prints at different prices (ie, partial size improvement, multiple responders)
     int32 prt_size = 123; // reported OPRA print size (pkgSize if MLeg)
@@ -93,10 +93,10 @@ message AuctionPrint {
     float prt_surf_prc = 131; // surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
     float bid_prc = 132; // option nbbo bid @ auction print time
     int32 bid_sz = 133; // nbbo bid cum size
-    uint32 bid_mask = 134; // nbbo bid exch mask
+    int64 bid_mask = 199; // nbbo bid exch mask
     float ask_prc = 135; // option nbbo ask @ auction print time
     int32 ask_sz = 136; // nbbo ask cum size
-    uint32 ask_mask = 137; // nbbo ask exch mask
+    int64 ask_mask = 200; // nbbo ask exch mask
     float exch_bid_prc = 138; // exch bid @ auction print time
     int32 exch_bid_sz = 139; // exch bid size
     float exch_ask_prc = 140; // exch ask @ auction print time

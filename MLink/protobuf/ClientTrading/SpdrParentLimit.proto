@@ -59,7 +59,7 @@ message SpdrParentLimit {
     float make_surf_width_offset = 190; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
     float order_ref_event_mult = 193;
     google.protobuf.Timestamp order_ref_event_dttm = 196;
-    uint32 exch_mask = 199; // eligible exchanges (0 = all), a non-zero mask must be in the subset of the SpdrParentOrder exchMask
+    int64 exch_mask = 416; // eligible exchanges (0 = all), a non-zero mask must be in the subset of the SpdrParentOrder exchMask
     UPrcCxl cxl_uPrc_range = 401; // cancel parent order if/when outside the uPrice range [ _Halt = also cancel if halted ]
     float min_uBid = 402; // [optional]
     float max_uAsk = 403; // [optional] (< $0.01 = none)

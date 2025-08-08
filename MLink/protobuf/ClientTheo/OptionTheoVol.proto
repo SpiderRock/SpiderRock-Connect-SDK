@@ -63,6 +63,8 @@ message OptionTheoVol {
     string theo_err = 220;
     string calc_err = 223;
     TheoStatus theo_status = 226;
+    int64 quote_timestamp = 230; // SR timestamp @ OptionNbboQuote publish time
+    int64 liq_timestamp = 231; // SR timestamp @ LiveImpliedQuote publish time
     google.protobuf.Timestamp timestamp = 229;
 }
 

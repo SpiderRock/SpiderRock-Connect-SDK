@@ -54,7 +54,7 @@ message SpdrMLegBrkrState {
     PriceFormat u_price_format = 166; // underlier price format code
     float stock_cpx = 169; // [child] best price
     int32 stock_csz = 172; // [child] cumulative share represented at best price
-    uint32 stock_cex = 175; // [child] bit mask of all exchanges where we are representing this order
+    int64 stock_cex = 1154; // [child] bit mask of all exchanges where we are representing this order
     int32 num_legs = 178; // number of valid legs below
     OptionKey sec_key1 = 181; // leg #1
     SpdrKeyType sec_type1 = 184;
@@ -72,7 +72,7 @@ message SpdrMLegBrkrState {
     PriceFormat price_format1 = 220; // option price format code
     float leg_cpx1 = 223; // [child] best price
     int32 leg_csz1 = 226; // [child] cumulative share represented at best price
-    uint32 leg_cex1 = 229; // [child] bit mask of all exchanges where we are representing this order
+    int64 leg_cex1 = 1155; // [child] bit mask of all exchanges where we are representing this order
     OptionKey sec_key2 = 232; // leg #2
     SpdrKeyType sec_type2 = 235;
     uint32 ratio2 = 238;
@@ -89,7 +89,7 @@ message SpdrMLegBrkrState {
     PriceFormat price_format2 = 271; // option price format code
     float leg_cpx2 = 274; // [child] best price
     int32 leg_csz2 = 277; // [child] cumulative share represented at best price
-    uint32 leg_cex2 = 280; // [child] bit mask of all exchanges where we are representing this order
+    int64 leg_cex2 = 1156; // [child] bit mask of all exchanges where we are representing this order
     OptionKey sec_key3 = 283; // leg #3
     SpdrKeyType sec_type3 = 286;
     uint32 ratio3 = 289;
@@ -106,7 +106,7 @@ message SpdrMLegBrkrState {
     PriceFormat price_format3 = 322; // option price format code
     float leg_cpx3 = 325; // [child] best price
     int32 leg_csz3 = 328; // [child] cumulative share represented at best price
-    uint32 leg_cex3 = 331; // [child] bit mask of all exchanges where we are representing this order
+    int64 leg_cex3 = 1157; // [child] bit mask of all exchanges where we are representing this order
     OptionKey sec_key4 = 334; // leg #4
     SpdrKeyType sec_type4 = 337;
     uint32 ratio4 = 340;
@@ -123,7 +123,7 @@ message SpdrMLegBrkrState {
     PriceFormat price_format4 = 373; // option price format code
     float leg_cpx4 = 376; // [child] best price
     int32 leg_csz4 = 379; // [child] cumulative share represented at best price
-    uint32 leg_cex4 = 382; // [child] bit mask of all exchanges where we are representing this order
+    int64 leg_cex4 = 1158; // [child] bit mask of all exchanges where we are representing this order
     OptionKey sec_key5 = 385; // leg #5
     SpdrKeyType sec_type5 = 388;
     uint32 ratio5 = 391;
@@ -140,7 +140,7 @@ message SpdrMLegBrkrState {
     PriceFormat price_format5 = 424; // option price format code
     float leg_cpx5 = 427; // [child] best price
     int32 leg_csz5 = 430; // [child] cumulative share represented at best price
-    uint32 leg_cex5 = 433; // [child] bit mask of all exchanges where we are representing this order
+    int64 leg_cex5 = 1159; // [child] bit mask of all exchanges where we are representing this order
     OptionKey sec_key6 = 436; // leg #6
     SpdrKeyType sec_type6 = 439;
     uint32 ratio6 = 442;
@@ -157,7 +157,7 @@ message SpdrMLegBrkrState {
     PriceFormat price_format6 = 475; // option price format code
     float leg_cpx6 = 478; // [child] best price
     int32 leg_csz6 = 481; // [child] cumulative share represented at best price
-    uint32 leg_cex6 = 484; // [child] bit mask of all exchanges where we are representing this order
+    int64 leg_cex6 = 1160; // [child] bit mask of all exchanges where we are representing this order
     float mleg_vega = 487; // net vega per spread
     float mleg_wt_vega = 490; // net wt vega per spread
     float mleg_delta = 493; // net delta per spread
@@ -234,6 +234,7 @@ message SpdrMLegBrkrState {
     float order_ref_premium = 697; // reference premium (mleg orders only)
     string strategy = 700; // parent order strategy (description only)
     string user_name = 703; // user that entered the most recent parent order
+    YesNo visible_in_sV = 1161; // allow order to be visible in SV (do not use for high volume of orders)
     string spdr_comment = 709;
     ReachRule take_reach_rule = 712; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
     int32 max_exposure_size = 715; // maximum simultaneous cumulative child order public size exposure (-2 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 2]
@@ -243,7 +244,7 @@ message SpdrMLegBrkrState {
     int32 progress_slice_cnt = 727; // number of progress slices to use (default = 4 or 8) [max 20]
     int32 progress_expose_time = 730; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
     int32 max_child_orders = 733; // maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
-    uint32 exch_mask = 736; // eligible exchanges (0 = all)
+    int64 exch_mask = 1162; // eligible exchanges (0 = all)
     MarketSession market_session = 1045;
     google.protobuf.Timestamp start_dttm = 742; // [optional] (parent order start time)
     int32 order_duration = 745; // [optional] (number of seconds)
@@ -254,6 +255,7 @@ message SpdrMLegBrkrState {
     ParentBalanceHandling parent_balance_handling = 754;
     BlockVisibility block_visibility = 757;
     SpdrLimitType order_limit_type = 760;
+    double order_vol_limit = 761; // Applies if LimitType = Vol[]
     double order_prc_limit = 763; // Applies if LimitType = Prc[]
     double order_ref_uPrc = 766; // reference uPrc (PrcDe orders)
     float order_ref_de = 769; // reference delta (PrcDe orders)
@@ -312,12 +314,14 @@ message SpdrMLegBrkrState {
     float max_grp_day_rMetric1_sh = 1049; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
     float max_grp_day_rMetric1_abs = 1050; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
     float grp_day_rMetric1_ratio = 1051; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
+    RMetricSource ref_rMetric1_src = 1152;
+    float order_ref_rMetric1 = 1153; // user supplied RMetric1 value (used in RiskGroupID risk controls) [netRMetric1 = sum(fillQty * orderRefRMetric1 * underlierPerCn)]
     float cpx1 = 1000;
     int32 csz1 = 1003; // cumulative size represented at this price
-    uint32 cex1 = 1006; // bit mask of all exchanges where we are representing this order
+    int64 cex1 = 1163; // bit mask of all exchanges where we are representing this order
     float cpx2 = 1009;
     int32 csz2 = 1012; // cumulative size represented at this price
-    uint32 cex2 = 1015; // bit mask of all exchanges where we are representing this order
+    int64 cex2 = 1164; // bit mask of all exchanges where we are representing this order
     int32 c_more = 1018;
     int32 num_new_orders = 1021; // number of new child orders
     uint32 num_parent_limits = 1024; // number of parent limit messages received for this broker

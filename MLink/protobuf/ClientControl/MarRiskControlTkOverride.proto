@@ -8,7 +8,7 @@ package spiderrock.protobuf;
 import "google/protobuf/timestamp.proto";
 
 /*
-    MarRiskControlTkOverride records are used to establish ticker-specific risk controls SpiderRock execution engines.  These records are only viewable and editable by users belonging to the same riskFirm as the control records.
+    MarRiskControlTkOverride records are used to establish ticker-specific risk controls within SpiderRock execution engines.  These records are only viewable and editable by users belonging to the same riskFirm as the control records.
 */    
 message MarRiskControlTkOverride {
     message PKey {

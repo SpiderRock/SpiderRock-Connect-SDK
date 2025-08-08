@@ -73,6 +73,7 @@ message RootDefinition {
     TickerKey default_surface_root = 205; // fallback ticker to use for option surfaces if no native surfaces are available
     string ric_root = 218; // RIC Root
     string bbg_root = 227; // Bloomberg root
+    BbgYrCode bbg_yr_code = 229; // Format for the year field in the Bloomberg Code
     YellowKey bbg_group = 228; // Bloomberg Yellow Key
     TickerKey regional_composite_root = 225; // regional composite ticker - set on European contributor products only
     google.protobuf.Timestamp timestamp = 208;

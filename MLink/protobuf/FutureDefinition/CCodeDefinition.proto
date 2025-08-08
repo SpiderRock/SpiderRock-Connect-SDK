@@ -35,6 +35,7 @@ message CCodeDefinition {
     string clearing_code = 130; // GMI/Clearing code
     string ric_root = 164; // RIC Root
     string bbg_root = 136; // Bloomberg root
+    BbgYrCode bbg_yr_code = 166; // Format for the year field in the Bloomberg Code
     YellowKey bbg_group = 139; // Bloomberg Yellow Key
     string gmi_exchange = 142; // GMI (Sungard) exchange code
     string gmi_product = 145; // GMI (Sungard) product code

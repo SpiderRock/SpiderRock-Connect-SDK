@@ -45,10 +45,10 @@ message AuctionNotice {
         YesNo s_vol_ok = 168; // Yes if live market and sVol are tracking as expected
         float bid = 189; // leg bid price
         int32 bid_sz = 190; // cumulative leg bid size
-        uint32 bid_mask = 191; // bit-mask of participating leg exchanges
+        int64 bid_mask = 196; // bit-mask of participating leg exchanges
         float ask = 192; // leg ask price
         int32 ask_sz = 193; // cumulative leg ask size
-        uint32 ask_mask = 194; // bit-mask of participating leg exchanges
+        int64 ask_mask = 197; // bit-mask of participating leg exchanges
     }
 
 
@@ -75,7 +75,7 @@ message AuctionNotice {
     FirmType cust_firm_type = 162; // cust firm type (if disclosed)
     string cust_agent_mPID = 163; // cust agent exchange member initiating the auction (if disclosed)
     string cust_client_firm = 115; // cust client firm (if disclosed)
-    float comm_enhancement = 116; // additional commission (if any) paid by responder
+    float notice_commission = 195; // total responder auction commission (flash only)
     YesNo cust_comm_paying = 117; // client is commission paying (to the responder)
     CustQtyCond cust_qty_cond = 118; // UpToQty, AllOrNone, QtyOrMore
     int32 auction_duration = 119; // [expected] auction duration (in milliseconds)

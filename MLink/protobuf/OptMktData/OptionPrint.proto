@@ -49,8 +49,8 @@ message OptionPrint {
     int32 cum_ask_size = 175; // ask size in contracts (total nbbo size)
     int32 cum_bid_size2 = 178; // cumulative size at 2nd price
     int32 cum_ask_size2 = 181; // cumulative size at 2nd price
-    uint32 bid_mask = 184; // exchange bid bit mask
-    uint32 ask_mask = 187; // exchange ask bit mask
+    int64 bid_mask = 204; // exchange bid bit mask
+    int64 ask_mask = 205; // exchange ask bit mask
     PrtSide prt_side = 190; // implied print side (based on ebid/eask and nbbo market)
     int64 prt_timestamp = 193; // exchange high precision timestamp (if available)
     int64 net_timestamp = 196; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock

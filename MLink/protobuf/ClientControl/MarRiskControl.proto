@@ -32,7 +32,7 @@ message MarRiskControl {
     int32 max_day_fut_cn_bot = 177; // Day future contracts bot
     int32 max_day_fut_cn_sld = 178; // Day future contracts sld
     int32 max_day_fut_cn_abs = 179; // Maximum absolute (net) day future contracts
-    int32 order_max_stk_qty = 165; // Number of equity shares that can be bought or sold by a single parent order
+    int32 order_max_stk_qty = 165; // Number of equity shares that can be bought or sold by a single parent order. Has a maximum value of 100k
     int32 order_max_fut_qty = 166; // Number of futures contracts that can be bought or sold by a single parent order
     int32 order_max_opt_qty = 167; // Number of option contracts that can be bought or sold by a single parent order
     float order_max_stk_dDelta = 168; // Maximum (abs) mny per stock parent order; ddelta = 0.01 * shares * pointValue * midPrc

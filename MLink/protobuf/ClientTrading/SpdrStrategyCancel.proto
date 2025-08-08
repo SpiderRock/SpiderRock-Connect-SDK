@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records inserted into this table causes all orders for a given strategy to be cancelled
+*/    
+message SpdrStrategyCancel {
+    message PKey {
+        
+        string strategy = 10; // Strategy to cancel for this User/Accnt/ClientFirm
+        string user_name = 11; // SR User
+        string accnt = 12; // SR trading account
+        string client_firm = 13; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrSource spdr_source = 100;
+    string cxl_reason = 101;
+    string engine_name = 102;
+    string modified_by = 103;
+    SysEnvironment modified_in = 104;
+    google.protobuf.Timestamp timestamp = 105;
+}
+
+

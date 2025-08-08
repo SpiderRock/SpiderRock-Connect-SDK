@@ -129,11 +129,11 @@ message SpdrParentBrkrState {
     SpdrMarketState spdr_mkt_state = 373; // [enum] market state
     float cpx1 = 376; // child price level #1
     int32 csz1 = 379; // cumulative size represented at this price
-    uint32 cex1 = 382; // bit mask of all exchanges where we are at this price
+    int64 cex1 = 610; // bit mask of all exchanges where we are at this price
     int32 cnt1 = 385; // number of child orders at price level #1
     float cpx2 = 388; // child price level #2
     int32 csz2 = 391; // cumulative size represented at this price
-    uint32 cex2 = 394; // bit mask of all exchanges where we are at this price
+    int64 cex2 = 611; // bit mask of all exchanges where we are at this price
     int32 cnt2 = 397; // number of child orders at price level #2
     int32 c_more = 400; // number of additional child orders at inferior prices (if any)
     float cn_vol = 406;

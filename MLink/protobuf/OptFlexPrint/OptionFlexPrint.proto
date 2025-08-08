@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    The most recent (last) record for each active FLEX option.
+*/    
+message OptionFlexPrint {
+    message PKey {
+        
+        int64 event_id = 10; // unique FLEX event ID (guid)
+    }
+
+    message Legs {
+        
+        OptionKey okey = 113; // OptionKey of the instrument, if available
+        FlexType flex_type = 114; // European or American exercise, AM or PM exercise time
+        int32 quantity = 115; // quantity of contracts in this leg of the event
+        double price = 116; // price of this leg of the event, could be quoted in percentage of closing price
+        FlexPriceType price_type = 117; // price type of the event
+        double delta = 118; // delta supplied with the event for delta adjusted at close events
+        double ref_price = 119; // reference price of the event, for use in delta ajusting the final price
+        double close_price = 120; // close price used for both percentage adjusted and delta adjusted events
+        double price_adj = 121; // final adjusted price, made available after the event is marked as PctAdjApplied or DeltaAdjApplied
+        double strike_adj = 122; // final adjusted strike, made available after the event is marked PctAdjApplied
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptExch opt_exch = 100;
+    string exchange_id = 101; // identifier associated with this trade assigned by the exchange (may not be 100% reliable)
+    string flex_root = 102; // security symbol of the FLEX option
+    FlexClosureType closure_type = 103;
+    FlexPrintClosure print_closure = 104;
+    int32 total_qty = 105; // total quantity
+    double pkg_price = 106; // total price inclusive of all legs
+    string record_id_set = 107; // OPRA FLEX text line(s) contributing to this event [pipe delimited if more than one]
+    google.protobuf.Timestamp create_time = 108; // creation time of this event
+    google.protobuf.Timestamp modify_time = 109; // last modification time for this event
+    int32 num_legs = 110; // expected number of legs in complete package
+    YesNo legs_complete = 111;
+    repeated Legs legs = 112;
+}
+
+

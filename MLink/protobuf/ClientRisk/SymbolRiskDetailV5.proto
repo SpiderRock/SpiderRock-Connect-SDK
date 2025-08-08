@@ -33,7 +33,6 @@ message SymbolRiskDetailV5 {
     HoldReason hold_reason = 124; // User supplied description (only informational) [SymbolControl.holdReason]
     float binary_days = 127; // Fractional days [0 - 5.0] prior to expiration after which hedgeDeltas become binary [-1.0, -0.5, 0, +0.5, +1.0] [SymbolControl.binaryDays]
     google.protobuf.Timestamp ctrl_update = 130; // last update dttm of SymbolControl record [SymbolControl.timestamp]
-    google.protobuf.Timestamp period_end_time = 133; // DTTM of the end of the current trading period
     SymbolType symbol_type = 136; // SymbolType (Equity, ETF, ShortETF, ADR, CashIndex, FutureComplex)
     string name = 139; // Symbol name/description
     int32 industry = 142;

@@ -47,6 +47,7 @@ message OptionPositionRecordV5 {
     PriceFormat price_format = 154; // option price display format code
     PriceFormat u_price_format = 157; // underlier price display format code
     double u_prc = 160; // current underlier price (any market session) (persists if market closed/halted)
+    double spot_uPrc = 161; // current underlier spot price
     double u_bid = 163; // current underlier bid (any market session) (zero if market closed/halted)
     double u_ask = 166; // current underlier ask (any market session) (zero if market closed/halted)
     double u_mark = 169; // current underlier mark (usually mid market) (freezes at SR CloseMarkTime)

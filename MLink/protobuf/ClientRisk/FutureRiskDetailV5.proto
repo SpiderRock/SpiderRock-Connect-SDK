@@ -23,7 +23,6 @@ message FutureRiskDetailV5 {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    google.protobuf.Timestamp period_end_time = 100; // DTTM of the end of the current trading period
     string view_group1 = 106; // Account Group #1 (SR Assigned) used to organize account groups [AccountConfig.viewGroup1]
     string view_group2 = 109; // Account Group #2 (SR Assigned) used to organize account groups [AccountConfig.viewGroup2]
     string view_group3 = 112; // Account Group #3 (SR Assigned) used to organize account groups [AccountConfig.viewGroup3]

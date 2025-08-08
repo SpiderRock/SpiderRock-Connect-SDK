@@ -125,7 +125,8 @@ message SpdrParentExecution {
     string pri_agg_group = 397; // primary aggregation group
     string sec_agg_group = 400; // secondary aggregation group
     string directed_client_firm = 403;
-    YesNo is_comm_paying = 406;
+    float notice_commission = 850; // total responder auction commission (flash only)
+    YesNo cust_comm_paying = 851; // client is commission paying (to the responder)
     google.protobuf.Timestamp fill_transact_dttm = 409; // transaction date/time as reported by exchange or down stream broker
     double fill_ts = 412; // fill report ts (seconds since startup; 100 nanosec resolution)
     google.protobuf.Timestamp fill_dttm = 415; // Date/time of fill arrival (SRDateTime)
@@ -276,20 +277,21 @@ message SpdrParentExecution {
     FaceSide face_side__v7 = 5001; // only v7 - enum values match with v8
     FaceShape face_shape__v7 = 5002; // only v7 - enum values match with v8
     string child_locate_source__v7 = 5003; // only V7
-    float fill_pr__v7 = 5004; // only V7
-    float fill_risk_metric1__v7 = 5005; // only V7
-    float fill_risk_metric2__v7 = 5006; // only V7
-    float fill_risk_metric3__v7 = 5007; // only V7
-    float fill_risk_metric4__v7 = 5008; // only V7
-    float fill_risk_metric5__v7 = 5009; // only V7
-    float fill_risk_metric6__v7 = 5010; // only V7
-    float fill_risk_metric7__v7 = 5011; // only V7
-    float fill_s08_dn__v7 = 5012; // only V7
-    float fill_s06_up__v7 = 5013; // only V7
-    float fill_s15_dn__v7 = 5014; // only V7
-    float fill_s15_up__v7 = 5015; // only V7
-    float fill_s50_dn__v7 = 5016; // only V7
-    float fill_s50_up__v7 = 5017; // only V7
+    YesNo is_comm_paying__v7 = 5004; // only v7 - enum values match with v8
+    float fill_pr__v7 = 5005; // only V7
+    float fill_risk_metric1__v7 = 5006; // only V7
+    float fill_risk_metric2__v7 = 5007; // only V7
+    float fill_risk_metric3__v7 = 5008; // only V7
+    float fill_risk_metric4__v7 = 5009; // only V7
+    float fill_risk_metric5__v7 = 5010; // only V7
+    float fill_risk_metric6__v7 = 5011; // only V7
+    float fill_risk_metric7__v7 = 5012; // only V7
+    float fill_s08_dn__v7 = 5013; // only V7
+    float fill_s06_up__v7 = 5014; // only V7
+    float fill_s15_dn__v7 = 5015; // only V7
+    float fill_s15_up__v7 = 5016; // only V7
+    float fill_s50_dn__v7 = 5017; // only V7
+    float fill_s50_up__v7 = 5018; // only V7
 }
 
 

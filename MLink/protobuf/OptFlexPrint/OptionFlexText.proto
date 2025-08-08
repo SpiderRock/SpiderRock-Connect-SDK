@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OptionFlexText {
+    message PKey {
+        
+        int64 record_id = 10; // unique FLEX text key (guid)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptExch opt_exch = 100; // OPRA participant
+    string text = 101; // complete OPRA FLEX text line
+    FlexEventType event_type = 102; // type of event this message represents, e.g., RFQ, QTE, LST
+    string parse_error = 103; // text parse error (if any)
+    int64 event_id = 104; // OpraFlexEvent.eventId this message is associated with (if parsed)
+    int64 net_timestamp = 105; // timestamp of when this message was received
+    int64 src_timestamp = 106; // timestamp from the exchange of when this message was sent
+}
+
+
