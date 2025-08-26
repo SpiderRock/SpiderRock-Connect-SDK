@@ -27,9 +27,9 @@ message GlobalRiskControl {
     int32 order_max_stk_qty = 104; // Number of equity shares that can be bought or sold by a single parent order
     int32 order_max_fut_qty = 105; // Number of futures contracts that can be bought or sold by a single parent order
     int32 order_max_opt_qty = 106; // Number of option contracts that can be bought or sold by a single parent order
-    float order_max_stk_dDelta = 107; // Maximum (abs) mny per stock parent order; ddelta = 0.01 * shares * pointValue * midPrc
-    float order_max_fut_dDelta = 108; // Maximum (abs) mny per future parent order; ddelta = 0.01 * contracts * pointValue * midPrc
-    float order_max_opt_dDelta = 109; // Maximum (abs) mny per option parent order; ddelta = 0.01 * contracts * pointValue * ABS(de) * uMidPrc
+    float order_max_stk_dDelta = 107; // Maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
+    float order_max_fut_dDelta = 108; // Maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
+    float order_max_opt_dDelta = 109; // Maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
     float stk_collar_pct = 110; // Maximum user limit vs bid/ask price control - percentage in decimals
     float fut_collar_pct = 111; // Maximum user limit vs bid/ask price control - percentage in decimals
     float opt_collar_pct = 112; // Maximum user limit vs bid/ask price control - percentage in decimals

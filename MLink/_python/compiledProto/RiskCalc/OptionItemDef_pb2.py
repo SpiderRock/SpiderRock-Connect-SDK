@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cRiskCalc/OptionItemDef.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xff\x06\n\rOptionItemDef\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x35\n\x04pkey\x18\x02 \x01(\x0b\x32\'.spiderrock.protobuf.OptionItemDef.PKey\x12\x32\n\x07\x65x_type\x18\x64 \x01(\x0e\x32!.spiderrock.protobuf.ExerciseType\x12\x32\n\x07\x65x_time\x18\x65 \x01(\x0e\x32!.spiderrock.protobuf.ExerciseTime\x12;\n\x10holiday_calendar\x18s \x01(\x0e\x32!.spiderrock.protobuf.CalendarCode\x12\x34\n\x0btime_metric\x18\x66 \x01(\x0e\x32\x1f.spiderrock.protobuf.TimeMetric\x12\x36\n\nprice_type\x18g \x01(\x0e\x32\".spiderrock.protobuf.CalcPriceType\x12\x36\n\nmodel_type\x18h \x01(\x0e\x32\".spiderrock.protobuf.CalcModelType\x12.\n\ninc_greeks\x18i \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x0b\n\x03vol\x18j \x01(\x01\x12\r\n\x05u_prc\x18k \x01(\x01\x12\r\n\x05years\x18l \x01(\x01\x12\x0c\n\x04sdiv\x18m \x01(\x01\x12\x0c\n\x04rate\x18n \x01(\x01\x12-\n\ttimestamp\x18r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\x11\x64iscrete_dividend\x18o \x03(\x0b\x32\x33.spiderrock.protobuf.OptionItemDef.DiscreteDividend\x1as\n\x04PKey\x12,\n\x04okey\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.OptionKey\x12\x13\n\x0bokey_number\x18\r \x01(\x05\x12\x15\n\rbasket_number\x18\x0b \x01(\x03\x12\x11\n\tuser_name\x18\x0c \x01(\t\x1aL\n\x10\x44iscreteDividend\x12(\n\x04\x64\x61te\x18p \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06\x61mount\x18q \x01(\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cRiskCalc/OptionItemDef.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x94\x07\n\rOptionItemDef\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x35\n\x04pkey\x18\x02 \x01(\x0b\x32\'.spiderrock.protobuf.OptionItemDef.PKey\x12\x13\n\x0b\x63lient_firm\x18t \x01(\t\x12\x32\n\x07\x65x_type\x18\x64 \x01(\x0e\x32!.spiderrock.protobuf.ExerciseType\x12\x32\n\x07\x65x_time\x18\x65 \x01(\x0e\x32!.spiderrock.protobuf.ExerciseTime\x12;\n\x10holiday_calendar\x18s \x01(\x0e\x32!.spiderrock.protobuf.CalendarCode\x12\x34\n\x0btime_metric\x18\x66 \x01(\x0e\x32\x1f.spiderrock.protobuf.TimeMetric\x12\x36\n\nprice_type\x18g \x01(\x0e\x32\".spiderrock.protobuf.CalcPriceType\x12\x36\n\nmodel_type\x18h \x01(\x0e\x32\".spiderrock.protobuf.CalcModelType\x12.\n\ninc_greeks\x18i \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x0b\n\x03vol\x18j \x01(\x01\x12\r\n\x05u_prc\x18k \x01(\x01\x12\r\n\x05years\x18l \x01(\x01\x12\x0c\n\x04sdiv\x18m \x01(\x01\x12\x0c\n\x04rate\x18n \x01(\x01\x12-\n\ttimestamp\x18r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\x11\x64iscrete_dividend\x18o \x03(\x0b\x32\x33.spiderrock.protobuf.OptionItemDef.DiscreteDividend\x1as\n\x04PKey\x12,\n\x04okey\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.OptionKey\x12\x13\n\x0bokey_number\x18\r \x01(\x05\x12\x15\n\rbasket_number\x18\x0b \x01(\x03\x12\x11\n\tuser_name\x18\x0c \x01(\t\x1aL\n\x10\x44iscreteDividend\x12(\n\x04\x64\x61te\x18p \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06\x61mount\x18q \x01(\x02\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,9 +24,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_OPTIONITEMDEF']._serialized_start=112
-  _globals['_OPTIONITEMDEF']._serialized_end=1007
-  _globals['_OPTIONITEMDEF_PKEY']._serialized_start=814
-  _globals['_OPTIONITEMDEF_PKEY']._serialized_end=929
-  _globals['_OPTIONITEMDEF_DISCRETEDIVIDEND']._serialized_start=931
-  _globals['_OPTIONITEMDEF_DISCRETEDIVIDEND']._serialized_end=1007
+  _globals['_OPTIONITEMDEF']._serialized_end=1028
+  _globals['_OPTIONITEMDEF_PKEY']._serialized_start=835
+  _globals['_OPTIONITEMDEF_PKEY']._serialized_end=950
+  _globals['_OPTIONITEMDEF_DISCRETEDIVIDEND']._serialized_start=952
+  _globals['_OPTIONITEMDEF_DISCRETEDIVIDEND']._serialized_end=1028
 # @@protoc_insertion_point(module_scope)

@@ -39,7 +39,7 @@ message OptionFlexPrint {
     string flex_root = 102; // security symbol of the FLEX option
     FlexClosureType closure_type = 103;
     FlexPrintClosure print_closure = 104;
-    int32 total_qty = 105; // total quantity
+    int32 pkg_qty = 123; // package quantity
     double pkg_price = 106; // total price inclusive of all legs
     string record_id_set = 107; // OPRA FLEX text line(s) contributing to this event [pipe delimited if more than one]
     google.protobuf.Timestamp create_time = 108; // creation time of this event

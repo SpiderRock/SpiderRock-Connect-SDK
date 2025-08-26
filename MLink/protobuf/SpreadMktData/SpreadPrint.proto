@@ -19,6 +19,7 @@ message SpreadPrint {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // common spread underlier
+    int64 sRspread_iD = 122;
     BuySell side = 103;
     int32 prt_size = 106;
     double prt_price = 109;

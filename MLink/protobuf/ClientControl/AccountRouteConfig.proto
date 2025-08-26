@@ -44,7 +44,7 @@ message AccountRouteConfig {
     message RoutingTable {
         
         string routing_code = 151; // routing session code (is a RouteDefinition.pkey.routingCode) [RouteDefinition.execBrkrCode must match execBrkrCode]
-        YesNo cob_tied = 192; // can handle COB (MLeg/AB) orders tied to an underlier (must be yes here and also must be yes on the underling route definition/exDest)
+        CobTied cob_tied = 195; // can handle COB (MLeg/AB) orders tied to an underlier (must be yes here and also must be yes on the underling route definition/exDest)
     }
 
 

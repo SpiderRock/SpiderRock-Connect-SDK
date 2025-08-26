@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'SpreadDefinition/SpreadDefinition.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb8\x05\n\x10SpreadDefinition\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x38\n\x04pkey\x18\x02 \x01(\x0b\x32*.spiderrock.protobuf.SpreadDefinition.PKey\x12.\n\x06ticker\x18\x64 \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x36\n\x0cspread_class\x18p \x01(\x0e\x32 .spiderrock.protobuf.SpreadClass\x12-\n\ttimestamp\x18m \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12G\n\rexch_spr_i_ds\x18k \x03(\x0b\x32\x30.spiderrock.protobuf.SpreadDefinition.ExchSprIDs\x12\x38\n\x04legs\x18\x66 \x03(\x0b\x32*.spiderrock.protobuf.SpreadDefinition.Legs\x1a\x1b\n\x04PKey\x12\x13\n\x0bsRspread_iD\x18\x0b \x01(\x03\x1a!\n\nExchSprIDs\x12\x13\n\x0b\x65xch_spr_iD\x18l \x01(\t\x1a\xda\x01\n\x04Legs\x12\x33\n\x0bleg_sec_key\x18g \x01(\x0b\x32\x1e.spiderrock.protobuf.OptionKey\x12\x36\n\x0cleg_sec_type\x18h \x01(\x0e\x32 .spiderrock.protobuf.SpdrKeyType\x12.\n\x08leg_side\x18i \x01(\x0e\x32\x1c.spiderrock.protobuf.BuySell\x12\x11\n\tleg_ratio\x18j \x01(\r\x12\x11\n\tref_delta\x18n \x01(\x02\x12\x0f\n\x07ref_prc\x18o \x01(\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'SpreadDefinition/SpreadDefinition.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcf\x05\n\x10SpreadDefinition\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x38\n\x04pkey\x18\x02 \x01(\x0b\x32*.spiderrock.protobuf.SpreadDefinition.PKey\x12.\n\x06ticker\x18\x64 \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x36\n\x0cspread_class\x18p \x01(\x0e\x32 .spiderrock.protobuf.SpreadClass\x12\x15\n\rsecurity_desc\x18q \x01(\t\x12-\n\ttimestamp\x18m \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12G\n\rexch_spr_i_ds\x18k \x03(\x0b\x32\x30.spiderrock.protobuf.SpreadDefinition.ExchSprIDs\x12\x38\n\x04legs\x18\x66 \x03(\x0b\x32*.spiderrock.protobuf.SpreadDefinition.Legs\x1a\x1b\n\x04PKey\x12\x13\n\x0bsRspread_iD\x18\x0b \x01(\x03\x1a!\n\nExchSprIDs\x12\x13\n\x0b\x65xch_spr_iD\x18l \x01(\t\x1a\xda\x01\n\x04Legs\x12\x33\n\x0bleg_sec_key\x18g \x01(\x0b\x32\x1e.spiderrock.protobuf.OptionKey\x12\x36\n\x0cleg_sec_type\x18h \x01(\x0e\x32 .spiderrock.protobuf.SpdrKeyType\x12.\n\x08leg_side\x18i \x01(\x0e\x32\x1c.spiderrock.protobuf.BuySell\x12\x11\n\tleg_ratio\x18j \x01(\r\x12\x11\n\tref_delta\x18n \x01(\x02\x12\x0f\n\x07ref_prc\x18o \x01(\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,11 +24,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_SPREADDEFINITION']._serialized_start=123
-  _globals['_SPREADDEFINITION']._serialized_end=819
-  _globals['_SPREADDEFINITION_PKEY']._serialized_start=536
-  _globals['_SPREADDEFINITION_PKEY']._serialized_end=563
-  _globals['_SPREADDEFINITION_EXCHSPRIDS']._serialized_start=565
-  _globals['_SPREADDEFINITION_EXCHSPRIDS']._serialized_end=598
-  _globals['_SPREADDEFINITION_LEGS']._serialized_start=601
-  _globals['_SPREADDEFINITION_LEGS']._serialized_end=819
+  _globals['_SPREADDEFINITION']._serialized_end=842
+  _globals['_SPREADDEFINITION_PKEY']._serialized_start=559
+  _globals['_SPREADDEFINITION_PKEY']._serialized_end=586
+  _globals['_SPREADDEFINITION_EXCHSPRIDS']._serialized_start=588
+  _globals['_SPREADDEFINITION_EXCHSPRIDS']._serialized_end=621
+  _globals['_SPREADDEFINITION_LEGS']._serialized_start=624
+  _globals['_SPREADDEFINITION_LEGS']._serialized_end=842
 # @@protoc_insertion_point(module_scope)

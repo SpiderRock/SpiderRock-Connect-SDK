@@ -49,6 +49,8 @@ message RootDefinition {
     TimeMetric time_metric = 142; // trading time metric - 252 or 365 trading days or a weekly cycle type
     TradingPeriod trading_period = 223;
     PricingModel pricing_model = 145;
+    CalcModelType calc_model_type = 230; // [LogNormal or Normal] - default is determined by product characteristics and is usually correct. for binary compatibility with new quant package
+    PricingFramework prc_framework = 231; // [Spot or Forward] (override; default is usually ok). for binary compatibility with new quant package
     MoneynessType moneyness_type = 148; // moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)
     PriceQuoteType price_quote_type = 151; // quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)
     VolumeTier volume_tier = 154;

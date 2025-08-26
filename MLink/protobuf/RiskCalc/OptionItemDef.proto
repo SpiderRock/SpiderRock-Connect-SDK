@@ -27,6 +27,7 @@ message OptionItemDef {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
+    string client_firm = 116;
     ExerciseType ex_type = 100; // exercise type of the option (American or European) (default: root definition)
     ExerciseTime ex_time = 101; // exercise time (AM or PM) (default: root definition)
     CalendarCode holiday_calendar = 115; // holiday calendar code (eg. NYSE)

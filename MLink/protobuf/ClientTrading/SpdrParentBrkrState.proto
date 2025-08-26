@@ -80,6 +80,7 @@ message SpdrParentBrkrState {
     float cum_m10_pnl = 238;
     float cum_arrival_pnl = 241;
     google.protobuf.Timestamp last_fill_dttm = 244;
+    string locate_firm = 612; // firm granting the locate (also locate firm used on street FIX orders)
     int32 risk_limit_size = 247; // risk limit size (maximum size to nearest risk limit)
     SpdrRisk risk_limit_desc = 250; // reason for size reduction
     SpdrRiskLevel risk_limit_level = 601; // risk limit level responsible for reduction

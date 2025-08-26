@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"OptFlexPrint/OptionFlexPrint.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x07\n\x0fOptionFlexPrint\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x37\n\x04pkey\x18\x02 \x01(\x0b\x32).spiderrock.protobuf.OptionFlexPrint.PKey\x12.\n\x08opt_exch\x18\x64 \x01(\x0e\x32\x1c.spiderrock.protobuf.OptExch\x12\x13\n\x0b\x65xchange_id\x18\x65 \x01(\t\x12\x11\n\tflex_root\x18\x66 \x01(\t\x12:\n\x0c\x63losure_type\x18g \x01(\x0e\x32$.spiderrock.protobuf.FlexClosureType\x12<\n\rprint_closure\x18h \x01(\x0e\x32%.spiderrock.protobuf.FlexPrintClosure\x12\x11\n\ttotal_qty\x18i \x01(\x05\x12\x11\n\tpkg_price\x18j \x01(\x01\x12\x15\n\rrecord_id_set\x18k \x01(\t\x12/\n\x0b\x63reate_time\x18l \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bmodify_time\x18m \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08num_legs\x18n \x01(\x05\x12\x31\n\rlegs_complete\x18o \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x37\n\x04legs\x18p \x03(\x0b\x32).spiderrock.protobuf.OptionFlexPrint.Legs\x1a\x18\n\x04PKey\x12\x10\n\x08\x65vent_id\x18\n \x01(\x03\x1a\x9d\x02\n\x04Legs\x12,\n\x04okey\x18q \x01(\x0b\x32\x1e.spiderrock.protobuf.OptionKey\x12\x30\n\tflex_type\x18r \x01(\x0e\x32\x1d.spiderrock.protobuf.FlexType\x12\x10\n\x08quantity\x18s \x01(\x05\x12\r\n\x05price\x18t \x01(\x01\x12\x36\n\nprice_type\x18u \x01(\x0e\x32\".spiderrock.protobuf.FlexPriceType\x12\r\n\x05\x64\x65lta\x18v \x01(\x01\x12\x11\n\tref_price\x18w \x01(\x01\x12\x13\n\x0b\x63lose_price\x18x \x01(\x01\x12\x11\n\tprice_adj\x18y \x01(\x01\x12\x12\n\nstrike_adj\x18z \x01(\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"OptFlexPrint/OptionFlexPrint.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa6\x07\n\x0fOptionFlexPrint\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12\x37\n\x04pkey\x18\x02 \x01(\x0b\x32).spiderrock.protobuf.OptionFlexPrint.PKey\x12.\n\x08opt_exch\x18\x64 \x01(\x0e\x32\x1c.spiderrock.protobuf.OptExch\x12\x13\n\x0b\x65xchange_id\x18\x65 \x01(\t\x12\x11\n\tflex_root\x18\x66 \x01(\t\x12:\n\x0c\x63losure_type\x18g \x01(\x0e\x32$.spiderrock.protobuf.FlexClosureType\x12<\n\rprint_closure\x18h \x01(\x0e\x32%.spiderrock.protobuf.FlexPrintClosure\x12\x0f\n\x07pkg_qty\x18{ \x01(\x05\x12\x11\n\tpkg_price\x18j \x01(\x01\x12\x15\n\rrecord_id_set\x18k \x01(\t\x12/\n\x0b\x63reate_time\x18l \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bmodify_time\x18m \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08num_legs\x18n \x01(\x05\x12\x31\n\rlegs_complete\x18o \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x37\n\x04legs\x18p \x03(\x0b\x32).spiderrock.protobuf.OptionFlexPrint.Legs\x1a\x18\n\x04PKey\x12\x10\n\x08\x65vent_id\x18\n \x01(\x03\x1a\x9d\x02\n\x04Legs\x12,\n\x04okey\x18q \x01(\x0b\x32\x1e.spiderrock.protobuf.OptionKey\x12\x30\n\tflex_type\x18r \x01(\x0e\x32\x1d.spiderrock.protobuf.FlexType\x12\x10\n\x08quantity\x18s \x01(\x05\x12\r\n\x05price\x18t \x01(\x01\x12\x36\n\nprice_type\x18u \x01(\x0e\x32\".spiderrock.protobuf.FlexPriceType\x12\r\n\x05\x64\x65lta\x18v \x01(\x01\x12\x11\n\tref_price\x18w \x01(\x01\x12\x13\n\x0b\x63lose_price\x18x \x01(\x01\x12\x11\n\tprice_adj\x18y \x01(\x01\x12\x12\n\nstrike_adj\x18z \x01(\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,9 +24,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_OPTIONFLEXPRINT']._serialized_start=118
-  _globals['_OPTIONFLEXPRINT']._serialized_end=1054
-  _globals['_OPTIONFLEXPRINT_PKEY']._serialized_start=742
-  _globals['_OPTIONFLEXPRINT_PKEY']._serialized_end=766
-  _globals['_OPTIONFLEXPRINT_LEGS']._serialized_start=769
-  _globals['_OPTIONFLEXPRINT_LEGS']._serialized_end=1054
+  _globals['_OPTIONFLEXPRINT']._serialized_end=1052
+  _globals['_OPTIONFLEXPRINT_PKEY']._serialized_start=740
+  _globals['_OPTIONFLEXPRINT_PKEY']._serialized_end=764
+  _globals['_OPTIONFLEXPRINT_LEGS']._serialized_start=767
+  _globals['_OPTIONFLEXPRINT_LEGS']._serialized_end=1052
 # @@protoc_insertion_point(module_scope)

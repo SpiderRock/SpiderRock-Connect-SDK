@@ -53,9 +53,9 @@ message MarRiskComposite {
     int32 order_max_stk_qty = 127; // Number of equity shares that can be bought or sold by a single parent order
     int32 order_max_fut_qty = 128; // Number of futures contracts that can be bought or sold by a single parent order
     int32 order_max_opt_qty = 129; // Number of option contracts that can be bought or sold by a single parent order
-    float order_max_stk_dDelta = 130; // Maximum (abs) mny per stock parent order; ddelta = 0.01 * shares * pointValue * midPrc
-    float order_max_fut_dDelta = 131; // Maximum (abs) mny per future parent order; ddelta = 0.01 * contracts * pointValue * midPrc
-    float order_max_opt_dDelta = 132; // Maximum (abs) mny per option parent order; ddelta = 0.01 * contracts * pointValue * ABS(de) * uMidPrc
+    float order_max_stk_dDelta = 130; // Maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
+    float order_max_fut_dDelta = 131; // Maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
+    float order_max_opt_dDelta = 132; // Maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
     float stk_collar_pct = 133; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     float fut_collar_pct = 134; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     float opt_collar_pct = 135; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals

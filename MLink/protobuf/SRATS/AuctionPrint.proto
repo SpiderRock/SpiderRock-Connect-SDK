@@ -55,6 +55,7 @@ message AuctionPrint {
     google.protobuf.Timestamp notice_time = 102; // notice create timestamp (high precision)
     AuctionType auction_type = 103; // (eg. Block, Flash, Improvement, Facilitation, etc.)
     AuctionSource auction_source = 104; // source of the auction notice (eg. SRC, MIAX, etc.)
+    int32 auction_duration = 203; // expected auction / imbalance action duration (ms)
     string industry = 111; // industry string
     SymbolType symbol_type = 112;
     float u_avg_daily_vlm = 113; // underlier average daily trading volume

@@ -54,37 +54,53 @@ message ResponderMarkupRC {
     double eff_stock_lend_pv = 129; // effStockLendPv = limitPrice - strikePv - ddivPv - rcEExPrem
     double eff_stock_rate = 130; // effStockRate = effStockLendPv / (uPrc * iYears)
     int64 num_notices = 135; // number of notices that match response bucket
-    int64 num_notice_sR = 136; // number of SR auction numNotices
-    int64 num_notice_aMEX = 137;
-    int64 num_notice_bATS = 138;
-    int64 num_notice_bOX = 139;
-    int64 num_notice_cBOE = 140;
-    int64 num_notice_c2 = 141;
-    int64 num_notice_eDGO = 142;
-    int64 num_notice_eMLD = 143;
-    int64 num_notice_gMNI = 144;
-    int64 num_notice_iSE = 145;
-    int64 num_notice_mCRY = 146;
-    int64 num_notice_mEMX = 147;
-    int64 num_notice_mIAX = 148;
-    int64 num_notice_mPRL = 149;
-    int64 num_notice_nYSE = 150;
-    int64 num_notice_nQBX = 151;
-    int64 num_notice_nSDQ = 152;
-    int64 num_notice_pHLX = 153;
-    int64 num_notice_sPHR = 154;
+    int64 num_notice_block = 167; // number of SR block auction numNotices
+    int64 num_notice_flash = 168; // number of SR flash auction numNotices
+    int64 num_notice_exch_pI = 169; // number of Exch Price Improvement auction numNotices
+    int64 num_notice_exch_eX = 170; // number of Exch Exposure auction numNotices
+    int64 num_not_mkt_penny = 171; // number auction numNotices
+    int64 num_mkt_penny1 = 172; // number auction numNotices
+    int64 num_mkt_penny2 = 173; // number auction numNotices
+    int64 num_mkt_penny3p = 174; // number auction numNotices
+    int64 num_not_mkt_nickle = 175; // number auction numNotices
+    int64 num_mkt_nickle1 = 176; // number auction numNotices
+    int64 num_mkt_nickle2 = 177; // number auction numNotices
+    int64 num_mkt_nickle3p = 178; // number auction numNotices
     int64 resp_disabled_skips = 155; // number skipped from isDisabled
+    int64 stock_disabled_skips = 179; // number skipped from canIncludeStock != Yes
+    int64 cp_flag_skips = 180; // number skipped from cpFlag not matching notice legs CallPut
+    int64 expiry_range_skips = 181; // number skipped from out of range expiry value
+    int64 years_range_skips = 182; // number skipped from out of range years value
     int64 listed_flex_skips = 156; // number skipped from flex/listed filter
     int64 notice_price_skips = 157; // number skipped from limit price filter (exchange only)
-    int64 size_limit_skips = 158; // number skipped from aggregate contract/vega size limit
+    int64 agg_size_limit_skips = 183; // number skipped from aggregate contract/vega size limit
     int64 risk_group_limit_skips = 159; // number skipped from riskGroup limits
+    int64 root_skips = 184; // number skipped from leg root mismatch
+    int64 x_delta_range_skips = 185; // number skipped from out of range XDelta value
+    int64 strike_range_skips = 186; // number skipped from out of range strike
+    int64 min_vega_ratio_skips = 187; // number skipped from not qualifying ratio netVega/sum(abs(vega))
+    int64 probability_skips = 188; // number skipped from min probability threshold not being met
     int64 num_responses = 160; // number of response attempts (number of parentOrders/NoticeExecReports)
+    int64 num_responds_block = 189; // number of SR block auction responses
+    int64 num_responds_flash = 190; // number of SR flash auction responses
+    int64 num_responses_exch_pI = 191; // number of Exch Price Improvement auction responses
+    int64 num_responses_exch_eX = 192; // number of Exch Exposure auction responses
     int64 num_full_size = 161;
     int64 num_alloc_size = 162;
     int64 num_price_miss = 163;
     int64 num_too_late = 164;
     int64 num_other_miss = 165;
     int64 num_did_not_trade = 166;
+    int32 num_traded = 193;
+    int32 qty_traded = 194;
+    double sum_width_traded = 195; // SUM: marketWidth * trdQty      => AvgMktWidth = sumWidthTraded / qtyTraded
+    double sum_surf_edge_traded = 196; // SUM: printEdge * trdQty        => AvgPrintEdge = sumSurfEdgeTraded / qtyTraded
+    double sum_m1_pn_lTraded = 197; // SUM: M1PnL * trdQty            => AvgM1PnL = sumM1PnLTraded / qtyTraded
+    double sum_m10_pn_lTraded = 198; // SUM: M10PnL * trdQty           => AvgM10PnL = sumM10PnLTraded / qtyTraded
+    int64 num_traded_block = 199; // number of SR block auctions traded
+    int64 num_traded_flash = 200; // number of SR flash auctions traded
+    int64 num_traded_exch_pI = 201; // number of Exch Price Improvement auctions traded
+    int64 num_traded_exch_eX = 202; // number of Exch Exposure auctions traded
     string modified_by = 131; // user who last modified this record
     SysEnvironment modified_in = 132;
     google.protobuf.Timestamp timestamp = 133; // timestamp of last modification
