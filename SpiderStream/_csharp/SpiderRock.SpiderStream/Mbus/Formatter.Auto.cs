@@ -895,6 +895,7 @@ internal unsafe partial class Formatter
 
             dest.pkey.body = *((SpreadDefinition.PKeyLayout*) src); src += sizeof(SpreadDefinition.PKeyLayout);
              dest.body = *((SpreadDefinition.BodyLayout*) src); src += sizeof(SpreadDefinition.BodyLayout);
+                 dest.SecurityDesc = DecodeText1(ref src, max, "SpreadDefinition.securityDesc");
  
             // ExchSprIDsItem Repeat Section
 
