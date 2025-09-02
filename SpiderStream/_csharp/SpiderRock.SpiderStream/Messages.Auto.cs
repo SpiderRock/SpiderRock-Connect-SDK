@@ -5780,6 +5780,8 @@ public partial class RootDefinition : IMessage
 		public TimeMetric timeMetric;
 		public TradingPeriod tradingPeriod;
 		public PricingModel pricingModel;
+		public CalcModelType calcModelType;
+		public PricingFramework prcFramework;
 		public MoneynessType moneynessType;
 		public PriceQuoteType priceQuoteType;
 		public VolumeTier volumeTier;
@@ -5848,6 +5850,10 @@ public partial class RootDefinition : IMessage
     public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
      
     public PricingModel PricingModel { get => body.pricingModel; set => body.pricingModel = value; }
+     /// <summary>[LogNormal or Normal] - default is determined by product characteristics and is usually correct. for binary compatibility with new quant package</summary>
+    public CalcModelType CalcModelType { get => body.calcModelType; set => body.calcModelType = value; }
+     /// <summary>[Spot or Forward] (override; default is usually ok). for binary compatibility with new quant package</summary>
+    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
      /// <summary>moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)</summary>
     public MoneynessType MoneynessType { get => body.moneynessType; set => body.moneynessType = value; }
      /// <summary>quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)</summary>
@@ -6641,6 +6647,7 @@ public partial class SpreadDefinition : IMessage
         target.header = header;
          pkey.CopyTo(target.pkey);
          target.body = body;
+         target.SecurityDesc = SecurityDesc;
  
         if ((ExchSprIDsList?.Length ?? 0) > 0)
         {
@@ -6695,6 +6702,7 @@ public partial class SpreadDefinition : IMessage
     {
         pkey.Clear();
          body = new BodyLayout();
+         SecurityDesc = null;
          ExchSprIDsList = null;
          LegsList = null;
 
@@ -6846,6 +6854,8 @@ public partial class SpreadDefinition : IMessage
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>option spread type</summary>
     public SpreadClass SpreadClass { get => body.spreadClass; set => body.spreadClass = value; }
+     
+    public string SecurityDesc { get; set; } = string.Empty;
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
