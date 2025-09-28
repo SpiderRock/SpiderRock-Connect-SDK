@@ -19,41 +19,6 @@ internal unsafe partial class Formatter
 {
     
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void Decode(ReadOnlySpan<byte> buffer, CurrencyConversion dest)
-    {
-        fixed (byte* p = buffer)
-        {
-            _  = Decode(p, dest, p + buffer.Length);
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public byte* Decode(byte* src, CurrencyConversion dest, byte* max)
-    {
-        unchecked
-        {
-            var sizeOfHeader = *src;
-            if (src + sizeOfHeader + sizeof(CurrencyConversion.PKeyLayout) + sizeof(CurrencyConversion.BodyLayout) > max) throw new IOException("Max exceeded decoding CurrencyConversion");
-            
-            if (sizeOfHeader == sizeof(Header))
-            {
-                dest.header = *((Header*) src);
-            }
-            else
-            {
-                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
-            }
-
-            src += sizeOfHeader;
-
-            dest.pkey.body = *((CurrencyConversion.PKeyLayout*) src); src += sizeof(CurrencyConversion.PKeyLayout);
-             dest.body = *((CurrencyConversion.BodyLayout*) src); src += sizeof(CurrencyConversion.BodyLayout);
-			
-            return src;
-        }
-    }
-     
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, FutureBookQuote dest)
     {
         fixed (byte* p = buffer)
@@ -895,6 +860,7 @@ internal unsafe partial class Formatter
 
             dest.pkey.body = *((SpreadDefinition.PKeyLayout*) src); src += sizeof(SpreadDefinition.PKeyLayout);
              dest.body = *((SpreadDefinition.BodyLayout*) src); src += sizeof(SpreadDefinition.BodyLayout);
+                 dest.SecurityDesc = DecodeText1(ref src, max, "SpreadDefinition.securityDesc");
  
             // ExchSprIDsItem Repeat Section
 

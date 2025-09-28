@@ -12,34 +12,6 @@ using SpiderRock.SpiderStream.Mbus.Layouts;
 
 namespace SpiderRock.SpiderStream;
 
-public partial class CurrencyConversion
-{
-    [ThreadStatic] private static StringBuilder recordBuilder;
-
-    public const string TabHeader = "srcCurrency\ttgtCurrency\tconvertRate\ttimestamp";
-
-    public string TabRecord
-    {
-        get
-        {
-            recordBuilder?.Clear();
-            recordBuilder ??= new(4096);
-
-            recordBuilder.Append(pkey.SrcCurrency);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(pkey.TgtCurrency);
-
-            recordBuilder.Append('\t');
-
-            recordBuilder.Append(ConvertRate);
-            recordBuilder.Append('\t');
-            recordBuilder.AppendInTabRecordFormat(Timestamp);
-
-            return recordBuilder.ToString();
-        }
-    }
-}
-
 public partial class FutureBookQuote
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
@@ -1646,7 +1618,7 @@ public partial class RootDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tbbgRoot\tbbgYrCode\tbbgGroup\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tricCode_V7\tExchange\tUnderlying";
+    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tcalcModelType\tprcFramework\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tbbgRoot\tbbgYrCode\tbbgGroup\tregionalCompositeRoot\ttimestamp\tpricingSource_V7\tricCode_V7\tExchange\tUnderlying";
 
     public string TabRecord
     {
@@ -1692,6 +1664,10 @@ public partial class RootDefinition
             recordBuilder.Append(TradingPeriod);
             recordBuilder.Append('\t');
             recordBuilder.Append(PricingModel);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(CalcModelType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PrcFramework);
             recordBuilder.Append('\t');
             recordBuilder.Append(MoneynessType);
             recordBuilder.Append('\t');
@@ -1930,7 +1906,7 @@ public partial class SpreadDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "SRspreadID\tticker\tspreadClass\ttimestamp\tExchSprIDs\tLegs";
+    public const string TabHeader = "SRspreadID\tticker\tspreadClass\tsecurityDesc\ttimestamp\tExchSprIDs\tLegs";
 
     public string TabRecord
     {
@@ -1946,6 +1922,8 @@ public partial class SpreadDefinition
             recordBuilder.Append(Ticker);
             recordBuilder.Append('\t');
             recordBuilder.Append(SpreadClass);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(SecurityDesc);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
 

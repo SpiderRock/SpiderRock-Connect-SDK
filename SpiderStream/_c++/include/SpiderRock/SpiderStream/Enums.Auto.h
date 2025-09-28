@@ -92,7 +92,10 @@ namespace SpiderRock
 			Closing=6,
 			RFQ=7,
 			Block=8,
-			Flash=9
+			Flash=9,
+			BlockDAC=10,
+			BlockPOC=11,
+			BlockPCV=12
 		};
 
  		enum class BbgYrCode : Enum 
@@ -117,6 +120,15 @@ namespace SpiderRock
 			None=0,
 			Buy=1,
 			Sell=2
+		};
+
+ 		enum class CalcModelType : Enum 
+		{
+			None=0,
+			LogNormalExact=1,
+			NormalExact=2,
+			LogNormalApprox=3,
+			NormalApprox=4
 		};
 
  		enum class CalcPriceType : Enum 
@@ -483,7 +495,8 @@ namespace SpiderRock
 			NXML=32,
 			NXOS=33,
 			NXP=34,
-			ICEFE=35
+			ICEFE=35,
+			SRC=36
 		};
 
  		enum class OptMktType : Flag 
@@ -609,6 +622,13 @@ namespace SpiderRock
 			Vol=2
 		};
 
+ 		enum class PricingFramework : Enum 
+		{
+			None=0,
+			Spot=1,
+			Forward=2
+		};
+
  		enum class PricingModel : Enum 
 		{
 			None=0,
@@ -694,7 +714,9 @@ namespace SpiderRock
 			FNLV=63,
 			XSAT=64,
 			MUNA=65,
-			XETA=66
+			XETA=66,
+			XLU=67,
+			XBD=68
 		};
 
  		enum class ProductClass : Enum 
@@ -900,7 +922,8 @@ namespace SpiderRock
 			NXLS=30,
 			NXML=31,
 			NXOS=32,
-			NXP=33
+			NXP=33,
+			X24=34
 		};
 
  		enum class StkPriceInc : Enum 
@@ -1188,7 +1211,21 @@ namespace SpiderRock
 			EU_NXLS=55,
 			EU_NXML=56,
 			EU_NXOS=57,
-			EU_NXP=58
+			EU_NXP=58,
+			EU_AT=59,
+			EU_BE=60,
+			EU_CH=61,
+			EU_DE=62,
+			EU_DK=63,
+			EU_FI=64,
+			EU_FR=65,
+			EU_GB=66,
+			EU_IE=67,
+			EU_IT=68,
+			EU_NL=69,
+			EU_NO=70,
+			EU_PT=71,
+			EU_SE=72
 		};
 
  		enum class TradingSession : Enum 

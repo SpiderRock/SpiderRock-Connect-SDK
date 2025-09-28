@@ -22,7 +22,6 @@ namespace SpiderRock
 		{
 			None = 0,
 			
-			CurrencyConversion = 2540,
 			FutureBookQuote = 2580,
 			FuturePrint = 2595,
 			FuturePrintMarkup = 2605,

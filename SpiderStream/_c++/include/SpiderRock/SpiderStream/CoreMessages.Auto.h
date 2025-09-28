@@ -24,72 +24,7 @@ namespace SpiderRock {
 
 namespace SpiderStream {
 
-class CurrencyConversion
-{
-public:
-	class Key
-	{
-		Currency srcCurrency_;
-		Currency tgtCurrency_;
-		
-	public:
-		inline Currency srcCurrency() const { return srcCurrency_; }
-		inline Currency tgtCurrency() const { return tgtCurrency_; }
-
-		inline size_t operator()(const Key& k) const
-		{
-			size_t hash_code = std::hash<Byte>()(static_cast<Byte>(k.srcCurrency_));
-			hash_code = (hash_code * 397) ^ std::hash<Byte>()(static_cast<Byte>(k.tgtCurrency_));
-
-			return hash_code;
-		}
-		
-		inline bool operator()(const Key& a, const Key& b) const
-		{
-			return
-				a.srcCurrency_ == b.srcCurrency_
-				&& a.tgtCurrency_ == b.tgtCurrency_;
-		}
-	};
-	
-
-private:
-	struct Layout
-	{
-		Key pkey;
-		Double convertRate;
-		DateTime timestamp;
-	};
-	
-	Header header_;
-	Layout layout_;
-	
-	int64_t time_received_;
-
-public:
-	inline Header& header() { return header_; }
-	inline const Key& pkey() const { return layout_.pkey; }
-	
-	inline void time_received(uint64_t value) { time_received_ = value; }
-	inline uint64_t time_received() const { return time_received_; }
-	
-	inline Double convertRate() const { return layout_.convertRate; }
-	inline DateTime timestamp() const { return layout_.timestamp; }
-	
-	inline void Decode(Header* buf) 
-	{
-		header_ = *buf;
-		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
-		
-		layout_ = *reinterpret_cast<CurrencyConversion::Layout*>(ptr);
-		ptr += sizeof(layout_);
-		
-
-	}
-
-};
-
- class FutureBookQuote
+class FutureBookQuote
 {
 public:
 	class Key
@@ -2327,6 +2262,8 @@ private:
 		TimeMetric timeMetric;
 		TradingPeriod tradingPeriod;
 		PricingModel pricingModel;
+		CalcModelType calcModelType;
+		PricingFramework prcFramework;
 		MoneynessType moneynessType;
 		PriceQuoteType priceQuoteType;
 		VolumeTier volumeTier;
@@ -2389,6 +2326,8 @@ public:
 	inline TimeMetric timeMetric() const { return layout_.timeMetric; }
 	inline TradingPeriod tradingPeriod() const { return layout_.tradingPeriod; }
 	inline PricingModel pricingModel() const { return layout_.pricingModel; }
+	inline CalcModelType calcModelType() const { return layout_.calcModelType; }
+	inline PricingFramework prcFramework() const { return layout_.prcFramework; }
 	inline MoneynessType moneynessType() const { return layout_.moneynessType; }
 	inline PriceQuoteType priceQuoteType() const { return layout_.priceQuoteType; }
 	inline VolumeTier volumeTier() const { return layout_.volumeTier; }
@@ -2793,6 +2732,7 @@ private:
 		Key pkey;
 		TickerKey ticker;
 		SpreadClass spreadClass;
+		String<255> securityDesc;
 		DateTime timestamp;
 	};
 	
@@ -2811,6 +2751,7 @@ public:
 	
 	inline const TickerKey& ticker() const { return layout_.ticker; }
 	inline SpreadClass spreadClass() const { return layout_.spreadClass; }
+	inline String<255> securityDesc() const { return layout_.securityDesc; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 
