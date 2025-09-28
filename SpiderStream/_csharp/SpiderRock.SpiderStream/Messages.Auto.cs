@@ -15,214 +15,6 @@ using SpiderRock.SpiderStream.Mbus.Layouts;
 namespace SpiderRock.SpiderStream;
 
 /// <summary>
-/// CurrencyConversion:2540
-/// </summary>
-/// <remarks>
-/// </remarks>
-
-public partial class CurrencyConversion : IMessage
-{
-    #region IMessage implementation
-
-    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
-    
-    public long PublishedNsecsSinceUnixEpoch => header.sentts;
-
-    public bool FromCache
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal set
-        {
-            if (value)
-            {
-                header.bits |= HeaderBits.FromCache;
-            }
-            else
-            {
-                header.bits &= ~HeaderBits.FromCache;
-            }
-        }
-    }
-
-    public ushort Type => header.msgtype;
-
-    #endregion
-
-    public CurrencyConversion()
-    {
-    }
-    
-    public CurrencyConversion(PKey pkey)
-    {
-        this.pkey.body = pkey.body;
-    }
-    
-    public CurrencyConversion(CurrencyConversion source)
-    {
-        source.CopyTo(this);
-    }
-    
-    internal CurrencyConversion(PKeyLayout pkey)
-    {
-        this.pkey.body = pkey;
-    }
-
-    public override bool Equals(object other)
-    {
-        return Equals(other as CurrencyConversion);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(CurrencyConversion other)
-    {
-        if (ReferenceEquals(other, null)) return false;
-        if (ReferenceEquals(other, this)) return true;
-        return pkey.Equals(other.pkey);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override int GetHashCode()
-    {
-        return pkey.GetHashCode();
-    }
-    
-    public override string ToString()
-    {
-        return TabRecord;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void CopyTo(CurrencyConversion target)
-    {			
-        target.header = header;
-         pkey.CopyTo(target.pkey);
-         target.body = body;
-
-    }
-
-    public void Clear()
-    {
-        pkey.Clear();
-         body = new BodyLayout();
-
-    }
-
-    public PKey Key => pkey;
-    
-    internal SourceId SourceId => header.sourceid;
-
-    internal Header header = new() {msgtype = MessageType.CurrencyConversion};
-    
-     public sealed class PKey : IEquatable<PKey>, ICloneable
-    {
-
-        internal PKeyLayout body;
-        
-        public PKey()					{ }
-
-        internal PKey(PKeyLayout body)	=> this.body = body;
-
-        public PKey(PKey other)
-        {
-            if (other is null) throw new ArgumentNullException(nameof(other));
-            body = other.body;
-				
-        }
-        
-        
-        public Currency SrcCurrency { get => body.srcCurrency; set => body.srcCurrency = value; }
-         
-        public Currency TgtCurrency { get => body.tgtCurrency; set => body.tgtCurrency = value; }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void Clear()
-        {
-            body = new PKeyLayout();
-
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void CopyTo(PKey target)
-        {
-            target.body = body;
-
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public object Clone()
-        {
-            var target = new PKey(body);
-
-            return target;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKey other && Equals(other);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() => body.GetHashCode();
-    } 
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct PKeyLayout : IEquatable<PKeyLayout>
-    {
-        public Currency srcCurrency;
-         public Currency tgtCurrency;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKeyLayout other)
-        {
-            return	srcCurrency.Equals(other.srcCurrency) &&
-					 	tgtCurrency.Equals(other.tgtCurrency);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = (int) srcCurrency;
-                 hashCode = (hashCode*397) ^ ((int) tgtCurrency);
-
-                return hashCode;
-            }
-        }
-    }
-
-    internal readonly PKey pkey = new();
-     
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct BodyLayout
-    {
-        public double convertRate;
-		public DateTimeLayout timestamp;
-    }
-
-    internal BodyLayout body;
-
-    
-    public double ConvertRate { get => body.convertRate; set => body.convertRate = value; }
-     
-    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
-
-
-} // CurrencyConversion
-
-
-/// <summary>
 /// FutureBookQuote:2580
 /// </summary>
 /// <remarks>
@@ -2280,9 +2072,9 @@ public partial class LiveSurfaceAtm : IMessage
     public byte CBidMiss { get => body.cBidMiss; set => body.cBidMiss = value; }
      /// <summary>number of call ask violations (surface outside the market)</summary>
     public byte CAskMiss { get => body.cAskMiss; set => body.cAskMiss = value; }
-     /// <summary>number of put bid violations</summary>
+     /// <summary>number of put bid violations (surface outside the market)</summary>
     public byte PBidMiss { get => body.pBidMiss; set => body.pBidMiss = value; }
-     /// <summary>number of put ask violations</summary>
+     /// <summary>number of put ask violations (surface outside the market)</summary>
     public byte PAskMiss { get => body.pAskMiss; set => body.pAskMiss = value; }
      /// <summary>surface fit R2 (mid-market values)</summary>
     public float FitAvgErr { get => body.fitAvgErr; set => body.fitAvgErr = value; }
@@ -2294,15 +2086,15 @@ public partial class LiveSurfaceAtm : IMessage
     public float FitErrXX { get => body.fitErrXX; set => body.fitErrXX = value; }
      /// <summary>okey_cp of the option with the largest fit error in this expiration</summary>
     public CallPut FitErrCP { get => body.fitErrCP; set => body.fitErrCP = value; }
-     /// <summary>delta of fixErrXX</summary>
+     /// <summary>delta of the option with the largest fit error in this expiration</summary>
     public float FitErrDe { get => body.fitErrDe; set => body.fitErrDe = value; }
-     /// <summary>bid of the option with the largest fit error</summary>
+     /// <summary>bid of the option with the largest fit error in this expiration</summary>
     public float FitErrBid { get => body.fitErrBid; set => body.fitErrBid = value; }
-     /// <summary>ask of the option with the largest fit error</summary>
+     /// <summary>ask of the option with the largest fit error in this expiration</summary>
     public float FitErrAsk { get => body.fitErrAsk; set => body.fitErrAsk = value; }
-     /// <summary>surface prc of the option with the largest fit error</summary>
+     /// <summary>surface prc of the option with the largest fit error in this expiration</summary>
     public float FitErrPrc { get => body.fitErrPrc; set => body.fitErrPrc = value; }
-     /// <summary>surface vol of the option with the largest fit error</summary>
+     /// <summary>surface vol of the option with the largest fit error in this expiration</summary>
     public float FitErrVol { get => body.fitErrVol; set => body.fitErrVol = value; }
      /// <summary>message counter - number of surface fits today</summary>
     public int Counter { get => body.counter; set => body.counter = value; }
@@ -5780,6 +5572,8 @@ public partial class RootDefinition : IMessage
 		public TimeMetric timeMetric;
 		public TradingPeriod tradingPeriod;
 		public PricingModel pricingModel;
+		public CalcModelType calcModelType;
+		public PricingFramework prcFramework;
 		public MoneynessType moneynessType;
 		public PriceQuoteType priceQuoteType;
 		public VolumeTier volumeTier;
@@ -5848,6 +5642,10 @@ public partial class RootDefinition : IMessage
     public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
      
     public PricingModel PricingModel { get => body.pricingModel; set => body.pricingModel = value; }
+     /// <summary>[LogNormal or Normal] - default is determined by product characteristics and is usually correct. for binary compatibility with new quant package</summary>
+    public CalcModelType CalcModelType { get => body.calcModelType; set => body.calcModelType = value; }
+     /// <summary>[Spot or Forward] (override; default is usually ok). for binary compatibility with new quant package</summary>
+    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
      /// <summary>moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)</summary>
     public MoneynessType MoneynessType { get => body.moneynessType; set => body.moneynessType = value; }
      /// <summary>quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)</summary>
@@ -6641,6 +6439,7 @@ public partial class SpreadDefinition : IMessage
         target.header = header;
          pkey.CopyTo(target.pkey);
          target.body = body;
+         target.SecurityDesc = SecurityDesc;
  
         if ((ExchSprIDsList?.Length ?? 0) > 0)
         {
@@ -6695,6 +6494,7 @@ public partial class SpreadDefinition : IMessage
     {
         pkey.Clear();
          body = new BodyLayout();
+         SecurityDesc = null;
          ExchSprIDsList = null;
          LegsList = null;
 
@@ -6846,6 +6646,8 @@ public partial class SpreadDefinition : IMessage
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>option spread type</summary>
     public SpreadClass SpreadClass { get => body.spreadClass; set => body.spreadClass = value; }
+     
+    public string SecurityDesc { get; set; } = string.Empty;
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
