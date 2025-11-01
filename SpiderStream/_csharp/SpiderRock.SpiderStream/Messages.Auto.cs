@@ -1760,6 +1760,8 @@ public partial class LiveSurfaceAtm : IMessage
         
         
         public ExpiryKey Ekey { get => ExpiryKey.GetCreateExpiryKey(body.ekey); set => body.ekey = value.Layout; }
+         
+        public SurfaceCurveType SurfaceType { get => body.surfaceType; set => body.surfaceType = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public void Clear()
@@ -1797,11 +1799,13 @@ public partial class LiveSurfaceAtm : IMessage
     internal struct PKeyLayout : IEquatable<PKeyLayout>
     {
         public ExpiryKeyLayout ekey;
+         public SurfaceCurveType surfaceType;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(PKeyLayout other)
         {
-            return	ekey.Equals(other.ekey);
+            return	ekey.Equals(other.ekey) &&
+					 	surfaceType.Equals(other.surfaceType);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1813,6 +1817,7 @@ public partial class LiveSurfaceAtm : IMessage
             unchecked
             {
                 var hashCode = ekey.GetHashCode();
+                 hashCode = (hashCode*397) ^ ((int) surfaceType);
 
                 return hashCode;
             }
@@ -9702,6 +9707,8 @@ public partial class TickerDefinitionExt : IMessage
 		public FixedString3Layout parValueCurrency;
 		public float pointValue;
 		public Currency pointCurrency;
+		public PriceFormat priceFormat;
+		public float minTickSize;
 		public PrimaryExchange primaryExch;
 		public int altID;
 		public FixedString4Layout mic;
@@ -9723,7 +9730,6 @@ public partial class TickerDefinitionExt : IMessage
 		public FixedString12Layout bbgCompositeGlobalID;
 		public FixedString12Layout bbgGlobalID;
 		public FixedString3Layout bbgCurrency;
-		public StkPriceInc stkPriceInc;
 		public float stkVolume;
 		public float futVolume;
 		public float optVolume;
@@ -9762,6 +9768,10 @@ public partial class TickerDefinitionExt : IMessage
     public float PointValue { get => body.pointValue; set => body.pointValue = value; }
      
     public Currency PointCurrency { get => body.pointCurrency; set => body.pointCurrency = value; }
+     /// <summary>PriceFormat: ex: NMS_Penny, NMS_HalfPenny</summary>
+    public PriceFormat PriceFormat { get => body.priceFormat; set => body.priceFormat = value; }
+     
+    public float MinTickSize { get => body.minTickSize; set => body.minTickSize = value; }
      
     public PrimaryExchange PrimaryExch { get => body.primaryExch; set => body.primaryExch = value; }
      /// <summary>Alt Security ID number</summary>
@@ -9804,8 +9814,6 @@ public partial class TickerDefinitionExt : IMessage
     public string BbgGlobalID { get => body.bbgGlobalID; set => body.bbgGlobalID = value; }
      /// <summary>Bloomberg Trading Currency</summary>
     public string BbgCurrency { get => body.bbgCurrency; set => body.bbgCurrency = value; }
-     /// <summary>Price increment: None; FullPenny; Nickle</summary>
-    public StkPriceInc StkPriceInc { get => body.stkPriceInc; set => body.stkPriceInc = value; }
      /// <summary>daily stock volume</summary>
     public float StkVolume { get => body.stkVolume; set => body.stkVolume = value; }
      /// <summary>daily future volume</summary>

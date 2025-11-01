@@ -664,13 +664,16 @@ public:
 	class Key
 	{
 		ExpiryKey ekey_;
+		SurfaceCurveType surfaceType_;
 		
 	public:
 		inline const ExpiryKey& ekey() const { return ekey_; }
+		inline SurfaceCurveType surfaceType() const { return surfaceType_; }
 
 		inline size_t operator()(const Key& k) const
 		{
 			size_t hash_code = ExpiryKey()(k.ekey_);
+			hash_code = (hash_code * 397) ^ std::hash<Byte>()(static_cast<Byte>(k.surfaceType_));
 
 			return hash_code;
 		}
@@ -678,7 +681,8 @@ public:
 		inline bool operator()(const Key& a, const Key& b) const
 		{
 			return
-				a.ekey_ == b.ekey_;
+				a.ekey_ == b.ekey_
+				&& a.surfaceType_ == b.surfaceType_;
 		}
 	};
 	
@@ -3907,6 +3911,8 @@ private:
 		String<3> parValueCurrency;
 		Float pointValue;
 		Currency pointCurrency;
+		PriceFormat priceFormat;
+		Float minTickSize;
 		PrimaryExchange primaryExch;
 		Int altID;
 		String<4> mic;
@@ -3928,7 +3934,6 @@ private:
 		String<12> bbgCompositeGlobalID;
 		String<12> bbgGlobalID;
 		String<3> bbgCurrency;
-		StkPriceInc stkPriceInc;
 		Float stkVolume;
 		Float futVolume;
 		Float optVolume;
@@ -3969,6 +3974,8 @@ public:
 	inline const String<3>& parValueCurrency() const { return layout_.parValueCurrency; }
 	inline Float pointValue() const { return layout_.pointValue; }
 	inline Currency pointCurrency() const { return layout_.pointCurrency; }
+	inline PriceFormat priceFormat() const { return layout_.priceFormat; }
+	inline Float minTickSize() const { return layout_.minTickSize; }
 	inline PrimaryExchange primaryExch() const { return layout_.primaryExch; }
 	inline Int altID() const { return layout_.altID; }
 	inline const String<4>& mic() const { return layout_.mic; }
@@ -3990,7 +3997,6 @@ public:
 	inline const String<12>& bbgCompositeGlobalID() const { return layout_.bbgCompositeGlobalID; }
 	inline const String<12>& bbgGlobalID() const { return layout_.bbgGlobalID; }
 	inline const String<3>& bbgCurrency() const { return layout_.bbgCurrency; }
-	inline StkPriceInc stkPriceInc() const { return layout_.stkPriceInc; }
 	inline Float stkVolume() const { return layout_.stkVolume; }
 	inline Float futVolume() const { return layout_.futVolume; }
 	inline Float optVolume() const { return layout_.optVolume; }
