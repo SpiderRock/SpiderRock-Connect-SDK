@@ -566,22 +566,22 @@ namespace SpiderRock
 			FullPenny=18,
 			PartPenny=19,
 			PartNickle=20,
-			EQT=21,
-			V1=22,
-			V2=23,
-			V3=24,
-			V4=25,
-			V5=26,
-			V6=27,
-			V7=28,
-			V8=29,
-			V9=30,
-			V10=31,
-			V11=32,
-			V12=33,
-			V13=34,
-			V14=35,
-			V15=36,
+			V1=21,
+			V2=22,
+			V3=23,
+			V4=24,
+			V5=25,
+			V6=26,
+			V7=27,
+			V8=28,
+			V9=29,
+			V10=30,
+			V11=31,
+			V12=32,
+			V13=33,
+			V14=34,
+			V15=35,
+			V16=36,
 			A0=37,
 			A1=38,
 			A2=39,
@@ -612,7 +612,10 @@ namespace SpiderRock
 			EU4C=64,
 			EU5A=65,
 			EU5B=66,
-			V16=67
+			NMS_Penny=67,
+			NMS_Nickle=68,
+			NMS_HalfPenny=69,
+			EQT=70
 		};
 
  		enum class PriceQuoteType : Enum 
@@ -884,7 +887,10 @@ namespace SpiderRock
 			BFly=18,
 			RiskRev=19,
 			Mixed=20,
-			VarSwap=21
+			VarSwap=21,
+			Pair=22,
+			ExpPair=23,
+			VolPair=24
 		};
 
  		enum class StkExch : Enum 
@@ -926,13 +932,6 @@ namespace SpiderRock
 			X24=34
 		};
 
- 		enum class StkPriceInc : Enum 
-		{
-			None=0,
-			FullPenny=1,
-			Nickle=2
-		};
-
  		enum class StkPrintType : Enum 
 		{
 			None=0,
@@ -957,6 +956,16 @@ namespace SpiderRock
 			Vertical=8,
 			Horizontal=9,
 			Mixed=10
+		};
+
+ 		enum class SurfaceCurveType : Enum 
+		{
+			None=0,
+			Live=1,
+			PrevDay=2,
+			Interp=3,
+			Close=4,
+			Test=5
 		};
 
  		enum class SurfaceResult : Enum 

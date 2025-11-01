@@ -111,7 +111,7 @@ public partial struct MessageType
             Type = 1030,
             Name = nameof(LiveSurfaceAtm),
             IsCore = true,
-            SchemaHash = 0x65fc8c0219199cfa
+            SchemaHash = 0x5baf7699e66232b6
         };
 
         attributes[3355] = new()
@@ -223,7 +223,7 @@ public partial struct MessageType
             Type = 4360,
             Name = nameof(ProductDefinitionV2),
             IsCore = true,
-            SchemaHash = 0x7d34ecedcbe9860d
+            SchemaHash = 0x7020ad169f5b434e
         };
 
         attributes[4365] = new()
@@ -231,7 +231,7 @@ public partial struct MessageType
             Type = 4365,
             Name = nameof(RootDefinition),
             IsCore = true,
-            SchemaHash = 0xaf00b657c6bc0a4
+            SchemaHash = 0x547ec021c3d54aad
         };
 
         attributes[2525] = new()
@@ -255,7 +255,7 @@ public partial struct MessageType
             Type = 4390,
             Name = nameof(SpreadDefinition),
             IsCore = true,
-            SchemaHash = 0x61d6c27646539c63
+            SchemaHash = 0x34d36078cb31d27a
         };
 
         attributes[4395] = new()
@@ -351,7 +351,7 @@ public partial struct MessageType
             Type = 4380,
             Name = nameof(TickerDefinitionExt),
             IsCore = true,
-            SchemaHash = 0x441df41e4e6b6f5d
+            SchemaHash = 0x4ed1db102eddaa79
         };
 
     }

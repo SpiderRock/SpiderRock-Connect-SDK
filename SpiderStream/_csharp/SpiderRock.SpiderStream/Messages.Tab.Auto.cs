@@ -438,7 +438,7 @@ public partial class LiveSurfaceAtm
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "ekey\tticker\tfkey\tuBid\tuAsk\tyears\trate\tsdiv\tddiv\texType\tmodelType\tearnCnt\tearnCntAdj\taxisVolRT\taxisFUPrc\tmoneynessType\tunderlierMode\tpriceQuoteType\tatmVol\tatmCen\tatmVolHist\tatmCenHist\tminAtmVol\tmaxAtmVol\teMove\teMoveHist\tatmMove\tatmCenMove\tatmPhi\tatmVega\tslope\tvarSwapFV\tgridType\tminXAxis\tmaxXAxis\tminCurvValue\tminCurvXAxis\tmaxCurvValue\tmaxCurvXAxis\tskewMinX\tskewMinY\tskewD11\tskewD10\tskewD9\tskewD8\tskewD7\tskewD6\tskewD5\tskewD4\tskewD3\tskewD2\tskewD1\tskewC0\tskewU1\tskewU2\tskewU3\tskewU4\tskewU5\tskewU6\tskewU7\tskewU8\tskewU9\tskewU10\tskewU11\tsdivD3\tsdivD2\tsdivD1\tsdivU1\tsdivU2\tsdivU3\tpwidth\tvwidth\tcCnt\tpCnt\tcBidMiss\tcAskMiss\tpBidMiss\tpAskMiss\tfitAvgErr\tfitAvgAbsErr\tfitMaxPrcErr\tfitErrXX\tfitErrCP\tfitErrDe\tfitErrBid\tfitErrAsk\tfitErrPrc\tfitErrVol\tcounter\tskewCounter\tsdivCounter\ttradingSession\ttradeableStatus\tsurfaceResult\ttimestamp";
+    public const string TabHeader = "ekey\tsurfaceType\tticker\tfkey\tuBid\tuAsk\tyears\trate\tsdiv\tddiv\texType\tmodelType\tearnCnt\tearnCntAdj\taxisVolRT\taxisFUPrc\tmoneynessType\tunderlierMode\tpriceQuoteType\tatmVol\tatmCen\tatmVolHist\tatmCenHist\tminAtmVol\tmaxAtmVol\teMove\teMoveHist\tatmMove\tatmCenMove\tatmPhi\tatmVega\tslope\tvarSwapFV\tgridType\tminXAxis\tmaxXAxis\tminCurvValue\tminCurvXAxis\tmaxCurvValue\tmaxCurvXAxis\tskewMinX\tskewMinY\tskewD11\tskewD10\tskewD9\tskewD8\tskewD7\tskewD6\tskewD5\tskewD4\tskewD3\tskewD2\tskewD1\tskewC0\tskewU1\tskewU2\tskewU3\tskewU4\tskewU5\tskewU6\tskewU7\tskewU8\tskewU9\tskewU10\tskewU11\tsdivD3\tsdivD2\tsdivD1\tsdivU1\tsdivU2\tsdivU3\tpwidth\tvwidth\tcCnt\tpCnt\tcBidMiss\tcAskMiss\tpBidMiss\tpAskMiss\tfitAvgErr\tfitAvgAbsErr\tfitMaxPrcErr\tfitErrXX\tfitErrCP\tfitErrDe\tfitErrBid\tfitErrAsk\tfitErrPrc\tfitErrVol\tcounter\tskewCounter\tsdivCounter\ttradingSession\ttradeableStatus\tsurfaceResult\ttimestamp";
 
     public string TabRecord
     {
@@ -448,6 +448,8 @@ public partial class LiveSurfaceAtm
             recordBuilder ??= new(4096);
 
             recordBuilder.Append(pkey.Ekey);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(pkey.SurfaceType);
 
             recordBuilder.Append('\t');
 
@@ -2548,7 +2550,7 @@ public partial class TickerDefinitionExt
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "ticker\tsymbolType\tname\tissuerName\tcntryOfIncorp\tparValue\tparValueCurrency\tpointValue\tpointCurrency\tprimaryExch\taltID\tmic\tmicSeg\tsymbol\tissueClass\tsecurityID\tsic\tcik\tgics\tlei\tnaics\tcfi\tcic\tfisn\tisin\tbbgCompositeTicker\tbbgExchangeTicker\tbbgCompositeGlobalID\tbbgGlobalID\tbbgCurrency\tstkPriceInc\tstkVolume\tfutVolume\toptVolume\texchString\thasOptions\tnumOptions\troundlot\tsharesOutstanding\totcPrimaryMarket\totcTier\totcReportingStatus\totcDisclosureStatus\totcFlags\ttkDefSource\tstatusFlag\ttimeMetric\ttradingPeriod\ttimestamp";
+    public const string TabHeader = "ticker\tsymbolType\tname\tissuerName\tcntryOfIncorp\tparValue\tparValueCurrency\tpointValue\tpointCurrency\tpriceFormat\tminTickSize\tprimaryExch\taltID\tmic\tmicSeg\tsymbol\tissueClass\tsecurityID\tsic\tcik\tgics\tlei\tnaics\tcfi\tcic\tfisn\tisin\tbbgCompositeTicker\tbbgExchangeTicker\tbbgCompositeGlobalID\tbbgGlobalID\tbbgCurrency\tstkVolume\tfutVolume\toptVolume\texchString\thasOptions\tnumOptions\troundlot\tsharesOutstanding\totcPrimaryMarket\totcTier\totcReportingStatus\totcDisclosureStatus\totcFlags\ttkDefSource\tstatusFlag\ttimeMetric\ttradingPeriod\ttimestamp";
 
     public string TabRecord
     {
@@ -2576,6 +2578,10 @@ public partial class TickerDefinitionExt
             recordBuilder.Append(PointValue);
             recordBuilder.Append('\t');
             recordBuilder.Append(PointCurrency);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PriceFormat);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(MinTickSize);
             recordBuilder.Append('\t');
             recordBuilder.Append(PrimaryExch);
             recordBuilder.Append('\t');
@@ -2618,8 +2624,6 @@ public partial class TickerDefinitionExt
             recordBuilder.Append(BbgGlobalID);
             recordBuilder.Append('\t');
             recordBuilder.Append(BbgCurrency);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(StkPriceInc);
             recordBuilder.Append('\t');
             recordBuilder.Append(StkVolume);
             recordBuilder.Append('\t');
