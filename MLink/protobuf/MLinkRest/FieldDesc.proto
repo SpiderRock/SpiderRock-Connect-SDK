@@ -36,6 +36,7 @@ message FieldDesc {
     string maximum_value = 165; // the maximum value for this field. Will need to be casted to correct type by consumer
     int32 c_color = 160; // grid column color number (color palette number) (0 means undefined)
     string context_query = 163; // context query for pseudo enum fields with format of contextQuery=otherMsgType|selectField|contextField|contextField|...|contextField
+    YesNo is_required = 166; // YesNo enum. Determines if this field is required.
 }
 
 

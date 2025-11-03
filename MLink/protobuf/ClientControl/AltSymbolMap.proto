@@ -19,12 +19,13 @@ message AltSymbolMap {
     message AltClearing {
         
         string exec_brkr_code = 146;
-        string ex_dest = 147; // exDest (eg. CBOEOPT, AMEXCOB, NMS$OPT, NMS$STK, NMS$COB, CMX$FUT)
+        string ex_dest = 147; // exDest (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT)
         FlipType clr_flip_type = 148; // type of clearing corp delivery
         string clr_flip_firm = 149; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
         string clr_flip_accnt = 150; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
         string clr_agent = 151; // deliverTo agent (eg. DVP Agent Bank ID)
         string clr_tax_iD = 152; // deliverTo taxID (eg. DVP TaxID)
+        string clr_brkr_mPID = 159;
         string exec_brkr_accnt = 153; // exec broker account (supplied by exec broker) (usually Account<1>) [only used if clrFlipType=BrkrAccnt]
         string exec_brkr_cl_firm = 154; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>) [only used if clrFlipType=BrkrAccnt]
         string exec_brkr_user_name = 155; // exec broker user name (supplied by exec broker)
@@ -43,7 +44,6 @@ message AltSymbolMap {
     string user_data2 = 115; // will replace userData2 on parent order (if exists)
     string child_data = 118; // will replace childData on parent order (if exists)
     string ticket_locate_firm = 157; // ticket/chat (default) locate firm
-    string ticket_locate_pool = 158; // ticket/chat (default) locate pool/id @ firm granting the locate
     string stk_exec_brkr_code = 141; // will replace execBrkrCode on stk parent orders (if exists)
     string fut_exec_brkr_code = 142; // will replace execBrkrCode on fut parent orders (if exists)
     string eqt_opt_exec_brkr_code = 143; // will replace execBrkrCode on eqt opt/mleg parent orders (if exists)

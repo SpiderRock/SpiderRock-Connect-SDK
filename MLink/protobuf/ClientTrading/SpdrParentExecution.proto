@@ -62,13 +62,16 @@ message SpdrParentExecution {
     ExecRole exec_role = 211; // SpiderRock relationship to this execution record
     string exec_brkr_code = 833; // SR Assigned executing broker code
     string exec_brkr_mPID = 217; // FINRA/Assigned exec broker MPID (if any)
-    string alt_brkr_mPID = 834; // alternative broker MPID for a given route (if needed)
     string exec_brkr_accnt = 220; // account at executing broker (if any)
     string exec_brkr_cl_firm = 223; // client/firm at executing broker (if any)
     string exec_brkr_user_name = 226; // userName at execution broker (if any)
     FlipType clearing_flip_type = 229; // Clearing Flip Type (None, ExecBroker, CMTA, Giveup, DTCC, QSR, etc)
     string clearing_flip_firm = 232; // Clearing Flip Firm (if any)
     string clearing_flip_accnt = 235; // Clearing Flip Account (if any)
+    string clearing_agent = 852; // Clearing Agent (if any)
+    string clearing_tax_iD = 853; // Clearing TaxID (if any)
+    string clearing_brkr_mPID = 854; // Clearing Broker MPID (equity only)
+    string badge = 855;
     string clearing_firm = 238; // clearing firm
     string clearing_accnt = 241; // clearing firm account (if any)
     string orig_exec_iD = 244; // original execution ID string (child order)
@@ -125,7 +128,8 @@ message SpdrParentExecution {
     string pri_agg_group = 397; // primary aggregation group
     string sec_agg_group = 400; // secondary aggregation group
     string directed_client_firm = 403;
-    float notice_commission = 850; // total responder auction commission (flash only)
+    float notice_commission = 850;
+    YesNo has_notice_comm = 856; // noticeCommision contains responder auction commission; otherwise, commission is as agreed elsewhere
     YesNo cust_comm_paying = 851; // client is commission paying (to the responder)
     google.protobuf.Timestamp fill_transact_dttm = 409; // transaction date/time as reported by exchange or down stream broker
     double fill_ts = 412; // fill report ts (seconds since startup; 100 nanosec resolution)
@@ -174,6 +178,11 @@ message SpdrParentExecution {
     float fill_th = 541; // fill theta
     float fill_ve_ratio = 547; // fill ve / fill atm ve
     float fill_beta = 550; // SpiderRock estimate of beta to SPX
+    CompletionType completion_type = 857; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 858;
+    double completion_price = 859; // completion trade price (final trade price)
+    OptionKey completion_sec_key = 860; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+    SpdrKeyType completion_sec_type = 861; // usually Future or Option (None if not yet valid)
     float risk_vega = 812; // risk vega
     float risk_wt_vega = 813; // risk gamma
     float risk_nValue = 814; // risk delta
@@ -261,6 +270,11 @@ message SpdrParentExecution {
     float min_tick_size = 784; // minimum market price variation (dnTickSize if on a boundary)
     PriceFormat price_format = 787; // SpiderRock price display format code
     PriceFormat u_price_format = 790; // SpiderRock underlier price display format code
+    double price_notional = 862; // fillQuantity * fillPrice (Stk) | fillQuantity * fillPrice * contractMultipler (Fut) | fillQuantity * fillPrice *  underliers Per Contract * pointValue (Opt)
+    double u_prc_notional = 863; // FillSize * Underlying Price (mid market) * Underliers Per Contract * pointValue (Opt only)
+    double strike_notional = 864; // FillSize * Strike Price * Underliers Per Contract * pointValue (Opt only)
+    Currency realm_currency = 865; // Base currency of realm execution recieved in
+    double point_to_realm_rate = 866; // FOREX rate from pointCurrency to realm base currency at time of execution
     string response_type = 837; // usually an exch auction response type
     double nbbo_bid = 838; // nbbo bid @ child order send
     double nbbo_ask = 839; // nbbo ask @ child order send
@@ -272,26 +286,41 @@ message SpdrParentExecution {
     int64 src_timestamp = 799;
     int64 sgw_timestamp = 802;
     int64 eng_timestamp = 805;
+    Contingency u_contingency = 867;
+    double u_level = 868;
+    CancelSource cxl_source = 869;
+    int64 cxl_src_offset = 870; // childOrder.cxlSrcTimestamp - printEvent.srcTimestamp
+    int64 cxl_eng_offset = 871; // childOrder.cxlEngTimestamp - printEvent.srcTimestamp
+    int64 cxl_snd_offset = 872; // childOrder.cxlSndTimestamp - printEvent.srcTimestamp
+    float u_slip = 873; // dir * sign(de) * dContigency; dContigency = uPrc slip through cxl trigger or zero (>= 0)
+    float opx_slip = 874; // abs(de) * uSlip + 0.5 * ga * uSlip * uSlip (>= 0)
+    float vol_slip = 875; // 0.01 * opxSlip / ve
+    float prt_uBid = 876; // note: print data only available if print arrives (@EE) before execution report
+    float prt_uAsk = 877;
+    int32 prt_size = 878;
+    int64 prt_timestamp = 879; // printEvent.srcTimestamp
+    int32 prt_sgw_offset = 880; // childOrder.swgTimestamp - printEvent.srcTimestamp
     google.protobuf.Timestamp timestamp = 808; // timestamp of this record [not necessarily the timstamp of the fill itself]
     SRDataCenter_V7 data_center__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
     FaceSide face_side__v7 = 5001; // only v7 - enum values match with v8
     FaceShape face_shape__v7 = 5002; // only v7 - enum values match with v8
-    string child_locate_source__v7 = 5003; // only V7
-    YesNo is_comm_paying__v7 = 5004; // only v7 - enum values match with v8
-    float fill_pr__v7 = 5005; // only V7
-    float fill_risk_metric1__v7 = 5006; // only V7
-    float fill_risk_metric2__v7 = 5007; // only V7
-    float fill_risk_metric3__v7 = 5008; // only V7
-    float fill_risk_metric4__v7 = 5009; // only V7
-    float fill_risk_metric5__v7 = 5010; // only V7
-    float fill_risk_metric6__v7 = 5011; // only V7
-    float fill_risk_metric7__v7 = 5012; // only V7
-    float fill_s08_dn__v7 = 5013; // only V7
-    float fill_s06_up__v7 = 5014; // only V7
-    float fill_s15_dn__v7 = 5015; // only V7
-    float fill_s15_up__v7 = 5016; // only V7
-    float fill_s50_dn__v7 = 5017; // only V7
-    float fill_s50_up__v7 = 5018; // only V7
+    string alt_brkr_mPID__v7 = 5003; // only V7: alias lengths match
+    string child_locate_source__v7 = 5004; // only V7
+    YesNo is_comm_paying__v7 = 5005; // only v7 - enum values match with v8
+    float fill_pr__v7 = 5006; // only V7
+    float fill_risk_metric1__v7 = 5007; // only V7
+    float fill_risk_metric2__v7 = 5008; // only V7
+    float fill_risk_metric3__v7 = 5009; // only V7
+    float fill_risk_metric4__v7 = 5010; // only V7
+    float fill_risk_metric5__v7 = 5011; // only V7
+    float fill_risk_metric6__v7 = 5012; // only V7
+    float fill_risk_metric7__v7 = 5013; // only V7
+    float fill_s08_dn__v7 = 5014; // only V7
+    float fill_s06_up__v7 = 5015; // only V7
+    float fill_s15_dn__v7 = 5016; // only V7
+    float fill_s15_up__v7 = 5017; // only V7
+    float fill_s50_dn__v7 = 5018; // only V7
+    float fill_s50_up__v7 = 5019; // only V7
 }
 
 

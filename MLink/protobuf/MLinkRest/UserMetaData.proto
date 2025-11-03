@@ -33,6 +33,7 @@ message UserMetaData {
         
         MarketDataToken token = 247; // market data billing authorities (either external or internally controlled for billing purposes)
         MarketDataScope scope = 250; // controls whether market data access is live or delayed
+        AccessScope access = 269; // SR Platform enabled (display vs. non-display license)
         google.protobuf.Timestamp expires = 253; // must exists (can be 2100-01-01)
     }
 

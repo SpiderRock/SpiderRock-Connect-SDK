@@ -24,6 +24,10 @@ message NoticeExecReport {
         LegPositionType position_type = 121;
         int32 leg_cum_fill_qty = 122;
         double leg_avg_fill_price = 123;
+        int32 leg_cum_cmpl_qty = 171;
+        double leg_avg_cmpl_price = 172;
+        OptionKey leg_cmpl_sec_key = 173; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type = 174; // usually Future or Option (None if not yet valid)
     }
 
 
@@ -36,30 +40,35 @@ message NoticeExecReport {
     string client_firm = 140; // SR ClientFirm
     google.protobuf.Timestamp notice_dttm = 141; // either notice create datetime or notice arrival@SR datetime (high precision)
     string response_id = 100; // from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
-    SpdrSource resp_origin = 142; // AutoResponder, MLINK, FIX, ICEChat, TradeAp responders
-    SpdrStageType stage_type = 101; // response staged or not
+    SpdrSource spdr_source = 158; // AutoResponder, MLINK, FIX, ICEChat, TradeAp responders
+    SpdrStageType stage_type = 101; // ats order staged or not
     AuctionType auction_type = 143; // Exch Exposure, Exch Price Improve, Exch Facilitation, Exch Solicitation, SR ATS Block, SR ATS Flash
     AuctionSource auction_source = 144; // Source of the auction notice (eg. SRC, CBOE, MIAX, etc.)
-    google.protobuf.Timestamp resp_dttm = 127; // response arrival dttm (high precision)
-    BuySell resp_side = 102;
-    int32 resp_size = 103;
-    int32 resp_active_size = 104; // active response order size (zero for ActiveHold)
-    double resp_price = 105; // effRespPrice = respPrice + de * (uMid - refUPrc) + 0.5 * ga * (uMid - refUPrc)^2
-    double ref_uPrc = 106; // reference price for tied to underlier orders (mid-market tie) (block auctions only)
-    float ref_de = 107; // reference delta for tied to underlier orders (zero if tie is not desired) (block auctions only)
-    float ref_ga = 108; // reference gamma for tied to underlier orders (zero if tie is not desired) (block auctions only)
-    RoundRule round_rule = 128; // Exact (100%) or Fuzzy (90%) [default is Exact] (block auctions only)
-    double step_up_incr = 129; // additional price increment (best price) (typically only used if auction is competitive)
-    int64 risk_group_id = 109; // any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
+    google.protobuf.Timestamp create_dttm = 159; // ats order arrival dttm (high precision)
+    BuySell side = 160;
+    int32 size = 161;
+    int32 active_size = 162; // active order size (zero for ActiveHold)
+    ReachRule reach_rule = 163; // size condition
+    double ref_price = 164; // effPrice = price + de * (uMid - refUPrc) + 0.5 * ga * (uMid - refUPrc)^2
+    double ref_uPrc = 106; // reference price for tied to underlier orders
+    URefType u_ref_type = 165; // type of reference price (uBid, uAsk, uMid)
+    float ref_de = 107; // reference delta for tied to underlier orders
+    float ref_ga = 108; // reference gamma for tied to underlier orders
+    RoundRule round_rule = 128; // Exact (100%) or Fuzzy (90%) [default is Exact]
+    double step_up_incr = 129; // additional price increment (best price) (only used if auction is competitive)
+    int64 risk_group_id = 109; // associated riskGroupID (and SpdrRiskGroupControl) (if any)
     string strategy = 110; // user strategy field (visible on SR tools)
     string user_data1 = 111; // user data field (free text) (from NoticeResponse)
-    SpdrOrderStatus resp_status = 112;
-    string resp_detail = 113;
+    SpdrOrderStatus order_status = 166; // ats order status
+    string order_detail = 167; // additional detail
     double last_uPrc = 145; // effective uPrc (mid-market) from last trial pass
     double last_trial_prc = 146; // effective response price from last trial pass
     int32 leaves_qty = 147; // open order quantity
     int32 cum_fill_qty = 130; // pkg cumFillQty if MLeg
     double avg_fill_price = 131; // pkg avgFillPrice if MLeg
+    CompletionType completion_type = 168; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 169;
+    double avg_completion_price = 170; // completion trade price (final trade price) [also avg completion price]
     double add_latency = 148; // latency from notice arrival@SR to external response send (in seconds) OR latency from notice create to response accepted (in seconds) (SRC Auctions)
     double ack_latency = 149; // latency from external response send to external response ack (FRT) (in seconds) (external auctions only)
     int32 num_opt_legs = 152; // number of option legs

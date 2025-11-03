@@ -18,6 +18,18 @@ message SpdrParentOrder {
         int64 parent_number = 10; // SPDR order number
     }
 
+    message ClearingFlip {
+        
+        string ex_dest = 1053; // exDest (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT)
+        FlipType clr_flip_type = 1054; // type of clearing corp delivery
+        string clr_flip_firm = 1055; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
+        string clr_flip_accnt = 1056; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
+        string clr_agent = 1057; // deliverTo agent (eg. DVP Agent Bank ID)
+        string clr_tax_iD = 1058; // deliverTo taxID (eg. DVP TaxID)
+        string clr_brkr_mPID = 1059; // stock clearing broker
+        string badge = 1060; // exchange memembership and badge id
+    }
+
     message DirectedCounterParty {
         
         string client_firm = 697;
@@ -46,6 +58,7 @@ message SpdrParentOrder {
         double ref_uPrc1 = 814; // reference underlier price (PrcDe orders)
         float ref_delta1 = 817; // reference delta (for PrcDe order handling)
         int32 ref_earn_cnt1 = 820; // reference # of earnings moves before expiration
+        StrikeType leg_strike_type1 = 1061; // BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
         OptionKey sec_key2 = 823; // leg #2
         SpdrKeyType sec_type2 = 826;
         uint32 mult2 = 829;
@@ -58,6 +71,7 @@ message SpdrParentOrder {
         double ref_uPrc2 = 856; // reference underlier price (PrcDe orders)
         float ref_delta2 = 859; // reference delta (for PrcDe order handling)
         int32 ref_earn_cnt2 = 862; // reference # of earnings moves before expiration
+        StrikeType leg_strike_type2 = 1062; // BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
         OptionKey sec_key3 = 865; // leg #3
         SpdrKeyType sec_type3 = 868;
         uint32 mult3 = 871;
@@ -70,6 +84,7 @@ message SpdrParentOrder {
         double ref_uPrc3 = 898; // reference underlier price (PrcDe orders)
         float ref_delta3 = 901; // reference delta (for PrcDe order handling)
         int32 ref_earn_cnt3 = 904; // reference # of earnings moves before expiration
+        StrikeType leg_strike_type3 = 1063; // BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
         OptionKey sec_key4 = 907; // leg #4
         SpdrKeyType sec_type4 = 910;
         uint32 mult4 = 913;
@@ -82,6 +97,7 @@ message SpdrParentOrder {
         double ref_uPrc4 = 940; // reference underlier price (PrcDe orders)
         float ref_delta4 = 943; // reference delta (for PrcDe order handling)
         int32 ref_earn_cnt4 = 946; // reference # of earnings moves before expiration
+        StrikeType leg_strike_type4 = 1064; // BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
         OptionKey sec_key5 = 949; // leg #5
         SpdrKeyType sec_type5 = 952;
         uint32 mult5 = 955;
@@ -94,6 +110,7 @@ message SpdrParentOrder {
         double ref_uPrc5 = 982; // reference underlier price (PrcDe orders)
         float ref_delta5 = 985; // reference delta (for PrcDe order handling)
         int32 ref_earn_cnt5 = 988; // reference # of earnings moves before expiration
+        StrikeType leg_strike_type5 = 1065; // BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
         OptionKey sec_key6 = 991; // leg #6
         SpdrKeyType sec_type6 = 994;
         uint32 mult6 = 997;
@@ -106,6 +123,7 @@ message SpdrParentOrder {
         double ref_uPrc6 = 1024; // reference underlier price (PrcDe orders)
         float ref_delta6 = 1027; // reference delta (for PrcDe order handling)
         int32 ref_earn_cnt6 = 1030; // reference # of earnings moves before expiration
+        StrikeType leg_strike_type6 = 1066; // BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
     }
 
 
@@ -150,7 +168,7 @@ message SpdrParentOrder {
     PublicSizeHandling public_size = 202; // public order size handling: None=algo default; Randomize=randomize public size; MktSize=expose typical market size; FullSize=expose entire order size where possible; FullSizeR=randomize full size
     YesNo can_overlap_cxl_repl = 205; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
     ProgressRule progress_rule = 208; // Immediate = all size immediately available; TWAP = work from arrival to expiration; VWAP = work order not faster than participation rate
-    BlockVisibility block_visibility = 211; // for BlockAuction orders, visibility (to responders) is neither, side only, or side + price
+    AtsVisibility ats_visibility = 1067; // for BlockAuction orders, visibility (to responders) is neither, side only, or side + price
     int32 progress_slice_cnt = 214; // number of slices to use (default = 4 or 8) [max 20]
     int32 progress_expose_time = 217; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
     float vwap_participation = 220; // target vwap participation rate (target % of trade activity)
@@ -235,6 +253,9 @@ message SpdrParentOrder {
     double max_completion_slippage = 487; // maximum price slippage to complete an open basket
     float order_ref_premium = 490; // reference premium (mleg orders only)
     int64 notice_number = 1038; // required when parentOrderHandling = BlockResponse
+    float notice_commission = 1049;
+    YesNo has_notice_comm = 1050;
+    float pkg_ref_prem_pct = 1051; // BlockPCV: package premium as a % of underlier closing price (fixed by initiator)
     float theo_vol = 496; // client supplied theoretical volatility (used for markup only)
     float cl_arrive_mark = 499; // client specified arrival mark (passed through to ParentExecution; markup only)
     int64 risk_group_id = 502; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
@@ -302,6 +323,7 @@ message SpdrParentOrder {
     int64 sgw_timestamp = 682;
     google.protobuf.Timestamp timestamp = 685;
     InclExclDisclose include_sRNetwork = 1037;
+    repeated ClearingFlip clearing_flip = 1052;
     repeated DirectedCounterParty directed_counter_party = 694;
     repeated OrderLegs order_legs = 751;
 }

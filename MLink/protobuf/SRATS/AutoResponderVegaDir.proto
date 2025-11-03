@@ -73,6 +73,8 @@ message AutoResponderVegaDir {
     HedgeScope hedge_scope = 123; // hedge group scope [RiskGroup or Accnt]
     MarketSession hedge_session = 124; // time in force for the autohedge order (can be Day or ExtDay) [None defaults to pOrder.timeInForce]
     int64 risk_group_id = 125; // Default: 0 (none).  Required to be non-zero if `autoHedge` is something other than None.
+    float min_uPrc = 157; // min/max underlier price bounds (no responses while underlier is outside of bounds)
+    float max_uPrc = 158;
     string modified_by = 127; // user who last modified this record
     SysEnvironment modified_in = 128;
     google.protobuf.Timestamp timestamp = 129; // timestamp of last modification

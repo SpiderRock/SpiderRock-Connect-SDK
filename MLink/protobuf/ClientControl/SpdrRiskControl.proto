@@ -14,7 +14,7 @@ message SpdrRiskControl {
     message PKey {
         
         TickerKey ticker = 12; // '*-ANY-ANY' default (if a more precise ticker control does not exist)
-        string risk_control_key = 13; // must be an SRClientAccnt if riskControlLevel=Accnt; must be an SRUser if riskControlLevel=User; ignored if riskControlLevel=ClientFirm
+        string risk_control_key = 13; // must be an SRClientAccnt if riskControlLevel=Accnt; must be an SRUser if riskControlLevel=User; must be a colon separated SRUser and SRClientAccnt if riskControlLevel=UserAccnt; ignored if riskControlLevel=ClientFirm
         RiskControlLevel risk_control_level = 14;
         string risk_firm = 15;
         YesNo is_test_accnt = 16; // if Yes, this control applies only to risk from test accnts

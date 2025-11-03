@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrAlertRecord {
+    message PKey {
+        
+        string accnt = 10; // SpiderRock trading accnt [broker pkey]
+        string client_firm = 11; // SR client firm
+        string user_name = 12;
+        string alert_type = 13;
+        string alert_source = 14;
+        AlertPriority alert_priority = 15;
+        int32 hist_window = 16; // counter % 10 (most recent event window)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string alert_text = 100;
+    int32 counter = 101;
+    google.protobuf.Timestamp timestamp = 102; // timestamp of last modification
+}
+
+

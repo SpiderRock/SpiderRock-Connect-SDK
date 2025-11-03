@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)ClientControl/AvailableStockLocates.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x04\n\x15\x41vailableStockLocates\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12=\n\x04pkey\x18\x02 \x01(\x0b\x32/.spiderrock.protobuf.AvailableStockLocates.PKey\x12\x13\n\x0blocate_quan\x18\x64 \x01(\x05\x12\x18\n\x10locate_quan_used\x18g \x01(\x05\x12\x1d\n\x15\x61vailable_locate_quan\x18j \x01(\x05\x12\x34\n\x10is_locate_exempt\x18m \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12\x13\n\x0b\x65ngine_name\x18t \x01(\t\x12-\n\ttimestamp\x18s \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\xac\x01\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x18\n\x10\x63ore_client_firm\x18\x0b \x01(\t\x12\x13\n\x0blocate_firm\x18\x0c \x01(\t\x12\x13\n\x0blocate_pool\x18\r \x01(\t\x12\x30\n\ntrade_date\x18\x0f \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKeyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)ClientControl/AvailableStockLocates.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcc\x03\n\x15\x41vailableStockLocates\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12=\n\x04pkey\x18\x02 \x01(\x0b\x32/.spiderrock.protobuf.AvailableStockLocates.PKey\x12\x13\n\x0blocate_quan\x18\x64 \x01(\x05\x12\x18\n\x10locate_quan_used\x18g \x01(\x05\x12\x1d\n\x15\x61vailable_locate_quan\x18j \x01(\x05\x12\x13\n\x0b\x65ngine_name\x18t \x01(\t\x12-\n\ttimestamp\x18s \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\xac\x01\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x18\n\x10\x63ore_client_firm\x18\x0b \x01(\t\x12\x13\n\x0blocate_firm\x18\x0c \x01(\t\x12\x13\n\x0blocate_pool\x18\r \x01(\t\x12\x30\n\ntrade_date\x18\x0f \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKeyb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,7 +24,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_AVAILABLESTOCKLOCATES']._serialized_start=125
-  _globals['_AVAILABLESTOCKLOCATES']._serialized_end=639
-  _globals['_AVAILABLESTOCKLOCATES_PKEY']._serialized_start=467
-  _globals['_AVAILABLESTOCKLOCATES_PKEY']._serialized_end=639
+  _globals['_AVAILABLESTOCKLOCATES']._serialized_end=585
+  _globals['_AVAILABLESTOCKLOCATES_PKEY']._serialized_start=413
+  _globals['_AVAILABLESTOCKLOCATES_PKEY']._serialized_end=585
 # @@protoc_insertion_point(module_scope)

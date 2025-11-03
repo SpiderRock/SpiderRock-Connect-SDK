@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Values in this table represent current (live) SpiderRock MAR risk counters and controls for a risk group/risk firm combination. Values are non-editable.
+*/    
+message MarRiskComposite {
+    message PKey {
+        
+        TickerKey ticker = 10; // '*-ANY-ANY' represents the entire control group
+        string risk_group = 11;
+        string risk_firm = 12; // client firm that can view/edit this record
+        YesNo is_test_accnt = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 101; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 102; // EE engine name
+    float live_margin_acc = 103; // live net (per symbol) total portfolio (start-of-day positions + day trades) margin (can include external sources)
+    float live_margin_day = 104; // live net (per symbol) day portfolio (day trades only) margin (can include external sources)
+    float live_open_exposure = 105; // live abs open child order $Delta (no netting) (open child orders only)
+    int32 day_fut_cn_bot = 106; // day future contracts bot
+    int32 day_fut_cn_sld = 107; // day future contracts sld
+    int32 acc_fut_cn_net = 108; // accnt future contracts (net) [can be +/-] (start-of-day positions + day trades)
+    float day_margin_uDn_vDn = 109; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 110; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 111; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 112; // day margin (UPrcUp/VolUp)
+    float acc_margin_uDn_vDn = 113; // acc margin (UPrcDn/VolDn)
+    float acc_margin_uDn_vUp = 114; // acc margin (UPrcDn/VolUp)
+    float acc_margin_uUp_vDn = 115; // acc margin (UPrcUp/VolDn)
+    float acc_margin_uUp_vUp = 116; // acc margin (UPrcUp/VolUp)
+    MarState stk_enabled = 117; // Enabled or not for equities (None=disabled)
+    MarState fut_enabled = 118; // Enabled or not for futures (None=disabled)
+    MarState opt_enabled = 119; // Enabled or not for options (None=disabled)
+    float margin_limit_acc = 120; // Maximum net (per symbol) total portfolio (start-of-day positions + day trades) margin (can include external sources)
+    float margin_limit_day = 121; // Maximum net (per symbol/day) day portfolio (day trades only) margin (can include external sources)
+    float open_exposure_limit = 122; // Maximum abs open child order $Delta (no netting) (open child orders only)
+    int32 max_acc_fut_cn_abs = 123; // Maximum absolute (net) account future contracts
+    int32 max_day_fut_cn_bot = 124; // Day future contracts bot
+    int32 max_day_fut_cn_sld = 125; // Day future contracts sld
+    int32 max_day_fut_cn_abs = 126; // Maximum absolute (net) day future contracts
+    int32 order_max_stk_qty = 127; // Number of equity shares that can be bought or sold by a single parent order
+    int32 order_max_fut_qty = 128; // Number of futures contracts that can be bought or sold by a single parent order
+    int32 order_max_opt_qty = 129; // Number of option contracts that can be bought or sold by a single parent order
+    float order_max_stk_dDelta = 130; // Maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
+    float order_max_fut_dDelta = 131; // Maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
+    float order_max_opt_dDelta = 132; // Maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
+    float stk_collar_pct = 133; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float fut_collar_pct = 134; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float opt_collar_pct = 135; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    YesNo allow_stk_odd_lots = 136; // Allow parent stock orders with an order size below 100
+    YesNo allow_limit_on_close = 137; // Allow limit on close orders - similar to MOC order, with the addition of a price limit
+    YesNo allow_market_on_close = 138; // Allow market on close orders - special order type which is executed as close to the close of trading as possible
+    YesNo allow_inter_market_sweep = 140; // Allow intermarket sweep orders
+    YesNo block_short_sales = 141; // Block all short sales
+    string modified_by = 142; // User that last modified corresponding MarRiskControl
+    SysEnvironment modified_in = 143; // Environment corresponding MarRiskControl was last updated in
+    int32 counter = 144;
+    google.protobuf.Timestamp timestamp = 145; // timestamp of latest change
+}
+
+

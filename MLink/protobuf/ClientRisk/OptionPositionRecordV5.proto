@@ -68,6 +68,8 @@ message OptionPositionRecordV5 {
     int32 cn_sld = 214; // number of contracts sld today
     int32 cn_opened = 217; // number of contracts opened today
     int32 cn_closed = 220; // number of contracts closed today
+    int32 cn_pend_cmpl_bot = 607; // number of contracts bot today (but pending completion)
+    int32 cn_pend_cmpl_sld = 608; // number of contracts sld today (but pending completion)
     float edge_opened = 223; // edge from opening trades (model #1)
     float edge_closed = 226; // edge from closing trades (model #1)
     float trd_delta = 229; // deltas from trades (fixed at the time of trade)

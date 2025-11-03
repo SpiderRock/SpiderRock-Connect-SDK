@@ -31,6 +31,8 @@ message AutoResponderBX {
     YesNo inc_fees_in_resp = 107; // include all estimated responder fees in final response price
     RoundRule round_rule = 108;
     int64 risk_group_id = 109;
+    float min_uPrc = 113; // min/max underlier price bounds (no responses while underlier is outside of bounds)
+    float max_uPrc = 114;
     string modified_by = 110; // user who last modified this record
     SysEnvironment modified_in = 111;
     google.protobuf.Timestamp timestamp = 112; // timestamp of last modification

@@ -18,17 +18,18 @@ message AccountRouteConfig {
 
     message ClearingFlip {
         
-        string ex_dest = 193; // exDest (eg. CBOEOPT, AMEXCOB, NMS$OPT, NMS$STK, NMS$COB, CMX$FUT)
+        string ex_dest = 193; // exDest (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT)
         FlipType clr_flip_type = 187; // type of clearing corp delivery
         string clr_flip_firm = 188; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
         string clr_flip_accnt = 189; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
         string clr_agent = 190; // deliverTo agent (eg. DVP Agent Bank ID)
         string clr_tax_iD = 191; // deliverTo taxID (eg. DVP TaxID)
+        string clr_brkr_mPID = 196; // clearing broker (equity clearing only) [exDest is an option exch exDest=NMS$STK must exist in this list]
     }
 
     message ExchControl {
         
-        string ex_dest = 194; // exchange (eg. NYSESTK, CBOEOPT, AMEXCOB, NMS$OPT, NMS$STK, NMS$COB, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+        string ex_dest = 194; // exchange (eg. NYSESTK, CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
         YesNo disable = 163;
     }
 
@@ -44,7 +45,7 @@ message AccountRouteConfig {
     message RoutingTable {
         
         string routing_code = 151; // routing session code (is a RouteDefinition.pkey.routingCode) [RouteDefinition.execBrkrCode must match execBrkrCode]
-        CobTied cob_tied = 195; // can handle COB (MLeg/AB) orders tied to an underlier (must be yes here and also must be yes on the underling route definition/exDest)
+        FeatureDisable feature_disable = 197; // used to disable certain route features before reaching the routingCode/routeDefinition
     }
 
 

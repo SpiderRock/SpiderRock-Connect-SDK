@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message GetFlexSpreadPrice {
+    message DiscreteDividend {
+        
+        google.protobuf.Timestamp date = 136;
+        float amount = 137;
+    }
+
+    message Legs {
+        
+        OptionKey okey = 104; // should be in OSI root format; strike can be zero for the variable strike leg
+        BuySell side = 105;
+        int32 ratio = 106; // leg ratio
+        StrikeType strike_type = 107; // DollarAmt, Percent or PctVariable (exactly one leg can be PctVariable)
+        FlexType flex_type_out = 108; // reflects the type of flex decoded from the okey root
+        double v_years_out = 109; // volatility years to expiry
+        double d_years_out = 110; // calendar days to expiry / 365.0
+        double sdiv_out = 111; // continuous stock dividend used for pricing
+        double rate_out = 112; // discount rate used for pricing
+        double eff_strike_out = 113; // effective strike ($); will be the implied surface strike if strikeType=PctVariable
+        double s_vol_out = 114; // leg surface volatility
+        double s_prc_out = 115; // leg surface price
+        float delta_out = 116; // delta
+        float gamma_out = 117; // gamma
+        float theta_out = 118; // theta
+        float vega_out = 119; // vega
+        float volga_out = 120; // volga
+        float vanna_out = 121; // vanna
+        float rho_out = 122; // rho
+        float phi_out = 123; // phi
+        string error_out = 124; // leg error (if any)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    double u_prc = 100; // live uPrc on arrival (if not supplied)
+    double fixed_prem_uPct = 101; // premium as a percent of the underlying price. required if a leg with strikeType=PctVariable is included (can be zero).
+    YesNo inc_greeks = 102; // whether greeks should be computed
+    TickerKey ticker = 125; // underlier ticker (all legs must have the same underlier ticker)
+    double sprd_prem = 126; // spread premium ($)
+    float sprd_delta = 127; // delta
+    float sprd_gamma = 128; // gamma
+    float sprd_theta = 129; // theta
+    float sprd_vega = 130; // vega
+    float sprd_volga = 131; // volga
+    float sprd_vanna = 132; // vanna
+    float sprd_rho = 133; // rho
+    float sprd_phi = 134; // phi
+    string calc_detail = 138; // calculation details
+    string error = 139; // overall error for the calculation
+    google.protobuf.Timestamp timestamp = 140;
+    repeated DiscreteDividend discrete_dividend = 135;
+    repeated Legs legs = 103;
+}
+
+

@@ -30,9 +30,14 @@ message SpdrParentBrkrState {
     int64 parent_number = 106; // SR parent number
     int64 base_parent_number = 109;
     int64 modify_number = 596; // most recent parent number affecting this order (AddReplace or Modify)
-    int64 notice_number = 604; // SR noticeNumber [required when parentOrderHandling = BlockAuction | BlockResponse]
+    int64 notice_number = 604; // SR noticeNumber [required when parentOrderHandling = AtsResponse | AuctionResponse]
     int64 risk_group_id = 112; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
     int64 trigger_group_id = 115;
+    CompletionType completion_type = 613; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 614; // None, Pending, Complete
+    double avg_completion_price = 615; // completion trade price (final trade price) [also avg completion price]
+    OptionKey completion_sec_key = 616; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+    SpdrKeyType completion_sec_type = 617; // usually Future or Option (None if not yet valid)
     string strategy = 118; // parent order strategy string (can be user supplied)
     string strategy_accnt = 608; // SR strategy account (option; if exists will be validated)
     string exec_brkr_code = 606; // execBrkrCode attached to parent order (if any)
@@ -58,6 +63,8 @@ message SpdrParentBrkrState {
     SpdrCloseReason spdr_close_reason = 178; // close reason of most recent parent order
     SpdrRejectReason spdr_reject_reason = 181; // reject reason (if any) of most recent parent order
     SpdrRiskLevel spdr_reject_level = 599; // reject level (if any) of most recent parent order
+    ActiveHoldState active_hold_state = 618;
+    string active_hold_reason = 619;
     YesNo is_permanently_closed = 184; // indicates that this broker is permanently closed (cannot be cxl/replaced or re-opened) [auto-hedge orders only]
     int32 num_extern_risk_hold = 187; // num external risk management rejects received
     string last_extern_risk_text = 190; // last external (exch?) risk management reject

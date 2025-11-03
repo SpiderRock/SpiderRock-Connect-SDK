@@ -36,6 +36,8 @@ message TickerDefinition {
     string par_value_currency = 115; // Security Parvalue currency
     float point_value = 118;
     Currency point_currency = 121;
+    PriceFormat price_format = 268; // PriceFormat: ex: NMS_Penny, NMS_HalfPenny
+    float min_tick_size = 269;
     PrimaryExchange primary_exch = 124;
     int32 alt_iD = 127; // Alt Security ID number
     string mic = 130; // ISO Market Identification Code
@@ -69,7 +71,7 @@ message TickerDefinition {
     string otc_reporting_status = 211;
     int32 otc_disclosure_status = 214;
     int32 otc_flags = 217;
-    StkPriceInc stk_price_inc = 220; // Price increment: None; FullPenny; Nickle
+    FlexTypeFlag flex_type_flag = 267;
     TkDefSource tk_def_source = 223; // Ticker definition source: None; Vendor; OTC; SR; Exchange
     TkStatusFlag status_flag = 226;
     TapeCode tape_code = 229; // SIP Tape Code

@@ -21,7 +21,7 @@ message AltHedgeTargetMap {
     
     PKey pkey = 2;
     ExpiryKey alt_hedge_target = 100; // examples: MSFT-NMS-EQT/Stock, @ES-CME-FUT/Stock, ES-CME-FUT-2025-07-18/Future
-    SpdrKeyType alt_hedge_target_sec_type = 101;
+    SpdrKeyType alt_hedge_sec_type = 105;
     string modified_by = 102; // user who last modified this record
     SysEnvironment modified_in = 103;
     google.protobuf.Timestamp timestamp = 104; // timestamp of last modification

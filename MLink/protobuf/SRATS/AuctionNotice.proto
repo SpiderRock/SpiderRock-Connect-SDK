@@ -27,6 +27,7 @@ message AuctionNotice {
         SpdrKeyType sec_type = 133;
         BuySell side = 134;
         uint32 ratio = 135;
+        StrikeType strike_type = 202; // Percent or PctVariable; if PctVariable responses should be in terms this strike for this leg as a pct of the underlier close
         int32 und_per_cn = 136;
         ExpiryType exp_type = 138; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
         float years = 139; // SR volatility years to expiry
@@ -38,7 +39,7 @@ message AuctionNotice {
         float s_vol = 144; // SR Surface Volatility
         float s_div = 145; // SR Surface SDiv
         float s_prc = 146; // SR Surface Price
-        float de = 147;
+        float de = 147; // fixed ref delta for BlockAuctionDAC orders
         float ga = 148;
         float th = 149;
         float ve = 150;
@@ -75,7 +76,8 @@ message AuctionNotice {
     FirmType cust_firm_type = 162; // cust firm type (if disclosed)
     string cust_agent_mPID = 163; // cust agent exchange member initiating the auction (if disclosed)
     string cust_client_firm = 115; // cust client firm (if disclosed)
-    float notice_commission = 195; // total responder auction commission (flash only)
+    float notice_commission = 195;
+    YesNo has_notice_comm = 198; // noticeCommision contains responder auction commission; otherwise, notice commission is as agreed previously.
     YesNo cust_comm_paying = 117; // client is commission paying (to the responder)
     CustQtyCond cust_qty_cond = 118; // UpToQty, AllOrNone, QtyOrMore
     int32 auction_duration = 119; // [expected] auction duration (in milliseconds)
@@ -84,7 +86,8 @@ message AuctionNotice {
     SpdrLimitType limit_type = 171;
     SpreadFlavor spread_flavor = 122; // MLEG Only
     YesNo contains_hedge = 123; // MLEG Only
-    YesNo contains_flex = 164; // contains FLEX options (not regular listed options)
+    YesNo contains_flex = 164; // contains at least one FLEX option
+    FlexType flex_type = 199; // all legs are of this flex type
     YesNo contains_multi_hedge = 165; // contains MultiHedge (corp action adjusted) options
     double u_bid = 124;
     double u_ask = 125;
@@ -97,6 +100,8 @@ message AuctionNotice {
     float pkg_theo_prc = 182; // Client Theo Price (entire package) (if client surfaces uploaded to SR)
     float pkg_bid_prc = 177; // leg market best way price (pkg bid)
     float pkg_ask_prc = 178; // leg market worst way price (pkg ask)
+    float pkg_ref_prem_pct = 200; // package premium as a % of underlier closing price (fixed by initiator)
+    YesNo has_fixed_prem_pct = 201; // if yes package has a fixed premium as a % of underlier closing price; all responses should be in terms of strike pct for the leg with a variable strike.
     double point_value = 179; // money settlement value of one (1.0) point of option premium/strike
     Currency point_currency = 185;
     int64 src_timestamp = 180;

@@ -70,7 +70,8 @@ message AuctionPrint {
     SpreadClass spread_class = 192;
     SpreadFlavor spread_flavor = 107; // MLEG Only
     YesNo contains_hedge = 108; // MLEG Only
-    YesNo contains_flex = 109; // contains FLEX options (not regular listed options)
+    FlexType flex_type = 204; // all legs are of this flex type
+    YesNo contains_flex = 109; // contains FLEX options
     YesNo contains_multi_hedge = 110; // contains MultiHedge (corp action adjusted) options
     double u_bid = 159;
     double u_ask = 160;

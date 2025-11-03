@@ -22,75 +22,76 @@ message SpdrParentReport {
 
     message FaceLegs_V7 {
         
-        int64 last_leg_ref_id__v7 = 5014; // only V7
-        google.protobuf.Timestamp last_fill_dttm__v7 = 5015; // only V7
-        int32 cum_square_qty__v7 = 5016; // only V7
-        double avg_square_prc__v7 = 5017; // only V7
-        google.protobuf.Timestamp last_square_dttm__v7 = 5018; // only V7
-        int32 cum_partial_qty__v7 = 5019; // only V7
-        ShortSaleFlag ssale_flag__v7 = 5020; // only v7 - enum values match with v8
-        int32 stock_cum_fill_qty__v7 = 5021; // only V7
-        double stock_avg_fill_prc__v7 = 5022; // only V7
-        PositionType pos_type1__v7 = 5023; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag1__v7 = 5024; // only v7 - enum values match with v8
-        int32 leg_cum_fill_qty1__v7 = 5025; // only V7
-        double leg_avg_fill_prc1__v7 = 5026; // only V7
-        PositionType pos_type2__v7 = 5027; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag2__v7 = 5028; // only v7 - enum values match with v8
-        int32 leg_cum_fill_qty2__v7 = 5029; // only V7
-        double leg_avg_fill_prc2__v7 = 5030; // only V7
-        PositionType pos_type3__v7 = 5031; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag3__v7 = 5032; // only v7 - enum values match with v8
-        int32 leg_cum_fill_qty3__v7 = 5033; // only V7
-        double leg_avg_fill_prc3__v7 = 5034; // only V7
-        PositionType pos_type4__v7 = 5035; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag4__v7 = 5036; // only v7 - enum values match with v8
-        int32 leg_cum_fill_qty4__v7 = 5037; // only V7
-        double leg_avg_fill_prc4__v7 = 5038; // only V7
-        PositionType pos_type5__v7 = 5039; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag5__v7 = 5040; // only v7 - enum values match with v8
-        int32 leg_cum_fill_qty5__v7 = 5041; // only V7
-        double leg_avg_fill_prc5__v7 = 5042; // only V7
-        PositionType pos_type6__v7 = 5043; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag6__v7 = 5044; // only v7 - enum values match with v8
-        int32 leg_cum_fill_qty6__v7 = 5045; // only V7
-        double leg_avg_fill_prc6__v7 = 5046; // only V7
+        int64 last_leg_ref_id__v7 = 5015; // only V7
+        google.protobuf.Timestamp last_fill_dttm__v7 = 5016; // only V7
+        int32 cum_square_qty__v7 = 5017; // only V7
+        double avg_square_prc__v7 = 5018; // only V7
+        google.protobuf.Timestamp last_square_dttm__v7 = 5019; // only V7
+        int32 cum_partial_qty__v7 = 5020; // only V7
+        ShortSaleFlag ssale_flag__v7 = 5021; // only v7 - enum values match with v8
+        int32 stock_cum_fill_qty__v7 = 5022; // only V7
+        double stock_avg_fill_prc__v7 = 5023; // only V7
+        PositionType pos_type1__v7 = 5024; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag1__v7 = 5025; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty1__v7 = 5026; // only V7
+        double leg_avg_fill_prc1__v7 = 5027; // only V7
+        PositionType pos_type2__v7 = 5028; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag2__v7 = 5029; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty2__v7 = 5030; // only V7
+        double leg_avg_fill_prc2__v7 = 5031; // only V7
+        PositionType pos_type3__v7 = 5032; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag3__v7 = 5033; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty3__v7 = 5034; // only V7
+        double leg_avg_fill_prc3__v7 = 5035; // only V7
+        PositionType pos_type4__v7 = 5036; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag4__v7 = 5037; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty4__v7 = 5038; // only V7
+        double leg_avg_fill_prc4__v7 = 5039; // only V7
+        PositionType pos_type5__v7 = 5040; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag5__v7 = 5041; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty5__v7 = 5042; // only V7
+        double leg_avg_fill_prc5__v7 = 5043; // only V7
+        PositionType pos_type6__v7 = 5044; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag6__v7 = 5045; // only v7 - enum values match with v8
+        int32 leg_cum_fill_qty6__v7 = 5046; // only V7
+        double leg_avg_fill_prc6__v7 = 5047; // only V7
     }
 
     message FaceSide_V7 {
         
-        int64 face_id__v7 = 5048; // only V7
-        string alt_order_id__v7 = 5049; // only V7
-        string accnt__v7 = 5050; // only V7: using metaType
-        string client_firm__v7 = 5051; // only V7: using metaType
-        string alt_accnt__v7 = 5052; // only V7
-        FirmType firm_type__v7 = 5053; // only v7 - enum values match with v8
-        OrderCapacity order_capacity__v7 = 5054; // only v7 - enum values match with v8
-        ShortSaleFlag ssale_flag__v7 = 5055; // only v7 - enum values match with v8
-        PositionType position_type__v7 = 5056; // only v7 - enum values match with v8
-        int32 firm_position__v7 = 5057; // only V7
-        int32 open_sell_sh__v7 = 5058; // only V7
-        int32 locate_quan__v7 = 5059; // only V7
-        string locate_firm__v7 = 5060; // only V7
-        string locate_pool__v7 = 5061; // only V7
-        string locate_source__v7 = 5062; // only V7
-        string no_cross_group__v7 = 5063; // only V7
-        string exch_trader_id__v7 = 5064; // only V7
-        string large_trader_id__v7 = 5065; // only V7
-        string trading_location__v7 = 5066; // only V7
-        string clearing_firm__v7 = 5067; // only V7
-        string clearing_accnt__v7 = 5068; // only V7
-        FlipType clearing_flip_type__v7 = 5069; // only v7 - enum values match with v8
-        string clearing_flip_firm__v7 = 5070; // only V7
-        string clearing_flip_accnt__v7 = 5071; // only V7
-        string cat_src_brkr_iMID__v7 = 5072; // only V7
-        CatAccntType cat_src_accnt_type__v7 = 5073; // only v7 - enum values match with v8
-        CatFirmType cat_src_firm_type__v7 = 5074; // only v7 - enum values match with v8
-        int32 cum_fill_quantity__v7 = 5075; // only V7
-        double avg_fill_price__v7 = 5076; // only V7
-        int32 leaves_qty__v7 = 5077; // only V7
-        int64 last_fill_number__v7 = 5078; // only V7
-        google.protobuf.Timestamp last_fill_dttm__v7 = 5079; // only V7
+        int64 face_id__v7 = 5049; // only V7
+        string alt_order_id__v7 = 5050; // only V7
+        string accnt__v7 = 5051; // only V7: using metaType
+        string client_firm__v7 = 5052; // only V7: using metaType
+        string alt_accnt__v7 = 5053; // only V7
+        FirmType firm_type__v7 = 5054; // only v7 - enum values match with v8
+        OrderCapacity order_capacity__v7 = 5055; // only v7 - enum values match with v8
+        ShortSaleFlag ssale_flag__v7 = 5056; // only v7 - enum values match with v8
+        PositionType position_type__v7 = 5057; // only v7 - enum values match with v8
+        int32 firm_position__v7 = 5058; // only V7
+        int32 open_sell_sh__v7 = 5059; // only V7
+        int32 locate_quan__v7 = 5060; // only V7
+        string locate_firm__v7 = 5061; // only V7
+        string locate_pool__v7 = 5062; // only V7
+        string locate_source__v7 = 5063; // only V7
+        string no_cross_group__v7 = 5064; // only V7
+        string exch_trader_id__v7 = 5065; // only V7
+        string large_trader_id__v7 = 5066; // only V7
+        string trading_location__v7 = 5067; // only V7
+        string clearing_firm__v7 = 5068; // only V7
+        string clearing_accnt__v7 = 5069; // only V7
+        FlipType clearing_flip_type__v7 = 5070; // only v7 - enum values match with v8
+        string clearing_flip_firm__v7 = 5071; // only V7
+        string clearing_flip_accnt__v7 = 5072; // only V7
+        string cat_src_brkr_iMID__v7 = 5073; // only V7
+        CatAccntType cat_src_accnt_type__v7 = 5074; // only v7 - enum values match with v8
+        CatFirmType cat_src_firm_type__v7 = 5075; // only v7 - enum values match with v8
+        string cat_accnt_origin_code__v7 = 5076; // only V7
+        int32 cum_fill_quantity__v7 = 5077; // only V7
+        double avg_fill_price__v7 = 5078; // only V7
+        int32 leaves_qty__v7 = 5079; // only V7
+        int64 last_fill_number__v7 = 5080; // only V7
+        google.protobuf.Timestamp last_fill_dttm__v7 = 5081; // only V7
     }
 
     message OrderLegs {
@@ -132,6 +133,10 @@ message SpdrParentReport {
         double leg_avg_fill_prc1 = 718;
         int32 leg_review_cum_fill_qty1 = 721;
         double leg_review_avg_fill_prc1 = 724;
+        CompletionState leg_cmpl_state1 = 1107;
+        double leg_cmpl_avg_price1 = 1108; // average leg completion price
+        OptionKey leg_cmpl_sec_key1 = 1109; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type1 = 1110; // usually Future or Option (None if not yet valid)
         OptionKey sec_key2 = 727; // leg #2
         SpdrKeyType sec_type2 = 730;
         uint32 mult2 = 733;
@@ -146,6 +151,10 @@ message SpdrParentReport {
         double leg_avg_fill_prc2 = 760;
         int32 leg_review_cum_fill_qty2 = 763;
         double leg_review_avg_fill_prc2 = 766;
+        CompletionState leg_cmpl_state2 = 1111;
+        double leg_cmpl_avg_price2 = 1112; // average leg completion price
+        OptionKey leg_cmpl_sec_key2 = 1113; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type2 = 1114; // usually Future or Option (None if not yet valid)
         OptionKey sec_key3 = 769; // leg #3
         SpdrKeyType sec_type3 = 772;
         uint32 mult3 = 775;
@@ -160,6 +169,10 @@ message SpdrParentReport {
         double leg_avg_fill_prc3 = 802;
         int32 leg_review_cum_fill_qty3 = 805;
         double leg_review_avg_fill_prc3 = 808;
+        CompletionState leg_cmpl_state3 = 1115;
+        double leg_cmpl_avg_price3 = 1116; // average leg completion price
+        OptionKey leg_cmpl_sec_key3 = 1117; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type3 = 1118; // usually Future or Option (None if not yet valid)
         OptionKey sec_key4 = 811; // leg #4
         SpdrKeyType sec_type4 = 814;
         uint32 mult4 = 817;
@@ -174,6 +187,10 @@ message SpdrParentReport {
         double leg_avg_fill_prc4 = 844;
         int32 leg_review_cum_fill_qty4 = 847;
         double leg_review_avg_fill_prc4 = 850;
+        CompletionState leg_cmpl_state4 = 1119;
+        double leg_cmpl_avg_price4 = 1120; // average leg completion price
+        OptionKey leg_cmpl_sec_key4 = 1121; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type4 = 1122; // usually Future or Option (None if not yet valid)
         OptionKey sec_key5 = 853; // leg #5
         SpdrKeyType sec_type5 = 856;
         uint32 mult5 = 859;
@@ -188,6 +205,10 @@ message SpdrParentReport {
         double leg_avg_fill_prc5 = 886;
         int32 leg_review_cum_fill_qty5 = 889;
         double leg_review_avg_fill_prc5 = 892;
+        CompletionState leg_cmpl_state5 = 1123;
+        double leg_cmpl_avg_price5 = 1124; // average leg completion price
+        OptionKey leg_cmpl_sec_key5 = 1125; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type5 = 1126; // usually Future or Option (None if not yet valid)
         OptionKey sec_key6 = 895; // leg #6
         SpdrKeyType sec_type6 = 898;
         uint32 mult6 = 901;
@@ -202,6 +223,10 @@ message SpdrParentReport {
         double leg_avg_fill_prc6 = 928;
         int32 leg_review_cum_fill_qty6 = 931;
         double leg_review_avg_fill_prc6 = 934;
+        CompletionState leg_cmpl_state6 = 1127;
+        double leg_cmpl_avg_price6 = 1128; // average leg completion price
+        OptionKey leg_cmpl_sec_key6 = 1129; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type6 = 1130; // usually Future or Option (None if not yet valid)
     }
 
 
@@ -363,6 +388,11 @@ message SpdrParentReport {
     int32 leaves_qty = 394;
     int64 last_fill_number = 397;
     google.protobuf.Timestamp last_fill_dttm = 400;
+    CompletionType completion_type = 1101; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 1102;
+    double avg_completion_price = 1103; // completion trade price (final trade price) [also avg completion price]
+    OptionKey completion_sec_key = 1104; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+    SpdrKeyType completion_sec_type = 1105; // usually Future or Option (None if not yet valid)
     string review_cl_ord_id = 403;
     string review_orig_cl_ord_id = 406;
     string review_cancel_cl_ord_id = 409;
@@ -376,6 +406,7 @@ message SpdrParentReport {
     string max_progress_detail = 436;
     google.protobuf.Timestamp max_progress_time = 439;
     int32 num_child_orders = 442; // [is390Eligible] (numChildOrders > 0 if parent order is 390 Eligible and also generated at least 1 child order)
+    int32 num_reg_count = 1106; // prototype field - SPR-29209
     double nbbo_bid = 445; // best nbbo bid @ arrival time
     double nbbo_ask = 448; // best nbbo ask @ arrival time
     int32 nbbo_bid_sz = 451; // public cumulative bid size @ nbboBid
@@ -410,11 +441,12 @@ message SpdrParentReport {
     FlipType clearing_flip_type__v7 = 5008; // only v7 - enum values match with v8
     string clearing_flip_firm__v7 = 5009; // only V7
     string clearing_flip_accnt__v7 = 5010; // only V7
-    string review_routing_code__v7 = 5011; // only V7
-    int32 progress_timeout__v7 = 5012; // only V7
+    string cat_accnt_origin_code__v7 = 5011; // only V7
+    string review_routing_code__v7 = 5012; // only V7
+    int32 progress_timeout__v7 = 5013; // only V7
     repeated DirectedCounterParty directed_counter_party = 517;
-    repeated FaceLegs_V7 face_legs__v7 = 5013;
-    repeated FaceSide_V7 face_side__v7 = 5047;
+    repeated FaceLegs_V7 face_legs__v7 = 5014;
+    repeated FaceSide_V7 face_side__v7 = 5048;
     repeated OrderLegs order_legs = 613;
 }
 

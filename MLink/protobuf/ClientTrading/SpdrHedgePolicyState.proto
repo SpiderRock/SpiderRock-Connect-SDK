@@ -11,7 +11,8 @@ import "google/protobuf/timestamp.proto";
 message SpdrHedgePolicyState {
     message PKey {
         
-        TickerKey hedge_target = 10; // HedgeTarget
+        ExpiryKey hedge_target = 13; // HedgeTarget
+        SpdrKeyType hedge_sec_type = 14;
         string accnt = 11;
         string client_firm = 12;
     }
@@ -20,61 +21,41 @@ message SpdrHedgePolicyState {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    ExpiryKey hedge_sec_key = 100;
-    SpdrKeyType hedge_sec_type = 101;
-    string security_desc = 102;
-    ShortSaleFlag ssale_flag = 103; // current (live) short sale flag (stock)
-    PositionType position_type = 104; // current (live) position type (future)
-    HedgePolicyState hedge_state = 105;
-    string hedge_text = 106;
-    double u_prc = 107; // hedge target underlier price
-    YesNo is_delta_mixed = 108;
-    string accumulator_error = 109;
-    double grp_delta_bot = 110; // option delta bot (in ctrlDe units)
-    double grp_delta_sld = 111;
-    double grp_dDelta_bot = 112; // option $delta bot (using uMid at time of option fill)
-    double grp_dDelta_sld = 113;
-    google.protobuf.Timestamp last_grp_fill_dttm = 114;
-    double ctrl_delta_bot = 115; // hedge target delta (units) bot
-    double ctrl_delta_sld = 116;
-    double ctrl_dDelta_bot = 117; // hedge target $delta bot (using actual fill price)
-    double ctrl_dDelta_sld = 118;
-    google.protobuf.Timestamp last_ctrl_fill_dttm = 119;
-    int32 abs_opt_cn = 120; // total number of option contracts executed in this hedge group
-    double net_delta = 121; // grpDeltaBot - grpDeltaSld + ctrlDeltaBot - ctrlDeltaSld
-    double net_dDelta = 122; // grpDDeltaBot - grpDDeltaSld + ctrlDDeltaBot - ctrlDDeltaSld
-    float open_hedge_time = 123; // size weighted average time (in seconds) hedge risk has been open (executions to fills)
-    float hedge_target_vol = 124; // implied / expected today (annualized) volatility for hedge target
-    float expected_prc_range = 125; // SQRT(avgHedgeTime x hedgeTargetVol) cone
-    double opn_delta_bot = 126; // open risk delta bot (in ctrlDe units)
-    double opn_delta_sld = 127;
-    double opn_dDelta_bot = 128; // open risk $delta bot (in ctrlDe units)
-    double opn_dDelta_sld = 129;
-    double cls_delta_bot = 130; // close risk delta bot (in ctrlDe units)
-    double cls_delta_sld = 131;
-    double cls_dDelta_bot = 132; // close risk $delta bot (in ctrlDe units)
-    double cls_dDelta_sld = 133;
-    float slippage_pn_l = 134; // opnDeltaBot * (clsDeltaPrcSld - opnDeltaPrcBot) + opnDeltaSld * (opnDeltaPrcSld - clsDeltaPrcBot)
-    float slippage_unit_pn_l = 135; // slippagePnL / (grpDeltaBot + grpDeltaSld) [pnl / unit (share or fc)]
-    float slippage_norm_pn_l = 136; // slippageUnitPnL / expectedPrcRange
-    float min_dDelta_band = 137;
-    float max_dDelta_band = 138;
-    int64 b_parent_number = 139;
-    int32 b_active_size = 140;
-    string b_brkr_status = 141;
-    string b_brkr_error = 142;
-    int64 s_parent_number = 143;
-    int32 s_active_size = 144;
-    string s_brkr_status = 145;
-    string s_brkr_error = 146;
+    double u_prc = 107; // hedge target price
+    PositionHedgePolicy position_hedge_policy = 155;
+    double pos_grp_delta_ln = 156;
+    double pos_grp_delta_sh = 157;
+    google.protobuf.Timestamp pos_last_grp_fill_dttm = 158;
+    double pos_ctrl_delta_ln = 159;
+    double pos_ctrl_delta_sh = 160;
+    google.protobuf.Timestamp pos_last_ctrl_fill_dttm = 161;
+    double pos_net_delta = 162; // posGrpDeltaLn - posGrpDeltaSh + posCtrlDeltaLn - posCtrlDeltaSh
+    float pos_min_delta_band = 163;
+    float pos_max_delta_band = 164;
+    HedgePolicyState pos_hedge_state = 165;
+    string pos_hedge_text = 166;
+    string b_pos_ctrl_order = 167;
+    string s_pos_ctrl_order = 168;
+    TradeHedgePolicy trade_hedge_policy = 169;
+    int32 trd_bot_cn = 170;
+    double trd_delta_bot = 171;
+    int32 trd_sld_cn = 172;
+    double trd_delta_sld = 173;
+    double trd_grp_delta_bot = 174;
+    double trd_grp_delta_sld = 175;
+    double trd_ctrl_delta_bot = 176;
+    double trd_ctrl_delta_sld = 177;
+    double trd_net_delta = 178; // trdGrpDeltaLn - trdGrpDeltaSh + trdCtrlDeltaLn - trdCtrlDeltaSh
+    float trd_min_delta_band = 179;
+    float trd_max_delta_band = 180;
+    HedgePolicyState trd_hedge_state = 181;
+    string trd_hedge_text = 182;
+    string b_trd_ctrl_order = 183;
+    string s_trd_ctrl_order = 184;
     double dd_mult = 147;
-    int32 underliers_per_cn = 148; // future underliers per contract
-    UnderlierType underlier_type = 149; // type of underlier (affects $greek calculations)
-    double point_value = 150; // $NLV value of a single point change in display premium (hedge target)
+    double point_value = 150;
     Currency point_currency = 151;
-    double live_hedge_mark = 152; // hedgeSecKey live mark (mid-market) [zero in SRSE]
-    string updt_reason = 153;
-    google.protobuf.Timestamp timestamp = 154; // SR system timestamp
+    google.protobuf.Timestamp timestamp = 154;
 }
 
 

@@ -24,7 +24,8 @@ message AuctionPrintRC {
     google.protobuf.Timestamp notice_time = 103; // notice create timestamp (high precision)
     AuctionType auction_type = 104; // (eg. Block, Flash, Improvement, Facilitation, etc.)
     AuctionSource auction_source = 105; // source of the auction notice (eg. SRC, MIAX, etc.)
-    YesNo contains_flex = 106; // Flex = European
+    FlexType flex_type = 158; // all legs are of this flex type
+    YesNo contains_flex = 106;
     TickerKey root = 107; // option root
     DateKey expiry = 108;
     double strike = 109; // rev/con strike

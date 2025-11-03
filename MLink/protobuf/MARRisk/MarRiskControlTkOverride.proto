@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    MarRiskControlTkOverride records are used to establish ticker-specific risk controls within SpiderRock execution engines.  These records are only viewable and editable by users belonging to the same riskFirm as the control records.
+*/    
+message MarRiskControlTkOverride {
+    message PKey {
+        
+        string risk_firm = 10;
+        string risk_group = 11;
+        TickerKey ticker = 12;
+        YesNo is_test_accnt = 13; // if Yes, this control applies only to risk from test accnts
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    MarState stk_enabled = 100;
+    MarState fut_enabled = 101;
+    MarState opt_enabled = 102;
+    YesNo block_short_sales = 103; // block all short sales
+    int32 order_max_stk_qty = 104; // number of equity shares that can be bought or sold by a single parent order
+    int32 order_max_fut_qty = 105; // number of futures contracts that can be bought or sold by a single parent order
+    int32 order_max_opt_qty = 106; // number of option contracts that can be bought or sold by a single parent order
+    float order_max_stk_dDelta = 107; // maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
+    float order_max_fut_dDelta = 108; // maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
+    float order_max_opt_dDelta = 109; // maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
+    float stk_collar_pct = 110; // maximum user limit vs bid/ask price control
+    float fut_collar_pct = 111; // maximum user limit vs bid/ask price control
+    float opt_collar_pct = 112; // maximum user limit vs bid/ask price control
+    int32 max_acc_fut_cn_abs = 113; // max absolute (net) accnt future
+    int32 max_day_fut_cn_bot = 114; // day future contracts bot
+    int32 max_day_fut_cn_sld = 115; // day future contracts sld
+    int32 max_day_fut_cn_abs = 116; // max absolute (net) day future contracts
+    string modified_by = 117;
+    SysEnvironment modified_in = 118;
+    google.protobuf.Timestamp timestamp = 119;
+}
+
+

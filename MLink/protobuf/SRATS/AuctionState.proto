@@ -36,8 +36,8 @@ message AuctionState {
     DateKey trade_date = 101;
     YesNo is_test_auction = 102; // if yes, auction is a test auction (not a prod/live auction)
     AuctionType auction_type = 103;
-    int32 block_auction_counter = 104;
-    BlockAuctionStatus block_auction_status = 105; // Active,FinalTrial,Crossing,Crossed,CrossFailed,Closed
+    int32 ats_auction_counter = 127;
+    AtsAuctionStatus ats_auction_status = 128; // Active,FinalTrial,Crossing,Crossed,CrossFailed,Closed
     BuySell cust_side = 106; // if available
     int32 cust_qty = 107;
     double cust_prc = 108; // public cust price

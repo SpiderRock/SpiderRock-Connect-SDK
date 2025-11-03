@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    MarRiskControl records are used to establish risk controls within SpiderRock execution engines.  These records are only viewable and editable by users belonging to the same riskFirm as the control records.
+*/    
+message MarRiskControl {
+    message PKey {
+        
+        string risk_firm = 12; // If exists, a client firm imposing risk controls (should be an existing SR client ID)
+        string risk_group = 11; // The ID of the risk group these rules will apply to
+        YesNo is_test_accnt = 14; // If Yes, this control applies only to risk for test accounts
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    MarState stk_enabled = 158; // Enabled or not for equities (None=disabled)
+    MarState fut_enabled = 159; // Enabled or not for futures (None=disabled)
+    MarState opt_enabled = 160; // Enabled or not for options (None=disabled)
+    float margin_limit_acc = 161; // Maximum net (per symbol) total portfolio (start-of-day positions + day trades) margin (can include external sources)
+    float margin_limit_day = 162; // Maximum net (per symbol/day) day portfolio (day trades only) margin (can include external sources)
+    float open_exposure_limit = 163; // Maximum abs open child order $Delta (no netting) (open child orders only)
+    int32 max_acc_fut_cn_abs = 176; // Maximum absolute (net) account future contracts
+    int32 max_day_fut_cn_bot = 177; // Day future contracts bot
+    int32 max_day_fut_cn_sld = 178; // Day future contracts sld
+    int32 max_day_fut_cn_abs = 179; // Maximum absolute (net) day future contracts
+    int32 order_max_stk_qty = 165; // Number of equity shares that can be bought or sold by a single parent order. Has a maximum value of 100k
+    int32 order_max_fut_qty = 166; // Number of futures contracts that can be bought or sold by a single parent order
+    int32 order_max_opt_qty = 167; // Number of option contracts that can be bought or sold by a single parent order
+    float order_max_stk_dDelta = 168; // Maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
+    float order_max_fut_dDelta = 169; // Maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
+    float order_max_opt_dDelta = 170; // Maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
+    float stk_collar_pct = 171; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float fut_collar_pct = 172; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float opt_collar_pct = 173; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    YesNo allow_stk_odd_lots = 174; // Allow parent stock orders with an order size below 100
+    YesNo allow_limit_on_close = 109; // Allow limit on close orders - similar to MOC order, with the addition of a price limit
+    YesNo allow_market_on_close = 106; // Allow market on close orders - special order type which is executed as close to the close of trading as possible
+    YesNo allow_inter_market_sweep = 115; // Allow intermarket sweep orders
+    YesNo block_short_sales = 175; // Block all short sales
+    string modified_by = 151; // User that last modified this record
+    SysEnvironment modified_in = 154; // Environment this record was last updated in
+    google.protobuf.Timestamp timestamp = 157; // Timestamp of this record
+}
+
+

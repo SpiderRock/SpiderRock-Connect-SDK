@@ -11,7 +11,8 @@ import "google/protobuf/timestamp.proto";
 message AltHedgePolicyMap {
     message PKey {
         
-        TickerKey ticker = 10; // hedge target ticker
+        ExpiryKey hedge_target = 13; // hedge target
+        SpdrKeyType hedge_sec_type = 14;
         string accnt = 11; // client enter order in this account
         string client_firm = 12; // SR assigned client firm acronym
     }
