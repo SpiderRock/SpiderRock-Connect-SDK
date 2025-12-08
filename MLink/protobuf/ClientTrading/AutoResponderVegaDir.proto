@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AutoResponderVegaDir {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 14;
+        ExpiryKey ekey = 18;
+        BuySell resp_side = 12; // auction responder side (your side)
+        int64 responder_iD = 19; // client supplied responder ID (can be any number including zero)
+    }
+
+    message Calibration {
+        
+        float c_value = 162; // client surface volatility @ moneyness
+        float moneyness = 163; // moneyness = SR xAxis value
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string user_name = 100; // username used for responding to auction notices
+    YesNo is_disabled = 102; // if Yes, this auto-responder record is disabled
+    google.protobuf.Timestamp enabled_until = 136; // will be enabled up until this time
+    YesNo can_include_stock = 104; // if yes, can respond to auction notices that include a stock leg
+    YesNo can_respond_sR = 142; // if yes, can respond to auction notices from SR
+    YesNo can_respond_exch = 143; // if yes, can respond to auction notices from exchanges
+    CallPut cp_flag = 105; // if not Pair must match all option legs
+    float min_xDelta = 110; // all leg xDelta must be between [minXDelta, maxXDelta]
+    float max_xDelta = 111;
+    double min_strike = 112; // all leg strikes must be between [minStrike, maxStrike]
+    double max_strike = 113;
+    ClientSurface client_vol_surface = 159;
+    float atm_vol = 160; // [AtmVolPinned] clientSurface = SRSurface pinned to atmVol @ atmStrike (strike = fwdUPrcRef)
+    float min_surf_edge_vol = 130; // spread surface edge (in vol) (0.01 = 1.0 vol pts) (+ = through surface; - = behind surface)
+    float min_surf_edge_prem = 114; // spread surface edge (in premium) (+ = through surface; - = behind surface)
+    float min_probability = 148; // option response probability will be >= minProbability
+    YesNo inc_fees_in_resp = 131; // include all estimated responder exchange fees in final response price (prior to rounding)
+    RoundRule round_rule = 132;
+    int32 max_response_size = 117; // maximum number of contracts per response (will respond for 100% if auction size <= maxResponseSize)
+    float max_response_vega = 133; // maximum total vega per response
+    int32 total_response_size = 164; // maximum number of contracts (filled) all day (this responder record)
+    float total_response_vega = 134; // maximum vega (filled) all day (this responder record)
+    YesNo policy_auto_hedge = 165; // if yes, all option fills will be autoHedgePolicy eligible
+    int64 risk_group_id = 125; // Default: 0 (none).
+    float min_uPrc = 157; // min/max underlier price bounds (no responses while underlier is outside of bounds)
+    float max_uPrc = 158;
+    string modified_by = 127; // user who last modified this record
+    SysEnvironment modified_in = 128;
+    google.protobuf.Timestamp timestamp = 129; // timestamp of last modification
+    repeated Calibration calibration = 161;
+}
+
+

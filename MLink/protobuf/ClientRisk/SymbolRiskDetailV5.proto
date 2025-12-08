@@ -42,7 +42,7 @@ message SymbolRiskDetailV5 {
     float stk_volume = 154; // trailing 30 day average daily stock volume
     float opt_volume = 157; // trailing 30 day average daily option volume
     TapeCode tape_code = 160; // market data tape code
-    MarginType margin_type = 163; // margin slide type: NMS_Equity = +/- 15%, NMS_Index = -8%/+6%, NMS_Medium = +/-10%
+    MarginType margin_type = 163; // margin slide type: Equity = +/- 15%, Index = -8%/+6%, Medium = +/-10%
     Currency point_currency = 166;
     float d_amt = 169; // $amount of the next expected dividend
     int32 d_days = 172; // days to next expected dividend (negative indicates days from a recent ex-date)

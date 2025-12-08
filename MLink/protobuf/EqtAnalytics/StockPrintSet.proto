@@ -46,12 +46,17 @@ message StockPrintSet {
     float ask_price2 = 166; // nbbo 2nd best ask @ print arrival time
     int32 bid_size2 = 169; // nbbo 2nd best bid size
     int32 ask_size2 = 172; // nbbo 2nd best ask size
-    float prt_probability = 175; // probability that buying prtSize shares @ prtPrice will have positive m1 pnl (prtPriceM1 >= prtPrice) [recorded at time of print]
+    float prt_probability = 175; // probability that buying prtSize shares @ prtPrice will have positive m10 pnl (prtPriceM10 >= prtPrice) [recorded at time of print]
     float bid_price_m1 = 184; // Bid price +1 minute
     float ask_price_m1 = 187; // Ask price +1 minute
     float prt_price_m1 = 190; // market price +1 minute [mid-quote if not intervening prints;most recent print otherwise]
     float pnl_m1 = 193; // pnl after 1 minute
     YesNo pnl_m1_err = 196;
+    float bid_price_m10 = 213; // Bid price +10 minutes
+    float ask_price_m10 = 214; // Ask price +10 minutes
+    float prt_price_m10 = 215; // market price +10 minutes [most recent print (if any) otherwise mid-quote]
+    float pnl_m10 = 216; // pnl after 10 minutes
+    YesNo pnl_m10_err = 217;
 }
 
 

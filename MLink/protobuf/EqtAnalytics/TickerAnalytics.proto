@@ -19,8 +19,8 @@ message TickerAnalytics {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    int32 security_iD = 100; // security ID is used to track a ticker over time.  It is a best effort attempt to track a ticker through name changes and other corporate actions
-    int32 alt_iD = 103; // SR security ID is used to track a ticker over time.  It is a best effort attempt to track a ticker through name changes and other corporate actions
+    int64 security_iD = 100; // security ID is used to track a ticker over time.  It is a best effort attempt to track a ticker through name changes and other corporate actions
+    int64 alt_iD = 103; // SR security ID is used to track a ticker over time.  It is a best effort attempt to track a ticker through name changes and other corporate actions
     int32 day_number = 106; // cardinal day number (increments by 1 each trading period)
     float openprice = 109; // open print
     float highprice = 112; // highest regular hours print price

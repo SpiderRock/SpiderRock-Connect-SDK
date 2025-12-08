@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message NoticeMarkupVegaDir {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11;
+        ExpiryKey ekey = 12;
+        BuySell resp_side = 13; // auction responder side (your side)
+        int64 responder_iD = 14; // client supplied responder ID (can be any number including zero)
+        int64 notice_number = 15;
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 140;
+        SpdrKeyType sec_type = 141;
+        BuySell side = 142;
+        uint32 ratio = 143;
+        float atm_vol = 144; // ATM (fwd uPrc) SR surface volatility
+        float s_vol = 145; // SR Surface Volatility
+        float s_prc = 146; // SR Surface Price
+        float ve = 147;
+        YesNo s_vol_ok = 148; // Yes if live market and sVol are tracking as expected
+        float bid = 149; // leg bid price
+        float ask = 150; // leg ask price
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 qty_traded = 100;
+    float vega_traded = 101;
+    int32 cum_open_size = 102;
+    float cum_open_vega = 103;
+    int32 resp_size = 104;
+    float min_surf_edge = 105;
+    float user_surf_limit = 106;
+    float user_prob_limit = 107;
+    float raw_resp_price = 108;
+    YesNo inc_fees = 109;
+    float fee_estimate = 110;
+    RoundRule round_rule = 111;
+    float resp_price = 112;
+    NoticeMarkupResult result = 113;
+    string result_detail = 114;
+    TickerKey ticker = 115; // underlier ticker
+    DateKey trade_date = 116;
+    YesNo is_test_auction = 117; // if yes, auction is a test auction (not a prod/live auction)
+    AuctionType auction_type = 118;
+    AuctionSource auction_source = 119; // source of the auction notice (eg. SRC, MIAX, etc.)
+    BuySell cust_side = 120; // if available
+    int32 cust_qty = 121;
+    double cust_prc = 122; // public cust price
+    YesNo has_cust_prc = 123;
+    FirmType cust_firm_type = 124; // cust firm type (if disclosed)
+    float notice_commission = 125;
+    YesNo has_notice_comm = 126; // noticeCommision contains responder auction commission; otherwise, notice commission is as agreed previously.
+    int32 num_opt_legs = 127; // MLEG Only
+    SpreadClass spread_class = 128;
+    SpreadFlavor spread_flavor = 129; // MLEG Only
+    YesNo contains_hedge = 130; // MLEG Only
+    double u_bid = 131;
+    double u_ask = 132;
+    double ref_uPrc = 133;
+    float net_ve = 134;
+    float pkg_surf_prc = 135; // SR Surface Price (entire package)
+    float pkg_theo_prc = 136; // Client Theo Price (entire package) (if client surfaces uploaded to SR)
+    float pkg_bid_prc = 137; // leg market best way price (pkg bid)
+    float pkg_ask_prc = 138; // leg market worst way price (pkg ask)
+    int64 src_timestamp = 151;
+    int64 net_timestamp = 152;
+    google.protobuf.Timestamp timestamp = 153; // from ats / exchange net timestamp if possible
+    repeated OrderLegs order_legs = 139;
+}
+
+

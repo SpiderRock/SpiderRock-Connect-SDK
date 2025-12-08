@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TickerItemDef {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int64 basket_number = 11;
+        string user_name = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100;
+    google.protobuf.Timestamp timestamp = 101;
+}
+
+

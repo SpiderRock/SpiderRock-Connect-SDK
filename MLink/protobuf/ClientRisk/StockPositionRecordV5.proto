@@ -60,6 +60,10 @@ message StockPositionRecordV5 {
     int32 sh_sld_trd = 193; // number of shares sld today from any trade hedging source (AutoHedge or Trades loop)
     double stk_mny_bot = 196; // sum of settle cash for all buy executions
     double stk_mny_sld = 199; // sum of settle cash for all sell executions
+    int32 sh_bot__pOpn = 232; // shares bot/sld via hedge policy (SOD pos hedges)
+    int32 sh_sld__pOpn = 233;
+    int32 sh_bot__pTrd = 234; // shares bot/sld via hedge policy (trade hedges)
+    int32 sh_sld__pTrd = 235;
     float day_pnl = 202;
     float opn_pnl_mid_mark = 205;
     float opn_pnl_clr_mark = 208;

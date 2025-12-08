@@ -43,12 +43,17 @@ message FuturePrintSet {
     double ask_price2 = 157; // exch 2nd best ask @ print arrival time
     int32 bid_size2 = 160; // 2nd best bid @ print arrival time
     int32 ask_size2 = 163; // 2nd best ask @ print arrival time
-    float prt_probability = 166; // [M1] probability that buying prtQuan contracts @ prtPrice will have positive m1 pnl (prtPriceM1 >= prtPrice) [recorded at time of print]
+    float prt_probability = 166; // [M1] probability that buying prtQuan contracts @ prtPrice will have positive M10 pnl (prtPriceM10 >= prtPrice) [recorded at time of print]
     double bid_price_m1 = 175; // bid price +1 minute
     double ask_price_m1 = 178; // ask price +1 minute
     double prt_price_m1 = 181; // market price +1 minute [mid-quote if not intervening prints;most recent print otherwise]
     float pnl_m1 = 184; // pnl after 1 minute
     YesNo pnl_m1_err = 187;
+    double bid_price_m10 = 204; // bid price +10 minutes
+    double ask_price_m10 = 205; // bid price +10 minutes
+    double prt_price_m10 = 206; // market price +10 minutes [most recent print (if any) otherwise mid-quote]
+    float pnl_m10 = 207; // pnl after 10 minutes
+    YesNo pnl_m10_err = 208;
 }
 
 

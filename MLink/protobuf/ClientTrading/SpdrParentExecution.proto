@@ -47,8 +47,6 @@ message SpdrParentExecution {
     OptionKey sec_key = 181; // execution security key
     SpdrKeyType sec_type = 184; // execution security type [Stock, Future, Option]
     TickerKey ticker = 187; // base stock key (used for symbol risk aggregation)
-    TickerKey origin_ticker = 843; // Origin Parent Order TickerKey (will only be set for Spiderrock regional composite orders)
-    OptionKey origin_sec_key = 844; // Origin Parent Order SecKey (will only be set for Spiderrock regional composite orders)
     string accnt = 190; // SpiderRock trading accnt [broker pkey]
     string client_firm = 193; // SR client firm
     string strategy_accnt = 848; // SR strategy account (optional; copied from parent order)

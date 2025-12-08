@@ -82,6 +82,7 @@ message AuctionPrint {
     float pkg_surf_prc = 161; // SR Surface Price (entire package) from AuctionNotice
     float pkg_bid_prc = 162; // pkg bid price (best way price) (entire package) from AuctionNotice
     float pkg_ask_prc = 163; // pkg ask price (best way price) (entire package) from AuctionNotice
+    ExpiryKey min_expiry = 205; // option exiry (nearest if MLeg)
     double prt_price = 121; // reported OPRA print price (pkgPrice if MLeg)
     double prt_price2 = 122; // if reported as 2 separate prints at different prices (ie, partial size improvement, multiple responders)
     int32 prt_size = 123; // reported OPRA print size (pkgSize if MLeg)

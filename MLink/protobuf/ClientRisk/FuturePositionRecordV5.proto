@@ -62,6 +62,10 @@ message FuturePositionRecordV5 {
     int32 cn_closed = 199; // number of contracts closed today
     double fut_mny_bot = 202; // sum of settle cash for all buy executions
     double fut_mny_sld = 205; // sum of settle cash for all sell executions
+    int32 cn_bot__pOpn = 253; // contracts bot/sld via hedge policy (SOD pos hedges)
+    int32 cn_sld__pOpn = 254;
+    int32 cn_bot__pTrd = 255; // contracts bot/sld via hedge policy (trade hedges)
+    int32 cn_sld__pTrd = 256;
     float day_pnl = 208;
     float opn_pnl_mid_mark = 211;
     float opn_pnl_clr_mark = 214;

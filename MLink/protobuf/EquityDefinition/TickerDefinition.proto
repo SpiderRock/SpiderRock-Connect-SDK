@@ -39,7 +39,7 @@ message TickerDefinition {
     PriceFormat price_format = 268; // PriceFormat: ex: NMS_Penny, NMS_HalfPenny
     float min_tick_size = 269;
     PrimaryExchange primary_exch = 124;
-    int32 alt_iD = 127; // Alt Security ID number
+    int64 alt_iD = 270; // Alt Security ID number
     string mic = 130; // ISO Market Identification Code
     string mic_seg = 133; // ISO Market Indentification Segment Code
     string symbol = 136; // trading symbol (w/o dot notation)

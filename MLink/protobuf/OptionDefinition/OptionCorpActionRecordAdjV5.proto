@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionCorpActionRecordAdjV5 {
+    message PKey {
+        
+        OptionKey old_okey = 10; // OptionKey at EOD on trading date
+        DateKey ex_date = 11; // ex-date of the action
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey new_okey = 100; // (new) OptionKey post adjustment
+    google.protobuf.Timestamp timestamp = 101;
+}
+
+
