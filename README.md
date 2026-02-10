@@ -15,6 +15,8 @@ This repo contains documentation, specifications and general information for how
 
 4. **[SpiderStream API](./SpiderStream/README.md)** - A proprietary connection method that allows for a low-latency stream of SpiderRock messages through C#, C++ or Python. This does not provide direct trading functionality. This is the only single-directional connection listed.
 
+5. **[Snowflake](./HistoricalData/snowflake/README.md)** - SQL interface providing access to our historical datasets - C# example code
+
 ## Connection Environments
 1. **[Sandbox V8](https://docs.spiderrockconnect.com/docs/next/Documentation/Integration/V8Sandboxes/)** - A mock environment to test your integration with the SpiderRock system, including the SpiderRock Connect ATS. Includes the MLink API, FIX API, and the Trade tool.
 
