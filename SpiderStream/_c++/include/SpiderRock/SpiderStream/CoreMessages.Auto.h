@@ -907,6 +907,85 @@ public:
 
 };
 
+ class MarketFeedStatus
+{
+public:
+	class Key
+	{
+		String<16> channelLabel_;
+		DataType dataType_;
+		
+	public:
+		inline const String<16>& channelLabel() const { return channelLabel_; }
+		inline DataType dataType() const { return dataType_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = String<16>()(k.channelLabel_);
+			hash_code = (hash_code * 397) ^ std::hash<Byte>()(static_cast<Byte>(k.dataType_));
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.channelLabel_ == b.channelLabel_
+				&& a.dataType_ == b.dataType_;
+		}
+	};
+	
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		String<16> stripe1;
+		String<16> stripe2;
+		MarketFeedOperationalState operationState;
+		MarketFeedSequenceState dataState;
+		DateTime operationStateDttm;
+		DateTime dataStateDttm;
+		MarketFeedOperationalState lastOperationState;
+		MarketFeedSequenceState lastDataState;
+		DateTime timestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline const String<16>& stripe1() const { return layout_.stripe1; }
+	inline const String<16>& stripe2() const { return layout_.stripe2; }
+	inline MarketFeedOperationalState operationState() const { return layout_.operationState; }
+	inline MarketFeedSequenceState dataState() const { return layout_.dataState; }
+	inline DateTime operationStateDttm() const { return layout_.operationStateDttm; }
+	inline DateTime dataStateDttm() const { return layout_.dataStateDttm; }
+	inline MarketFeedOperationalState lastOperationState() const { return layout_.lastOperationState; }
+	inline MarketFeedSequenceState lastDataState() const { return layout_.lastDataState; }
+	inline DateTime timestamp() const { return layout_.timestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<MarketFeedStatus::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+
+	}
+
+};
+
  class OptionCloseMark
 {
 public:
@@ -3914,7 +3993,7 @@ private:
 		PriceFormat priceFormat;
 		Float minTickSize;
 		PrimaryExchange primaryExch;
-		Int altID;
+		Long altID;
 		String<4> mic;
 		String<4> micSeg;
 		String<12> symbol;
@@ -3977,7 +4056,7 @@ public:
 	inline PriceFormat priceFormat() const { return layout_.priceFormat; }
 	inline Float minTickSize() const { return layout_.minTickSize; }
 	inline PrimaryExchange primaryExch() const { return layout_.primaryExch; }
-	inline Int altID() const { return layout_.altID; }
+	inline Long altID() const { return layout_.altID; }
 	inline const String<4>& mic() const { return layout_.mic; }
 	inline const String<4>& micSeg() const { return layout_.micSeg; }
 	inline const String<12>& symbol() const { return layout_.symbol; }

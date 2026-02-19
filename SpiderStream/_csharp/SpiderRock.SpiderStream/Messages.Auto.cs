@@ -2121,6 +2121,235 @@ public partial class LiveSurfaceAtm : IMessage
 
 
 /// <summary>
+/// MarketFeedStatus:5710
+/// </summary>
+/// <remarks>
+/// </remarks>
+
+public partial class MarketFeedStatus : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public MarketFeedStatus()
+    {
+    }
+    
+    public MarketFeedStatus(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public MarketFeedStatus(MarketFeedStatus source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal MarketFeedStatus(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as MarketFeedStatus);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(MarketFeedStatus other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(MarketFeedStatus target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.MarketFeedStatus};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        /// <summary>market feed channel label</summary>
+        public string ChannelLabel { get => body.channelLabel; set => body.channelLabel = value; }
+         /// <summary>market feed type</summary>
+        public DataType DataType { get => body.dataType; set => body.dataType = value; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public FixedString16Layout channelLabel;
+         public DataType dataType;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	channelLabel.Equals(other.channelLabel) &&
+					 	dataType.Equals(other.dataType);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = channelLabel.GetHashCode();
+                 hashCode = (hashCode*397) ^ ((int) dataType);
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public FixedString16Layout stripe1;
+		public FixedString16Layout stripe2;
+		public MarketFeedOperationalState operationState;
+		public MarketFeedSequenceState dataState;
+		public DateTimeLayout operationStateDttm;
+		public DateTimeLayout dataStateDttm;
+		public MarketFeedOperationalState lastOperationState;
+		public MarketFeedSequenceState lastDataState;
+		public DateTimeLayout timestamp;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>SpiderRock stripe</summary>
+    public string Stripe1 { get => body.stripe1; set => body.stripe1 = value; }
+     /// <summary>SpiderRock stripe (if this channel feeds more than one stripe)</summary>
+    public string Stripe2 { get => body.stripe2; set => body.stripe2 = value; }
+     /// <summary>monitors the heartbeats</summary>
+    public MarketFeedOperationalState OperationState { get => body.operationState; set => body.operationState = value; }
+     /// <summary>monitors for data gaps</summary>
+    public MarketFeedSequenceState DataState { get => body.dataState; set => body.dataState = value; }
+     /// <summary>date time of when the current state was entered</summary>
+    public DateTime OperationStateDttm { get => body.operationStateDttm; set => body.operationStateDttm = value; }
+     /// <summary>date time of when the current state was entered</summary>
+    public DateTime DataStateDttm { get => body.dataStateDttm; set => body.dataStateDttm = value; }
+     /// <summary>if this is a transition, this is the state we transitioned from, empty otherwise</summary>
+    public MarketFeedOperationalState LastOperationState { get => body.lastOperationState; set => body.lastOperationState = value; }
+     /// <summary>if this is a transition this is the dataState we transitions from</summary>
+    public MarketFeedSequenceState LastDataState { get => body.lastDataState; set => body.lastDataState = value; }
+     
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+
+
+} // MarketFeedStatus
+
+
+/// <summary>
 /// OptionCloseMark:3140
 /// </summary>
 /// <remarks>
@@ -9710,7 +9939,7 @@ public partial class TickerDefinitionExt : IMessage
 		public PriceFormat priceFormat;
 		public float minTickSize;
 		public PrimaryExchange primaryExch;
-		public int altID;
+		public long altID;
 		public FixedString4Layout mic;
 		public FixedString4Layout micSeg;
 		public FixedString12Layout symbol;
@@ -9775,7 +10004,7 @@ public partial class TickerDefinitionExt : IMessage
      
     public PrimaryExchange PrimaryExch { get => body.primaryExch; set => body.primaryExch = value; }
      /// <summary>Alt Security ID number</summary>
-    public int AltID { get => body.altID; set => body.altID = value; }
+    public long AltID { get => body.altID; set => body.altID = value; }
      /// <summary>ISO Market Identification Code</summary>
     public string Mic { get => body.mic; set => body.mic = value; }
      /// <summary>ISO Market Indentification Segment Code</summary>

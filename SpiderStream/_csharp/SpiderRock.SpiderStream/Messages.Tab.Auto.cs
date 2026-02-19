@@ -726,6 +726,48 @@ internal partial class MLinkStreamCheckPt
     }
 }
 
+public partial class MarketFeedStatus
+{
+    [ThreadStatic] private static StringBuilder recordBuilder;
+
+    public const string TabHeader = "channelLabel\tdataType\tstripe1\tstripe2\toperationState\tdataState\toperationStateDttm\tdataStateDttm\tlastOperationState\tlastDataState\ttimestamp";
+
+    public string TabRecord
+    {
+        get
+        {
+            recordBuilder?.Clear();
+            recordBuilder ??= new(4096);
+
+            recordBuilder.Append(pkey.ChannelLabel);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(pkey.DataType);
+
+            recordBuilder.Append('\t');
+
+            recordBuilder.Append(Stripe1);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Stripe2);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(OperationState);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(DataState);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(OperationStateDttm);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(DataStateDttm);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(LastOperationState);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(LastDataState);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(Timestamp);
+
+            return recordBuilder.ToString();
+        }
+    }
+}
+
 internal partial class NetPulse
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
