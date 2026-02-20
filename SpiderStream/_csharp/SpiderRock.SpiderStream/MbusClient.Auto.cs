@@ -21,6 +21,7 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<LiveImpliedQuote> liveImpliedQuoteDispatch;
     MessageEventsDispatcher<LiveRevConQuote> liveRevConQuoteDispatch;
     MessageEventsDispatcher<LiveSurfaceAtm> liveSurfaceAtmDispatch;
+    MessageEventsDispatcher<MarketFeedStatus> marketFeedStatusDispatch;
     MessageEventsDispatcher<OptionCloseMark> optionCloseMarkDispatch;
     MessageEventsDispatcher<OptionExchOrder> optionExchOrderDispatch;
     MessageEventsDispatcher<OptionExchPrint> optionExchPrintDispatch;
@@ -58,6 +59,7 @@ public sealed partial class MbusClient
         liveImpliedQuoteDispatch = new(messageCache.LiveImpliedQuote);
         liveRevConQuoteDispatch = new(messageCache.LiveRevConQuote);
         liveSurfaceAtmDispatch = new(messageCache.LiveSurfaceAtm);
+        marketFeedStatusDispatch = new(messageCache.MarketFeedStatus);
         optionCloseMarkDispatch = new(messageCache.OptionCloseMark);
         optionExchOrderDispatch = new(messageCache.OptionExchOrder);
         optionExchPrintDispatch = new(messageCache.OptionExchPrint);
@@ -98,6 +100,7 @@ public sealed partial class MbusClient
             /* LiveImpliedQuote */ 1015 => liveImpliedQuoteDispatch,
             /* LiveRevConQuote */ 1125 => liveRevConQuoteDispatch,
             /* LiveSurfaceAtm */ 1030 => liveSurfaceAtmDispatch,
+            /* MarketFeedStatus */ 5710 => marketFeedStatusDispatch,
             /* OptionCloseMark */ 3140 => optionCloseMarkDispatch,
             /* OptionExchOrder */ 2765 => optionExchOrderDispatch,
             /* OptionExchPrint */ 2770 => optionExchPrintDispatch,
@@ -136,6 +139,7 @@ public sealed partial class MbusClient
     public IMessageEvents<LiveImpliedQuote> LiveImpliedQuote => messageCache.LiveImpliedQuote;
     public IMessageEvents<LiveRevConQuote> LiveRevConQuote => messageCache.LiveRevConQuote;
     public IMessageEvents<LiveSurfaceAtm> LiveSurfaceAtm => messageCache.LiveSurfaceAtm;
+    public IMessageEvents<MarketFeedStatus> MarketFeedStatus => messageCache.MarketFeedStatus;
     public IMessageEvents<OptionCloseMark> OptionCloseMark => messageCache.OptionCloseMark;
     public IMessageEvents<OptionExchOrder> OptionExchOrder => messageCache.OptionExchOrder;
     public IMessageEvents<OptionExchPrint> OptionExchPrint => messageCache.OptionExchPrint;

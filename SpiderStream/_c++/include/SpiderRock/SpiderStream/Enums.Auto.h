@@ -236,6 +236,48 @@ namespace SpiderRock
 			Forecast=2
 		};
 
+ 		enum class DataType : Enum 
+		{
+			None=0,
+			OpraAscii=1,
+			OpraFast=2,
+			Cqs=3,
+			Cts=4,
+			Uqdf=5,
+			Utdf=6,
+			ISEBin=7,
+			CBOESpread=8,
+			CFE=9,
+			CBOEIdx=10,
+			CME=11,
+			OpraBin=12,
+			RussellTick=13,
+			NasdaqImbal=14,
+			ICE=15,
+			CMEBin=16,
+			NyseArca=17,
+			OTC=18,
+			UTP=19,
+			CTAB=20,
+			NasdaqMFDS=21,
+			IseCombo=22,
+			PhlxOrders=23,
+			C2Auctions=24,
+			EdgxAuctions=25,
+			MiaxAuctions=26,
+			MiaxCToM=27,
+			BxAuctions=28,
+			BxTop=29,
+			TDDS=30,
+			MIAXProduct=31,
+			C1OptOpen=32,
+			C1Auctions=33,
+			C1Orders=34,
+			AmexComplex=35,
+			ArcaComplex=36,
+			EmldAuctions=37
+		};
+
  		enum class ExchOrderStatus : Enum 
 		{
 			None=0,
@@ -317,7 +359,8 @@ namespace SpiderRock
 			NXML=12,
 			NXOS=13,
 			NXP=14,
-			ICEFE=15
+			ICEFE=15,
+			ICEUS=16
 		};
 
  		enum class GridType : Enum 
@@ -383,6 +426,23 @@ namespace SpiderRock
 			LoBound=3,
 			HiBound=4,
 			Other=5
+		};
+
+ 		enum class MarketFeedOperationalState : Enum 
+		{
+			None=0,
+			Startup=1,
+			Up=2,
+			Flapping=3,
+			Down=4
+		};
+
+ 		enum class MarketFeedSequenceState : Enum 
+		{
+			None=0,
+			Startup=1,
+			Flowing=2,
+			Gapping=3
 		};
 
  		enum class MarketQualifier : Enum 
@@ -496,7 +556,8 @@ namespace SpiderRock
 			NXOS=33,
 			NXP=34,
 			ICEFE=35,
-			SRC=36
+			SRC=36,
+			ICEUS=37
 		};
 
  		enum class OptMktType : Flag 
@@ -615,7 +676,24 @@ namespace SpiderRock
 			NMS_Penny=67,
 			NMS_Nickle=68,
 			NMS_HalfPenny=69,
-			EQT=70
+			EQT=70,
+			EU2G=71,
+			EU4D=72,
+			EU5C=73,
+			EU5D=74,
+			EU7A=75,
+			EU10A=76,
+			EU12A=77,
+			EU14A=78,
+			EU15A=79,
+			EU16A=80,
+			EU17A=81,
+			EU18A=82,
+			EU19A=83,
+			EU19B=84,
+			EU19C=85,
+			V17=86,
+			V18=87
 		};
 
  		enum class PriceQuoteType : Enum 
@@ -1108,7 +1186,7 @@ namespace SpiderRock
 			CUSIP=18,
 			ISIN=19,
 			BXE=20,
-			EUX=21,
+			SCE=21,
 			ANY=22,
 			CXE=23,
 			DXE=24,
@@ -1120,7 +1198,8 @@ namespace SpiderRock
 			NXP=30,
 			EUREX=31,
 			CEDX=32,
-			ICEFE=33
+			ICEFE=33,
+			ICEUS=34
 		};
 
  		enum class TimeInForce : Enum 
@@ -1212,7 +1291,7 @@ namespace SpiderRock
 			CFE=30,
 			ICE_US=32,
 			ICE_EU=35,
-			EUX=50,
+			SCE=50,
 			EU_ERX=51,
 			EU_CBOE=52,
 			EU_NXAM=53,
