@@ -36,6 +36,7 @@ public:
 	MessageEventSource<LiveImpliedQuote::Key, LiveImpliedQuote> liveimpliedquote;
 	MessageEventSource<LiveRevConQuote::Key, LiveRevConQuote> liverevconquote;
 	MessageEventSource<LiveSurfaceAtm::Key, LiveSurfaceAtm> livesurfaceatm;
+	MessageEventSource<MarketFeedStatus::Key, MarketFeedStatus> marketfeedstatus;
 	MessageEventSource<OptionCloseMark::Key, OptionCloseMark> optionclosemark;
 	MessageEventSource<OptionExchOrder::Key, OptionExchOrder> optionexchorder;
 	MessageEventSource<OptionExchPrint::Key, OptionExchPrint> optionexchprint;

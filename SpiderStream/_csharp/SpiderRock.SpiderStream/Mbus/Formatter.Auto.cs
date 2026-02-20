@@ -264,6 +264,41 @@ internal unsafe partial class Formatter
     }
      
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, MarketFeedStatus dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, MarketFeedStatus dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(MarketFeedStatus.PKeyLayout) + sizeof(MarketFeedStatus.BodyLayout) > max) throw new IOException("Max exceeded decoding MarketFeedStatus");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((MarketFeedStatus.PKeyLayout*) src); src += sizeof(MarketFeedStatus.PKeyLayout);
+             dest.body = *((MarketFeedStatus.BodyLayout*) src); src += sizeof(MarketFeedStatus.BodyLayout);
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, OptionCloseMark dest)
     {
         fixed (byte* p = buffer)
