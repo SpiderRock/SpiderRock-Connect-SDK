@@ -19,6 +19,7 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<FuturePrintMarkup> futurePrintMarkupDispatch;
     MessageEventsDispatcher<IndexQuote> indexQuoteDispatch;
     MessageEventsDispatcher<LiveImpliedQuote> liveImpliedQuoteDispatch;
+    MessageEventsDispatcher<LiveImpliedQuoteNG> liveImpliedQuoteNGDispatch;
     MessageEventsDispatcher<LiveRevConQuote> liveRevConQuoteDispatch;
     MessageEventsDispatcher<LiveSurfaceAtm> liveSurfaceAtmDispatch;
     MessageEventsDispatcher<MarketFeedStatus> marketFeedStatusDispatch;
@@ -57,6 +58,7 @@ public sealed partial class MbusClient
         futurePrintMarkupDispatch = new(messageCache.FuturePrintMarkup);
         indexQuoteDispatch = new(messageCache.IndexQuote);
         liveImpliedQuoteDispatch = new(messageCache.LiveImpliedQuote);
+        liveImpliedQuoteNGDispatch = new(messageCache.LiveImpliedQuoteNG);
         liveRevConQuoteDispatch = new(messageCache.LiveRevConQuote);
         liveSurfaceAtmDispatch = new(messageCache.LiveSurfaceAtm);
         marketFeedStatusDispatch = new(messageCache.MarketFeedStatus);
@@ -98,6 +100,7 @@ public sealed partial class MbusClient
             /* FuturePrintMarkup */ 2605 => futurePrintMarkupDispatch,
             /* IndexQuote */ 2675 => indexQuoteDispatch,
             /* LiveImpliedQuote */ 1015 => liveImpliedQuoteDispatch,
+            /* LiveImpliedQuoteNG */ 1021 => liveImpliedQuoteNGDispatch,
             /* LiveRevConQuote */ 1125 => liveRevConQuoteDispatch,
             /* LiveSurfaceAtm */ 1030 => liveSurfaceAtmDispatch,
             /* MarketFeedStatus */ 5710 => marketFeedStatusDispatch,
@@ -137,6 +140,7 @@ public sealed partial class MbusClient
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => messageCache.FuturePrintMarkup;
     public IMessageEvents<IndexQuote> IndexQuote => messageCache.IndexQuote;
     public IMessageEvents<LiveImpliedQuote> LiveImpliedQuote => messageCache.LiveImpliedQuote;
+    public IMessageEvents<LiveImpliedQuoteNG> LiveImpliedQuoteNG => messageCache.LiveImpliedQuoteNG;
     public IMessageEvents<LiveRevConQuote> LiveRevConQuote => messageCache.LiveRevConQuote;
     public IMessageEvents<LiveSurfaceAtm> LiveSurfaceAtm => messageCache.LiveSurfaceAtm;
     public IMessageEvents<MarketFeedStatus> MarketFeedStatus => messageCache.MarketFeedStatus;

@@ -34,6 +34,7 @@ public:
 	MessageEventSource<FuturePrintMarkup::Key, FuturePrintMarkup> futureprintmarkup;
 	MessageEventSource<IndexQuote::Key, IndexQuote> indexquote;
 	MessageEventSource<LiveImpliedQuote::Key, LiveImpliedQuote> liveimpliedquote;
+	MessageEventSource<LiveImpliedQuoteNG::Key, LiveImpliedQuoteNG> liveimpliedquoteng;
 	MessageEventSource<LiveRevConQuote::Key, LiveRevConQuote> liverevconquote;
 	MessageEventSource<LiveSurfaceAtm::Key, LiveSurfaceAtm> livesurfaceatm;
 	MessageEventSource<MarketFeedStatus::Key, MarketFeedStatus> marketfeedstatus;
