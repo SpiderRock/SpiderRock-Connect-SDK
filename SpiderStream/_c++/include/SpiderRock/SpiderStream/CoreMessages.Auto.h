@@ -464,7 +464,7 @@ private:
 		Float up06;
 		Float dn08;
 		Double synSpot;
-		CalcPriceType priceType;
+		PricingFramework prcFramework;
 		ImpliedQuoteError calcErr;
 		CalcSource calcSource;
 		Long srcTimestamp;
@@ -517,7 +517,7 @@ public:
 	inline Float up06() const { return layout_.up06; }
 	inline Float dn08() const { return layout_.dn08; }
 	inline Double synSpot() const { return layout_.synSpot; }
-	inline CalcPriceType priceType() const { return layout_.priceType; }
+	inline PricingFramework prcFramework() const { return layout_.prcFramework; }
 	inline ImpliedQuoteError calcErr() const { return layout_.calcErr; }
 	inline CalcSource calcSource() const { return layout_.calcSource; }
 	inline Long srcTimestamp() const { return layout_.srcTimestamp; }
@@ -530,6 +530,141 @@ public:
 		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
 		
 		layout_ = *reinterpret_cast<LiveImpliedQuote::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+
+	}
+
+};
+
+ class LiveImpliedQuoteNG
+{
+public:
+	class Key
+	{
+		OptionKey okey_;
+		
+	public:
+		inline const OptionKey& okey() const { return okey_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = OptionKey()(k.okey_);
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.okey_ == b.okey_;
+		}
+	};
+	
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		TickerKey ticker;
+		Float uPrc;
+		Float uOff;
+		Float years;
+		Float xAxis;
+		Float rate;
+		Float sdiv;
+		Float ddiv;
+		Float oBid;
+		Float oAsk;
+		Float oBidIv;
+		Float oAskIv;
+		Float atmVol;
+		Float sVol;
+		Float sPrc;
+		Float sMark;
+		Float veSlope;
+		Float de;
+		Float ga;
+		Float th;
+		Float ve;
+		Float va;
+		Float vo;
+		Float ro;
+		Float ph;
+		Float deDecay;
+		Float up50;
+		Float dn50;
+		Float up15;
+		Float dn15;
+		Float up06;
+		Float dn08;
+		Double synSpot;
+		PricingFramework prcFramework;
+		ImpliedQuoteError calcErr;
+		CalcSource calcSource;
+		Long srcTimestamp;
+		Long netTimestamp;
+		DateTime timestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline const TickerKey& ticker() const { return layout_.ticker; }
+	inline Float uPrc() const { return layout_.uPrc; }
+	inline Float uOff() const { return layout_.uOff; }
+	inline Float years() const { return layout_.years; }
+	inline Float xAxis() const { return layout_.xAxis; }
+	inline Float rate() const { return layout_.rate; }
+	inline Float sdiv() const { return layout_.sdiv; }
+	inline Float ddiv() const { return layout_.ddiv; }
+	inline Float oBid() const { return layout_.oBid; }
+	inline Float oAsk() const { return layout_.oAsk; }
+	inline Float oBidIv() const { return layout_.oBidIv; }
+	inline Float oAskIv() const { return layout_.oAskIv; }
+	inline Float atmVol() const { return layout_.atmVol; }
+	inline Float sVol() const { return layout_.sVol; }
+	inline Float sPrc() const { return layout_.sPrc; }
+	inline Float sMark() const { return layout_.sMark; }
+	inline Float veSlope() const { return layout_.veSlope; }
+	inline Float de() const { return layout_.de; }
+	inline Float ga() const { return layout_.ga; }
+	inline Float th() const { return layout_.th; }
+	inline Float ve() const { return layout_.ve; }
+	inline Float va() const { return layout_.va; }
+	inline Float vo() const { return layout_.vo; }
+	inline Float ro() const { return layout_.ro; }
+	inline Float ph() const { return layout_.ph; }
+	inline Float deDecay() const { return layout_.deDecay; }
+	inline Float up50() const { return layout_.up50; }
+	inline Float dn50() const { return layout_.dn50; }
+	inline Float up15() const { return layout_.up15; }
+	inline Float dn15() const { return layout_.dn15; }
+	inline Float up06() const { return layout_.up06; }
+	inline Float dn08() const { return layout_.dn08; }
+	inline Double synSpot() const { return layout_.synSpot; }
+	inline PricingFramework prcFramework() const { return layout_.prcFramework; }
+	inline ImpliedQuoteError calcErr() const { return layout_.calcErr; }
+	inline CalcSource calcSource() const { return layout_.calcSource; }
+	inline Long srcTimestamp() const { return layout_.srcTimestamp; }
+	inline Long netTimestamp() const { return layout_.netTimestamp; }
+	inline DateTime timestamp() const { return layout_.timestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<LiveImpliedQuoteNG::Layout*>(ptr);
 		ptr += sizeof(layout_);
 		
 
@@ -1034,6 +1169,7 @@ private:
 		Float srPrc;
 		Float srVol;
 		MarkSource srSrc;
+		Float kAdj;
 		Float de;
 		Float ga;
 		Float th;
@@ -1042,8 +1178,8 @@ private:
 		Float va;
 		Float rh;
 		Float ph;
-		Float srSlope;
 		Float deDecay;
+		Float srSlope;
 		Float sdiv;
 		Float ddiv;
 		Float ddivPv;
@@ -1090,6 +1226,7 @@ public:
 	inline Float srPrc() const { return layout_.srPrc; }
 	inline Float srVol() const { return layout_.srVol; }
 	inline MarkSource srSrc() const { return layout_.srSrc; }
+	inline Float kAdj() const { return layout_.kAdj; }
 	inline Float de() const { return layout_.de; }
 	inline Float ga() const { return layout_.ga; }
 	inline Float th() const { return layout_.th; }
@@ -1098,8 +1235,8 @@ public:
 	inline Float va() const { return layout_.va; }
 	inline Float rh() const { return layout_.rh; }
 	inline Float ph() const { return layout_.ph; }
-	inline Float srSlope() const { return layout_.srSlope; }
 	inline Float deDecay() const { return layout_.deDecay; }
+	inline Float srSlope() const { return layout_.srSlope; }
 	inline Float sdiv() const { return layout_.sdiv; }
 	inline Float ddiv() const { return layout_.ddiv; }
 	inline Float ddivPv() const { return layout_.ddivPv; }
@@ -1605,7 +1742,7 @@ private:
 		Int prtClusterNum;
 		Int prtClusterSize;
 		PrtType prtType;
-		String<18> printCodes;
+		String<36> printCodes;
 		UShort prtOrders;
 		Int prtVolume;
 		Int cxlVolume;
@@ -1655,7 +1792,7 @@ public:
 	inline Int prtClusterNum() const { return layout_.prtClusterNum; }
 	inline Int prtClusterSize() const { return layout_.prtClusterSize; }
 	inline PrtType prtType() const { return layout_.prtType; }
-	inline const String<18>& printCodes() const { return layout_.printCodes; }
+	inline const String<36>& printCodes() const { return layout_.printCodes; }
 	inline UShort prtOrders() const { return layout_.prtOrders; }
 	inline Int prtVolume() const { return layout_.prtVolume; }
 	inline Int cxlVolume() const { return layout_.cxlVolume; }
@@ -1734,7 +1871,7 @@ private:
 		Int prtClusterNum;
 		Int prtClusterSize;
 		PrtType prtType;
-		String<18> printCodes;
+		String<36> printCodes;
 		UShort prtOrders;
 		Int prtVolume;
 		Int oosVolume;
@@ -1780,7 +1917,7 @@ public:
 	inline Int prtClusterNum() const { return layout_.prtClusterNum; }
 	inline Int prtClusterSize() const { return layout_.prtClusterSize; }
 	inline PrtType prtType() const { return layout_.prtType; }
-	inline const String<18>& printCodes() const { return layout_.printCodes; }
+	inline const String<36>& printCodes() const { return layout_.printCodes; }
 	inline UShort prtOrders() const { return layout_.prtOrders; }
 	inline Int prtVolume() const { return layout_.prtVolume; }
 	inline Int oosVolume() const { return layout_.oosVolume; }
@@ -2315,13 +2452,25 @@ public:
 	class Underlying
 	{
 		TickerKey ticker_;
-		Float spc_;
+		Float undPerCn_;
 		
 	public:
 		inline const TickerKey& ticker() const { return ticker_; }
-		inline Float spc() const { return spc_; }
+		inline Float undPerCn() const { return undPerCn_; }
 		inline void ticker(const TickerKey& value) { ticker_ = value; }
-		inline void spc(Float value) { spc_ = value; }
+		inline void undPerCn(Float value) { undPerCn_ = value; }
+	};
+
+	class Underlying_V7
+	{
+		TickerKey ticker_V7_;
+		Float spc_V7_;
+		
+	public:
+		inline const TickerKey& ticker_V7() const { return ticker_V7_; }
+		inline Float spc_V7() const { return spc_V7_; }
+		inline void ticker_V7(const TickerKey& value) { ticker_V7_ = value; }
+		inline void spc_V7(Float value) { spc_V7_ = value; }
 	};
 
 private:
@@ -2383,6 +2532,7 @@ private:
 	Layout layout_;
 	vector<Exchange>exchange_;
 	vector<Underlying>underlying_;
+	vector<Underlying_V7>underlying_v7_;
 	int64_t time_received_;
 
 public:
@@ -2472,6 +2622,18 @@ public:
 		{
 			underlying_.push_back(*reinterpret_cast<Underlying*>(ptr));
 			ptr += sizeof(Underlying);
+		}
+
+		// Underlying_V7 Repeat Section
+		auto underlying_v7_count = *reinterpret_cast<uint16_t*>(ptr);
+		ptr += sizeof(underlying_v7_count);
+
+		underlying_v7_.clear();
+		
+		for (int i = 0; i < underlying_v7_count; i++)
+		{
+			underlying_v7_.push_back(*reinterpret_cast<Underlying_V7*>(ptr));
+			ptr += sizeof(Underlying_V7);
 		}
 
 	}
@@ -3141,6 +3303,7 @@ private:
 		Int printSize;
 		Double printPrice;
 		YesNo isPrintPriceValid;
+		String<16> printType;
 		BuySell minAnchorSide;
 		OptionKey minAnchorLeg;
 		BuySell maxAnchorSide;
@@ -3175,6 +3338,7 @@ public:
 	inline Int printSize() const { return layout_.printSize; }
 	inline Double printPrice() const { return layout_.printPrice; }
 	inline YesNo isPrintPriceValid() const { return layout_.isPrintPriceValid; }
+	inline const String<16>& printType() const { return layout_.printType; }
 	inline BuySell minAnchorSide() const { return layout_.minAnchorSide; }
 	inline const OptionKey& minAnchorLeg() const { return layout_.minAnchorLeg; }
 	inline BuySell maxAnchorSide() const { return layout_.maxAnchorSide; }
@@ -3637,7 +3801,7 @@ private:
 		Float mrkPrice;
 		Float clsPrice;
 		StkPrintType prtType;
-		String<18> printCodes;
+		String<36> printCodes;
 		Byte prtCond1;
 		Byte prtCond2;
 		Byte prtCond3;
@@ -3678,7 +3842,7 @@ public:
 	inline Float mrkPrice() const { return layout_.mrkPrice; }
 	inline Float clsPrice() const { return layout_.clsPrice; }
 	inline StkPrintType prtType() const { return layout_.prtType; }
-	inline const String<18>& printCodes() const { return layout_.printCodes; }
+	inline const String<36>& printCodes() const { return layout_.printCodes; }
 	inline Byte prtCond1() const { return layout_.prtCond1; }
 	inline Byte prtCond2() const { return layout_.prtCond2; }
 	inline Byte prtCond3() const { return layout_.prtCond3; }

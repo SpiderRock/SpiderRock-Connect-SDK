@@ -253,6 +253,7 @@ public class LatencyTracker : IDisposable
         readonly int capacity;
 
         int index;
+        bool hasWrapped;
         long nextThreshold;
         bool isDisposed;
         bool isLocked;
@@ -273,7 +274,7 @@ public class LatencyTracker : IDisposable
 
         public Channel Channel { get; }
 
-        public int Count => index;
+        public int Count => hasWrapped ? capacity : index;
 
         public void LockObservations()
         {
@@ -310,6 +311,8 @@ public class LatencyTracker : IDisposable
                 timeSeries.Span[index] = (recvNsecs, sentNsecs, latencyNsecs);
 
                 index = (index + 1) % capacity;
+
+                if (index == 0) hasWrapped = true;
 
                 nextThreshold = ts + samplingFrequency;
             }

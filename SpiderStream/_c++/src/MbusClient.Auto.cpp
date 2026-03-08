@@ -20,6 +20,7 @@ MbusClient::MbusClient(SysEnvironment environment, in_addr device_address)
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futureprintmarkup, { MessageType::FuturePrintMarkup });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->indexquote, { MessageType::IndexQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->liveimpliedquote, { MessageType::LiveImpliedQuote });
+	impl_->frame_handler.RegisterMessageHandler(&impl_->liveimpliedquoteng, { MessageType::LiveImpliedQuoteNG });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->liverevconquote, { MessageType::LiveRevConQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->livesurfaceatm, { MessageType::LiveSurfaceAtm });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->marketfeedstatus, { MessageType::MarketFeedStatus });
@@ -61,6 +62,7 @@ void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FuturePrint>> o
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<IndexQuote>> observer) { impl_->indexquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveImpliedQuote>> observer) { impl_->liveimpliedquote.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveImpliedQuoteNG>> observer) { impl_->liveimpliedquoteng.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveRevConQuote>> observer) { impl_->liverevconquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveSurfaceAtm>> observer) { impl_->livesurfaceatm.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<MarketFeedStatus>> observer) { impl_->marketfeedstatus.RegisterObserver(observer); }
@@ -97,6 +99,7 @@ void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FuturePrint>> o
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<IndexQuote>> observer) { impl_->indexquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveImpliedQuote>> observer) { impl_->liveimpliedquote.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveImpliedQuoteNG>> observer) { impl_->liveimpliedquoteng.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveRevConQuote>> observer) { impl_->liverevconquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveSurfaceAtm>> observer) { impl_->livesurfaceatm.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<MarketFeedStatus>> observer) { impl_->marketfeedstatus.RegisterObserver(observer); }
@@ -133,6 +136,7 @@ void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FuturePrint>> o
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<IndexQuote>> observer) { impl_->indexquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveImpliedQuote>> observer) { impl_->liveimpliedquote.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveImpliedQuoteNG>> observer) { impl_->liveimpliedquoteng.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveRevConQuote>> observer) { impl_->liverevconquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveSurfaceAtm>> observer) { impl_->livesurfaceatm.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<MarketFeedStatus>> observer) { impl_->marketfeedstatus.RegisterObserver(observer); }

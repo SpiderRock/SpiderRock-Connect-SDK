@@ -28,6 +28,7 @@ internal sealed partial class MessageCache : IFrameHandler
             /* FuturePrintMarkup */ 2605 => futurePrintMarkup.TryHandle(ref frame),
             /* IndexQuote */ 2675 => indexQuote.TryHandle(ref frame),
             /* LiveImpliedQuote */ 1015 => liveImpliedQuote.TryHandle(ref frame),
+            /* LiveImpliedQuoteNG */ 1021 => liveImpliedQuoteNG.TryHandle(ref frame),
             /* LiveRevConQuote */ 1125 => liveRevConQuote.TryHandle(ref frame),
             /* LiveSurfaceAtm */ 1030 => liveSurfaceAtm.TryHandle(ref frame),
             /* MarketFeedStatus */ 5710 => marketFeedStatus.TryHandle(ref frame),
@@ -71,6 +72,7 @@ internal sealed partial class MessageCache : IFrameHandler
             if (futurePrintMarkup.HasEventHandlers) yield return (MessageType)2605;
             if (indexQuote.HasEventHandlers) yield return (MessageType)2675;
             if (liveImpliedQuote.HasEventHandlers) yield return (MessageType)1015;
+            if (liveImpliedQuoteNG.HasEventHandlers) yield return (MessageType)1021;
             if (liveRevConQuote.HasEventHandlers) yield return (MessageType)1125;
             if (liveSurfaceAtm.HasEventHandlers) yield return (MessageType)1030;
             if (marketFeedStatus.HasEventHandlers) yield return (MessageType)5710;
@@ -109,6 +111,7 @@ internal sealed partial class MessageCache : IFrameHandler
     private readonly FuturePrintMarkupCache futurePrintMarkup = new();
     private readonly IndexQuoteCache indexQuote = new();
     private readonly LiveImpliedQuoteCache liveImpliedQuote = new();
+    private readonly LiveImpliedQuoteNGCache liveImpliedQuoteNG = new();
     private readonly LiveRevConQuoteCache liveRevConQuote = new();
     private readonly LiveSurfaceAtmCache liveSurfaceAtm = new();
     private readonly MarketFeedStatusCache marketFeedStatus = new();
@@ -145,6 +148,7 @@ internal sealed partial class MessageCache : IFrameHandler
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => futurePrintMarkup;
     public IMessageEvents<IndexQuote> IndexQuote => indexQuote;
     public IMessageEvents<LiveImpliedQuote> LiveImpliedQuote => liveImpliedQuote;
+    public IMessageEvents<LiveImpliedQuoteNG> LiveImpliedQuoteNG => liveImpliedQuoteNG;
     public IMessageEvents<LiveRevConQuote> LiveRevConQuote => liveRevConQuote;
     public IMessageEvents<LiveSurfaceAtm> LiveSurfaceAtm => liveSurfaceAtm;
     public IMessageEvents<MarketFeedStatus> MarketFeedStatus => marketFeedStatus;
@@ -319,6 +323,35 @@ internal sealed partial class MessageCache : IFrameHandler
         public override MessageType Type => 1015;
         
         public override string ToString() => nameof(LiveImpliedQuoteCache); 
+    }
+
+    private sealed class LiveImpliedQuoteNGCache : MessageTypeCache<LiveImpliedQuoteNG, LiveImpliedQuoteNG.PKeyLayout>
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, LiveImpliedQuoteNG target, long timestamp)
+        {
+            Formatter.Default.Decode(buffer, target);
+            target.ReceivedNsecsSinceUnixEpoch = timestamp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void CopyTo(LiveImpliedQuoteNG fromMessage, LiveImpliedQuoteNG toMessage) => fromMessage.CopyTo(toMessage);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override LiveImpliedQuoteNG CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
+        {
+            LiveImpliedQuoteNG message = new();
+
+            UpdateFromBuffer(buffer, message, timestamp);
+
+            message.FromCache = fromCache;
+
+            return message;
+        }
+
+        public override MessageType Type => 1021;
+        
+        public override string ToString() => nameof(LiveImpliedQuoteNGCache); 
     }
 
     private sealed class LiveRevConQuoteCache : MessageTypeCache<LiveRevConQuote, LiveRevConQuote.PKeyLayout>
