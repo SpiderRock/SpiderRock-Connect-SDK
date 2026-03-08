@@ -27,7 +27,6 @@ namespace SpiderRock
 			FuturePrintMarkup = 2605,
 			IndexQuote = 2675,
 			LiveImpliedQuote = 1015,
-			LiveImpliedQuoteNG = 1021,
 			LiveRevConQuote = 1125,
 			LiveSurfaceAtm = 1030,
 			MarketFeedStatus = 5710,

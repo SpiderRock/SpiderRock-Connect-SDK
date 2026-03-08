@@ -1251,7 +1251,7 @@ public partial class LiveImpliedQuote : IMessage
 		public float up06;
 		public float dn08;
 		public double synSpot;
-		public PricingFramework prcFramework;
+		public CalcPriceType priceType;
 		public ImpliedQuoteError calcErr;
 		public CalcSource calcSource;
 		public long srcTimestamp;
@@ -1327,8 +1327,8 @@ public partial class LiveImpliedQuote : IMessage
     public float Dn08 { get => body.dn08; set => body.dn08 = value; }
      /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
     public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
-     /// <summary>Spot (Equity), Forward (Cash), Future, Physical</summary>
-    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
+     /// <summary>Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate</summary>
+    public CalcPriceType PriceType { get => body.priceType; set => body.priceType = value; }
      /// <summary>option pricing calculation error (if any)</summary>
     public ImpliedQuoteError CalcErr { get => body.calcErr; set => body.calcErr = value; }
      
@@ -1342,323 +1342,6 @@ public partial class LiveImpliedQuote : IMessage
 
 
 } // LiveImpliedQuote
-
-
-/// <summary>
-/// LiveImpliedQuoteNG:1021
-/// </summary>
-/// <remarks>
-	/// CalcSource=Tick records are computed and published each time an option NBBO price changes.  CalcSource=Loop records are computed in a 2-3 minute background loop.
-	/// Note that the underlier price (uPrc) will be the same for all options an underlier when CalcSource=Loop.  This is not true for CalcSource=Tick where uPrc will be the underlier price that prevailed when the option price changed.
-	/// If you are consuming multicast data and only want records with consistent uPrc values for all options you should ignore Tick records. Alternatively, you can use an independent underlier price source (our StockBookQuote feed or some other) and 'adjust' the values in this table to the new underlier value.
-	/// If you are selecting records from SRSE you should note that OptionImpliedQuoteAdj table is a proxy implementation of this table that automatically applies the appropriate underlier adjustments as records are being returned./// </remarks>
-
-public partial class LiveImpliedQuoteNG : IMessage
-{
-    #region IMessage implementation
-
-    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
-    
-    public long PublishedNsecsSinceUnixEpoch => header.sentts;
-
-    public bool FromCache
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal set
-        {
-            if (value)
-            {
-                header.bits |= HeaderBits.FromCache;
-            }
-            else
-            {
-                header.bits &= ~HeaderBits.FromCache;
-            }
-        }
-    }
-
-    public ushort Type => header.msgtype;
-
-    #endregion
-
-    public LiveImpliedQuoteNG()
-    {
-    }
-    
-    public LiveImpliedQuoteNG(PKey pkey)
-    {
-        this.pkey.body = pkey.body;
-    }
-    
-    public LiveImpliedQuoteNG(LiveImpliedQuoteNG source)
-    {
-        source.CopyTo(this);
-    }
-    
-    internal LiveImpliedQuoteNG(PKeyLayout pkey)
-    {
-        this.pkey.body = pkey;
-    }
-
-    public override bool Equals(object other)
-    {
-        return Equals(other as LiveImpliedQuoteNG);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(LiveImpliedQuoteNG other)
-    {
-        if (ReferenceEquals(other, null)) return false;
-        if (ReferenceEquals(other, this)) return true;
-        return pkey.Equals(other.pkey);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override int GetHashCode()
-    {
-        return pkey.GetHashCode();
-    }
-    
-    public override string ToString()
-    {
-        return TabRecord;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void CopyTo(LiveImpliedQuoteNG target)
-    {			
-        target.header = header;
-         pkey.CopyTo(target.pkey);
-         target.body = body;
-
-    }
-
-    public void Clear()
-    {
-        pkey.Clear();
-         body = new BodyLayout();
-
-    }
-
-    public PKey Key => pkey;
-    
-    internal SourceId SourceId => header.sourceid;
-
-    internal Header header = new() {msgtype = MessageType.LiveImpliedQuoteNG};
-    
-     public sealed class PKey : IEquatable<PKey>, ICloneable
-    {
-
-        internal PKeyLayout body;
-        
-        public PKey()					{ }
-
-        internal PKey(PKeyLayout body)	=> this.body = body;
-
-        public PKey(PKey other)
-        {
-            if (other is null) throw new ArgumentNullException(nameof(other));
-            body = other.body;
-				
-        }
-        
-        
-        public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void Clear()
-        {
-            body = new PKeyLayout();
-
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void CopyTo(PKey target)
-        {
-            target.body = body;
-
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public object Clone()
-        {
-            var target = new PKey(body);
-
-            return target;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKey other && Equals(other);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() => body.GetHashCode();
-    } 
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct PKeyLayout : IEquatable<PKeyLayout>
-    {
-        public OptionKeyLayout okey;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKeyLayout other)
-        {
-            return	okey.Equals(other.okey);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = okey.GetHashCode();
-
-                return hashCode;
-            }
-        }
-    }
-
-    internal readonly PKey pkey = new();
-     
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct BodyLayout
-    {
-        public TickerKeyLayout ticker;
-		public float uPrc;
-		public float uOff;
-		public float years;
-		public float xAxis;
-		public float rate;
-		public float sdiv;
-		public float ddiv;
-		public float oBid;
-		public float oAsk;
-		public float oBidIv;
-		public float oAskIv;
-		public float atmVol;
-		public float sVol;
-		public float sPrc;
-		public float sMark;
-		public float veSlope;
-		public float de;
-		public float ga;
-		public float th;
-		public float ve;
-		public float va;
-		public float vo;
-		public float ro;
-		public float ph;
-		public float deDecay;
-		public float up50;
-		public float dn50;
-		public float up15;
-		public float dn15;
-		public float up06;
-		public float dn08;
-		public double synSpot;
-		public PricingFramework prcFramework;
-		public ImpliedQuoteError calcErr;
-		public CalcSource calcSource;
-		public long srcTimestamp;
-		public long netTimestamp;
-		public DateTimeLayout timestamp;
-    }
-
-    internal BodyLayout body;
-
-    /// <summary>SR Ticker that this option rolls up to</summary>
-    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-     /// <summary>underlier price (usually mid-market)</summary>
-    public float UPrc { get => body.uPrc; set => body.uPrc = value; }
-     /// <summary>implied underlier price offset (if any)</summary>
-    public float UOff { get => body.uOff; set => body.uOff = value; }
-     /// <summary>years to expiration</summary>
-    public float Years { get => body.years; set => body.years = value; }
-     /// <summary>option moneyness</summary>
-    public float XAxis { get => body.xAxis; set => body.xAxis = value; }
-     /// <summary>discount rate</summary>
-    public float Rate { get => body.rate; set => body.rate = value; }
-     /// <summary>sdiv (continuous stock dividend) rate</summary>
-    public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
-     /// <summary>cumulative discrete dividend value</summary>
-    public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
-     /// <summary>option bid price</summary>
-    public float OBid { get => body.oBid; set => body.oBid = value; }
-     /// <summary>option ask price</summary>
-    public float OAsk { get => body.oAsk; set => body.oAsk = value; }
-     /// <summary>volatility implied by option bid price</summary>
-    public float OBidIv { get => body.oBidIv; set => body.oBidIv = value; }
-     /// <summary>volatility implied by option ask price</summary>
-    public float OAskIv { get => body.oAskIv; set => body.oAskIv = value; }
-     /// <summary>option atm volatility (from SR surface)</summary>
-    public float AtmVol { get => body.atmVol; set => body.atmVol = value; }
-     /// <summary>option surface volatility (SR surface fit model)</summary>
-    public float SVol { get => body.sVol; set => body.sVol = value; }
-     /// <summary>option surface price; ie. PRICE(sVol, uPrc + uOff, years, rate, sDiv, {discrete dividends, if any})</summary>
-    public float SPrc { get => body.sPrc; set => body.sPrc = value; }
-     /// <summary>option surface mark (option surface price w/bounding rules; always between bid/ask)</summary>
-    public float SMark { get => body.sMark; set => body.sMark = value; }
-     /// <summary>veSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * veSlope) if hedging with this assumption</summary>
-    public float VeSlope { get => body.veSlope; set => body.veSlope = value; }
-     /// <summary>option delta</summary>
-    public float De { get => body.de; set => body.de = value; }
-     /// <summary>option gamma</summary>
-    public float Ga { get => body.ga; set => body.ga = value; }
-     /// <summary>option theta</summary>
-    public float Th { get => body.th; set => body.th = value; }
-     /// <summary>option vega</summary>
-    public float Ve { get => body.ve; set => body.ve = value; }
-     /// <summary>option vanna</summary>
-    public float Va { get => body.va; set => body.va = value; }
-     /// <summary>option volga</summary>
-    public float Vo { get => body.vo; set => body.vo = value; }
-     /// <summary>option rho</summary>
-    public float Ro { get => body.ro; set => body.ro = value; }
-     /// <summary>option phi</summary>
-    public float Ph { get => body.ph; set => body.ph = value; }
-     /// <summary>option delta decay</summary>
-    public float DeDecay { get => body.deDecay; set => body.deDecay = value; }
-     /// <summary>underlier up 50% slide</summary>
-    public float Up50 { get => body.up50; set => body.up50 = value; }
-     /// <summary>underlier dn 50% slide</summary>
-    public float Dn50 { get => body.dn50; set => body.dn50 = value; }
-     /// <summary>underlier up 15% slide</summary>
-    public float Up15 { get => body.up15; set => body.up15 = value; }
-     /// <summary>underlier dn 15% slide</summary>
-    public float Dn15 { get => body.dn15; set => body.dn15 = value; }
-     /// <summary>underlier up 6% slide</summary>
-    public float Up06 { get => body.up06; set => body.up06 = value; }
-     /// <summary>underlier dn 8% slide</summary>
-    public float Dn08 { get => body.dn08; set => body.dn08 = value; }
-     /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
-    public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
-     /// <summary>Spot (Equity), Forward (Cash), Future, Physical</summary>
-    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
-     /// <summary>option pricing calculation error (if any)</summary>
-    public ImpliedQuoteError CalcErr { get => body.calcErr; set => body.calcErr = value; }
-     
-    public CalcSource CalcSource { get => body.calcSource; set => body.calcSource = value; }
-     /// <summary>OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource != Tick</summary>
-    public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>SR timestamp @ publish time</summary>
-    public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
-    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
-
-
-} // LiveImpliedQuoteNG
 
 
 /// <summary>
@@ -2874,7 +2557,6 @@ public partial class OptionCloseMark : IMessage
 		public float srPrc;
 		public float srVol;
 		public MarkSource srSrc;
-		public float kAdj;
 		public float de;
 		public float ga;
 		public float th;
@@ -2883,8 +2565,8 @@ public partial class OptionCloseMark : IMessage
 		public float va;
 		public float rh;
 		public float ph;
-		public float deDecay;
 		public float srSlope;
+		public float deDecay;
 		public float sdiv;
 		public float ddiv;
 		public float ddivPv;
@@ -2940,8 +2622,6 @@ public partial class OptionCloseMark : IMessage
     public float SrVol { get => body.srVol; set => body.srVol = value; }
      /// <summary>sr close mark source (SRVol is SurfaceVol)</summary>
     public MarkSource SrSrc { get => body.srSrc; set => body.srSrc = value; }
-     /// <summary>adjusted strike</summary>
-    public float KAdj { get => body.kAdj; set => body.kAdj = value; }
      /// <summary>delta</summary>
     public float De { get => body.de; set => body.de = value; }
      /// <summary>gamma</summary>
@@ -2958,10 +2638,10 @@ public partial class OptionCloseMark : IMessage
     public float Rh { get => body.rh; set => body.rh = value; }
      /// <summary>phi</summary>
     public float Ph { get => body.ph; set => body.ph = value; }
-     /// <summary>delta decay</summary>
-    public float DeDecay { get => body.deDecay; set => body.deDecay = value; }
      /// <summary>surface slope (SR surface)</summary>
     public float SrSlope { get => body.srSlope; set => body.srSlope = value; }
+     /// <summary>delta decay</summary>
+    public float DeDecay { get => body.deDecay; set => body.deDecay = value; }
      /// <summary>sdiv rate</summary>
     public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
      /// <summary>ddiv amount (sum of discrete dividend amounts)</summary>
@@ -4407,7 +4087,7 @@ public partial class OptionPrint : IMessage
 		public int prtClusterNum;
 		public int prtClusterSize;
 		public PrtType prtType;
-		public FixedString36Layout printCodes;
+		public FixedString18Layout printCodes;
 		public ushort prtOrders;
 		public int prtVolume;
 		public int cxlVolume;
@@ -4451,7 +4131,7 @@ public partial class OptionPrint : IMessage
     public int PrtClusterNum { get => body.prtClusterNum; set => body.prtClusterNum = value; }
      /// <summary>cumulative size of prints in this sequence (sequence of prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)</summary>
     public int PrtClusterSize { get => body.prtClusterSize; set => body.prtClusterSize = value; }
-     /// <summary>print type, NREG is european non-regular print</summary>
+     /// <summary>print type</summary>
     public PrtType PrtType { get => body.prtType; set => body.prtType = value; }
      /// <summary>European trade condition codes</summary>
     public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
@@ -4712,7 +4392,7 @@ public partial class OptionPrint2 : IMessage
 		public int prtClusterNum;
 		public int prtClusterSize;
 		public PrtType prtType;
-		public FixedString36Layout printCodes;
+		public FixedString18Layout printCodes;
 		public ushort prtOrders;
 		public int prtVolume;
 		public int oosVolume;
@@ -5960,7 +5640,7 @@ public partial class RootDefinition : IMessage
                 var src = UnderlyingList[i];
                 var dest = target.UnderlyingList[i] ?? new UnderlyingItem();
 				dest.Ticker = src.Ticker;
- 				dest.UndPerCn = src.UndPerCn;
+ 				dest.Spc = src.Spc;
 
                 target.UnderlyingList[i] = dest;
             }
@@ -5968,28 +5648,6 @@ public partial class RootDefinition : IMessage
         else if ((target.UnderlyingList?.Length ?? 0) > 0)
         {
             target.UnderlyingList = null;
-        }
- 
-        if ((Underlying_V7List?.Length ?? 0) > 0)
-        {
-            if ((target.Underlying_V7List?.Length ?? 0) != Underlying_V7List.Length)
-            {
-                target.Underlying_V7List = new Underlying_V7Item[Underlying_V7List.Length];
-            }
-
-            for (int i = 0; i < Underlying_V7List.Length; i++)
-            {
-                var src = Underlying_V7List[i];
-                var dest = target.Underlying_V7List[i] ?? new Underlying_V7Item();
-				dest.Ticker_V7 = src.Ticker_V7;
- 				dest.Spc_V7 = src.Spc_V7;
-
-                target.Underlying_V7List[i] = dest;
-            }
-        }
-        else if ((target.Underlying_V7List?.Length ?? 0) > 0)
-        {
-            target.Underlying_V7List = null;
         }
 
     }
@@ -6000,7 +5658,6 @@ public partial class RootDefinition : IMessage
          body = new BodyLayout();
          ExchangeList = null;
          UnderlyingList = null;
-         Underlying_V7List = null;
 
     }
 
@@ -6116,36 +5773,17 @@ public partial class RootDefinition : IMessage
 
         public UnderlyingItem() { }
         
-        public UnderlyingItem(TickerKey ticker, float undPerCn)
+        public UnderlyingItem(TickerKey ticker, float spc)
         {
             this.Ticker = ticker;
-			this.UndPerCn = undPerCn;
+			this.Spc = spc;
         }
 
         public TickerKey Ticker { get; internal set; }
-		public float UndPerCn { get; internal set; }
+		public float Spc { get; internal set; }
     }
 
     public UnderlyingItem[] UnderlyingList { get; set; }
- 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    public class Underlying_V7Item
-    {
-        public const int Length = 18;
-
-        public Underlying_V7Item() { }
-        
-        public Underlying_V7Item(TickerKey ticker_V7, float spc_V7)
-        {
-            this.Ticker_V7 = ticker_V7;
-			this.Spc_V7 = spc_V7;
-        }
-
-        public TickerKey Ticker_V7 { get; internal set; }
-		public float Spc_V7 { get; internal set; }
-    }
-
-    public Underlying_V7Item[] Underlying_V7List { get; set; }
 
      
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
@@ -6236,7 +5874,7 @@ public partial class RootDefinition : IMessage
     public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
      
     public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
-     /// <summary>non-functional. temporarily added back for binary compatibility with mars</summary>
+     
     public PricingModel PricingModel { get => body.pricingModel; set => body.pricingModel = value; }
      /// <summary>[LogNormal or Normal] - default is determined by product characteristics and is usually correct. for binary compatibility with new quant package</summary>
     public CalcModelType CalcModelType { get => body.calcModelType; set => body.calcModelType = value; }
@@ -8040,7 +7678,6 @@ public partial class SpreadExchPrint : IMessage
 		public int printSize;
 		public double printPrice;
 		public YesNo isPrintPriceValid;
-		public FixedString16Layout printType;
 		public BuySell minAnchorSide;
 		public OptionKeyLayout minAnchorLeg;
 		public BuySell maxAnchorSide;
@@ -8072,8 +7709,6 @@ public partial class SpreadExchPrint : IMessage
     public double PrintPrice { get => body.printPrice; set => body.printPrice = value; }
      
     public YesNo IsPrintPriceValid { get => body.isPrintPriceValid; set => body.isPrintPriceValid = value; }
-     /// <summary>print type (best effort to match opra print code)</summary>
-    public string PrintType { get => body.printType; set => body.printType = value; }
      
     public BuySell MinAnchorSide { get => body.minAnchorSide; set => body.minAnchorSide = value; }
      /// <summary>earliest expiry / smallest strike / call prefered</summary>
@@ -9323,7 +8958,7 @@ public partial class StockPrint : IMessage
 		public float mrkPrice;
 		public float clsPrice;
 		public StkPrintType prtType;
-		public FixedString36Layout printCodes;
+		public FixedString18Layout printCodes;
 		public byte prtCond1;
 		public byte prtCond2;
 		public byte prtCond3;
