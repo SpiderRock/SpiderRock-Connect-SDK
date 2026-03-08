@@ -44,7 +44,8 @@ namespace SpiderRock
 			MF=13,
 			COIN=14,
 			TOKEN=15,
-			ANY=16
+			ANY=16,
+			RATE=17
 		};
 
  		enum class AuctionEvent : Enum 
@@ -125,17 +126,8 @@ namespace SpiderRock
  		enum class CalcModelType : Enum 
 		{
 			None=0,
-			LogNormalExact=1,
-			NormalExact=2,
-			LogNormalApprox=3,
-			NormalApprox=4
-		};
-
- 		enum class CalcPriceType : Enum 
-		{
-			None=0,
-			Equity=1,
-			Future=2
+			LogNormal=1,
+			Normal=2
 		};
 
  		enum class CalcSource : Enum 
@@ -275,7 +267,8 @@ namespace SpiderRock
 			C1Orders=34,
 			AmexComplex=35,
 			ArcaComplex=36,
-			EmldAuctions=37
+			EmldAuctions=37,
+			PillarEquityBBO=38
 		};
 
  		enum class ExchOrderStatus : Enum 
@@ -360,7 +353,7 @@ namespace SpiderRock
 			NXOS=13,
 			NXP=14,
 			ICEFE=15,
-			ICEUS=16
+			ICELF=16
 		};
 
  		enum class GridType : Enum 
@@ -557,7 +550,7 @@ namespace SpiderRock
 			NXP=34,
 			ICEFE=35,
 			SRC=36,
-			ICEUS=37
+			ICELF=37
 		};
 
  		enum class OptMktType : Flag 
@@ -707,7 +700,9 @@ namespace SpiderRock
 		{
 			None=0,
 			Spot=1,
-			Forward=2
+			Forward=2,
+			Future=3,
+			Physical=4
 		};
 
  		enum class PricingModel : Enum 
@@ -797,7 +792,9 @@ namespace SpiderRock
 			MUNA=65,
 			XETA=66,
 			XLU=67,
-			XBD=68
+			XBD=68,
+			ICEFE=69,
+			ICELF=70
 		};
 
  		enum class ProductClass : Enum 
@@ -921,7 +918,8 @@ namespace SpiderRock
 			TFSL=30,
 			CBMO=31,
 			MCTP=32,
-			EXHT=33
+			EXHT=33,
+			NREG=34
 		};
 
  		enum class RunStatus : Enum 
@@ -1199,7 +1197,7 @@ namespace SpiderRock
 			EUREX=31,
 			CEDX=32,
 			ICEFE=33,
-			ICEUS=34
+			ICELF=34
 		};
 
  		enum class TimeInForce : Enum 

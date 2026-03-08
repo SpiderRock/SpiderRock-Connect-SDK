@@ -194,6 +194,41 @@ internal unsafe partial class Formatter
     }
      
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, LiveImpliedQuoteNG dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, LiveImpliedQuoteNG dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(LiveImpliedQuoteNG.PKeyLayout) + sizeof(LiveImpliedQuoteNG.BodyLayout) > max) throw new IOException("Max exceeded decoding LiveImpliedQuoteNG");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((LiveImpliedQuoteNG.PKeyLayout*) src); src += sizeof(LiveImpliedQuoteNG.PKeyLayout);
+             dest.body = *((LiveImpliedQuoteNG.BodyLayout*) src); src += sizeof(LiveImpliedQuoteNG.BodyLayout);
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, LiveRevConQuote dest)
     {
         fixed (byte* p = buffer)
@@ -767,9 +802,26 @@ internal unsafe partial class Formatter
             {
                 var item = new RootDefinition.UnderlyingItem();
                     item.Ticker = TickerKey.GetCreateTickerKey(*((TickerKeyLayout*) src)); src += sizeof(TickerKeyLayout);
-                     item.Spc = *((float*) src); src += sizeof(float);
+                     item.UndPerCn = *((float*) src); src += sizeof(float);
 
                 dest.UnderlyingList[i] = item;
+            }
+ 
+            // Underlying_V7Item Repeat Section
+
+            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding RootDefinition.Underlying_V7 length");
+            ushort sizeUnderlying_V7 = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeUnderlying_V7 * RootDefinition.Underlying_V7Item.Length > max) throw new IOException("Max exceeded decoding RootDefinition.Underlying_V7 items");
+
+            dest.Underlying_V7List = new RootDefinition.Underlying_V7Item[sizeUnderlying_V7];
+            
+            for (int i = 0; i < sizeUnderlying_V7; i++)
+            {
+                var item = new RootDefinition.Underlying_V7Item();
+                    item.Ticker_V7 = TickerKey.GetCreateTickerKey(*((TickerKeyLayout*) src)); src += sizeof(TickerKeyLayout);
+                     item.Spc_V7 = *((float*) src); src += sizeof(float);
+
+                dest.Underlying_V7List[i] = item;
             }
 			
             return src;
