@@ -30,11 +30,7 @@ message HedgePolicyConfig {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    YesNo auto_hedge_enabled = 100;
     YesNo hedge_waves_enabled = 101;
-    AutoHedgeWindow auto_hedge_window = 102;
-    AutoHedgeNetting auto_hedge_netting = 103;
-    float auto_hedge_sym_band_dD = 104; // individual hedge target hedge band ($delta) (hedge to zero when outside band)
     string modified_by = 112; // user who last modified this record
     SysEnvironment modified_in = 113;
     google.protobuf.Timestamp timestamp = 114; // timestamp of last modification

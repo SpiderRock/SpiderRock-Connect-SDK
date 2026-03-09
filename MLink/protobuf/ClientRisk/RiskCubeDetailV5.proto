@@ -92,6 +92,7 @@ message RiskCubeDetailV5 {
     float opn_pnl_vol_mark = 292; // (cur.surface - pr.surface) * cnOpnClr * upc
     float opn_pnl_mid_mark = 295; // (cur.mid - pr.mid) * cnOpnClr * upc
     float opn_pnl_clr_mark = 298; // (cur.mid - pr.clr) * cnOpnClr * upc
+    float opn_clr_mark = 510; // start-of-day clearing mark [should be corp action adjusted]
     float opn_mark_brk_mny = 301; // (cur.surface - cur.mid) * cnOpnClr * upc
     float opn_theo_edge = 304; // opening edge (edge at the end of prior period) (requires a theo model)
     float pos_theo_edge = 307; // current edge (opening positions + trades) (requires a theo model)

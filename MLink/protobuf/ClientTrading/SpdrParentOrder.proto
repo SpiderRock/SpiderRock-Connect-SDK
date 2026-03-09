@@ -150,7 +150,10 @@ message SpdrParentOrder {
     string strategy_accnt = 1045; // SR strategy account (option; if exists will be validated)
     SpdrSource spdr_source = 154;
     int64 grouping_code = 157; // unique broker code;broker.pkey = (key + accnt + spdrSource + groupingCode)
-    string exec_brkr_code = 1039; // overrides the default executing broker for this parent order
+    string exec_brkr_code = 1039; // overrides the default executing broker for this parent order; must match values in AccountRouteConfig and RouteDefinition
+    string exec_brkr_accnt = 1070; // overrides exec broker account; accnt must enable away clearing instructions in the account config
+    string exec_brkr_cl_firm = 1071; // overrides exec broker client/firm; accnt must enable away clearing instructions in the account config
+    string exec_brkr_user_name = 1072; // overrides exec broker user name; accnt must enable away clearing instructions in the account config
     string extern_ex_dest = 1040; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
     string extern_params = 166; // external algo names/parameters (usually just an algo name)
     string strategy = 169; // client-supplied strategy string;visible on SpiderRock GUI tools and other order reports.

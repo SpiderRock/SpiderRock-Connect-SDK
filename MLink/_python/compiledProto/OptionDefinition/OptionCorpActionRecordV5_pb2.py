@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/OptionDefinition/OptionCorpActionRecordV5.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaa\x04\n\x18OptionCorpActionRecordV5\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12@\n\x04pkey\x18\x02 \x01(\x0b\x32\x32.spiderrock.protobuf.OptionCorpActionRecordV5.PKey\x12\x30\n\x08sod_root\x18\x64 \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x17\n\x0fmark_multiplier\x18g \x01(\x01\x12\x1b\n\x13position_multiplier\x18j \x01(\x05\x12\x15\n\rstrike_factor\x18m \x01(\x01\x12\x19\n\x11strike_multiplier\x18p \x01(\x01\x12\x18\n\x10strike_precision\x18s \x01(\x05\x12\x18\n\x10\x63orp_action_text\x18v \x01(\t\x12\x35\n\x10\x63orp_action_type\x18y \x01(\x0e\x32\x1b.spiderrock.protobuf.CAType\x12-\n\ttimestamp\x18| \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x63\n\x04PKey\x12,\n\x04root\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12-\n\x07\x65x_date\x18\x0b \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKeyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/OptionDefinition/OptionCorpActionRecordV5.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xdf\x05\n\x18OptionCorpActionRecordV5\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12@\n\x04pkey\x18\x02 \x01(\x0b\x32\x32.spiderrock.protobuf.OptionCorpActionRecordV5.PKey\x12\x30\n\x08sod_root\x18\x64 \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x17\n\x0fmark_multiplier\x18g \x01(\x01\x12\x1b\n\x13position_multiplier\x18j \x01(\x05\x12\x15\n\rstrike_factor\x18m \x01(\x01\x12\x19\n\x11strike_multiplier\x18p \x01(\x01\x12\x18\n\x10strike_precision\x18s \x01(\x05\x12\x18\n\x10\x63orp_action_text\x18v \x01(\t\x12\x35\n\x10\x63orp_action_type\x18y \x01(\x0e\x32\x1b.spiderrock.protobuf.CAType\x12.\n\ttimestamp\x18\xb4\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\x0b\x64\x65liverable\x18{ \x03(\x0b\x32\x39.spiderrock.protobuf.OptionCorpActionRecordV5.Deliverable\x1a\x63\n\x04PKey\x12,\n\x04root\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12-\n\x07\x65x_date\x18\x0b \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKey\x1a\x62\n\x0b\x44\x65liverable\x12.\n\x06ticker\x18| \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x0b\n\x03qty\x18~ \x01(\x01\x12\x16\n\rallocationpct\x18\x82\x01 \x01(\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,7 +24,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_OPTIONCORPACTIONRECORDV5']._serialized_start=131
-  _globals['_OPTIONCORPACTIONRECORDV5']._serialized_end=685
-  _globals['_OPTIONCORPACTIONRECORDV5_PKEY']._serialized_start=586
-  _globals['_OPTIONCORPACTIONRECORDV5_PKEY']._serialized_end=685
+  _globals['_OPTIONCORPACTIONRECORDV5']._serialized_end=866
+  _globals['_OPTIONCORPACTIONRECORDV5_PKEY']._serialized_start=667
+  _globals['_OPTIONCORPACTIONRECORDV5_PKEY']._serialized_end=766
+  _globals['_OPTIONCORPACTIONRECORDV5_DELIVERABLE']._serialized_start=768
+  _globals['_OPTIONCORPACTIONRECORDV5_DELIVERABLE']._serialized_end=866
 # @@protoc_insertion_point(module_scope)

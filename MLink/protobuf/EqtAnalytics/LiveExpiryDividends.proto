@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    LiveExpiryDividend records contain all announced and projected discrete dividend payment dates and amounts for dividend paying equities. These records are the dividend values that are incorporated into option pricing calculations.
+    LiveExpiryDividend records are published by PricingGrid servers about once every 2 minutes during trading hours or immediately if dividend announcements occur during trading hours.
+*/    
+message LiveExpiryDividends {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        int32 r_counter = 11; // switches between 0 and 1 on each publish (allows system to maintain a cur/prv version of each record)
+    }
+
+    message Dividend {
+        
+        DateKey date = 133; // exDiv date
+        float amount = 136; // dividend amount
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey today = 100;
+    DateKey expiry = 103;
+    double rate = 106;
+    double ddiv = 109;
+    double ddiv_pv = 112;
+    float sdiv_uPrc = 115;
+    float sdiv_iVol = 118;
+    float sdiv_a = 121; // sdiv(strike) = sdivA + sdivB * x + sdivC * x^2;  where x = BS(strike, years, sdivUPrc, sdivIVol, rate, sdiv:0).xde
+    float sdiv_b = 124;
+    float sdiv_c = 127;
+    int32 ddiv_hash = 145; // this divHash value will match the divHash value included pricing grid records computed using the above discrete dividends
+    google.protobuf.Timestamp timestamp = 148;
+    repeated Dividend dividend = 130;
+}
+
+

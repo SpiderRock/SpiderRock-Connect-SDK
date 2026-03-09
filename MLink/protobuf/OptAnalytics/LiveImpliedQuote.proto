@@ -56,7 +56,7 @@ message LiveImpliedQuote {
     float up06 = 190; // underlier up 6% slide
     float dn08 = 193; // underlier dn 8% slide
     double syn_spot = 196; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
-    CalcPriceType price_type = 199; // Equity or Future (Black76) pricing framework;  if Future then uPrc is the forwardUPrc and sdiv = rate
+    PricingFramework prc_framework = 199; // Spot (Equity), Forward (Cash), Future, Physical
     ImpliedQuoteError calc_err = 202; // option pricing calculation error (if any)
     CalcSource calc_source = 205;
     int64 src_timestamp = 208; // OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource != Tick

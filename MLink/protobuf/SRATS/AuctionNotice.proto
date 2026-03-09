@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 message AuctionNotice {
     message PKey {
         
-        int64 notice_number = 11;
+        int64 notice_number = 11; // SR Generated Number
     }
 
     message DirectedCounterParty {

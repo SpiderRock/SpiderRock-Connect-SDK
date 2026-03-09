@@ -258,6 +258,7 @@ message SpdrParentExecution {
     HedgeScope hedge_scope = 754; // hedge group scope
     string user_data1 = 757; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 760; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    PricingVersion pricing_version = 762;
     float years = 763; // years to expiration
     int32 underliers_per_cn = 766; // option delivery underliers per contract
     UnderlierType underlier_type = 769; // type of underlier (affects $greek calculations)

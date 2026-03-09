@@ -15,6 +15,13 @@ message OptionCorpActionRecordV5 {
         DateKey ex_date = 11; // ex-date of the action
     }
 
+    message Deliverable {
+        
+        TickerKey ticker = 124; // underlying symbol @ SOD
+        double qty = 126; // underlying quantity per option contract
+        double allocationpct = 130; // allocation percentage
+    }
+
 
     MessageMetadata _meta = 1;
     
@@ -27,7 +34,8 @@ message OptionCorpActionRecordV5 {
     int32 strike_precision = 115; // number of decimal places to round after adjusting strike (usually 2)
     string corp_action_text = 118; // descriptive detail (optional)
     CAType corp_action_type = 121; // corporate action type
-    google.protobuf.Timestamp timestamp = 124;
+    google.protobuf.Timestamp timestamp = 180;
+    repeated Deliverable deliverable = 123;
 }
 
 

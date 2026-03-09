@@ -15,7 +15,7 @@ import spiderrock_common_pb2 as spiderrock__common__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/EquityDefinition/EquityCorpActionRecordV5.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xba\x06\n\x18\x45quityCorpActionRecordV5\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12@\n\x04pkey\x18\x02 \x01(\x0b\x32\x32.spiderrock.protobuf.EquityCorpActionRecordV5.PKey\x12\x19\n\x10\x63orp_action_text\x18\x85\x01 \x01(\t\x12.\n\ttimestamp\x18\x88\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x04\x63\x61sh\x18\x64 \x03(\x0b\x32\x32.spiderrock.protobuf.EquityCorpActionRecordV5.Cash\x12J\n\tcomponent\x18s \x03(\x0b\x32\x37.spiderrock.protobuf.EquityCorpActionRecordV5.Component\x1a\x65\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12-\n\x07\x65x_date\x18\x0b \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKey\x1a\x94\x01\n\x04\x43\x61sh\x12\x0e\n\x06\x61mount\x18g \x01(\x01\x12/\n\x08\x63urrency\x18j \x01(\x0e\x32\x1d.spiderrock.protobuf.Currency\x12\x36\n\tcash_type\x18m \x01(\x0e\x32#.spiderrock.protobuf.CorpActionCash\x12\x13\n\x0b\x64\x65scription\x18p \x01(\t\x1a\xcf\x01\n\tComponent\x12\x32\n\nticker_sOD\x18v \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x17\n\x0f\x63omponent_ratio\x18y \x01(\x01\x12\x1a\n\x12\x63omponent_fraction\x18| \x01(\x01\x12\x16\n\x0e\x63omponent_mark\x18\x7f \x01(\x01\x12\x41\n\x0e\x63omponent_type\x18\x82\x01 \x01(\x0e\x32(.spiderrock.protobuf.CorpActionComponentb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/EquityDefinition/EquityCorpActionRecordV5.proto\x12\x13spiderrock.protobuf\x1a\x17spiderrock_common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf7\x08\n\x18\x45quityCorpActionRecordV5\x12\x33\n\x05_meta\x18\x01 \x01(\x0b\x32$.spiderrock.protobuf.MessageMetadata\x12@\n\x04pkey\x18\x02 \x01(\x0b\x32\x32.spiderrock.protobuf.EquityCorpActionRecordV5.PKey\x12\x19\n\x10\x63orp_action_text\x18\x85\x01 \x01(\t\x12\x32\n\rhas_option_cA\x18\x88\x01 \x01(\x0e\x32\x1a.spiderrock.protobuf.YesNo\x12=\n\x17option_corp_action_type\x18\x8a\x01 \x01(\x0e\x32\x1b.spiderrock.protobuf.CAType\x12.\n\ttimestamp\x18\xb4\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x04\x63\x61sh\x18\x64 \x03(\x0b\x32\x32.spiderrock.protobuf.EquityCorpActionRecordV5.Cash\x12J\n\tcomponent\x18s \x03(\x0b\x32\x37.spiderrock.protobuf.EquityCorpActionRecordV5.Component\x12\\\n\x12option_deliverable\x18\x8c\x01 \x03(\x0b\x32?.spiderrock.protobuf.EquityCorpActionRecordV5.OptionDeliverable\x1a\x65\n\x04PKey\x12.\n\x06ticker\x18\n \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12-\n\x07\x65x_date\x18\x0b \x01(\x0b\x32\x1c.spiderrock.protobuf.DateKey\x1a\x94\x01\n\x04\x43\x61sh\x12\x0e\n\x06\x61mount\x18g \x01(\x01\x12/\n\x08\x63urrency\x18j \x01(\x0e\x32\x1d.spiderrock.protobuf.Currency\x12\x36\n\tcash_type\x18m \x01(\x0e\x32#.spiderrock.protobuf.CorpActionCash\x12\x13\n\x0b\x64\x65scription\x18p \x01(\t\x1a\xcf\x01\n\tComponent\x12\x32\n\nticker_sOD\x18v \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x17\n\x0f\x63omponent_ratio\x18y \x01(\x01\x12\x1a\n\x12\x63omponent_fraction\x18| \x01(\x01\x12\x16\n\x0e\x63omponent_mark\x18\x7f \x01(\x01\x12\x41\n\x0e\x63omponent_type\x18\x82\x01 \x01(\x0e\x32(.spiderrock.protobuf.CorpActionComponent\x1aj\n\x11OptionDeliverable\x12/\n\x06ticker\x18\x90\x01 \x01(\x0b\x32\x1e.spiderrock.protobuf.TickerKey\x12\x0c\n\x03qty\x18\x92\x01 \x01(\x01\x12\x16\n\rallocationpct\x18\x96\x01 \x01(\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,11 +24,13 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_EQUITYCORPACTIONRECORDV5']._serialized_start=131
-  _globals['_EQUITYCORPACTIONRECORDV5']._serialized_end=957
-  _globals['_EQUITYCORPACTIONRECORDV5_PKEY']._serialized_start=495
-  _globals['_EQUITYCORPACTIONRECORDV5_PKEY']._serialized_end=596
-  _globals['_EQUITYCORPACTIONRECORDV5_CASH']._serialized_start=599
-  _globals['_EQUITYCORPACTIONRECORDV5_CASH']._serialized_end=747
-  _globals['_EQUITYCORPACTIONRECORDV5_COMPONENT']._serialized_start=750
-  _globals['_EQUITYCORPACTIONRECORDV5_COMPONENT']._serialized_end=957
+  _globals['_EQUITYCORPACTIONRECORDV5']._serialized_end=1274
+  _globals['_EQUITYCORPACTIONRECORDV5_PKEY']._serialized_start=704
+  _globals['_EQUITYCORPACTIONRECORDV5_PKEY']._serialized_end=805
+  _globals['_EQUITYCORPACTIONRECORDV5_CASH']._serialized_start=808
+  _globals['_EQUITYCORPACTIONRECORDV5_CASH']._serialized_end=956
+  _globals['_EQUITYCORPACTIONRECORDV5_COMPONENT']._serialized_start=959
+  _globals['_EQUITYCORPACTIONRECORDV5_COMPONENT']._serialized_end=1166
+  _globals['_EQUITYCORPACTIONRECORDV5_OPTIONDELIVERABLE']._serialized_start=1168
+  _globals['_EQUITYCORPACTIONRECORDV5_OPTIONDELIVERABLE']._serialized_end=1274
 # @@protoc_insertion_point(module_scope)

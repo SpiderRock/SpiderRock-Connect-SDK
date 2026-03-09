@@ -57,7 +57,7 @@ message SpdrParentBrkrState {
     float surface_prc = 160; // SR surface price @ record publish
     float surface_vol = 163; // SR surface volatility @ record publish
     float order_ref_sDiv = 166;
-    RefSDivType order_ref_sDiv_type = 169;
+    PricerStyle pricer_style = 169;
     SpdrBrokerStatus spdr_broker_status = 172;
     SpdrOrderStatus spdr_order_status = 175; // status of the most recent parent order handled by this broker
     SpdrCloseReason spdr_close_reason = 178; // close reason of most recent parent order

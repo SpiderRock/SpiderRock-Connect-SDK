@@ -84,6 +84,8 @@ message SpdrParentLimit {
     float max_sym_day_wt_vega_sh = 256; // max acct+symbol day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
     float max_sym_day_rMetric7_ln = 280; // max acct+symbol day rMetric7 long (positive number;-1=no limit);risk limit = max limit - current net counter
     float max_sym_day_rMetric7_sh = 283; // max acct+symbol day rMetric7 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_exposure_size = 198; // maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    int32 num_make_exchanges = 199; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
     float max_grp_day_dDelta_ln = 289; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
     float max_grp_day_dDelta_sh = 292; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
     float max_grp_day_vega_ln = 298; // max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter

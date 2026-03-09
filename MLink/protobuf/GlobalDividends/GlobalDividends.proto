@@ -8,8 +8,10 @@ package spiderrock.protobuf;
 import "google/protobuf/timestamp.proto";
 
 /*
-    GlobalDividend records contain projected future discrete dividend payment dates and amounts for dividend paying equities.  These records are the dividend values that are incorporated into option pricing calculations.
-    Note: Missing/empty DateAmt strings are interpreted as non-dividend paying
+    GlobalDividend records contain projected future discrete dividend payment dates and amounts for dividend paying equities.
+    These records are the composite of SRVendorDividends and GlobalDividendOverride records and can influence LiveExpiryDividends.
+    Option pricing is based off LiveExpiryDividends records (implied from call/put alignment).
+    LiveTickerDividends records are a composite of all LiveExpiryDividend records for each ticker
 */    
 message GlobalDividends {
     message PKey {
@@ -32,7 +34,7 @@ message GlobalDividends {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    google.protobuf.Timestamp timestamp = 100; // publish time (GlobalDividend.timestamp = SRPricingCalcRecord.timestamp @ publish)
+    google.protobuf.Timestamp timestamp = 100; // publish time
     google.protobuf.Timestamp last_modified = 103; // last dividend data modify timestamp
     string text = 106; // extra text (if any)
     repeated DateAmt date_amt = 109;

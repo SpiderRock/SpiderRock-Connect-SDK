@@ -27,7 +27,7 @@ message StockMinuteBar {
     double prt_low = 112; // Low print
     double prt_last = 115; // Last print
     double prt_vWap = 118; // VWap (print)
-    int32 prt_volume = 121; // Print volume
+    double prt_volume = 121; // Print volume
     int32 prt_count = 124; // Print count
     double qte_hi_bid = 127; // Quote high bid
     double qte_lo_ask = 130; // Quote low ask

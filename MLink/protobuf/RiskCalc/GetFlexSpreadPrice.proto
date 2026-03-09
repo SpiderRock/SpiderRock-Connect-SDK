@@ -9,6 +9,12 @@ import "google/protobuf/timestamp.proto";
 
     
 message GetFlexSpreadPrice {
+    message PKey {
+        
+        string user_name = 10;
+        int32 calc_id = 11;
+    }
+
     message DiscreteDividend {
         
         google.protobuf.Timestamp date = 136;
@@ -43,6 +49,7 @@ message GetFlexSpreadPrice {
 
     MessageMetadata _meta = 1;
     
+    PKey pkey = 2;
     double u_prc = 100; // live uPrc on arrival (if not supplied)
     double fixed_prem_uPct = 101; // premium as a percent of the underlying price. required if a leg with strikeType=PctVariable is included (can be zero).
     YesNo inc_greeks = 102; // whether greeks should be computed

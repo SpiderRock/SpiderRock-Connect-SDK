@@ -32,7 +32,7 @@ message OptionItemDef {
     ExerciseTime ex_time = 101; // exercise time (AM or PM) (default: root definition)
     CalendarCode holiday_calendar = 115; // holiday calendar code (eg. NYSE)
     TimeMetric time_metric = 102; // time metric (VT70, Y252, Y365, etc.) (default: root definition)
-    CalcPriceType price_type = 103; // Equity (spot price) or Future (fwd price) conventions (default: root definition)
+    PricingFramework prc_framework = 103; // Spot (Equity), Forward (Cash), Future, Physical
     CalcModelType model_type = 104; // (default: root definition)
     YesNo inc_greeks = 105; // default (No)
     double vol = 106; // volatility (default: SR surface volatility)

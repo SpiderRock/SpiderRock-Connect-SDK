@@ -29,6 +29,7 @@ message OptionOpenMark {
     float sr_prc = 133; // SR open surface price; [SR close surface price overnight adjusted]
     float sr_vol = 136; // SR surface volatility
     MarkSource sr_src = 139;
+    float k_adj = 140; // adjusted strike
     float de = 142; // greeks from SR surface volatility
     float ga = 145;
     float th = 148;

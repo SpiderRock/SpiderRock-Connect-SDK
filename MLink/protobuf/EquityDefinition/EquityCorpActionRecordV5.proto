@@ -34,14 +34,24 @@ message EquityCorpActionRecordV5 {
         CorpActionComponent component_type = 130;
     }
 
+    message OptionDeliverable {
+        
+        TickerKey ticker = 144; // underlying symbol @ SOD
+        double qty = 146; // underlying quantity per option contract
+        double allocationpct = 150; // allocation percentage
+    }
+
 
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
     string corp_action_text = 133; // descriptive detail (optional)
-    google.protobuf.Timestamp timestamp = 136;
+    YesNo has_option_cA = 136; // Has Option CA flag
+    CAType option_corp_action_type = 138; // Option corporate action type
+    google.protobuf.Timestamp timestamp = 180;
     repeated Cash cash = 100;
     repeated Component component = 115;
+    repeated OptionDeliverable option_deliverable = 140;
 }
 
 

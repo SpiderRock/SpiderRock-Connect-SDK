@@ -37,6 +37,12 @@ message SpdrRiskCounter {
     float abs_day_nValue = 112; // absolute day Notional Value, |nvBot| + |nvSld| position
     float net_day_rMetric7 = 113; // net day RiskMetric7
     float abs_day_rMetric7 = 114; // absolute day RiskMetric7, |rm7Bot| + |rm7Sld| position
+    float day_stk_sh_sld = 130; // day stock shares sld
+    float day_stk_sh_bot = 131; // day stock shares bot
+    float day_opt_cn_bot = 132; // day option contracts bot
+    float day_opt_cn_sld = 133; // day option contracts sld
+    float day_fut_cn_bot = 134; // day future contracts bot
+    float day_fut_cn_sld = 135; // day future contracts sld
     float net_day_dDelta_ema = 115; // 60s (half-life) EMA $delta
     float net_day_wt_vega_ema = 116; // 60s (half-life) EMA wtVega
     double ema_timestamp = 117;

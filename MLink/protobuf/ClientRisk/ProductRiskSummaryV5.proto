@@ -179,6 +179,24 @@ message ProductRiskSummaryV5 {
     float span14 = 532; // span14: uPrc=-100%, vol=down
     float span15 = 535; // span15: uPrc=+300%; price slide * 0.33
     float span16 = 538; // span16: uPrc=-300%, price slide * 0.33
+    float va_rsu90 = 594; // Aggregate RiskSlide: uPrc up 90%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.90))
+    float va_rsd90 = 595; // Aggregate RiskSlide: uPrc dn 90%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.90))
+    float va_rsu50 = 596; // Aggregate RiskSlide: uPrc up 50%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.50))
+    float va_rsd50 = 597; // Aggregate RiskSlide: uPrc dn 50%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.50))
+    float va_rsu15 = 598; // Aggregate RiskSlide: uPrc up 15%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.15))
+    float va_rsd15 = 599; // Aggregate RiskSlide: uPrc dn 15%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.15))
+    float va_rsu10 = 600; // Aggregate RiskSlide: uPrc up 10%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.10))
+    float va_rsd10 = 601; // Aggregate RiskSlide: uPrc dn 10%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.10))
+    float va_rsu06 = 602; // Aggregate RiskSlide: uPrc up 6%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.06))
+    float va_rsd08 = 603; // Aggregate RiskSlide: uPrc dn 8%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.08))
+    float va_rsu05 = 604; // Aggregate RiskSlide: uPrc up 5%, vol unchanged (newUPrc = uPrc * Math.Exp(+0.05))
+    float va_rsd05 = 605; // Aggregate RiskSlide: uPrc dn 5%, vol unchanged (newUPrc = uPrc * Math.Exp(-0.05))
+    float va_rsu1e = 606; // Aggregate RiskSlide: uPrc up 1x implied earn move, vol ramp out
+    float va_rsd1e = 607; // Aggregate RiskSlide: uPrc dn 1x implied earn move, vol ramp out
+    float va_rsu2e = 608; // Aggregate RiskSlide: uPrc up 2x implied earn move, vol ramp out
+    float va_rsd2e = 609; // Aggregate RiskSlide: uPrc dn 2x implied earn move, vol ramp out
+    float va_rearn = 610; // Aggregate RiskSlide: vol earn ramp out (no uPrc move)
+    float va_rcash = 611; // Aggregate RiskSlide: uPrc up 30%, vol = 0.01, 6mn deal close (delta neutral)
     float fut_liq_risk = 541; // Aggregate Future Liquidation Risk
     float opt_liq_risk = 544; // Aggregate Option Liquidation Risk
     int32 fc_bot_c0 = 547; // hypothetical future contracts bot (~ 1 minute intervals)

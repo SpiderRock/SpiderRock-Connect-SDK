@@ -37,6 +37,7 @@ message OptionFlexPrint {
     OptExch opt_exch = 100;
     string exchange_id = 101; // identifier associated with this trade assigned by the exchange (may not be 100% reliable)
     string flex_root = 102; // security symbol of the FLEX option
+    TickerSrc ticker_src = 124; // ticker src from first option leg
     FlexClosureType closure_type = 103;
     FlexPrintClosure print_closure = 104;
     int32 pkg_qty = 123; // package quantity

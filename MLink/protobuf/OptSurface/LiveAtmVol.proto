@@ -37,7 +37,7 @@ message LiveAtmVol {
     double min_cPAdj_val = 139; // minimum cpAdjVal (sdiv or uPrcRatio)
     double max_cPAdj_val = 142; // minimum cpAdjVal (sdiv or uPrcRatio)
     CPAdjType cp_adj_type = 145; // adjustment used to align calls/puts
-    CalcPriceType price_type = 148; // [Equity] has independent uPrc and rate with sdiv derived from call/put balance; [Future] has sdiv = rate with uPrc' derived from call/put balance
+    PricingFramework prc_framework = 148; // Spot (Equity), Forward (Cash), Future, Physical
     ExpiryKey u_prc_driver_key = 151; // underlier driver key
     SpdrKeyType u_prc_driver_type = 154; // underlier driver key type (stock or future)
     double u_prc_driver = 157; // underlier driver (mid-market)

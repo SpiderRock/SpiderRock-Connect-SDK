@@ -350,6 +350,7 @@ message SpdrMLegBrkrState {
     uint32 num_parent_limits = 1024; // number of parent limit messages received for this broker
     string user_data1 = 1027; // user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
     string user_data2 = 1030; // user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
+    UpdateSource update_src = 1034;
     int32 num_updates = 1033; // number of record updates (cumulative for the day)
     google.protobuf.Timestamp timestamp = 1036;
 }

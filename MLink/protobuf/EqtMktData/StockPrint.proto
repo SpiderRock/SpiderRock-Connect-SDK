@@ -22,10 +22,14 @@ message StockPrint {
     PKey pkey = 2;
     StkExch prt_exch = 100; // print exch
     int32 prt_size = 103; // print size
+    float prt_size_fractional = 104; // print size today in fractional qty
+    YesNo is_prt_size_fractional = 105; // print size has fractional qty
     float prt_price = 106; // print price level
     int32 prt_cluster_num = 109; // incremental print cluster counter (one counter per ticker; used to group prints into clusters)
     int32 prt_cluster_size = 112; // cumulative size of prints in this sequence (prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    float prt_cluster_size_fractional = 113; // cumulative fractional size of prints in this sequence (prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
     int32 prt_volume = 115; // cumulative print size today
+    float prt_volume_fractional = 116; // cumulative print size fractional today
     float mrk_price = 118; // last regular market print price
     float cls_price = 121; // official closing price (if available)
     StkPrintType prt_type = 124;
