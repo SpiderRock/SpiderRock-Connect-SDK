@@ -32,6 +32,7 @@ internal sealed partial class MessageCache : IFrameHandler
             /* LiveRevConQuote */ 1125 => liveRevConQuote.TryHandle(ref frame),
             /* LiveSurfaceAtm */ 1030 => liveSurfaceAtm.TryHandle(ref frame),
             /* MarketFeedStatus */ 5710 => marketFeedStatus.TryHandle(ref frame),
+            /* OddLotBookQuote */ 3080 => oddLotBookQuote.TryHandle(ref frame),
             /* OptionCloseMark */ 3140 => optionCloseMark.TryHandle(ref frame),
             /* OptionExchOrder */ 2765 => optionExchOrder.TryHandle(ref frame),
             /* OptionExchPrint */ 2770 => optionExchPrint.TryHandle(ref frame),
@@ -76,6 +77,7 @@ internal sealed partial class MessageCache : IFrameHandler
             if (liveRevConQuote.HasEventHandlers) yield return (MessageType)1125;
             if (liveSurfaceAtm.HasEventHandlers) yield return (MessageType)1030;
             if (marketFeedStatus.HasEventHandlers) yield return (MessageType)5710;
+            if (oddLotBookQuote.HasEventHandlers) yield return (MessageType)3080;
             if (optionCloseMark.HasEventHandlers) yield return (MessageType)3140;
             if (optionExchOrder.HasEventHandlers) yield return (MessageType)2765;
             if (optionExchPrint.HasEventHandlers) yield return (MessageType)2770;
@@ -115,6 +117,7 @@ internal sealed partial class MessageCache : IFrameHandler
     private readonly LiveRevConQuoteCache liveRevConQuote = new();
     private readonly LiveSurfaceAtmCache liveSurfaceAtm = new();
     private readonly MarketFeedStatusCache marketFeedStatus = new();
+    private readonly OddLotBookQuoteCache oddLotBookQuote = new();
     private readonly OptionCloseMarkCache optionCloseMark = new();
     private readonly OptionExchOrderCache optionExchOrder = new();
     private readonly OptionExchPrintCache optionExchPrint = new();
@@ -152,6 +155,7 @@ internal sealed partial class MessageCache : IFrameHandler
     public IMessageEvents<LiveRevConQuote> LiveRevConQuote => liveRevConQuote;
     public IMessageEvents<LiveSurfaceAtm> LiveSurfaceAtm => liveSurfaceAtm;
     public IMessageEvents<MarketFeedStatus> MarketFeedStatus => marketFeedStatus;
+    public IMessageEvents<OddLotBookQuote> OddLotBookQuote => oddLotBookQuote;
     public IMessageEvents<OptionCloseMark> OptionCloseMark => optionCloseMark;
     public IMessageEvents<OptionExchOrder> OptionExchOrder => optionExchOrder;
     public IMessageEvents<OptionExchPrint> OptionExchPrint => optionExchPrint;
@@ -439,6 +443,35 @@ internal sealed partial class MessageCache : IFrameHandler
         public override MessageType Type => 5710;
         
         public override string ToString() => nameof(MarketFeedStatusCache); 
+    }
+
+    private sealed class OddLotBookQuoteCache : MessageTypeCache<OddLotBookQuote, OddLotBookQuote.PKeyLayout>
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, OddLotBookQuote target, long timestamp)
+        {
+            Formatter.Default.Decode(buffer, target);
+            target.ReceivedNsecsSinceUnixEpoch = timestamp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void CopyTo(OddLotBookQuote fromMessage, OddLotBookQuote toMessage) => fromMessage.CopyTo(toMessage);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override OddLotBookQuote CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
+        {
+            OddLotBookQuote message = new();
+
+            UpdateFromBuffer(buffer, message, timestamp);
+
+            message.FromCache = fromCache;
+
+            return message;
+        }
+
+        public override MessageType Type => 3080;
+        
+        public override string ToString() => nameof(OddLotBookQuoteCache); 
     }
 
     private sealed class OptionCloseMarkCache : MessageTypeCache<OptionCloseMark, OptionCloseMark.PKeyLayout>
