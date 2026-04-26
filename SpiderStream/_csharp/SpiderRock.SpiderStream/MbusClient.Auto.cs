@@ -23,6 +23,7 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<LiveRevConQuote> liveRevConQuoteDispatch;
     MessageEventsDispatcher<LiveSurfaceAtm> liveSurfaceAtmDispatch;
     MessageEventsDispatcher<MarketFeedStatus> marketFeedStatusDispatch;
+    MessageEventsDispatcher<OddLotBookQuote> oddLotBookQuoteDispatch;
     MessageEventsDispatcher<OptionCloseMark> optionCloseMarkDispatch;
     MessageEventsDispatcher<OptionExchOrder> optionExchOrderDispatch;
     MessageEventsDispatcher<OptionExchPrint> optionExchPrintDispatch;
@@ -62,6 +63,7 @@ public sealed partial class MbusClient
         liveRevConQuoteDispatch = new(messageCache.LiveRevConQuote);
         liveSurfaceAtmDispatch = new(messageCache.LiveSurfaceAtm);
         marketFeedStatusDispatch = new(messageCache.MarketFeedStatus);
+        oddLotBookQuoteDispatch = new(messageCache.OddLotBookQuote);
         optionCloseMarkDispatch = new(messageCache.OptionCloseMark);
         optionExchOrderDispatch = new(messageCache.OptionExchOrder);
         optionExchPrintDispatch = new(messageCache.OptionExchPrint);
@@ -104,6 +106,7 @@ public sealed partial class MbusClient
             /* LiveRevConQuote */ 1125 => liveRevConQuoteDispatch,
             /* LiveSurfaceAtm */ 1030 => liveSurfaceAtmDispatch,
             /* MarketFeedStatus */ 5710 => marketFeedStatusDispatch,
+            /* OddLotBookQuote */ 3080 => oddLotBookQuoteDispatch,
             /* OptionCloseMark */ 3140 => optionCloseMarkDispatch,
             /* OptionExchOrder */ 2765 => optionExchOrderDispatch,
             /* OptionExchPrint */ 2770 => optionExchPrintDispatch,
@@ -144,6 +147,7 @@ public sealed partial class MbusClient
     public IMessageEvents<LiveRevConQuote> LiveRevConQuote => messageCache.LiveRevConQuote;
     public IMessageEvents<LiveSurfaceAtm> LiveSurfaceAtm => messageCache.LiveSurfaceAtm;
     public IMessageEvents<MarketFeedStatus> MarketFeedStatus => messageCache.MarketFeedStatus;
+    public IMessageEvents<OddLotBookQuote> OddLotBookQuote => messageCache.OddLotBookQuote;
     public IMessageEvents<OptionCloseMark> OptionCloseMark => messageCache.OptionCloseMark;
     public IMessageEvents<OptionExchOrder> OptionExchOrder => messageCache.OptionExchOrder;
     public IMessageEvents<OptionExchPrint> OptionExchPrint => messageCache.OptionExchPrint;

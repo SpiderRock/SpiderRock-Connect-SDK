@@ -24,6 +24,7 @@ MbusClient::MbusClient(SysEnvironment environment, in_addr device_address)
 	impl_->frame_handler.RegisterMessageHandler(&impl_->liverevconquote, { MessageType::LiveRevConQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->livesurfaceatm, { MessageType::LiveSurfaceAtm });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->marketfeedstatus, { MessageType::MarketFeedStatus });
+	impl_->frame_handler.RegisterMessageHandler(&impl_->oddlotbookquote, { MessageType::OddLotBookQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->optionclosemark, { MessageType::OptionCloseMark });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->optionexchorder, { MessageType::OptionExchOrder });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->optionexchprint, { MessageType::OptionExchPrint });
@@ -66,6 +67,7 @@ void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveImpliedQuot
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveRevConQuote>> observer) { impl_->liverevconquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveSurfaceAtm>> observer) { impl_->livesurfaceatm.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<MarketFeedStatus>> observer) { impl_->marketfeedstatus.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OddLotBookQuote>> observer) { impl_->oddlotbookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OptionCloseMark>> observer) { impl_->optionclosemark.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OptionExchOrder>> observer) { impl_->optionexchorder.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OptionExchPrint>> observer) { impl_->optionexchprint.RegisterObserver(observer); }
@@ -103,6 +105,7 @@ void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveImpliedQuot
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveRevConQuote>> observer) { impl_->liverevconquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveSurfaceAtm>> observer) { impl_->livesurfaceatm.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<MarketFeedStatus>> observer) { impl_->marketfeedstatus.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OddLotBookQuote>> observer) { impl_->oddlotbookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OptionCloseMark>> observer) { impl_->optionclosemark.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OptionExchOrder>> observer) { impl_->optionexchorder.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OptionExchPrint>> observer) { impl_->optionexchprint.RegisterObserver(observer); }
@@ -140,6 +143,7 @@ void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveImpliedQuot
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveRevConQuote>> observer) { impl_->liverevconquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveSurfaceAtm>> observer) { impl_->livesurfaceatm.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<MarketFeedStatus>> observer) { impl_->marketfeedstatus.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OddLotBookQuote>> observer) { impl_->oddlotbookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OptionCloseMark>> observer) { impl_->optionclosemark.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OptionExchOrder>> observer) { impl_->optionexchorder.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OptionExchPrint>> observer) { impl_->optionexchprint.RegisterObserver(observer); }

@@ -334,6 +334,41 @@ internal unsafe partial class Formatter
     }
      
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, OddLotBookQuote dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, OddLotBookQuote dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+            if (src + sizeOfHeader + sizeof(OddLotBookQuote.PKeyLayout) + sizeof(OddLotBookQuote.BodyLayout) > max) throw new IOException("Max exceeded decoding OddLotBookQuote");
+            
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+
+            dest.pkey.body = *((OddLotBookQuote.PKeyLayout*) src); src += sizeof(OddLotBookQuote.PKeyLayout);
+             dest.body = *((OddLotBookQuote.BodyLayout*) src); src += sizeof(OddLotBookQuote.BodyLayout);
+			
+            return src;
+        }
+    }
+     
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void Decode(ReadOnlySpan<byte> buffer, OptionCloseMark dest)
     {
         fixed (byte* p = buffer)

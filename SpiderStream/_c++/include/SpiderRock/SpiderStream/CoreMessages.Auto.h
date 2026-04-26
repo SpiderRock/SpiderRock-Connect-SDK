@@ -1121,6 +1121,105 @@ public:
 
 };
 
+ class OddLotBookQuote
+{
+public:
+	class Key
+	{
+		TickerKey ticker_;
+		
+	public:
+		inline const TickerKey& ticker() const { return ticker_; }
+
+		inline size_t operator()(const Key& k) const
+		{
+			size_t hash_code = TickerKey()(k.ticker_);
+
+			return hash_code;
+		}
+		
+		inline bool operator()(const Key& a, const Key& b) const
+		{
+			return
+				a.ticker_ == b.ticker_;
+		}
+	};
+	
+
+private:
+	struct Layout
+	{
+		Key pkey;
+		UpdateType updateType;
+		MarketStatus marketStatus;
+		Float bidPrice1;
+		Int bidSize1;
+		StkExch bidExch1;
+		Long bidMask1;
+		Float askPrice1;
+		Int askSize1;
+		StkExch askExch1;
+		Long askMask1;
+		Float bidPrice2;
+		Int bidSize2;
+		StkExch bidExch2;
+		Long bidMask2;
+		Float askPrice2;
+		Int askSize2;
+		StkExch askExch2;
+		Long askMask2;
+		Long haltMask;
+		Long srcTimestamp;
+		Long netTimestamp;
+	};
+	
+	Header header_;
+	Layout layout_;
+	
+	int64_t time_received_;
+
+public:
+	inline Header& header() { return header_; }
+	inline const Key& pkey() const { return layout_.pkey; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline UpdateType updateType() const { return layout_.updateType; }
+	inline MarketStatus marketStatus() const { return layout_.marketStatus; }
+	inline Float bidPrice1() const { return layout_.bidPrice1; }
+	inline Int bidSize1() const { return layout_.bidSize1; }
+	inline StkExch bidExch1() const { return layout_.bidExch1; }
+	inline Long bidMask1() const { return layout_.bidMask1; }
+	inline Float askPrice1() const { return layout_.askPrice1; }
+	inline Int askSize1() const { return layout_.askSize1; }
+	inline StkExch askExch1() const { return layout_.askExch1; }
+	inline Long askMask1() const { return layout_.askMask1; }
+	inline Float bidPrice2() const { return layout_.bidPrice2; }
+	inline Int bidSize2() const { return layout_.bidSize2; }
+	inline StkExch bidExch2() const { return layout_.bidExch2; }
+	inline Long bidMask2() const { return layout_.bidMask2; }
+	inline Float askPrice2() const { return layout_.askPrice2; }
+	inline Int askSize2() const { return layout_.askSize2; }
+	inline StkExch askExch2() const { return layout_.askExch2; }
+	inline Long askMask2() const { return layout_.askMask2; }
+	inline Long haltMask() const { return layout_.haltMask; }
+	inline Long srcTimestamp() const { return layout_.srcTimestamp; }
+	inline Long netTimestamp() const { return layout_.netTimestamp; }
+	
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<OddLotBookQuote::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+
+	}
+
+};
+
  class OptionCloseMark
 {
 public:
@@ -1168,6 +1267,9 @@ private:
 		Float askIV;
 		Float srPrc;
 		Float srVol;
+		Double synSpot;
+		Float atmVol;
+		Float atmCen;
 		MarkSource srSrc;
 		Float kAdj;
 		Float de;
@@ -1184,6 +1286,8 @@ private:
 		Float ddiv;
 		Float ddivPv;
 		Float rate;
+		Float iEMove;
+		Float earnCntAdj;
 		Int iDays;
 		Float years;
 		Byte error;
@@ -1225,6 +1329,9 @@ public:
 	inline Float askIV() const { return layout_.askIV; }
 	inline Float srPrc() const { return layout_.srPrc; }
 	inline Float srVol() const { return layout_.srVol; }
+	inline Double synSpot() const { return layout_.synSpot; }
+	inline Float atmVol() const { return layout_.atmVol; }
+	inline Float atmCen() const { return layout_.atmCen; }
 	inline MarkSource srSrc() const { return layout_.srSrc; }
 	inline Float kAdj() const { return layout_.kAdj; }
 	inline Float de() const { return layout_.de; }
@@ -1241,6 +1348,8 @@ public:
 	inline Float ddiv() const { return layout_.ddiv; }
 	inline Float ddivPv() const { return layout_.ddivPv; }
 	inline Float rate() const { return layout_.rate; }
+	inline Float iEMove() const { return layout_.iEMove; }
+	inline Float earnCntAdj() const { return layout_.earnCntAdj; }
 	inline Int iDays() const { return layout_.iDays; }
 	inline Float years() const { return layout_.years; }
 	inline Byte error() const { return layout_.error; }
@@ -2329,6 +2438,8 @@ private:
 		Byte decayStartDay;
 		Int decayQty;
 		Double priceRatio;
+		YesNo isHftTaxLiable;
+		Double hftTaxTriggerTime;
 		DateTime timestamp;
 	};
 	
@@ -2387,6 +2498,8 @@ public:
 	inline Byte decayStartDay() const { return layout_.decayStartDay; }
 	inline Int decayQty() const { return layout_.decayQty; }
 	inline Double priceRatio() const { return layout_.priceRatio; }
+	inline YesNo isHftTaxLiable() const { return layout_.isHftTaxLiable; }
+	inline Double hftTaxTriggerTime() const { return layout_.hftTaxTriggerTime; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	
 	inline void Decode(Header* buf) 
@@ -2523,6 +2636,9 @@ private:
 		BbgYrCode bbgYrCode;
 		YellowKey bbgGroup;
 		TickerKey regionalCompositeRoot;
+		YesNo isHftTaxLiable;
+		Double hftTaxTriggerTime;
+		String<80> description;
 		DateTime timestamp;
 		PricingSource_V7 pricingSource_V7;
 		String<6> ricCode_V7;
@@ -2588,6 +2704,9 @@ public:
 	inline BbgYrCode bbgYrCode() const { return layout_.bbgYrCode; }
 	inline YellowKey bbgGroup() const { return layout_.bbgGroup; }
 	inline const TickerKey& regionalCompositeRoot() const { return layout_.regionalCompositeRoot; }
+	inline YesNo isHftTaxLiable() const { return layout_.isHftTaxLiable; }
+	inline Double hftTaxTriggerTime() const { return layout_.hftTaxTriggerTime; }
+	inline const String<80>& description() const { return layout_.description; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	inline PricingSource_V7 pricingSource_V7() const { return layout_.pricingSource_V7; }
 	inline const String<6>& ricCode_V7() const { return layout_.ricCode_V7; }

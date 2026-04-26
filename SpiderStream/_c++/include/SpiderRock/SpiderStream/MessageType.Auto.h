@@ -31,6 +31,7 @@ namespace SpiderRock
 			LiveRevConQuote = 1125,
 			LiveSurfaceAtm = 1030,
 			MarketFeedStatus = 5710,
+			OddLotBookQuote = 3080,
 			OptionCloseMark = 3140,
 			OptionExchOrder = 2765,
 			OptionExchPrint = 2770,

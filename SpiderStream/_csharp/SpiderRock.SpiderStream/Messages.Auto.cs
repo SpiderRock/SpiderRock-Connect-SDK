@@ -2667,6 +2667,266 @@ public partial class MarketFeedStatus : IMessage
 
 
 /// <summary>
+/// OddLotBookQuote:3080
+/// </summary>
+/// <remarks>
+	/// This table contains live equity quote records for all CQS/UQDF securities as well as US OTC equity securities, SpiderRock synthetic markets, and a number of major indexes.  Each record contains up to two price levels and represents a live snapshot of the book for a specific market./// </remarks>
+
+public partial class OddLotBookQuote : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public OddLotBookQuote()
+    {
+    }
+    
+    public OddLotBookQuote(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public OddLotBookQuote(OddLotBookQuote source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal OddLotBookQuote(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as OddLotBookQuote);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(OddLotBookQuote other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(OddLotBookQuote target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.OddLotBookQuote};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        
+        public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public TickerKeyLayout ticker;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	ticker.Equals(other.ticker);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = ticker.GetHashCode();
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public UpdateType updateType;
+		public MarketStatus marketStatus;
+		public float bidPrice1;
+		public int bidSize1;
+		public StkExch bidExch1;
+		public long bidMask1;
+		public float askPrice1;
+		public int askSize1;
+		public StkExch askExch1;
+		public long askMask1;
+		public float bidPrice2;
+		public int bidSize2;
+		public StkExch bidExch2;
+		public long bidMask2;
+		public float askPrice2;
+		public int askSize2;
+		public StkExch askExch2;
+		public long askMask2;
+		public long haltMask;
+		public long srcTimestamp;
+		public long netTimestamp;
+    }
+
+    internal BodyLayout body;
+
+    
+    public UpdateType UpdateType { get => body.updateType; set => body.updateType = value; }
+     /// <summary>market status (open, halted, etc)</summary>
+    public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
+     /// <summary>bid price for best price level</summary>
+    public float BidPrice1 { get => body.bidPrice1; set => body.bidPrice1 = value; }
+     /// <summary>bid size for best price level</summary>
+    public int BidSize1 { get => body.bidSize1; set => body.bidSize1 = value; }
+     
+    public StkExch BidExch1 { get => body.bidExch1; set => body.bidExch1 = value; }
+     /// <summary>bid exchange bit mask for best bid price level</summary>
+    public long BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
+     /// <summary>ask price for best price level</summary>
+    public float AskPrice1 { get => body.askPrice1; set => body.askPrice1 = value; }
+     /// <summary>ask size for best price level</summary>
+    public int AskSize1 { get => body.askSize1; set => body.askSize1 = value; }
+     /// <summary>exchange</summary>
+    public StkExch AskExch1 { get => body.askExch1; set => body.askExch1 = value; }
+     /// <summary>ask exchange bit mask for best ask price level</summary>
+    public long AskMask1 { get => body.askMask1; set => body.askMask1 = value; }
+     /// <summary>bid price for next best price level</summary>
+    public float BidPrice2 { get => body.bidPrice2; set => body.bidPrice2 = value; }
+     /// <summary>bid size for next best price level</summary>
+    public int BidSize2 { get => body.bidSize2; set => body.bidSize2 = value; }
+     /// <summary>exchange</summary>
+    public StkExch BidExch2 { get => body.bidExch2; set => body.bidExch2 = value; }
+     /// <summary>bid exchange bit mask for next best bid price level</summary>
+    public long BidMask2 { get => body.bidMask2; set => body.bidMask2 = value; }
+     /// <summary>ask price for next best price level</summary>
+    public float AskPrice2 { get => body.askPrice2; set => body.askPrice2 = value; }
+     /// <summary>ask size for next best price level</summary>
+    public int AskSize2 { get => body.askSize2; set => body.askSize2 = value; }
+     /// <summary>exchange</summary>
+    public StkExch AskExch2 { get => body.askExch2; set => body.askExch2 = value; }
+     /// <summary>ask exchange bit mask for next best ask price level</summary>
+    public long AskMask2 { get => body.askMask2; set => body.askMask2 = value; }
+     /// <summary>bit mask of halted exchanges</summary>
+    public long HaltMask { get => body.haltMask; set => body.haltMask = value; }
+     /// <summary>source high precision timestamp (if available)</summary>
+    public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
+     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+    public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
+
+
+} // OddLotBookQuote
+
+
+/// <summary>
 /// OptionCloseMark:3140
 /// </summary>
 /// <remarks>
@@ -2873,6 +3133,9 @@ public partial class OptionCloseMark : IMessage
 		public float askIV;
 		public float srPrc;
 		public float srVol;
+		public double synSpot;
+		public float atmVol;
+		public float atmCen;
 		public MarkSource srSrc;
 		public float kAdj;
 		public float de;
@@ -2889,6 +3152,8 @@ public partial class OptionCloseMark : IMessage
 		public float ddiv;
 		public float ddivPv;
 		public float rate;
+		public float iEMove;
+		public float earnCntAdj;
 		public int iDays;
 		public float years;
 		public byte error;
@@ -2938,6 +3203,12 @@ public partial class OptionCloseMark : IMessage
     public float SrPrc { get => body.srPrc; set => body.srPrc = value; }
      /// <summary>sr close mark volatility (C - 5m)</summary>
     public float SrVol { get => body.srVol; set => body.srVol = value; }
+     /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
+    public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
+     /// <summary>atm vol (xAxis = 0)</summary>
+    public float AtmVol { get => body.atmVol; set => body.atmVol = value; }
+     /// <summary>atm vol (xAxis = 0) (eMove/earnCntAdj censored)</summary>
+    public float AtmCen { get => body.atmCen; set => body.atmCen = value; }
      /// <summary>sr close mark source (SRVol is SurfaceVol)</summary>
     public MarkSource SrSrc { get => body.srSrc; set => body.srSrc = value; }
      /// <summary>adjusted strike</summary>
@@ -2970,6 +3241,10 @@ public partial class OptionCloseMark : IMessage
     public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
      /// <summary>discount rate</summary>
     public float Rate { get => body.rate; set => body.rate = value; }
+     /// <summary>implied earnings move (from LiveSurfaceTerm)</summary>
+    public float IEMove { get => body.iEMove; set => body.iEMove = value; }
+     /// <summary>number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)</summary>
+    public float EarnCntAdj { get => body.earnCntAdj; set => body.earnCntAdj = value; }
      /// <summary>interest days (today to expiry) (T+1)</summary>
     public int IDays { get => body.iDays; set => body.iDays = value; }
      /// <summary>years to expiration</summary>
@@ -5737,6 +6012,8 @@ public partial class ProductDefinitionV2 : IMessage
 		public byte decayStartDay;
 		public int decayQty;
 		public double priceRatio;
+		public YesNo isHftTaxLiable;
+		public double hftTaxTriggerTime;
 		public DateTimeLayout timestamp;
     }
 
@@ -5828,6 +6105,10 @@ public partial class ProductDefinitionV2 : IMessage
     public int DecayQty { get => body.decayQty; set => body.decayQty = value; }
      /// <summary>price ratio for interest rate intercommodity spreads</summary>
     public double PriceRatio { get => body.priceRatio; set => body.priceRatio = value; }
+     /// <summary>if Yes spreads in this product def are liable for high frequency taxation and require hft throttling for maker algos</summary>
+    public YesNo IsHftTaxLiable { get => body.isHftTaxLiable; set => body.isHftTaxLiable = value; }
+     /// <summary>value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)</summary>
+    public double HftTaxTriggerTime { get => body.hftTaxTriggerTime; set => body.hftTaxTriggerTime = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
@@ -6197,6 +6478,9 @@ public partial class RootDefinition : IMessage
 		public BbgYrCode bbgYrCode;
 		public YellowKey bbgGroup;
 		public TickerKeyLayout regionalCompositeRoot;
+		public YesNo isHftTaxLiable;
+		public double hftTaxTriggerTime;
+		public FixedString80Layout description;
 		public DateTimeLayout timestamp;
 		public PricingSource_V7 pricingSource_V7;
 		public FixedString6Layout ricCode_V7;
@@ -6296,6 +6580,12 @@ public partial class RootDefinition : IMessage
     public YellowKey BbgGroup { get => body.bbgGroup; set => body.bbgGroup = value; }
      /// <summary>regional composite ticker - set on European contributor products only</summary>
     public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
+     /// <summary>if Yes options on this root are liable for high frequency taxation and require hft throttling for maker algos</summary>
+    public YesNo IsHftTaxLiable { get => body.isHftTaxLiable; set => body.isHftTaxLiable = value; }
+     /// <summary>value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)</summary>
+    public double HftTaxTriggerTime { get => body.hftTaxTriggerTime; set => body.hftTaxTriggerTime = value; }
+     /// <summary>product description (sourced from Activ FidName)</summary>
+    public string Description { get => body.description; set => body.description = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>

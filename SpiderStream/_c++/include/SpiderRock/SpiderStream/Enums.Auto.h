@@ -352,8 +352,8 @@ namespace SpiderRock
 			NXML=12,
 			NXOS=13,
 			NXP=14,
-			ICEFE=15,
-			ICELF=16
+			ICEFEC=15,
+			ICEFEF=16
 		};
 
  		enum class GridType : Enum 
@@ -548,9 +548,9 @@ namespace SpiderRock
 			NXML=32,
 			NXOS=33,
 			NXP=34,
-			ICEFE=35,
+			ICEFEC=35,
 			SRC=36,
-			ICELF=37
+			ICEFEF=37
 		};
 
  		enum class OptMktType : Flag 
@@ -793,8 +793,8 @@ namespace SpiderRock
 			XETA=66,
 			XLU=67,
 			XBD=68,
-			ICEFE=69,
-			ICELF=70
+			ICEFEC=69,
+			ICEFEF=70
 		};
 
  		enum class ProductClass : Enum 
@@ -1196,8 +1196,8 @@ namespace SpiderRock
 			NXP=30,
 			EUREX=31,
 			CEDX=32,
-			ICEFE=33,
-			ICELF=34
+			ICEFEC=33,
+			ICEFEF=34
 		};
 
  		enum class TimeInForce : Enum 
