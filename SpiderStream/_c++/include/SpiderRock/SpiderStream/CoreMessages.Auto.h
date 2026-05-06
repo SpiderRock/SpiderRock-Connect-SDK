@@ -447,7 +447,7 @@ private:
 		Float sVol;
 		Float sPrc;
 		Float sMark;
-		Float veSlope;
+		Float srSlope;
 		Float de;
 		Float ga;
 		Float th;
@@ -500,7 +500,7 @@ public:
 	inline Float sVol() const { return layout_.sVol; }
 	inline Float sPrc() const { return layout_.sPrc; }
 	inline Float sMark() const { return layout_.sMark; }
-	inline Float veSlope() const { return layout_.veSlope; }
+	inline Float srSlope() const { return layout_.srSlope; }
 	inline Float de() const { return layout_.de; }
 	inline Float ga() const { return layout_.ga; }
 	inline Float th() const { return layout_.th; }
@@ -849,8 +849,8 @@ private:
 		Float atmCenHist;
 		Float minAtmVol;
 		Float maxAtmVol;
-		Float eMove;
-		Float eMoveHist;
+		Float iEMove;
+		Float hEMove;
 		Float atmMove;
 		Float atmCenMove;
 		Float atmPhi;
@@ -957,8 +957,8 @@ public:
 	inline Float atmCenHist() const { return layout_.atmCenHist; }
 	inline Float minAtmVol() const { return layout_.minAtmVol; }
 	inline Float maxAtmVol() const { return layout_.maxAtmVol; }
-	inline Float eMove() const { return layout_.eMove; }
-	inline Float eMoveHist() const { return layout_.eMoveHist; }
+	inline Float iEMove() const { return layout_.iEMove; }
+	inline Float hEMove() const { return layout_.hEMove; }
 	inline Float atmMove() const { return layout_.atmMove; }
 	inline Float atmCenMove() const { return layout_.atmCenMove; }
 	inline Float atmPhi() const { return layout_.atmPhi; }
@@ -1282,14 +1282,19 @@ private:
 		Float ph;
 		Float deDecay;
 		Float srSlope;
+		CalcModelType modelType;
+		PricingFramework prcFramework;
+		ExerciseType exType;
+		Float years;
+		Float yearsC;
+		Float rate;
 		Float sdiv;
 		Float ddiv;
 		Float ddivPv;
-		Float rate;
+		Byte sDaysT;
+		Byte sDaysE;
 		Float iEMove;
 		Float earnCntAdj;
-		Int iDays;
-		Float years;
 		Byte error;
 		Int openInterest;
 		Int prtCount;
@@ -1344,14 +1349,19 @@ public:
 	inline Float ph() const { return layout_.ph; }
 	inline Float deDecay() const { return layout_.deDecay; }
 	inline Float srSlope() const { return layout_.srSlope; }
+	inline CalcModelType modelType() const { return layout_.modelType; }
+	inline PricingFramework prcFramework() const { return layout_.prcFramework; }
+	inline ExerciseType exType() const { return layout_.exType; }
+	inline Float years() const { return layout_.years; }
+	inline Float yearsC() const { return layout_.yearsC; }
+	inline Float rate() const { return layout_.rate; }
 	inline Float sdiv() const { return layout_.sdiv; }
 	inline Float ddiv() const { return layout_.ddiv; }
 	inline Float ddivPv() const { return layout_.ddivPv; }
-	inline Float rate() const { return layout_.rate; }
+	inline Byte sDaysT() const { return layout_.sDaysT; }
+	inline Byte sDaysE() const { return layout_.sDaysE; }
 	inline Float iEMove() const { return layout_.iEMove; }
 	inline Float earnCntAdj() const { return layout_.earnCntAdj; }
-	inline Int iDays() const { return layout_.iDays; }
-	inline Float years() const { return layout_.years; }
 	inline Byte error() const { return layout_.error; }
 	inline Int openInterest() const { return layout_.openInterest; }
 	inline Int prtCount() const { return layout_.prtCount; }
@@ -2134,10 +2144,17 @@ private:
 		Double uBid;
 		Double uAsk;
 		Double uPrc;
-		Float yrs;
+		CalcModelType modelType;
+		PricingFramework prcFramework;
+		ExerciseType exType;
+		Float years;
+		Float yearsC;
 		Float rate;
 		Float sdiv;
 		Float ddiv;
+		Float ddivPv;
+		Byte sDaysT;
+		Byte sDaysE;
 		Float xDe;
 		Float xAxis;
 		Multihedge multihedge;
@@ -2207,10 +2224,17 @@ public:
 	inline Double uBid() const { return layout_.uBid; }
 	inline Double uAsk() const { return layout_.uAsk; }
 	inline Double uPrc() const { return layout_.uPrc; }
-	inline Float yrs() const { return layout_.yrs; }
+	inline CalcModelType modelType() const { return layout_.modelType; }
+	inline PricingFramework prcFramework() const { return layout_.prcFramework; }
+	inline ExerciseType exType() const { return layout_.exType; }
+	inline Float years() const { return layout_.years; }
+	inline Float yearsC() const { return layout_.yearsC; }
 	inline Float rate() const { return layout_.rate; }
 	inline Float sdiv() const { return layout_.sdiv; }
 	inline Float ddiv() const { return layout_.ddiv; }
+	inline Float ddivPv() const { return layout_.ddivPv; }
+	inline Byte sDaysT() const { return layout_.sDaysT; }
+	inline Byte sDaysE() const { return layout_.sDaysE; }
 	inline Float xDe() const { return layout_.xDe; }
 	inline Float xAxis() const { return layout_.xAxis; }
 	inline Multihedge multihedge() const { return layout_.multihedge; }
