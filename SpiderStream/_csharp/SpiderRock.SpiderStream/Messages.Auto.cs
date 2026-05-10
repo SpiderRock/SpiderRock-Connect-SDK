@@ -1234,7 +1234,7 @@ public partial class LiveImpliedQuote : IMessage
 		public float sVol;
 		public float sPrc;
 		public float sMark;
-		public float veSlope;
+		public float srSlope;
 		public float de;
 		public float ga;
 		public float th;
@@ -1293,8 +1293,8 @@ public partial class LiveImpliedQuote : IMessage
     public float SPrc { get => body.sPrc; set => body.sPrc = value; }
      /// <summary>option surface mark (option surface price w/bounding rules; always between bid/ask)</summary>
     public float SMark { get => body.sMark; set => body.sMark = value; }
-     /// <summary>veSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * veSlope) if hedging with this assumption</summary>
-    public float VeSlope { get => body.veSlope; set => body.veSlope = value; }
+     /// <summary>srSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * srSlope) if hedging with this assumption</summary>
+    public float SrSlope { get => body.srSlope; set => body.srSlope = value; }
      /// <summary>option delta</summary>
     public float De { get => body.de; set => body.de = value; }
      /// <summary>option gamma</summary>
@@ -2169,8 +2169,8 @@ public partial class LiveSurfaceAtm : IMessage
 		public float atmCenHist;
 		public float minAtmVol;
 		public float maxAtmVol;
-		public float eMove;
-		public float eMoveHist;
+		public float iEMove;
+		public float hEMove;
 		public float atmMove;
 		public float atmCenMove;
 		public float atmPhi;
@@ -2291,9 +2291,9 @@ public partial class LiveSurfaceAtm : IMessage
      /// <summary>maximum estimated atm vol</summary>
     public float MaxAtmVol { get => body.maxAtmVol; set => body.maxAtmVol = value; }
      /// <summary>implied earnings move (from LiveSurfaceTerm)</summary>
-    public float EMove { get => body.eMove; set => body.eMove = value; }
+    public float IEMove { get => body.iEMove; set => body.iEMove = value; }
      /// <summary>historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist</summary>
-    public float EMoveHist { get => body.eMoveHist; set => body.eMoveHist = value; }
+    public float HEMove { get => body.hEMove; set => body.hEMove = value; }
      /// <summary>fixed strike atm move from prior period</summary>
     public float AtmMove { get => body.atmMove; set => body.atmMove = value; }
      /// <summary>fixed strike atm (censored) move from prior period</summary>
@@ -3148,14 +3148,19 @@ public partial class OptionCloseMark : IMessage
 		public float ph;
 		public float deDecay;
 		public float srSlope;
+		public CalcModelType modelType;
+		public PricingFramework prcFramework;
+		public ExerciseType exType;
+		public float years;
+		public float yearsC;
+		public float rate;
 		public float sdiv;
 		public float ddiv;
 		public float ddivPv;
-		public float rate;
+		public byte sDaysT;
+		public byte sDaysE;
 		public float iEMove;
 		public float earnCntAdj;
-		public int iDays;
-		public float years;
 		public byte error;
 		public int openInterest;
 		public int prtCount;
@@ -3233,22 +3238,32 @@ public partial class OptionCloseMark : IMessage
     public float DeDecay { get => body.deDecay; set => body.deDecay = value; }
      /// <summary>surface slope (SR surface)</summary>
     public float SrSlope { get => body.srSlope; set => body.srSlope = value; }
-     /// <summary>sdiv rate</summary>
-    public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
-     /// <summary>ddiv amount (sum of discrete dividend amounts)</summary>
-    public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
-     /// <summary>ddiv (present value) amount (sum of discrete dividend pv amounts)</summary>
-    public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
-     /// <summary>discount rate</summary>
+     /// <summary>option pricing model used for price calcs (Normal, LogNormal, etc.)</summary>
+    public CalcModelType ModelType { get => body.modelType; set => body.modelType = value; }
+     
+    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
+     /// <summary>exercise type</summary>
+    public ExerciseType ExType { get => body.exType; set => body.exType = value; }
+     /// <summary>volatility years to expiration (from SR time/calendar metrics)</summary>
+    public float Years { get => body.years; set => body.years = value; }
+     /// <summary>calendar years to expiration</summary>
+    public float YearsC { get => body.yearsC; set => body.yearsC = value; }
+     /// <summary>SR interest rate (from global rate curve)</summary>
     public float Rate { get => body.rate; set => body.rate = value; }
+     /// <summary>SR sdiv rate (implied; from call-put alignment)</summary>
+    public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
+     /// <summary>SR ddiv (sum of discrete dividend amounts)</summary>
+    public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
+     /// <summary>SR ddivPv (sum of present value discrete dividend amounts)</summary>
+    public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
+     /// <summary>settlement days (today)</summary>
+    public byte SDaysT { get => body.sDaysT; set => body.sDaysT = value; }
+     /// <summary>settlement days (expiry)</summary>
+    public byte SDaysE { get => body.sDaysE; set => body.sDaysE = value; }
      /// <summary>implied earnings move (from LiveSurfaceTerm)</summary>
     public float IEMove { get => body.iEMove; set => body.iEMove = value; }
      /// <summary>number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)</summary>
     public float EarnCntAdj { get => body.earnCntAdj; set => body.earnCntAdj = value; }
-     /// <summary>interest days (today to expiry) (T+1)</summary>
-    public int IDays { get => body.iDays; set => body.iDays = value; }
-     /// <summary>years to expiration</summary>
-    public float Years { get => body.years; set => body.years = value; }
      /// <summary>calculation error code</summary>
     public byte Error { get => body.error; set => body.error = value; }
      /// <summary>option open Interest</summary>
@@ -5313,10 +5328,17 @@ public partial class OptionPrintMarkup : IMessage
 		public double uBid;
 		public double uAsk;
 		public double uPrc;
-		public float yrs;
+		public CalcModelType modelType;
+		public PricingFramework prcFramework;
+		public ExerciseType exType;
+		public float years;
+		public float yearsC;
 		public float rate;
 		public float sdiv;
 		public float ddiv;
+		public float ddivPv;
+		public byte sDaysT;
+		public byte sDaysE;
 		public float xDe;
 		public float xAxis;
 		public Multihedge multihedge;
@@ -5415,14 +5437,28 @@ public partial class OptionPrintMarkup : IMessage
     public double UAsk { get => body.uAsk; set => body.uAsk = value; }
      /// <summary>underlier price</summary>
     public double UPrc { get => body.uPrc; set => body.uPrc = value; }
-     /// <summary>years to expiry</summary>
-    public float Yrs { get => body.yrs; set => body.yrs = value; }
-     /// <summary>interest rate</summary>
+     /// <summary>option pricing model used for price calcs (Normal, LogNormal, etc.)</summary>
+    public CalcModelType ModelType { get => body.modelType; set => body.modelType = value; }
+     
+    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
+     /// <summary>exercise type</summary>
+    public ExerciseType ExType { get => body.exType; set => body.exType = value; }
+     /// <summary>volatility years to expiration (from SR time/calendar metrics)</summary>
+    public float Years { get => body.years; set => body.years = value; }
+     /// <summary>calendar years to expiration</summary>
+    public float YearsC { get => body.yearsC; set => body.yearsC = value; }
+     /// <summary>SR interest rate (from global rate curve)</summary>
     public float Rate { get => body.rate; set => body.rate = value; }
-     /// <summary>continuous stock dividend</summary>
+     /// <summary>SR sdiv rate (implied; from call-put alignment)</summary>
     public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
-     /// <summary>discrete stock dividend value (sum of dividends &lt;= expiration)</summary>
+     /// <summary>SR ddiv (sum of discrete dividend amounts)</summary>
     public float Ddiv { get => body.ddiv; set => body.ddiv = value; }
+     /// <summary>SR ddivPv (sum of present value discrete dividend amounts)</summary>
+    public float DdivPv { get => body.ddivPv; set => body.ddivPv = value; }
+     /// <summary>settlement days (today)</summary>
+    public byte SDaysT { get => body.sDaysT; set => body.sDaysT = value; }
+     /// <summary>settlement days (expiry)</summary>
+    public byte SDaysE { get => body.sDaysE; set => body.sDaysE = value; }
      /// <summary>xDelta</summary>
     public float XDe { get => body.xDe; set => body.xDe = value; }
      /// <summary>SR surface xAxis value</summary>
