@@ -54,6 +54,7 @@ message GetFlexSpreadPrice {
     double fixed_prem_uPct = 101; // premium as a percent of the underlying price. required if a leg with strikeType=PctVariable is included (can be zero).
     YesNo inc_greeks = 102; // whether greeks should be computed
     TickerKey ticker = 125; // underlier ticker (all legs must have the same underlier ticker)
+    Currency currency = 141;
     double sprd_prem = 126; // spread premium ($)
     float sprd_delta = 127; // delta
     float sprd_gamma = 128; // gamma

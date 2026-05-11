@@ -27,6 +27,7 @@ message UserMetaData {
         
         MLinkToken token = 238;
         google.protobuf.Timestamp expires = 241; // must exist (can be 2100-01-01)
+        SysRegion region = 271; // None = no access; All = unrestricted (default
     }
 
     message MarketDataControl {
@@ -42,6 +43,7 @@ message UserMetaData {
         WebProductToken token = 226;
         google.protobuf.Timestamp expires = 229; // must exist (can be 2100-01-01)
         string value = 232; // billing code/coupon (eg. FREE)
+        SysRegion region = 270; // None = no access; All = unrestricted (default
     }
 
 

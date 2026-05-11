@@ -95,6 +95,9 @@ message SpdrParentLimit {
     int32 max_grp_day_contracts_ln = 358; // max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
     int32 max_grp_day_contracts_sh = 361; // max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
     int32 max_grp_day_contracts_abs = 364; // max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    int32 max_grp_day_fut_contracts_ln = 417; // max acct+riskGroup day fut contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_fut_contracts_sh = 418; // max acct+riskGroup day fut contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_fut_contracts_abs = 419; // max acct+riskGroup day fut contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
     float max_grp_day_rMetric1_ln = 322; // max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
     float max_grp_day_rMetric1_sh = 325; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
     float max_grp_day_rMetric1_abs = 328; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)

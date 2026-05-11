@@ -299,6 +299,7 @@ message SpdrParentExecution {
     int32 prt_size = 878;
     int64 prt_timestamp = 879; // printEvent.srcTimestamp
     int32 prt_sgw_offset = 880; // childOrder.swgTimestamp - printEvent.srcTimestamp
+    SwapProvider swap_provider = 883; // swap provider used for this execution (if any)
     google.protobuf.Timestamp timestamp = 808; // timestamp of this record [not necessarily the timstamp of the fill itself]
     SRDataCenter_V7 data_center__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
     FaceSide face_side__v7 = 5001; // only v7 - enum values match with v8

@@ -25,6 +25,9 @@ message AuctionPrint {
         Currency point_currency = 191;
         ExpiryType exp_type = 171; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
         float years = 172; // SR volatility years to expiry
+        float years_c = 242; // calendar years to expiration
+        int32 s_days_t = 236; // settlement days (today)
+        int32 s_days_e = 239; // settlement days (expiry)
         float rate = 173; // SR global (discount) rate to expiry
         float atm_vol = 174; // ATM (fwd uPrc) SR surface volatility
         float ddiv_pv = 175; // SR present value of ddiv stream

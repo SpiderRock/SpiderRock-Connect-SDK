@@ -35,6 +35,9 @@ message SpdrRiskControl {
     float max_day_wt_vega_ln = 145; // open long WtVega per trading session
     float max_day_wt_vega_sh = 148; // open short WtVega per trading session
     float max_day_wt_vega_abs = 151; // open absolute WtVega, |WtVeBot| + |WtVeSld| per trading session
+    float max_day_vega_ln = 154; // open long Vega per trading session
+    float max_day_vega_sh = 157; // open short Vega per trading session
+    float max_day_vega_abs = 160; // open absolute Vega, |VeBot| + |VeSld| per trading session
     float max_day_nValue_ln = 202; // open long notional value per trading session
     float max_day_nValue_sh = 203; // open short notional value per trading session
     float max_day_nValue_abs = 204; // absolute notional value, |NValueBot| + |NValueSld| per trading session

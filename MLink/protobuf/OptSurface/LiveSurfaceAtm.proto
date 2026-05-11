@@ -42,8 +42,8 @@ message LiveSurfaceAtm {
     float atm_cen_hist = 160; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
     float min_atm_vol = 163; // minimum estimated atm vol
     float max_atm_vol = 166; // maximum estimated atm vol
-    float e_move = 169; // implied earnings move (from LiveSurfaceTerm)
-    float e_move_hist = 172; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
+    float i_eMove = 169; // implied earnings move (from LiveSurfaceTerm)
+    float h_eMove = 172; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
     float atm_move = 175; // fixed strike atm move from prior period
     float atm_cen_move = 178; // fixed strike atm (censored) move from prior period
     float atm_phi = 181; // surface phi @ xAxis = 0

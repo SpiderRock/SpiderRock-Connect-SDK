@@ -25,6 +25,7 @@ message FutureSettlementMark {
     double low_lmt_px = 106; // Exchange low limit price
     double high_lmt_px = 109; // Exchange high limit price
     int32 open_int = 112; // Exchange open interest (date prior to settle date)
+    double fixing_price = 113; // Exchange fixing price
     int32 volume = 115; // Exchange volume (date prior to settle date)
     YesNo early = 118;
     google.protobuf.Timestamp timestamp = 121;

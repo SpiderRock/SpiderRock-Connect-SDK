@@ -8,14 +8,14 @@ package spiderrock.protobuf;
 import "google/protobuf/timestamp.proto";
 
 /*
-    This table contains a live grided (interpolated) censored implied volatility surface.  Each record contains standarized live and prior period implied volatilities at standarized skew points for a standardized days-to-expiration value.
-    LiveSurfaceGrid records are published to the SpiderRock elastic cluster nightly.
+    LiveSurfaceFixedGrid records contain live interpolated censored surface volatilities across a range of delta strikes and fixed days to expiration.
+    Each record contains the implied and realized earnings move for the ticker, along with the forecasted earnings count, forward, sdiv, skew slope, and vol width correspoding to its days to expiration.
 */    
 message LiveSurfaceFixedGrid {
     message PKey {
         
         TickerKey ticker = 10;
-        int32 days = 11; // days to expiration [5, 21, 42, 63, 84, 105, 126, 189, 252, 378, 504]
+        int32 days = 11; // days to expiration [5, 10, 21, 42, 63, 84, 105, 126, 189, 252, 378, 504]
         SurfaceCurveType surface_type = 12;
     }
 
@@ -28,8 +28,8 @@ message LiveSurfaceFixedGrid {
     float s_div = 106; // Interpolated implied sdiv rate (from LiveSurfaceFixedTerm.sDiv_N)
     float fwd_uPrc = 109; // Interpolated implied forward price (from LiveSurfaceFixedTerm.fwdUPrc_N)
     int32 e_cnt = 112; // Number of expected earnings dates (from LiveSurfaceFixedTerm.eCnt_N)
-    float e_move = 115; // Implied earnings move (from LiveSurfaceFixedTerm.eMove)
-    float e_move_hist = 118; // Historical earnings move (from LiveSurfaceFixedTerm.eMoveHist)
+    float i_eMove = 115; // Implied earnings move (from LiveSurfaceFixedTerm.eMove)
+    float h_eMove = 118; // Historical earnings move (from LiveSurfaceFixedTerm.eMoveHist)
     float vol_d45 = 121; // xde = -45	    (censored volatility)
     float vol_d40 = 124; // xde = -40
     float vol_d35 = 127; // xde = -35

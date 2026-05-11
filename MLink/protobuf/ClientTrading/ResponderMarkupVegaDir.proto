@@ -85,6 +85,7 @@ message ResponderMarkupVegaDir {
     int32 off_market_skips = 256; // number skipped from response price at or worse that exch/nbbo market
     int32 notice_price_skips = 257; // number skipped from limit price worse that notice price (and already committed)
     int32 num_reject_hold_skips = 258; // number skipped from reject hold (prior reject)
+    int32 bad_price_skips = 281; // number skipped from invalid (<=0) response price
     int32 num_responses = 259; // number of response attempts (number of parentOrders/NoticeExecReports)
     int32 num_rejects = 260; // number of response rejects (in the SR execution engines)
     string last_reject_reason = 261;

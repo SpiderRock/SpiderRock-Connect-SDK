@@ -42,6 +42,9 @@ message SpdrRiskGroupControl {
     int32 max_grp_day_contracts_ln = 119; // max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
     int32 max_grp_day_contracts_sh = 120; // max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
     int32 max_grp_day_contracts_abs = 121; // max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    int32 max_grp_day_fut_contracts_ln = 151; // max acct+riskGroup day fut contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_fut_contracts_sh = 152; // max acct+riskGroup day fut contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_fut_contracts_abs = 153; // max acct+riskGroup day fut contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
     float max_grp_day_dDelta_ln = 122; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
     float max_grp_day_dDelta_sh = 123; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
     float max_grp_day_vega_ln = 124; // max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter

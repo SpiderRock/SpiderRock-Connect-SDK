@@ -9,9 +9,8 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 
 /*
-    LiveSurfaceFixedTerm (surfaceType = 'Live') records contain a live implied volatility term record at standardized days-to-expiration.  SurfaceType = 'PriorDay' records contain the final record from the prior trading day.
-    These records include implied and histrical earnings moves, implied earnings date adjustments, and interpolated/gridded atm, sdiv, and quote width values.
-    LiveSurfaceTerm records are published to the SpiderRock elastic cluster every 10 minutes for all equity and index underliers with options.
+    LiveSurfaceFixedTerm records contain interpolated censored at-the-money volatilities at fixed days to expiration.
+    These records also include implied and realized earnings moves, forecasted earnings counts, forwards, sdivs, skew slopes, and vol widths.
 */    
 message LiveSurfaceFixedTerm {
     message PKey {
@@ -25,12 +24,12 @@ message LiveSurfaceFixedTerm {
     
     PKey pkey = 2;
     double syn_spot = 50; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
-    float h_eMove = 100; // expected forward earnings move (average of the last 8-12 underlier earnings moves; w/max clipping)
-    int32 h_eMove_num = 103; // num historical earnings moves in historical window
-    float h_eMove_avg = 106; // avg historical earnings move (last 8-12 underlier earnings moves)
-    float h_eMove_std = 109; // std historical earnings move (last 8-12 underlier earnings moves)
-    float h_eMove_min = 112; // max historical earnings move (last 8-12 underlier earnings moves)
-    float h_eMove_max = 115; // min historical earnings move (last 8-12 underlier earnings moves)
+    float h_eMove = 100; // expected forward earnings move (average of the past two years of underlier earnings moves, using a trimmed mean)
+    int32 h_eMove_num = 103; // num earnings moves in historical lookback window
+    float h_eMove_avg = 106; // avg earnings move (past two years of underlier earnings moves)
+    float h_eMove_std = 109; // std earnings move (past two years of underlier earnings moves)
+    float h_eMove_min = 112; // max earnings move (past two years of underlier earnings moves)
+    float h_eMove_max = 115; // min earnings move (past two years of underlier earnings moves)
     float i_eMove = 118; // implied earnings move (implied move; all earnings events)
     EFitCode i_eFit_code = 121; // implied EFit Code
     float i_eFit_error = 124; // eMove fit error (term surface fit error)
