@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message DataLineStatusAggregate {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float byte_rate_a = 100;
+    float byte_rate_b = 103;
+    float frm_rate = 106;
+    float msg_rate = 109;
+    float pub_rate = 112;
+    float gap_count = 115;
+    float slow_count = 118;
+    float max_delay = 121;
+    string last_error = 124;
+    google.protobuf.Timestamp timestamp = 127;
+}
+
+

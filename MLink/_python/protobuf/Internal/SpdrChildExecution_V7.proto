@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: SpdrChildExecution
+    V8 Message Name: SpdrChildExecution
+    Bridging pattern:  [V7 --> V8]
+*/    
+message SpdrChildExecution_V7 {
+    message PKey {
+        
+        int64 fill_number = 5000; // v7 & v8 --- Original comment: SR fill number (same as SpdrParentOrder.pkey.fillNumber)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 5001; // v7 & v8
+    SysEnvironment sys_environment = 5002; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 5003; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+    int64 cl_ord_id = 5004; // v7 & v8 --- Original comment: SR child order clOrdId
+    SpdrOrderShape child_shape = 5005; // v7 & v8
+    ExecShape exec_shape = 5006; // v7 & v8
+    string street_cl_ord_id = 5007; // v7 & v8 --- Original comment: usually clOrdID.X16 but can be different if street gateway was translating clOrdId
+    string street_order_id = 5008; // v7 & v8 --- Original comment: street side order ID (for canceling order)
+    int64 parent_number = 5009; // v7 & v8 --- Original comment: parent order number
+    int32 parent_version = 5010; // v7 & v8 --- Original comment: SPDR order instance number (1 = original order; 2 = 1st cancel/replace, etc)
+    int64 base_parent_number = 5011; // v7 & v8 --- Original comment: base order number (first parent number in chain)
+    string alt_order_id = 5012; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: parent client clOrdId
+    string alt_leg_ref_id = 5013; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: alt (usually FIX) legRefId
+    string accnt = 5014; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=16,Alias=SRAccountString,MetaType=SRAccount] --- Original comment: SR trading accnt
+    string client_firm = 5015; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm] --- Original comment: SR client firm
+    FaceSide face_side = 5016; // v7 & v8
+    FaceShape face_shape = 5017; // v7 & v8 --- Original comment: CrossCust = split broker / cust side, CrossFace = split broker / face side, CrossBoth = single broker cross
+    int64 face_side_cl_ord_id = 5018; // v7 & v8 --- Original comment: either custClOrdId, faceClOrdId, or zero
+    OptionKey sec_key = 5019; // v7 & v8
+    SpdrKeyType sec_type = 5020; // v7 & v8
+    TickerKey ticker = 5021; // v7 & v8
+    BuySell order_side = 5022; // v7 & v8
+    PriceType price_type = 5023; // v7 & v8
+    int32 order_exch = 5024; // v7 & v8
+    string order_ex_dest = 5025; // v7 & v8: String Length Diff: V7=[string,Length=12,Alias=NA,MetaType=NA], V8=[string,Length=16,Alias=ExDestString,MetaType=NA]
+    YesNo iso_sweep = 5026; // v7 & v8
+    YesNo is_directed = 5027; // v7 & v8 --- Original comment: child order isDirected flag
+    string engine_name = 5028; // v7 & v8 --- Original comment: SpiderRock execution engine that handled the parent order
+    string routing_code = 5029; // v7 & v8
+    string alt_brkr_mPID = 5030; // v7 & v8
+    RelationshipType_V7 relationship_type = 5031; // v7 & v8: Enums Do Not Match: V7=[enum,Name=RelationshipType,Values=None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4], V8=[enum,Name=RelationshipType,Values=None=0,EXSMember=1,EXSRouter=2,EXSTech=3,Platform=4,SRConnect=5,Advisor=6] --- Original comment: type of SR <-> client relationship
+    FirmType firm_type = 5032; // v7 & v8 --- Original comment: firm type markup on child order
+    OrderCapacity order_capacity = 5033; // v7 & v8 --- Original comment: order capacity markup on child order
+    ShortSaleFlag ssale_flag = 5034; // v7 & v8 --- Original comment: short sale flag @ child order send
+    PositionType position_type = 5035; // v7 & v8 --- Original comment: position type @ child order send
+    int32 locate_quan = 5036; // v7 & v8 --- Original comment: locate quantity @ child order send
+    OrderStatus order_status = 5037; // v7 & v8
+    int32 cum_fill_quantity = 5038; // v7 & v8 --- Original comment: copied from child order immediately after this fill has been incorporated
+    double avg_fill_price = 5039; // v7 & v8
+    int32 leaves_qty = 5040; // v7 & v8
+    uint32 leg_ratio = 5041; // v7 & v8
+    string fill_proc_detail = 5042; // v7 & v8
+    YesNo cxl_attempted = 5043; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: cancel attempted before fill report received
+    YesNo is_risk_cancel = 5044; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2]
+    string cxl_reason_text = 5045; // ONLY V7: [text1]
+    float cxl2_fill_latency = 5046; // ONLY V7: [float] --- Original comment: cancel attempt to fill report elapsed time (@ execution engine)
+    ChildHandler algo_handler = 5047; // ONLY V7: [enum,Name=ChildHandler,Values=None=0,ActiveTaker=1,ActiveMaker=2,Auction=3,Responder=4,Matrix=5,Cross=6,Face=7,Extern=8,MLegHandler=9,AutoHedge=10,Sprayer=11,Legger=12,Restart=13,Orphan=14,UDefSpread=15,RFQRequest=16,MLegResponder=17,LeggerX=18,ExchPing=19,BrkrReview=20,AuctionResponder=21,TakeSweep=22,TestChild=23,AtsBlock=24,AtsFlash=25,ActiveOptMaker=26] --- Original comment: algo handler for this child order
+    ExecTransType exec_trans_type = 5048; // v7 & v8
+    int32 version = 5049; // v7 & v8 --- Original comment: cancel/correct version number (initial fill is version=1)
+    double fill_ts = 5050; // v7 & v8 --- Original comment: fill report ts (seconds since startup; 100 nanosec resolution)
+    google.protobuf.Timestamp fill_dttm = 5051; // v7 & v8 --- Original comment: fill DateTime (from SRDateTime)
+    int32 fill_size = 5052; // v7 & v8 --- Original comment: fill size (from execReport.lastSize)
+    BuySell fill_side = 5053; // v7 & v8 --- Original comment: fill size (from execReport.side)
+    double fill_price = 5054; // v7 & v8 --- Original comment: fill price (from execReport.lastPrice)
+    google.protobuf.Timestamp fill_transact_dttm = 5055; // v7 & v8 --- Original comment: fill DateTime (from execReport.fillDttm)
+    string fill_market = 5056; // v7 & v8 --- Original comment: fill market (from execReport.lastMarket)
+    string fill_sRLiq_tag = 5057; // v7 & v8 --- Original comment: fill SR normalized liquidity tag
+    string fill_exch_liq_tag = 5058; // v7 & v8 --- Original comment: fill exchange liquidity code
+    string fill_exch_detail = 5059; // v7 & v8 --- Original comment: other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    float fill_exch_fee = 5060; // v7 & v8 --- Original comment: fill exchange fee (either estimated by SR or as reported by street gateway)
+    string fill_exec_id = 5061; // v7 & v8 --- Original comment: fill execution id (from execReport.execId)
+    string fill_ref_exec_id = 5062; // v7 & v8 --- Original comment: fill ref execution id (from execReport.refExecId) [only set on a cancel or correct]
+    int64 fill_leg_ref_id = 5063; // v7 & v8 --- Original comment: fill leg ref id (from execReport.legRefId)
+    int32 fill_leg_ratio = 5064; // v7 & v8 --- Original comment: legRatio (if spread order)
+    string fill_firm_type = 5065; // v7 & v8 --- Original comment: fill firm type (as reported from street side)
+    string fill_exec_broker = 5066; // v7 & v8 --- Original comment: fill execution broker (as reported from street side)
+    OrderCapacity fill_order_capacity = 5067; // v7 & v8 --- Original comment: fill order capacity (as reported from street side)
+    string fill_contra_detail = 5068; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: fill contra party additional detail (if available)
+    OrderCapacity fill_contra_capacity = 5069; // ONLY V7: [enum,Name=OrderCapacity,Values=None=0,Agency=1,Principal=2,Individual=3,Proprietary=4,AgentOtherMember=5,RisklessPrincipal=6,MarketMaker=7] --- Original comment: fill order capacity of contra party (if available)
+    string fill_report_detail = 5070; // v7 & v8 --- Original comment: all non-standard fix tags received on child fill report (custom packing) [used for passing values back to client or drop gateways]
+    string fill_street_text = 5071; // v7 & v8
+    double nbbo_bid = 5072; // ONLY V7: [double] --- Original comment: nbbo bid @ fill time
+    double nbbo_ask = 5073; // ONLY V7: [double] --- Original comment: nbbo ask @ fill time
+    int32 nbbo_bid_sz = 5074; // ONLY V7: [int] --- Original comment: nbbo bid size @ fill time
+    int32 nbbo_ask_sz = 5075; // ONLY V7: [int] --- Original comment: nbbo ask size @ fill time
+    double exch_bid = 5076; // ONLY V7: [double] --- Original comment: exch bid @ fill time
+    double exch_ask = 5077; // ONLY V7: [double] --- Original comment: exch ask @ fill time
+    int32 exch_bid_sz = 5078; // ONLY V7: [int] --- Original comment: exch bid size @ fill time
+    int32 exch_ask_sz = 5079; // ONLY V7: [int] --- Original comment: exch ask size @ fill time
+    double u_prc = 5080; // ONLY V7: [double] --- Original comment: underlier price @ fill time
+    double u_bid = 5081; // ONLY V7: [double] --- Original comment: underlier bid @ fill time
+    double u_ask = 5082; // ONLY V7: [double] --- Original comment: underlier ask @ fill time
+    int32 u_bid_sz = 5083; // ONLY V7: [int] --- Original comment: underlier bid size @ fill time
+    int32 u_ask_sz = 5084; // ONLY V7: [int] --- Original comment: underlier ask size @ fill time
+    double u_bid_cxl = 5085; // ONLY V7: [double] --- Original comment: underlier bid when cancel sent (if any)
+    double u_ask_cxl = 5086; // ONLY V7: [double] --- Original comment: underlier ask when cancel sent (if any)
+    int64 src_timestamp = 5087; // v7 & v8 --- Original comment: source timestamp (fixMessage.sendingTime) from street side [might not be high precision]
+    int64 sgw_timestamp = 5088; // v7 & v8 --- Original comment: street gateway arrival timestamp
+    int64 eng_timestamp = 5089; // v7 & v8 --- Original comment: execution engine arrival timestamp
+    google.protobuf.Timestamp timestamp = 5090; // v7 & v8
+}
+
+

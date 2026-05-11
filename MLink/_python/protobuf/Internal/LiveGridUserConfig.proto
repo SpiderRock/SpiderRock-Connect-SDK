@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridUserConfig {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string user_name = 100;
+    string client_firm = 101;
+    UserType user_type = 102;
+    UserStatus user_status = 103;
+    google.protobuf.Timestamp user_status_dttm = 104;
+    string description = 105;
+    string display_name = 106;
+    SRTimeZone display_time_zone = 107;
+    string contact_email = 108;
+    string contact_phone = 109;
+    ConfigAccess client_config_access = 110;
+    AccountTypeControl account_type_control = 111;
+    OrderAccess prod_order_access = 112;
+    OrderAccess test_order_access = 113;
+    YesNo can_cancel_prod_orders = 114;
+    YesNo can_cancel_test_orders = 115;
+    YesNo can_book_prod_executions = 116;
+    YesNo can_book_test_executions = 117;
+    YesNo can_edit_mar_risk = 118;
+    YesNo can_edit_supervisory_risk = 119;
+    YesNo can_edit_stock_locate_list = 120;
+    YesNo firm_pos_visibility = 121;
+    AuthType auth_type = 122;
+    UserAuthState user_auth_state = 123;
+    YesNo has_api_key_access = 124;
+    string default_accnt = 125;
+    string alt_user_name = 126;
+    ToolServerCode tool_server_code = 127;
+    string modified_by = 128;
+    SysEnvironment modified_in = 129;
+    google.protobuf.Timestamp timestamp = 130;
+    YesNo is_prod = 131; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 132; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 133; // WTS synthetic: alert message (null if no alert)
+}
+
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message RegionalProductMarketHours {
+    message PKey {
+        
+        TickerKey ticker_key = 10; // Exchange native ticker key for product
+        SpdrKeyType sec_type = 11; // SecType of native
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey composite_key = 100; // SpiderRock Regional Composite Key for product group (if set - only for Equity Options)
+    string underlying_exchange_mic = 101; // MIC Code of the primary exchange of the derivatives underlier (if applicable)
+    string derivatives_exchange_mic = 102; // MIC Code of the derivatives exchange
+    google.protobuf.Duration open_time = 103; // regular session open
+    google.protobuf.Duration close_time = 104; // regular session close
+    google.protobuf.Duration ex_day_close_time = 105; // expiry day early close
+    string open_days = 106; // days of week open (smtwtfs) format
+    TradingPeriod native_trading_period = 107; // Native trading period of the product
+    SRTimeZone native_time_zone = 108; // Native timezone of the product
+    google.protobuf.Timestamp timestamp = 110;
+}
+
+

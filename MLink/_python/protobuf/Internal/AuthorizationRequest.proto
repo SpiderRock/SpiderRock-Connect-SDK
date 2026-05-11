@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuthorizationRequest {
+    message PKey {
+        
+        int32 request_iD = 10; // Unique key allocated by the system
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // The account been changed
+    string client_firm = 143; // SR client firm
+    string message_name = 103; // Which message is been changed (e.g. accountConfig)
+    string field_name = 106; // Which fieldName is been changed (e.g. Name)
+    string old_value = 109; // The prior (or current) value
+    string new_value = 112; // The new value requested by this user
+    TypeOfAction type_of_action = 115; // What type of action is been done to the record
+    string requested_by_user = 118; // The user who requested this change
+    google.protobuf.Timestamp requested_date_time = 121; // The date time the user requested it
+    AuthStatus request_status = 124; // What the current status of the request is
+    string authorized_by_user = 127; // The user that finally authorized this
+    google.protobuf.Timestamp authorized_date_time = 130; // The date time that this user authorized this
+    string authorization_notes = 133; // any notes added by the authorizing user
+    string modified_by = 136; // user who last modified this record
+    SysEnvironment modified_in = 139;
+    google.protobuf.Timestamp timestamp = 142; // timestamp of last modification
+}
+
+

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SyntheticIndexRatio {
+    message PKey {
+        
+        TickerKey ticker = 10; // Ticker/TickerKey for the published StockBookQuote, StockPrint messages
+        ExpiryKey source_sec_key = 11; // source instrument driving the sythetic ticker
+        SpdrKeyType source_sec_type = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey index_ticker = 100; // Index ticker used for the calculations if synthTickerSrc = Index
+    float index_source_ratio_eMA = 103; // Multiplier for the impliedIndexTicker price in Spread calculations
+    int32 index_source_ratio_counter = 106;
+    google.protobuf.Timestamp timestamp = 109;
+}
+
+

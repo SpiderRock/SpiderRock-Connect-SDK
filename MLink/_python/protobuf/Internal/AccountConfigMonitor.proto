@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AccountConfigMonitor {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11;
+    }
+
+    message AccntExchGroup {
+        
+        ExchGroup exch_group = 120;
+        SpdrSecType sec_type = 121;
+        string stage_review_status = 122;
+        ExecEngineMode exec_engine_mode = 123;
+        string modified_by = 124;
+        google.protobuf.Timestamp last_modified = 125;
+    }
+
+    message AccountRoutes {
+        
+        string exec_brkr_code = 166;
+        YesNo enabled = 128;
+        YesNo has_exec_brkr = 129;
+        YesNo has_clr_flip = 130;
+        int32 num_routing_codes = 131;
+        string status = 132;
+        string modified_by = 133;
+        google.protobuf.Timestamp last_modified = 134;
+    }
+
+    message Comments {
+        
+        string comment = 163;
+    }
+
+    message ExDestRoute {
+        
+        string exec_brkr_code = 167;
+        string ex_dest = 169;
+        string status = 138;
+        int32 num_routes = 139;
+        int32 num_routes_ready = 140;
+    }
+
+    message MarRiskControl {
+        
+        MarRiskLevel risk_level = 105;
+        string risk_firm = 106;
+        string risk_group = 107;
+        RiskControlStatus control_status = 108;
+        int32 num_ticker_ctrls = 109;
+        string modified_by = 110;
+        google.protobuf.Timestamp last_modified = 111;
+    }
+
+    message RouteDefinition {
+        
+        string routing_code = 142;
+        string exec_brkr_code = 168; // SR Assigned; identifies the exchange member / broker associated with this session
+        int32 num_routes_ready = 144; // heartbeat status from fix session status
+        FixBaseSessionStatus route_status = 145;
+        DestinationType destination_type = 146; // type of industry member
+        string server_code = 147; // designates individual server (-serverCode) responsible for handling this routes
+        RouteControl route_control = 148; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+        MonitorCode monitor_code = 149;
+        ConnectionClass connection_class = 150; // type of industry member
+        SessionType session_type = 151;
+        SessionResetType session_reset_type = 152; // When does the session reset sequence numbers
+    }
+
+    message SpdrRiskControl {
+        
+        string risk_control_key = 113; // must be an SRClientAccnt if riskControlLevel=Accnt; must be an SRUser if riskControlLevel=User; ignored if riskControlLevel=ClientFirm
+        RiskControlLevel risk_control_level = 114; // ClientFirm, Accnt, or User
+        RiskControlStatus control_status = 115;
+        int32 num_ticker_ctrls = 116;
+        string modified_by = 117;
+        google.protobuf.Timestamp last_modified = 118;
+    }
+
+    message Users {
+        
+        string user_name = 154; // SR UserName Handle
+        UserType user_type = 155; // [custom:UserType] (active users only)
+        UserStatus user_status = 156; // [custom:UserStatus]
+        AccountAccessType access_type = 157;
+        YesNo has_spdr_risk_control_wildcard = 158;
+        int32 num_spdr_risk_controls = 159;
+        string modified_by = 160;
+        google.protobuf.Timestamp last_modified = 161;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string sr_connect_stk_status = 100;
+    string sr_connect_opt_status = 101;
+    YesNo is_test_account = 102;
+    string modified_by = 165;
+    google.protobuf.Timestamp timestamp = 164;
+    repeated AccntExchGroup accnt_exch_group = 119;
+    repeated AccountRoutes account_routes = 126;
+    repeated Comments comments = 162;
+    repeated ExDestRoute ex_dest_route = 135;
+    repeated MarRiskControl mar_risk_control = 104;
+    repeated RouteDefinition route_definition = 141;
+    repeated SpdrRiskControl spdr_risk_control = 112;
+    repeated Users users = 153;
+}
+
+

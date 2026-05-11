@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveOptionDataRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    OptionKey okey = 100;
+    string accnt = 103;
+    string client_firm = 113;
+    google.protobuf.Timestamp pricing_coeff_ts = 106;
+    GetAction action = 109;
+    string error = 112;
+}
+
+

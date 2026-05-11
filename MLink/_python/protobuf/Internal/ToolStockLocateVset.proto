@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message ToolStockLocateVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100; // ticker symbol
+    string accnt = 101; // selected account
+    string client_firm = 102; // selected account client firm
+}
+
+

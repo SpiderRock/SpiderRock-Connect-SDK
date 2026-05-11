@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AtsCrossState {
+    message PKey {
+        
+        int64 ats_auction_number = 10; // SR block auction number
+    }
+
+    message ExchCross {
+        
+        int64 cross_order_id = 158; // cross clOrdId
+        string cross_ex_dest = 159;
+        CrossHandling cross_handling = 160;
+        OrderStatus cross_status = 161;
+        google.protobuf.Timestamp cross_timestamp = 162;
+    }
+
+    message FaceMatch {
+        
+        int64 parent_number = 130; // baseParentNumber of response
+        int64 base_parent_number = 131;
+        string accnt = 132;
+        string client_firm = 133;
+        int32 avail_alloc_size = 134; // face side avail alloc size
+        int32 final_alloc_size = 135; // face side final alloc size
+        double final_alloc_price = 136; // face side match price (must be at least custMatchPrc or better)
+        YesNo is_disclosed = 137; // this responder is a disclosed counter-party
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 164;
+        SpdrKeyType sec_type = 165;
+        BuySell side = 166;
+        uint32 ratio = 167;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trade_date = 100;
+    TickerKey ticker = 101; // underlier ticker
+    AuctionType auction_type = 102;
+    string ats_auction_code = 103; // auction short code (unique per day) (block auctions only)
+    SpdrOrderShape auction_shape = 104; // Auction Shape [Single or MLeg]
+    string accnt = 105; // SR accnt (initiating parent order)
+    string client_firm = 106; // SR client firm (initiating parent order)
+    string user_name = 107; // SR user name (initiating parent order)
+    OptionKey sec_key = 108; // SecKey (initiating parent order)
+    SpdrKeyType sec_type = 109; // SecType (initiating parent order)
+    BuySell order_side = 110; // OrderSide (initiating parent order)
+    SpdrSource spdr_source = 111; // SpdrSource (initiating parent order)
+    google.protobuf.Timestamp auction_start_dttm = 112;
+    double match_time_elapsed = 113; // number of seconds between auction start and the trial that resulted in a match
+    CrossReason cross_reason = 114; // EarlyCross is any cross that occurs prior to the final trial; NormalCross is a cross that occurs during the final trial
+    PriceFormat price_format = 115;
+    int32 ats_auction_counter = 116; // update counter
+    AtsAuctionStatus ats_auction_status = 117;
+    MatrixCrossState matrix_cross_state = 118;
+    double u_bid = 119; // trial underlier bid price
+    double u_ask = 120; // trial underlier ask price
+    float nbbo_bid = 121; // option nbbo bid (@ trial time)
+    float nbbo_ask = 122; // option nbbo ask (@ trial time)
+    int32 nbbo_bid_sz = 123; // option nbbo cum bid size (@ trial time)
+    int32 nbbo_ask_sz = 124; // option nbbo cum ask size (@ trial time)
+    int32 nbbo_bid_cnt = 125; // option nbbo cum bid exch count (@ trial time)
+    int32 nbbo_ask_cnt = 126; // option nbbo cum ask exch count (@ trial time)
+    float surface_prc = 127; // SR surface price @ trial time
+    float surface_vol = 128; // SR surface volatility @ trial time
+    int32 sweep_leaves_qty = 138; // cumulative sweep leaves qty
+    int32 sweep_cum_fill_qty = 139; // cumulative sweep fill quantity (cust)
+    double sweep_avg_fill_prc = 140;
+    int64 cross_ord_id = 141; // cross clOrdId
+    string cross_ex_dest = 142; // cross exchange string
+    int32 cross_ex_mask = 143; // cross exchange mask
+    CrossHandling cross_handling = 144;
+    int32 init_cross_size = 145; // size of the initial cross on exchange
+    double init_cross_price = 146; // initial price on the exch cross order
+    double best_cross_price = 147; // best price that responders will trade at in the exch cross
+    int32 cust_cross_lvs_qty = 148;
+    int32 face_cross_lvs_qty = 149;
+    int32 cust_cross_fill_quantity = 150; // cumulative cross fill quantity (cust)
+    double cust_cross_avg_fill_price = 151;
+    int32 face_cross_fill_quantity = 152; // cumulative cross fill quantity (face)
+    double face_cross_avg_fill_price = 153;
+    string face_omni_accnt = 154; // (blank if no omni accnt utilized)
+    string face_omni_client_firm = 155; // SR client firm
+    google.protobuf.Timestamp cross_timestamp = 156;
+    int32 num_updates = 168; // number of record updates (cumulative for the day)
+    google.protobuf.Timestamp timestamp = 169; // SR system timestamp (record publish)
+    repeated ExchCross exch_cross = 157;
+    repeated FaceMatch face_match = 129;
+    repeated OrderLegs order_legs = 163;
+}
+
+

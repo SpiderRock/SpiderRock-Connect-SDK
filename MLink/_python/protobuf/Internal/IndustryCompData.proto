@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message IndustryCompData {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+    message Comps {
+        
+        TickerKey comp = 106;
+        float prc = 109; // current live price
+        float prc_prv = 112; // previous period closing price
+        float atm_iVol20d = 115; // at the money implied volatility (1 month)
+        float atm_iVol20d_prv = 118;
+        float atm_iVol120d = 121; // at the money implied volatility (6 months)
+        float atm_iVol120d_prv = 124;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp ts = 100; // last update time (Date)
+    repeated Comps comps = 103;
+}
+
+

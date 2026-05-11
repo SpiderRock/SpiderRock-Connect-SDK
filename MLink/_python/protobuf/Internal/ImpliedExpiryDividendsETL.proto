@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ExpiryDividendsETL records contain all announced and projected discrete dividend payment dates and amounts for dividend paying equities. These records are the dividend values that are incorporated into option pricing calculations.
+    Step: 2
+    Inputs: OptExpiryPriceETL, OptCallPutPriceETL, StockDividendForecastETL, RateCurveETL
+    CalcEngine: PricingGridRunner
+*/    
+message ImpliedExpiryDividendsETL {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+    message Dividend {
+        
+        DateKey date = 133; // exDiv date
+        float amount = 136; // dividend amount
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey today = 100;
+    DateKey expiry = 103;
+    double rate = 106;
+    double ddiv = 109;
+    double ddiv_pv = 112;
+    float sdiv_uPrc = 115;
+    float sdiv_iVol = 118;
+    float sdiv_a = 121; // sdiv(strike) = sdivA + sdivB * x + sdivC * x^2;  where x = BS(strike, years, sdivUPrc, sdivIVol, rate, sdiv:0).xde
+    float sdiv_b = 124;
+    float sdiv_c = 127;
+    int32 ddiv_hash = 145; // this divHash value will match the divHash value included pricing grid records computed using the above discrete dividends
+    google.protobuf.Timestamp timestamp = 148;
+    repeated Dividend dividend = 130;
+}
+
+

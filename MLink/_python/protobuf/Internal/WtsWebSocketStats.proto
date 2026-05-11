@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    published by a web tool server (every 1 minute(s); every web socket connection)
+*/    
+message WtsWebSocketStats {
+    message PKey {
+        
+        string connect_iD = 10; // unique identifier for the connection (server/username/clientfirm will all be consistent with this)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string server = 100; // internal server name
+    string user_name = 103; // authenticated user name
+    string client_firm = 106; // clientFirm associated with user name
+    int32 num_signal_ready = 109; // signal ready messages received
+    int32 num_requests = 112; // requests received (everything that isn't signal client ready)
+    int64 num_msgs_sent = 115; // Messages (with or without payload) sent over this connection
+    int64 num_bytes_sent = 118; // bytes sent over this connection
+    double elapsed = 121; // time spent doing work (both processing requests and sending messages)
+    double max_elapsed = 124; // maximum time spent doing work (both processing requests and sending messages) over lifetime of connection
+    string last_error = 127; // most recent error message sent by this connection within the minute
+}
+
+

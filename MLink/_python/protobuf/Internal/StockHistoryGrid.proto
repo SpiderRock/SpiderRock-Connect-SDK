@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    StockHistoryGrid records are published once every n minutes for each active stock and index market.  These records are used to draw the previous/current price graphic in the tools.
+*/    
+message StockHistoryGrid {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        google.protobuf.Timestamp trade_date = 11;
+    }
+
+    message DayHistPrice {
+        
+        int32 time = 148; // time block index since start of period (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+        float price = 149; // price @ time
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float open_price = 143; // start of day current period price (previous period closing price adjusted for corp actions)
+    int32 day_sT = 144; // current day start-of-regular trading time block index
+    int32 day_eT = 145; // current day end-of-regular trading time block index
+    int32 max_time_index = 146; // largest possible time index value for DayHistPrice in this record
+    google.protobuf.Timestamp timestamp = 124; // last record publish time
+    repeated DayHistPrice day_hist_price = 147;
+}
+
+

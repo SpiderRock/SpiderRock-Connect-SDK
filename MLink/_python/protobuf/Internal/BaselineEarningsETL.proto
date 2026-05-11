@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: ???
+    CalcEngine: ???
+*/    
+message BaselineEarningsETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+    message Earnings {
+        
+        DateKey date = 103;
+        EarnTime time = 106;
+        EarnType type = 109;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string text = 112; // extra text (if any)
+    google.protobuf.Timestamp timestamp = 115;
+    repeated Earnings earnings = 100;
+}
+
+

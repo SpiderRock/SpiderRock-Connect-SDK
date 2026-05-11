@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table contains option implied volatilities computed using fast/accurate calcuation methods while the SELECT is processing.  Note that if you need even faster queries that cover a large number of strikes you may be better off using the OptionImpliedQuoteAdj table as it is pre-computed.
+*/    
+message OptionImpliedVolV4 {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    double u_prc = 101;
+    float years = 102;
+    float rate = 103;
+    float sdiv = 104;
+    float ddiv = 105;
+    float cash = 106;
+    float obid = 107;
+    float oask = 108;
+    float obiv = 109; // volatility implied by option bid price
+    float oaiv = 110; // volatility implied by option ask price
+    float s_vol = 111;
+    float b_vol = 112;
+    float r_vol = 113;
+    float s_prc = 114;
+    float atm_vol = 115;
+    float atm_sDiv = 116;
+    float x_mult = 117;
+    float x_shift = 118;
+    float skew_mult = 119;
+    float x_axis = 120;
+    float x_de_bS = 121;
+    float de = 122;
+    float ga = 123;
+    float th = 124;
+    float ve = 125;
+    float ro = 126;
+    float ph = 127;
+    int32 err = 128;
+    string theo_err = 129;
+    string calc_err = 130;
+    google.protobuf.Timestamp timestamp = 131;
+}
+
+

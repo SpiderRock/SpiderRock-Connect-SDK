@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAutoHedgeDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 risk_group_id = 100;
+    string risk_hash = 281;
+    string hedge_target = 103; // Execution Hedge SecKey Formatted (from SpdrAutoHedgeControl.targetSecKey)
+    SpdrKeyType hedge_sec_type = 106; // Execution Hedge SecType (from SpdrAutoHedgeControl.targetSecType) [can be None]
+    string accnt = 109;
+    string client_firm = 112;
+    int64 grouping_code = 115;
+    TickerKey ticker = 118; // ticker group (eg. @ES, @ZN)
+    string security_desc = 121;
+    ShortSaleFlag ssale_flag = 124;
+    PositionType position_type = 127;
+    HedgeGroupState hedge_state = 130;
+    string hedge_text = 133;
+    double u_prc = 136; // hedge target underlier price
+    float hedge_prc_lmt = 139; // price limit of the hedge order (if hedge is using hedgeFillUMarkLmtPrc)
+    YesNo is_delta_mixed = 142;
+    string accumulator_error = 145;
+    double grp_delta_bot = 148; // option delta bot (in ctrlDe units)
+    double grp_delta_sld = 151;
+    double grp_dDelta_bot = 154; // option $delta bot (using uMid at time of option fill)
+    double grp_dDelta_sld = 157;
+    google.protobuf.Timestamp last_grp_fill_dttm = 160;
+    double ctrl_delta_bot = 163; // hedge target delta (units) bot
+    double ctrl_delta_sld = 166;
+    double ctrl_dDelta_bot = 169; // hedge target $delta bot (using actual fill price)
+    double ctrl_dDelta_sld = 172;
+    google.protobuf.Timestamp last_ctrl_fill_dttm = 175;
+    int32 abs_opt_cn = 178; // total number of option contracts executed in this hedge group
+    double net_delta = 181; // grpDeltaBot - grpDeltaSld + ctrlDeltaBot - ctrlDeltaSld
+    double net_dDelta = 184; // grpDDeltaBot - grpDDeltaSld + ctrlDDeltaBot - ctrlDDeltaSld
+    float open_hedge_time = 187; // size weighted average time (in seconds) hedge risk has been open (executions to fills)
+    float hedge_target_vol = 190; // implied / expected today (annualized) volatility for hedge target
+    float expected_prc_range = 193; // SQRT(avgHedgeTime x hedgeTargetVol) cone
+    double opn_delta_bot = 196; // open risk delta bot (in ctrlDe units)
+    double opn_delta_sld = 199;
+    double opn_dDelta_bot = 202; // open risk $delta bot (in ctrlDe units)
+    double opn_dDelta_sld = 205;
+    double cls_delta_bot = 208; // close risk delta bot (in ctrlDe units)
+    double cls_delta_sld = 211;
+    double cls_dDelta_bot = 214; // close risk $delta bot (in ctrlDe units)
+    double cls_dDelta_sld = 217;
+    float slippage_pn_l = 220; // opnDeltaBot * (clsDeltaPrcSld - opnDeltaPrcBot) + opnDeltaSld * (opnDeltaPrcSld - clsDeltaPrcBot)
+    float slippage_unit_pn_l = 223; // slippagePnL / (grpDeltaBot + grpDeltaSld) [pnl / unit (share or fc)]
+    float slippage_norm_pn_l = 226; // slippageUnitPnL / expectedPrcRange
+    float min_dDelta_band = 229;
+    float max_dDelta_band = 232;
+    int64 b_parent_number = 235;
+    int32 b_active_size = 238;
+    string b_brkr_status = 241;
+    string b_brkr_error = 244;
+    int64 s_parent_number = 247;
+    int32 s_active_size = 250;
+    string s_brkr_status = 253;
+    string s_brkr_error = 256;
+    double dd_mult = 259;
+    int32 underliers_per_cn = 262; // future underliers per contract
+    UnderlierType underlier_type = 265; // type of underlier (affects $greek calculations)
+    double point_value = 268; // $NLV value of a single point change in display premium (hedge target)
+    Currency point_currency = 271;
+    double live_hedge_mark = 274; // hedgeSecKey live mark (mid-market) [zero in SRSE]
+    string updt_reason = 277;
+    int32 is_bad_state = 283; // 1 if hedge is in a bad state (CheckBadState logic from OM V2)
+    string instrument = 289; // formatted instrument via SecurityFormatter
+    string symbol = 292; // plain ticker string
+    google.protobuf.Timestamp last_fill_time = 295; // alias for lastCtrlFillDttm (OM V2 default column name)
+    google.protobuf.Timestamp timestamp = 280; // SR system timestamp
+    YesNo is_prod = 296; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 297; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 298; // WTS synthetic: alert message (null if no alert)
+}
+
+

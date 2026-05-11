@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrPairLeggerState {
+    message PKey {
+        
+        int64 order_number = 10; // pair legger order number (should be an SR Guid)
+    }
+
+    message Legs {
+        
+        OptionKey sec_key = 135; // leg Security (can be a stock, future, optExpiry, or option) [must be the same for all legs] [cp can be call, put, or both if secType = optExpiry]
+        LeggerSecType sec_type = 136; // note: stock/stock, stock/future, future/future, optExpiry/optExpiry or option/option are allowed
+        uint32 ratio = 137; // leg ratio (note: can be in shares, contracts, vega, wvega, tvega, or wtvega terms) (optExpiry must be in one of the xVega choices)
+        LegPriority leg_priority = 138; // Lead leg(s) fill first
+        PositionType pos_type = 139; // note: must be Auto for optExpiry (not required for stock)
+        ShortSaleFlag ssale_flag = 140; // only for stock legs (and autohedging)
+        HedgeInst hedge_instrument = 141;
+        ExpiryKey hedge_sec_key = 142; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
+        int32 order_size = 143; // working size (from parentBrkrState.orderSize) (sum of all individual orders; in cn/share terms)
+        int32 order_active_size = 144; // order active size (from parentBrkrState.orderActiveSize) (sum of all individual orders; in cn/share terms)
+        uint32 num_active_brkrs = 145; // number of parent order legs with leg.activeSize > leg.cumFillQty
+        uint32 num_avail_leg_brkrs = 146; // number of parent order legs created
+        double cum_fill_qty = 147; // in LeggerLimitType terms
+        double avg_fill_prc = 148;
+        double active_sprd_size = 149; // active size (sum of all individual orders; in ratio type terms)
+        string leg_status = 150;
+        LeggerTargetState target_state = 151;
+        float target_sprd_size = 152;
+        float target_limit_price = 153;
+        float best_bid_prc = 154; // leg best bid price (in terms of limit type)
+        float best_ask_prc = 155; // leg best ask price
+        float best_bid_size = 156; // leg best bid size (in terms of ratio type)
+        float best_ask_size = 157; // leg best ask size
+        int32 num_new_orders = 158; // number of parent orders published
+        int32 num_limit_updates = 159; // number of parent limit messages published
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrSource spdr_source = 100;
+    string accnt = 101; // SR trading account
+    string client_firm = 102; // SR client firm
+    PairCtrlState pair_ctrl_state = 103;
+    PairState pair_state = 104;
+    string strategy = 105; // client-supplied strategy string; visible on SpiderRock GUI tools and other order reports.
+    string user_name = 106; // name of the user entering the order
+    int32 order_size = 107; // pair size (number of complete spreads)
+    double legger_limit = 108; // pair limit
+    LeggerLimitType legger_limit_type = 109; // pair limit type (stock: Price, future: Price, optExpiry: AtmVol only, option: Price or StrikeVol)
+    LeggerAlgo legger_algo = 110;
+    LegRatioType leg_ratio_type = 111;
+    uint32 num_atm_strikes = 112; // number of OptExpiry atm strikes [max 6]
+    float leg_exposure_pct = 113; // percentage of legger order size than can be exposed on a single leg without completing related legs
+    double leg_completion_slippage = 114; // maximum leg slippage to complete an open pair order (in leggerLimitType units)
+    MarketSession market_session = 115;
+    int32 order_duration = 116; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 117; // [optional] (default: 2099-01-01)
+    double max_mkt_pct_move = 118; // [optional] if any leg stock price, future price, or option underlier price moves move that maxMktPctMove from values at order activation then the entire order will be automatically put on hold
+    AutoHedge auto_hedge = 119; // only for optExpiry/optExpiry and option/option pairs
+    MarketSession hedge_session = 120;
+    string user_data1 = 121; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 122; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string child_data = 123; // client supplied data field; passes through to down stream child orders
+    PairStatus pair_status = 124;
+    string pair_detail = 125;
+    int32 cum_square_fill_qty = 126;
+    int32 cum_partial_fill_qty = 127;
+    double avg_square_fill_prc = 128;
+    double pair_bid_px = 129; // synthetic pair bid (from individual leg markets)
+    double pair_ask_px = 130; // synthetic pair ask (from individual leg markets)
+    double pair_bid_sz = 131;
+    double pair_ask_sz = 132;
+    google.protobuf.Timestamp timestamp = 133;
+    repeated Legs legs = 134;
+}
+
+

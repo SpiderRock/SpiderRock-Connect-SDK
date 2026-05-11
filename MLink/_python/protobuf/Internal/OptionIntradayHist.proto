@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionIntradayHist {
+    message PKey {
+        
+        OptionKey okey = 10;
+        google.protobuf.Timestamp date = 11; // end of minute bar
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trading_date = 100;
+    TradingSession trading_session = 103;
+    ExpiryKey und_sec_key = 106;
+    SpdrKeyType und_sec_type = 109;
+    int64 security_iD = 112;
+    double u_bid = 115; // Live underlier bid price
+    double u_ask = 118; // Live underlier ask price
+    double u_prc = 121;
+    float bid_prc = 124; // Live option bid price
+    float ask_prc = 127; // Live option ask price
+    int32 bid_sz = 130; // Live option bid price (size of largest exch)
+    int32 ask_sz = 133; // Live option ask price (size of largest exch)
+    int32 cum_bid_size = 136; // bid size in contracts (total nbbo size @ bidPrc)
+    int32 cum_ask_size = 139; // ask size in contracts (total nbbo size @ bidPrc)
+    OptExch bid_exch = 142; // first (or largest remaining) exchange at bid price
+    OptExch ask_exch = 145; // first (or largest remaining) exchange at ask price
+    int64 bid_mask = 227; // exchange bid bit mask (set of exchanges at bidPrc)
+    int64 ask_mask = 228; // exchange ask bit mask (set of exchanges at askPrc)
+    float bid_price2 = 154; // 2nd best bid price
+    float ask_price2 = 157; // 2nd best ask price
+    int32 cum_bid_size2 = 160; // cumulative size at 2nd price
+    int32 cum_ask_size2 = 163; // cumulative size at 2nd price
+    float bid_iV = 166; // Live option implied bid
+    float ask_iV = 169; // Live option implied ask
+    float sr_prc = 172; // Live SpiderRock surface price
+    float sr_vol = 175; // Live SpiderRock surface volatility
+    float sr_slope = 148; // srSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * srSlope) if hedging with this assumption
+    double syn_spot = 176; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    float de = 178; // delta (SR surface)
+    float ga = 181; // gamma (SR surface)
+    float th = 184; // theta (SR surface)
+    float ve = 187; // vega (SR surface)
+    float vo = 190; // volga (SR surface)
+    float va = 193; // vanna (SR surface)
+    float rh = 196; // rho (SR surrface)
+    float ph = 199; // phi (SR surface)
+    float de_decay = 202; // delta decay (SR surface)
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233;
+    ExerciseType ex_type = 224; // exercise type
+    float years = 152; // volatility years to expiration (from SR time/calendar metrics)
+    float years_c = 200; // calendar years to expiration
+    float rate = 155; // SR interest rate (from global rate curve)
+    float sdiv = 173; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 158; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 161; // SR ddivPv (sum of present value discrete dividend amounts)
+    int32 s_days_t = 236; // settlement days (today)
+    int32 s_days_e = 239; // settlement days (expiry)
+    float atm_vol = 217; // atm volatility (SR surface)
+    int32 error = 220; // SpiderRock pricing library calculation error code (0=None)
+    int32 prt_volume = 223; // total printed volume
+    google.protobuf.Timestamp timestamp = 226;
+}
+
+

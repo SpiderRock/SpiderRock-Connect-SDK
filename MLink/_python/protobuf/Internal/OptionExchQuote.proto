@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OptionExchQuote {
+    message PKey {
+        
+        OptionKey okey = 10;
+        OptExch exch = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float bid_price = 100; // bid price
+    float ask_price = 103; // ask price
+    int32 bid_size = 106; // bid size in contracts (largest exch quote)
+    int32 ask_size = 109; // ask size in contracts (largest exch quote)
+    int32 bid_time = 112; // last bid price change (milliseconds since midnight)
+    int32 ask_time = 115; // last ask price change (milliseconds since midnight)
+    OptMktType bid_mkt_type = 118;
+    OptMktType ask_mkt_type = 121;
+    int32 session_ind = 124; // OPRA Block Header session indicator - 0 for Regular/(byte)X for Extended session
+    int64 net_timestamp = 127; // PTP timestamp
+}
+
+

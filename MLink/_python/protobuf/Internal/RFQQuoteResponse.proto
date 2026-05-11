@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RFQQuoteResponse {
+    message PKey {
+        
+        int64 order_number = 10; // SR Generated order number
+    }
+
+    message QuoteLegs {
+        
+        OptionKey leg_key = 157;
+        LegKeyType leg_key_type = 160;
+        int64 leg_security_iD = 163; // product securityID (if available, 0 otherwise) (can be another spread)
+        int64 leg_parent_sec_iD = 166; // product securityID of parent (if unrolled from a compound spread)
+        string leg_security_desc = 169; // Security description
+        int32 leg_size = 172; // leg ratio (1, 2, etc)
+        BuySell leg_side = 175;
+        LegPositionType leg_pos_type = 178;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrActionType spdr_action_type = 100;
+    int64 security_iD = 103; // eg. CME ProductID or ISE SecurityID
+    string security_desc = 106; // Exchange supplied (CME);SR constructed (NMS)
+    ExchSource exch_source = 109;
+    int32 resp_quantity = 112;
+    double resp_price = 115;
+    RFQSide resp_side = 118;
+    int32 resp_max_visible = 121; // Max visible quantity (iceberg quantity)
+    string resp_accnt = 124;
+    google.protobuf.Timestamp resp_time = 127;
+    string strategy = 130;
+    string user_name = 133;
+    string cxl_reason = 136;
+    MarketSession market_session = 179;
+    int32 order_duration = 142; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 145; // [optional] (default: 2099-01-01)
+    AutoHedge auto_hedge = 148;
+    ShortSaleFlag ssale_flag = 151; // short sale flag for auto-hedge (if applicable)
+    repeated QuoteLegs quote_legs = 154;
+}
+
+

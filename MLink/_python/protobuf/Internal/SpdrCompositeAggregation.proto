@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message SpdrCompositeAggregation {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_records = 100;
+    float sum_parent_size = 103;
+    float sum_parent_mkt_width = 106;
+    float avg_parent_size = 109;
+    float avg_parent_mkt_width = 112;
+    float avg_parent_limit_vol = 115;
+    float sum_child_size = 118;
+    float sum_child_mkt_width = 121;
+    float avg_child_size = 124;
+    float avg_child_mkt_width = 127;
+    float avg_child_limit_vol = 130;
+    float avg_fill_size = 133;
+    float avg_fill_price = 136;
+    float avg_fill_vol = 139;
+    float avg_fill_probability = 142;
+    float avg_fill_mkt_width = 145;
+    float avg_fill_uMkt_width = 148;
+    float avg_fill_theo_edge = 151;
+    float avg_fill_unit_edge = 154;
+    float avg_fill_m1_pn_l = 157;
+    float avg_fill_m10_pn_l = 160;
+    float avg_fill_day_pn_l = 163;
+    float avg_fill_dn_day_pn_l = 166;
+    float sum_fill_size = 169;
+    float sum_fill_money = 172;
+    float sum_fill_delta = 175;
+    float sum_fill_dDelta = 178;
+    float sum_fill_dBeta = 181;
+    float sum_fill_vega = 184;
+    float sum_fill_wVega = 187;
+    float sum_fill_tVega = 190;
+    float sum_fill_wt_vega = 193;
+    float sum_fill_theta = 196;
+    float sum_fill_premium = 199;
+    float sum_fill_notional = 202;
+    float sum_fill_mkt_width = 205;
+    float sum_fill_uMkt_width = 208;
+    float sum_fill_theo_edge = 211;
+    float sum_fill_unit_edge = 214;
+    float sum_fill_m1_pn_l = 217;
+    float sum_fill_m10_pn_l = 220;
+    float sum_fill_day_pn_l = 223;
+    float sum_fill_dn_day_pn_l = 226;
+    float sum_fill_m1_uDrift = 229;
+    float sum_fill_m10_uDrift = 232;
+    float sum_fill_day_uDrift = 235;
+    float sum_fill_exch_fees = 238;
+    float sum_fill_brokerage = 241;
+    float sum_fill_vol = 244;
+    float sum_fill_probability = 247;
+    float sum_fill_gamma = 250;
+    float sum_fill_price = 253;
+}
+
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionActivityData {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 c_vlm = 100; // call volume
+    int32 p_vlm = 103; // put volume
+    int32 c_vlm20d = 106; // call volume (last 20 days)
+    int32 p_vlm20d = 109; // put volume (last 20 days)
+    int32 c_oI = 112; // call open interest
+    int32 p_oI = 115; // put open interest
+    int32 c_oI20d = 118; // call open interest (last 20 days)
+    int32 p_oI20d = 121; // put open interest (last 20 days)
+    google.protobuf.Timestamp ts = 124; // last update time (Date)
+}
+
+

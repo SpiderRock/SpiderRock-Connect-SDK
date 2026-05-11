@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message DailyConfigCounts {
+    message PKey {
+        
+        SysRealm sys_realm = 10;
+        SysEnvironment sys_environment = 11;
+        DateKey date = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 accnt_config_count = 100; // last count of accountConfigs
+    int32 client_firm_config_count = 101; // last count of clientFirmConfigs
+    int32 user_config_count = 102; // last count of userConfigs
+    google.protobuf.Timestamp timestamp = 103; // last count date
+}
+
+

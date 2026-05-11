@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrStkPrintCluster {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int32 print_cluster_iD = 11; // unique SR Print Cluster ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double nbbo_bid_prc1 = 100; // best (max) bid price during print event
+    double nbbo_ask_prc1 = 103; // best (min) ask price during print event
+    int32 nbbo_bid_size1 = 106; // max cumulative size @ best bid price
+    int32 nbbo_ask_size1 = 109; // max cumulative size @ best ask price
+    int64 nbbo_bid_mask1 = 203; // sum of masks @ best bid price
+    int64 nbbo_ask_mask1 = 204; // sum of masks @ best ask price
+    double nbbo_bid_prc2 = 118; // 2nd best bid price during print event
+    double nbbo_ask_prc2 = 121; // 2nd best ask price during print event
+    int32 nbbo_bid_size2 = 124; // max cumulative size @ 2nd best bid price
+    int32 nbbo_ask_size2 = 127; // max cumulative size @ 2nd best ask price
+    int64 nbbo_bid_mask2 = 205; // sum of masks @ 2nd best bid price
+    int64 nbbo_ask_mask2 = 206; // sum of masks @ 2nd best ask price
+    float avg_bid_size = 136; // 10 minute EMA average of cum bid size @ best price level
+    float avg_ask_size = 139; // 10 minute EMA average of cum ask szie @ best price level
+    float avg_mkt_width = 142; // 10 minute EMA average of bid/ask width
+    float avg_realized_vol = 145; // 10 minute EMA average realized volatility
+    double print_min_price = 148;
+    double print_max_price = 151;
+    double print_avg_price = 154; // volume weighted average print price
+    int32 print_cnt = 157; // number of option print reports received up in cluster window
+    int32 print_cum_size = 160; // cum size of all prints
+    int64 print_exch_mask = 207; // exch mask of all exchanges w/prints
+    int32 print_cum_size_iSO = 166; // cum size of all ISO prints
+    int64 print_exch_mask_iSO = 208; // exch mask of all exchanges w/prints
+    int64 net_timestamp_st = 172; // (SR) net timestamp of the first print message in the sweep set
+    int64 net_timestamp_en = 175; // (SR) net timestamp of the final print message in the sweep set
+    int64 src_timestamp_st = 178; // source timestamp of the first print message in the sweep set
+    int64 src_timestamp_en = 181; // source timestamp of the final print message in the sweep set
+    double fwd_nbbo_price_m1 = 184; // projected NBBO price (T+1) minute conditional on print cluster
+    double fwd_nbbo_price_m10 = 187; // projected NBBO price (T+10) minutes conditional on print cluster
+    double nbbo_bid_price_m1 = 190; // nbbo market T+1 minute
+    double nbbo_ask_price_m1 = 193;
+    double nbbo_bid_price_m10 = 196; // nbbo market T+10 minutes
+    double nbbo_ask_price_m10 = 199;
+    google.protobuf.Timestamp timestamp = 202;
+}
+
+

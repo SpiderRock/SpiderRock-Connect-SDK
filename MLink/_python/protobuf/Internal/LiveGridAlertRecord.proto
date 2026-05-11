@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAlertRecord {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // SpiderRock trading accnt [broker pkey]
+    string c_firm = 101; // SR client firm
+    string user_name = 102;
+    string alert_type = 103;
+    string alert_source = 104;
+    AlertPriority alert_priority = 105;
+    int32 hist_window = 106; // counter % 10 (most recent event window)
+    string alert_text = 107;
+    int32 counter = 108;
+    google.protobuf.Timestamp timestamp = 109; // timestamp of last modification
+    YesNo is_prod = 110; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 111; // WTS synthetic: Critical, Warning, Info (None if no alert)
+}
+
+

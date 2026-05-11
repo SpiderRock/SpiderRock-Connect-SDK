@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionExchPrint {
+    message PKey {
+        
+        int64 sr_print_iD = 10; // SR Generated unique print ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey okey = 100;
+    OptExch exch = 103;
+    int64 exch_order_iD = 106; // exchange assigned order ID (if any)
+    int32 prt_size = 109; // size available to trade
+    double prt_price = 112;
+    ExchPrtType exch_prt_type = 115;
+    int64 src_timestamp = 118; // source high precision timestamp (if available)
+    int64 net_timestamp = 121; // SpiderRock network PTP timestamp
+    int64 dgw_timestamp = 124; // SpiderRock data gateway timestamp
+    google.protobuf.Timestamp timestamp = 127;
+}
+
+

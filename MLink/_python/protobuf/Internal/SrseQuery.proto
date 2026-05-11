@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SrseQuery {
+    message PKey {
+        
+        int64 query_id = 10;
+        int32 process_id = 11;
+    }
+
+    message RecordsInRange {
+        
+        string table = 174;
+        string index = 167;
+        uint32 min_key_map = 168;
+        uint32 max_key_map = 169;
+        ReadKeyFunction min_read_key_function = 172;
+        ReadKeyFunction max_read_key_function = 173;
+        uint32 records_estimate = 171;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string user_name = 100;
+    string client_firm = 106;
+    uint32 app_id = 109;
+    string app_name = 164;
+    int64 thread_id = 112;
+    int32 rows_table_scanned = 115; // number of rows selected during table scans
+    int32 rows_index_scanned = 118; // number of rows selected during index scans
+    int32 rows_inserted = 121; // number of rows inserted
+    int32 rows_replaced = 124; // number of rows replaced
+    int32 rows_updated = 127; // number of rows updated
+    int32 rows_deleted = 130; // number of rows deleted
+    int32 num_errors = 133; // number of errors
+    YesNo bulk = 136;
+    YesNo predicates = 139;
+    YesNo dry_run = 142;
+    YesNo can_publish = 145;
+    YesNo contains_join = 165;
+    string sql = 148;
+    string sql_command = 151;
+    string error = 154;
+    google.protobuf.Timestamp started = 157;
+    float execution_time = 160; // execution time (in seconds)
+    float queue_wait_time = 163; // time (in seconds) spent awaiting turn
+    repeated RecordsInRange records_in_range = 166;
+}
+
+

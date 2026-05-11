@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message SurfaceCurveDataVset {
+    message CurveTypes {
+        
+        CurveType curve_type = 106; // Surface curve type
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey exp_key = 100; // Requested expiry key
+    repeated CurveTypes curve_types = 103;
+}
+
+

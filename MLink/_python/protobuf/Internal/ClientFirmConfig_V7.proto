@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: ClientFirmConfig
+    V8 Message Name: ClientFirmConfig
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:ClientFirmConfig
+*/    
+message ClientFirmConfig_V7 {
+    message PKey {
+        
+        string client_firm = 5000; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm] --- Original comment: SR assigned client firm acronym
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ClientFirmType_V7 client_firm_type = 5001; // v7 & v8: Enums Do Not Match: V7=[enum,Name=ClientFirmType,Values=None=0,Cust=1,Broker=2,Client=3,Advisor=4,CoreClientFirm=5,SubClientFirm=6,SponsorClientFirm=7,Other=8], V8=[enum,Name=ClientFirmType,Values=None=0,CoreClientFirm=1,SubClientFirm=2,SponsorClientFirm=3]
+    string client_name = 5002; // v7 & v8: Field Name Change: V7=[clientName], V8=[clientFirmName] --- Original comment: SR assigned client firm Name
+    string billing_firm = 5003; // v7 & v8: Field Name Change: V7=[billingFirm], V8=[billingAccount]: String Length Diff: V7=[string,Length=16,Alias=NA,MetaType=NA], V8=[string,Length=24,Alias=NA,MetaType=NA] --- Original comment: SR billing Client Firm - if different than clientFirm
+    ClientFirmRelationship client_firm_relationship = 5004; // v7 & v8
+    SysVersion enabled_in = 5005; // v7 & v8
+    string billing_address1 = 5006; // v7 & v8 --- Original comment: Billing Address - line 1
+    string billing_address2 = 5007; // v7 & v8 --- Original comment: Billing Address - line 2
+    string billing_city = 5008; // v7 & v8 --- Original comment: Billing Address - city
+    string billing_state = 5009; // v7 & v8 --- Original comment: Billing Address - state
+    string billing_zip_code = 5010; // v7 & v8: String Length Diff: V7=[string,Length=50,Alias=NA,MetaType=NA], V8=[string,Length=8,Alias=NA,MetaType=NA] --- Original comment: Billing Address - zipCode
+    string billing_country = 5011; // v7 & v8: String Length Diff: V7=[string,Length=50,Alias=NA,MetaType=NA], V8=[string,Length=8,Alias=NA,MetaType=NA] --- Original comment: Billing Address - country
+    string billing_phone_number = 5012; // v7 & v8 --- Original comment: Billing - phone
+    string billing_email_address = 5013; // v7 & v8 --- Original comment: Billing - emails (comma delimited string)
+    string report_address1 = 5014; // v7 & v8 --- Original comment: Reporting Address - line 1
+    string report_address2 = 5015; // v7 & v8 --- Original comment: Reporting Address - line 2
+    string report_city = 5016; // v7 & v8 --- Original comment: Reporting Address - city
+    string report_state = 5017; // v7 & v8 --- Original comment: Reporting Address - state
+    string report_zip_code = 5018; // v7 & v8: String Length Diff: V7=[string,Length=50,Alias=NA,MetaType=NA], V8=[string,Length=8,Alias=NA,MetaType=NA] --- Original comment: Reporting Address - zipCode
+    string report_country = 5019; // v7 & v8: String Length Diff: V7=[string,Length=50,Alias=NA,MetaType=NA], V8=[string,Length=8,Alias=NA,MetaType=NA] --- Original comment: Reporting Address - country
+    string report_phone_number = 5020; // v7 & v8 --- Original comment: Reporting - phone
+    string report_email_address = 5021; // v7 & v8 --- Original comment: Reporting - emails (comma delimited string)
+    string sRRep_code = 5022; // v7 & v8: Field Name Change: V7=[SRRepCode], V8=[repCodeSR] --- Original comment: SR client rep code
+    CatCaisTidType cat_cais_tid_type = 5023; // v7 & v8 --- Original comment: CAT CAIS TID (Transformed Identifiers) Type
+    string cat_cais_tid_value = 5024; // v7 & v8 --- Original comment: CAT CAIS TID Value
+    CatCaisCustType cat_cais_cust_type = 5025; // v7 & v8 --- Original comment: CAT CAIS CustomerType
+    string tool_product_acl = 5026; // ONLY V7: [text1] --- Original comment: A list of SR GUI tool product codes: SV, RV, HT, RM, RA, TA, OM, MM, CV, CT, SM, DC
+    string elastic_product_acl = 5027; // ONLY V7: [text1] --- Original comment: A list of SR ES product codes: SRTrade, SRRisk, SRTheo, SRAnalytics, SRQuoteEvent, SRExecEngine, SRSystem
+    string market_data_acl = 5028; // ONLY V7: [string,Length=64,Alias=NA,MetaType=NA] --- Original comment: A list of SR TickerSrc codes: NMS, CFE, ICE, CME, CBOE, OTC, etc. [restricts SRSE and GUI tools]
+    string gwt_product_acl = 5029; // ONLY V7: [string,Length=64,Alias=NA,MetaType=NA] --- Original comment: A list of feed consumption or gateway client type: SysEnvironment, Type (e.g. Normalized, Raw, Sandbox)  [for reporting]
+    YesNo view_gICS = 5030; // v7 & v8 --- Original comment: client firm can see GICS codes in SRSE
+    YesNo view_cUSIP = 5031; // v7 & v8 --- Original comment: client firm can see CUSIP codes in SRSE
+    RiskServerCode_V7 risk_server_code = 5032; // ONLY V7: [enum,Name=RiskServerCode,Values=None=0,RS1=1,RS2=2,RS3=3,RS4=4,RS5=5,RS6=6,RS7=7,RS8=8,RS9=9,RS10=10,RS11=11,RS12=12,RS13=13,RS14=14,RS15=15,RS16=16,RS17=17,RS18=18,RS19=19,RS20=20,RST=21] --- Original comment: risk server handling this client firm
+    DropServerCode_V7 drop_server_code = 5033; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (primary) handling this client firm
+    DropServerCode_V7 drop_server_code2 = 5034; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#2) handling this client firm
+    DropServerCode_V7 drop_server_code3 = 5035; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#3) handling this client firm
+    DropServerCode_V7 drop_server_code4 = 5036; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#4) handling this client firm
+    DropServerCode_V7 drop_server_code5 = 5037; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#5) handling this client firm
+    DropServerCode_V7 drop_server_code6 = 5038; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#6) handling this client firm
+    DropServerCode_V7 drop_server_code7 = 5039; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#7) handling this client firm
+    DropServerCode_V7 drop_server_code8 = 5040; // ONLY V7: [enum,Name=DropServerCode,Values=None=0,DS1=1,DS2=2,DS3=3,DS4=4,DS5=5,DS6=6,DS7=7,DS8=8,DS9=9,DS10=10,DS11=11,DS12=12,DS13=13,DS14=14,DS15=15,DS16=16,DS17=17,DS18=18,DS19=19,DS20=20,DST=21] --- Original comment: drop server (#8) handling this client firm
+    YesNo drop_all_parent_tags = 5041; // v7 & v8 --- Original comment: Include all parent order tags in drop message such as order parameters
+    PrivacyRule_V7 privacy_rule = 5042; // ONLY V7: [enum,Name=PrivacyRule,Values=None=0,Normal=1,Restricted=2,Strict=3,ZeroDarkThirty=4] --- Original comment: Rename to confidential
+    AllowedIngress_V7 allowed_ingress = 5043; // ONLY V7: [flag,Name=AllowedIngress,Values=None=0,Internet=1,VPN=2,Private=4,Extranet=8,Other=16]
+    YesNo restrict_iPSource = 5044; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2]
+    string ip_access_mask = 5045; // ONLY V7: [text1]
+    TwoPhaseType_V7 two_phase_type = 5046; // ONLY V7: [enum,Name=TwoPhaseType,Values=None=0,SR=1,SAML=2,Other=3]
+    YesNo change_on_init_logon = 5047; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: [AD] Force password change on initial logon
+    YesNo user_lockout = 5048; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: [AD] Lock out repeated fail
+    YesNo enforce_history = 5049; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: [AD] Enforce password history
+    string pw_firm = 5050; // v7 & v8: Field Name Change: V7=[pwFirm], V8=[pwFileTransfer] --- Original comment: [SR] Password for securing files in transit
+    int32 pw_age = 5051; // ONLY V7: [int] --- Original comment: [AD] Days before forced pw change
+    int32 pw_length = 5052; // ONLY V7: [int] --- Original comment: [AD] Min password length
+    int32 pw_history = 5053; // ONLY V7: [int] --- Original comment: [AD] Days of password history
+    PwComplexity_V7 pw_complexity = 5054; // ONLY V7: [enum,Name=PwComplexity,Values=None=0,Length=1,LengthCase=2,LengthCaseNum=3,LengthCaseNumSym=4] --- Original comment: [AD]
+    string locate_req_firm = 5055; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: locate request firm (if locate requests can be handled) [must be either "NE" or "ABN"]
+    SRDataCenter_V7 locate_data_center = 5056; // ONLY V7: [enum,Name=SRDataCenter,Values=None=0,NY4=1,NY5=2,CH2=3,CH3=4] --- Original comment: datacenter locates are sourced from (if requests are entered by the client)
+    YesNo restrict_locate_upload = 5057; // v7 & v8 --- Original comment: restrict associated users' ability to upload AwayStockLocate messages
+    YesNo restrict_autohedge = 5058; // v7 & v8 --- Original comment: restrict associated users' ability to send orders with autohedge enabaled
+    YesNo cxl_risk_group_on_review_hedge_reject = 5059; // v7 & v8 --- Original comment: behavior if the stage/review hedge order is rejected.  "Yes" cancels the entire risk group.
+    string route_table = 5060; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: Routing table for this firm
+    TickerSrc_V7 user_ticker_src = 5061; // ONLY V7: [enum,Name=TickerSrc,Values=None=0,SR=1,NMS=2,CME=3,ICE=4,CFE=5,CBOT=6,TD=7,NYMEX=8,COMEX=9,RUT=10,CBOE=11,ISE=12,ARCA=13,NYSE=14,OTC=15,TST1=16,TST2=17,TST3=18,TST=19,USR1=20,USR2=21,USR3=22,NSDQ=23,MFQS=24,PHLX=25,MIAX=26,TSE=27,DJI=28,CBX=29,BXE=30,SCE=31,CXE=32,DXE=33,NXAM=34,NXBR=35,NXLS=36,NXML=37,NXOS=38,NXP=39,EUREX=40,CEDX=41,ICEFEC=42,ICEFEF=43] --- Original comment: TickerSrc for all user-defined tickers
+    RateSource_V7 user_rate_source = 5062; // ONLY V7: [enum,Name=RateSource,Values=Default=0,OIS=1,Libor=2,SpxBox=3,Test1=4,Test2=5,ESTR=6,StoxxBox=7,SONIA=8,FTSEBox=9,SARON=10,SMIBox=11] --- Original comment: Default GlobalRate (Discount Rate) source (uses system default curve unless otherwise specified)
+    ClientFirmStatus_V7 firm_status = 5063; // v7 & v8: Field Name Change: V7=[firmStatus], V8=[clientFirmStatus]: Enums Do Not Match: V7=[enum,Name=ClientFirmStatus,Values=None=0,Active=1,Frozen=2,Suspended=3], V8=[enum,Name=ClientFirmStatus,Values=None=0,Active=1,Frozen=2,Pending=3] --- Original comment: ClientFirm status
+    google.protobuf.Timestamp firm_status_dttm = 5064; // v7 & v8: Field Name Change: V7=[firmStatusDttm], V8=[clientFirmStatusDttm] --- Original comment: The date/time this status was last changed
+    string sync_agg_groups = 5065; // v7 & v8 --- Original comment: [tgt:src,tgt:src,...] target agg group [usually priAggGroup]; will accumulate SR executions; will sync w/srcAggGroup; tgt will follow (be made equal to) src
+    float sync_threshold = 5066; // v7 & v8 --- Original comment: number of idle seconds before syncing aggGroups (default: 5 seconds)
+    YesNo enable_srse_product_snapshots = 5067; // v7 & v8 --- Original comment: If enabled 'Yes' daily_snapshots.py scripts will make create clientFirm-specific snapshots of SRSE products.  Grants are matched to UserConfig.srseProductAcl.
+    google.protobuf.Timestamp timestamp = 5068; // v7 & v8 --- Original comment: timestamp of last modification
+    string user_name = 5069; // ONLY V7: [string,Length=24,Alias=UserNameString,MetaType=NA] --- Original comment: User who made last modification
+    SysEnvironment modified_in = 5070; // v7 & v8
+}
+
+

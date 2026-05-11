@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockSymbolDetail {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float u_prc = 100;
+    float u_prc_prv = 103;
+    float sh_atm_iv = 106;
+    float ln_atm_iv = 109;
+    float sh_atm_iv_prv = 112;
+    float ln_atm_iv_prv = 115;
+    float sh_opn_vega = 118; // open interest
+    float ln_opn_vega = 121;
+    float sh_prt_vega = 124; // total vega printed today
+    float ln_prt_vega = 127;
+    int32 next_earn_days = 130;
+    string next_earn_time = 133;
+    google.protobuf.Timestamp timestamp = 136;
+}
+
+

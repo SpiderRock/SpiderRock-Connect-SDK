@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAllocAvailExecDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string omni_accnt = 100;
+    string client_firm = 101;
+    string sec_key = 102; // conditionally formatted secKey based on secType
+    SpdrKeyType sec_type = 103;
+    string mleg_leg_key = 104; // [secKey;legRatio;side;positionEffect, ...]
+    BuySell order_side = 105;
+    ShortSaleFlag ssale_flag = 106;
+    PositionType position_type = 107;
+    SpdrSource spdr_source = 108;
+    int64 grouping_code = 109;
+    int64 base_parent_number = 110;
+    int32 cum_fill_qty = 111;
+    double avg_fill_prc = 112;
+    ExecAllocStatus alloc_status = 113;
+    google.protobuf.Timestamp timestamp = 114;
+    YesNo is_prod = 115; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 116; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 117; // WTS synthetic: alert message (null if no alert)
+}
+
+

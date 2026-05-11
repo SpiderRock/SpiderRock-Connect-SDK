@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message SdivTermData {
+    message PKey {
+        
+        TickerKey ticker = 11; // Stock ticker key
+    }
+
+    message DataPoints {
+        
+        ExpiryKey exp_key = 106; // Expiration Key
+        float years = 107; // years to expiry
+        float s_div = 108; // surface sdiv
+        double uprc_ratio = 109; // surface uprc ratio
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float lsr_slope = 103; // slope of least square regression line
+    float lsr_yAxis_intercept = 104; // point where least square regression line intersects with the y-axis
+    repeated DataPoints data_points = 105;
+}
+
+

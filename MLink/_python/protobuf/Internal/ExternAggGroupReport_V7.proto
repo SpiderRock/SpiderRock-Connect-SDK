@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: ExternAggGroupReport
+    V8 Message Name: ExternAggGroupReport
+    Bridging pattern:  [V7 --> V8]
+*/    
+message ExternAggGroupReport_V7 {
+    message PKey {
+        
+        OptionKey sec_key = 5000; // v7 & v8
+        SpdrKeyType sec_type = 5001; // v7 & v8 --- Original comment: Security Type [Stock, Future, Option]
+        string agg_group = 5002; // v7 & v8 --- Original comment: SpiderRock assigned aggGroup identifier (up to 16 characters) [stkAggGroup, futAggGroup, or optAggGroup]
+        string client_firm = 5003; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm] --- Original comment: SpiderRock assigned client firm code
+        SysEnvironment sys_environment = 5004; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+        RunStatus run_status = 5005; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+        ExternSource extern_source = 5006; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 open_position = 5007; // v7 & v8 --- Original comment: start-of-day position (aggregate firm position for all accnts in this aggGroup) [can be truncated if necessary]
+    OpenPosType open_pos_type = 5008; // v7 & v8
+    int32 bot_quantity = 5009; // v7 & v8 --- Original comment: quantity bot today (can be zero if reported via execution drops)
+    int32 sld_quantity = 5010; // v7 & v8 --- Original comment: quantity sld today (can be zero if reported via execution drops)
+    int32 bid_leaves = 5011; // v7 & v8 --- Original comment: current (live) open stock orders (buy)
+    int32 ask_leaves = 5012; // v7 & v8 --- Original comment: current (live) open stock orders (sell)
+    google.protobuf.Timestamp timestamp = 5013; // v7 & v8
+}
+
+

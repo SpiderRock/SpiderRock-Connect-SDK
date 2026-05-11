@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: ExternNoCrossReport
+    V8 Message Name: ExternNoCrossReport
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:ExternNoCrossReport
+*/    
+message ExternNoCrossReport_V7 {
+    message PKey {
+        
+        OptionKey sec_key = 5000; // v7 & v8
+        SpdrKeyType sec_type = 5001; // v7 & v8
+        int64 report_number = 5002; // v7 & v8 --- Original comment: Report number (ensures that MLEG reports are unique)
+        string no_cross_group = 5003; // v7 & v8 --- Original comment: SpiderRock-assigned no-cross group (up to 16 characters)
+        string child_ex_dest = 5004; // v7 & v8: String Length Diff: V7=[string,Length=12,Alias=NA,MetaType=NA], V8=[string,Length=16,Alias=ExDestString,MetaType=NA] --- Original comment: exchange destination string
+        SysEnvironment sys_environment = 5005; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+        RunStatus run_status = 5006; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+        ExternSource extern_source = 5007; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string mleg_key = 5008; // v7 & v8 --- Original comment: contains a string version of a mleg order key (or null if not an mleg order)
+    double bid_price = 5009; // v7 & v8 --- Original comment: best bid
+    double ask_price = 5010; // v7 & v8 --- Original comment: best ask
+    int32 bid_leaves = 5011; // v7 & v8 --- Original comment: current bid size @ bidPrice (best market) [used for no-cross EE checks]
+    int32 ask_leaves = 5012; // v7 & v8 --- Original comment: current ask size @ askPrice (best market) [used for no-cross EE checks]
+    YesNo bid_mAuction = 5013; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: active bid Market open/close auction orders
+    YesNo bid_lAuction = 5014; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: active bid Limit open/close auction orders
+    YesNo ask_mAuction = 5015; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: active ask Market open/close auction orders
+    YesNo ask_lAuction = 5016; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: active ask Limit open/cloase auction orders
+    google.protobuf.Timestamp timestamp = 5017; // v7 & v8
+}
+
+

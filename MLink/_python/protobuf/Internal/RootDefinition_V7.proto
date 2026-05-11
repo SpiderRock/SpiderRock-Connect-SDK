@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: RootDefinition
+    V8 Message Name: RootDefinition
+    Bridging pattern:  [V7 --> V8]
+*/    
+message RootDefinition_V7 {
+    message PKey {
+        
+        TickerKey root = 5000; // v7 & v8
+    }
+
+    message Underlying {
+        
+        TickerKey ticker = 5040; // v7 & v8
+        float spc = 5041; // ONLY V7: [float] --- Original comment: note: _root basket = sum(spc * ticker) / 100
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 5001; // v7 & v8 --- Original comment: master underlying
+    string osi_root = 5002; // v7 & v8 --- Original comment: long version of the root.  the short version is used in the TickerKey (for example RYAAY1, not RYAA1)
+    TickerKey ccode = 5003; // v7 & v8
+    ExpirationMap expiration_map = 5004; // v7 & v8
+    UnderlierMode underlier_mode = 5005; // v7 & v8
+    PricingSource_V7 pricing_source = 5006; // ONLY V7: [enum,Name=PricingSource,Values=None=0,Native=1,SyntheticExpiry=2] --- Original comment: note: synthetics are priced by root + expiry (from the SyntheticQuote/SyntheticPrint messages)
+    OptionType option_type = 5007; // v7 & v8 --- Original comment: indicator for option type
+    Multihedge multihedge = 5008; // v7 & v8 --- Original comment: indicates type of multihedge
+    ExerciseTime exercise_time = 5009; // v7 & v8 --- Original comment: Exercise time type
+    ExerciseType exercise_type = 5010; // v7 & v8 --- Original comment: Exercise style
+    TimeMetric_V7 time_metric = 5011; // v7 & v8: Enums Do Not Match: V7=[enum,Name=TimeMetric,Values=None=0,D252=1,D365=2,SPX=3,WK1=4,WK2=5,WK3=6,WK4=7], V8=[enum,Name=TimeMetric,Values=None=0,D252=1,D365=2,SRV6=3] --- Original comment: trading time metric - 252 or 365 trading days or a weekly cycle type
+    PricingModel pricing_model = 5012; // v7 & v8
+    MoneynessType moneyness_type = 5013; // v7 & v8 --- Original comment: moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)
+    PriceQuoteType price_quote_type = 5014; // v7 & v8 --- Original comment: quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)
+    VolumeTier volume_tier = 5015; // v7 & v8
+    int32 position_limit = 5016; // v7 & v8 --- Original comment: max contract limit
+    string exchanges = 5017; // v7 & v8 --- Original comment: exchange codes
+    float tick_value = 5018; // v7 & v8 --- Original comment: $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 5019; // v7 & v8 --- Original comment: $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 5020; // v7 & v8
+    double strike_scale = 5021; // v7 & v8 --- Original comment: manual strike price adjustment multiplier (used for some CME products if set, otherwise displayFactor is used) (okey_xx = strikePrice * manualStrikeScale)
+    float strike_ratio = 5022; // v7 & v8 --- Original comment: note: effective strike = strike * strikeRatio - cashOnExercise
+    float cash_on_exercise = 5023; // v7 & v8 --- Original comment: note: cashOnExercise is positive if it decreases the effective strike price
+    int32 underliers_per_cn = 5024; // v7 & v8 --- Original comment: note: always 100 if underlying list is in use
+    double premium_mult = 5025; // v7 & v8 --- Original comment: note: OCC premium/strike multiplier (usually 100)
+    AdjConvention adj_convention = 5026; // v7 & v8
+    OptPriceInc opt_price_inc = 5027; // v7 & v8
+    PriceFormat price_format = 5028; // v7 & v8 --- Original comment: price display format
+    Currency trade_curr = 5029; // v7 & v8
+    Currency settle_curr = 5030; // v7 & v8
+    Currency strike_curr = 5031; // v7 & v8
+    TickerKey default_surface_root = 5032; // v7 & v8 --- Original comment: fallback ticker to use for option surfaces if no native surfaces are available
+    string ric_code = 5033; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: RIC Code
+    string bbg_root = 5034; // v7 & v8 --- Original comment: Bloomberg root
+    BbgYrCode bbg_yr_code = 5035; // v7 & v8 --- Original comment: Format for the year field in the Bloomberg Code
+    YellowKey bbg_group = 5036; // v7 & v8 --- Original comment: Bloomberg Yellow Key
+    google.protobuf.Timestamp timestamp = 5037; // v7 & v8
+    TradingPeriod trading_period = 5038; // v7 & v8
+    repeated Underlying underlying = 5039;
+}
+
+

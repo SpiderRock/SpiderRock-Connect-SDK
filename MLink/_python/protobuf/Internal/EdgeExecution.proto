@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    edge-to-user
+*/    
+message EdgeExecution {
+    message PKey {
+        
+        int64 fill_number = 10; // SR Guid
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 version = 100; // 1 on initial execution report; increments on any bust or correct
+    DateKey trade_date = 103;
+    BustCode bust_code = 106;
+    int64 exch_exec_iD = 109; // execution ID as known by the exch (ARCA: DealID)
+    int64 parent_number = 112;
+    int64 prev_parent_number = 115;
+    int32 parent_version = 118;
+    int64 base_parent_number = 121;
+    int64 edge_order_number = 124; // can be zero if reporting an orphan execution
+    string accnt = 127; // SR assigned accnt code
+    string cfirm = 130; // SR assigned client firm acronym
+    string exec_brkr_code = 133; // SR execBrkrCode (SR Assigned)
+    string exec_brkr_mPID = 136; // from ExecBrokerDefinition
+    OptionKey sec_key = 139;
+    SpdrKeyType sec_type = 142;
+    BuySell side = 145;
+    int64 grouping_code = 148;
+    SpdrSource spdr_source = 151;
+    int32 core_hash = 154;
+    EdgeExDest edge_ex_dest = 157;
+    int32 edge_size = 160;
+    int32 edge_limit_price = 163; // limit price
+    EdgeOrderType edge_order_type = 166;
+    URefType u_ref_type = 169; // [Any Type] (default: MidMkt)
+    int32 point_value = 172;
+    Currency point_currency = 175;
+    int64 cl_ord_iD = 178; // our clOrdID (edge to exchange)
+    int64 order_iD = 181; // exchange order ID
+    int32 symbol_iD = 184; // exchange symbol/series ID
+    int32 fill_price = 187;
+    int32 fill_quantity = 190;
+    int32 cum_fill_qty = 193;
+    int32 pend_size = 196; // limit price that was pending when filled (0 if none)
+    int32 active_size = 199; // active (on exch) limit price @ fill arrival
+    int32 pend_limit_price = 202; // limit price that was pending when filled (0 if none)
+    int32 active_limit_price = 205; // active (on exch) limit price @ fill arrival
+    int64 active_ack_time = 208;
+    int32 child_uPrc = 211; // uPrc @ child order send time
+    int32 u_prc_trigger_level = 214; // underlier trigger price for activeLimitPrice
+    int32 cxl_uPrc = 217; // uPrc @ cancel (or cancel/replace) trigger
+    CancelSource cxl_source = 220;
+    int64 cxl_src_timestamp = 223;
+    int64 cxl_eng_timestamp = 226;
+    int64 cxl_snd_timestamp = 229;
+    int32 fill_uPrc = 232; // uPrc on fill arrival
+    int32 fill_limit_price = 235; // limit price on fill arrival (to edge device) [@ fillUPrc]
+    int32 fill_uPrc_ms25 = 238; // uPrc on fill arrival + 25ms
+    int32 fill_limit_price_ms25 = 241; // limit price on fill arrival (to edge device) [@ fillUPrc] + 25ms
+    string exch_liquidity_tag = 244; // exchange native liquidity tag
+    string spdr_liquidity_tag = 247; // normalized (SR) liquidity tag
+    FlipType clr_flip_type = 250; // type of clearing corp delivery
+    string clr_flip_firm = 253; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
+    string clr_flip_accnt = 256; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
+    string clr_agent = 259; // deliverTo agent (eg. DVP Agent Bank ID)
+    string clr_tax_iD = 262; // deliverTo taxID (eg. DVP TaxID)
+    string clr_brkr_mPID = 265; // clearing broker (equity clearing only)
+    string contra_mPID = 268; // contra exchange member ID
+    SRPosType contra_position_type = 271; // open/close
+    OrderCapacity contra_order_capacity = 274; // cust, proCust, firm, etc.
+    string contra_clear_firm = 277; // contra clearing (CMTA) instructions
+    string contra_clear_accnt = 280;
+    string contra_market_maker = 283; // contra market maker ID (if any)
+    string user_name = 286;
+    int64 user_seq_num = 289;
+    string routing_code = 292;
+    int64 exch_recv_time = 295; // execution recv time (from NIC timestamp)
+    int64 exch_stream_iD = 298; // exchStreamID / exchSeqNumber should be globally unique
+    int64 exch_seq_number = 301;
+    int64 transact_time = 304; // transact time (from the exch exec report)
+    google.protobuf.Timestamp timestamp = 307; // timestamp of this record
+}
+
+

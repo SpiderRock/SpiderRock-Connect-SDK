@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message BasketGroupAction {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 101; // default: User.DefaultAccnt
+    string cfirm = 102;
+    int64 risk_group_iD = 103; // should exist if basketAction=[StartAll,CancelAll,PauseAll or CloneAll]; blank otherwise
+    string new_accnt = 110; // used to clone a basket under a new account
+    string new_cfirm = 111; // used to clone a basket under a new cfirm
+    ToolBasketAction basket_action = 120;
+    string action_trace = 121; // (optional; logging only) info about the source of user action that led to to this message (eg, hot-key; click, etc.)
+    string clone_ord_key = 122; // order key (baseParentNumber) to clone (if basketAction=CloneOrdKey)
+    RiskFraction risk_fraction = 130;
+    RMetricSource risk_metric = 131;
+    float line_buy_size = 132;
+    float line_sell_size = 133;
+    BasketLimitType limit_type = 140;
+    BasketLimitRef limit_ref = 141;
+    BasketLimitUnits limit_units = 142;
+    float limit_offset = 143; // (+) is more aggressive; (-) more passive
+    google.protobuf.Timestamp ts = 144; // tool action send time (Dttm)
+}
+
+

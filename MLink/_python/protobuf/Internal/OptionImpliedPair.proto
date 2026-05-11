@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table contains current live NBBO prices and implied volatilites as well as greeks and SpiderRock surface volatilities/prices for all call/put pairs in the market.
+*/    
+message OptionImpliedPair {
+    message PKey {
+        
+        OptionKey okey = 10; // cp = Call
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    float uprc = 103; // underlier price (usually mid-market)
+    float years = 106; // years to expiration
+    float rate = 109; // interest rate
+    float sdiv = 112; // sdiv (stock dividend) rate
+    float ddiv = 115; // cumulative discrete dividend values
+    float symbol_ratio = 118; // effUPrc = uprc * symbolRatio
+    float strike_ratio = 121; // effStrike = okey_xx * strikeRatio
+    float cash_on_exercise = 124; // cash on exercise (multihedge only)
+    float x_axis = 127; // option xAxis moneyness
+    float axis_fUPrc = 130; // option xAxis Fwd UPrc
+    float axis_vol_rT = 133; // option xAxis moneyness volatility x sqrt(years)
+    float cbid = 136; // call option bid price
+    float cask = 139; // call option ask price
+    float cbiv = 142; // volatility implied by option bid price
+    float caiv = 145; // volatility implied by option ask price
+    float catm = 148; // call option atm volatility (from SR surface)
+    float cvol = 151; // call option surface volatility
+    float cprc = 154; // call option surface price
+    float cde = 157; // option delta (from cvol)
+    float cga = 160; // option gamma (from cvol)
+    float cth = 163; // option theta (from cvol)
+    float cve = 166; // option vega (from cvol)
+    float cro = 169; // option rho (from cvol)
+    float cph = 172; // option phi (from cvol)
+    float pbid = 175; // put option bid price
+    float pask = 178; // put option ask price
+    float pbiv = 181; // volatility implied by option bid price
+    float paiv = 184; // volatility implied by option ask price
+    float patm = 187; // put option atm volatility (from SR surface)
+    float pvol = 190; // put option surface volatility
+    float pprc = 193; // put option surface price
+    float pde = 196; // option delta (from pvol)
+    float pga = 199; // option gamma (from pvol)
+    float pth = 202; // option theta (from pvol)
+    float pve = 205; // option vega (from pvol)
+    float pro = 208; // option rho (from pvol)
+    float pph = 211; // option phi (from pvol)
+    string calc_err = 214; // option pricing error (if any)
+    CalcSource calc_source = 217;
+    google.protobuf.Timestamp timestamp = 220;
+}
+
+

@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MacroScanResult {
+
+
+    MessageMetadata _meta = 1;
+    
+    int64 macro_scan_iD = 100;
+    OptionKey okey = 103;
+    BuySell side = 106;
+    TickerKey ticker = 109;
+    string accnt = 112;
+    string client_firm = 341;
+    string omni_accnt = 115;
+    string client_accnt = 118;
+    string omni_client_accnt = 121;
+    string clearing_firm = 124;
+    string clearing_accnt = 127;
+    string client_tags = 130;
+    YesNo allocation_flag = 133;
+    YesNo open_parent_order = 136;
+    string accnt_rule_violations = 139;
+    string strategy = 142;
+    int32 order_size = 145;
+    string theo_model = 148;
+    string risk_reason = 151;
+    float order_ref_rMetric1 = 154; // user supplied RMetric1 value (used in RiskGroupID risk controls) [must be zero or positive]
+    float order_ref_rMetric2 = 157; // user supplied RMetric2 value (used in RiskGroupID risk controls) [must be zero or positive]
+    float order_ref_rMetric3 = 160; // user supplied RMetric3 value (used in RiskGroupID risk controls) [must be zero or positive]
+    float order_ref_rMetric4 = 163; // user supplied RMetric4 value (used in RiskGroupID risk controls) [must be zero or positive]
+    float order_ref_rMetric5 = 166; // user supplied RMetric5 value (used in RiskGroupID risk controls) [must be zero or positive]
+    int64 risk_group_id = 169; // all orders with the same riskGroupId share a common set of risk counters; .Grp. risk limits apply to these shared counters
+    float max_exp_day_wt_vega_ln = 184; // max accnt+expiration day (time weighted) vega long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_exp_day_wt_vega_sh = 187; // max accnt+expiration day (time weighted) vega short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_sym_day_wt_vega_ln = 190; // max acct+symbol day (time weighted) vega long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_sym_day_wt_vega_sh = 193; // max acct+symbol day (time weighted) vega short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_sym_day_dDelta_ln = 196; // max acct+symbol day $delta long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_sym_day_dDelta_sh = 199; // max acct+symbol day $delta short (positive number; -1=no limit); risk limit = max limit + current net counter
+    int32 max_grp_day_contracts_ln = 232; // max acct+riskGroup day contracts long (positive number; -1=no limit); risk limit = max limit - current net counter
+    int32 max_grp_day_contracts_sh = 235; // max acct+riskGroup day contracts short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_grp_day_rMetric1_ln = 202; // max acct+riskGroup day rMetric1 long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_grp_day_rMetric1_sh = 205; // max acct+riskGroup day rMetric1 short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_grp_day_rMetric2_ln = 208; // max acct+riskGroup day rMetric2 long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_grp_day_rMetric2_sh = 211; // max acct+riskGroup day rMetric2 short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_grp_day_rMetric3_ln = 214; // max acct+riskGroup day rMetric3 long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_grp_day_rMetric3_sh = 217; // max acct+riskGroup day rMetric3 short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_grp_day_rMetric4_ln = 220; // max acct+riskGroup day rMetric4 long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_grp_day_rMetric4_sh = 223; // max acct+riskGroup day rMetric4 short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float max_grp_day_rMetric5_ln = 226; // max acct+riskGroup day rMetric5 long (positive number; -1=no limit); risk limit = max limit - current net counter
+    float max_grp_day_rMetric5_sh = 229; // max acct+riskGroup day rMetric5 short (positive number; -1=no limit); risk limit = max limit + current net counter
+    float theo_edge = 238;
+    float theo_edge_rank = 241;
+    float surface_edge = 244;
+    float surface_edge_rank = 247;
+    float o_prob = 250;
+    float o_prob_rank = 253;
+    float o_prob10m = 256;
+    float o_prob10m_rank = 259;
+    float svol = 262;
+    float ve = 265;
+    float wv = 268; // wv = ve * svol;
+    float wv_t = 271; // wvT = wVega / Math.Sqrt(years / 0.25)
+    float xde = 274;
+    float mkt_cap = 277;
+    float mkt_cap_rank = 280;
+    float atm_change = 283;
+    float atm_change_rank = 286;
+    float ivol_change = 289;
+    float ivol_change_rank = 292;
+    float atm_slope = 295;
+    float atm_slope_rank = 298;
+    float atm_slope_change = 301;
+    float atm_slope_change_rank = 304;
+    float x_vol_slope = 307;
+    float x_vol_slope_rank = 310;
+    float u_prc_change = 313;
+    float u_prc_change_rank = 316;
+    float exp_open_vega = 319;
+    float exp_open_vega_rank = 322;
+    float exp_vega_vlm = 325;
+    float exp_vega_vlm_rank = 328;
+    float exp_vega_vlm_chg = 331;
+    float exp_vega_vlm_chg_rank = 334;
+    float open_wt_ve = 337;
+    float open_wt_ve_rank = 340;
+}
+
+

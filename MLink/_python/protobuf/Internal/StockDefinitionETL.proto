@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message StockDefinitionETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11; // all trading dates
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100; // securityID
+    int64 alt_security_iD = 103; // securityID from alternative vendor
+    string security_desc = 106;
+    int64 shares_outstanding = 112; // shares outstanding
+    google.protobuf.Timestamp timestamp = 115;
+}
+
+

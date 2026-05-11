@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Record indicates that either a SpdrParentOrder (Add or Replace) or FixParentCancel request failed
+*/    
+message SpdrFixParentReject {
+    message PKey {
+        
+        string alt_order_id = 10; // usually client FIX clOrdId
+        string src_routing_code = 11; // client FIX session
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 client_seq_num_in = 100;
+    string alt_prev_order_id = 103; // usually client FIX origClOrdId
+    int64 parent_number = 106;
+    string accnt = 109; // accnt
+    string client_firm = 134; // SR client firm
+    OptionKey sec_key = 112; // security key
+    SpdrKeyType sec_type = 115; // security type [Stock, Future, Option]
+    RejectType reject_type = 118;
+    SpdrOrderStatus spdr_order_status = 121;
+    SpdrCloseReason spdr_close_reason = 124;
+    SpdrRejectReason spdr_reject_reason = 127;
+    SpdrRiskLevel spdr_reject_level = 135;
+    string text = 130;
+    google.protobuf.Timestamp timestamp = 133;
+}
+
+

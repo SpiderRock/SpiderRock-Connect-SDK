@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RingChannelSubscribe {
+    message PKey {
+        
+        string address = 10;
+        uint32 port = 11;
+        int32 process_iD = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 app_iD = 100;
+    string app_name = 103;
+    RingProtocol ring_protocol = 106;
+    string ring_name = 109; // (optional) FIX may supply this value, MBUS/MKT will allow MMRHost to control it and return it as an ack = Yes
+    int32 geom_seg_count = 137; // (optional) FIX may supply this value, MBUS/MKT will allow MMRHost to control it and return it as an ack = Yes
+    uint32 geom_seg_sz = 138; // (optional) FIX may supply this value, MBUS/MKT will allow MMRHost to control it and return it as an ack = Yes
+    uint32 geom_seg_cap = 139;
+    uint32 geom_seg_pay_off = 140;
+    int32 geom_start_off = 141;
+    int32 local_port = 118; // (optional) FIX may supply this value, MBUS/MKT will allow MMRHost to control it and return it as an ack = Yes
+    YesNo is_unicast = 121;
+    MktDataFeed feed_source = 124;
+    MktDataFeedSide feed_side = 127;
+    MktIfAddr if_addr_request = 130; // Indicates that the feed handler is requesting a particular market data network interface
+    YesNo ack = 133;
+    google.protobuf.Timestamp timestamp = 136;
+}
+
+

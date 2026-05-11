@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Per-engine SpiderRock supervisory risk counters. Same data as SpdrRiskCounter but keyed by engine name for per-EE instance visibility.
+*/    
+message SpdrEngineRiskCounter {
+    message PKey {
+        
+        TickerKey ticker = 10; // '*-ANY-ANY' represents the entire control group
+        string risk_control_key = 11; // a SRClientAccnt if riskControlLevel=Accnt; a SRUser if riskControlLevel=User; a colon separated SRUser and SRClientAccnt if riskControlLevel=UserAccnt; a '*' if riskControlLevel=ClientFirm
+        RiskControlLevel risk_control_level = 12;
+        string risk_firm = 13;
+        YesNo is_test_accnt = 14;
+        string risk_engine = 15; // EE engine name
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 101; // original (source) sys environment [Stable, Current, etc]
+    float net_day_dDelta = 105; // net day $Delta
+    float abs_day_dDelta = 106; // absolute day $Delta, |ddBot| + |ddSld| position
+    float net_day_vega = 107; // net day Vega per
+    float abs_day_vega = 108; // absolute day Vega, |veBot| + |veSld| position
+    float net_day_wt_vega = 109; // net day WtVega
+    float abs_day_wt_vega = 110; // absolute day WtVega, |wvBot| + |wvSld| position
+    float net_day_nValue = 111; // net day Notional Value
+    float abs_day_nValue = 112; // absolute day Notional Value, |nvBot| + |nvSld| position
+    float net_day_rMetric7 = 113; // net day RiskMetric7
+    float abs_day_rMetric7 = 114; // absolute day RiskMetric7, |rm7Bot| + |rm7Sld| position
+    float day_stk_sh_sld = 130; // day stock shares sld
+    float day_stk_sh_bot = 131; // day stock shares bot
+    float day_opt_cn_bot = 132; // day option contracts bot
+    float day_opt_cn_sld = 133; // day option contracts sld
+    float day_fut_cn_bot = 134; // day future contracts bot
+    float day_fut_cn_sld = 135; // day future contracts sld
+    float net_day_dDelta_ema = 115; // 60s (half-life) EMA $delta
+    float net_day_wt_vega_ema = 116; // 60s (half-life) EMA wtVega
+    double ema_timestamp = 117;
+    float live_margin_day = 118; // live net (per symbol) day portfolio (day trades only) margin (can include external sources)
+    float live_open_exposure = 119; // live abs open child order $Delta (no netting) (open child orders only)
+    float day_margin_uDn_vDn = 120; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 121; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 122; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 123; // day margin (UPrcUp/VolUp)
+    int32 num_stk_child_orders = 124;
+    int32 num_fut_child_orders = 125;
+    int32 num_opt_child_orders = 126;
+    int32 num_mLeg_child_orders = 127;
+    int32 counter = 128;
+    google.protobuf.Timestamp timestamp = 129;
+}
+
+

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message VLanBridgeCheckpoint {
+    message PKey {
+        
+        string app_name = 10;
+        string message_type = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    VlanBridgeSynchMode sync_mode = 104;
+    int64 watermark = 105; // this is updated as the data comes over the bridge
+    int64 num_messages = 106;
+    google.protobuf.Timestamp timestamp = 103; // set on every publish
+    google.protobuf.Timestamp expires = 107; // can be used to force an expiration, default/min/max values will be ignored
+}
+
+

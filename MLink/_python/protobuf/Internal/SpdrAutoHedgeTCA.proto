@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrAutoHedgeTCA {
+    message PKey {
+        
+        google.protobuf.Timestamp trade_date = 10;
+        string accnt = 11;
+        string client_firm = 12;
+        string ticker = 13;
+        SpdrKeyType hedge_sec_type = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float sum_slippage_pn_l = 100;
+    int32 sum_abs_opt_cn = 101;
+    float sum_delta_traded = 102;
+    int32 sum_fill_size = 103;
+    float sum_m1_pn_l = 104;
+    float sum_day_pn_l = 105;
+}
+
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Use this to perform actions on Hedge Policy and AutoResponders
+*/    
+message LiveGridAction {
+    message ExcludeRows {
+        
+        int32 d_key = 105;
+    }
+
+    message IncludeRows {
+        
+        int32 d_key = 103;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    LiveGridDataSet d_set = 100;
+    LiveGridActionType action_type = 101;
+    google.protobuf.Timestamp timestamp = 107; // timestamp of when this message was sent to the server
+    string p_set_jSON = 108;
+    repeated ExcludeRows exclude_rows = 104;
+    repeated IncludeRows include_rows = 102;
+}
+
+

@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStreetExecution records are published by SpdrStreetGateways when child order fills are received.  These records update if busted or corrected by a downstream venue.
+*/    
+message SpdrStreetExecution {
+    message PKey {
+        
+        string fill_exec_id = 10; // ExecId<17> from execReport
+        string fill_exec_ref_id = 11;
+        string fill_leg_ref_id = 12;
+        string fill_message_id = 13;
+        string fill_last_mkt = 14;
+        string routing_code = 15;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string client_firm = 103;
+    int64 parent_number = 106; // parent number (if any available)
+    int64 base_parent_number = 109; // base parent number (start of parent cxl/replace chain)
+    string cl_ord_id = 112; // SR child order number (EE) [hex] (join w/SpdrStreetOrder.pkey.clOrdId)
+    int64 base_cl_ord_id = 115; // EE side base clOrdId (join w/SpdrChildOrder.pkey.clOrdId)
+    SpdrOrderShape order_shape = 118;
+    string order_ex_dest = 293;
+    OptionKey sec_key = 124; // from child order
+    SpdrKeyType sec_type = 127; // from child order
+    SpdrSource spdr_source = 130; // from child order
+    int64 grouping_code = 133; // from child order
+    string server_code = 136; // StreetGW ServerCode
+    string up_sender_comp_id = 139; // senderCompID/targetCompID of the StreetGW -> EE session
+    string up_target_comp_id = 142;
+    string up_sender_sub_id = 145; // senderSubID/targetSubID of the StreetGW -> EE session
+    string up_target_sub_id = 148;
+    google.protobuf.Timestamp street_session_date = 151;
+    int32 street_session_counter = 154;
+    int32 street_seq_num_out = 157;
+    string street_cl_ord_id = 160;
+    string order_id = 163;
+    string template_name = 166; // outbound order rewrite template name
+    string exch_security = 169; // Exchange symbol description necessary for translated securities
+    string security_desc = 172;
+    BuySell order_side = 175;
+    int32 order_size = 178;
+    double order_price = 181;
+    double exch_order_price = 184;
+    double exch_display_factor = 187;
+    string price_format = 190;
+    TimeInForce time_in_force = 193;
+    SpdrOrderType order_type = 196;
+    YesNo is_peg_limit = 199; // Yes if order sent to exchange with a Market or 'Peg' style limit (returned in exec report)
+    YesNo is_held = 202; // Yes if order sent to exchange marked "Held"
+    YesNo is_directed = 205; // Yes if order sent to exchange directed to a specific exchange, as opposed to a smart router
+    string fill_cl_ord_id = 208;
+    string fill_cross_id = 211;
+    string fill_quote_id = 214;
+    string fill_symbol = 217;
+    string fill_security_iD = 220; // fix tag 48
+    string fill_sec_iDSource = 223; // fix tag 22
+    string fill_security_desc = 226; // fix tag 107
+    string fill_security_type = 229; // fix tag 167
+    google.protobuf.Timestamp fill_maturity_date = 232; // composite of 541, 200, 205,
+    double fill_strike = 235; // fix tag 202
+    string fill_put_or_call = 238; // fix tag 201
+    string exec_type = 241;
+    string exec_trans_type = 244;
+    int32 version = 247; // cancel/correct version number (initial fill is version=1)
+    google.protobuf.Timestamp fill_dttm = 250; // fill DateTime (from SRDateTime)
+    string fill_account = 253;
+    string fill_side = 256; // fill side (from execReport.side)
+    int32 fill_size = 259; // fill size (from execReport.lastSize)
+    double fill_price = 262; // fill price (from execReport.lastPrice)
+    google.protobuf.Timestamp fill_transact_dttm = 265; // fill DateTime (from execReport.fillDttm)
+    string fill_sRLiq_tag = 268; // fill SR normalized liquidity tag
+    string fill_exch_liq_tag = 271; // fill exchange liquidity code
+    string fill_exch_detail = 274; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    string fill_firm_type = 277; // fill firm type (as reported from street side)
+    string fill_exec_broker = 280; // fill execution broker (as reported from street side)
+    string fill_order_capacity = 283; // fill order capacity (as reported from street side)
+    string fill_street_text = 286;
+    CompletionType completion_type = 294; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 295;
+    double completion_price = 296; // completion trade price (final trade price)
+    OptionKey completion_sec_key = 297; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+    SpdrKeyType completion_sec_type = 298; // usually Future or Option (None if not yet valid)
+    int64 sgw_timestamp = 289; // street gateway arrival timestamp
+    google.protobuf.Timestamp timestamp = 292;
+}
+
+

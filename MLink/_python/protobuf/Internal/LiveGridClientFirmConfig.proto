@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridClientFirmConfig {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100;
+    ClientFirmStatus client_firm_status = 101;
+    google.protobuf.Timestamp client_firm_status_dttm = 102;
+    ClientFirmType client_firm_type = 103;
+    string client_firm_name = 104;
+    string client_firm_short_code = 105;
+    ClientFirmRelationship client_firm_relationship = 106;
+    string rep_code_sR = 107;
+    string core_client_firm = 108;
+    string sponsor_client_firm = 109;
+    SysVersion enabled_in = 110;
+    SysRegion enabled_in_region = 111;
+    YesNo enable_srse_prod = 112;
+    YesNo enable_srse_product_snapshots = 113;
+    string billing_account = 114;
+    string billing_schedule = 115;
+    string legal_entity_id = 116;
+    string sec_large_trader_id = 117;
+    string mifid_firm_id = 118;
+    AuthType auth_type = 119;
+    string auth_extern_name = 120;
+    YesNo can_have_trading_accnt = 121;
+    YesNo restrict_locate_upload = 122;
+    YesNo restrict_autohedge = 123;
+    YesNo cxl_risk_group_on_review_hedge_reject = 124;
+    YesNo drop_all_parent_tags = 125;
+    YesNo view_gICS = 126;
+    YesNo view_cUSIP = 127;
+    string modified_by = 128;
+    SysEnvironment modified_in = 129;
+    google.protobuf.Timestamp timestamp = 130;
+    YesNo is_prod = 131; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 132; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 133; // WTS synthetic: alert message (null if no alert)
+}
+
+

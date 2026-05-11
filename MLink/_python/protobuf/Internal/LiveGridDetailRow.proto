@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridDetailRow {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+    message Column {
+        
+        int32 pk = 107; // unique hash corresponding this particular column
+        string nm = 108; // column name
+        string vv = 103; // column value (formatted as a string using vset format, core.def format or a default format)
+        int64 ll = 104; // column as a long (if backing store in integral and inclNum is set in the vset for this column)
+        double dd = 105; // column as a double (if backing store is floating point and inclNum is set in the vset for this column)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp ts = 106;
+    repeated Column column = 100;
+}
+
+

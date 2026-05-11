@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message CurrentUserInfo {
+    message PKey {
+        
+        string user_name = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    UserType user_type = 100; // Type of User
+    string client_firm = 103;
+    string product_aCL = 106; // List of product tokens this user has access to
+    string market_data_aCL = 109; // List of market data tokens this user has access to
+    string primary_accnt = 112; // Default account for this user
+}
+
+

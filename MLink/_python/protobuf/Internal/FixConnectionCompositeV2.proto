@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message FixConnectionCompositeV2 {
+    message PKey {
+        
+        string routing_code = 10; // matches routingCode from routeDefinition
+        SysEnvironment sys_environment = 11;
+        string sender_comp_id = 12;
+        string target_comp_id = 13;
+        string sender_sub_id = 14;
+        string target_sub_id = 15;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100; // sysRealm [NMS, CME, etc.]
+    string machine_name = 103; // name of the machine which is hosting fix server
+    string server_code = 106; // server responsible for handling these routes
+    string ip_addr = 109;
+    int32 ip_port = 112;
+    string if_addr = 115;
+    string ip_addr2 = 118;
+    int32 ip_port2 = 121;
+    string if_addr2 = 124;
+    SessionType session_type = 127; // type of session
+    RouteControl route_control = 130; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    ConnectType connect_type = 133;
+    google.protobuf.Timestamp connect_dttm = 136; // most recent connection initiated / accepted
+    int32 num_connects = 139; // number of fix connections today
+    int32 num_test_requests = 142; // number test requests, an indicator of line quality
+    FixBaseSessionState session_state = 145;
+    FixBaseSequenceState sequence_state = 148;
+    FixBaseTransportState transport_state = 151;
+    google.protobuf.Timestamp session_date = 154; // session start date (Sun for Weekly sessions)
+    int32 session_counter = 157; // increments each time sequence numbers are reset
+    int32 incoming_seq_num = 160;
+    int32 outgoing_seq_num = 163;
+    int32 num_msg_rcvd = 166;
+    int32 num_msg_sent = 169;
+    int32 num_hb_rcvd = 172;
+    int32 num_hb_sent = 175;
+    int32 num_logon_rcvd = 178;
+    int32 num_logon_sent = 181;
+    int32 num_app_msg_rcvd = 184;
+    int32 num_app_msg_sent = 187;
+    google.protobuf.Timestamp last_logon_rcvd = 190;
+    string last_source = 193;
+    string last_detail = 196;
+    int32 num_errors = 199;
+    string last_error = 202;
+    google.protobuf.Timestamp last_error_dttm = 205;
+    MonitorCode monitor_code = 208;
+    google.protobuf.Timestamp timestamp = 211;
+}
+
+

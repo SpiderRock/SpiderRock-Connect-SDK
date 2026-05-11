@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message PricingRequestExpiry {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        int32 requestor = 11; // unique ID assigned to requestor (usually AppId)
+    }
+
+    message Dividends {
+        
+        DateKey date = 136; // exDiv date
+        float amount = 139; // dividend amount
+    }
+
+    message Rates {
+        
+        uint32 days = 127; // calendar days
+        float rate = 130; // discount rate (continuously compounded; 365 days per year)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    CalcModelType calc_model = 100;
+    ExerciseType exercise_type = 103;
+    google.protobuf.Timestamp today = 106;
+    google.protobuf.Timestamp expiry = 109;
+    float sdiv = 112; // continuous dividend rate applied to pricing
+    float rate = 115; // global borrow rate
+    int32 s_days_t = 118;
+    int32 s_days_e = 121;
+    RequestParam rate_param = 142;
+    RequestParam sdiv_param = 145;
+    RequestParam ddiv_param = 148;
+    RequestParam sday_param = 151;
+    google.protobuf.Timestamp timestamp = 154;
+    repeated Dividends dividends = 133;
+    repeated Rates rates = 124;
+}
+
+

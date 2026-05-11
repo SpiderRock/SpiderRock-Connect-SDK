@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: StockDividendCalendarHistoryETL + StockTradingCalendarETL
+    CalcEngine: Spark/ETL
+*/    
+message StockDividendHistoryETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trade_date = 12; // dividend ex-date (past)
+    }
+
+    message History {
+        
+        DateKey div_date = 117; // dividend date
+        float div_value = 118; // dividend payment amount
+        string div_currency = 119;
+        DivKind div_kind = 120;
+        DivFreq div_freq = 121;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 115;
+    repeated History history = 116;
+}
+
+

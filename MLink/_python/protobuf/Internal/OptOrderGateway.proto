@@ -1,0 +1,193 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records inserted, updated, or replaced into the OptionOrderGateway table are validated and then converted to SpdrParentOrder records and forwarded to the appropriate execution engine for futher processing.  Parent orders can be inserted as either active/ready or in a wait start mode that requires subsequent release.
+    See the SpiderRock Execution Engine concept guide for more details.
+*/    
+message OptOrderGateway {
+    message PKey {
+        
+        OptionKey okey = 10; // SR Option Key
+        string accnt = 11; // SR Account (default = primary account associated with SRSE login)
+        BuySell order_side = 12; // Parent Order Size
+        int64 grouping_code = 13; // Parent Grouping Code
+        string client_firm = 14;
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 581;
+        InclExclDisclose incl_excl = 582;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrActionType spdr_action_type = 103; // [Add (new order), AddReplace (add or replace order), Cancel (cxl existing), Replace (update existing only), Release (modify order active size)]
+    string alt_order_id = 106; // Alternate client order ID.  This order ID will be copied to all execution reports.
+    string alt_auto_hedge_id = 109; // alternate order ID for child autohedge orders (if any)
+    string alt_accnt = 112; // alternate (client assigned) "long" account string (optional) [used to map between client and SR account strings]
+    string alt_user_name = 115; // alternate (client assigned) user name (optional) [used to map between client and SR account strings]
+    string accnt_route_code = 118; // accntRoute acronym
+    string exec_brkr_code = 576;
+    string extern_ex_dest = 577; // routing code for orders directed to an external order router (default = null); should match FixRoutingTable.destination (in SR accnt config)
+    string extern_params = 124; // external algo names/parameters (usually just an algo name)
+    string strategy = 127; // Client strategy string.  This value will appear on the SR Trade Monitor and in execution reports.
+    string strategy_accnt = 583; // SR strategy account (option; if exists will be validated)
+    YesNo visible_in_sV = 585; // allow order to be visible in SV (do not use for high volume of orders)
+    google.protobuf.Timestamp order_dttm = 133; // order entry time (from client;if any)
+    int32 order_size = 136; // parent order size (contracts) [-1 = no change;used when spdrActionType=Release]
+    int32 order_active_size = 139; // total activated size (total size released for execution) (-1 = all available size)
+    YesNo add_cum_fill_quantity = 142; // If Yes then OrderSize is calculated @ order arrival as requested OrderSize + existing 'CumFillQuantity'.
+    int64 exch_mask = 586; // eligible exchanges (0 = all)
+    int32 max_exposure_size = 148; // maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    int32 num_make_exchanges = 151; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
+    PublicSizeHandling public_size = 154; // public order size handling: None=use default size handling (usually limits public size to 'typical' market size); Randomize=randomize public size; MktSize=expose only 'typical' market size; FullSize=expose entire order size where possible
+    YesNo randomize_size = 157; // randomize public order size
+    YesNo can_overlap_cxl_repl = 160; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
+    ProgressRule progress_rule = 163; // None = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
+    int32 twap_slice_cnt = 166; // [ProgressSliceCnt] number of progress slices to use. if none given will compute based on active size and duration. [max 20]
+    int32 progress_expose_time = 169; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
+    AuctionResponder auction_responder = 172; // if set, parent order can be an auction responder
+    float max_make_exch_fee = 175; // maximum making exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    float max_take_exch_fee = 178; // maximum taking exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    IncExchFee inc_take_exch_fee = 181; // include exchange fee in probability and surface based take limit calculations
+    IncExchFee inc_make_exch_fee = 184; // include exchange fee in probability and surface based make limit calculations
+    MakeExchRule make_exch_rule = 187; // ActiveMaker exchange preference rule: 'MaxPart' will pick exchanges to maximize participation; 'FeeOrder' will pick exchanges to minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO.
+    TriggerType trigger_type = 190; // type of trigger (PrintVol/SurfVol only for options) [print = print or actionable quote]
+    float trigger_level = 193; // stop/trigger price for parent order to go active
+    UPrcCxl cxl_uPrc_range = 196; // cancel parent order if/when outside min/max uPrc range [_Halt = also cancel if the security/underlier has been halted]
+    float min_uBid = 199; // [optional]
+    float max_uAsk = 202; // [optional] (< $0.01 = none)
+    MinMaxType min_max_type = 205; // if Prc minUBid/maxUAsk are expressed as prices; if Pct then they are expresses as pct change since parent order arrival
+    float min_option_px = 208; // [optional] option price floor for tied to stock orders
+    int32 max_child_orders = 211; // maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
+    SpdrStageType spdr_stage_type = 214; // SizeLock = stage pending modification (can reduce size); SizeModify = stage pending modification (can increase/reduce size)
+    MarketSession market_session = 572;
+    google.protobuf.Timestamp start_dttm = 220; // [optional] (parent order start time)
+    int32 order_duration = 223; // [optional] (number of seconds)
+    int32 active_duration = 573; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 226; // [optional] (default: 2000-01-01)
+    StartType start_type = 229; // [WaitTrigger]
+    ParentOrderHandling parent_order_handling = 235;
+    ParentBalanceHandling parent_balance_handling = 238;
+    AtsVisibility ats_visibility = 589; // for BlockAuction orders, visibility (to responders) is neither, side only, or side + price
+    InclExclDisclose include_sRNetwork = 579;
+    int64 notice_number = 587; // required when parentOrderHandling = AtsResponse
+    BuySell resp_side = 588;
+    SpdrLimitType order_limit_type = 241; // Various (Prc, PrcDe, Vol, Rel, Market); establishes the primary LimitPrice for a parent order
+    SpdrLimitClass take_limit_class = 244; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    SpdrLimitClass make_limit_class = 247; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    ReachRule take_reach_rule = 250; // None = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    double order_prc_limit = 253; // Applies if LimitType = Prc[]
+    double order_ref_uPrc = 256; // default=underlier.mid
+    float order_ref_delta = 259; // default=option.delta
+    float order_ref_gamma = 262; // default=option.gamma
+    float order_vol_limit = 265; // Applies if LimitType = Vol[] [uses SR dividends and borrow rates]
+    float rate_override = 268; // zero = ignore;> zero = override
+    float sdiv_override = 271; // Default: 0.
+    string ddiv_override = 274; // Discrete dividend string override ([yearsToExpiry,divYears:divAmount,divYears:divAmount, ...])
+    OverrideCode override_code = 277; // override default SR dividend and rate details (only used if LimitType = Vol)
+    double order_prc_offset = 280; // default=0
+    float order_ref_event_mult = 283;
+    google.protobuf.Timestamp order_ref_event_dttm = 286;
+    AlphaType take_alpha_type = 289; // Applies if takeLimitClass = Probability
+    AlphaType make_alpha_type = 292; // Applies if makeLimitClass = Probability
+    float take_alpha_factor = 295; // [-2,+2] takeProbLimit = MAX(takeProbability, takeProbAvg + takeAlphaFactor * takeProbStd) [if takeAlphaType = Relative]
+    float make_alpha_factor = 298; // [-2,+2] makeProbLimit = MAX(makeProbability, makeProbAvg + makeAlphaFactor * makeProbStd) [if makeAlphaType = Relative]
+    float take_probability = 301; // takeProbLimit = takeProbability [if takeAlphaType = Static]
+    float make_probability = 304; // makeProbLimit = makeProbability [if makeAlphaType = Static]
+    double take_surf_prc_offset = 307; // default=0
+    float take_surf_vol_offset = 310; // default=0
+    float take_surf_width_offset = 313; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
+    double make_surf_prc_offset = 316; // default=0
+    float make_surf_vol_offset = 319; // default=0
+    float make_surf_width_offset = 322; // [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
+    AutoHedge auto_hedge = 325;
+    HedgeInstOrig hedge_instrument = 328; // Default=underlier (EQT or FUT) [Index Options use ETF]; FrontMonth=underlier (EQT) or front month (FUT) [Index Options use FM Fut]; Stock=hedgeSecKey; Future=hedgeSecKey (DirectStock, DirectFuture, and FutUnderlier are depricated)
+    ExpiryKey hedge_fKey = 331; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
+    float hedge_beta_ratio = 334; // portion of executed $delta to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0])
+    HedgeScope hedge_scope = 337;
+    MarketSession hedge_session = 574;
+    YesNo hedge_fill_uMark_lmt_prc = 584; // set a price limit on the autohedge order based on the most recent option fillUMark
+    PositionType position_type = 343;
+    ShortSaleFlag ssale_flag = 346; // Used to determine stock auto-hedge flags.
+    FirmType firm_type = 349; // Used to override firmType in account config. Default: None (use SpiderRock account configuration).
+    float theo_vol = 352; // client supplied theoretical volatility (used for markup only)
+    int64 risk_group_id = 397; // All group (grp) risk limits below are relative to this riskGroupId.  Default: 0 (none).  Required to be non-zero if `autoHedge` is something other than None.
+    YesNo req_aux_risk_group_ctrl = 575;
+    RMetricSource ref_rMetric1_src = 355;
+    RMetricSource ref_rMetric2_src = 358;
+    RMetricSource ref_rMetric3_src = 361;
+    RMetricSource ref_rMetric4_src = 364;
+    RMetricSource ref_rMetric5_src = 367;
+    RMetricSource ref_rMetric6_src = 370;
+    RMetricSource ref_rMetric7_src = 373;
+    float order_ref_rMetric1 = 376; // user supplied RMetric1 value (used in RiskGroupID risk controls) [netRMetric1 = sum(fillQty * orderRefRMetric1 * underlierPerCn)]
+    float order_ref_rMetric2 = 379; // user supplied RMetric2 value (used in RiskGroupID risk controls) [netRMetric2 = sum(fillQty * orderRefRMetric2 * underlierPerCn)]
+    float order_ref_rMetric3 = 382; // user supplied RMetric3 value (used in RiskGroupID risk controls) [netRMetric3 = sum(fillQty * orderRefRMetric3 * underlierPerCn)]
+    float order_ref_rMetric4 = 385; // user supplied RMetric4 value (used in RiskGroupID risk controls) [netRMetric4 = sum(fillQty * orderRefRMetric4 * underlierPerCn)]
+    float order_ref_rMetric5 = 388; // user supplied RMetric5 value (used in RiskGroupID risk controls) [netRMetric5 = sum(fillQty * orderRefRMetric5 * underlierPerCn)]
+    float order_ref_rMetric6 = 391; // user supplied RMetric6 value (used in ExpDay risk controls) [netRMetric6 = sum(fillQty * orderRefRMetric6 * underlierPerCn)]
+    float order_ref_rMetric7 = 394; // user supplied RMetric7 value (used in SymDay risk controls) [netRMetric7 = sum(fillQty * orderRefRMetric7 * underlierPerCn)]
+    float exp_day_wt_vega_offset = 424; // max acct+symbol day wtVega offset (target)
+    float max_exp_day_wt_vega_ln = 418; // max accnt+expiration day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_exp_day_wt_vega_sh = 421; // max accnt+expiration day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float max_exp_day_rMetric6_ln = 454; // max acct+expiration day rMetric6 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_exp_day_rMetric6_sh = 457; // max acct+expiration day rMetric6 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float sym_day_dDelta_offset = 451; // max acct+symbol day $delta offset (target)
+    float max_sym_day_dDelta_ln = 445; // max acct+symbol day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_sym_day_dDelta_sh = 448; // max acct+symbol day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float sym_day_vega_offset = 433; // max acct+symbol day vega offset (target)
+    float max_sym_day_vega_ln = 427; // max acct+symbol day vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_sym_day_vega_sh = 430; // max acct+symbol day vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float sym_day_wt_vega_offset = 442; // max acct+symbol day wtVega offset (target)
+    float max_sym_day_wt_vega_ln = 436; // max acct+symbol day (time weighted) vega long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_sym_day_wt_vega_sh = 439; // max acct+symbol day (time weighted) vega short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float max_sym_day_rMetric7_ln = 463; // max acct+symbol day rMetric7 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_sym_day_rMetric7_sh = 466; // max acct+symbol day rMetric7 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_dDelta_ln = 472; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_dDelta_sh = 475; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_vega_ln = 478; // max acct+riskGroup day vega long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_vega_sh = 481; // max acct+riskGroup day vega short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_vega_abs = 484; // max acct+riskGroup day vega abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_vega_ratio = 487; // target bot / sld ratio (eg ratio=2.0 means that neutral is bot vega = 2x sld vega)
+    int32 max_grp_day_contracts_ln = 538; // max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_contracts_sh = 541; // max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_contracts_abs = 544; // max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    int32 max_grp_day_fut_contracts_ln = 590; // max acct+riskGroup day fut contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_fut_contracts_sh = 591; // max acct+riskGroup day fut contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_fut_contracts_abs = 592; // max acct+riskGroup day fut contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float max_grp_day_rMetric1_ln = 502; // max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric1_sh = 505; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric1_abs = 508; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_rMetric1_ratio = 511; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
+    float max_grp_day_rMetric2_ln = 514; // max acct+riskGroup day rMetric2 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric2_sh = 517; // max acct+riskGroup day rMetric2 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric3_ln = 520; // max acct+riskGroup day rMetric3 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric3_sh = 523; // max acct+riskGroup day rMetric3 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric4_ln = 526; // max acct+riskGroup day rMetric4 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric4_sh = 529; // max acct+riskGroup day rMetric4 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric5_ln = 532; // max acct+riskGroup day rMetric5 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric5_sh = 535; // max acct+riskGroup day rMetric5 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float sym_ema_cxl_dDelta_ln = 547; // max acct+symbol 60s EMA $delta long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
+    float sym_ema_cxl_dDelta_sh = 550; // max acct+symbol 60s EMA $delta short (positive number; <= 0 is no limit)
+    float sym_ema_cxl_wt_vega_ln = 553; // max acct+symbol 60s EMA wtVega long (positive number; <= 0 is no limit) [will immediately cxl all option orders in a symbol if any order in the symbol breaches]
+    float sym_ema_cxl_wt_vega_sh = 556; // max acct+symbol 60s EMA wtVega short (positive number; <= 0 is no limit)
+    string trader_name = 559; // Name of the trader associated with the order
+    string user_data1 = 562; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 565; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string child_data = 568; // client supplied data field; passes through to down stream child orders
+    int32 checksum = 571; // Must be set to 13.  This helps detect some column/value misalignments.
+    repeated DirectedCounterParty directed_counter_party = 580;
+}
+
+

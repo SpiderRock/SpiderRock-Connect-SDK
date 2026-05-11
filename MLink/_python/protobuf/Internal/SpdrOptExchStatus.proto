@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrOptExchStatus {
+    message PKey {
+        
+        OptExch opt_exch = 10;
+        string server_code = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrExchState spdr_exch_state = 100;
+    AutoExchState auto_exch_state = 103;
+    string exch_exception = 106;
+    int32 num_open_child_orders = 109;
+    int32 num_child_orders_sent = 112;
+    float exchange_msg_rate = 115;
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

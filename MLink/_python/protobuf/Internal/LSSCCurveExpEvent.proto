@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LSSCCurveExpEvent {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string app_name = 100;
+    string stripe = 103;
+    CurveExpResult result = 106;
+    string detail = 109;
+    SurfaceResult setup_result = 112;
+    SurfaceResult price_fit_result = 115;
+    SurfaceResult u_off_result = 118;
+    SurfaceResult s_div_result = 121;
+    SurfaceResult spline_result = 124;
+    int32 c_cnt = 127;
+    int32 p_cnt = 130;
+    int32 num_publish = 133;
+    int32 num_passes = 136;
+    double sum_elapsed = 139;
+    double max_elapsed = 142;
+    google.protobuf.Timestamp timestamp = 145;
+}
+
+

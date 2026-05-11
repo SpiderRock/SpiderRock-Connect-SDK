@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridPosScannerDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string c_firm = 101;
+    string sec_key = 156; // conditionally formatted secKey based on secType
+    string sec_key_ticker_src = 157;
+    string sec_key_asset_type = 158;
+    SecType sec_type = 103;
+    TickerKey ticker = 104;
+    string pos_dir = 105; // current direction: LN or SH
+    ExpCode exp_code = 106;
+    int32 unit_cur_pos = 110;
+    int32 sh_opn_pos = 111;
+    int32 cn_opn_pos = 112;
+    int32 fc_opn_pos = 113;
+    int32 cn_bot = 114;
+    int32 cn_sld = 115;
+    float cn_atm_equiv = 116;
+    int32 days = 120; // WTS-computed: trading days to expiry (years * 252)
+    float prc_years = 121; // years to expiry
+    int32 e_days = 122; // days to next earnings [-5, +30]
+    int32 d_days = 123; // days to next dividend
+    float day_pnl = 130;
+    float day_dn_pnl = 131;
+    float opn_pnl_vol_mark = 132;
+    float opn_pnl_mid_mark = 133;
+    float opn_pnl_clr_mark = 134;
+    float total_pnl = 135; // WTS-computed: opnPnlVolMark + dayPnl + exDiv
+    float opn_pnl_de = 140;
+    float opn_pnl_ga = 141;
+    float opn_pnl_th = 142;
+    float opn_pnl_ve = 143;
+    float opn_pnl_err = 144;
+    float pos_delta = 150;
+    float pos_dDelta = 151;
+    float pos_gamma = 152;
+    float pos_dGamma = 153;
+    float pos_vega = 154;
+    float pos_wt_vega = 155;
+    float pos_theta = 159;
+    float pos_rho = 160;
+    float atm_vol = 170;
+    float sym_vol = 171;
+    float sr_slope = 172;
+    float opn_theo_edge = 173;
+    float pos_theo_edge = 174;
+    float t_edge = 175;
+    float x_delta = 176;
+    SkewCode skew_code = 177;
+    iVolRange i_vol_range = 178;
+    float pos_mkt_value = 180;
+    float pos_notional = 181;
+    float point_value = 182;
+    Currency point_currency = 183;
+    float u_prc_move = 190;
+    float i_vol_move = 191;
+    float beta = 192;
+    string sector = 193;
+    float su05 = 200; // P&L @ underlier +5%
+    float sd05 = 201; // P&L @ underlier -5%
+    float su10 = 202; // P&L @ underlier +10%
+    float sd10 = 203; // P&L @ underlier -10%
+    float su15 = 204; // P&L @ underlier +15%
+    float sd15 = 205; // P&L @ underlier -15%
+    float su50 = 206; // P&L @ underlier +50%
+    float sd50 = 207; // P&L @ underlier -50%
+    float su1e = 208; // P&L @ +1x implied earnings move
+    float sd1e = 209; // P&L @ -1x implied earnings move
+    int32 scan_rank = 220; // WTS-computed: rank within filtered result set
+    float scan_sort_value = 221; // WTS-computed: value of sortBy field used for ranking
+    string view_group1 = 230;
+    string view_group2 = 231;
+    string view_group3 = 232;
+    string risk_class = 233;
+    YesNo is_prod = 234; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 235; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 236; // WTS synthetic: alert message (null if no alert)
+}
+
+

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OptionTradeSheetVset {
+    message ExpiryKeys {
+        
+        ExpiryKey exp_key = 112; // Expiry key
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 103; // (Optional) Account for associated positions
+    string client_firm = 110;
+    double range_start = 106; // (Optional) First strike price of the visible window
+    double range_end = 109; // (Optional) Last strike price of the visible window
+    repeated ExpiryKeys expiry_keys = 111;
+}
+
+

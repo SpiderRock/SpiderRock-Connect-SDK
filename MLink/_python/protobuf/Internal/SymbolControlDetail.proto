@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SymbolControlDetail {
+    message PKey {
+        
+        string accnt = 10;
+        TickerKey ticker = 11;
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string sector = 100;
+    string risk_class = 103;
+    OptStatus opt_status = 106;
+    StkStatus stk_status = 109;
+    HoldReason hold_reason = 112;
+    float binary_days = 115;
+    string route_accnt = 118;
+    int32 ind_num = 121;
+    int32 sub_num = 124;
+    int32 grp_num = 127;
+    int32 nbr_num = 130;
+    string name = 133;
+    SymbolType symbol_type = 136;
+    TapeCode tape_code = 139;
+    float market_cap = 142;
+    float stock_volume = 145;
+    float base_vol = 148; // from stock risk rec : from earn mult fit (<0.75 yrs)
+    float option_volume = 151;
+    float open_interest = 154;
+    string exch_string = 157;
+    int32 num_options = 160;
+    YesNo has_theo = 163;
+    float stock_px = 166; // note: this info is typically added "on the fly" by the app server and is derived
+    int32 abs_cn_pos = 169; // from other records
+    int32 net_sh_pos = 172;
+    string locate_firm = 175;
+    string locate_pool = 178; // locate pool @ firm granting the locate
+    int32 locate_quan = 181;
+    YesNo gc_flag = 184;
+    float gc_rate = 187;
+    float borrow_rate = 190;
+    float dividend_amt = 193;
+    int32 next_earnings = 196;
+    DivKind div_kind = 199;
+    DateKey div_date = 202; // ex-dividend date
+    string modified_by = 205; // user who last modified this record
+    SysEnvironment modified_in = 208;
+    google.protobuf.Timestamp timestamp = 211; // timestamp of last modification
+}
+
+

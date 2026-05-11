@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ProblemReport {
+    message PKey {
+        
+        int32 process_id = 10;
+        google.protobuf.Timestamp process_start = 11;
+        string machine_name = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 svn_revision = 100;
+    string app_name = 103;
+    string process_name = 106;
+    string user_name = 109;
+    ProblemReportLevel level = 112;
+    string category = 115;
+    string details = 118;
+    string call_stack = 121;
+}
+
+

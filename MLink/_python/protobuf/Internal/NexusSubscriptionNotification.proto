@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message NexusSubscriptionNotification {
+    message PKey {
+        
+        string subscriber_instance_name = 10;
+        YesNo response = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 subscriber_app_id = 100;
+    string error_text = 103;
+}
+
+

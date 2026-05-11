@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message PositionsTableData {
+    message PKey {
+        
+        ExpiryKey fkey = 10; // Future expiry key (for futures/options-on-futures; null for equities/equity-options)
+        OptionKey okey = 11; // Option key (for options-on-futures/equity-options; null for futures/equities)
+        TickerKey ticker = 12; // Ticker key (for equities/equity-options; null for futures/options-on-futures)
+        SpdrKeyType sec_type = 13; // Row category: Stock, Future, or Option (future options and equity options both as Option; null for summary rows)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string pos = 100; // FUTURES: fcAbsCurPos | EQUITIES: shOpnPos + shBot - shSld | OPTION: cnNetCurPos (signed)
+    string clr_risk = 101; // FUTURES: fcAbsOpnClr | EQUITIES: shOpnPosClr
+    string sr_pos = 102; // FUTURES: fcAbsOpnPrv | EQUITIES: shOpnPosPrv
+    string bot = 103; // FUTURES: fcBot | EQUITIES: shBot
+    string sld = 104; // FUTURES: fcSld | EQUITIES: shSld
+    string day_pnl = 105; // FUTURES: fcPnlDay + opPnlDay | EQUITIES: stPnlDay + opPnlDay
+    string clr_pnl = 106; // FUTURES: fcPnlClr + opPnlClr | EQUITIES: stPnlClr + opPnlClr
+    string mid_pnl = 107; // FUTURES: fcPnlMid + opPnlMid | EQUITIES: stPnlMid + opPnlMid
+    string vol_pnl = 108; // opPnlVol (for options-on-futures/equity-options only)
+    string brk_pnl = 109; // FUTURES: opPnlBrk + (fcPnlMid-fcPnlClr) | EQUITIES: opPnlBrk
+    string pnl_de = 110; // FUTURES/EQUITIES: pnlDe | OPTION: opnPnlDe
+    string pnl_ga = 111; // FUTURES/EQUITIES: pnlGa | OPTION: opnPnlGa
+    string pnl_th = 112; // FUTURES/EQUITIES: pnlTh | OPTION: opnPnlTh
+    string pnl_ve = 113; // FUTURES/EQUITIES: pnlVe | OPTION: opnPnlVe
+    string pnl_er = 114; // FUTURES/EQUITIES: pnlErr | OPTION: opnPnlErr
+    string mk_clr_pr = 115; // futOpnClrMark (futures) | stkOpnClrMark (equities) | optOpnClrMark (options)
+    string mk_mid_pr = 116; // futOpnMidMark (futures) | stkOpnMidMark (equities) | optOpnMidMark (options)
+    string mk_volpr = 121; // iVolPr (for options-on-futures/equity-options only)
+    string mrk_vol = 122; // optVolMark (for options-on-futures/equity-options only)
+    string mrk_mid = 123; // optMidMark (for options-on-futures/equity-options only)
+    string alert_string = 124; // riskAlert (for options-on-futures/equity-options only)
+    string prem_par = 125; // premOvPar (for options-on-futures/equity-options only)
+    string calc_err = 126; // FUTURES: numFutErrors | EQUITIES: numStkErrors
+    string delta = 127; // FUTURES/EQUITIES: summary.delta | OPTION: position delta (de * cnNetCurPos * underliersPerCn)
+    string h_delta = 128; // OPTION only: OptionPositionRecordV5.hedgeDe
+    string gamma = 129; // FUTURES/EQUITIES: summary.gamma | OPTION: position gamma
+    string theta = 130; // FUTURES/EQUITIES: summary.theta | OPTION: position theta
+    string vega = 131; // FUTURES/EQUITIES: summary.vega | OPTION: position vega
+    string w_vega = 132; // FUTURES/EQUITIES: summary.wVega | OPTION: position wVega
+    string sd90 = 133; // uPrc -90%
+    string sd50 = 134; // uPrc -50%
+    string sd15 = 135; // uPrc -15%
+    string sd05 = 136; // uPrc -0.5%
+    string su05 = 137; // uPrc +0.5%
+    string su15 = 138; // uPrc +15%
+    string su50 = 139; // uPrc +50%
+    string su90 = 140; // uPrc +90%
+    string span01 = 141; // span1
+    string span02 = 142;
+    string span03 = 143;
+    string span04 = 144;
+    string span05 = 145;
+    string span06 = 146;
+    string span07 = 147;
+    string span08 = 148;
+    string span09 = 149;
+    string span10 = 150;
+    string span11 = 151;
+    string span12 = 152;
+    string span13 = 153;
+    string span14 = 154;
+    string span15 = 155;
+    string span16 = 156;
+    string sd2e = 157; // sdn2e: uPrc dn 2x earn
+    string su2e = 158; // sup2e: uPrc up 2x earn
+    string v_earn = 159; // vEarn: earn slide
+    string v_cash = 160; // vCash: cash slide
+    string i_vol = 162; // iVol
+    string de = 163; // de
+    string ga = 164; // ga
+    string th = 165; // th
+    string ve = 166; // ve
+    string wv = 167; // ve * iVol
+    string i_src = 168; // iVolSrc (MarkSource)
+    string opt_err = 169; // err (option computation error)
+    string sl = 170; // veSlope
+    string i_vol_prc = 171; // iVolPr
+    string de_pr = 172; // dePr
+    string ga_pr = 173; // gaPr
+    string th_pr = 174; // thPr
+    string ve_pr = 175; // vePr
+    string we_pr = 176; // vePr * iVolPr
+    string err_pr = 177; // errPr
+    string sl_pr = 178; // veSlopePr
+    string hge_de_pr = 179; // hedgeDePr
+    string update_tm = 180; // timestamp
+    string w_vega_t = 181; // wtVega (FutureRiskSummaryV5 / SymbolRiskSummaryV5)
+    string pnl_te = 182; // pnlTe
+    string t_edge = 183; // tEdge
+    string t_edge_pr = 184; // tEdgePr
+    string pnl_dn = 185; // pnlDn
+    string pos_tEdge_pnl = 186; // posTEdgePnl
+    string neg_tEdge_pnl = 187; // negTEdgePnl
+    string bad_tEdge_pnl = 188; // badTEdgePnl
+    string pos_tEdge_wV = 189; // posTEdgeWV
+    string neg_tEdge_wV = 190; // negTEdgeWV
+    string bad_tEdge_wV = 191; // badTEdgeWV
+    string num_tVol_errors = 192; // numTVolErrors
+    string t_vol = 193; // tVol (OptionPositionRecordV5)
+    string t_opx = 194; // tOpx (OptionPositionRecordV5)
+    string t_de = 195; // tDe (OptionPositionRecordV5)
+    string t_vol_pr = 196; // tVolPr (OptionPositionRecordV5)
+    string t_opx_pr = 197; // tOpxPr (OptionPositionRecordV5)
+    string t_de_pr = 198; // tDePr (OptionPositionRecordV5)
+}
+
+

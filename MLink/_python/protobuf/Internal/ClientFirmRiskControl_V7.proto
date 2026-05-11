@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: ClientFirmRiskControl
+    V8 Message Name:
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:ClientFirmRiskControl
+*/    
+message ClientFirmRiskControl_V7 {
+    message PKey {
+        
+        string client_firm = 5000; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float max_day_dDelta_ln = 5001; // ONLY V7: [float] --- Original comment: $delta (day trades only)  [if <= 0 check is disabled]
+    float max_day_dDelta_sh = 5002; // ONLY V7: [float]
+    float max_day_dDelta_abs = 5003; // ONLY V7: [float]
+    float max_day_vega_ln = 5004; // ONLY V7: [float] --- Original comment: vega (day trades only)  [if <= 0 check is disabled]
+    float max_day_vega_sh = 5005; // ONLY V7: [float]
+    float max_day_vega_abs = 5006; // ONLY V7: [float]
+    float max_day_wt_vega_ln = 5007; // ONLY V7: [float] --- Original comment: wt vega (vol * vega / time) (day trades only) [if <= 0 check is disabled]
+    float max_day_wt_vega_sh = 5008; // ONLY V7: [float]
+    float max_day_wt_vega_abs = 5009; // ONLY V7: [float]
+    string user_name = 5010; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA]
+    SysEnvironment modified_in = 5011; // ONLY V7: [enum,Name=SysEnvironment,Values=None=0,Neptune=1,Pluto=2,V7_Stable=3,V7_Latest=4,Saturn=5,Venus=6,Mars=7,SysTest=8,V7_Current=9]
+    google.protobuf.Timestamp timestamp = 5012; // ONLY V7: [DateTime] --- Original comment: timestamp of latest change
+}
+
+

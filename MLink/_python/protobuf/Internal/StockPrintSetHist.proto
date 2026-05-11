@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    StockPrintSet records are created for each print and archived when T+10M markup detail is available.
+*/    
+message StockPrintSetHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        google.protobuf.Timestamp timestamp = 11;
+        int64 prt_number = 12; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    DateKey trading_date = 103;
+    TradingSession trading_session = 106;
+    StkExch prt_exch = 109; // print exch
+    float prt_size = 112; // print size
+    float prt_price = 115; // print price level
+    int32 prt_cluster_num = 118; // incremental print cluster counter (one counter per ticker; used to group prints into clusters)
+    double prt_cluster_size = 121; // cumulative size of prints in this sequence (prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    double prt_volume = 215; // cumulative print size today
+    float mrk_price = 127; // last regular market print price
+    int32 prt_type = 130; // OPRA message type (from OPRA spec)
+    int32 prt_cond1 = 133; // print condition (from SIP feed)
+    int32 prt_cond2 = 136;
+    int32 prt_cond3 = 139;
+    int32 prt_cond4 = 142;
+    PrtSide prt_side = 145; // Print side: None; Mid; Bid; Ask
+    int64 prt_timestamp = 148; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 151; // inbound print packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    float bid_price = 154; // nbbo bid @ print arrival time
+    float ask_price = 157; // nbbo ask @ print arrival time
+    int32 bid_size = 160;
+    int32 ask_size = 163;
+    float bid_price2 = 166; // nbbo 2nd best bid @ print arrival time
+    float ask_price2 = 169; // nbbo 2nd best ask @ print arrival time
+    int32 bid_size2 = 172; // nbbo 2nd best bid size
+    int32 ask_size2 = 175; // nbbo 2nd best ask size
+    float prt_probability = 178; // probability that buying prtSize shares @ prtPrice will have positive m1 pnl (prtPriceM1 >= prtPrice) [recorded at time of print]
+    float prt_probability_m2 = 181; // alternate probability model
+    float prt_probability_m3 = 184; // alternate probability model
+    float bid_price_m1 = 187; // Bid price +1 minute
+    float ask_price_m1 = 190; // Ask price +1 minute
+    float prt_price_m1 = 193; // market price +1 minute [mid-quote if not intervening prints;most recent print otherwise]
+    float pnl_m1 = 196; // pnl after 1 minute
+    YesNo pnl_m1_err = 199;
+    float bid_price_m10 = 202; // Bid price +10 minutes
+    float ask_price_m10 = 205; // Ask price +10 minutes
+    float prt_price_m10 = 208; // market price +10 minutes [most recent print (if any) otherwise mid-quote]
+    float pnl_m10 = 211; // pnl after 10 minutes
+    YesNo pnl_m10_err = 214;
+}
+
+

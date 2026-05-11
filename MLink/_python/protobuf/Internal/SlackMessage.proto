@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SlackMessage {
+    message PKey {
+        
+        int64 message_number = 10; // SR Message Number (SR Guid)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string recipient_name = 100; // name of recipient for message
+    SlackType slack_type = 101; // specify how to send message
+    string message = 102;
+    string send_source = 103;
+    string delivery_error = 104;
+    google.protobuf.Timestamp delivery_dttm = 105;
+    string modified_by = 106; // user who last modified this recrd
+    google.protobuf.Timestamp timestamp = 107; // timestamp of last modification
+}
+
+

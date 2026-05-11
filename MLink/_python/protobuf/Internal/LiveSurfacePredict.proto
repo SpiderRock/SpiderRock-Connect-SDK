@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveSurfacePredict {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        string model = 11; // model archive name
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float min_xAxis = 100; // minimum xAxis value; xAxis values to the left extrapolate horizontally
+    float max_xAxis = 103; // maximum xAxis value; xAxis values to the right extrapolate horizontally
+    float u_mid = 106;
+    float atm_vol = 109; // atm vol (xAxis = 0)
+    float skew_c00 = 112; // skew coeff @ knot point
+    float skew_c01 = 115; // skew coeff @ knot point
+    float skew_c02 = 118; // skew coeff @ knot point
+    float skew_c03 = 121; // skew coeff @ knot point
+    float skew_c04 = 124; // skew coeff @ knot point
+    float skew_c05 = 127; // skew coeff @ knot point
+    float skew_c06 = 130; // skew coeff @ knot point
+    float skew_c07 = 133; // skew coeff @ knot point
+    float skew_c08 = 136; // skew coeff @ knot point
+    float skew_c09 = 139; // skew coeff @ knot point
+    float skew_c10 = 142; // skew coeff @ knot point
+    float skew_c11 = 145; // skew coeff @ knot point
+    float skew_c12 = 148; // skew coeff @ knot point
+    float skew_c13 = 151; // skew coeff @ knot point
+    float skew_c14 = 154; // skew coeff @ knot point
+    float skew_c15 = 157; // skew coeff @ knot point
+    float skew_c16 = 160; // skew coeff @ knot point
+    float skew_c17 = 163; // skew coeff @ knot point
+    float skew_c18 = 166; // skew coeff @ knot point
+    float skew_c19 = 169; // skew coeff @ knot point
+    float skew_c20 = 172; // skew coeff @ knot point
+    float skew_c21 = 175; // skew coeff @ knot point
+    float skew_c22 = 178; // skew coeff @ knot point
+    float skew_c23 = 181; // skew coeff @ knot point
+    float skew_c24 = 184; // skew coeff @ knot point
+    float skew_c25 = 187; // skew coeff @ knot point
+    float skew_c26 = 190; // skew coeff @ knot point
+    float skew_c27 = 193; // skew coeff @ knot point
+    float skew_c28 = 196; // skew coeff @ knot point
+    float skew_c00_p = 199; // skew coeff @ knot point
+    float skew_c01_p = 202; // skew coeff @ knot point
+    float skew_c02_p = 205; // skew coeff @ knot point
+    float skew_c03_p = 208; // skew coeff @ knot point
+    float skew_c04_p = 211; // skew coeff @ knot point
+    float skew_c05_p = 214; // skew coeff @ knot point
+    float skew_c06_p = 217; // skew coeff @ knot point
+    float skew_c07_p = 220; // skew coeff @ knot point
+    float skew_c08_p = 223; // skew coeff @ knot point
+    float skew_c09_p = 226; // skew coeff @ knot point
+    float skew_c10_p = 229; // skew coeff @ knot point
+    float skew_c11_p = 232; // skew coeff @ knot point
+    float skew_c12_p = 235; // skew coeff @ knot point
+    float skew_c13_p = 238; // skew coeff @ knot point
+    float skew_c14_p = 241; // skew coeff @ knot point
+    float skew_c15_p = 244; // skew coeff @ knot point
+    float skew_c16_p = 247; // skew coeff @ knot point
+    float skew_c17_p = 250; // skew coeff @ knot point
+    float skew_c18_p = 253; // skew coeff @ knot point
+    float skew_c19_p = 256; // skew coeff @ knot point
+    float skew_c20_p = 259; // skew coeff @ knot point
+    float skew_c21_p = 262; // skew coeff @ knot point
+    float skew_c22_p = 265; // skew coeff @ knot point
+    float skew_c23_p = 268; // skew coeff @ knot point
+    float skew_c24_p = 271; // skew coeff @ knot point
+    float skew_c25_p = 274; // skew coeff @ knot point
+    float skew_c26_p = 277; // skew coeff @ knot point
+    float skew_c27_p = 280; // skew coeff @ knot point
+    float skew_c28_p = 283; // skew coeff @ knot point
+    float skew_c00_f = 286; // skew coeff @ knot point
+    float skew_c01_f = 289; // skew coeff @ knot point
+    float skew_c02_f = 292; // skew coeff @ knot point
+    float skew_c03_f = 295; // skew coeff @ knot point
+    float skew_c04_f = 298; // skew coeff @ knot point
+    float skew_c05_f = 301; // skew coeff @ knot point
+    float skew_c06_f = 304; // skew coeff @ knot point
+    float skew_c07_f = 307; // skew coeff @ knot point
+    float skew_c08_f = 310; // skew coeff @ knot point
+    float skew_c09_f = 313; // skew coeff @ knot point
+    float skew_c10_f = 316; // skew coeff @ knot point
+    float skew_c11_f = 319; // skew coeff @ knot point
+    float skew_c12_f = 322; // skew coeff @ knot point
+    float skew_c13_f = 325; // skew coeff @ knot point
+    float skew_c14_f = 328; // skew coeff @ knot point
+    float skew_c15_f = 331; // skew coeff @ knot point
+    float skew_c16_f = 334; // skew coeff @ knot point
+    float skew_c17_f = 337; // skew coeff @ knot point
+    float skew_c18_f = 340; // skew coeff @ knot point
+    float skew_c19_f = 343; // skew coeff @ knot point
+    float skew_c20_f = 346; // skew coeff @ knot point
+    float skew_c21_f = 349; // skew coeff @ knot point
+    float skew_c22_f = 352; // skew coeff @ knot point
+    float skew_c23_f = 355; // skew coeff @ knot point
+    float skew_c24_f = 358; // skew coeff @ knot point
+    float skew_c25_f = 361; // skew coeff @ knot point
+    float skew_c26_f = 364; // skew coeff @ knot point
+    float skew_c27_f = 367; // skew coeff @ knot point
+    float skew_c28_f = 370; // skew coeff @ knot point
+    int32 counter = 373;
+    google.protobuf.Timestamp timestamp = 376;
+}
+
+

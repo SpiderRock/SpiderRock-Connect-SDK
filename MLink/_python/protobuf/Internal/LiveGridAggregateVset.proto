@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridAggregateVset {
+    message AggKey {
+        
+        string cn = 109; // column name (aggregation key)
+        LiveGridSortDir sd = 110; // sort direction
+        int32 so = 111; // sort order: 1,2,3
+    }
+
+    message CfAccnt {
+        
+        string c_firm = 102;
+        string accnt = 103;
+    }
+
+    message Column {
+        
+        string nm = 129; // agg column name for calculated aggregate (should be the spec agg column label:xxx)
+        string fmt = 115; // optional format string (C# Format)
+        LiveGridSortDir sd = 116; // sort direction
+        int32 so = 117; // sort order: 1,2,3
+        AggType tp = 130; // Aggregation for column; Cnt(*), Sum(e1), Min(e1), Max(e1), Avg(e1), RoS(e1/e2);  note:  RoS(e1,e2) = Sum(e1)/Sum(e2); Avg(e1) = Rat(e1,1);
+        string e1 = 131; // row expression#1: eg; "cname1", "EQ(cname1, "string") * cname2"
+        string e2 = 132; // row expression#2: eg; "cname3", ""EQ(cname1, "string") * cname2" (only applies for tp=Rat
+    }
+
+    message HMetric {
+        
+        string nm = 134; // output column name (e.g., "riskMin")
+        HMetricFn fn = 135; // aggregation function: Min=0, Max=1
+        string cols = 136; // comma-separated source column names
+    }
+
+    message IKeys {
+        
+        string i_key = 128; // ikey[0] OR ikey[1] OR ikey[2], etc.
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    LiveGridDataSet d_set = 100;
+    int32 ikey_slot = 127; // secondary index slot 1 or 2 (defintion of slot 1 and slot 2 dataset specific; typically slot 1 is ticker but ???)
+    string where = 107;
+    int32 st_pos = 124; // position of 1st return row (post sort)
+    int32 num_rows = 125; // maximum number of return rows
+    string p_set_jSON = 126; // JSON block containing xxxPSet record (xxx corresponds to dSet)
+    string summary_types = 137; // comma-separated: "min,max,avg,sum" or empty
+    repeated AggKey agg_key = 108;
+    repeated CfAccnt cf_accnt = 101;
+    repeated Column column = 112;
+    repeated HMetric h_metric = 133;
+    repeated IKeys i_keys = 104;
+}
+
+

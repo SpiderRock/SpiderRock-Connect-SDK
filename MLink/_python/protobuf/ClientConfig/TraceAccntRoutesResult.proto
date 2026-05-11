@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TraceAccntRoutesResult {
+    message PKey {
+        
+        int64 trace__job = 10;
+        int32 trace__number = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 request_iD = 100; // reflected from TraceAccntRoutes request
+    string user_name = 101; // user requesting the route trace
+    google.protobuf.Timestamp timestamp = 102; // event create timestamp
+    string accnt = 103;
+    string client_firm = 104;
+    TickerKey ticker = 105;
+    SpdrKeyType sec_type = 106;
+    TraceType trace__type = 107;
+    string trace__exec_brkr_code = 108;
+    string trace__route_ex_dest = 109;
+    MktSessionFlag trace__mkt_session = 110; // specific market session(s) to trace (default is regular market session)
+    string trace__extern_ex_dest = 111; // pOrder.externExDest
+    EETraceCat ee_trace_cat = 112;
+    string ex_dest = 113;
+    string ex_dest2 = 114;
+    string exec_brkr_code = 115; // execBrkrCode we are tracing
+    string results = 116; // trace line result
+    string other_comments = 117;
+    string delivery_status = 118; // delivery instruction(s) status
+    string exec_engine__name = 119;
+    AutoEngineState exec_engine__state = 120;
+    string aC__account_status = 121; // SR account type (omnibus accounts are expected to be flat at the end of the day)
+    string aC__accnt_name = 122; // account name
+    string aEG__key = 123; // exchGroup/secType
+    RouteAllocRule aEG__route_alloc_rule = 124;
+    string aEGI__route_entry = 125;
+    string aRC__client_coding = 126;
+    RoutingRule aRC__routing_rule = 127;
+    string aRC__route_pos = 128;
+    string aRC__extern_params = 129; // pass through params (must be understood by end point handler) usually [tag=value;tag=value;tag=value]
+    string aRC__exec_brkr_coding = 130; // exec broker account (supplied by exec broker) (usually Account<1>)
+    string aRC__clr_flip_ex_dest = 131; // exchange (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+    string aRC__clr_flip_coding = 132; // type of clearing corp delivery
+    string aRC__clr_flip_brkr_mPID = 133; // clearing broker MPID (forwarded option exchanges for the equity leg of MLegTied orders)
+    string aRCI__routing_code = 134; // routing session code (is a RouteDefinition.pkey.routingCode) [RouteDefinition.execBrkrCode must match execBrkrCode]
+    string rD__connection = 135;
+    string rD__template_name = 136; // name of FixMsgTemplate (rewrite template) used for this session (if any)
+    DeliveryCoding rD__delivery_coding = 137; // (street side routes only) indicates what style of delivery instruction coding this session utilizes (coding is implemented inside each template)
+    string rD__session_giveup_firm = 138; // primary (default) session giveup/clearing firm (eg. 659)
+    string rD__status = 139; // current (live) route session status (from the EE's perspective)
+    string rDI__ex_dest = 140; // exchange (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+    string rDI__ticker_list = 141;
+    TradingPeriod rDI__trading_period = 142; // only required if this exDest has more specific trading hours that ticker -> tickerDefinition -> tradingHours
+    int32 rDI__msg_rate = 143; // maximum message rate per second for this route (<= zero nothing low priority will be routed to this exDest)
+    SecTypeFlag rDI__sec_type = 144; // Tied = MLeg w/Stock
+    YesNo rDI__order_entry = 145; // can handle normal order entry messages
+    YesNo rDI__active_maker = 146; // can handle active making (ActiveMaker algo) order entry messages
+    MktSessionFlag rDI__mkt_session = 147;
+    YesNo rDI__mkt_auction = 148; // can handle exchange SOD/EOD (eg. MarketOnClose) auctions
+    CrossHandlingFlag rDI__cross_handling = 149;
+    CrossAttrFlag rDI__cross_attributes = 150; // can process ISO crosses; can instruct exDest to sweep away markets; can accept allocation inst on cross order; can cross FLEX options
+    OtherMsgFlag rDI__other_msgs = 151;
+    YesNo rDI__stage_review = 152;
+}
+
+

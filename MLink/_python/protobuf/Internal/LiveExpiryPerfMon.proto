@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveExpiryPerfMon {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        SurfaceModel surface_model = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string sample_date = 100; // sample date
+    string sample_time = 101; // sample time (15 minute blocks)
+    int32 sample_count = 102;
+    int32 num_tradeable = 142; // number samples where the surface was tradeable
+    float atm_sVol_msc = 143; // atm sVol mean sq change
+    float atm_sDiv_msc = 144; // atm sDiv mean sq change
+    int32 num_itm_strikes = 145; // number of ITM strikes sampled
+    int32 num_otm_strikes = 146; // number of OTM strikes sampled
+    int32 c_itm_bid_miss = 147; // number of call ITM bid violations (sVol outside the market)
+    int32 c_itm_ask_miss = 148; // number of call ITM ask violations (sVol outside the market)
+    int32 p_itm_bid_miss = 149; // number of put ITM bid violations (sVol outside the market)
+    int32 p_itm_ask_miss = 150; // number of put ITM ask violations (sVol outside the market)
+    int32 c_otm_bid_miss = 151; // number of call OTM bid violations (sVol outside the market)
+    int32 c_otm_ask_miss = 152; // number of call OTM ask violations (sVol outside the market)
+    int32 p_otm_bid_miss = 153; // number of put OTM bid violations (sVol outside the market)
+    int32 p_otm_ask_miss = 154; // number of put OTM ask violations (sVol outside the market)
+    int32 pnl_miss_cnt = 155; // bid/ask miss pnl count
+    float pnl_miss_sum = 156; // bid/ask miss pnl sum
+    int32 core_ct = 157;
+    float core_sVol_msc = 158; // avg of all [0.20 - 0.80] de (core) strikes [sVol(T+1) - sVol(T)] (mean sq change)
+    float core_mVol_msc = 159; // avg of all [0.20 - 0.80] de (core) strikes [midV(T+1) - midV(T)] (mean sq change)
+    float core_vCrx_msc = 160; // avg of all [0.20 - 0.80] de (core) strikes [midV(T+1) - sVol(T)] (mean sq change)
+    int32 num_prints_dD = 161; // cpXDe < -0.45
+    float avg_prt_err_dD = 162; // avg: prtPrc - surfacePrc (AUTO ONLY)
+    float std_prt_err_dD = 163; // std: prtPrc - surfacePrc (AUTO ONLY)
+    int32 num_prints_dN = 164; // cpXDe: [-0.45, -0.15)
+    float avg_prt_err_dN = 165;
+    float std_prt_err_dN = 166;
+    int32 num_prints_aT = 167; // cpXDe: [-0.15, +0.15]
+    float avg_prt_err_aT = 168;
+    float std_prt_err_aT = 169;
+    int32 num_prints_uP = 170; // cpXDe: (+0.15, +0.45]
+    float avg_prt_err_uP = 171;
+    float std_prt_err_uP = 172;
+    int32 num_prints_dU = 173; // cpXDe > +0.45
+    float avg_prt_err_dU = 174;
+    float std_prt_err_dU = 175;
+    google.protobuf.Timestamp timestamp = 141;
+}
+
+

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TraceAccntRoutes {
+    message PKey {
+        
+        string user_name = 10; // user requesting the route trace
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 request_iD = 100; // (optional) client request ID (should be an SR GUID)
+    string accnt = 101; // (required)
+    string client_firm = 102; // (required)
+    TickerKey ticker = 103; // ticker that routes should be traced for (required) (can be stock ticker, option root, or future ccode)
+    TraceType trace_type = 104;
+    SpdrKeyType sec_type = 105; // default is [Stock + Future + Option + MLeg]
+    string exec_brkr_code = 106; // specific execBrkrCode to trace (blank = all available)
+    string route_ex_dest = 107; // specific routeDef.exDest to trace (blank = all available)
+    MktSessionFlag mkt_session = 108; // specific market session(s) to trace (default is regular market session)
+    string p_order__extern_ex_dest = 109; // pOrder.externExDest
+    google.protobuf.Timestamp timestamp = 110; // event create timestamp
+}
+
+

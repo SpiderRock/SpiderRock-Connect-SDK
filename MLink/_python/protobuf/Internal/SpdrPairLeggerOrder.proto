@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrPairLeggerOrder {
+    message PKey {
+        
+        int64 order_number = 10; // pair legger order number (should be an SR Guid)
+    }
+
+    message Legs {
+        
+        OptionKey sec_key = 125; // leg Security (can be a stock, future, optExpiry, or option) [must be the same for all legs] [cp can be call, put, or both if secType = optExpiry]
+        LeggerSecType sec_type = 126; // note: stock/stock, stock/future, future/future, optExpiry/optExpiry or option/option are allowed
+        uint32 ratio = 127; // leg ratio (note: can be in shares, contracts, vega, wvega, tvega, or wtvega terms) (optExpiry must be in one of the xVega choices)
+        LegPriority leg_priority = 128; // Lead leg(s) fill first (note: if there are no lead legs the first leg in the list will be treated as the lead leg)
+        PositionType pos_type = 129; // note: must be Auto for optExpiry (not required for stock)
+        ShortSaleFlag ssale_flag = 130; // only for stock legs (and autohedging)
+        HedgeInst hedge_instrument = 131;
+        ExpiryKey hedge_sec_key = 132; // autohedge instrument (can be a TickerKey (stock) or ExpiryKey (future)) [required for Stock and Future]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrSource spdr_source = 100;
+    string accnt = 101; // SR trading account
+    string client_firm = 102; // SR client firm
+    PairCtrlState pair_ctrl_state = 103;
+    string strategy = 104; // client-supplied strategy string; visible on SpiderRock GUI tools and other order reports.
+    string user_name = 105; // name of the user entering the order
+    int32 order_size = 106; // pair size (number of complete spreads)
+    double legger_limit = 107; // pair limit
+    LeggerLimitType legger_limit_type = 108; // pair limit type (stock: Price, future: Price, optExpiry: AtmVol only, option: StrikeVol)
+    LeggerAlgo legger_algo = 109;
+    LegRatioType leg_ratio_type = 110; // vega = ve * qty * pv; wVega = vol * ve * qty * pv; tVega = ve / Max(4 * years, 0.1) * qty * pv; wtVega = vol * ve / Max(4 * years, 0.1) * qty * pv
+    uint32 num_atm_strikes = 111; // number of OptExpiry atm strikes [max 6]
+    float leg_exposure_pct = 112; // percentage of legger order size than can be exposed on a single leg without completing related legs
+    double leg_completion_slippage = 113; // maximum leg slippage to complete an open pair order (in leggerLimitType units)
+    MarketSession market_session = 114;
+    int32 order_duration = 115; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 116; // [optional] (default: 2099-01-01)
+    double max_mkt_pct_move = 117; // [optional] if any leg stock price, future price, or option underlier price moves more than maxMktPctMove from values at order activation then the entire order will be automatically put on hold
+    AutoHedge auto_hedge = 118; // only for optExpiry/optExpiry and option/option pairs
+    MarketSession hedge_session = 119;
+    string user_data1 = 120; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 121; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string child_data = 122; // client supplied data field; passes through to down stream child orders
+    google.protobuf.Timestamp timestamp = 123;
+    repeated Legs legs = 124;
+}
+
+

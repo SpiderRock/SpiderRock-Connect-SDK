@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SystemAccessHistory {
+    message PKey {
+        
+        string user_name = 10;
+        string product_code = 11;
+        MarketDataToken market_data_token = 12;
+        string access_date = 13;
+        string server_name = 14;
+        SysEnvironment sys_environment = 15; // original (source) sys environment [Stable, Current, etc]
+        SysRealm sys_realm = 16; // original (source) sysRealm [NMS, CME, etc.]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    UserType user_type = 100;
+    string client_firm = 103;
+    int32 num_access_attempts = 106;
+    google.protobuf.Timestamp timestamp = 109; // access timestamp
+}
+
+

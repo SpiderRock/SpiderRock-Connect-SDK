@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockEarnCalendarHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey interval_end_date = 11; // e.g. Quarterly earnings announced on 20200710 is likely for quarter ending June 2020 -> 20200601 (month and year)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    IntervalType interval_type = 103;
+    DateKey earn_date = 106; // date/time of earnings announcement
+    EarnTime earn_time = 109;
+    EarnType earn_type = 112;
+    GuidanceIssued guidance_issued = 115;
+    google.protobuf.Timestamp guidance_dttm = 118; // most recent guidance (if any) issued prior to earnings release (if known)
+    float earn_pct_move = 121; // underlying move in the trading period including the event (only available when earnType = 'Released')
+    DateKey trade_date = 124; // e.g. IBM 20200720 earnings AMC would store OHLC data for 20200721
+    float prv_close = 127; // closing price prior to earnings announcement
+    float open = 130; // opening price (day of announcement)
+    float high = 133; // high price (day of announcement)
+    float low = 136; // low price (day of announcement)
+    float close = 139; // close price (day of announcement)
+    float i_eMove = 142; // implied earnings move prior to announcement (historical dates only))
+    float h_eMove = 145; // historical average (trailing 8) earnings moves prior to announcement (historical only)
+    google.protobuf.Timestamp timestamp = 148;
+}
+
+

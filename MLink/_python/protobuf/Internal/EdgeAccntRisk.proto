@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    risk-to-edge
+*/    
+message EdgeAccntRisk {
+    message PKey {
+        
+        string accnt = 10; // SR assigned accnt code
+        string cfirm = 11; // SR assigned client firm acronym
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo subscribe = 100;
+    int64 timestamp = 103;
+}
+
+

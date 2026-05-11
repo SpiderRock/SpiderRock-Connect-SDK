@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message BandStrategyAccntScanTrigger {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100;
+    string client_firm = 116;
+    string strategy_name = 103; // if blank, use strategy name associated with accnt
+    int64 scan_number = 106;
+    string user_name = 109;
+    google.protobuf.Timestamp timestamp = 112;
+    ScanAction action = 115;
+}
+
+

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table allows clients to enter start-of-day positions, and quantity bot/sld today for each market.  AggGroup is a code issued by SpiderRock to indentify the aggregation group that the reported positions and trades belong to. This will usually be your SpiderRock assigned ClientFirm code unless your firm has more than one aggregation unit.  Note that start-of-day positions can be truncated if the truncation will not affect order marking.  Contact SpiderRock support for details if this is what you intend.
+*/    
+message ExternAggGroupGateway {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11; // Security Type [Stock, Future, Option]
+        string agg_group = 12; // SpiderRock-assigned aggGroup identifier (up to 16 characters) [stkAggGroup, futAggGroup, or optAggGroup] (defaults to ClientFirm if blank)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100; // client firm of the user who entered this record via SRSE;blank otherwise
+    int32 open_position = 103; // start-of-day position (aggregate firm position for all accnts in this aggGroup) [can be truncated if necessary]
+    OpenPosType open_pos_type = 106; // note: if set to Truncated trading will be suspended when total quantity traded today would flip position from long to short or visa-versa
+    int32 bot_quantity = 109; // quantity bot today (can be zero if reported via execution drops)
+    int32 sld_quantity = 112; // quantity sld today (can be zero if reported via execution drops)
+    google.protobuf.Timestamp timestamp = 115;
+}
+
+

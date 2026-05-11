@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SymbolRiskCounter {
+    message PKey {
+        
+        TickerKey ticker = 13;
+        string accnt = 14;
+        string user_name = 15;
+        int64 risk_group_id = 16;
+        string risk_engine = 17; // EE engine name
+        DateKey trade_date = 12;
+        string risk_firm = 18;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 103; // original (source) sys environment [Stable, Current, etc]
+    ChangeReason change_reason = 377;
+    YesNo is_test_accnt = 378;
+    float stk_qty_sld_short = 381;
+    float stk_qty_opn_sell = 382;
+    float stk_qty_opn_short = 383;
+    float stk_qty_bot_filled = 384; // fills only
+    float stk_qty_sld_filled = 385; // fills only
+    float stk_qty_bot_ioc_filled = 386; // fills + IOC leaves
+    float stk_qty_sld_ioc_filled = 387; // fills + IOC leaves
+    float fut_qty_bot_filled = 388; // fills only
+    float fut_qty_sld_filled = 389; // fills only
+    float fut_qty_bot_ioc_filled = 390; // fills + IOC leaves
+    float fut_qty_sld_ioc_filled = 391; // fills + IOC leaves
+    float opt_qty_bot_filled = 392; // fills only
+    float opt_qty_sld_filled = 393; // fills only
+    float opt_qty_bot_ioc_filled = 394; // fills + IOC leaves
+    float opt_qty_sld_ioc_filled = 395; // fills + IOC leaves
+    float dd_bot_ioc_filled = 396; // fills + IOC leaves
+    float dd_sld_ioc_filled = 397; // fills + IOC leaves
+    float ve_bot_ioc_filled = 398; // fills + IOC leaves
+    float ve_sld_ioc_filled = 399; // fills + IOC leaves
+    float wt_ve_bot_ioc_filled = 400; // fills + IOC leaves
+    float wt_ve_sld_ioc_filled = 401; // fills + IOC leaves
+    float nv_bot_ioc_filled = 402; // fills + IOC leaves (notional value)
+    float nv_sld_ioc_filled = 403; // fills + IOC leaves (notional value)
+    float rm1_bot_ioc_filled = 404; // fills + IOC leaves
+    float rm1_sld_ioc_filled = 405; // fills + IOC leaves
+    float rm2_bot_ioc_filled = 406; // fills + IOC leaves
+    float rm2_sld_ioc_filled = 407; // fills + IOC leaves
+    float rm3_bot_ioc_filled = 408; // fills + IOC leaves
+    float rm3_sld_ioc_filled = 409; // fills + IOC leaves
+    float rm4_bot_ioc_filled = 410; // fills + IOC leaves
+    float rm4_sld_ioc_filled = 411; // fills + IOC leaves
+    float rm5_bot_ioc_filled = 412; // fills + IOC leaves
+    float rm5_sld_ioc_filled = 413; // fills + IOC leaves
+    float rm6_bot_ioc_filled = 414; // fills + IOC leaves
+    float rm6_sld_ioc_filled = 415; // fills + IOC leaves
+    float rm7_bot_ioc_filled = 416; // fills + IOC leaves
+    float rm7_sld_ioc_filled = 417; // fills + IOC leaves
+    float net_day_dDelta_ema = 418; // 60s (half-life) EMA $delta
+    float net_day_wt_vega_ema = 419; // 60s (half-life) EMA wtVega
+    double ema_timestamp = 420; // time of last counter update
+    float live_open_exposure = 423; // live abs open child order $Delta (no netting) (open child orders only)
+    float day_margin_uDn_vDn = 424; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 425; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 426; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 427; // day margin (UPrcUp/VolUp)
+    float acc_margin_uDn_vDn = 428; // acc margin (UPrcDn/VolDn)
+    float acc_margin_uDn_vUp = 429; // acc margin (UPrcDn/VolUp)
+    float acc_margin_uUp_vDn = 430; // acc margin (UPrcUp/VolDn)
+    float acc_margin_uUp_vUp = 431; // acc margin (UPrcUp/VolUp)
+    int32 acc_fut_cn_net = 436; // accnt future contracts (net) [can be +/-] (start-of-day positions + day trades)
+    int32 num_stk_child_orders = 432;
+    int32 num_fut_child_orders = 433;
+    int32 num_opt_child_orders = 434;
+    int32 num_mLeg_child_orders = 435;
+    int32 counter = 373;
+    google.protobuf.Timestamp timestamp = 376;
+}
+
+

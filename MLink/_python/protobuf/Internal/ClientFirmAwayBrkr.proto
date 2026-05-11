@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ClientFirmAwayBrkr {
+    message PKey {
+        
+        string client_firm = 10; // Controls which firm sees which item
+        string ext_exec_broker = 11; // SR Assigned ExecBroker Code
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exec_brkr_display_name = 100; // Name of away broker for UI, if set
+    string exec_brkr_name = 103;
+    string modified_by = 106; // user who last modified this record
+    SysEnvironment modified_in = 109;
+    google.protobuf.Timestamp timestamp = 112; // timestamp of last modification
+}
+
+

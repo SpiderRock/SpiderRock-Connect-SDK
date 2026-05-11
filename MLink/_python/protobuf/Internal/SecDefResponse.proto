@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SecDefResponse {
+    message PKey {
+        
+        int64 sec_request_iD = 10;
+    }
+
+    message Legs {
+        
+        OptionKey sec_key = 121; // Symbol for leg.  Must be a valid symbol.
+        SpdrKeyType sec_type = 124; // Security Type [Stock, Future, Option]
+        uint32 ratio = 127; // Multiplier for leg.  Must be greater than zero.
+        BuySell side = 130; // Order side for leg.
+        double ref_prc = 133; // Leg reference price
+        float ref_delta = 136; // Leg option delta reference value
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // SR account making request
+    string client_firm = 140; // SR client firm
+    string alt_request_id = 103; // Alternate request ID. Can by used by client for tracking
+    string security_desc = 106; // Security Description for instrument
+    SecDefReqState sec_def_req_state = 109;
+    string text = 112; // exchange result (error)
+    string security_iD = 115; // unique exchange id (exch assigned)
+    google.protobuf.Timestamp timestamp = 139;
+    repeated Legs legs = 118;
+}
+
+

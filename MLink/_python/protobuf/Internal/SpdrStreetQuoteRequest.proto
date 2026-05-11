@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStreetQuoteRequest records are published by SRFixQuoteGateway servers and are used to maintain/reload state for all handled request for quote messages
+*/    
+message SpdrStreetQuoteRequest {
+    message PKey {
+        
+        string quote_req_id = 10; // SR quote request ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey sec_key = 100;
+    SpdrKeyType sec_type = 103;
+    int64 street_quote_req_id = 106; // Street quote request id
+    string server_code = 109; // QuoteGW ServerCode
+    string fix_route_dn = 112; // QuoteGW -> Exchange session
+    string up_sender_comp_id = 115; // senderCompID/targetCompID of the QuoteGW -> EE session
+    string up_target_comp_id = 118;
+    string up_sender_sub_id = 121; // senderSubID/targetSubID of the QuoteGW -> EE session
+    string up_target_sub_id = 124;
+    string accnt = 127; // SR account
+    string client_firm = 130; // SR clientFirm
+    string exch_accnt = 133; // exchange account
+    string exch_cl_firm = 136; // exchange clientFirm
+    SpdrSource spdr_source = 139; // from child order
+    int64 grouping_code = 142; // from child order
+    string product_group = 145; // Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message
+    string symbol = 148;
+    int64 security_id = 151;
+    BuySell order_side = 154;
+    int32 order_size = 157;
+    YesNo is_acked = 160;
+    YesNo is_rejected = 163;
+    string reject_reason = 166;
+    int64 new_tick_src_timestamp = 169; // srcTimestamp of new order triggering packet (if any)
+    int64 new_tick_net_timestamp = 172; // netTimestamp of new order triggering packet (if any)
+    int64 new_tick_eng_timestamp = 175; // execution engine host tick timestamp (packet arrival)
+    int64 new_tick_sgw_timestamp = 178; // street gateway host tick timestamp (packet arrival)
+    float new_queue_delay = 181; // new order queue delay (waiting in StreetGW send queue)
+    google.protobuf.Timestamp timestamp = 184;
+}
+
+

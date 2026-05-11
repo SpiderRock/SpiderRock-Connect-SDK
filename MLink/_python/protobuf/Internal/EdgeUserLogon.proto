@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    user-to-edge
+*/    
+message EdgeUserLogon {
+
+
+    MessageMetadata _meta = 1;
+    
+    string user_name = 100; // similar to targetCompID
+    string password = 103;
+    string mfa_code = 106; // user MFA/TOTP code (6 digits) [must match their API Key]
+    int64 last_timestamp_rcvd = 109; // used for recovering messages on reconnect
+    int64 timestamp = 112; // message send timestamp
+}
+
+

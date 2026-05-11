@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message HolidayCalendar {
+    message PKey {
+        
+        CalendarCode calendar_code = 10;
+        YesNo is_user_override = 11; // if Yes this record will take precedence over the build in system holiday calendar for this calendarCode
+    }
+
+    message Holiday {
+        
+        DateKey date = 115;
+        MarketDayType market_day_type = 116; // Regular, Modified, MarketClosed
+        SettleDayType settle_day_type = 117; // SettlementOpen or SettlementClosed
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 100;
+    double vt_ratio = 110; // [0 - 1] proportion of variance that occurs during market hours (D252)
+    google.protobuf.Duration mkt_vTime_open = 111; // vTime market open time (in sysRegion timezone)
+    google.protobuf.Duration mkt_vTime_close = 112; // vTime market close time (in sysRegion timezone)
+    google.protobuf.Duration mkt_vTime_early_cls = 113; // vTime market early close time (in sysRegion timezone)
+    int32 hash_code = 114; // hash of all date/marketDayType values in the repeating list below
+    repeated Holiday holiday = 103;
+}
+
+

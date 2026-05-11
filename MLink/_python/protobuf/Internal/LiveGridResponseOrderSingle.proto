@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridResponseOrderSingle {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // SR Accnt
+    string c_firm = 101; // SR ClientFirm
+    int64 notice_number = 102; // AuctionNotice.noticeNumber
+    int64 base_parent_number = 103;
+    TickerKey ticker = 104; // underlier ticker
+    string trade_date = 105;
+    string sec_key = 106;
+    string sec_key_ticker_src = 107;
+    string sec_key_asset_type = 108;
+    SpdrKeyType sec_type = 109;
+    google.protobuf.Timestamp notice_dttm = 110; // either notice create datetime or notice arrival@SR datetime (high precision)
+    string response_id = 111; // from NoticeResponse.responseId (most recently processed response to noticeNumber for this accnt/clientFirm pair)
+    SpdrSource resp_origin = 112; // AutoResponder, MLINK, FIX, ICEChat, TradeAp responders
+    SpdrStageType stage_type = 113; // response staged or not
+    AuctionType auction_type = 114; // Exch Exposure, Exch Price Improve, Exch Facilitation, Exch Solicitation, SR ATS Block, SR ATS Flash
+    AuctionSource auction_source = 115; // Source of the auction notice (eg. SRC, CBOE, MIAX, etc.)
+    google.protobuf.Timestamp resp_dttm = 116; // response arrival dttm (high precision)
+    BuySell resp_side = 117;
+    int32 resp_size = 118;
+    int32 resp_active_size = 119; // active response order size (zero for ActiveHold)
+    double resp_price = 120; // effRespPrice = respPrice + de * (uMid - refUPrc) + 0.5 * ga * (uMid - refUPrc)^2
+    double ref_uPrc = 121; // reference price for tied to underlier orders (mid-market tie) (block auctions only)
+    float ref_de = 122; // reference delta for tied to underlier orders (zero if tie is not desired) (block auctions only)
+    float ref_ga = 123; // reference gamma for tied to underlier orders (zero if tie is not desired) (block auctions only)
+    RoundRule round_rule = 124; // Exact (100%) or Fuzzy (90%) [default is Exact] (block auctions only)
+    double step_up_incr = 125; // additional price increment (best price) (typically only used if auction is competitive)
+    int64 risk_group_id = 126; // any auction response is associated with this riskGroupID (and SpdrRiskGroupControl)
+    string strategy = 127; // user strategy field (visible on SR tools)
+    string user_data1 = 128; // user data field (free text) (from NoticeResponse)
+    SpdrOrderStatus resp_status = 129;
+    string resp_detail = 130;
+    double last_uPrc = 131; // effective uPrc (mid-market) from last trial pass
+    double last_trial_prc = 132; // effective response price from last trial pass
+    int32 leaves_qty = 133; // open order quantity
+    int32 cum_fill_qty = 134;
+    double avg_fill_price = 135;
+    double add_latency = 136; // latency from notice arrival@SR to external response send (in seconds) OR latency from notice create to response accepted (in seconds) (SRC Auctions)
+    double ack_latency = 137; // latency from external response send to external response ack (FRT) (in seconds) (external auctions only)
+    YesNo contains_flex = 138; // if this order contains flex leg(s)
+    YesNo contains_multi_hedge = 139; // contains MultiHedge (corp action adjusted) options
+    LegPositionType position_type = 140;
+    NoticeResult response_result = 141;
+    int32 response_time = 142; // notice response arrival time (milliseconds since auction start)
+    double prt_price = 143; // reported print price (pkgPrice if MLeg)
+    int32 prt_size = 144; // reported print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 145; // reported print time (1st print if MLeg)
+    double prt_uBid = 146; // best estimate of uBid @ auction print time
+    double prt_uAsk = 147; // best estimate of uAsk @ auction print time
+    double fill_pn_lM1 = 148; // pnl from trade to trade + 1 minute
+    double fill_pn_lM10 = 149; // pnl from trade to trade + 10 minutes
+    double fill_pn_lDay = 150; // pnl from trade to now (or end-of-day)
+    double u_drift_m1 = 151; // pnl from trade to trade + 1 minute (underlier drift)
+    double u_drift_m10 = 152; // pnl from trade to trade + 10 minutes (underlier drift)
+    google.protobuf.Timestamp timestamp = 153;
+    YesNo is_prod = 154; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 155; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 156; // WTS synthetic: alert message (null if no alert)
+}
+
+

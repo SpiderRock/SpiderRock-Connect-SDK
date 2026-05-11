@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message FutureMark {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey fkey = 100;
+    double f_mark = 103;
+}
+
+

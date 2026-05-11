@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message StockPrintETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int64 prt_number = 11; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trading_date = 100;
+    TradingSession trading_session = 103;
+    StkExch prt_exch = 106; // print exch
+    int32 prt_size = 109; // print size
+    float prt_price = 112; // print price level
+    int32 prt_type = 115; // print type
+    int32 prt_cond1 = 118; // print condition (from SIP feed)
+    int32 prt_cond2 = 121;
+    int32 prt_cond3 = 124;
+    int32 prt_cond4 = 127;
+    PrtSide prt_side = 130; // Print side: None; Mid; Bid; Ask
+    int64 prt_timestamp = 133; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 136; // inbound print packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    float bid_price = 139; // nbbo bid @ print arrival time
+    float ask_price = 142; // nbbo ask @ print arrival time
+    int32 bid_size = 145;
+    int32 ask_size = 148;
+    float bid_price2 = 151; // nbbo 2nd best bid @ print arrival time
+    float ask_price2 = 154; // nbbo 2nd best ask @ print arrival time
+    int32 bid_size2 = 157; // nbbo 2nd best bid size
+    int32 ask_size2 = 160; // nbbo 2nd best ask size
+    int64 qte_timestamp = 163; // exchange high precision timestamp (if available)
+    google.protobuf.Timestamp timestamp = 166;
+}
+
+

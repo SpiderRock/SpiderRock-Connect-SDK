@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: StockPrintETL
+    CalcEngine: Spark/ETL
+*/    
+message StockPrintSummaryETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double prt_open = 100; // Open/first print
+    double prt_high = 103; // High print
+    double prt_low = 106; // Low print
+    double prt_last = 109; // Last/close print
+    int32 prt_count = 112; // print count
+    double prt_volume = 115; // print volume
+    double rv5min = 118;
+    double rv20min = 121;
+    google.protobuf.Timestamp timestamp = 124; // same as date + time
+}
+
+

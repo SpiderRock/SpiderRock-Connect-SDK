@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MLinkMsgTokenUsage {
+
+
+    MessageMetadata _meta = 1;
+    
+    int64 usage_block_iD = 100;
+    string mlink_server = 103; // mlink server accessed
+    HttpServiceType mlink_server_type = 106;
+    string user_name = 109; // authenticated user name
+    string client_firm = 112; // clientFirm associated with user name
+    google.protobuf.Timestamp block_dttm = 115; // reporting time block (typically a 15 minute time block)
+    MLinkToken mlink_token = 118; // product category (eg. StkMktData, OptModelData, etc.)
+    int64 num_msgs_sent = 121; // number of messages sent to client in the reporting time block
+    int64 num_msgs_scanned = 124; // number of messages scanned
+}
+
+

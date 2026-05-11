@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message GlobalRateHist {
+    message PKey {
+        
+        DateKey trading_date = 10;
+        string currency = 11;
+        RateSource rate_source = 12;
+    }
+
+    message Curve {
+        
+        int32 days = 106; // interest rate days (usually 365 per year)
+        float rate = 109;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 100;
+    repeated Curve curve = 103;
+}
+
+

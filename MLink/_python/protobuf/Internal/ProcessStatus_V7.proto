@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: ProcessStatus
+    V8 Message Name: ProcessStatus
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:ProcessStatus
+*/    
+message ProcessStatus_V7 {
+    message PKey {
+        
+        uint32 app_id = 5000; // v7 & v8
+        string server_name = 5001; // v7 & v8 --- Original comment: process instance name (should be unique)
+        string machine_name = 5002; // v7 & v8 --- Original comment: name of the machine which is hosting process
+        SysRealm sys_realm = 5003; // v7 & v8
+        SysEnvironment sys_environment = 5004; // v7 & v8 --- Original comment: sys environment [Stable, Current, etc]
+        RunStatus run_status = 5005; // v7 & v8 --- Original comment: run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SRDataCenter_V7 data_center = 5006; // ONLY V7: [enum,Name=SRDataCenter,Values=None=0,NY4=1,NY5=2,CH2=3,CH3=4] --- Original comment: (deprecated) data center [NY4,CH2, etc]
+    google.protobuf.Timestamp process_start = 5007; // v7 & v8
+    string last_signal = 5008; // v7 & v8 --- Original comment: string indicating the signal it got , for example READY, SHUTDOWN
+    float cpu_usage = 5009; // v7 & v8 --- Original comment: cpu usage (number of cores utilized)
+    float memory_usage = 5010; // v7 & v8 --- Original comment: CLR memory (GB)
+    ResourceLevel server_cPU = 5011; // v7 & v8
+    ResourceLevel server_memory = 5012; // v7 & v8
+    float avg_mMRDelay = 5013; // v7 & v8 --- Original comment: avg (inbound) DBL MMR ring delay (ms)
+    float max_mMRDelay = 5014; // v7 & v8 --- Original comment: max (inbound) DBL MMR ring delay (ms)
+    int32 packets_per_sec = 5015; // v7 & v8 --- Original comment: MMR/MBUS packet rcvd rate (multiple msgs per packet)
+    int32 num_msg_drops = 5016; // v7 & v8 --- Original comment: number of MBUS message drops
+    float msg_recv_rate = 5017; // v7 & v8 --- Original comment: total (inbound) messages per second
+    float msg_send_rate = 5018; // v7 & v8 --- Original comment: total (outbound) messages per second
+    PulseError pulse_error = 5019; // v7 & v8
+    string proc_detail = 5020; // v7 & v8
+    int32 num_slow_handlers = 5021; // v7 & v8 --- Original comment: total number of slow handlers
+    int32 num_app_errors = 5022; // v7 & v8
+    string last_app_error = 5023; // v7 & v8: Type Mismatch: V7=[text1], V8=[text2]
+    google.protobuf.Timestamp last_app_dttm = 5024; // v7 & v8
+    int32 num_fix_errors = 5025; // v7 & v8
+    string last_fix_error = 5026; // v7 & v8: Type Mismatch: V7=[text1], V8=[text2]
+    google.protobuf.Timestamp last_fix_dttm = 5027; // v7 & v8
+    int32 num_msg_errors = 5028; // v7 & v8
+    string last_msg_error = 5029; // v7 & v8: Type Mismatch: V7=[text1], V8=[text2]
+    google.protobuf.Timestamp last_msg_dttm = 5030; // v7 & v8
+    int32 num_sys_errors = 5031; // v7 & v8
+    string last_sys_error = 5032; // v7 & v8: Type Mismatch: V7=[text1], V8=[text2]
+    google.protobuf.Timestamp last_sys_dttm = 5033; // v7 & v8
+    google.protobuf.Timestamp timestamp = 5034; // v7 & v8
+}
+
+

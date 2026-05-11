@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrCompositeAlertV2 records are created/published by tool servers.  They can come from SpdrParentExecution reject records or other sources
+*/    
+message SpdrCompositeAlertV2 {
+    message PKey {
+        
+        int64 alert_number = 10; // SpiderRock alert number (globally unique over trailing 10 days)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp date = 100; // trade date
+    int32 version = 103; // record version number
+    string accnt = 106; // SpiderRock Accnt Code
+    string client_firm = 109; // SpiderRock ClientFirm Code
+    string user_name = 112; // SpiderRock UserName Code
+    string alert_label = 115;
+    string alert_detail = 118;
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

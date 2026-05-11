@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MacroCoreStatistics {
+    message PKey {
+        
+        string macro_name = 10;
+        string client_firm = 11;
+    }
+
+    message Results {
+        
+        string group = 121;
+        string label = 124;
+        float metric = 127;
+        string format = 130;
+        MetricType metric_type = 133;
+        string description = 136;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 macro_scan_iD = 100; // scan ID of most recent scan
+    int32 num_orders = 103;
+    double elapsed = 106;
+    string result = 109;
+    google.protobuf.Timestamp last_scan_dttm = 112; // timestamp of most recent scan
+    string last_user_name = 115; // last username to execute this scan
+    repeated Results results = 118;
+}
+
+

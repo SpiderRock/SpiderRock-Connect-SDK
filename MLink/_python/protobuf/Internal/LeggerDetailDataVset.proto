@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message LeggerDetailDataVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    int64 ord_key = 101; // Requested orderkey.x
+}
+
+

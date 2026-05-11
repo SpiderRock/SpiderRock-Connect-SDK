@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message OptionPairDataVset {
+    message Columns {
+        
+        OptPairCName cname = 112; // Column name enum
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey exp_key = 100; // Requested expiry key (if custom expiry for flex, cannot be in the past, non-trading date (Sat/Sun + holidays), or more than 5 years in the future)
+    string accnt = 103; // (Optional) Account for associated positions
+    string client_firm = 110; // (Optional) ClientFirm for accnt
+    double range_start = 106; // (Optional) First strike price of the visible window
+    double range_end = 109; // (Optional) Last strike price of the visible window
+    double custom_min_strike = 116; // minimum synthetic flex strike (note: overrides rangeStart above)
+    double custom_max_strike = 117; // maximum synthetic flex strike
+    double custom_strike_gap = 118; // distance between synthetic flex strikes
+    ExerciseType ex_type = 140; // flex exercise type
+    ToolPricer pricer = 119; // note: if any flex parameter is in use (not None/Null) then the server always uses the Exact pricer model
+    int32 i_days = 120; // interest days [0, N]
+    OptOverride i_days_oO = 121; // analysis type for iDays
+    int32 s_days = 122; // settlement days [0, 1, 2, 3, 4]
+    OptOverride s_days_oO = 123; // analysis type for sDays
+    double v_yrs = 124; // volatility years [0.0, 10.0]
+    OptOverride v_yrs_oO = 125; // analysis type for vYrs
+    double rate = 126; // interest (discount) rate [-99, +99.0]
+    OptOverride rate_oO = 127; // analysis type for rateOO
+    double u_prc = 128; // underlier price [0 - 999,999] (CalcModel=LogNorm)  [-999,999, +999,999] (CalcModel=Normal) (note: CalcModel is from root/expiry definition)
+    OptOverride u_prc_oO = 129; // analysis type for uPrc
+    double atm_sDiv = 130; // atmSDiv [-99.0, +999.0]
+    OptOverride atm_sDiv_oO = 131; // analysis type for atmSDiv
+    double atm_sVol = 132; // atmSVol [0.01, 999.0]
+    OptOverride atm_sVol_oO = 133; // analysis type for atmSVol
+    double x_mult = 134; // BasisFn XMult [-10.0, +10.0; cannot be zero] (not used if SVolCurve=Flat)
+    OptOverride x_mult_oO = 135; // analysis type for xMult
+    double x_min_pt = 136; // BasisFn XShift [-9.9, +9.9; can be zero] (not used if SVolCurve=Flat)
+    OptOverride x_min_pt_oO = 137; // analysis type for xMinPt
+    SDivCurve s_div_curve = 138; // type of sDivCurve
+    SVolCurve s_vol_curve = 139; // sticky strike or sticky surface (full surface or BasisFn only)
+    repeated Columns columns = 111;
+}
+
+

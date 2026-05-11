@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrSweepOrderTCA {
+    message PKey {
+        
+        string client_firm = 10;
+        string accnt = 11;
+        string user_name = 12;
+        string exec_broker_mPID = 13;
+        SpdrSource spdr_source = 14;
+        google.protobuf.Timestamp trade_date = 15;
+        string wait_trigger_id = 16;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_lines = 100;
+    int32 sum_nbbo_size = 101;
+    int32 num_child_executions = 102;
+    int32 sum_child_fill_qty = 103;
+    int32 num_child_orders = 104;
+    int32 sum_child_order_size = 105;
+    int32 sum_child_cn_size = 106;
+    int32 sum_child_mkt_order_size = 109;
+    float sum_child_mkt_width = 110;
+}
+
+

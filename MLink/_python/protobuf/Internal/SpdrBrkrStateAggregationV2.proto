@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message SpdrBrkrStateAggregationV2 {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_records = 100; // Total number of brokers
+    int32 num_pending_orders = 103; // number of orders waiting to be triggered/released by a trader
+    int32 num_active_brkrs = 106; // number of active/working parent orders (trading or ready trade)
+    int32 num_held_brkrs = 109; // number of active/stalled parent orders (risk hold or otherwise)
+    int32 num_working_brkrs = 112; // number of brokers with child orders
+    int32 num_closed_brkrs = 115; // number of brokers that are closed/terminated
+    int32 num_reject_brkrs = 118; // number of brokers that are closed/rejected
+    int32 sum_active_stk_qty = 121; // total broker open quantity (leaves) that could potentially execute (may currently be on risk hold) - stock
+    int32 sum_active_opt_qty = 124; // total broker open quantity (leaves) that could potentially execute (may currently be on risk hold) - option
+    int32 sum_active_fut_qty = 127; // total broker open quantity (leaves) that could potentially execute (may currently be on risk hold) - futures
+    int32 sum_active_mLeg_qty = 130;
+    int32 num_child_orders = 133; // number of active child orders in the market (usually in exchange order books)
+    int32 tot_child_orders = 136; // total number of child orders creates (both open and closed)
+    float sum_child_dDelta_ln = 139; // total child order (+) $delta current in the market
+    float sum_child_dDelta_sh = 142; // total child order (-) $delta current in the market
+    int32 cum_fill_qty_stk = 145; // total fill quantity of parent orders - stock (for fills via SpiderRock)
+    int32 cum_fill_qty_opt = 148; // total fill quantity of parent orders - option (for fills via SpiderRock)
+    int32 cum_fill_qty_fut = 151; // total fill quantity of parent orders - futures (for fills via SpiderRock)
+    double cum_fill_vega = 154; // total fill vega (for fills via SpiderRock)
+    float cum_fill_theta = 157; // total fill theta (for fills via SpiderRock)
+    float cum_fill_dDelta = 160; // total fill $delta (for fills via SpiderRock)
+    float tot_active_seconds = 163;
+    float tot_with_seconds = 166; // total number of seconds with one or more working child orders that are with of nbbo
+    float tot_alone_seconds = 169; // total number of seconds with one or more working child orders that make up 100% of nbbo
+    float tot_working_seconds = 172; // total number of seconds with one or more working child orders that are part of nbbo
+    int32 num_active_prints = 175; // total quantity printed while parent order was active; [any exchange; all prints]
+    float sum_risk_hold_secs = 178; // total number of seconds with parent order active but on risk hold (zero child order risk size)
+    int32 sum_make_throttle_skips = 181; // total number of child orders not sent to market due to outbound lines being in a queued/throttled state
+    float sum_make_throttle_delay = 184; // cumulative seconds of queue skip delay (seconds that a child order was not in the market dues to outbound lines being in a queued/throttled state)
+    double cum_vega_left = 187; // total unfilled vega
+    double cum_dVega_left = 190; // total unfilled dollar vega
+}
+
+

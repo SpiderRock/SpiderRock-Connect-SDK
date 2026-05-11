@@ -1,0 +1,183 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridPosScenarioDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string c_firm = 101;
+    string sec_key = 156; // conditionally formatted secKey based on secType
+    string sec_key_ticker_src = 157;
+    string sec_key_asset_type = 158;
+    SecType sec_type = 103;
+    TickerKey ticker = 104;
+    TickerKey hedge_target = 105;
+    float cur_pos = 110;
+    float point_value = 111;
+    float ref_vol = 112;
+    float ref_uPrc = 113;
+    float scen01_pnl = 120;
+    float scen01_delta = 121;
+    float scen01_dDelta = 122;
+    float scen01_gamma = 123;
+    float scen01_dGamma = 124;
+    float scen01_theta = 125;
+    float scen01_vega = 126;
+    float scen01_wt_vega = 127;
+    float scen02_pnl = 128;
+    float scen02_delta = 129;
+    float scen02_dDelta = 130;
+    float scen02_gamma = 131;
+    float scen02_dGamma = 132;
+    float scen02_theta = 133;
+    float scen02_vega = 134;
+    float scen02_wt_vega = 135;
+    float scen03_pnl = 136;
+    float scen03_delta = 137;
+    float scen03_dDelta = 138;
+    float scen03_gamma = 139;
+    float scen03_dGamma = 140;
+    float scen03_theta = 141;
+    float scen03_vega = 142;
+    float scen03_wt_vega = 143;
+    float scen04_pnl = 144;
+    float scen04_delta = 145;
+    float scen04_dDelta = 146;
+    float scen04_gamma = 147;
+    float scen04_dGamma = 148;
+    float scen04_theta = 149;
+    float scen04_vega = 150;
+    float scen04_wt_vega = 151;
+    float scen05_pnl = 152;
+    float scen05_delta = 153;
+    float scen05_dDelta = 154;
+    float scen05_gamma = 155;
+    float scen05_dGamma = 159;
+    float scen05_theta = 160;
+    float scen05_vega = 161;
+    float scen05_wt_vega = 162;
+    float scen06_pnl = 163;
+    float scen06_delta = 164;
+    float scen06_dDelta = 165;
+    float scen06_gamma = 166;
+    float scen06_dGamma = 167;
+    float scen06_theta = 168;
+    float scen06_vega = 169;
+    float scen06_wt_vega = 170;
+    float scen07_pnl = 171;
+    float scen07_delta = 172;
+    float scen07_dDelta = 173;
+    float scen07_gamma = 174;
+    float scen07_dGamma = 175;
+    float scen07_theta = 176;
+    float scen07_vega = 177;
+    float scen07_wt_vega = 178;
+    float scen08_pnl = 179;
+    float scen08_delta = 180;
+    float scen08_dDelta = 181;
+    float scen08_gamma = 182;
+    float scen08_dGamma = 183;
+    float scen08_theta = 184;
+    float scen08_vega = 185;
+    float scen08_wt_vega = 186;
+    float scen09_pnl = 187;
+    float scen09_delta = 188;
+    float scen09_dDelta = 189;
+    float scen09_gamma = 190;
+    float scen09_dGamma = 191;
+    float scen09_theta = 192;
+    float scen09_vega = 193;
+    float scen09_wt_vega = 194;
+    float scen10_pnl = 195;
+    float scen10_delta = 196;
+    float scen10_dDelta = 197;
+    float scen10_gamma = 198;
+    float scen10_dGamma = 199;
+    float scen10_theta = 200;
+    float scen10_vega = 201;
+    float scen10_wt_vega = 202;
+    float scen11_pnl = 203;
+    float scen11_delta = 204;
+    float scen11_dDelta = 205;
+    float scen11_gamma = 206;
+    float scen11_dGamma = 207;
+    float scen11_theta = 208;
+    float scen11_vega = 209;
+    float scen11_wt_vega = 210;
+    float scen12_pnl = 211;
+    float scen12_delta = 212;
+    float scen12_dDelta = 213;
+    float scen12_gamma = 214;
+    float scen12_dGamma = 215;
+    float scen12_theta = 216;
+    float scen12_vega = 217;
+    float scen12_wt_vega = 218;
+    float scen13_pnl = 219;
+    float scen13_delta = 220;
+    float scen13_dDelta = 221;
+    float scen13_gamma = 222;
+    float scen13_dGamma = 223;
+    float scen13_theta = 224;
+    float scen13_vega = 225;
+    float scen13_wt_vega = 226;
+    float scen14_pnl = 227;
+    float scen14_delta = 228;
+    float scen14_dDelta = 229;
+    float scen14_gamma = 230;
+    float scen14_dGamma = 231;
+    float scen14_theta = 232;
+    float scen14_vega = 233;
+    float scen14_wt_vega = 234;
+    float scen15_pnl = 235;
+    float scen15_delta = 236;
+    float scen15_dDelta = 237;
+    float scen15_gamma = 238;
+    float scen15_dGamma = 239;
+    float scen15_theta = 240;
+    float scen15_vega = 241;
+    float scen15_wt_vega = 242;
+    float scen16_pnl = 243;
+    float scen16_delta = 244;
+    float scen16_dDelta = 245;
+    float scen16_gamma = 246;
+    float scen16_dGamma = 247;
+    float scen16_theta = 248;
+    float scen16_vega = 249;
+    float scen16_wt_vega = 250;
+    float scen17_pnl = 251;
+    float scen17_delta = 252;
+    float scen17_dDelta = 253;
+    float scen17_gamma = 254;
+    float scen17_dGamma = 255;
+    float scen17_theta = 256;
+    float scen17_vega = 257;
+    float scen17_wt_vega = 258;
+    float scen18_pnl = 259;
+    float scen18_delta = 260;
+    float scen18_dDelta = 261;
+    float scen18_gamma = 262;
+    float scen18_dGamma = 263;
+    float scen18_theta = 264;
+    float scen18_vega = 265;
+    float scen18_wt_vega = 266;
+    string calc_error = 270;
+    YesNo is_prod = 271; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 272; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 273; // WTS synthetic: alert message (null if no alert)
+}
+
+

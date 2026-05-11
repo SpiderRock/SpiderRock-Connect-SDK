@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrCompositeErrorAck {
+    message PKey {
+        
+        string pkey_string = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp last_error_dttm = 100;
+    string ack_user_name = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAggregateRow {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11; // unique aggregate row number for a specific skey/dSet/subscription; resets on each (new) subscription
+    }
+
+    message Column {
+        
+        int32 pk = 112; // pkey for this column, used for merge operations
+        string nm = 113; // either cname_Aggtyp for simple expressions, or whatever provided for complex ones
+        string vv = 109; // formatted string value
+        double dd = 110; // raw numerical aggregation value
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string agg_key1 = 100;
+    string agg_key2 = 101;
+    string agg_key3 = 102;
+    string agg_value1 = 103;
+    string agg_value2 = 104;
+    string agg_value3 = 105;
+    google.protobuf.Timestamp ts = 111;
+    repeated Column column = 106;
+}
+
+

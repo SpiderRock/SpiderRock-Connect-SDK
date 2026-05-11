@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionSpanRiskSlides {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float span01_v_up_u_nc = 100;
+    float span02_v_dn_u_nc = 103;
+    float span03_v_up_u_u1 = 106;
+    float span04_v_dn_u_u1 = 109;
+    float span05_v_up_u_d1 = 112;
+    float span06_v_dn_u_d1 = 115;
+    float span07_v_up_u_u2 = 118;
+    float span08_v_dn_u_u2 = 121;
+    float span09_v_up_u_d2 = 124;
+    float span10_v_dn_u_d2 = 127;
+    float span11_v_up_u_u3 = 130;
+    float span12_v_dn_u_u3 = 133;
+    float span13_v_up_u_d3 = 136;
+    float span14_v_dn_u_d3 = 139;
+    float span15_v_nc_u_u9 = 142;
+    float span16_v_nc_u_d9 = 145;
+    google.protobuf.Timestamp timestamp = 148;
+}
+
+

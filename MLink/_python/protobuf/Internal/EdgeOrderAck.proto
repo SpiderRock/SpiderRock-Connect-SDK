@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    edge-to-user
+*/    
+message EdgeOrderAck {
+    message PKey {
+        
+        int64 edge_order_number = 10; // user order guid (clOrdID)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 version = 100; // from the most recent messaged processed
+    DateKey trade_date = 103;
+    int64 parent_number = 106; // EE parent order number
+    int64 prev_parent_number = 109;
+    int64 base_parent_number = 112;
+    int32 parent_version = 115;
+    string accnt = 118; // SR assigned accnt code
+    string cfirm = 121; // SR assigned client firm acronym
+    OptionKey sec_key = 124;
+    SpdrKeyType sec_type = 127;
+    BuySell side = 130;
+    int64 grouping_code = 133;
+    SpdrSource spdr_source = 136;
+    string exec_brkr_code = 139; // SR execBrkrCode (SR Assigned)
+    EdgeExDest edge_ex_dest = 142; // SR assigned ex-dest code
+    int32 core_hash = 145; // hash: accnt + cfirm + execBrkrCode + edgeExDest + secKey + secType + side [core hash cannot be modified over the life of an order]
+    int32 edge_size = 148;
+    int32 edge_limit_price = 151; // static limit price
+    EdgeOrderType edge_order_type = 154;
+    URefType u_ref_type = 157; // [Any Type] (default: MidMkt)
+    int32 ref_price = 160; // [Tied Only] livePrice = refPrice + dUPrc * refDe + dUPrc * dUPrc * refGa; dUPrc = liveUPrc - refUPrc
+    int32 ref_uPrc = 163; // [Tied Only] (ref uBid or ref uAsk)
+    int32 ref_de = 166;
+    int32 ref_ga = 169;
+    int32 min_uPrc = 172; // [Any Type]
+    int32 max_uPrc = 175; // [Any Type]
+    PriceFormat price_format = 178;
+    YesNo make_only = 181;
+    YesNo do_not_route = 184;
+    YesNo randomize_size = 187;
+    int32 point_value = 190;
+    Currency point_currency = 193;
+    int64 cl_ord_iD = 196;
+    int64 order_iD = 199; // exchange order ID
+    int32 symbol_iD = 202; // exchange symbol/series ID
+    EdgeOrderStatus order_status = 205;
+    int32 active_size = 208; // active size on exchange (from most recent order ack)
+    int32 active_limit_price = 211; // active limit price on exchange (from most recent order ack)
+    int32 u_prc_trigger_level = 214; // uPrc level that will trigger an immediate activeLimitPrice update
+    int32 u_bid = 217;
+    int32 u_ask = 220;
+    int32 cum_fill_qty = 223;
+    int32 leaves_qty = 226;
+    string user_name = 229; // typically associated with the user process sending the order
+    string routing_code = 232;
+    EdgeChangeReason change_reason = 235;
+    string change_detail = 238;
+    EdgeTriggerSource trigger_source = 241;
+    int32 trigger_latency = 244;
+    int64 exch_send_time = 247; // order send time (order to exchange)
+    int64 exch_recv_time = 250; // order recv time (order to exchange)
+    int64 exch_stream_iD = 253; // exchStreamID / exchSeqNumber should be globally unique
+    int64 exch_seq_number = 256;
+    int64 transact_time = 259; // transact time (from the exch order ack)
+    google.protobuf.Timestamp timestamp = 262; // timestamp of this record
+}
+
+

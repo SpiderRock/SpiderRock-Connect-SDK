@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AppMonitor {
+    message PKey {
+        
+        string app_name = 10; // tool name (should be unique)
+        string user_name = 11; // SR user name
+        int32 process_id = 12; // tool process ID
+        string machine_name = 13; // name of the machine which is hosting process
+        SysEnvironment sys_environment = 14;
+        RunStatus run_status = 15; // run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AppType app_type = 100;
+    google.protobuf.Timestamp proc_start = 103;
+    float cpu_usage = 106; // cpu usage (number of cores utilized)
+    float memory_usage = 109; // CLR memory (GB)
+    ResourceLevel server_cPU = 112;
+    ResourceLevel server_memory = 115;
+    float msg_recv_rate = 118; // total (inbound) messages per second
+    float msg_send_rate = 121; // total (outbound) messages per second
+    float max_poll_delay = 124; // max tool <-> toolServer poll delay (in seconds)
+    string proc_detail = 127; // additional detail as reported by the process
+    int32 num_errors = 130;
+    string last_error = 133;
+    google.protobuf.Timestamp last_error_dttm = 136;
+    string citrix_host = 139; // The citrix host this app is running on (Environment.MachineName)
+    string tool_server = 142; // The tool server this app is connected to (ToolBase.ActiveToolServer)
+    google.protobuf.Timestamp timestamp = 145;
+}
+
+

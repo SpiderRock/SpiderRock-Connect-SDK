@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    LiveEarningsCurve (surfaceType = 'Live') records are computed and publish continuously during trading hours.
+    SurfaceType = 'PriorDay' records contain the `closing' record from the prior trading period (usually from just before the last main session close).
+*/    
+message LiveEarningsCurve {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        SurfaceCurveType surface_type = 11;
+    }
+
+    message EarnDate {
+        
+        int32 days = 115; // calendar days to next earnings announcement date
+        EarnType type = 116;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double h_eMove = 100; // historical IEMove (prior N earnings moves)
+    double i_eMove = 101; // current/live IEMove
+    double i_eMove_min = 102; // minimum IEMove (today)
+    double i_eMove_max = 103; // maximum IEMove (today)
+    YesNo has_sTAnchor = 104;
+    int32 num_dt_switches1 = 105;
+    int32 num_dt_switches2 = 106;
+    double atm_cen_sT = 107;
+    double atm_cen_lT = 108;
+    double atm_decay = 109;
+    double fit_error_max = 110; // maximum error (vol pts) from earn curve fit
+    int32 fit_error_cnt = 111;
+    double fit_error_avg = 112; // avg fit error (ema)
+    double fit_error_std = 113; // avg fit error (ema)
+    MarketPhase market_phase = 117;
+    EarnCurveFitResult fit_result = 118;
+    google.protobuf.Timestamp timestamp = 119;
+    repeated EarnDate earn_date = 114;
+}
+
+

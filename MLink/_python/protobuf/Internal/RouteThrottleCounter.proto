@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RouteThrottleCounter {
+    message PKey {
+        
+        string ex_dest = 13;
+        string routing_code = 11;
+        string exec_engine = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo conn_ready = 100; // EE <-> Street connection is heartbeating and ready
+    LineIntegrity line_integrity = 103;
+    string last_integrity_err = 106;
+    string last_remote_text = 109;
+    int32 max_new_ord_rate = 112; // max configuration new order rate
+    int32 max_cancel_rate = 115; // max configuration cancel rate
+    double cur_new_msg_counter = 118;
+    double cur_cxl_msg_counter = 121;
+    double current_new_latency = 124;
+    string current_new_latency_source = 127;
+    double current_cxl_latency = 130;
+    string current_cxl_latency_source = 133;
+    YesNo can_send = 136;
+    int32 reject_count = 139;
+    string last_reject_error = 142;
+    google.protobuf.Timestamp last_reject_dttm = 145;
+    int32 cxl_reject_count = 148;
+    int32 order_count = 151;
+    double avg_order_latency = 154;
+    double min_order_latency = 157;
+    double max_order_latency = 160;
+    int32 cancel_count = 163;
+    double avg_cancel_latency = 166;
+    double min_cancel_latency = 169;
+    double max_cancel_latency = 172;
+    int32 max_live_order_count = 175; // maximum number of open orders
+    int32 max_pend_new_orders = 178; // maximum number of pending/unacked orders
+    int32 max_pend_cxl_orders = 181; // maximum number of pending/unacked cancels
+    float max_orders_per_sec = 184; // maximum orders sent per second
+    float max_cancels_per_sec = 187; // maximum cancels sent per second
+    int32 num_int_err = 190;
+    int32 num_hi_lat = 193;
+    int32 num_opn_lmt = 196;
+    int32 num_new_win = 199;
+    int32 num_cxl_win = 202;
+    int32 num_new_thrtl = 205;
+    int32 num_cxl_thrtl = 208;
+    int32 num_err_del = 211;
+    int32 num_hold = 214;
+    int32 logon_recv = 217; // number of session Logon attempts
+    int32 logon_sent = 220; // number of session Logon responses
+    int32 resend_recv = 223; // number of resend initiations (generally indicates that inbound messages were dropped)
+    int32 resend_sent = 226; // number of resend responses (generally indicates that outbound messages were dropped)
+    int32 new_order_sent = 229;
+    int32 cancel_req_sent = 232;
+    int32 seq_number_in = 235;
+    int32 seq_number_out = 238;
+    YesNo is_session_alive = 241;
+    google.protobuf.Timestamp timestamp = 244;
+}
+
+

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CellGrid_TradeSheetData {
+    message PKey {
+        
+        int32 h_index = 10; // note: some vIndex/hIndex pairs can be blank
+        int32 v_index = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey opt_key = 100; // Option key (cp = call or put)
+    string x_axis = 101; // xAxis = Moneyness
+    int32 x_atm_offset = 102; // 0 = ATM, +1,+2,+3 = 1st, 2nd, 3rd upside strike, -1/-2/-3 = 1st,2nd,3rd downside strike
+    string s_vol = 103; // current surface svol (live SR surface)
+    string s_div = 104; // current surface sdiv (live SR surface)
+    string s_vol_prv = 105; // yesterday's closing surface svol
+    string s_div_prv = 106; // yesterday's closing surface sdiv
+    string s_vol_chg = 107; // change in sVol from yesterday
+    string atm_vol = 108; // sVol @ xAxis = 0
+    string o_bid = 109; // opt bid
+    string o_ask = 110; // opt ask
+    int32 o_bid_sz = 111; // opt bid size
+    int32 o_ask_sz = 112; // opt ask size
+    string o_bid_iv = 113; // opt bid implied volatility
+    string o_ask_iv = 114; // opt ask implied volatility
+    string o_de = 115; // opt delta
+    string o_ga = 116; // opt gamma
+    string o_th = 117; // opt theta
+    string o_ve = 118; // opt vega
+    string o_sOpx = 119; // current surface price
+    string o_sOpx_prv = 120; // yesterday's closing surface price (sVolPrv + sDivPrv + live uPrc)
+    int32 o_oI = 121; // open interest (market)
+    int32 o_vlm = 122; // print volume (this exchange)
+    int32 o_trd = 123; // contracts traded today
+    int32 o_pos = 124; // contract position (start-of-period + traded today)
+    google.protobuf.Timestamp ts = 125; // last update time (Date)
+}
+
+

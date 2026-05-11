@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridLocateRequest {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    string client_firm = 101;
+    string locate_firm = 102;
+    string locate_pool = 103; // locate pool @ firm granting the locate
+    DateKey trade_date = 104;
+    int64 request_iD = 105; // SR generated request ID
+    int32 request_quan = 106;
+    RequestOrigin request_origin = 107;
+    string request_machine = 108;
+    int32 locate_quan = 109;
+    LocateStatus locate_status = 110;
+    google.protobuf.Timestamp request_timestamp = 111;
+    string modified_by = 112;
+    SysEnvironment modified_in = 113;
+    google.protobuf.Timestamp timestamp = 114;
+    YesNo is_prod = 115; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 116; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 117; // WTS synthetic: alert message (null if no alert)
+}
+
+

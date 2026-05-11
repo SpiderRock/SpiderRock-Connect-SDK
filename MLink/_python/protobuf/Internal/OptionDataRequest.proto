@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message OptionDataRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 request_iD = 100;
+    TickerKey root = 103;
+    int32 yr = 106;
+    int32 mn = 109;
+    int32 dy = 112;
+    int32 strike = 115;
+    int32 get_calls = 118;
+    int32 get_puts = 121;
+    int32 min_days = 124;
+    int32 max_days = 127;
+    float min_xde = 130;
+    float max_xde = 133;
+    int32 min_strike = 136;
+    int32 max_strike = 139;
+    GetAction action = 142;
+}
+
+

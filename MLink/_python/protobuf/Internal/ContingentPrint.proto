@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ContingentPrint {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 prt_size = 100; // print size
+    float prt_price = 103; // print price level
+    int64 prt_timestamp = 106; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 109; // inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock
+    StkExch exch = 112;
+    ExchRecSource source = 115;
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

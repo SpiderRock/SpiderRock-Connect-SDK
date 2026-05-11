@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrViewerRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100; // account(s) to get records from (accnt;accnt;accnt)
+    google.protobuf.Timestamp timestamp = 103; // checkpoint timestamp used on restart
+    YesNo active_only = 106;
+    GetAction action = 109;
+}
+
+

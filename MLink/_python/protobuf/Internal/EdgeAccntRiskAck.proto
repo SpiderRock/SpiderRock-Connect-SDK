@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    risk-to-edge
+*/    
+message EdgeAccntRiskAck {
+    message PKey {
+        
+        string accnt = 10; // SR assigned accnt code
+        string cfirm = 11; // SR assigned client firm acronym
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo enabled = 100;
+    int64 accnt_dDelta_check_pt = 103; // [all underliers combined] [this edge device only]
+    int32 min_accnt_dDelta = 106; // deviation from checkPt
+    int32 max_accnt_dDelta = 109;
+    int64 accnt_dGamma_check_pt = 112; // [all underliers combined] [this edge device only]
+    int32 min_accnt_dGamma = 115; // deviation from checkPt
+    int32 max_accnt_dGamma = 118;
+    int64 timestamp = 121;
+}
+
+

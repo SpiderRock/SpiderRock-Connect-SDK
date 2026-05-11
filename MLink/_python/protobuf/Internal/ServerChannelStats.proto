@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ServerChannelStats {
+    message PKey {
+        
+        string server = 10;
+        string proc_name = 11;
+        int32 proc_number = 12;
+        string time = 13;
+        uint32 app_id = 14;
+        uint32 channel_number = 15;
+        SysEnvironment sys_environment = 16; // original (source) sys environment [Stable, Current, etc]
+        RunStatus run_status = 17; // original (source) run status [Prod,Beta]
+        SysRealm sys_realm = 18; // original (source) sysRealm [NMS, CME, etc.]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ChannelType channel_type = 100;
+    string channel_label = 103;
+    string source_addr = 106;
+    float m_bytes = 109;
+    float k_bytes_per_sec = 112;
+    float sys_calls_per_sec = 115;
+    int32 num_parts = 118;
+    int32 num_gaps = 121;
+    float max_wait = 124;
+    float max_proc = 127;
+    float sum_wait = 130;
+    float sum_proc = 133;
+    int32 send_counter = 136;
+    google.protobuf.Timestamp timestamp = 139;
+}
+
+

@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message Chart_TermCurve {
+    message PKey {
+        
+        ExpiryKey exp_key = 10;
+    }
+
+    message Dividends {
+        
+        int32 days = 123;
+        int32 d_adj = 124;
+        float d_amt = 125;
+        float d_amt_adj = 126;
+        DivKind d_knd = 127; // dividend type
+        DivSource d_src = 128; // dividend source
+        DivFreq d_freq = 129;
+    }
+
+    message Earnings {
+        
+        int32 days = 120;
+        int32 d_adj = 121;
+    }
+
+    message Points {
+        
+        int32 days = 110;
+        float atm_v = 111;
+        float cen_v = 112;
+        float s_div = 113;
+        float slope = 114;
+        float x_min = 115;
+        float x_mult = 116;
+        float x_shift = 117;
+        float v_wid = 118;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float u_prc = 100;
+    float st_cVol = 101;
+    float lt_cVol = 102;
+    float c_vol_decay = 103;
+    float i_earn_mult = 104;
+    float h_earn_mult = 105;
+    float st_sDiv = 106;
+    float lt_sDiv = 107;
+    float sdiv_decay = 108;
+    google.protobuf.Timestamp ts = 130; // last update time (Date)
+    repeated Dividends dividends = 122;
+    repeated Earnings earnings = 119;
+    repeated Points points = 109;
+}
+
+

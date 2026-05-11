@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 3
+    Inputs:
+    CalcEngine: Spark/ETL
+*/    
+message IVarSwapFixedTermETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float i_var_swap_5d = 100; // Interpolated 5 day integrated surface variance
+    float i_var_swap_10d = 103; // Interpolated 10 day integrated surface variance
+    float i_var_swap_21d = 106; // Interpolated 21 day integrated surface variance
+    float i_var_swap_42d = 109; // Interpolated 42 day integrated surface variance
+    float i_var_swap_63d = 112; // Interpolated 63 day integrated surface variance
+    float i_var_swap_84d = 115; // Interpolated 84 day integrated surface variance
+    float i_var_swap_105d = 118; // Interpolated 105 day integrated surface variance
+    float i_var_swap_126d = 121; // Interpolated 126 day integrated surface variance
+    float i_var_swap_189d = 124; // Interpolated 189 day integrated surface variance
+    float i_var_swap_252d = 127; // Interpolated 252 day integrated surface variance
+    float i_var_swap_378d = 130; // Interpolated 378 day integrated surface variance
+    float i_var_swap_504d = 133; // Interpolated 504 day integrated surface variance
+    google.protobuf.Timestamp timestamp = 136; // update timestamp
+}
+
+

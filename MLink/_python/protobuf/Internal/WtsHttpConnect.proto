@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+/*
+    published by a web tool server (every HTTP/WS connect attempt)
+*/    
+message WtsHttpConnect {
+    message PKey {
+        
+        string connect_iD = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string server = 100; // internal server name
+    string remote_addr = 103; // remote ip address/port (might be an HA Proxy Addr)
+    string user_name = 106; // user name (if available)
+    AuthStyle auth_style = 109; // Auth style of the connection request
+    string api_key = 112; // ApiKey (excluding password; if available)
+    ConnectResult result = 115; // End result of the connection attempt
+    string detail = 118; // Failure/Error text (if available)
+}
+
+

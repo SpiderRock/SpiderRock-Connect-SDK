@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TickerSearch {
+    message PKey {
+        
+        TickerKey ticker = 10; // Ticker key
+    }
+
+    message Roots {
+        
+        string root = 217;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string description = 100;
+    google.protobuf.Timestamp ts = 103; // last update time (Date)
+    ToolCurrency currency = 104; // Currencies depending on market
+    repeated Roots roots = 216;
+}
+
+

@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message Chart_AtmHistCurve {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+    message Dates {
+        
+        int32 day_num = 101;
+        int32 wk_day = 102; // sunday = 0
+        string date = 103;
+        MarketDayType modified_day = 104;
+    }
+
+    message Dividends {
+        
+        int32 day_num = 120;
+        int32 d_adj = 121;
+        float d_amt = 122;
+        float d_amt_adj = 123;
+        DivKind d_knd = 124; // dividend type
+        DivSource d_src = 125; // dividend source
+        DivFreq d_freq = 126;
+    }
+
+    message Earnings {
+        
+        int32 day_num = 117;
+        int32 d_adj = 118;
+    }
+
+    message Points {
+        
+        int32 day_num = 106;
+        float day_time = 107; // hours since midnight (trade day timezone)
+        float atm_v = 108;
+        float cen_v = 109;
+        float s_div = 110;
+        float slope = 111;
+        float x_min = 112;
+        float x_mult = 113;
+        float x_shift = 114;
+        float v_wid = 115;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp ts = 127; // last update time (Date)
+    repeated Dates dates = 100;
+    repeated Dividends dividends = 119;
+    repeated Earnings earnings = 116;
+    repeated Points points = 105;
+}
+
+

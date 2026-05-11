@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridDetailVset {
+    message CfAccnt {
+        
+        string c_firm = 102;
+        string accnt = 103;
+    }
+
+    message Column {
+        
+        string nm = 117; // cname or expression name (if expr is supplied)
+        string fmt = 110; // optional format string, as a C# .ToString()
+        LiveGridSortDir s_dir = 111;
+        int32 s_order = 112; // 1,2,3
+        string expr = 118; // row expression: eg; cname1 OR EQ(cname1, "string") * cname2; note: if expr is null/missing then expr = nm
+    }
+
+    message IKeys {
+        
+        string i_key1 = 105;
+        string i_key2 = 106;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    LiveGridDataSet d_set = 100;
+    string where = 107;
+    int32 st_pos = 113; // position of 1st return row (post sort)
+    int32 num_rows = 114; // maximum number of return rows
+    YesNo incl_num = 115; // include the numeric value in the result
+    string p_set_jSON = 116; // JSON block containing xxxPSet record (xxx corresponds to dSet)
+    repeated CfAccnt cf_accnt = 101;
+    repeated Column column = 108;
+    repeated IKeys i_keys = 104;
+}
+
+

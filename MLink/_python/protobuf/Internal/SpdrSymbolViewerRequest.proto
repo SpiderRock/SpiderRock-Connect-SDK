@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrSymbolViewerRequest {
+    message VisibleExpiry {
+        
+        ExpiryKey expiry = 235;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    StrikeView strike_view = 100;
+    ExpireView expire_view = 103;
+    MHedgeView mhedge_view = 106;
+    ActiveView active_view = 109;
+    ExerciseView exercise_view = 112;
+    string symbol = 115;
+    string accounts1 = 118;
+    string accounts2 = 121;
+    string accounts3 = 124;
+    string accounts4 = 127;
+    string user_name = 130;
+    string symbol1 = 133;
+    string symbol2 = 136;
+    string symbol3 = 139;
+    string symbol4 = 142;
+    string symbol5 = 145; // symbols 5-7: if empty, TS supplies related symbols (same industry/group)
+    string symbol6 = 148;
+    string symbol7 = 151;
+    int32 request_iD = 154;
+    int64 high_water_mark = 236;
+    GetAction action = 157;
+    GetResult result = 160;
+    TickerKey skey = 163;
+    ExpiryKey fkey = 166;
+    TickerKey skey1 = 169;
+    ExpiryKey fkey1 = 172;
+    TickerKey skey2 = 175;
+    ExpiryKey fkey2 = 178;
+    TickerKey skey3 = 181;
+    ExpiryKey fkey3 = 184;
+    TickerKey skey4 = 187;
+    ExpiryKey fkey4 = 190;
+    TickerKey skey5 = 193;
+    ExpiryKey fkey5 = 196;
+    TickerKey skey6 = 199;
+    ExpiryKey fkey6 = 202;
+    TickerKey skey7 = 205;
+    ExpiryKey fkey7 = 208;
+    ExpiryKey fkey_other_surf = 211; // SV other symbol compare feature
+    int64 opt_exch_mask = 237;
+    float strike_view_custom_delta_min = 217;
+    float strike_view_custom_delta_max = 220;
+    string theo_model = 223; // --- returned from TS to tool ---
+    string theo_client_firm = 226;
+    google.protobuf.Timestamp timestamp = 229;
+    repeated VisibleExpiry visible_expiry = 232;
+}
+
+

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OptionRevConVset {
+    message PairKey {
+        
+        OptionKey pair_key = 113;
+        ExerciseType ex_type = 114;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 103; // (Optional) Account for associated positions
+    string client_firm = 110;
+    TickerKey ticker = 111;
+    ExpiryKey exp_key = 100;
+    repeated PairKey pair_key = 112;
+}
+
+

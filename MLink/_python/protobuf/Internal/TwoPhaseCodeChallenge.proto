@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TwoPhaseCodeChallenge {
+
+
+    MessageMetadata _meta = 1;
+    
+    Direction direction = 100;
+    string user_name = 103; // userName (much match userConfig)
+    string error_response = 106; // null/empty discovery request succeeded
+    google.protobuf.Timestamp timestamp = 109; // request / response datetime
+}
+
+

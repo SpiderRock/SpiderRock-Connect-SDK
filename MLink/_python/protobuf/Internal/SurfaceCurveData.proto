@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SurfaceCurveData {
+    message PKey {
+        
+        ExpiryKey exp_key = 10;
+        CurveType curve_type = 11;
+    }
+
+    message Points {
+        
+        string x_axis = 106;
+        string value = 109;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string atm_vol = 100; // sVol @ xAxis = 0
+    google.protobuf.Timestamp ts = 112; // last update time (Date)
+    repeated Points points = 103;
+}
+
+

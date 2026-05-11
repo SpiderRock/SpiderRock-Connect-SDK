@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptBrkrPrintEvent {
+
+
+    MessageMetadata _meta = 1;
+    
+    OptionKey okey = 100;
+    TickerKey ticker = 101; // underlying ticker
+    PrtUpdateType update_type = 102;
+    int64 base_parent_number = 103;
+    string accnt = 104;
+    string client_firm = 105;
+    SpdrSource spdr_source = 106;
+    BuySell side = 107; // parent (and child) order side
+    float u_bid = 108; // uBid (@ print arrival)
+    float u_ask = 109; // uAsk (@ print arrival)
+    float pri_limit = 110; // primary parent order limit (user limit)
+    int32 active_size = 111; // total order active size (algo may be more restrictive)
+    float make_limit = 112; // composite make limit (primary + secondary)
+    int32 make_size = 113; // current make algo active size
+    float take_limit = 114; // composite take limit (primary + secondary)
+    int32 take_size = 115; // current take algo active size
+    float de = 116; // delta (per cn)
+    float ga = 117; // gamma (per cn)
+    float ve = 118; // vega (per cn)
+    float fair_prc = 119; // SR Fair Price (50% probability pt) (@ print arrival)
+    float fair_edge = 120; // print to surface edge (+ = positive expected M1 pnl)
+    LimitTouch maker_touch = 121;
+    LimitTouch taker_touch = 122;
+    int32 child_size = 123; // child size and limit on prtExch at time of print (if any)
+    float child_limit = 124;
+    ChildTouch child_touch = 125;
+    int32 child_fill_size = 126; // child order fill qty associated with this print
+    int32 child_fill_offset = 127; // fill exec report SR PTP timestamp relative to srcTimestamp (nanoseconds)
+    CancelSource cxl_source = 128;
+    int32 cxl_src_offset = 129; // cancel trigger srcTimestamp relative to print srcTimestamp (nanoseconds)
+    int32 cxl_net_offset = 130; // cancel trigger netTimestamp relative to print srcTimestamp (nanoseconds)
+    int32 cxl_eng_offset = 131; // cancel trigger engTimestamp relative to print srcTimestamp (nanoseconds)
+    int32 cxl_snd_offset = 132; // cancel send SR PTP timestamp relative to print srcTimestamp (nanoseconds)
+    int32 cxl_ack_offset = 133; // cancel (sgw) ack SR PTP timestamp relative to print srcTimestamp (nanoseconds)
+    double u_level = 134; // EE cancel trigger threshold
+    Contingency u_contingency = 135;
+    OptExch prt_exch = 136; // exchange on which print took place
+    int32 prt_size = 137; // print size [contracts]
+    float prt_price = 138; // print price
+    PrtType prt_type = 139; // print type
+    float ebid = 140; // exchange bid (@ print arrival)
+    float eask = 141; // exchange ask (@ print arrival)
+    int32 ebsz = 142; // exchange bid size
+    int32 easz = 143; // exchange ask size
+    float bid = 144; // Option NBBO bid a the time the print was received
+    float ask = 145; // Option NBBO ask a the time the print was received
+    int32 bid_sz = 146; // Option NBBO cumulative bid size at the time the print was received
+    int32 ask_sz = 147; // Option NBBO cumulative ask size at the time the print was received
+    int32 bid_cnt = 148; // Number of exchanges on the NBBO bid
+    int32 ask_cnt = 149; // Number of exchanges on the NBBO ask
+    int32 qte_age = 150; // age of prevailing qutoe at print arrival
+    float u_drift = 151; // dir * sign(de) * (print.uMid - child.uMid) (+ = beneficial, - = detrimental)
+    float opx_drift = 152; // dir * de * dUPrc + 0.5 * ga * dUPrc * dUPrc (+ = beneficial, - = detrimental)
+    float vol_drift = 153; // 0.01 * opxDrift / ve
+    float u_slip = 154; // dir * sign(de) * dContigency; dContigency = uPrc slip through cxl trigger or zero (>= 0)
+    float opx_slip = 155; // abs(de) * uSlip + 0.5 * ga * uSlip * uSlip (>= 0)
+    float vol_slip = 156; // 0.01 * opxSlip / ve
+    int64 src_timestamp = 157; // OPRA or future exchange high precision print timestamp
+    int32 net_offset = 158; // inbound packet SR PTP timestamp; relative to srcTimestamp (nanoseconds)
+    float bid_m1 = 159; // option nbbo bid (P+1min)
+    float ask_m1 = 160; // option nbbo ask (P+1min)
+    float u_bid_m1 = 161; // underlying bid (P+1min)
+    float u_ask_m1 = 162; // underlying ask (P+1min)
+    float fair_prc_m1 = 163; // SR Fair Price (50% probability pt) (P+1min)
+    float pnl_m1 = 164; // pnl @ P+1min (prtPrice to fairPrcM10)
+    YesNo pnl_m1_err = 165; // P+1min pnl error
+    google.protobuf.Timestamp timestamp = 166;
+}
+
+

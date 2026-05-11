@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    OptAwayTktGateway inserts are validated and convered to away SpdrParentExecution records and published. If successfully published they will be visible in the SpdrParentExecution table and on SpiderRock GUI tools.
+    Replaces are allowed but they are functionally identical to updates in that only the fillPrice and fillQuantity fields are actually changed.
+*/    
+message OptAwayTktGateway {
+    message PKey {
+        
+        string accnt = 10;
+        int64 client_fill_iD = 11; // client execution ID, these must be unique on a per-account basis [copied into SpdrParentExecution.altFillId]
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_order_iD = 103; // client orderID [copied into SpdrParentExecution.altOrderId]
+    int64 risk_group_id = 106; // Default: 0 (none).  Required to be non-zero if incorporating risk into an existing riskGroupId
+    YesNo req_aux_risk_group_ctrl = 161;
+    OptionKey okey = 109;
+    BuySell fill_side = 112;
+    double fill_price = 115;
+    int32 fill_quantity = 118;
+    double fill_ref_uPrc = 121; // reference underlier price @ fill arrival time
+    PriceType price_type = 124;
+    PositionType position_type = 127;
+    float theo_vol = 130; // client supplied theoretical volatility (used for markup only)
+    YesNo deliver_exec_report = 133; // Drop a copy of the execution report
+    int64 sRfill_iD = 136; // SR internal fill number, any values submitted will be overwritten by the SR generated fill number [copied in SpdrParentExecution.pkey.fillNumber]
+    string comment = 139; // text comment (if any)
+    string exec_brkr = 142; // used to reflect field from a downstream destination back up to and upstream fill report
+    string user_data1 = 145; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 148; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string strategy = 151; // client-supplied strategy string
+    google.protobuf.Timestamp fill_dttm = 154;
+    google.protobuf.Timestamp timestamp = 157;
+    int32 checksum = 160; // Must be set to 13.  This helps detect some column,value misalignments.
+}
+
+

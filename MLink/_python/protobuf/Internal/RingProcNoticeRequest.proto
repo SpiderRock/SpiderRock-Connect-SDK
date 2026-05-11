@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RingProcNoticeRequest {
+    message PKey {
+        
+        int32 process_iD = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 app_iD = 100;
+    string app_name = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridMarTickerRiskControl {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // should not be '*-ANY-ANY'
+    string c_firm = 101; // If exists, a client firm imposing risk controls (should be an existing SR client ID)
+    string risk_group = 102; // The ID of the risk group these rules will apply to
+    YesNo is_test_accnt = 103; // If Yes, this control applies only to risk for test accounts
+    MarState stk_enabled = 104; // Enabled or not for equities (None=disabled)
+    MarState fut_enabled = 105; // Enabled or not for futures (None=disabled)
+    MarState opt_enabled = 106; // Enabled or not for options (None=disabled)
+    float margin_limit_acc = 107; // Maximum net (per symbol) total portfolio (start-of-day positions + day trades) margin (can include external sources)
+    float margin_limit_day = 108; // Maximum net (per symbol/day) day portfolio (day trades only) margin (can include external sources)
+    float open_exposure_limit = 109; // Maximum abs open child order $Delta (no netting) (open child orders only)
+    int32 max_acc_fut_cn_abs = 110; // Maximum absolute (net) account future contracts
+    int32 max_day_fut_cn_bot = 111; // Day future contracts bot
+    int32 max_day_fut_cn_sld = 112; // Day future contracts sld
+    int32 max_day_fut_cn_abs = 113; // Maximum absolute (net) day future contracts
+    int32 order_max_stk_qty = 114; // Number of equity shares that can be bought or sold by a single parent order
+    int32 order_max_fut_qty = 115; // Number of futures contracts that can be bought or sold by a single parent order
+    int32 order_max_opt_qty = 116; // Number of option contracts that can be bought or sold by a single parent order
+    float order_max_stk_dDelta = 117; // Maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
+    float order_max_fut_dDelta = 118; // Maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
+    float order_max_opt_dDelta = 119; // Maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
+    float stk_collar_pct = 120; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float fut_collar_pct = 121; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    float opt_collar_pct = 122; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
+    YesNo allow_stk_odd_lots = 123; // Allow parent stock orders with an order size below 100
+    YesNo allow_limit_on_close = 124; // Allow limit on close orders - similar to MOC order, with the addition of a price limit
+    YesNo allow_market_on_close = 125; // Allow market on close orders - special order type which is executed as close to the close of trading as possible
+    YesNo allow_inter_market_sweep = 127; // Allow intermarket sweep orders
+    YesNo block_short_sales = 128; // Block all short sales
+    string modified_by = 129; // User that last modified this record
+    SysEnvironment modified_in = 130; // Environment this record was last updated in
+    google.protobuf.Timestamp last_modified = 131; // Timestamp of this record
+    SysRealm sys_realm = 132;
+    SysEnvironment sys_environment = 133; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 134; // EE engine name
+    float live_margin_acc = 135; // live net (per symbol) total portfolio (start-of-day positions + day trades) margin (can include external sources)
+    float live_margin_day = 136; // live net (per symbol) day portfolio (day trades only) margin (can include external sources)
+    float live_open_exposure = 137; // live abs open child order $Delta (no netting) (open child orders only)
+    int32 day_fut_cn_bot = 138; // day future contracts bot
+    int32 day_fut_cn_sld = 139; // day future contracts sld
+    int32 acc_fut_cn_net = 140; // accnt future contracts (net) [can be +/-] (start-of-day positions + day trades)
+    float day_margin_uDn_vDn = 141; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 142; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 143; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 144; // day margin (UPrcUp/VolUp)
+    float acc_margin_uDn_vDn = 145; // acc margin (UPrcDn/VolDn)
+    float acc_margin_uDn_vUp = 146; // acc margin (UPrcDn/VolUp)
+    float acc_margin_uUp_vDn = 147; // acc margin (UPrcUp/VolDn)
+    float acc_margin_uUp_vUp = 148; // acc margin (UPrcUp/VolUp)
+    int32 counter = 149;
+    google.protobuf.Timestamp timestamp = 150; // timestamp of latest change
+    YesNo is_prod = 151; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 152; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 153; // WTS synthetic: alert message (null if no alert)
+}
+
+

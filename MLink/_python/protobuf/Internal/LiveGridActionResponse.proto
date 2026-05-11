@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    Use this to perform actions on Hedge Policy and AutoResponders
+*/    
+message LiveGridActionResponse {
+
+
+    MessageMetadata _meta = 1;
+    
+    YesNo error_found = 101;
+    string error_string = 102;
+}
+
+

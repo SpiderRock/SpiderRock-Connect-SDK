@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: FixAlgoDefaults
+    V8 Message Name: FixAlgoDefaults
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:FixAlgoDefaults
+*/    
+message FixAlgoDefaults_V7 {
+    message PKey {
+        
+        string routing_code = 5000; // v7 & v8
+        string user_name = 5001; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUser]
+        string algo = 5002; // v7 & v8
+        SpdrKeyType sec_type = 5003; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string defaults = 5004; // v7 & v8 --- Original comment: tagnum1:value1:overrideFlag1,tagnum2:value2:overrideFlag2,...
+    string comment = 5005; // v7 & v8
+    string last_user_name = 5006; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUserRef]
+    google.protobuf.Timestamp timestamp = 5007; // v7 & v8
+}
+
+

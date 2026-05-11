@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: IndustryDefinition
+    V8 Message Name: IndustryDefinition
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:IndustryDefinition
+*/    
+message IndustryDefinition_V7 {
+    message PKey {
+        
+        int32 code = 5000; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    IndType ind_type = 5001; // v7 & v8
+    string name = 5002; // v7 & v8
+    google.protobuf.Timestamp timestamp = 5003; // v7 & v8 --- Original comment: timestamp of last modification
+}
+
+

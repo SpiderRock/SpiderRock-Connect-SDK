@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    risk-to-edge
+*/    
+message EdgeExchSession {
+    message PKey {
+        
+        string routing_code = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exec_brkr_code = 100;
+    EdgeExDest edge_ex_dest = 103;
+    string ip_addr1 = 106;
+    int32 ip_port1 = 109;
+    string ip_addr2 = 112;
+    int32 ip_port2 = 115;
+    string mpid = 118; // exchange member firm ID
+    string user_name = 121;
+    string password = 124;
+    RouteControl route_control = 127;
+    google.protobuf.Timestamp route_control_reset = 130;
+    google.protobuf.Timestamp timestamp = 133;
+}
+
+

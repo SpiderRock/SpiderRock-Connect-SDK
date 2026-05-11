@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TradingAlert {
+    message PKey {
+        
+        int64 alert_iD = 10; // Similar to grouping code: any updates will reuse this ID
+        int64 message_iD = 11; // Every time a message is updated, a new ID is issued
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string user_name = 100; // Sender's user name (not visible to client)
+    AlertSeverity alert_severety = 103; // Affects UI response (together with status) - message box, taskbar blinking, colors etc.
+    AlertStatus status = 106; // Clients see active and resolved but not revoked
+    google.protobuf.Timestamp expiration = 109; // Expires at this time if valid, otherwise at EOD
+    string alert_message = 112; // Alert message
+    string url = 115; // [Optional] Hyperlink
+    google.protobuf.Timestamp timestamp = 118;
+    YesNo systemwide = 121; // If yes, every client receives the alert, if no, only those client firms in the list
+    string client_firm = 124; // Client firm list (if systemwide = No)
+}
+
+

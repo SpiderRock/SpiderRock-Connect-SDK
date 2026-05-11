@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ExecBrokerDefinition {
+    message PKey {
+        
+        string exec_brkr_code = 11; // SR Assigned executing broker code
+    }
+
+    message ExchControl {
+        
+        string ex_dest = 118; // exchange (eg. NYSESTK, CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+        YesNo disable = 117;
+    }
+
+    message TemplateName {
+        
+        string template_name = 120; // Template set used by this broker
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exec_brkr_mPID = 100; // FINRA/Assigned exec broker MPID (if any)
+    string exec_brkr_name = 103;
+    YesNo is_fINRA = 113;
+    YesNo disable_routes = 114; // enable/disable all routes for this execBrkrCode
+    string modified_by = 106; // user who last modified this record
+    SysEnvironment modified_in = 109;
+    google.protobuf.Timestamp timestamp = 112; // timestamp of last modification
+    repeated ExchControl exch_control = 115;
+    repeated TemplateName template_name = 119;
+}
+
+

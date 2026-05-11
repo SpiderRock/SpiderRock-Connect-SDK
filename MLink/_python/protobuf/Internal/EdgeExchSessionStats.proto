@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    edge-to-risk
+    sent every 15 seconds
+*/    
+message EdgeExchSessionStats {
+    message PKey {
+        
+        string routing_code = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exec_brkr_code = 100;
+    EdgeExDest edge_ex_dest = 103;
+    EdgeSessionState session_status = 106;
+    int32 num_msg_sent = 109;
+    int32 num_msg_recv = 112;
+    int32 num_msg_sent_ms50 = 115; // maximum number of messages sent in a 50ms interval
+    int32 num_msg_recv_ms50 = 118; // maximum number of messages recv in a 50ms interval
+    int32 min_send_latency_p1 = 121; // min latency in nanos (trigger to send)
+    int32 min_ack_latency_p1 = 124; // min latency in nanos (send to ack)
+    int32 med_send_latency_p1 = 127; // med latency in nanos (trigger to send)
+    int32 med_ack_latency_p1 = 130; // med latency in nanos (send to ack)
+    int32 max_send_latency_p1 = 133; // max latency in nanos (trigger to send)
+    int32 max_ack_latency_p1 = 136; // max latency in nanos (send to ack)
+    int32 min_send_latency_p2 = 139; // min latency in nanos (trigger to send)
+    int32 min_ack_latency_p2 = 142; // min latency in nanos (send to ack)
+    int32 med_send_latency_p2 = 145; // med latency in nanos (trigger to send)
+    int32 med_ack_latency_p2 = 148; // med latency in nanos (send to ack)
+    int32 max_send_latency_p2 = 151; // max latency in nanos (trigger to send)
+    int32 max_ack_latency_p2 = 154; // max latency in nanos (send to ack)
+    int32 min_send_latency_p3 = 157; // min latency in nanos (trigger to send)
+    int32 min_ack_latency_p3 = 160; // min latency in nanos (send to ack)
+    int32 med_send_latency_p3 = 163; // med latency in nanos (trigger to send)
+    int32 med_ack_latency_p3 = 166; // med latency in nanos (send to ack)
+    int32 max_send_latency_p3 = 169; // max latency in nanos (trigger to send)
+    int32 max_ack_latency_p3 = 172; // max latency in nanos (send to ack)
+    int32 min_send_latency_p4 = 175; // min latency in nanos (trigger to send)
+    int32 min_ack_latency_p4 = 178; // min latency in nanos (send to ack)
+    int32 med_send_latency_p4 = 181; // med latency in nanos (trigger to send)
+    int32 med_ack_latency_p4 = 184; // med latency in nanos (send to ack)
+    int32 max_send_latency_p4 = 187; // max latency in nanos (trigger to send)
+    int32 max_ack_latency_p4 = 190; // max latency in nanos (send to ack)
+    google.protobuf.Timestamp timestamp = 193;
+}
+
+

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    --- temporary access key ---
+*/    
+message MLinkSessionKey {
+    message PKey {
+        
+        string user_name = 10; // UserConfig.userName
+        string session_key = 12; // Session access key (SR generated; guid; plain text; HEX:32+4) (includes dashes)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp session_key_expires = 100; // Session access key expiration dttm (typically 24 hours)
+    string server = 103; // MLinkServer issuing temporary session key
+    google.protobuf.Timestamp timestamp = 106; // timestamp of last modification
+}
+
+

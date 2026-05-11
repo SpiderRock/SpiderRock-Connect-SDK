@@ -1,0 +1,226 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridPosPnLRiskDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // SR Accnt
+    string c_firm = 101; // SR assigned client firm
+    string sec_key = 293; // conditionally formatted secKey based on secType
+    string sec_key_ticker_src = 294;
+    string sec_key_asset_type = 295;
+    SecType sec_type = 103; // [Call, Put, Stock, Future, Cash]
+    string trade_date = 104;
+    RiskSession risk_session = 105;
+    RiskCubeVersion version = 106;
+    string clearing_firm = 107; // Clearing Firm
+    string clearing_accnt = 108; // Clearing Firm Accnt
+    string risk_server_code = 109; // SR RiskServer (server that published this record)
+    string view_group1 = 110; // Client defined view group #1 (can be fitered/aggregated)
+    string view_group2 = 111; // Client defined view group #2 (can be fitered/aggregated)
+    string view_group3 = 112; // Client defined view group #3 (can be fitered/aggregated)
+    TickerKey ticker = 113; // Risk Symbol (underlier for equities; product group for future/option complexes)
+    string risk_class = 114; // Symbol risk class (from SymbolControl record)
+    SymbolType symbol_type = 115; // Symbol type
+    float beta = 116; // beta (usually beta to SPX; see AccountConfig.betaSource)
+    BetaSource beta_source = 117;
+    string sector = 118; // Client defined sector (from SymbolControl record)
+    int32 ind_num = 119; // Ind Num (00)
+    int32 sub_num = 120; // Sub Num (0000)
+    int32 grp_num = 121; // Grp Num (000000)
+    int32 nbr_num = 122; // Nbr Num (00000000)
+    int32 e_days = 123; // days to next earnings [-5, +30]
+    int32 d_days = 124; // days to next dividend [-5, +30]
+    float x_delta = 125; // calls = +0.5 - delta; puts = -0.5 - delta
+    ExpCode exp_code = 126; // Time-to-expiry code (W1, W2, M1, M2, M34, M56, M7C, Y1, Y2)
+    SkewCode skew_code = 127; // Skew bucket code (Dd=Deep DownSide, Dn = DownSide, At = ATM, Up = UpSide, DU = FarUpSide)
+    EDaysCode e_days_code = 128; // Days to next earnings event (if any)
+    iVolRange i_vol_range = 129; // Implied ATM Vol Range
+    float skew_dD = 130; // dd (deep downside) skew metric (xde < -0.30)
+    float skew_dN = 131; // dn (downside) skew metric (-0.30 < xde < -0.10)
+    float skew_aT = 132; // at (atm) skew risk metric (-0.10 < xde < +0.10)
+    float skew_uP = 133; // up (upside) skew risk metric (+0.10 < xde < +0.30)
+    float skew_dU = 134; // du (far upside) skew risk metric (+0.30 < xde)
+    int32 sh_opn_pos = 135; // shares (start-of-day)
+    int32 fc_opn_pos = 136; // futures contracts (start-of-day)
+    int32 cn_opn_pos = 137; // options contracts (start-of-day)
+    float cn_atm_equiv = 138; // atm equivalent contracts; (opr.cnOpnPos + opr.cnBot - opr.cnSld) * opr.ve / opr.atmVega
+    int32 sh_bot = 139; // shares bot
+    int32 sh_sld = 140; // shares sld
+    int32 sh_sld_shrt = 141; // shares sld short
+    int32 fc_bot = 142; // future contracts bot
+    int32 fc_sld = 143; // future contracts sld
+    int32 cn_bot = 144; // option contracts bot
+    int32 cn_sld = 145; // option contracts sld
+    int32 cn_opened = 146; // option contracts opened
+    int32 cn_closed = 147; // option contracts closed
+    string opn_dir = 148; // open (start-of-day) direction (LN or SH)
+    string pos_dir = 149; // current (start-of-day + trades) direction (LN or SH)
+    int32 unit_opn_pos = 150; // effective opening position (shares or cn * underlierPerCn) (start-of-day)
+    int32 unit_cur_pos = 151; // effective current position (shares or cn * underlierPerCn) (start-of-day + trades)
+    int32 unit_qty_bot = 152; // effective shares bot (shares or cn * underlierPerCn)
+    int32 unit_qty_sld = 153; // effective shares sld (shares or cn * underlierPerCn)
+    float day_pnl = 154; // day pnl
+    float day_dn_pnl = 155; // day pnl (delta neutral)
+    float day_trd_delta = 156; // day trade delta
+    float day_trd_dDelta = 157; // day trade $delta
+    float day_trd_gamma = 158; // day trade gamma
+    float day_trd_dGamma = 159; // day trade $gamma
+    float day_trd_vega = 160; // day trade vega
+    float day_trd_wVega = 161; // day trade wVega (vega * vol)
+    float day_trd_tVega = 162; // day trade tVega (vega / sqrt(max(0.1, years * 4)))
+    float day_trd_wt_vega = 163; // day trade wtVega (vega * vol / sqrt(max(0.1, years * 4)))
+    float day_trd_theta = 164; // day trade theta
+    float day_edge_opened = 165; // day theo option edge opened (requires a theo model)
+    float day_edge_closed = 166; // day theo option edge closed (requires a theo model)
+    double day_mny_bot = 167; // day money bot
+    double day_mny_sld = 168; // day money sld
+    float opn_pnl_vol_mark = 169; // (cur.surface - pr.surface) * cnOpnClr * upc
+    float opn_pnl_mid_mark = 170; // (cur.mid - pr.mid) * cnOpnClr * upc
+    float opn_pnl_clr_mark = 171; // (cur.mid - pr.clr) * cnOpnClr * upc
+    float opn_mark_brk_mny = 172; // (cur.surface - cur.mid) * cnOpnClr * upc
+    float opn_theo_edge = 173; // opening edge (edge at the end of prior period) (requires a theo model)
+    float pos_theo_edge = 174; // current edge (opening positions + trades) (requires a theo model)
+    float t_vol_move = 175; // LN(tVol / tVolPr)
+    float t_edge_move = 176; // LN(tVol / iVol) - LN(tVolPr / iVolPr)
+    float t_edge = 177; // LN(tVol / iVol)
+    float opn_pnl_de = 178; // open position * mult * hedgeDe * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
+    float opn_pnl_ga = 179; // open position * mult * 0.5 * optGamma * dUPrc * dUPrc
+    float opn_pnl_th = 180; // open position * mult * optTheta * dTime
+    float opn_pnl_ve = 181; // open position * mult * optVega * dVol
+    float opn_pnl_vo = 182; // open position * mult * 0.5 * optVolga * dVol * dVol
+    float opn_pnl_va = 183; // open position * mult * optVanna * dVol * dUPrc
+    float opn_pnl_sl = 184; // open position * mult * vol/uPrc * slope * optVega * dUPrc
+    float opn_pnl_rate = 185; // open position * mult * optRho * dRate
+    float opn_pnl_sDiv = 186; // open position * mult * optPhi * dSDv
+    float opn_pnl_dDiv = 187; // open position * mult * optPhi * dDDv
+    float opn_pnl_err = 188; // unattributed pnl: SR Vol Pnl - opnPnlDe - opnPnlGa - opnPnlTh - opnPnlVe - opnPnlRat - opnPnlSDiv - opnPnlDDiv
+    float opn_edge_change = 189; // open position * mult * (tEdge - tEdgePr) (requires a theo model)
+    float pos_delta = 190; // live position * mult * hedgeDe
+    float pos_dDelta = 191; // live position * mult * hedgeDe * UPrc
+    float pos_dBeta = 192; // live position * mult * hedgeDe * beta * UPrc
+    float pos_gamma = 193; // live position * mult * optGamma
+    float pos_dGamma = 194; // live position * mult * optGamma * uPrc * uPrc / 100
+    float pos_vega = 195; // live position * mult * optVega
+    float pos_wVega = 196; // live position * mult * optVega * iVol
+    float pos_tVega = 197; // live position * mult * optVega / sqrt(max(0.1, years * 4))
+    float pos_wt_vega = 198; // live position * mult * optVega * iVol / sqrt(max(0.1, years * 4))
+    float pos_volga = 199; // live position * mult * optVolg
+    float pos_vanna = 200; // live position * mult * optVanna
+    float pos_theta = 201; // live position * mult * optTheta
+    float pos_rho = 202; // live position * mult * optRho
+    float pos_phi = 203; // live position * mult * optPhi
+    float pos_notional = 204; // live position * mult * uPrc
+    float pos_mkt_value = 205; // live position * mult * SR surface mark
+    float pos_prem_oPar = 206; // live position * mult * premium over parity
+    float atm_vol = 207; // atm volatility
+    float sym_vol = 208; // underlier symbol volatility (term.21d;censored)
+    float sr_slope = 209; // strike veSlope (sr surface;options only)
+    float prc_sVol = 210; // SR Surface Vol
+    float prc_tOpx = 211; // SR Surface Price
+    float prc_yOpx = 212; // SR Yesterday Surface Price
+    float prc_uPrc = 213; // underlier price
+    float prc_years = 214; // years-to-expiry
+    float prc_rate = 215; // discount rate-to-expiry
+    float prc_sdiv = 216; // continuous stock div rate-to-expiry
+    float prc_ddiv = 217; // cumulative discrete dividend paid through expiry
+    float u_prc_ratio = 218; // stock price multiplier
+    float u_prc_move = 219; // Underlier price change
+    float i_vol_move = 220; // Implied vol change (fixed strike ivol change from prior period)
+    float ex_div_amt = 221; // estimated exDiv amount (if any)
+    float borrow_rate = 222; // estimated stock borrow rate (if any)
+    int32 model_type = 223; // SRPricingLib.CalcModelType
+    int32 underliers_per_cn = 224; // underliers per contract
+    UnderlierType underlier_type = 225; // underlier type (used for option pricing)
+    float point_value = 226; // value of one point
+    Currency point_currency = 227;
+    float tick_value = 228; // value of one tick
+    Multihedge multihedge = 229;
+    TickerKey multihedge_source = 230; // MH Ticker Key (starts with '_') (if exists)
+    float multihedge_pVRatio = 231; // pv multiplier (fraction of underlier value (uPerCn x uPrc) / SUM(uPerCn x uPrc) associated with this fragment
+    float span_prc_inc_up = 232; // default (exchange) span price up increment for this asset
+    float span_prc_inc_dn = 233; // default (exchange) span price dn increment for this asset
+    float span_vol_inc = 234; // default (exchange) span volatility increment for this asset
+    SpanType prc_span_type = 235; // exchange prcSpan type
+    SpanType vol_span_type = 236; // exchange volSpan type
+    SpanPricingModel span_pricing_model = 237; // Exchange-defined model for SPAN option pricing calcs
+    MarginType margin_type = 238; // margin slide type: NMS_Equity = +/- 15%, NMS_Index = -8%/+6%, NMS_Medium = +/-10%
+    int32 total_pos = 239; // shOpnPos + fcOpnPos + cnOpnPos + shBot + fcBot + cnBot + shSld + fcSld + cnSld
+    int32 total_sh = 240; // shOpnPos + shBot + shSld
+    int32 total_fc = 241; // fcOpnPos + fcBot + fcSld
+    int32 total_cn = 242; // cnOpnPos + cnBot + cnSld
+    float total_pn_l = 243; // openPnlDe + openPnlDDe + openPnlVe + openPnlWtVe + openPnlTVe + openPnlWVe + openPnlTh + openPnlGa + openPnlPh + openPnlRh + openPnlVo + openPnlVa + openPnlDBe + openPnlDGa
+    float total_pn_lCall = 244; // totalPnl where=call
+    float total_pn_lPut = 245; // totalPnl where sectype=put
+    float total_pn_lStk = 246; // totalPnl where sectype =stock
+    float total_pn_lFut = 247; // totalPnl where sectype = future
+    float total_pn_lCash = 248; // totalPnl where sectype = cash
+    float total_pn_lDir_short = 249; // totalPnl where posDir='SH'
+    float total_pn_lDir_long = 250; // totalPnl where posDir='LN'
+    int32 total_pos_dir_short = 251; // totalPosWhere posDir='SH'
+    int32 total_pos_dir_long = 252; // totalPosWhere posDir='LN'
+    float opn_pnl_de_dir_short = 253; // openPnlDe where posDir='SH'
+    float opn_pnl_ve_dir_short = 254; // openPnlVe where posDir='SH'
+    float opn_pnl_ga_dir_short = 255; // openPnlGa where posDir='SH'
+    float opn_pnl_th_dir_short = 256; // openPnlTh where posDir='SH'
+    float opn_pnl_rh_dir_short = 257; // openPnlRh where posDir='SH'
+    float opn_pnl_ph_dir_short = 258; // openPnlPh where posDir='SH'
+    float opn_pnl_de_dir_long = 259; // openPnlDe where posDir='LN'
+    float opn_pnl_ve_dir_long = 260; // openPnlVe where posDir='LN'
+    float opn_pnl_ga_dir_long = 261; // openPnlGa where posDir='LN'
+    float opn_pnl_th_dir_long = 262; // openPnlTh where posDir='LN'
+    float opn_pnl_rh_dir_long = 263; // openPnlRh where posDir='LN'
+    float opn_pnl_ph_dir_long = 264; // openPnlPh where posDir='LN'
+    float pos_delta_dir_short = 265; // posDelta where posDir='SH'
+    float pos_vega_dir_short = 266; // posVega where posDir='SH'
+    float pos_gamma_dir_short = 267; // posGamma where posDir='SH'
+    float pos_theta_dir_short = 268; // posTheta where posDir='SH'
+    float pos_rho_dir_short = 269; // posRho where posDir='SH'
+    float pos_phi_dir_short = 270; // posPhi where posDir='SH'
+    float pos_delta_dir_long = 271; // posDelta where posDir='LN'
+    float pos_vega_dir_long = 272; // posVega where posDir='LN'
+    float pos_gamma_dir_long = 273; // posGamma where posDir='LN'
+    float pos_theta_dir_long = 274; // posTheta where posDir='LN'
+    float pos_rho_dir_long = 275; // posRho where posDir='LN'
+    float pos_phi_dir_long = 276; // posPhi where posDir='LN'
+    float overall_tot_pn_l = 277; // (row.exDivAmt * row.shOpnPos) + OpnPnlVolMark + dayPnl
+    int32 sh_cur_pos = 278; // shares current position
+    int32 cn_cur_pos = 279; // options current position
+    int32 fc_cur_pos = 280; // (futures current position)
+    int32 cn_pos_ln = 281; // (option position long)
+    int32 cn_pos_sh = 282; // (option position long)
+    string symbol_key_val = 283;
+    string future_key_val = 284;
+    string option_key_val = 285;
+    string strike = 286;
+    string root = 287;
+    string expiration = 288;
+    float hedge_de = 289;
+    int32 uu_pos = 290;
+    float raw_delta = 291;
+    google.protobuf.Timestamp timestamp = 292;
+    float pos_hDelta = 297; // hedge delta (either ivol or tvol based;follows binary rules)
+    float pos_hDDelta = 298; // hedge delta (dollarized)
+    float pos_hGamma = 299; // hedge gamma (either ivol or tvol based;follows binary rules)
+    float pos_hDGamma = 300; // hedge gamma (dollarized)
+    YesNo is_prod = 301; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 302; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 303; // WTS synthetic: alert message (null if no alert)
+}
+
+

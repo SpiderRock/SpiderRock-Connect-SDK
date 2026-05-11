@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: StockEarningsHistoryETL + StockPrintSummaryETL
+    CalcEngine: Spark/ETL
+*/    
+message StockEarningsMarkupETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey earnings_date = 11; // earnings announcement date
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    IntervalType interval_type = 100;
+    DateKey interval_date = 103; // starting date of the earnings reporting period
+    EarnTime earn_time = 106; // time of day earnings was announced
+    float earn_move = 109; // largest single day move (day before, day of, or day after earningsDate)
+    DateKey earn_move_date = 112; // date on which largest move occured.
+    float hist_avg_move = 115; // average 1 day move (earnMoveDate.Prev - earnMoveDate] (typically the preceeding ~60 trading days)
+    float hist_avg_earn_move_y0 = 118; // average earnMove (preceeding 4 earnings)
+    float hist_avg_earn_move_y1 = 121; // average earnMove (subsequent 4 earnings)
+    float hist_avg_earn_move_y2 = 124; // average earnMove (subsequent 4 earnings)
+    google.protobuf.Timestamp timestamp = 127;
+}
+
+

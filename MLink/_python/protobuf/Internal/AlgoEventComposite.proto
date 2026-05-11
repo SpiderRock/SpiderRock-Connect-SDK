@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AlgoEventComposite {
+
+
+    MessageMetadata _meta = 1;
+    
+    google.protobuf.Timestamp timestamp = 100; // quote event create timestamp (should have high precision)
+    double brkr_clock = 103; // seconds since broker creation
+    string accnt = 106;
+    string client_firm = 109;
+    int64 base_pNumber = 112;
+    int64 parent_number = 115;
+    int64 risk_group_id = 118;
+    int64 pkg_number = 121; // Base Legger Number
+    AuctionType auction_type = 249;
+    AuctionSource auction_source = 250;
+    string auction_cust_detail = 251;
+    int64 notice_number = 252; // Auction NoticeNumber (auction number this broker is associated with; if any)
+    double notice_clock = 253; // seconds since auction start (ats and exchange auctions)
+    string short_code = 255; // Block Auction Code (3-10 digit auction code this broker is associated with; if any)
+    SpdrSource spdr_source = 124;
+    string sec_key = 254;
+    SpdrKeyType sec_type = 130;
+    QEvent q_event = 133;
+    string q_event_desc = 136;
+    BuySell side = 139;
+    int32 order_size = 142;
+    int32 order_active_size = 145;
+    double user_limit = 148;
+    double make_limit = 151;
+    double take_limit = 154;
+    string market = 157;
+    string child_orders = 160;
+    int32 cum_filled = 163;
+    int32 open_size = 166;
+    string security_detail = 169; // security (legs) description (includes fills x leg if MLEG)
+    string algo_state = 172;
+    ParentOrderHandling p_order_handling = 175;
+    ParentBalanceHandling p_balance_handling = 178;
+    string user_limit_desc = 181;
+    string take_limit_desc = 184;
+    string make_limit_desc = 187;
+    int32 risk_size = 190;
+    SpdrRisk risk_reason = 193;
+    string risk_detail = 196;
+    MaxProgress max_progress = 199;
+    SpdrOrderStatus parent_status = 202;
+    SpdrBrokerStatus broker_status = 205;
+    string progress_detail = 208;
+    string child_route_error = 211;
+    string active_size_detail = 214;
+    string risk_counters = 217;
+    string u_market = 220;
+    string mkt_extra = 223;
+    string qp_detail = 226;
+    string surf_detail = 229;
+    string p_cont_cxl = 232;
+    string latency = 256;
+    YesNo is_test_accnt = 235;
+    string ticker_symbol = 238;
+    int64 grouping_code = 241;
+    string engine = 248;
+    int64 seq_number = 247; // quote event create sequence number (should increment sequentially for each engine)
+}
+
+

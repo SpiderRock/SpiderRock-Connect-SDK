@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionChildQuote {
+    message PKey {
+        
+        OptionKey okey = 10;
+        string engine_name = 15;
+        YesNo is_test_accnt = 12;
+        SysEnvironment sys_environment = 13;
+        RunStatus run_status = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float bid_price = 100; // bid price
+    float ask_price = 103; // ask price
+    int32 bid_size = 106; // bid size in contracts
+    int32 ask_size = 109; // ask size in contracts
+    google.protobuf.Timestamp timestamp = 112; // quote update
+}
+
+

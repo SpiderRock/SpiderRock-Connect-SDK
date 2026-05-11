@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrClearingReport {
+    message PKey {
+        
+        int64 report_number = 10; // SpiderRock clearing report number (globally unique over trailing 10 days)
+    }
+
+    message Party {
+        
+        string party_id = 166;
+        int32 party_role = 169;
+    }
+
+    message PartySub {
+        
+        string party_id = 175; // maps to item in PartyList
+        string party_sub_id = 178;
+        int32 party_sub_id_type = 181;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ClearingReportSource clr_source = 100;
+    int32 client_seq_num_in = 103; // inbound client seq number (FIX messages only)
+    google.protobuf.Timestamp sending_time = 106; // direct copy from client's message
+    google.protobuf.Timestamp transact_time = 109; // direct copy from client's message
+    DateKey trade_date = 112;
+    string trade_report_id = 115;
+    string trade_report_ref_id = 118;
+    YesNo previously_reported = 121;
+    string cl_ord_id = 124;
+    string order_id = 127;
+    string exec_id = 130;
+    string clearing_accnt = 133;
+    string client_firm = 136;
+    OptionKey sec_key = 139;
+    SpdrKeyType sec_type = 142;
+    BuySell order_side = 145;
+    ShortSaleFlag ssale_flag = 148;
+    string exch = 151;
+    int32 last_qty = 154;
+    double last_px = 157;
+    google.protobuf.Timestamp timestamp = 160;
+    repeated Party party = 163;
+    repeated PartySub party_sub = 172;
+}
+
+

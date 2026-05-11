@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message HistoricalEarningsData {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        google.protobuf.Timestamp earning_date = 11; // 12 trailing + 4 future
+    }
+
+    message Earnings {
+        
+        string event_time = 106;
+        float stk_prc = 109; // closing pricing
+        float stk_prc_prv = 112; // prior period closing price (corp action adjusted)
+        float stk_prc_hi = 115; // day high price
+        float stk_prc_lo = 118; // day low price
+        float earn_pct_move = 121;
+        google.protobuf.Timestamp move_date = 124;
+        float h_eMove = 127;
+        float i_eMove = 130;
+        EarnStatus earn_status = 133;
+        GuidanceIssued guidance_issued = 136;
+        earnChange earn_change = 139;
+        float avg_daily_move3_m = 140; // average move over 3 month
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp ts = 100; // last update time (Date)
+    repeated Earnings earnings = 103;
+}
+
+

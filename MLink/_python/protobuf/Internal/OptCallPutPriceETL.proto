@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    OptCallPutPriceETL records contain the raw (non-derived) call and put details for each outright option strike.
+    OptCallPutPriceETL records serve as inputs to surface fitting algorithms in both live and historical contexts.
+    Step: 1
+    Inputs: ???
+    CalcEngine: ???
+*/    
+message OptCallPutPriceETL {
+    message PKey {
+        
+        OptionKey okey = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float c_bid = 100; // [call] bid price
+    float c_ask = 103; // [call] ask price
+    int32 c_bid_sz = 106; // [call] bid size (cumulative nbbo size)
+    int32 c_ask_sz = 109; // [call] ask size (cumulative nbbo size)
+    float p_bid = 115; // [put] bid price
+    float p_ask = 118; // [put] ask price
+    int32 p_bid_sz = 121; // [put] bid size (cum nbbo size)
+    int32 p_ask_sz = 124; // [put] ask size (cum nbbo size)
+    google.protobuf.Timestamp timestamp = 130; // capture timestamp
+}
+
+

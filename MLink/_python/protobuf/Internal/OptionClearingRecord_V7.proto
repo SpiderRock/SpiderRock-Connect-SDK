@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: OptionClearingRecord
+    V8 Message Name:
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:OptionClearingRecord
+*/    
+message OptionClearingRecord_V7 {
+    message PKey {
+        
+        OptionKey okey = 5000; // ONLY V7: [OptionKey]
+        string accnt = 5001; // ONLY V7: [string,Length=16,Alias=SRAccountString,MetaType=NA]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DaySide day_side = 5002; // ONLY V7: [enum,Name=DaySide,Values=StartOfDay=0,EndOfDay=1]
+    DateKey trade_date = 5003; // ONLY V7: [DateKey]
+    ClearingSource_V7 source = 5004; // ONLY V7: [enum,Name=ClearingSource,Values=None=0,SR=1,CLR=2]
+    string source_name = 5005; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: source firm / loader name
+    int32 clr_position = 5006; // ONLY V7: [int] --- Original comment: clearing position @ daySide
+    double clr_mark = 5007; // ONLY V7: [double] --- Original comment: clearing mark @ daySide
+    TickerKey ticker = 5008; // ONLY V7: [TickerKey] --- Original comment: underlier ticker (if supplied by clearing firm)
+    google.protobuf.Timestamp timestamp = 5009; // ONLY V7: [DateTime] --- Original comment: upload timestamp;will be identical per accnt
+}
+
+

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OrderCardDataRange {
+    message PKey {
+        
+        int32 range_id = 10;
+    }
+
+    message VisibleCards {
+        
+        int64 ord_key = 115; // baseParentNumber or riskGroupID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_cards = 100;
+    int32 num_active = 101;
+    int32 num_closed = 102;
+    int32 num_filled = 103;
+    int32 num_rejected = 104;
+    int32 num_active_hold = 105;
+    int32 st_pos = 106;
+    int32 num_matching = 107; // number of cards matching filter
+    int32 match_active = 108;
+    int32 match_closed = 109;
+    int32 match_filled = 110;
+    int32 match_rejected = 111;
+    int32 match_active_hold = 112;
+    repeated VisibleCards visible_cards = 113;
+}
+
+

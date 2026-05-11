@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: StockEarningsCalendar
+    V8 Message Name: StockEarningsCalendar
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:StockEarningsCalendar
+*/    
+message StockEarningsCalendar_V7 {
+    message PKey {
+        
+        TickerKey ticker = 5000; // v7 & v8
+        EventSource source = 5001; // v7 & v8 --- Original comment: Live=currentEarningsDate; priorDay=previousEarningsDate
+    }
+
+    message Event {
+        
+        DateKey event_date = 5005; // v7 & v8
+        string event_time = 5006; // v7 & v8
+        EarnStatus earn_status = 5007; // v7 & v8
+        GuidanceIssued guidance_issued = 5008; // v7 & v8
+        DateKey earn_fiscal_qtr = 5009; // v7 & v8
+        earnChange earn_change = 5010; // v7 & v8
+        float earn_pct_move = 5011; // v7 & v8 --- Original comment: underlying move in the trading period including the event (only available when eventStatus = 'Actual')
+        float prv_close = 5012; // v7 & v8 --- Original comment: closing price prior to earnings announcement
+        float open = 5013; // v7 & v8 --- Original comment: opening price (on moveDate)
+        float high = 5014; // v7 & v8 --- Original comment: high price (on moveDate)
+        float low = 5015; // v7 & v8 --- Original comment: low price (on moveDate)
+        float close = 5016; // v7 & v8 --- Original comment: close price (on moveDate)
+        DateKey move_date = 5017; // v7 & v8 --- Original comment: date corresponding to larger daily change (OHLC data taken from the same date or the date following each earnings announcement)
+        float h_eMove = 5018; // v7 & v8 --- Original comment: historical average (trailing 8) earnings moves prior to announcement (historical only)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float e_move_hist = 5002; // ONLY V7: [float] --- Original comment: historical average (trailing 8) earnings moves prior to today
+    google.protobuf.Timestamp timestamp = 5003; // v7 & v8 --- Original comment: timestamp of record
+    repeated Event event = 5004;
+}
+
+

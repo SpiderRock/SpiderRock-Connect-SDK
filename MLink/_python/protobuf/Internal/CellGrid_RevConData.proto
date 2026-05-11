@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CellGrid_RevConData {
+    message PKey {
+        
+        int32 h_index = 10; // note: some vIndex/hIndex pairs can be blank
+        int32 v_index = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey opt_key = 100; // cp = Both
+    string accnt = 101;
+    string client_firm = 102;
+    string x_axis = 103; // xAxis = Moneyness
+    string x_de = 104; // xDelta
+    string u_prc = 105; // live underlier price
+    string atm_vol = 106;
+    string years = 107; // number of volatility years to exiry date (volatility time metric)
+    string ddiv_pv = 108; // present value of estimated discrete dividend stream to expiry date
+    string ddiv_disc = 109; // dividend discount factor: SUM(div * iDays / 365.0 - divYrs) due to dividends being paid (thereby lowering the uPrc basis) prior to expiry
+    DDivSource ddiv_source = 110;
+    string global_rate = 111; // global rate (average discount rate) to expiry date
+    string i_days = 112; // number of interest days to expiry
+    string strike_pv = 113; // strike * EXP(-globalRate * iDays / 365)
+    string fair_sVol = 114; // call/put surface volatility value
+    string fair_sDiv = 115; // call/put surface alignment sdiv value
+    string rc_fair_prc = 116; // uPrc + fairPutPrc - fairCallPrc - strike (revCon fairMid price)
+    string rc_eEx_prem = 117; // (fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
+    string fair_loan_pv = 118; // uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)
+    string fair_loan_rate = 119; // fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)
+    string rc_bid_prc = 120; // uPrc + putBid - callAsk - strike (best way) (join markets)
+    string rc_ask_prc = 121; // uPrc + putAsk - callBid - strike (worst way) (cross markets)
+    string fair_loan_pv_chg = 122;
+    string fair_loan_rate_chg = 123;
+    string calc_error = 124;
+    string cp_oI = 125; // c/p open interest (market) [upper bound]
+    string cp_vlm = 126; // c/p print volume (this exchange) [upper bound]
+    string rc_trd = 127; // r/c contracts traded today
+    string rc_pos = 128; // r/c contract position (start-of-period + traded today)
+    google.protobuf.Timestamp ts = 129; // last update time (Date)
+}
+
+

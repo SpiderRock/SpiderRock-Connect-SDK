@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrReconExecution {
+    message PKey {
+        
+        string exec_id = 10;
+        string exch = 11;
+        google.protobuf.Timestamp trade_date = 12;
+        string cl_ord_id = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exch_accnt = 100;
+    OptionKey sec_key = 101;
+    SpdrKeyType sec_type = 102;
+    int32 order_qty = 103;
+    BuySell side = 104;
+    google.protobuf.Timestamp fill_dttm = 105;
+    int32 fill_qty = 106;
+    double fill_px = 107;
+    ExecStatus exec_status = 108;
+    google.protobuf.Timestamp timestamp = 110;
+}
+
+

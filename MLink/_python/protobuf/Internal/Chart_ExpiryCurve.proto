@@ -1,0 +1,156 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message Chart_ExpiryCurve {
+    message PKey {
+        
+        ExpiryKey exp_key = 10;
+    }
+
+    message Markets {
+        
+        float x_axis = 177;
+        float xx = 178; // strike
+        float c_bid_v = 179; // call bid volatility
+        float c_bid_vAvg = 180; // call bid volatility (10 min avg)
+        float c_bid_vStd = 181; // call bid volatility (10 min std)
+        int32 c_bid_sz = 182;
+        float c_ask_v = 183; // call ask volatility
+        float c_ask_vAvg = 184; // call ask volatility (10 min avg)
+        float c_ask_vStd = 185; // call ask volatility (10 min std)
+        int32 c_ask_sz = 186;
+        float p_bid_v = 187; // put bid volatility
+        float p_bid_vAvg = 188; // put bid volatility (10 min avg)
+        float p_bid_vStd = 189; // put bid volatility (10 min std)
+        int32 p_bid_sz = 190;
+        float p_ask_v = 191; // put ask volatility
+        float p_ask_vAvg = 192; // put ask volatility (10 min avg)
+        float p_ask_vStd = 193; // put ask volatility (10 min std)
+        int32 p_ask_sz = 194;
+    }
+
+    message Points {
+        
+        float x_axis = 166;
+        float s_vol_l = 168; // (Live) surface volatitity
+        float s_vol_p = 221; // (Prev) surface volatility
+        float b_vol_l = 169; // (Live) basis volatitity
+        float b_vol_p = 222; // (Prev) basis volatility
+        float s_div_l = 170; // (Live) surface sDiv
+        float s_div_p = 225; // (Prev) surface sDiv
+    }
+
+    message PrintDist {
+        
+        float x_axis = 227;
+        float p_vol = 228; // print volatility (relative to zero)
+        int32 c_prt_sz = 229; // cum prt size (1-5) (@pVol level)]
+        int32 p_prt_sz = 230; // cum prt size (1-5) (@pVol level)]
+    }
+
+    message Summary {
+        
+        float x_axis = 234;
+        float xx = 235; // strike
+        int32 c_oI = 236; // call open interest
+        int32 p_oI = 237; // put open interest
+        int32 c_vlm = 238; // call print volume
+        int32 p_vlm = 239; // put print volume
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double live_uPrc = 100;
+    double u_prc = 101; // effective uPrc used for surface fitting
+    double u_prc_driver = 102; // underlier driver (mid-market)
+    int32 days = 244; // days to expiry
+    float years = 104; // volatility time to expiration (in years)
+    float rate = 105; // term interest rate to expiry (discount rate)
+    float atm_sVol = 106; // atm surface volatility (xAxis = 0)
+    float atm_sDiv = 107; // atm continous stock dividend (borrow rate) (xAxis = 0)
+    float atm_slope = 108; // volatility surface slope (dVol / dXAxis) @ ATM (xAxis=0)
+    ExpiryKey basis_eKey = 109; // LiveBasisCurve.pkey.ekey record that defines BasisSkewFn below.
+    google.protobuf.Timestamp basis_timestamp = 110; // LiveBasisCurve.timestamp
+    float axis_fUPrc = 111; // axis FwdUPrc (fwd underlying price used to compute xAxis)
+    float x_mult = 112;
+    float x_shift = 113;
+    float skew_mult = 114; // sVol = skewMult * BasisSkewFn(xMult * (xAxis - xShift))
+    YesNo has_atm_rec = 115;
+    float cp_adj_a = 116; // cpAdj = cpAdjA + cpXDe * cpAdjB + cpXDe * cpXDe * cpAdjC [cpAdj is either sdiv or uPrcRatio]
+    float cp_adj_b = 117;
+    float cp_adj_c = 118;
+    float cp_adj_ref_vol = 119; // cpXDe = 0.5 - BS_cDe(uPrc, strike, cpAdjRefVol, years, rate, sdiv=0)
+    TickerKey ticker = 120; // underlying stock key that this option expiration attaches to
+    ExpiryKey fkey = 121; // underlying future key (if any)
+    ExpiryKey u_prc_driver_key = 122; // underlier driver key
+    SpdrKeyType u_prc_driver_type = 123; // underlier driver key type (stock or future)
+    float ddiv = 124; // (expected) cumulative discrete dividend $ amounts prior to expiration
+    float ddiv_pv = 125; // (expected) cumulative npv of discrete dividend $ amounts prior to expiration (SR global rate curve)
+    DDivSource ddiv_source = 126; // Forecast if any of the dividends prior to expiry are forecast rather than announced
+    float symbol_ratio = 127; // underlier price ratio (usually 1.0 or a multi-hedge option price ratio; if one exists)
+    ExerciseType ex_type = 128; // exercise type (American or European)
+    CalcModelType model_type = 129; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 130; // Spot (Equity), Forward (Cash), Future, Physical
+    float earn_cnt = 131; // number of qualifying earnings events prior to expiration [can be fractional] (from StockEarningsCalendar)
+    float earn_cnt_adj = 132; // number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
+    MoneynessType moneyness_type = 133; // moneyness (xAxis) convention
+    PriceQuoteType price_quote_type = 134; // Price or Vol
+    float atm_vol_hist = 135; // historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
+    float atm_cen_hist = 136; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
+    float u_beta_hist = 137; // beta (this underlier vs basis underlier; T + 1 week)
+    float i_eMove = 138; // implied earnings move (from LiveSurfaceTerm)
+    float h_eMove = 139; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
+    float min_xAxis = 140; // minimum xAxis value; left most point with a valid supporting strike
+    float max_xAxis = 141; // maximum xAxis value; right most point with a valid supporting strike
+    double u_prc_ratio = 142; // uPrcAdj = uPrc * uPrcRatioFit
+    float pwidth = 143; // minimum mkt premium width
+    float vwidth = 144; // minimum mkt volatility width
+    uint32 c_cnt = 145; // num call strikes in base fit
+    uint32 p_cnt = 146; // num put strikes in base fit
+    YesNo has_bracket_min = 147;
+    YesNo has_min_point = 148;
+    YesNo has_xMult_aBFit = 149;
+    double x_mult_fit_error = 150;
+    YesNo has_skew_mult_fit = 151;
+    double skew_mult_fit_error = 152;
+    float max_residual_err = 153; // largest remaining residual error (in premium points)
+    int32 c_bid_miss = 154; // number of call bid violations (surface outside the market)
+    int32 c_ask_miss = 155; // number of call ask violations (surface outside the market)
+    int32 p_bid_miss = 156; // number of put bid violations
+    int32 p_ask_miss = 157; // number of put ask violations
+    float fit_score = 158;
+    float cum_fit_score = 159;
+    int32 fit_counter = 160; // number of fit/count passes (current trade date / market open)
+    TradeableStatus tradeable_status = 161; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    MarketSession market_session = 162; // market session this surface is from
+    google.protobuf.Timestamp timestamp = 163; // last valid surface timestamp
+    string hndl_error = 164; // handler error(s) (if any)
+    ChartVType v_type = 202;
+    YesNo y1_zero_line = 203;
+    SurfDynamics prev_surf_dyn = 205;
+    Y1SymSet y1_sym_set = 208; // All = All Calls and Puts; Best = Puts (x < 0) and Calls (x > 0)
+    Y1Symbol y1_symbols = 209;
+    Y2Bars y2_bars = 210;
+    float x_range_min = 211;
+    float x_range_max = 212;
+    float y1_range_min = 213;
+    float y1_range_max = 214;
+    float y2_range_min = 215;
+    float y2_range_max = 216;
+    google.protobuf.Timestamp ts = 200; // last update time (Date)
+    repeated Markets markets = 176;
+    repeated Points points = 165;
+    repeated PrintDist print_dist = 226;
+    repeated Summary summary = 233;
+}
+
+

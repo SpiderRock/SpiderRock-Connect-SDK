@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserConfigRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    Direction direction = 100;
+    string user_name = 119; // userName (much match userConfig)
+    YesNo do_locate_tool_server = 106;
+    string error_response = 109; // null/empty discovery request succeeded
+    uint32 server_app_id = 112; // AppId of the server responding to this request (part of SpdrNumber GUID)
+    int32 tool_counter = 115; // tool counter (increments on each request; part of SpdrNumber GUID)
+    google.protobuf.Timestamp timestamp = 118; // request / response datetime
+}
+
+

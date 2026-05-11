@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpreadExchPrintSet {
+    message PKey {
+        
+        int64 print_number = 10; // SR assigned print number
+        OptExch exch = 11; // Exchange reporting print
+    }
+
+    message Legs {
+        
+        OptionKey leg_sec_key = 166;
+        SpdrKeyType leg_sec_type = 169;
+        BuySell leg_side = 172;
+        uint32 leg_ratio = 175; // leg ratio (1, 2, etc)
+        PositionType position_type = 178;
+        PrtType opra_prt_type = 181;
+        double opra_prt_price = 184;
+        int64 opra_prt_timestamp = 187;
+        int64 opra_net_timestamp = 190;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey skey = 100; // feed handler TickerKey
+    string strategy_iD = 103;
+    TickerKey ticker = 106; // underlier (or product group) tickerKey (from leg option)
+    BuySell side = 109;
+    int32 print_size = 112;
+    double print_price = 115; // equity option reported print price
+    YesNo is_print_price_valid = 118;
+    BuySell min_anchor_side = 121;
+    OptionKey min_anchor_leg = 124; // earliest expiry / smallest strike / call prefered
+    BuySell max_anchor_side = 127;
+    OptionKey max_anchor_leg = 130; // furtherest expiry / largest strike / put prefered
+    FlexType flex_type = 133;
+    string flex_root = 136;
+    YesNo has_hedge_leg = 139;
+    BuySell stock_leg_side = 142;
+    BuySell future_leg_side = 145;
+    StrategyClass strategy_class = 148; // Synthetic = (+C/-P), RevCon = (+C/-P/-S), Box = (+C/-P) & (-C/+P), CoveredSingle=(+C/-S) | (+P/+S), Straddle = (+C/+P), Vertical = SameExpiry, Horizontal = SameStrike, Mixed = Other
+    int32 num_opt_legs = 151;
+    int64 src_timestamp = 154; // source high precision timestamp (if available)
+    int64 net_timestamp = 157; // PTP timestamp
+    google.protobuf.Timestamp timestamp = 160;
+    PrtType opra_prt_type = 193; // ORPA print type (AUTO, etc.)
+    int64 opra_prt_timestamp = 196;
+    int64 opra_net_timestamp = 199;
+    StkExch stk_prt_exch = 202; // print exch
+    int32 stock_prt_size = 205;
+    double stock_prt_price = 208;
+    int32 stk_prt_cond1 = 211; // print condition (from SIP feed)
+    int32 stk_prt_cond2 = 214;
+    int32 stk_prt_cond3 = 217;
+    int32 stk_prt_cond4 = 220;
+    double stock_prt_age = 223; // age of stock price (SIP print time - OPRA print time)
+    double comp_bid_price = 226; // leg market @ direct exchange print report time
+    double comp_ask_price = 229;
+    double comp_prt_price = 232; // composite spread print price (including stock leg, if any)
+    double comp_uPrc = 235; // underlier price (stock) at the time the direct exchange print was reported
+    double comp_surf_price = 238; // compute surface price (including stock leg, if any)
+    double comp_uPrc_m1 = 241;
+    double comp_surf_price_m1 = 244;
+    double comp_uPrc_m10 = 247;
+    double comp_surf_price_m10 = 250;
+    repeated Legs legs = 163;
+}
+
+

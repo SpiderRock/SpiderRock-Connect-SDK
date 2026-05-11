@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrOptMarketPredict {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float fair_sVol = 100; // predicted fair sVol
+    float fair_sDiv = 103; // predicted fair sDiv
+    float fair_dv_dx = 106; // predicted fair dVol / dUPrc
+    float fair_cPrt_width = 109; // predicted call ABS(fairSVol - prtSVol)
+    float fair_pPrt_width = 112; // predicted put ABS(fairSVol - prtSVol)
+    float fair_cOpt_impact = 115; // predicted (surfVolM10 - surfVol)
+    float fair_pOpt_impact = 118; // predicted (surfVolM10 - surfVol)
+    float fair_cStk_impact = 121; // predicted LN(uMidE30M10 / uPrc)
+    float fair_pStk_impact = 124; // predicted LN(uMidE30M10 / uPrc)
+    double u_mkt_price = 127;
+    float c_bid_price = 130;
+    float c_ask_price = 133;
+    float p_bid_price = 136;
+    float p_ask_price = 139;
+    int32 step_counter = 142;
+    google.protobuf.Timestamp timestamp = 145; // feature capture timestamp
+}
+
+

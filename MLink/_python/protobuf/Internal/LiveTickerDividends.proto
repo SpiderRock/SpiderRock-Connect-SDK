@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    LiveTickerDividends records contain announced and projected discrete dividend payment dates and amounts for dividend paying equities. This dividend set contains all expected dividends.
+*/    
+message LiveTickerDividends {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+    message DateAmt {
+        
+        DateKey date = 106; // dividend exDiv date
+        float amount = 109; // dividend amount
+        DateKey init_date = 112; // initial (pre-fit) dividend date
+        float init_amount = 115; // initial (pre-fit) dividend amount
+        DivFitResult fit_result = 118; // dividend fit result (if dividend is adjustable)
+        YesNo is_est_date = 121; // whether the date is estimated
+        YesNo is_est_amount = 124; // whether the amount is estimated
+        DivKind kind = 127; // dividend type
+        DivFreq freq = 130; // dividend frequency
+        Currency currency = 133;
+        DivSource source = 136; // dividend source
+        DivOverrideSource override_src = 139; // dividend override source if any
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trade_date = 100;
+    string text = 142; // extra text (if any)
+    google.protobuf.Timestamp timestamp = 145;
+    repeated DateAmt date_amt = 103;
+}
+
+

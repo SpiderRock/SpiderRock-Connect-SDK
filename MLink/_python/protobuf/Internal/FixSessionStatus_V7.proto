@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: FixSessionStatus
+    V8 Message Name: FixSessionStatus
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:FixSessionStatus
+*/    
+message FixSessionStatus_V7 {
+    message PKey {
+        
+        string routing_code = 5000; // v7 & v8
+        SysEnvironment sys_environment = 5001; // v7 & v8
+        string sender_comp_id = 5002; // v7 & v8
+        string target_comp_id = 5003; // v7 & v8
+        string sender_sub_id = 5004; // v7 & v8
+        string target_sub_id = 5005; // v7 & v8
+        YesNo is_acceptor = 5006; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 5007; // v7 & v8 --- Original comment: sysRealm [NMS, CME, etc.]
+    string server_code = 5008; // v7 & v8
+    RunStatus run_status = 5009; // ONLY V7: [enum,Name=RunStatus,Values=None=0,Prod=1,Beta=2,UAT=3,SysTest=4] --- Original comment: (deprecated)
+    uint32 app_id = 5010; // v7 & v8 --- Original comment: AppId of the process handling this fix connection
+    SRDataCenter_V7 data_center = 5011; // ONLY V7: [enum,Name=SRDataCenter,Values=None=0,NY4=1,NY5=2,CH2=3,CH3=4] --- Original comment: (deprecated) data center [NY4,CH2, etc]
+    string base_routing_code = 5012; // v7 & v8 --- Original comment: for TcpAcceptor sessions
+    string machine_name = 5013; // v7 & v8 --- Original comment: name of the machine which is hosting fix server
+    SessionType session_type = 5014; // v7 & v8 --- Original comment: type of session
+    ConnectType_V7 connect_type = 5015; // v7 & v8: Enums Do Not Match: V7=[enum,Name=ConnectType,Values=None=0,Initiator=1,Acceptor=2,PGMInitiator=3,PGMAcceptor=4,PGMAcceptChild=5,DBLInitiator=6,DBLAcceptor=7,DBLAcceptChild=8,SBLInitiator=9,SBLServer=10,TLSInitiator=11,TLSServer=12,TCPServer=13,TCPInitiator=14,TCPAcceptor=15,TCPAcceptChild=16,UDPInitiator=17,UDPAcceptor=18,UDPAcceptChild=19,StubTransport=20], V8=[enum,Name=ConnectType,Values=None=0,Initiator=1,Acceptor=2,KBPInitiator=3,KBPAcceptor=4,KBPAcceptChild=5,SBLInitiator=6,SBLServer=7,TLSInitiator=8,TLSServer=9,TCPServer=10,TCPInitiator=11,TCPAcceptor=12,TCPAcceptChild=13,UDPInitiator=14,UDPAcceptor=15,UDPAcceptChild=16,StubTransport=17]
+    string tcp_address = 5016; // v7 & v8 --- Original comment: IPAddress / Port (used to advertise SRFixBase/StreetGateway endpoint for EE/TcpInitiation sessions)
+    int32 tcp_port = 5017; // v7 & v8
+    string udp_address = 5018; // v7 & v8 --- Original comment: IPAddress / Port (used to advertise SRFixBase/StreetGateway endpoint for EE/DblInitiation sessions)
+    int32 udp_port = 5019; // v7 & v8
+    FixBaseSessionState session_state = 5020; // v7 & v8
+    FixBaseSequenceState sequence_state = 5021; // v7 & v8
+    FixBaseTransportState transport_state = 5022; // v7 & v8
+    RouteControl route_control = 5023; // v7 & v8 --- Original comment: Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    google.protobuf.Timestamp route_control_change_dttm = 5024; // v7 & v8
+    google.protobuf.Timestamp session_date = 5025; // v7 & v8 --- Original comment: session start date (Sun for Weekly sessions)
+    int32 session_counter = 5026; // v7 & v8 --- Original comment: increments each time sequence numbers are reset
+    int32 incoming_seq_num = 5027; // v7 & v8
+    int32 outgoing_seq_num = 5028; // v7 & v8
+    int32 num_logon_rcvd = 5029; // v7 & v8
+    int32 num_logon_sent = 5030; // v7 & v8
+    int32 num_msg_rcvd = 5031; // v7 & v8
+    int32 num_msg_sent = 5032; // v7 & v8
+    int32 num_app_msg_rcvd = 5033; // v7 & v8
+    int32 num_app_msg_sent = 5034; // v7 & v8
+    float num_msg_rcvd_per_sec5s = 5035; // v7 & v8 --- Original comment: total number of outgoing messages in the last 5 clock seconds / 5
+    float num_msg_sent_per_sec5s = 5036; // v7 & v8 --- Original comment: total number of incoming messages in the last 5 clock seconds / 5
+    float msg_rcvd_time5s = 5037; // v7 & v8 --- Original comment: 100 * total time (in seconds) spent processing incoming messages / total clock seconds (100.0 = @ max incoming capacity)
+    float msg_sent_time5s = 5038; // v7 & v8 --- Original comment: 100 * total time (in seconds) spent processing outgoing messages / total clock seconds (100.0 = @ max outgoing capacity)
+    google.protobuf.Timestamp last_logon_rcvd = 5039; // v7 & v8
+    google.protobuf.Timestamp last_fix_route_control_rcvd = 5040; // v7 & v8
+    google.protobuf.Timestamp last_session_config_change = 5041; // v7 & v8
+    string last_session_modify_detail = 5042; // v7 & v8
+    FixBaseSessionStatus session_status = 5043; // v7 & v8
+    FixBaseSessionError max_session_error = 5044; // v7 & v8
+    string max_session_error_text = 5045; // v7 & v8
+    google.protobuf.Timestamp max_session_error_dttm = 5046; // v7 & v8
+    MonitorCode monitor_code = 5047; // v7 & v8
+    google.protobuf.Timestamp timestamp = 5048; // v7 & v8
+}
+
+

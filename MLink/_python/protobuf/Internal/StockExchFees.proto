@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockExchFees {
+    message PKey {
+        
+        TickerKey ticker = 10; // "*" = All Tickers
+        string stk_exch = 11;
+        StkNameClass name_class = 12;
+        string client_firm = 13; // "*" = Default
+        string exec_brkr_code = 14; // "*" = Default
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_enabled = 113;
+    float make_fee = 100; // base (lowest tier) make fee for the exchange
+    float take_fee = 103;
+    float venue_adj_fee = 114; // additional routing metric fee (baseFee + venuAdjFee affects routing decisions; venueAdjFee not paid or collected)
+    string modified_by = 106;
+    SysEnvironment modified_in = 109;
+    google.protobuf.Timestamp timestamp = 112;
+}
+
+

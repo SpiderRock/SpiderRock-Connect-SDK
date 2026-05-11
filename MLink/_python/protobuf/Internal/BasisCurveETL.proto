@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 4
+    Inputs:
+    CalcEngine: SurfaceRunner
+*/    
+message BasisCurveETL {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+    message Point {
+        
+        double x = 121; // skew x axis
+        double y = 124; // skew fn value (usually; y=1.0 @ x=0.0)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double min_x = 100; // for x in (minX, maxX) y = spline(.); for x < minX: y = leftA + leftB * x; for x > maxX: y = rightA + rightB * x;
+    double max_x = 103;
+    double left_a = 106;
+    double left_b = 109;
+    double right_a = 112;
+    double right_b = 115;
+    int32 num_points = 127; // number of points used in basisFN fit
+    int32 num_expiries = 130; // number of underlier/expiries used in basisFN fit
+    double fit_mAE = 133; // final basisFN fit mean abs error
+    google.protobuf.Timestamp timestamp = 136;
+    repeated Point point = 118;
+}
+
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message FixAlgoDefaults {
+    message PKey {
+        
+        string routing_code = 10;
+        string user_name = 11;
+        string algo = 12;
+        SpdrKeyType sec_type = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string defaults = 100; // tagnum1:value1:overrideFlag1,tagnum2:value2:overrideFlag2,...
+    string comment = 103;
+    string last_user_name = 106;
+    google.protobuf.Timestamp timestamp = 109;
+}
+
+

@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message RFQDisplayRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    GetAction action = 100;
+    string theo_accnt = 103; // accnt used for theo surfaces
+    int64 filter_id = 106;
+    string ticker = 109; // sym,sym,sym ...
+    string strategy = 112; // strategy, strategy, strategy (enum numeric values)
+    string sector = 115; // sector, sector, sector (comma separated)
+    string industry = 118; // ind, ind, ind (numeric values)
+    string risk_class = 121; // risk class letters (comma separated)
+    string opt_status = 124; // status, status, status (enum numeric values)
+    string tokens = 127; // additional search tokens
+    float min_years = 130;
+    float max_years = 133;
+    float min_underlying_price = 136;
+    float max_underlying_price = 139;
+    float min_theo_edge = 142;
+    float min_surf_edge = 145;
+    float min_buy_edge = 148;
+    float min_sell_edge = 151;
+    float min_spread_probability = 154;
+    float min_surf_vega = 157;
+    float max_surf_vega = 160;
+    float min_surf_delta = 163;
+    float max_surf_delta = 166;
+    int32 min_prt_size = 169;
+    float min_prt_vega = 172; // PrtVega = PrintSize x surfVega
+    int32 min_prt_volume = 175;
+    float min_prt_vlm_vega = 178; // VlmVega = Volume x surfVega
+    float min_spread_vega = 181; // minimum vega available in spread
+    int32 min_spread_quantity = 184;
+    LegSecType sec_type = 187; // Option = At least one option leg, Stock = Only stock legs, Future = only futures legs
+    LegSecType sec_type_incl = 190; // At lest one leg of the type
+    LegSecType sec_type_excl = 193; // No legs of the type
+    SpreadTypeFilter spread_type = 196;
+    RatioTypeFilter ratio_type = 199;
+    RFQSourceType rfq_source = 202;
+    string exchanges = 205;
+    uint32 x_delta_buckets_incl = 208; // Bitmap of xdelta buckets to include
+    uint32 x_delta_buckets_excl = 211; // Bitmap of xdelta buckets to exclude
+    uint32 time_buckets_incl = 214; // Bitmap of time buckets to include
+    uint32 time_buckets_excl = 217; // Bitmap of time buckets to exclude
+    int32 max_num_results = 220;
+    float max_result_age = 223; // max age of result (in seconds)
+    string user_name = 226;
+}
+
+

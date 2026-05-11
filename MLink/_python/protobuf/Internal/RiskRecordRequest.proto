@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RiskRecordRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    string symbol = 100;
+    string account = 103;
+    GetAction action = 106;
+    google.protobuf.Timestamp timestamp = 109; // checkpoint timestamp
+}
+
+

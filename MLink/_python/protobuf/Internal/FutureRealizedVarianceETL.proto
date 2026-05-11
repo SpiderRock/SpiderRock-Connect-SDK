@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: FuturePrintETL + FutureMinuteBarETL + FutureDefinitionETL
+    CalcEngine: Spark/ETL
+*/    
+message FutureRealizedVarianceETL {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    double prt_close = 103; // Previous day closing price (adjusted)
+    double prt_open = 106; // Open/first print
+    double prt_high = 109; // High print
+    double prt_low = 112; // Low print
+    double prt_last = 115; // Last/close print
+    double rv5min = 118;
+    double rv20min = 121;
+    google.protobuf.Timestamp timestamp = 124; // same as date + time
+}
+
+

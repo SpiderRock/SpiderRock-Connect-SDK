@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ExchTradingCalendarHist {
+    message PKey {
+        
+        DateKey trading_date = 10; // 365 days per year
+        ExchGroup exch_group = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    MarketDayType market_day_type = 100;
+    int32 cardinal365 = 103;
+    int32 cardinall252 = 106;
+    float cardinal_minute = 109;
+    google.protobuf.Timestamp timestamp = 112;
+}
+
+

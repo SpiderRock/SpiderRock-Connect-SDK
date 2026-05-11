@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message PositionsTableDataVset {
+    message Columns {
+        
+        PosTableCName cname = 112; // Column name enum
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100; // (optional) SR accnt (Admin only)
+    string client_firm = 101; // Client firm string
+    TickerKey ticker = 102; // Ticker key
+    repeated Columns columns = 111;
+}
+
+

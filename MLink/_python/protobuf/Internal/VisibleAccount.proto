@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message VisibleAccount {
+    message PKey {
+        
+        string accnt = 10; // Account string
+        string client_firm = 11; // SR assigned client firm
+    }
+
+    message ExchGroups {
+        
+        TickerSrc ticker_src = 118; // eg (NMS, CME, CBOT, CFE, EUREX)
+        SpdrKeyType sec_type = 121; // eg (Stock, Future, Option)
+        YesNo has_live_market_access = 124; // has live access to exchange markets
+        YesNo has_live_sRConnect_access = 127; // has live access to SRConnect (ATS) auctions
+        YesNo manual_position_marking = 130; // If No, then Auto marking
+    }
+
+    message ExchRoutes {
+        
+        TickerSrc ticker_src = 136; // eg (NMS, CME, CBOT, CFE, EUREX)
+        SpdrKeyType sec_type = 139; // eg (Stock, Future, Option)
+        string exec_brkr_code = 149; // executing broker code
+        string ex_dest_code = 145; // exDestCode@execBrokerCode (away algo codes)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_accnt = 103; // Client assigned "long" account string (optional)
+    string accnt_name = 106; // Account name (description)
+    AccountType account_type = 109; // SR account type (Normal,Strategy,Clearing,Rollup,Omnibus) [Normal, Strategy, and Omnibus are trading accounts]
+    string client_tags = 112; // (optional) user defined account tag(s) (eg. tag,tag,tag,tag) [max of 10,000 total chars (including seps)]
+    google.protobuf.Timestamp ts = 148; // last update time (Date)
+    repeated ExchGroups exch_groups = 115;
+    repeated ExchRoutes exch_routes = 133;
+}
+
+

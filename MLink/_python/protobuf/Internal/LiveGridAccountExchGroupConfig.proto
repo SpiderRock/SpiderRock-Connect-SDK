@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAccountExchGroupConfig {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string client_firm = 101;
+    ExchGroup exch_group = 102;
+    SpdrSecType sec_type = 103;
+    ExecEngineMode exec_engine_mode = 104;
+    StageReview stage_review = 105;
+    FirmType firm_type = 106;
+    OrderCapacity order_capacity = 107;
+    CatReportType cat_reportable = 108;
+    string cat_accnt = 109;
+    RequireLocate require_locate = 110;
+    YesNo require_extern_pos = 111;
+    YesNo can_iSOSweep = 112;
+    AuctionResponder auction_responder = 113;
+    RoundRule round_rule = 114;
+    OddLotFlag odd_lot_flag = 115;
+    string pri_agg_group = 116;
+    string sec_agg_group = 117;
+    YesNo user_marking = 118;
+    PositionSource position_src = 119;
+    AllocMethod alloc_method = 120;
+    AllocMLegRule alloc_mLeg_rule = 121;
+    string client_accnt = 122;
+    string client_user_name = 123;
+    string badge = 124;
+    string clearing_firm = 125;
+    string clearing_accnt = 126;
+    string modified_by = 127;
+    SysEnvironment modified_in = 128;
+    google.protobuf.Timestamp timestamp = 129;
+    YesNo is_prod = 130; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 131; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 132; // WTS synthetic: alert message (null if no alert)
+}
+
+

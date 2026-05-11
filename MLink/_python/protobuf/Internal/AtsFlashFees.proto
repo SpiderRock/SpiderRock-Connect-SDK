@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    AtsFlashFees configures the responder fees for ATS flash auctions
+*/    
+message AtsFlashFees {
+    message PKey {
+        
+        string cust_client_firm = 10; // ClientFirm of auction initiator (if sub client firm, we will uses fees from core/sponsor if sub specific fees do not exist. Same for core/sponsor)
+        AtsCustClass cust_class = 11; // type of auction initiator
+        OptNameClass name_class = 12; // penny or non-penny
+        MarketWidth market_width = 13; // market width
+        YesNo marketable = 14; // is the cust limit >= nbbo
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_enabled = 100;
+    float base_fee = 103; // notice fee = baseFee + surfaceEdgePctFee * surfaceEdge; bounded by [minFee, maxFee]
+    float surface_edge_pct_fee = 106; // percentage of surface edge as fee (ie. 0.1 * surfaceEdge)
+    float min_fee = 109; // minimum fee
+    float max_fee = 112; // max fee
+    string modified_by = 115;
+    SysEnvironment modified_in = 118;
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

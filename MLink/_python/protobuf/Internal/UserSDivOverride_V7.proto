@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: UserSDivOverride
+    V8 Message Name: UserSDivOverride
+    Bridging pattern:  [V7 --> V8]
+*/    
+message UserSDivOverride_V7 {
+    message PKey {
+        
+        ExpiryKey ekey = 5000; // v7 & v8 --- Original comment: StocKey + option expiry date
+        string client_firm = 5001; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float sdiv_rate = 5002; // v7 & v8
+    float ln_sDiv_rate = 5003; // v7 & v8
+    float sh_sDiv_rate = 5004; // v7 & v8
+    string text = 5005; // v7 & v8 --- Original comment: user detail (if any)
+    google.protobuf.Timestamp timestamp = 5006; // v7 & v8
+}
+
+

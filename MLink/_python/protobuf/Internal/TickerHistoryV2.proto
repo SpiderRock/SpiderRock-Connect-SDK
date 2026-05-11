@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TickerHistoryV2 {
+    message PKey {
+        
+        google.protobuf.Timestamp date = 10;
+        int64 security_iD = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 dn = 100;
+    string ticker = 103;
+    float open = 106;
+    float high = 109;
+    float low = 112;
+    float close = 115;
+    float close_pr = 118;
+    float volume = 121;
+    float shares = 124;
+    float cc_var = 127;
+    float hl_var = 130;
+    float rv_var = 133;
+    string earn_flag = 136;
+    int32 expiry_count = 139;
+    float h_eMove = 142;
+    float i_eMove = 145;
+    float wk_d1 = 148;
+    float sh_d1 = 151;
+    float qtr_d1 = 154;
+    float ln_d1 = 157;
+    float atm_cen_i_5d = 160;
+    float atm_cen_i_21d = 163;
+    float atm_cen_i_42d = 166;
+    float atm_cen_i_63d = 169;
+    float atm_cen_i_84d = 172;
+    float atm_cen_i_105d = 175;
+    float atm_cen_i_126d = 178;
+    float atm_cen_i_189d = 181;
+    float atm_cen_i_252d = 184;
+    float atm_cen_i_378d = 187;
+    float atm_cen_i_504d = 190;
+    float atm_cen_h_5d = 193;
+    float atm_cen_h_21d = 196;
+    float atm_cen_h_42d = 199;
+    float atm_cen_h_63d = 202;
+    float atm_cen_h_84d = 205;
+    float atm_cen_h_105d = 208;
+    float atm_cen_h_126d = 211;
+    float atm_cen_h_189d = 214;
+    float atm_cen_h_252d = 217;
+    float atm_cen_h_378d = 220;
+    float atm_cen_h_504d = 223;
+    int32 n_earn_cnt_5d = 226;
+    int32 n_earn_cnt_21d = 229;
+    int32 n_earn_cnt_42d = 232;
+    int32 n_earn_cnt_63d = 235;
+    int32 n_earn_cnt_84d = 238;
+    int32 n_earn_cnt_105d = 241;
+    int32 n_earn_cnt_126d = 244;
+    int32 n_earn_cnt_189d = 247;
+    int32 n_earn_cnt_252d = 250;
+    int32 n_earn_cnt_378d = 253;
+    int32 n_earn_cnt_504d = 256;
+}
+
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    FixRouteControl messages can be created / published by SRSE or admin tools.  Any message with timestamp older than the current trading day will be ignored.
+    Messages should be picked up and honored immediately by running servers and also honored on restart via a cache request.
+    FixRouteControl messages should be deleted if no longer in use
+*/    
+message FixRouteControl {
+    message PKey {
+        
+        string routing_code = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 incoming_seq_num = 100; // used to ADVANCE sequence incoming sequence number (-1 = no change)
+    int32 outgoing_seq_num = 103; // used to ADVANCE sequence outgoing sequence number (-1 = no change)
+    YesNo reset_seq_nums = 106; // logout, reset session to 1/1
+    YesNo reset_transport = 109; // logout/reset transport
+    RouteControl route_control = 112; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    string modified_by = 115; // user who last modified this record
+    SysEnvironment modified_in = 118;
+    google.protobuf.Timestamp timestamp = 121; // timestamp of last modification
+}
+
+

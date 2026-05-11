@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: SpdrRiskExecution
+    V8 Message Name: SpdrRiskExecution
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:SpdrRiskExecution
+*/    
+message SpdrRiskExecution_V7 {
+    message PKey {
+        
+        int64 fill_number = 5000; // v7 & v8 --- Original comment: SpiderRock execution number (globally unique over trailing 10 days)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 version = 5001; // v7 & v8 --- Original comment: record version number;starts at zero and goes up every time an execution record is re-published (eg, bust, +1m marks, +10m marks, etc)
+    SysRealm sys_realm = 5002; // v7 & v8
+    SysEnvironment sys_environment = 5003; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 5004; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+    SRDataCenter_V7 data_center = 5005; // ONLY V7: [enum,Name=SRDataCenter,Values=None=0,NY4=1,NY5=2,CH2=3,CH3=4] --- Original comment: original (source) data center [NY4,CH2, etc]
+    ExecStatus exec_status = 5006; // v7 & v8 --- Original comment: SpiderRock execution status (Fill,Bust,Correct,Reject,SysRej,MktMiss)
+    ExecShape exec_shape = 5007; // v7 & v8
+    int64 package_id = 5008; // v7 & v8 --- Original comment: SR package Id
+    int64 parent_number = 5009; // v7 & v8 --- Original comment: SR parent number
+    int32 parent_version = 5010; // v7 & v8 --- Original comment: SPDR order instance number (1 = original order; 2 = 1st cancel/replace, etc)
+    int64 base_parent_number = 5011; // v7 & v8 --- Original comment: SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
+    int64 cl_ord_id = 5012; // v7 & v8 --- Original comment: SR child order clOrdID resulting in fill
+    int64 risk_group_id = 5013; // v7 & v8 --- Original comment: riskGroupId (parent order group ID) for this execution report
+    FaceSide face_side = 5014; // ONLY V7: [enum,Name=FaceSide,Values=Cust=0,Face=1] --- Original comment: facilitation side (if any)
+    FaceShape face_shape = 5015; // ONLY V7: [enum,Name=FaceShape,Values=None=0,CrossCust=1,CrossFace=2,CrossBoth=3] --- Original comment: CrossCust = split broker / cust side, CrossFace = split broker / face side, CrossBoth = single broker cross
+    SpdrOrderShape parent_shape = 5016; // v7 & v8 --- Original comment: shape of originating parent order
+    OptionKey sec_key = 5017; // v7 & v8 --- Original comment: execution security key
+    SpdrKeyType sec_type = 5018; // v7 & v8 --- Original comment: execution security type [Stock, Future, Option]
+    TickerKey ticker = 5019; // v7 & v8 --- Original comment: base stock key (used for symbol risk aggregation)
+    string accnt = 5020; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=16,Alias=SRAccountString,MetaType=SRAccount] --- Original comment: SpiderRock trading accnt [broker pkey]
+    string client_firm = 5021; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm] --- Original comment: SR client firm
+    SpdrSource spdr_source = 5022; // v7 & v8 --- Original comment: SpiderRock parent order source code [broker pkey]
+    int64 grouping_code = 5023; // v7 & v8 --- Original comment: SpiderRock parent broker number [broker pkey]
+    string engine_name = 5024; // v7 & v8 --- Original comment: SpiderRock execution engine that handled the parent order
+    ExecRole exec_role = 5025; // v7 & v8 --- Original comment: SpiderRock relationship to this execution record
+    string child_order_handling = 5026; // v7 & v8 --- Original comment: child order handling string from the algo that generated the child order responsible for this fill
+    ChildHandler child_algo_handler = 5027; // v7 & v8 --- Original comment: algo handler for this child order
+    ShortSaleFlag child_sSale_flag = 5028; // v7 & v8 --- Original comment: short sale flag
+    string user_name = 5029; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUser] --- Original comment: user name associated with the parent order
+    BuySell order_side = 5030; // v7 & v8 --- Original comment: order side
+    SpdrOrderStatus spdr_order_status = 5031; // v7 & v8
+    SpdrCloseReason spdr_close_reason = 5032; // v7 & v8
+    int32 cum_fill_quantity = 5033; // v7 & v8 --- Original comment: cumulative fills (this parent number only)
+    double avg_fill_price = 5034; // v7 & v8
+    int32 cum_leg_fill_quantity = 5035; // v7 & v8 --- Original comment: cumulative fills (spread only)
+    double avg_leg_fill_price = 5036; // v7 & v8
+    int32 leaves_qty = 5037; // v7 & v8
+    PriceType price_type = 5038; // v7 & v8
+    FirmType firm_type = 5039; // v7 & v8 --- Original comment: child order firm type [Customer, ProCust, Firm, MM, etc]
+    string pri_agg_group = 5040; // v7 & v8 --- Original comment: primary aggregation group
+    string sec_agg_group = 5041; // v7 & v8 --- Original comment: secondary aggregation group
+    google.protobuf.Timestamp fill_transact_dttm = 5042; // v7 & v8 --- Original comment: transaction date/time as reported by exchange or down stream broker
+    google.protobuf.Timestamp fill_dttm = 5043; // v7 & v8 --- Original comment: Date/time of fill arrival (SRDateTime)
+    string fill_exch = 5044; // v7 & v8 --- Original comment: ExDest code from child order execution report
+    string fill_exec_id = 5045; // v7 & v8 --- Original comment: street side execution Id
+    string fill_exec_ref_id = 5046; // v7 & v8 --- Original comment: street side execution ref Id (only used when busting an execution)
+    int64 fill_leg_ref_id = 5047; // v7 & v8 --- Original comment: legRefId for multileg fills
+    int32 fill_leg_ratio = 5048; // v7 & v8 --- Original comment: legRatio (if spread order)
+    float fill_exch_fee = 5049; // v7 & v8 --- Original comment: SpiderRock estimate of the exchange fee based on liquidity tags (best effort)
+    string fill_market = 5050; // v7 & v8 --- Original comment: usually from execReport.lastMkt as reported by child order venue
+    double fill_price = 5051; // v7 & v8 --- Original comment: fill price
+    int32 fill_quantity = 5052; // v7 & v8 --- Original comment: fill quantity
+    double fill_bid = 5053; // v7 & v8 --- Original comment: market bid @ fill arrival
+    double fill_ask = 5054; // v7 & v8 --- Original comment: market ask @ fill arrival
+    double fill_mark = 5055; // v7 & v8 --- Original comment: mid-market (or SR surface price if option) @ fill arrival
+    double fill_uBid = 5056; // v7 & v8 --- Original comment: underlier market bid @ fill arrival
+    double fill_uAsk = 5057; // v7 & v8 --- Original comment: underlier market bid @ fill arrival
+    float fill_vol = 5058; // v7 & v8 --- Original comment: fill volatility @ fillLimitRefUPrc
+    float fill_ve = 5059; // v7 & v8 --- Original comment: fill vega
+    float fill_ga = 5060; // v7 & v8 --- Original comment: fill gamma
+    float fill_de = 5061; // v7 & v8 --- Original comment: fill delta
+    float fill_th = 5062; // v7 & v8 --- Original comment: fill theta
+    float fill_pr = 5063; // ONLY V7: [float] --- Original comment: fill premium over parity
+    float fill_beta = 5064; // v7 & v8 --- Original comment: SpiderRock estimate of beta to SPX
+    float fill_risk_metric1 = 5065; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_risk_metric2 = 5066; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_risk_metric3 = 5067; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_risk_metric4 = 5068; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_risk_metric5 = 5069; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_risk_metric6 = 5070; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_risk_metric7 = 5071; // ONLY V7: [float] --- Original comment: user defined (from parent order) [used to manage order groups]
+    float fill_s08_dn = 5072; // ONLY V7: [float] --- Original comment: underlier down 8% shock slide
+    float fill_s06_up = 5073; // ONLY V7: [float] --- Original comment: underlier up 6% shock slide
+    float fill_s15_dn = 5074; // ONLY V7: [float] --- Original comment: underlier down 15% shock slide
+    float fill_s15_up = 5075; // ONLY V7: [float] --- Original comment: underlier up 15% shock slide
+    float years = 5076; // v7 & v8 --- Original comment: years to expiration
+    int32 underliers_per_cn = 5077; // v7 & v8 --- Original comment: option delivery underliers per contract
+    UnderlierType underlier_type = 5078; // v7 & v8 --- Original comment: type of underlier (affects $greek calculations)
+    float tick_value = 5079; // v7 & v8 --- Original comment: $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 5080; // v7 & v8 --- Original comment: $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 5081; // v7 & v8
+    float u_prc_ratio = 5082; // v7 & v8 --- Original comment: UPrcRatio (SymbolRatio) from product definition
+    float min_tick_size = 5083; // v7 & v8 --- Original comment: minimum market price variation (dnTickSize if on a boundary)
+    PriceFormat price_format = 5084; // v7 & v8 --- Original comment: SpiderRock price display format code
+    PriceFormat u_price_format = 5085; // v7 & v8 --- Original comment: SpiderRock underlier price display format code
+    google.protobuf.Timestamp timestamp = 5086; // v7 & v8 --- Original comment: timestamp of this record [not necessarily the timestamp of the fill itself]
+}
+
+

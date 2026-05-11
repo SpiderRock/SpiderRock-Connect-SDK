@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message PricingRequestStrike {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        int32 requestor = 11; // unique ID assigned to requestor (usually AppId)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 request_iD = 100; // from PricingGridRequest.requestID (if custom); otherwise zero/unused.
+    double u_prc = 103;
+    double strike = 106;
+    float vol = 109;
+    float years = 112;
+    RequestParam u_prc_param = 115;
+    RequestParam vol_param = 118;
+    RequestParam years_param = 121;
+    google.protobuf.Timestamp timestamp = 124;
+}
+
+

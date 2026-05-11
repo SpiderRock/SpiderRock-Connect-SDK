@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message StockPrintOpen {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100;
+    float last_print = 103;
+    float open = 106;
+}
+
+

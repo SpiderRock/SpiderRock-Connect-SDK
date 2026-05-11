@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message SRDataQuery {
+
+
+    MessageMetadata _meta = 1;
+    
+    string handler = 100; // Identifies the name of the server-side handler for the query
+    uint32 source_iD = 103; // Effectively the ID of the request.  Each client process manages its own space of source IDs such that each request is unique.  The server will set the SourceId for each item it returns to this value.
+    string user_name = 106; // Name of the user
+    string app_name = 109; // Name of the tool
+    string machine_name = 112; // Machine name
+    int32 process_iD = 115; // ID of the process
+    int64 high_watermark = 118; // When set to -1 will cause the server to respond with the full set of data up to 'count' (see below).  Otherwise, the server will return the matching objects with a 'ts' >= 'highWatermark'
+    int32 count = 121; // Acts as a limit when set by the client.  The server sets it to the count of items returned.  Default is -1 (no limit).
+    string parameters = 124; // If given, will contain a serialized object representing the parameters of the query
+    DataQueryStatus status = 127;
+    string status_details = 130; // Server-provided details regarding the status.  For example, when status == Failed will contains the error message
+    string parameters2 = 133; // If given, will contain a serialized object representing more parameters of the query (exists mostly for sending large lists of accounts)
+    string parameters3 = 136; // If given, will contain a serialized object representing even more parameters of the query (exists mostly for sending large lists of accounts)
+    string parameters4 = 139; // If given, will contain a serialized object representing even more parameters of the query (exists mostly for sending large lists of accounts)
+    string parameters5 = 142; // If given, will contain a serialized object representing even more parameters of the query (exists mostly for sending large lists of accounts)
+    string parameters6 = 145; // If given, will contain a serialized object representing even more parameters of the query (exists mostly for sending large lists of accounts)
+}
+
+

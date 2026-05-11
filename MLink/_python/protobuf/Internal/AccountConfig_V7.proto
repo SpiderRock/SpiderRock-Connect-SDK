@@ -1,0 +1,239 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: AccountConfig
+    V8 Message Name: AccountConfig
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:AccountConfig
+*/    
+message AccountConfig_V7 {
+    message PKey {
+        
+        string accnt = 5000; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=16,Alias=SRAccountString,MetaType=SRAccount]
+    }
+
+    message ClearingFlip {
+        
+        string exch_str = 5204; // ONLY V7: [string,Length=8,Alias=NA,MetaType=NA] --- Original comment: eg: CBOEOPT (used to override clearing flip firm/account on a per-exchange basis)
+        FlipType clearing_flip_type = 5205; // ONLY V7: [enum,Name=FlipType,Values=None=0,CMTA=1,Giveup=2,QSR=3,NSCC_Flip=4,DVP=5,BrkrAccnt=6] --- Original comment: either CMTA or Giveup
+        string clearing_flip_firm = 5206; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: deliverTo firm Broker/MPID/CMTA/Give-up
+        string clearing_flip_accnt = 5207; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: deliverTo accnt additional detail (sub-accnt)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AccountType account_type = 5001; // v7 & v8 --- Original comment: SR account type
+    SpdrStageType_V7 stage_type = 5002; // ONLY V7: [enum,Name=SpdrStageType,Values=None=0,StageLock=1,StageModify=2,StageReview=3] --- Original comment: if not NONE or StageModify then parent order must be a staged order [StageLock, StageReview]
+    string omni_accnt = 5003; // v7 & v8: String Length Diff: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=25,Alias=NA,MetaType=NA] --- Original comment: omnibus account (if any)	(must be an existing account with the same clientFirm and type=Omnibus)
+    string omni_accnt2 = 5004; // v7 & v8: String Length Diff: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=25,Alias=NA,MetaType=NA] --- Original comment: secondary omnibus account (if any) (must be an existing account with the same clientFirm and type=Omnibus)
+    string rollup_accnt = 5005; // v7 & v8: Field Name Change: V7=[rollupAccnt], V8=[tgtRollupAccnt]: Using Meta Types: V7=[string,Length=16,Alias=NA,MetaType=NA], V8=[string,Length=16,Alias=SRAccountString,MetaType=SRAccountRef] --- Original comment: rollup account (must be an existing account with the same clientFirm and type=Rollup)
+    string source_accnt = 5006; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: SR side source account (must be an existing account with the same clientFirm and type=Rollup; only available when type=Clearing)
+    string client_firm = 5007; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm] --- Original comment: SR assigned client firm acronym
+    string client_accnt = 5008; // v7 & v8 --- Original comment: client assigned "long" account string (optional) [used to map between client and SR account strings]
+    string proxy_firm1 = 5009; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=NA,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirmRef] --- Original comment: SR assigned proxy firm #1
+    string proxy_firm2 = 5010; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=NA,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirmRef] --- Original comment: SR assigned proxy firm #2
+    string proxy_firm3 = 5011; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=NA,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirmRef] --- Original comment: SR assigned proxy firm #3
+    string accnt_name = 5012; // v7 & v8 --- Original comment: account name (SR assigned)
+    string view_group1 = 5013; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: view group tag #1; allows custom aggregation in tools
+    string view_group2 = 5014; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: view group tag #2; allows custom aggregation in tools
+    string view_group3 = 5015; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: view group tag #3; allows custom aggregation in tools
+    string alt_route_code = 5016; // ONLY V7: [text1] --- Original comment: alt primary route will be used instead of the default route (if set)
+    string route_code_alt1 = 5017; // ONLY V7: [text1] --- Original comment: alt flow allocation route (if routeAllocAlt1 > 0)
+    float route_alloc_alt1 = 5018; // ONLY V7: [float] --- Original comment: percentage of flow to allocate to routeCodeAlt1
+    string route_code_alt2 = 5019; // ONLY V7: [text1] --- Original comment: alt flow allocation route will be used instead of the default route (if set)
+    float route_alloc_alt2 = 5020; // ONLY V7: [float] --- Original comment: percentage of flow to allocate to routeCodeAlt2
+    string risk_firm1 = 5021; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA] --- Original comment: clientFirm with ownership of riskGroup1 risk settings (usually 'SR')
+    string risk_group1 = 5022; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA] --- Original comment: risk pool grouping code (slot #1) (usually clientFirm)
+    string risk_firm2 = 5023; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA] --- Original comment: clientFirm with ownership of riskGroup2 risk settings (usually clientFirm)
+    string risk_group2 = 5024; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA] --- Original comment: risk pool grouping code (slot #2) (usually accnt)
+    string risk_firm3 = 5025; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA] --- Original comment: clientFirm with ownership of riskGroup3 risk settings [usually blank]
+    string risk_group3 = 5026; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA] --- Original comment: risk pool grouping code (slot #3) [usually blank]
+    YesNo user_short_marking = 5027; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: users are required to do the long/short marking on orders
+    YesNo user_option_marking = 5028; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: users are required to do the open/close marking on orders
+    YesNo require_alt_order_id = 5029; // v7 & v8 --- Original comment: Parent order must have an AltOrderId to proceed
+    TiedPriceRounding tied_price_rounding = 5030; // ONLY V7: [enum,Name=TiedPriceRounding,Values=Loose=0,Strict=1] --- Original comment: option limit price rounding rule: Loose = up to 1/4 tick extra; Strict = never exceed limit
+    YesNo nbbo_fix_drop_marking = 5031; // v7 & v8 --- Original comment: Whether or not to markup the FIX drop with nbbo information
+    AwayExecControl away_exec_control = 5032; // v7 & v8 --- Original comment: Whether to include Away Executions in EE risk counters
+    OatsMemberType_V7 oats_member = 5033; // ONLY V7: [enum,Name=OatsMemberType,Values=None=0,NonMember=1,Member=2,MemberOSO=3] --- Original comment: OATS reporting type
+    OatsReportType_V7 oats_report = 5034; // ONLY V7: [enum,Name=OatsReportType,Values=None=0,All=1,Stock=2,Spreads=3] --- Original comment: OATS asset reporting
+    CatReportType cat_reportable = 5035; // ONLY V7: [enum,Name=CatReportType,Values=None=0,All=1,Stock=2,Options=3] --- Original comment: CAT reportable type
+    string cat_accnt = 5036; // ONLY V7: [string,Length=40,Alias=NA,MetaType=NA] --- Original comment: CAT Firm Designated ID
+    string cat_brkr_accnt = 5037; // ONLY V7: [string,Length=40,Alias=NA,MetaType=NA] --- Original comment: Brkrs CAT Firm Designated ID
+    CatAccntType cat_brkr_accnt_type_stk = 5038; // ONLY V7: [enum,Name=CatAccntType,Values=None=0,Institutional=1,Employee=2,Foreign=3,Individual=4,MktMaking=5,FirmAvgPx=6,OtherProp=7,Error=8] --- Original comment: CAT account holder type (stock trades)
+    CatAccntType cat_brkr_accnt_type_opt = 5039; // ONLY V7: [enum,Name=CatAccntType,Values=None=0,Institutional=1,Employee=2,Foreign=3,Individual=4,MktMaking=5,FirmAvgPx=6,OtherProp=7,Error=8] --- Original comment: CAT account holder type (option trades)
+    CatFirmType cat_brkr_firm_type_stk = 5040; // ONLY V7: [enum,Name=CatFirmType,Values=None=0,Client=1,ClientBDAgency=2,ClientBDFirm=3,SRFirm=4] --- Original comment: CAT source firm type (stock trades)
+    CatFirmType cat_brkr_firm_type_opt = 5041; // ONLY V7: [enum,Name=CatFirmType,Values=None=0,Client=1,ClientBDAgency=2,ClientBDFirm=3,SRFirm=4] --- Original comment: CAT source firm type (option trades)
+    string cat_brkr_iMID = 5042; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: B/D firm IMID (only if client is a B/D) (supplied by FINRA fbo client)
+    DateKey cat_fdid_open_date = 5043; // v7 & v8 --- Original comment: CAT FDID OpenDate
+    DateKey cat_fdid_end_date = 5044; // v7 & v8 --- Original comment: CAT FDID EndDate
+    ReportingType_V7 stk_reporting_type = 5045; // ONLY V7: [enum,Name=ReportingType,Values=None=0,SRToBrkr=1,CustToBroker=2,CustToSRToBrkr=3] --- Original comment: indicates type of reporting done for all trading activity
+    ReportingType_V7 fut_reporting_type = 5046; // ONLY V7: [enum,Name=ReportingType,Values=None=0,SRToBrkr=1,CustToBroker=2,CustToSRToBrkr=3] --- Original comment: indicates type of reporting done for all trading activity
+    ReportingType_V7 opt_reporting_type = 5047; // ONLY V7: [enum,Name=ReportingType,Values=None=0,SRToBrkr=1,CustToBroker=2,CustToSRToBrkr=3] --- Original comment: indicates type of reporting done for all trading activity
+    string client_mPID = 5048; // ONLY V7: [string,Length=8,Alias=NA,MetaType=NA] --- Original comment: MPID of the client connecting to SR
+    string internal_mPID = 5049; // ONLY V7: [string,Length=8,Alias=NA,MetaType=NA] --- Original comment: MPID of SR (or other) intermediate broker
+    string large_trader_id = 5050; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: (deprecated) SEC-assigned trading ID assigned to a firm.  13 character string, contains numbers and dashes.
+    google.protobuf.Timestamp ltid_effective_date = 5051; // ONLY V7: [DateTime] --- Original comment: (moved to ClientFirmConfig in v8) LargeTraderID Effective Date
+    string exec_brkr_accnt_stk = 5052; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker account (usually Account<1>)
+    string exec_brkr_cl_firm_stk = 5053; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+    string brkr_ex_dest_stk = 5054; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: order routing string (if any) [used to force orders to a broker route] [taking and DMA orders only] (eg. "EXCH:IEX" to force single exchange sweeping of NBBO)
+    string review_ex_dest_stk = 5055; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: order routing string (if any) [StageReview Orders]
+    YesNo allow_review_execs_stk = 5056; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: allow stage review executions [StageReview Orders]
+    string exec_brkr_accnt_fut = 5057; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker account (usually Account<1>)
+    string exec_brkr_cl_firm_fut = 5058; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+    YesNo allow_review_execs_fut = 5059; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: allow stage review executions [StageReview Orders]
+    string brkr_ex_dest_fut = 5060; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: order routing string (if any) [used to force orders to a broker route] [taking and DMA orders only]
+    string review_ex_dest_fut = 5061; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: order routing string (if any) [StageReview Orders]
+    YesNo allow_review_execs_opt = 5062; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: allow stage review executions [StageReview Orders]
+    string exec_brkr_accnt_opt = 5063; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker account (usually Account<1>)
+    string exec_brkr_cl_firm_opt = 5064; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+    string brkr_ex_dest_opt = 5065; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: order routing string (if any) [used to force orders to a broker route] [taking and DMA orders only] (eg. "EXCH:MIAX" to force single exchange sweeping of NBBO)
+    string review_ex_dest_opt = 5066; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: order routing string (if any) [StageReview Orders]
+    string exec_brkr_on_behalf_of = 5067; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: On Behalf Of (deprecated in SRFixBase)
+    string exec_user_name_opt = 5068; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: eg, REDI accounts when routing to REDI
+    string exec_user_name_stk = 5069; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA]
+    string exec_user_name_fut = 5070; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA]
+    string exec_brkr_accnt_alloc = 5071; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker account (usually Account<1>)
+    string exec_brkr_cl_firm_alloc = 5072; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+    string exec_user_name_alloc = 5073; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string giveup_firm = 5074; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: (deprecated) default giveup firm (if not specified per exchange), eg. 322
+    string giveup_accnt = 5075; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: (deprecated) default giveup accnt (if not specified per exchange), eg. ABC123
+    string clearing_firm_name = 5076; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: string name (can be anything) [commonly used by position loaders] (not used in any FIX message)
+    string clearing_firm_stk = 5077; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: stock clearing firm name or code [books and records only; visible in fix drop templates]
+    string clearing_accnt_stk = 5078; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: eg C233702
+    string clearing_firm_fut = 5079; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: future clearing firm name or code [books and records only; visible in fix drop templates]
+    string clearing_accnt_fut = 5080; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: eg C233701
+    string clearing_firm_opt = 5081; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: options clearing firm name or code [books and records only; visible in fix drop templates]
+    string clearing_accnt_opt = 5082; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: eg C233701
+    FlipType clearing_flip_type_stk = 5083; // ONLY V7: [enum,Name=FlipType,Values=None=0,CMTA=1,Giveup=2,QSR=3,NSCC_Flip=4,DVP=5,BrkrAccnt=6]
+    string clearing_flip_firm_stk = 5084; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA]
+    string clearing_flip_accnt_stk = 5085; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    FlipType clearing_flip_type_fut = 5086; // ONLY V7: [enum,Name=FlipType,Values=None=0,CMTA=1,Giveup=2,QSR=3,NSCC_Flip=4,DVP=5,BrkrAccnt=6]
+    string clearing_flip_firm_fut = 5087; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA]
+    string clearing_flip_accnt_fut = 5088; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    FlipType clearing_flip_type_opt = 5089; // ONLY V7: [enum,Name=FlipType,Values=None=0,CMTA=1,Giveup=2,QSR=3,NSCC_Flip=4,DVP=5,BrkrAccnt=6] --- Original comment: either CMTA or Giveup; [visible in fix templates]
+    string clearing_flip_firm_opt = 5090; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: OCC Clearing Code (3 digits); On-exchange giveup firm; [visible in fix templates]
+    string clearing_flip_accnt_opt = 5091; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: OCC additional detail (sub-accnt); OCC pass-through; [visible in fix templates]
+    string client_accnt_ids = 5092; // v7 & v8 --- Original comment: all other accounts that affect this accounts position (eg. C233702, C233703).  Affects incoming FIX drops (and perhaps scripts).
+    YesNo can_facilitate = 5093; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: account can be used to facilitate customer trades
+    YesNo can_cross_internal = 5094; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: can cross by transfer within agg group
+    int32 algo_flash_pct = 5095; // ONLY V7: [byte] --- Original comment: percent of orders for which algo will start flash auctions [0 - 100]
+    int32 algo_block_pct = 5096; // ONLY V7: [byte] --- Original comment: percent of orders for which algo will start block auctions [0 - 100]
+    YesNo can_iSOSweep_stk = 5097; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: can initiate ISO Sweep WaitTrigger Stk orders
+    YesNo can_iSOSweep_opt = 5098; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: can initiate ISO Sweep WaitTrigger Opt orders
+    AuctionResponder stk_auction_responder = 5099; // ONLY V7: [enum,Name=AuctionResponder,Values=None=0,Any=1] --- Original comment: can respond to stock auctions
+    AuctionResponder fut_auction_responder = 5100; // ONLY V7: [enum,Name=AuctionResponder,Values=None=0,Any=1] --- Original comment: can respond to future auctions
+    AuctionResponder opt_auction_responder = 5101; // ONLY V7: [enum,Name=AuctionResponder,Values=None=0,Any=1] --- Original comment: can respond to option auctions
+    PositionSource_V7 stk_position_src = 5102; // ONLY V7: [enum,Name=PositionSource,Values=None=0,Zero=1,SR=2,CLR=3] --- Original comment: override default position rule
+    PositionSource_V7 fut_position_src = 5103; // ONLY V7: [enum,Name=PositionSource,Values=None=0,Zero=1,SR=2,CLR=3] --- Original comment: override default position rule
+    PositionSource_V7 opt_position_src = 5104; // ONLY V7: [enum,Name=PositionSource,Values=None=0,Zero=1,SR=2,CLR=3] --- Original comment: override default position rule
+    string opt_take_exch_list = 5105; // ONLY V7: [text1] --- Original comment: exchange order for marketable orders eg: BATS,NYSE,CBOE
+    string opt_make_exch_list = 5106; // ONLY V7: [text1] --- Original comment: exchange order for non-marketable orders eg: BATS,NYSE,CBOE
+    IncExchFee inc_stk_take_exch_fee = 5107; // ONLY V7: [enum,Name=IncExchFee,Values=None=0,ExclFee=1,IncFee=2] --- Original comment: include exchange fee in stock probability based take limit calculations
+    IncExchFee inc_fut_take_exch_fee = 5108; // ONLY V7: [enum,Name=IncExchFee,Values=None=0,ExclFee=1,IncFee=2] --- Original comment: include exchange fee in future probability based take limit calculations
+    IncExchFee inc_opt_take_exch_fee = 5109; // ONLY V7: [enum,Name=IncExchFee,Values=None=0,ExclFee=1,IncFee=2] --- Original comment: include exchange fee in option probability and surface based take limit calculations
+    IncExchFee inc_stk_make_exch_fee = 5110; // ONLY V7: [enum,Name=IncExchFee,Values=None=0,ExclFee=1,IncFee=2] --- Original comment: include exchange fee in stock probability based make limit calculations
+    IncExchFee inc_fut_make_exch_fee = 5111; // ONLY V7: [enum,Name=IncExchFee,Values=None=0,ExclFee=1,IncFee=2] --- Original comment: include exchange fee in future probability based make limit calculations
+    IncExchFee inc_opt_make_exch_fee = 5112; // ONLY V7: [enum,Name=IncExchFee,Values=None=0,ExclFee=1,IncFee=2] --- Original comment: include exchange fee in option probability and surface based make limit calculations
+    MakeExchRule stk_make_exch_rule = 5113; // ONLY V7: [enum,Name=MakeExchRule,Values=None=0,MaxPart=1,FeeOptimal=2,ImprvOnly=3,FeeStrict=4,RoundRobin=5,ProRataOptim=6] --- Original comment: ActiveMaker exchange preference rule: 'MaxPart' will pick exchanges to maximize participation; 'FeeOrder' will pick exchanges to minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO.
+    MakeExchRule opt_make_exch_rule = 5114; // ONLY V7: [enum,Name=MakeExchRule,Values=None=0,MaxPart=1,FeeOptimal=2,ImprvOnly=3,FeeStrict=4,RoundRobin=5,ProRataOptim=6] --- Original comment: ActiveMaker exchange preference rule: 'MaxPart' will pick exchanges to maximize participation; 'FeeOrder' will pick exchanges to minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO.
+    YesNo opt_can_make_c2 = 5115; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: ActiveMaker can send orders to C2	(default = No)
+    YesNo opt_can_make_cBOE = 5116; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: ActiveMaker can send orders to CBOE (default = Yes)
+    RoundRule stk_round_rule = 5117; // ONLY V7: [enum,Name=RoundRule,Values=None=0,Exact=1,Fuzzy=2] --- Original comment: Stock Price Rounding rule (Fuzzy = 90%, Exact = 100%)
+    RoundRule fut_round_rule = 5118; // ONLY V7: [enum,Name=RoundRule,Values=None=0,Exact=1,Fuzzy=2] --- Original comment: Future Price Rounding rule (Fuzzy = 90%, Exact = 100%)
+    RoundRule opt_round_rule = 5119; // ONLY V7: [enum,Name=RoundRule,Values=None=0,Exact=1,Fuzzy=2] --- Original comment: Option Price Rounding rule (Fuzzy = 90%, Exact = 100%)
+    YesNo is_low_velocity = 5120; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: if Yes all 390Rule counters will be computed even if not a PriorityCust
+    FirmType firm_type = 5121; // ONLY V7: [enum,Name=FirmType,Values=None=0,Customer=1,Firm=2,MarketMaker=3,ProCustomer=4,BrokerDealer=5,AwayMM=6,FirmJBO=7,BrkrDlrCust=8]
+    OrderCapacity order_capacity = 5122; // ONLY V7: [enum,Name=OrderCapacity,Values=None=0,Agency=1,Principal=2,Individual=3,Proprietary=4,AgentOtherMember=5,RisklessPrincipal=6,MarketMaker=7] --- Original comment: Order capacity
+    OrderCapacity cust_order_capacity = 5123; // ONLY V7: [enum,Name=OrderCapacity,Values=None=0,Agency=1,Principal=2,Individual=3,Proprietary=4,AgentOtherMember=5,RisklessPrincipal=6,MarketMaker=7] --- Original comment: Order capacity of Account at Customer's Firm
+    OpenPosition_V7 eqt_open_position = 5124; // ONLY V7: [enum,Name=OpenPosition,Values=None=0,UseSR=1,UseClr=2,PreferSR=3,PreferClr=4] --- Original comment: (deprecated)
+    OpenPosition_V7 fut_open_position = 5125; // ONLY V7: [enum,Name=OpenPosition,Values=None=0,UseSR=1,UseClr=2,PreferSR=3,PreferClr=4]
+    RelationshipType_V7 stk_relationship = 5126; // ONLY V7: [enum,Name=RelationshipType,Values=None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4]
+    RelationshipType_V7 fut_relationship = 5127; // ONLY V7: [enum,Name=RelationshipType,Values=None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4]
+    RelationshipType_V7 opt_relationship = 5128; // ONLY V7: [enum,Name=RelationshipType,Values=None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4]
+    ExecMode opt_exec_mode = 5129; // ONLY V7: [enum,Name=ExecMode,Values=None=0,OptimizePnL=1,OptimizeFees=2]
+    ExecMode stk_exec_mode = 5130; // ONLY V7: [enum,Name=ExecMode,Values=None=0,OptimizePnL=1,OptimizeFees=2]
+    ExecMode fut_exec_mode = 5131; // ONLY V7: [enum,Name=ExecMode,Values=None=0,OptimizePnL=1,OptimizeFees=2]
+    string theo_model = 5132; // v7 & v8 --- Original comment: theo model (primary)
+    string theo_model2 = 5133; // v7 & v8 --- Original comment: theo model #2
+    string sym_ctrl_accnt = 5134; // v7 & v8 --- Original comment: eg. SR.1 [default = accnt]
+    string pri_stk_agg_group = 5135; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: primary stk grouping code (for computing aggregate positions) [default = ClientFirm]
+    string sec_stk_agg_group = 5136; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: secondary stk grouping code (for computing aggregate positions) [default = ""]
+    string opt_agg_group = 5137; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: opt grouping code (for computing aggregate positions) [default = ClientFirm]
+    string fut_agg_group = 5138; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: fut grouping code (for computing aggregate positions) [default = ClientFirm]
+    string no_cross_group = 5139; // v7 & v8 --- Original comment: no cross grouping code (accounts with the same nCrossGroup will not cross with themselves) [default = ClientFirm]
+    YesNo require_locate = 5140; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: locate check enforced in SR systems
+    YesNo require_extern_stk_pos = 5141; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: all equity sell orders require an ExternAggGroupReport (externSource = SRSE) record
+    YesNo cxl_on_halt = 5142; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: cancel parent orders if the item being traded (or underlier) is halted
+    YesNo stk_split_zero = 5143; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: sell stock down to zero before selling short
+    YesNo fut_split_zero = 5144; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: open/close future positions to zero before continuing
+    YesNo opt_split_zero = 5145; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: open/close option positions to zero before continuing
+    OddLotFlag stk_odd_lot_flag = 5146; // ONLY V7: [enum,Name=OddLotFlag,Values=None=0,RoundLotsOnly=1] --- Original comment: RoundLotsOnly restricts most child order sizes to multiples of 100
+    int32 max_opt_child_orders_per_day = 5147; // ONLY V7: [int] --- Original comment: maximum number of option child orders allowed for this account per day (zero = no restriction)
+    RiskGroupControl risk_group_control = 5148; // v7 & v8 --- Original comment: enables enhanced risk group controls, ParentCap.n means each parent order can be at most 1/n of the risk group limit, StricLimits implies PC.2
+    int32 max_stk_brokers_per_day = 5149; // ONLY V7: [int] --- Original comment: maximum number of execution engine stock broker (default=10,000)
+    int32 max_fut_brokers_per_day = 5150; // ONLY V7: [int] --- Original comment: maximum number of execution engine future brokers (default=10,000)
+    int32 max_opt_brokers_per_day = 5151; // ONLY V7: [int] --- Original comment: maximum number of execution engine option brokers (default=10,000)
+    int32 risk_cxl_throttle = 5152; // ONLY V7: [int] --- Original comment: maximum risk throttle cancel rate (per second)
+    string locate_pool = 5153; // ONLY V7: [string,Length=16,Alias=LocatePoolString,MetaType=NA] --- Original comment: pool used for additional locates [default = clientFirm]
+    string locate_firm = 5154; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: default locate firm;  LocateResponse.locateFirm will be used instead (if it exists)
+    HedgeDeltaRule hedge_delta_rule = 5155; // v7 & v8 --- Original comment: HedgeDelta Source (IVol = use SR implied surface (sticky strike), IvS = use SR surface (dynamic), TVol = use user supplied theo surface (sticky strike), TvS = use user supplied theo surface (dynamic)) [AccountConfig.hedgeDelta]
+    BetaSource beta_source = 5156; // ONLY V7: [enum,Name=BetaSource,Values=None=0,betaSPX=1,betaQQQ=2,betaIWM=3,clientBeta=4]
+    float binary_days = 5157; // v7 & v8 --- Original comment: used to force delta calcs binary prior to expiration
+    ExecEngineMode exec_engine_mode_nms_stk = 5158; // ONLY V7: [enum,Name=ExecEngineMode,Values=None=0,ProdV8=1,BetaV8=2,ProdV7=3,BetaV7=4,UAT=5,SysTest=6]
+    ExecEngineMode exec_engine_mode_nms_opt = 5159; // ONLY V7: [enum,Name=ExecEngineMode,Values=None=0,ProdV8=1,BetaV8=2,ProdV7=3,BetaV7=4,UAT=5,SysTest=6]
+    ExecEngineMode exec_engine_mode_cmx_fut = 5160; // ONLY V7: [enum,Name=ExecEngineMode,Values=None=0,ProdV8=1,BetaV8=2,ProdV7=3,BetaV7=4,UAT=5,SysTest=6]
+    ExecEngineMode exec_engine_mode_cmx_opt = 5161; // ONLY V7: [enum,Name=ExecEngineMode,Values=None=0,ProdV8=1,BetaV8=2,ProdV7=3,BetaV7=4,UAT=5,SysTest=6]
+    string billing_schedule = 5162; // v7 & v8 --- Original comment: billing schedule code
+    FutClearingRange fut_clearing_range = 5163; // ONLY V7: [enum,Name=FutClearingRange,Values=None=0,Customer=1,Firm=2]
+    FutCustType fut_cust_type = 5164; // ONLY V7: [enum,Name=FutCustType,Values=None=0,IndividualMember=1,PropMember=2,OtherMember=3,NonMember=4]
+    ClearingLoadTime eqt_clearing_load_time = 5165; // ONLY V7: [enum,Name=ClearingLoadTime,Values=None=0,Early=1,Regular=2,Late=3]
+    ClearingLoadTime fut_clearing_load_time = 5166; // ONLY V7: [enum,Name=ClearingLoadTime,Values=None=0,Early=1,Regular=2,Late=3]
+    AllocMethod alloc_method = 5167; // ONLY V7: [enum,Name=AllocMethod,Values=None=0,FIX=1,FilePAS=2] --- Original comment: method for delivery of the allocation instruction to the broker
+    AllocMLegRule alloc_mLeg_rule = 5168; // ONLY V7: [enum,Name=AllocMLegRule,Values=None=0,Legs=1,Package=2] --- Original comment: rule for how to send allocation instructions for mleg orders to the broker
+    string accnt_color = 5169; // v7 & v8
+    AccntStatus accnt_status = 5170; // v7 & v8 --- Original comment: This accounts current status
+    google.protobuf.Timestamp accnt_status_dttm = 5171; // v7 & v8 --- Original comment: The Date/time this accounts status was changed
+    string route_table__default = 5172; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: default route table name (applies unless specifically overridden below)
+    string route_table__stock = 5173; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__stk_maker = 5174; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__stk_cross = 5175; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__future = 5176; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_maker = 5177; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_cross = 5178; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_spread = 5179; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_sprd_rFQ = 5180; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_sprd_cross = 5181; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_option = 5182; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_maker = 5183; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cross = 5184; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_resp = 5185; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cob = 5186; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cob_stk = 5187; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cob_maker = 5188; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cob_maker_stk = 5189; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cob_cross = 5190; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__eqt_opt_cob_resp = 5191; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_option = 5192; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_opt_maker = 5193; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_opt_cross = 5194; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_opt_sprd = 5195; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_opt_sprd_rFQ = 5196; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__fut_opt_sprd_cross = 5197; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__allocation = 5198; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    string route_table__stage_review = 5199; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+    google.protobuf.Timestamp timestamp = 5200; // v7 & v8 --- Original comment: timestamp of last modification
+    string user_name = 5201; // v7 & v8: Field Name Change: V7=[userName], V8=[modifiedBy]: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=ModifiedBy]
+    SysEnvironment modified_in = 5202; // v7 & v8
+    repeated ClearingFlip clearing_flip = 5203;
+}
+
+

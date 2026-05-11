@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    user-to-edge
+*/    
+message EdgeOrder {
+    message PKey {
+        
+        int64 edge_order_number = 10; // user order guid (clOrdID)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    EdgeAction order_action = 100;
+    uint32 version = 103; // increment on each update sent
+    DateKey trade_date = 106;
+    int64 parent_number = 109; // EE parent order number
+    int64 prev_parent_number = 112;
+    int64 base_parent_number = 115;
+    int32 parent_version = 118;
+    string accnt = 121; // SR assigned accnt code
+    string cfirm = 124; // SR assigned client firm acronym
+    OptionKey sec_key = 127;
+    SpdrKeyType sec_type = 130;
+    BuySell side = 133;
+    int64 grouping_code = 136;
+    SpdrSource spdr_source = 139;
+    string exec_brkr_code = 142; // SR execBrkrCode (SR Assigned)
+    EdgeExDest edge_ex_dest = 145; // SR assigned ex-dest code
+    int32 core_hash = 148; // hash: accnt + cfirm + execBrkrCode + edgeExDest + secKey + secType + side [core hash cannot be modified over the life of an order]
+    int32 edge_size = 151;
+    int32 edge_limit_price = 154; // static limit price
+    EdgeOrderType edge_order_type = 157;
+    URefType u_ref_type = 160; // [Any Type] (default: MidMkt)
+    int32 ref_price = 163; // [Tied Only] livePrice = refPrice + dUPrc * refDe + dUPrc * dUPrc * refGa; dUPrc = liveUPrc - refUPrc
+    int32 ref_uPrc = 166; // [Tied Only] (ref uBid or ref uAsk)
+    int32 ref_de = 169;
+    int32 ref_ga = 172;
+    int32 min_uPrc = 175; // [Any Type]
+    int32 max_uPrc = 178; // [Any Type]
+    PriceFormat price_format = 181;
+    YesNo make_only = 184;
+    YesNo do_not_route = 187;
+    YesNo randomize_size = 190;
+    int32 point_value = 193;
+    Currency point_currency = 196;
+    int32 accnt_dDelta_check_pt = 199; // [all underliers combined] [this edge device only]
+    int32 min_accnt_dDelta = 202; // deviation from checkPt
+    int32 max_accnt_dDelta = 205;
+    int32 accnt_dGamma_check_pt = 208; // [all underliers combined] [this edge device only]
+    int32 min_accnt_dGamma = 211; // deviation from checkPt
+    int32 max_accnt_dGamma = 214;
+    int32 und_dDelta_check_pt = 217; // [per underlier] [this edge device only]
+    int32 min_und_dDelta = 220; // deviation from checkPt
+    int32 max_und_dDelta = 223;
+    int32 und_dGamma_check_pt = 226; // [per underlier] [this edge device only]
+    int32 min_und_dGamma = 229; // deviation from checkPt
+    int32 max_und_dGamma = 232;
+    google.protobuf.Timestamp timestamp = 235; // order send timestamp
+}
+
+

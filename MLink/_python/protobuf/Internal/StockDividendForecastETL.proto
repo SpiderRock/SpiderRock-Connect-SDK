@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: StockDividendCalendarForecastETL + StockTradingCalendar
+    CalcEngine: Spark/ETL
+*/    
+message StockDividendForecastETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trade_date = 11; // dividend ex-date(current day)
+    }
+
+    message Forecast {
+        
+        DateKey div_date = 101; // future div date (in the future relative to pkey.divDate)
+        float div_value = 102; // dividend payment amount
+        string div_currency = 103;
+        DivKind div_kind = 104;
+        DivFreq div_freq = 105;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 106;
+    repeated Forecast forecast = 100;
+}
+
+

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message RiskBarDataVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100; // (optional) SR accnt (Admin only)
+    string client_firm = 101; // Client firm string
+    TickerKey ticker = 102;
+}
+
+

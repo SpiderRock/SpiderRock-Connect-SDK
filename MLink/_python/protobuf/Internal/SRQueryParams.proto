@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SRQueryParams {
+    message PKey {
+        
+        string user_name = 10;
+        string query_grid_name = 11; // Name of the query grid (not visible to user)
+        string query_name = 12; // Name of the query (assigned by the user)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string parameters = 100; // If given, will contain a SOAP serialized object representing the parameters of the query
+    google.protobuf.Timestamp timestamp = 103;
+}
+
+

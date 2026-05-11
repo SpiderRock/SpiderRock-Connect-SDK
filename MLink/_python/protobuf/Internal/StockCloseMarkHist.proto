@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message StockCloseMarkHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    google.protobuf.Duration sr_close_time = 103; // SR closing mark time (C)
+    ClsMarkState cls_mark_state = 106; // close mark state. None; LastPrt; SRClose; ExchClose; Final
+    float opn_prc = 109; // open price
+    float min_prc = 112; // Low price
+    float max_prc = 115; // High price
+    int64 shares_outstanding = 173; // shares outstanding
+    int32 prt_count = 121; // print count
+    double prt_volume = 174; // print volume
+    int32 realized_cnt = 175; // number of minute bar segments used in realizedVol calc
+    float realized_vol = 127; // realizedVol = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
+    float avg_mkt_size = 130; // average market size
+    float avg_mkt_width = 133; // average market width
+    float bid_prc = 136; // bid price (close - 1min)
+    float ask_prc = 139; // ask price (close - 1min)
+    float sr_cls_prc = 142; // SR close mark (close - 1min)
+    float close_prc = 145; // official exchange closing mark (last print;then official close)
+    EarnRelative inc_earnings = 148; // this trading period includes an earnings announcement
+    DivStatus div_status = 151;
+    google.protobuf.Timestamp prior_date = 154;
+    TickerKey prior_ticker = 157; // prior period stock key (same as ticker on most days)
+    float prc_adj_value = 160; // corp action adjustment value (0.0 on most days)  currentPrice = priorPrice * factor + value
+    float prc_adj_ratio = 163; // corp action adjustment factor (1.0 on most days)
+    float prior_sRCls_prc = 166; // values archive in the previous trading period
+    float prior_close_prc = 169;
+    google.protobuf.Timestamp timestamp = 172;
+}
+
+

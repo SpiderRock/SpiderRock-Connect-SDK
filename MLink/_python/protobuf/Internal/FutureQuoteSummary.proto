@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message FutureQuoteSummary {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    MarketStatus market_status = 100; // market status (open, halted, etc)
+    double exch_session_high = 103;
+    double exch_session_low = 106;
+    double exch_open = 109;
+    double exch_high_bid = 112;
+    double exch_low_ask = 115;
+    int32 open_int = 118;
+    double fixing_price = 119;
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: SpdrFutureRiskControl
+    V8 Message Name:
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:SpdrFutureRiskControl
+*/    
+message SpdrFutureRiskControl_V7 {
+    message PKey {
+        
+        string accnt = 5000; // ONLY V7: [string,Length=16,Alias=SRAccountString,MetaType=NA]
+        string risk_symbol = 5001; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: underlying symbol (e.g. MSFT, *, SPY, @CL) or symbol/expiration (eg. @ES/EXP, @ES/2016-02-24)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo disabled = 5002; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2] --- Original comment: used to disable the futures limit
+    float max_pos_delta_abs = 5003; // ONLY V7: [float] --- Original comment: net position delta in futures, including options on futures delta: abs(deltaPos + deltaBot - deltaSld)
+    float max_day_delta_abs = 5004; // ONLY V7: [float] --- Original comment: net delta in futures traded in a single trading day: abs(deltaBot - deltaSld)
+    float max_day_delta_bot = 5005; // ONLY V7: [float] --- Original comment: allowable delta in futures purchased in a trading session: deltaBot
+    float max_day_delta_sld = 5006; // ONLY V7: [float] --- Original comment: allowable delta in futures sold in a trading session: deltaSld
+    string user_name = 5007; // ONLY V7: [string,Length=24,Alias=UserNameString,MetaType=NA] --- Original comment: userName responsible for most recent change
+    SysEnvironment modified_in = 5008; // ONLY V7: [enum,Name=SysEnvironment,Values=None=0,Neptune=1,Pluto=2,V7_Stable=3,V7_Latest=4,Saturn=5,Venus=6,Mars=7,SysTest=8,V7_Current=9]
+    google.protobuf.Timestamp timestamp = 5009; // ONLY V7: [DateTime] --- Original comment: timestamp of latest change
+}
+
+

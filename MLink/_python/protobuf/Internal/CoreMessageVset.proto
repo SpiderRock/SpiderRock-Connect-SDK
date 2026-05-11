@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message CoreMessageVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    string pkey_str = 100; // Pkey string
+    string accnt_str = 103; // Account string
+    string user_name_str = 106; // Username string
+    string client_firm_str = 109; // Client firm string
+    string ticker_key_str = 112; // TickerKey string
+    string expiry_key_str = 115; // ExpiryKey string
+    string search_str = 118; // Search string
+    string converter = 121; // Used to tell the data handler to send back a different message type than the core message type
+    int32 max_results = 124; // Max results
+}
+
+

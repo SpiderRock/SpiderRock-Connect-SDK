@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message Chart_ExpiryCurveVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey exp_key = 100; // Requested expiry key
+    float x_axis_width = 111; // zero +/- xAxisWidth; increments of 0.5 xAxis points [max 30]
+    ChartVType v_type = 101;
+    YesNo inc_prev_day = 104;
+    SurfDynamics prev_surf_dyn = 112;
+    PrintAge print_age = 113;
+    Y1SymSet y1_sym_set = 115; // All = All Calls and Puts; Best = Puts (x < 0) and Calls (x > 0)
+    Y1Symbol y1_symbols = 116;
+    Y2Bars y2_bars = 117;
+}
+
+

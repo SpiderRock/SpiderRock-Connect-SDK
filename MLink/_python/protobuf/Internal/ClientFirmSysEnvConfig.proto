@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ClientFirmSysEnvConfig {
+    message PKey {
+        
+        string client_firm = 10; // SR assigned client firm acronym
+        SysEnvironment sys_environment = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string risk_server_code = 100; // eg. RS1 (risk server code this client firm is bound too) [only one code]
+    string drop_server_codes = 103; // eg. DS1,DS2,DS3, etc.
+    string srse_server_codes = 106; // eg. SRSE.01, SRSE.02, SRSE.03 (client firm specific SRSE servers) [enables this client firm on these SRSE servers]
+    YesNo enable_srse_product_snapshots = 109; // If enabled 'Yes' daily_snapshots.py scripts will make create clientFirm-specific snapshots of SRSE products.  Grants are matched to UserConfig.SrseProductControl.
+    string execution_engine_codes = 112; // eg. NMS_EQT, NMS_OPT, CME_FUT, CME_OPT, CFE_FUT, etc. (all execution engine types this client firm is enable to access)
+    string modified_by = 115; // user who last modified this record
+    SysEnvironment modified_in = 118;
+    google.protobuf.Timestamp timestamp = 121; // timestamp of last modification
+}
+
+

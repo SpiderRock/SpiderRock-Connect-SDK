@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message OptExpiryDefinitionETL {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        DateKey trading_date = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey fkey = 100; // future key of the option deliverable
+    google.protobuf.Timestamp expiration = 103; // option expiration date and time
+    google.protobuf.Timestamp maturity_date = 106;
+    double display_factor = 109;
+    double cab_price = 112;
+    double min_tick_size = 115;
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

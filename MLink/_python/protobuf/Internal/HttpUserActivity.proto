@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message HttpUserActivity {
+
+
+    MessageMetadata _meta = 1;
+    
+    string connect_iD = 100;
+    SysEnvironment sys_environment = 103;
+    string server = 106; // internal server name
+    HttpProduct product = 109;
+    HttpServiceType service_type = 112;
+    string user_name = 115; // authenticated user name
+    string client_firm = 192; // clientFirm associated with user name
+    string source_addr = 121; // HAProxy Source Address (from http header rewrite)
+    string proxy_client_firm = 124; // HAProxy Source Address => ClientFirm Map (from http header rewrite)
+    string cmd = 127; // handler name
+    string msgtype = 130; // message type (dataOut message type for WTS)
+    MLinkToken mlink_token = 133;
+    string parameters = 136; // additional query/request parameters
+    TickerKey ticker = 139; // primary ticker key (if any) (for wts this is the vset)
+    string accnt = 142; // primary accnt (if any)
+    string data_in_type = 185; // data type of inbound (client to WTS) message
+    string data_in = 145; // inbound (client to server) data payload (eg. OrderActionMessage)
+    string data_out = 148; // outbound (server to client) data payload (eg. OrderDetailData)
+    int32 num_bytes_sent = 151; // bytes sent from server to client
+    int32 num_messages_sent = 154; // number of messages sent from server to client
+    int32 num_bytes_rcvd = 157; // bytes received from client
+    int32 num_messages_rcvd = 160; // number of messages received from client
+    double handl_elapsed = 163; // CPU time (on server) processing action request
+    double flush_elapsed = 166; // Network send/wait time (time waiting on client to consume messages)
+    string skey = 186; // (WTS only) skey for this request/response (from WTS message header)
+    string tid_in = 187; // (WTS only) ToolActionId received by the server (from WTS message header)
+    string tid_out = 188; // (WTS only) ToolActionId sent from server
+    int64 base_parent_number = 189; // (WTS orders only) baseParentNumber associated with this request/response (if exists)
+    ToolAlgoType algo_type = 190; // (WTS orders only) toolAlgoType associated with this request/response (if exists)
+    string publish_type = 191; // (WTS only) Data type published to MBUS (if any)
+    HttpErrorLevel error_lvl = 169;
+    HttpErrorType error_type = 172;
+    string error_string = 175;
+    AuthStyle auth_style = 178;
+    HttpSessionState session_state = 181;
+    string detail = 184; // other details or side-effect text (if any)
+    MLinkProtocol protocol = 193; // protocol used (json/jsonf/proto)
+}
+
+

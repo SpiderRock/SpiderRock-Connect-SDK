@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Use this to tell the WebToolServer to send out a SpdrParentCancel message to cancel the corresponding parent order if active and cancellable
+*/    
+message ToolParentCancel {
+    message PKey {
+        
+        string accnt = 10; // SR account
+        int64 ord_key = 13; // orderKey / parentNumber (hex)
+        string client_firm = 12; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 100; // timestamp of when this message was filled out to send to the server
+}
+
+

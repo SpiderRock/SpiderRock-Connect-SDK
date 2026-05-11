@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message PingPong {
+    message PKey {
+        
+        int64 seq_no = 10;
+        uint32 initiator_iD = 11;
+        uint32 target_iD = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string payload = 100;
+    int64 sent_timestamp = 103;
+}
+
+

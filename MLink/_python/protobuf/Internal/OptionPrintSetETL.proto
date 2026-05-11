@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: OptionPrintETL + OptionAtmMinuteBarETL
+    CalcEngine: Spark/ETL
+*/    
+message OptionPrintSetETL {
+    message PKey {
+        
+        OptionKey okey = 10;
+        int64 prt_number = 11; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trading_date = 100;
+    TradingSession trading_session = 103;
+    TickerKey ticker = 106;
+    int64 security_iD = 109;
+    ExpiryKey und_sec_key = 112; // underlier sec key
+    SpdrKeyType und_sec_type = 115; // underlier sec type
+    OptExch prt_exch = 118; // Exchange on which print took place
+    int32 prt_size = 121; // print size [contracts]
+    float prt_price = 124; // print price
+    PrtType prt_type = 127; // print type
+    uint32 prt_orders = 130; // number of participating orders
+    int32 prt_volume = 133; // day print volume in contracts
+    int32 cxl_volume = 136; // day print/cancel volume (num of contracts printed and then cancelled)
+    uint32 bid_count = 139; // number of bid prints
+    uint32 ask_count = 142; // number of ask prints
+    int32 bid_volume = 145; // bid print volume in contracts
+    int32 ask_volume = 148; // ask print volume in contracts
+    float ebid = 151; // exchange bid (@ print time)
+    float eask = 154; // exchange ask (@ print time)
+    int32 ebsz = 157; // exchange bid size
+    int32 easz = 160; // exchange ask size
+    float eage = 163; // age of prevailing quote at time of print
+    PrtSide prt_side = 166;
+    int64 prt_timestamp = 169; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 172; // inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock
+    float o_bid = 175; // Option NBBO bid a the time the print was received
+    float o_ask = 178; // Option NBBO ask a the time the print was received
+    int32 o_bid_sz = 181; // Option NBBO cumulative bid size at the time the print was received
+    int32 o_ask_sz = 184; // Option NBBO cumulative ask size at the time the print was received
+    OptExch o_bid_ex = 187; // First (or largest) option exchange on the bid
+    OptExch o_ask_ex = 190; // First (or largest) option exchange on the ask
+    int32 o_bid_ex_sz = 193; // Option bid size of the largest exchange on the bid at the time the print was received
+    int32 o_ask_ex_sz = 196; // Option ask size of the largest exchange on the ask at the time the print was received
+    int32 o_bid_cnt = 199; // Number of exchanges on the NBBO bid
+    int32 o_ask_cnt = 202; // Number of exchanges on the NBBO ask
+    float o_bid2 = 205; // Second level bid price
+    float o_ask2 = 208; // Second level ask price
+    int32 o_bid_sz2 = 211; // Cumulative size on the second level bid price
+    int32 o_ask_sz2 = 214; // Cumulative size on the second level ask price
+    double u_bid = 217; // underlier bid
+    double u_ask = 220; // underlier ask
+    double u_prc = 223; // underlier price
+    float yrs = 226; // years to expiry
+    float rate = 229; // interest rate
+    float sdiv = 232; // continuous stock dividend
+    float ddiv = 235; // discrete stock dividend value (sum of dividends <= expiration)
+    float x_de = 238; // xDelta
+    float x_axis = 241; // SR surface xAxis value
+    Multihedge multihedge = 244; // Distinguishes options that have a single underlying security from those that are more complex:  multiple securities,cash components, binary options,etc:  'None','Simple','Complex','AllCash','Binary'
+    float prt_iv = 247; // print implied vol
+    float prt_de = 250; // print delta
+    float prt_ga = 253; // print gamma
+    float prt_th = 256; // print theta
+    float prt_ve = 259; // print vega
+    float prt_ro = 262; // print rho
+    string calc_err = 265; // calc error flag
+    float surf_vol = 268; // SR surface volatility
+    float surf_opx = 271; // SR surface price
+    float surf_atm = 274; // SR surface ATM vol
+    float prt_probability = 277; // [M1] probability that buying prtSize contracts @ prtPrice will have positive m10 pnl (prtPriceM10 >= prtPrice) [recorded at time of print]
+    float prt_probability_m2 = 280; // alternate probability model
+    float prt_probability_m3 = 283; // alternate probability model
+    float o_bid_m1 = 286; // NBBO option bid 1 minute after print was received
+    float o_ask_m1 = 289; // NBBO option ask 1 minute after print was received
+    double u_bid_m1 = 292; // NBBO underlying bid 1 minute after print was received
+    double u_ask_m1 = 295; // NBBO underlying ask 1 minute after print was received
+    double u_prc_m1 = 298; // Underlying price 1 minute after print was received
+    float s_vol_m1 = 301; // Suface volatility 1 minute after print was received
+    float s_opx_m1 = 304; // Surface option price 1 minute after print was received
+    float s_div_m1 = 307; // sDiv 1 minute after print was received
+    string s_err_m1 = 310; // Surface error condition (if any) 1 minute after print was received
+    float pnl_m1 = 313; // pnl after 1 minute
+    YesNo pnl_m1_err = 316; // Error condition for PnL calculated over the first 1 minute after the print was received
+    float o_bid_m10 = 319; // NBBO option bid 10 minutes after print was received
+    float o_ask_m10 = 322; // NBBO option ask 10 minutes after print was received
+    double u_bid_m10 = 325; // NBBO underlying bid 10 minutes after print was received
+    double u_ask_m10 = 328; // NBBO underlying ask 10 minutes after print was received
+    double u_prc_m10 = 331; // Underlying price 10 minutes after print was received
+    float s_vol_m10 = 334; // Suface volatility 10 minutes after print was received
+    float s_opx_m10 = 337; // Surface option price 10 minutes after print was received
+    float s_div_m10 = 340; // sDiv 10 minutes after print was received
+    string s_err_m10 = 343; // Surface error condition (if any) 10 minutes after print was received
+    float pnl_m10 = 346; // pnl after 10 minutes
+    YesNo pnl_m10_err = 349; // Error condition for PnL calculated 10 minutes after the print was received
+    google.protobuf.Timestamp timestamp = 352;
+}
+
+

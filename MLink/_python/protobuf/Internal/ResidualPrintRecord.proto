@@ -1,0 +1,130 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ResidualPrintRecords are archived by the LiveSurfaceServer for every option print and contain a model training record
+*/    
+message ResidualPrintRecord {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float prt_price = 100; // historical IEMove (prior N earnings moves)
+    int32 prt_size = 103;
+    float prt_vol = 106;
+    OptExch prt_exch = 109;
+    double u_prc = 112;
+    int32 days = 115;
+    float years = 118;
+    float rate = 121;
+    float ddiv_pv = 124;
+    float s_prc = 127;
+    float s_vol = 130;
+    float s_div = 133;
+    float s_de = 136;
+    float s_ve = 139;
+    float b_vol = 142;
+    float b_atm = 145;
+    float skew_mult = 148;
+    float avg_day_uVlm = 151; // trailing average underlier $ print volume
+    float avg_day_vega_vlm = 154; // trailing average print vega volume for this expiry
+    float x_de_d2 = 157;
+    float r_bid0__d2 = 160; // [minV - bVol].c - [minV - bVol].4
+    float r_bid1__d2 = 163; // [minV - bVol].1 - [minV - bVol].4
+    float r_bid2__d2 = 166; // [minV - bVol].2 - [minV - bVol].4
+    float r_bid3__d2 = 169; // [minV - bVol].3 - [minV - bVol].4
+    float r_bid4__d2 = 172; // [minV - bVol].4
+    float r_ask0__d2 = 175; // [minV - bVol].c - [minV - bVol].4
+    float r_ask1__d2 = 178; // [minV - bVol].1 - [minV - bVol].4
+    float r_ask2__d2 = 181; // [minV - bVol].2 - [minV - bVol].4
+    float r_ask3__d2 = 184; // [minV - bVol].3 - [minV - bVol].4
+    float r_ask4__d2 = 187; // [minV - bVol].4
+    float r_wid0__d2 = 190; // [maxV - minV].c
+    float r_wid1__d2 = 193; // [maxV - minV].1 - [maxV - minV].3
+    float r_wid2__d2 = 196; // [maxV - minV].2 - [maxV - minV].3
+    float r_wid3__d2 = 199; // [maxV - minV].3
+    float bid_sz__d2 = 202; // [cpBidSz].cur / [cpBidSz].4
+    float ask_sz__d2 = 205; // [cpAskSz].cur / [cpAskSz].4
+    float x_de_d1 = 208;
+    float r_bid0__d1 = 211; // [minV - bVol].c - [minV - bVol].4
+    float r_bid1__d1 = 214; // [minV - bVol].1 - [minV - bVol].4
+    float r_bid2__d1 = 217; // [minV - bVol].2 - [minV - bVol].4
+    float r_bid3__d1 = 220; // [minV - bVol].3 - [minV - bVol].4
+    float r_bid4__d1 = 223; // [minV - bVol].4
+    float r_ask0__d1 = 226; // [minV - bVol].c - [minV - bVol].4
+    float r_ask1__d1 = 229; // [minV - bVol].1 - [minV - bVol].4
+    float r_ask2__d1 = 232; // [minV - bVol].2 - [minV - bVol].4
+    float r_ask3__d1 = 235; // [minV - bVol].3 - [minV - bVol].4
+    float r_ask4__d1 = 238; // [minV - bVol].4
+    float r_wid0__d1 = 241; // [maxV - minV].c
+    float r_wid1__d1 = 244; // [maxV - minV].1 - [maxV - minV].3
+    float r_wid2__d1 = 247; // [maxV - minV].2 - [maxV - minV].3
+    float r_wid3__d1 = 250; // [maxV - minV].3
+    float bid_sz__d1 = 253; // [cpBidSz].cur / [cpBidSz].4
+    float ask_sz__d1 = 256; // [cpAskSz].cur / [cpAskSz].4
+    float x_de_aT = 259;
+    float r_bid0__aT = 262; // [minV - bVol].c - [minV - bVol].4
+    float r_bid1__aT = 265; // [minV - bVol].1 - [minV - bVol].4
+    float r_bid2__aT = 268; // [minV - bVol].2 - [minV - bVol].4
+    float r_bid3__aT = 271; // [minV - bVol].3 - [minV - bVol].4
+    float r_bid4__aT = 274; // [minV - bVol].4
+    float r_ask0__aT = 277; // [minV - bVol].c - [minV - bVol].4
+    float r_ask1__aT = 280; // [minV - bVol].1 - [minV - bVol].4
+    float r_ask2__aT = 283; // [minV - bVol].2 - [minV - bVol].4
+    float r_ask3__aT = 286; // [minV - bVol].3 - [minV - bVol].4
+    float r_ask4__aT = 289; // [minV - bVol].4
+    float r_wid0__aT = 292; // [maxV - minV].c
+    float r_wid1__aT = 295; // [maxV - minV].1 - [maxV - minV].3
+    float r_wid2__aT = 298; // [maxV - minV].2 - [maxV - minV].3
+    float r_wid3__aT = 301; // [maxV - minV].3
+    float bid_sz__aT = 304; // [cpBidSz].cur / [cpBidSz].4
+    float ask_sz__aT = 307; // [cpAskSz].cur / [cpAskSz].4
+    float x_de_u1 = 310;
+    float r_bid0__u1 = 313; // [minV - bVol].c - [minV - bVol].4
+    float r_bid1__u1 = 316; // [minV - bVol].1 - [minV - bVol].4
+    float r_bid2__u1 = 319; // [minV - bVol].2 - [minV - bVol].4
+    float r_bid3__u1 = 322; // [minV - bVol].3 - [minV - bVol].4
+    float r_bid4__u1 = 325; // [minV - bVol].4
+    float r_ask0__u1 = 328; // [minV - bVol].c - [minV - bVol].4
+    float r_ask1__u1 = 331; // [minV - bVol].1 - [minV - bVol].4
+    float r_ask2__u1 = 334; // [minV - bVol].2 - [minV - bVol].4
+    float r_ask3__u1 = 337; // [minV - bVol].3 - [minV - bVol].4
+    float r_ask4__u1 = 340; // [minV - bVol].4
+    float r_wid0__u1 = 343; // [maxV - minV].c
+    float r_wid1__u1 = 346; // [maxV - minV].1 - [maxV - minV].3
+    float r_wid2__u1 = 349; // [maxV - minV].2 - [maxV - minV].3
+    float r_wid3__u1 = 352; // [maxV - minV].3
+    float bid_sz__u1 = 355; // [cpBidSz].cur / [cpBidSz].4
+    float ask_sz__u1 = 358; // [cpAskSz].cur / [cpAskSz].4
+    float x_de_u2 = 361;
+    float r_bid0__u2 = 364; // [minV - bVol].c - [minV - bVol].4
+    float r_bid1__u2 = 367; // [minV - bVol].1 - [minV - bVol].4
+    float r_bid2__u2 = 370; // [minV - bVol].2 - [minV - bVol].4
+    float r_bid3__u2 = 373; // [minV - bVol].3 - [minV - bVol].4
+    float r_bid4__u2 = 376; // [minV - bVol].4
+    float r_ask0__u2 = 379; // [minV - bVol].c - [minV - bVol].4
+    float r_ask1__u2 = 382; // [minV - bVol].1 - [minV - bVol].4
+    float r_ask2__u2 = 385; // [minV - bVol].2 - [minV - bVol].4
+    float r_ask3__u2 = 388; // [minV - bVol].3 - [minV - bVol].4
+    float r_ask4__u2 = 391; // [minV - bVol].4
+    float r_wid0__u2 = 394; // [maxV - minV].c
+    float r_wid1__u2 = 397; // [maxV - minV].1 - [maxV - minV].3
+    float r_wid2__u2 = 400; // [maxV - minV].2 - [maxV - minV].3
+    float r_wid3__u2 = 403; // [maxV - minV].3
+    float bid_sz__u2 = 406; // [cpBidSz].cur / [cpBidSz].4
+    float ask_sz__u2 = 409; // [cpAskSz].cur / [cpAskSz].4
+    google.protobuf.Timestamp timestamp = 412;
+}
+
+

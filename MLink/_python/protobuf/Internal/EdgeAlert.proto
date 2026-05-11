@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+/*
+    edge-to-risk
+*/    
+message EdgeAlert {
+
+
+    MessageMetadata _meta = 1;
+    
+    int64 edge_order_number = 100;
+    string accnt = 103;
+    string cfirm = 106;
+    string exec_brkr_code = 109; // SR execBrkrCode (SR Assigned)
+    EdgeExDest edge_ex_dest = 112; // SR assigned ex-dest code
+    string routing_code = 115;
+    string alert = 118;
+    EdgeAlertType alert_type = 121;
+    int64 timestamp = 124;
+}
+
+

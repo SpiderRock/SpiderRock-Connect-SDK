@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    LiveExpirySurface (surfaceType = 'Live') records are computed and publish continuously during trading hours and represent a current best implied volatility market fit.
+    SurfaceType = 'PriorDay' records contain the `closing surface record from the prior trading period (usually from just before the last main session close).
+*/    
+message LiveExpirySurface {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        SurfaceCurveType surface_type = 11;
+    }
+
+    message Residual {
+        
+        float x = 157; // x axis
+        float y = 160; // y value predict (from ML model)
+        float y_sd = 163; // y value std deviation (from ML model)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double u_prc = 100; // effective uPrc used for surface fitting (either spot uPrc or uPrcFwd)
+    double u_prc_driver = 103; // underlier driver (mid-market) [zero if prcFramework=Spot]
+    int32 days = 106; // days to expiry
+    float years = 109; // volatility time to expiration (in years)
+    float rate = 112; // term interest rate to expiry (discount rate)
+    float atm_vol = 115; // atm surface volatility (xAxis = 0)
+    float atm_cen = 118; // censored atm surface volatility (xAxis = 0)
+    float atm_slope = 121; // volatility surface slope (dVol / dXAxis) (xAxis=0)
+    float atm_skew_yY = 124; // skewFn @ xAxis = 0 (sticky surface static point)
+    float atm_vResidual = 127; // vResidual @ xAxis = 0 (sticky surface static point)
+    float atm_sDiv = 130; // non-functional. temporarily added back for binary compatibility with mars
+    ExpiryKey basis_eKey = 133; // LiveBasisCurve.pkey.ekey record that defines BasisSkewFn below.
+    google.protobuf.Timestamp basis_timestamp = 136; // LiveBasisCurve.timestamp
+    float axis_sDiv = 139; // axis SDiv (used for forward price calc)
+    float axis_fUPrc = 142; // axis FwdUPrc (fwd underlying price used to compute xAxis)
+    float x_mult = 145;
+    float x_shift = 148;
+    float skew_mult = 151; // sVol = skewMult * BasisSkewFn(xMult * (xAxis - xShift))
+    float max_residual_err = 166; // largest remain residual error (in premium points)
+    float cp_adj_uPrc = 169;
+    float cp_adj_iVol = 172;
+    float cp_adj_a = 175; // cpAdj = cpAdjA + cpAdjB * x + cpAdjC * x^2; where x = BS(strike, cpAdjUPrc, cpAdjIVol, ...).cXDe  [cpAdj is either sdiv or uPrcRatio]
+    float cp_adj_b = 178;
+    float cp_adj_c = 181;
+    CPAdjCode cp_adj_code = 184;
+    float cp_adj_a__ema = 187; // short term EMA averages
+    float cp_adj_b__ema = 190;
+    float cp_adj_c__ema = 193;
+    int32 cp_adj__counter = 196; // cpAdj EMA counter
+    TickerKey ticker = 199; // underlying stock key that this option expiration attaches to
+    ExpiryKey fkey = 202; // underlying future key (if any)
+    ExpiryKey u_prc_driver_key = 205; // underlier driver key
+    SpdrKeyType u_prc_driver_type = 208; // underlier driver key type (stock or future)
+    float ddiv = 211; // (expected) cumulative discrete dividend $ amounts prior to expiration
+    float ddiv_pv = 214; // (expected) cumulative npv of discrete dividend $ amounts prior to expiration (SR global rate curve)
+    int32 ddiv_hash = 217; // hash used to identify the full rate + discrete dividend list used computing this pricing record
+    DDivSource ddiv_source = 220; // Forecast if any of the dividends prior to expiry are forecast rather than announced
+    float symbol_ratio = 223; // underlier price ratio (usually 1.0 or a multi-hedge option price ratio; if one exists)
+    ExerciseType ex_type = 226; // exercise type (American or European)
+    CalcModelType model_type = 229; // [LogNormal or Normal]
+    CalcPriceType price_type = 232; // non-functional. temporarily added back for binary compatibility with mars
+    PricingFramework prc_framework = 235; // [Spot or Forward]
+    float earn_cnt = 238; // number of qualifying earnings events prior to expiration [can be fractional] (from StockEarningsCalendar)
+    float earn_cnt_adj = 241; // number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
+    MoneynessType moneyness_type = 244; // non-functional. temporarily added back for binary compatibility with mars
+    PriceQuoteType price_quote_type = 247; // Price or Vol
+    float u_vol_hist = 250; // historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
+    float u_cen_hist = 253; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
+    float u_beta_hist = 256; // beta (this underlier vs basis underlier; T + 1 week)
+    float i_eMove = 259; // implied earnings move (from LiveSurfaceTerm)
+    float h_eMove = 262; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
+    float min_xAxis = 265; // minimum xAxis value; left most point with a valid supporting strike
+    float max_xAxis = 268; // maximum xAxis value; right most point with a valid supporting strike
+    float syn_spot = 271; // synthetic spot price (forward style pricing)
+    float syn_carry = 274; // synthetic carry rate (forward style pricing)
+    double u_prc_ratio = 277; // non-functional. temporarily added back for binary compatibility with mars
+    float p_width = 280; // minimum mkt premium width
+    float v_width = 283; // minimum mkt volatility width
+    uint32 c_cnt = 286; // num call strikes in base fit
+    uint32 p_cnt = 289; // num put strikes in base fit
+    YesNo has_bracket_min = 292;
+    YesNo has_min_point = 295;
+    YesNo has_xMult_aBFit = 298;
+    double x_mult_aBFit_error = 301;
+    YesNo has_skew_mult_fit = 304;
+    double skew_mult_fit_error = 307;
+    int32 c_bid_miss = 310; // number of call bid violations (surface outside the market)
+    int32 c_ask_miss = 313; // number of call ask violations (surface outside the market)
+    int32 p_bid_miss = 316; // number of put bid violations
+    int32 p_ask_miss = 319; // number of put ask violations
+    float fit_score = 322;
+    float cum_fit_score = 325;
+    int32 num_prints_dD = 328; // cpXDe < -0.45
+    float avg_prt_err_dD = 331; // avg: prtPrc - surfacePrc (AUTO ONLY)
+    float std_prt_err_dD = 334; // std: prtPrc - surfacePrc (AUTO ONLY)
+    int32 num_prints_dN = 337; // cpXDe: [-0.45, -0.15)
+    float avg_prt_err_dN = 340;
+    float std_prt_err_dN = 343;
+    int32 num_prints_aT = 346; // cpXDe: [-0.15, +0.15]
+    float avg_prt_err_aT = 349;
+    float std_prt_err_aT = 352;
+    int32 num_prints_uP = 355; // cpXDe: (+0.15, +0.45]
+    float avg_prt_err_uP = 358;
+    float std_prt_err_uP = 361;
+    int32 num_prints_dU = 364; // cpXDe > +0.45
+    float avg_prt_err_dU = 367;
+    float std_prt_err_dU = 370;
+    int32 fit_counter = 373; // number of fit/count passes (current trade date / market open)
+    TradeableStatus tradeable_status = 376; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    MarketPhase market_phase = 379; // market phase this surface is from
+    SurfaceFitResult surface_fit_result = 382;
+    google.protobuf.Timestamp timestamp = 385;
+    repeated Residual residual = 154;
+}
+
+

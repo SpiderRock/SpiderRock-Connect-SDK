@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+/*
+    Allows you to edit a FixRouteControl. incoming/outgoing SeqNum can be left blank unless you wish to SetSeqNum
+*/    
+message FixRouteControlRequest {
+    message PKey {
+        
+        string routing_code = 10; // Route we want to perform action upon
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    RouteAction route_action = 100; // Type of action we want to make. 1-4 set route control, 5-6 alter a route's sequence numbers
+    int32 incoming_seq_num = 103; // Only relevant when routeAction is SetSeqNum. 0 or -1 = Keep current  SeqNum; >0 = New incoming sequence number.
+    int32 outgoing_seq_num = 106; // Only relevant when routeAction is SetSeqNum. 0 or -1 = Keep current  SeqNum; >0 = New outgoing sequence number.
+}
+
+

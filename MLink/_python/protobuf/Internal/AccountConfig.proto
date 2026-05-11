@@ -1,0 +1,252 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AccountConfig {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11; // SR assigned client firm acronym
+    }
+
+    message ClearingFlip_V7 {
+        
+        string exch_str__v7 = 5173; // only V7
+        FlipType clearing_flip_type__v7 = 5174; // only v7 - enum values match with v8
+        string clearing_flip_firm__v7 = 5175; // only V7
+        string clearing_flip_accnt__v7 = 5176; // only V7
+    }
+
+    message RiskLevel {
+        
+        MarRiskLevel risk_level = 218;
+        string custom_group = 219;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AccountType account_type = 103; // SR account type (omnibus accounts are expected to be flat at the end of the day)
+    AccntStatus accnt_status = 106; // This accounts current status
+    google.protobuf.Timestamp accnt_status_dttm = 109; // The Date/time this accounts status was changed
+    string accnt_name = 112; // account name
+    string omni_accnt = 215; // associated omnibus account (if any)	(must be type=Omnibus) [this account can do aggregated trading in omniAccnt]
+    string omni_accnt2 = 216; // associated omnibus account (if any)	(must be type=Omnibus) [this account can do aggregated trading in omniAccnt2]
+    string tgt_rollup_accnt = 121; // target rollup account (must be type=Rollup) [this account rolls up into target account]
+    string tgt_reconcile_accnt_sR = 124; // target reconciliation accnt (SR Side) (must be type=Reconcile) [this account aggregates into target reconcile account]
+    string tgt_reconcile_accnt_cF = 127; // target reconciliation accnt (CLR Side) (must be type=Reconcile) [this account aggregates into target reconcile account]
+    string default_trading_accnt = 130; // [our type=Rollup] default trading accnt (must be type=Trading) (if ticker not found in AltSymbolMap)
+    string mifid_accnt_id = 223; // MIFID account identifier
+    string client_tags = 133; // (optional) user defined account tag(s) (eg. tag,tag,tag,tag) [max of 10,000 total chars (including seps)]
+    string proxy_firm1 = 136; // proxy firm #1
+    string proxy_firm2 = 139; // proxy firm #2
+    string proxy_firm3 = 142; // proxy firm #3
+    string billing_schedule = 145; // overrides billingSchedule at clientFirm level
+    DateKey cat_fdid_open_date = 220; // CAT FDID OpenDate
+    DateKey cat_fdid_end_date = 221; // CAT FDID EndDate
+    string client_accnt = 166; // client assigned account string (optional) [used to map between client and SR configs]
+    string client_user_name = 169; // client assigned account userName (optional) [usued to map between client and SR configs]
+    string client_accnt_ids = 172; // comma separated list of alternate client defined accnt strings that all map to this accountConfig
+    YesNo require_alt_order_id = 175; // Parent order must have an AltOrderId to proceed
+    YesNo nbbo_fix_drop_marking = 178; // Whether or not to markup the FIX drop with nbbo information
+    string no_cross_group = 181; // no cross grouping code (accounts with the same nCrossGroup will not cross with themselves) [default = ClientFirm]
+    string risk_drop_cFirm = 225; // EE automatically creates a duplicate copy of each execution in the awayDropCFirm/awayDropAccnt
+    string risk_drop_accnt = 226;
+    string accnt_color = 184; // citrix account color string
+    string sym_ctrl_accnt = 187; // eg. SR.1 [default = accnt]
+    string theo_model = 190; // theo model (primary)
+    string theo_model2 = 193; // theo model #2
+    HedgeDeltaRule hedge_delta_rule = 196; // HedgeDelta Source (IVol = use SR implied surface (sticky strike), IvS = use SR surface (dynamic), TVol = use user supplied theo surface (sticky strike), TvS = use user supplied theo surface (dynamic)) [AccountConfig.hedgeDelta]
+    float binary_days = 199; // used to force delta calcs binary prior to expiration
+    AwayExecControl away_exec_control = 202; // Whether to include Away Executions in EE risk counters
+    RiskGroupControl risk_group_control = 205; // enables enhanced risk group controls, ParentCap.n means each parent order can be at most 1/n of the risk group limit, StrictLimits implies PC.4
+    YesNo is_ats_enabled = 222;
+    YesNo clr_flip_enabled = 224; // used to enable broker/dealers to send agency clearing (ClrFlip) instructions on parent orders
+    PricingVersion pricing_version = 227;
+    string modified_by = 208; // user who last modified this record
+    SysEnvironment modified_in = 211;
+    google.protobuf.Timestamp timestamp = 214; // timestamp of last modification
+    SpdrStageType_V7 stage_type__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,StageLock=1,StageModify=2,StageReview=3], V8[None=0,ModifyAny=1,ModifyAlgo=2]
+    string source_accnt__v7 = 5001; // only V7
+    string view_group1__v7 = 5002; // only V7
+    string view_group2__v7 = 5003; // only V7
+    string view_group3__v7 = 5004; // only V7
+    string alt_route_code__v7 = 5005; // only V7
+    string route_code_alt1__v7 = 5006; // only V7
+    float route_alloc_alt1__v7 = 5007; // only V7
+    string route_code_alt2__v7 = 5008; // only V7
+    float route_alloc_alt2__v7 = 5009; // only V7
+    string risk_firm1__v7 = 5010; // only V7: using metaType
+    string risk_group1__v7 = 5011; // only V7: using metaType
+    string risk_firm2__v7 = 5012; // only V7: using metaType
+    string risk_group2__v7 = 5013; // only V7: using metaType
+    string risk_firm3__v7 = 5014; // only V7: using metaType
+    string risk_group3__v7 = 5015; // only V7: using metaType
+    YesNo user_short_marking__v7 = 5016; // only v7 - enum values match with v8
+    YesNo user_option_marking__v7 = 5017; // only v7 - enum values match with v8
+    TiedPriceRounding tied_price_rounding__v7 = 5018; // only v7 - enum values match with v8
+    OatsMemberType_V7 oats_member__v7 = 5019; // only v7: enum values do not match with v8: V7[None=0,NonMember=1,Member=2,MemberOSO=3], V8[Does Not Exist]
+    OatsReportType_V7 oats_report__v7 = 5020; // only v7: enum values do not match with v8: V7[None=0,All=1,Stock=2,Spreads=3], V8[Does Not Exist]
+    CatReportType cat_reportable__v7 = 5021; // only v7 - enum values match with v8
+    string cat_accnt__v7 = 5022; // only V7
+    string cat_brkr_accnt__v7 = 5023; // only V7
+    CatAccntType cat_brkr_accnt_type_stk__v7 = 5024; // only v7 - enum values match with v8
+    CatAccntType cat_brkr_accnt_type_opt__v7 = 5025; // only v7 - enum values match with v8
+    CatFirmType cat_brkr_firm_type_stk__v7 = 5026; // only v7 - enum values match with v8
+    CatFirmType cat_brkr_firm_type_opt__v7 = 5027; // only v7 - enum values match with v8
+    string cat_brkr_iMID__v7 = 5028; // only V7
+    ReportingType_V7 stk_reporting_type__v7 = 5029; // only v7: enum values do not match with v8: V7[None=0,SRToBrkr=1,CustToBroker=2,CustToSRToBrkr=3], V8[Does Not Exist]
+    ReportingType_V7 fut_reporting_type__v7 = 5030; // only v7: enum values do not match with v8: V7[None=0,SRToBrkr=1,CustToBroker=2,CustToSRToBrkr=3], V8[Does Not Exist]
+    ReportingType_V7 opt_reporting_type__v7 = 5031; // only v7: enum values do not match with v8: V7[None=0,SRToBrkr=1,CustToBroker=2,CustToSRToBrkr=3], V8[Does Not Exist]
+    string client_mPID__v7 = 5032; // only V7
+    string internal_mPID__v7 = 5033; // only V7
+    string large_trader_id__v7 = 5034; // only V7
+    google.protobuf.Timestamp ltid_effective_date__v7 = 5035; // only V7
+    string exec_brkr_accnt_stk__v7 = 5036; // only V7
+    string exec_brkr_cl_firm_stk__v7 = 5037; // only V7
+    string brkr_ex_dest_stk__v7 = 5038; // only V7
+    string review_ex_dest_stk__v7 = 5039; // only V7
+    YesNo allow_review_execs_stk__v7 = 5040; // only v7 - enum values match with v8
+    string exec_brkr_accnt_fut__v7 = 5041; // only V7
+    string exec_brkr_cl_firm_fut__v7 = 5042; // only V7
+    YesNo allow_review_execs_fut__v7 = 5043; // only v7 - enum values match with v8
+    string brkr_ex_dest_fut__v7 = 5044; // only V7
+    string review_ex_dest_fut__v7 = 5045; // only V7
+    YesNo allow_review_execs_opt__v7 = 5046; // only v7 - enum values match with v8
+    string exec_brkr_accnt_opt__v7 = 5047; // only V7
+    string exec_brkr_cl_firm_opt__v7 = 5048; // only V7
+    string brkr_ex_dest_opt__v7 = 5049; // only V7
+    string review_ex_dest_opt__v7 = 5050; // only V7
+    string exec_brkr_on_behalf_of__v7 = 5051; // only V7
+    string exec_user_name_opt__v7 = 5052; // only V7
+    string exec_user_name_stk__v7 = 5053; // only V7
+    string exec_user_name_fut__v7 = 5054; // only V7
+    string exec_brkr_accnt_alloc__v7 = 5055; // only V7
+    string exec_brkr_cl_firm_alloc__v7 = 5056; // only V7
+    string exec_user_name_alloc__v7 = 5057; // only V7
+    string giveup_firm__v7 = 5058; // only V7
+    string giveup_accnt__v7 = 5059; // only V7
+    string clearing_firm_name__v7 = 5060; // only V7
+    string clearing_firm_stk__v7 = 5061; // only V7
+    string clearing_accnt_stk__v7 = 5062; // only V7
+    string clearing_firm_fut__v7 = 5063; // only V7
+    string clearing_accnt_fut__v7 = 5064; // only V7
+    string clearing_firm_opt__v7 = 5065; // only V7
+    string clearing_accnt_opt__v7 = 5066; // only V7
+    FlipType clearing_flip_type_stk__v7 = 5067; // only v7 - enum values match with v8
+    string clearing_flip_firm_stk__v7 = 5068; // only V7
+    string clearing_flip_accnt_stk__v7 = 5069; // only V7
+    FlipType clearing_flip_type_fut__v7 = 5070; // only v7 - enum values match with v8
+    string clearing_flip_firm_fut__v7 = 5071; // only V7
+    string clearing_flip_accnt_fut__v7 = 5072; // only V7
+    FlipType clearing_flip_type_opt__v7 = 5073; // only v7 - enum values match with v8
+    string clearing_flip_firm_opt__v7 = 5074; // only V7
+    string clearing_flip_accnt_opt__v7 = 5075; // only V7
+    YesNo can_facilitate__v7 = 5076; // only v7 - enum values match with v8
+    YesNo can_cross_internal__v7 = 5077; // only v7 - enum values match with v8
+    int32 algo_flash_pct__v7 = 5078; // only V7
+    int32 algo_block_pct__v7 = 5079; // only V7
+    YesNo can_iSOSweep_stk__v7 = 5080; // only v7 - enum values match with v8
+    YesNo can_iSOSweep_opt__v7 = 5081; // only v7 - enum values match with v8
+    AuctionResponder stk_auction_responder__v7 = 5082; // only v7 - enum values match with v8
+    AuctionResponder fut_auction_responder__v7 = 5083; // only v7 - enum values match with v8
+    AuctionResponder opt_auction_responder__v7 = 5084; // only v7 - enum values match with v8
+    PositionSource_V7 stk_position_src__v7 = 5085; // only v7: enum values do not match with v8: V7[None=0,Zero=1,SR=2,CLR=3], V8[None=0,Zero=1,SR=2,CLR=3,CLR_SR=4]
+    PositionSource_V7 fut_position_src__v7 = 5086; // only v7: enum values do not match with v8: V7[None=0,Zero=1,SR=2,CLR=3], V8[None=0,Zero=1,SR=2,CLR=3,CLR_SR=4]
+    PositionSource_V7 opt_position_src__v7 = 5087; // only v7: enum values do not match with v8: V7[None=0,Zero=1,SR=2,CLR=3], V8[None=0,Zero=1,SR=2,CLR=3,CLR_SR=4]
+    string opt_take_exch_list__v7 = 5088; // only V7
+    string opt_make_exch_list__v7 = 5089; // only V7
+    IncExchFee inc_stk_take_exch_fee__v7 = 5090; // only v7 - enum values match with v8
+    IncExchFee inc_fut_take_exch_fee__v7 = 5091; // only v7 - enum values match with v8
+    IncExchFee inc_opt_take_exch_fee__v7 = 5092; // only v7 - enum values match with v8
+    IncExchFee inc_stk_make_exch_fee__v7 = 5093; // only v7 - enum values match with v8
+    IncExchFee inc_fut_make_exch_fee__v7 = 5094; // only v7 - enum values match with v8
+    IncExchFee inc_opt_make_exch_fee__v7 = 5095; // only v7 - enum values match with v8
+    MakeExchRule stk_make_exch_rule__v7 = 5096; // only v7 - enum values match with v8
+    MakeExchRule opt_make_exch_rule__v7 = 5097; // only v7 - enum values match with v8
+    YesNo opt_can_make_c2__v7 = 5098; // only v7 - enum values match with v8
+    YesNo opt_can_make_cBOE__v7 = 5099; // only v7 - enum values match with v8
+    RoundRule stk_round_rule__v7 = 5100; // only v7 - enum values match with v8
+    RoundRule fut_round_rule__v7 = 5101; // only v7 - enum values match with v8
+    RoundRule opt_round_rule__v7 = 5102; // only v7 - enum values match with v8
+    YesNo is_low_velocity__v7 = 5103; // only v7 - enum values match with v8
+    FirmType firm_type__v7 = 5104; // only v7 - enum values match with v8
+    OrderCapacity order_capacity__v7 = 5105; // only v7 - enum values match with v8
+    OrderCapacity cust_order_capacity__v7 = 5106; // only v7 - enum values match with v8
+    OpenPosition_V7 eqt_open_position__v7 = 5107; // only v7: enum values do not match with v8: V7[None=0,UseSR=1,UseClr=2,PreferSR=3,PreferClr=4], V8[Does Not Exist]
+    OpenPosition_V7 fut_open_position__v7 = 5108; // only v7: enum values do not match with v8: V7[None=0,UseSR=1,UseClr=2,PreferSR=3,PreferClr=4], V8[Does Not Exist]
+    RelationshipType_V7 stk_relationship__v7 = 5109; // only v7: enum values do not match with v8: V7[None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4], V8[None=0,EXSMember=1,EXSRouter=2,EXSTech=3,Platform=4,SRConnect=5,Advisor=6]
+    RelationshipType_V7 fut_relationship__v7 = 5110; // only v7: enum values do not match with v8: V7[None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4], V8[None=0,EXSMember=1,EXSRouter=2,EXSTech=3,Platform=4,SRConnect=5,Advisor=6]
+    RelationshipType_V7 opt_relationship__v7 = 5111; // only v7: enum values do not match with v8: V7[None=0,EXS=1,EXSTech=2,Platform=3,Advisor=4], V8[None=0,EXSMember=1,EXSRouter=2,EXSTech=3,Platform=4,SRConnect=5,Advisor=6]
+    ExecMode opt_exec_mode__v7 = 5112; // only v7 - enum values match with v8
+    ExecMode stk_exec_mode__v7 = 5113; // only v7 - enum values match with v8
+    ExecMode fut_exec_mode__v7 = 5114; // only v7 - enum values match with v8
+    string pri_stk_agg_group__v7 = 5115; // only V7
+    string sec_stk_agg_group__v7 = 5116; // only V7
+    string opt_agg_group__v7 = 5117; // only V7
+    string fut_agg_group__v7 = 5118; // only V7
+    YesNo require_locate__v7 = 5119; // only v7 - enum values match with v8
+    YesNo require_extern_stk_pos__v7 = 5120; // only v7 - enum values match with v8
+    YesNo cxl_on_halt__v7 = 5121; // only v7 - enum values match with v8
+    YesNo stk_split_zero__v7 = 5122; // only v7 - enum values match with v8
+    YesNo fut_split_zero__v7 = 5123; // only v7 - enum values match with v8
+    YesNo opt_split_zero__v7 = 5124; // only v7 - enum values match with v8
+    OddLotFlag stk_odd_lot_flag__v7 = 5125; // only v7 - enum values match with v8
+    int32 max_opt_child_orders_per_day__v7 = 5126; // only V7
+    int32 max_stk_brokers_per_day__v7 = 5127; // only V7
+    int32 max_fut_brokers_per_day__v7 = 5128; // only V7
+    int32 max_opt_brokers_per_day__v7 = 5129; // only V7
+    int32 risk_cxl_throttle__v7 = 5130; // only V7
+    string locate_pool__v7 = 5131; // only V7: v8 alias DNE or alias lengths do not match
+    string locate_firm__v7 = 5132; // only V7
+    BetaSource beta_source__v7 = 5133; // only v7 - enum values match with v8
+    ExecEngineMode exec_engine_mode_nms_stk__v7 = 5134; // only v7 - enum values match with v8
+    ExecEngineMode exec_engine_mode_nms_opt__v7 = 5135; // only v7 - enum values match with v8
+    ExecEngineMode exec_engine_mode_cmx_fut__v7 = 5136; // only v7 - enum values match with v8
+    ExecEngineMode exec_engine_mode_cmx_opt__v7 = 5137; // only v7 - enum values match with v8
+    FutClearingRange fut_clearing_range__v7 = 5138; // only v7 - enum values match with v8
+    FutCustType fut_cust_type__v7 = 5139; // only v7 - enum values match with v8
+    ClearingLoadTime eqt_clearing_load_time__v7 = 5140; // only v7 - enum values match with v8
+    ClearingLoadTime fut_clearing_load_time__v7 = 5141; // only v7 - enum values match with v8
+    AllocMethod alloc_method__v7 = 5142; // only v7 - enum values match with v8
+    AllocMLegRule alloc_mLeg_rule__v7 = 5143; // only v7 - enum values match with v8
+    string route_table__default__v7 = 5144; // only V7
+    string route_table__stock__v7 = 5145; // only V7
+    string route_table__stk_maker__v7 = 5146; // only V7
+    string route_table__stk_cross__v7 = 5147; // only V7
+    string route_table__future__v7 = 5148; // only V7
+    string route_table__fut_maker__v7 = 5149; // only V7
+    string route_table__fut_cross__v7 = 5150; // only V7
+    string route_table__fut_spread__v7 = 5151; // only V7
+    string route_table__fut_sprd_rFQ__v7 = 5152; // only V7
+    string route_table__fut_sprd_cross__v7 = 5153; // only V7
+    string route_table__eqt_option__v7 = 5154; // only V7
+    string route_table__eqt_opt_maker__v7 = 5155; // only V7
+    string route_table__eqt_opt_cross__v7 = 5156; // only V7
+    string route_table__eqt_opt_resp__v7 = 5157; // only V7
+    string route_table__eqt_opt_cob__v7 = 5158; // only V7
+    string route_table__eqt_opt_cob_stk__v7 = 5159; // only V7
+    string route_table__eqt_opt_cob_maker__v7 = 5160; // only V7
+    string route_table__eqt_opt_cob_maker_stk__v7 = 5161; // only V7
+    string route_table__eqt_opt_cob_cross__v7 = 5162; // only V7
+    string route_table__eqt_opt_cob_resp__v7 = 5163; // only V7
+    string route_table__fut_option__v7 = 5164; // only V7
+    string route_table__fut_opt_maker__v7 = 5165; // only V7
+    string route_table__fut_opt_cross__v7 = 5166; // only V7
+    string route_table__fut_opt_sprd__v7 = 5167; // only V7
+    string route_table__fut_opt_sprd_rFQ__v7 = 5168; // only V7
+    string route_table__fut_opt_sprd_cross__v7 = 5169; // only V7
+    string route_table__allocation__v7 = 5170; // only V7
+    string route_table__stage_review__v7 = 5171; // only V7
+    repeated ClearingFlip_V7 clearing_flip__v7 = 5172;
+    repeated RiskLevel risk_level = 217;
+}
+
+

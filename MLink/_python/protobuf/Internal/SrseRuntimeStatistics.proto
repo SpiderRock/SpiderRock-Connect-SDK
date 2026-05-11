@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SrseRuntimeStatistics {
+    message PKey {
+        
+        string user_name = 10;
+        string table_name = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 rows_table_scanned = 100; // number of rows selected during table scans
+    int64 rows_index_scanned = 103; // number of rows selected during index scans
+    int32 rows_inserted = 106; // number of rows inserted
+    int32 rows_replaced = 109; // number of rows replaced
+    int32 rows_updated = 112; // number of rows updated
+    int32 rows_deleted = 115; // number of rows deleted
+    int32 num_errors = 118; // number of errors
+    int32 num_predicates_generated = 121; // number of times a predicate was generated for a query
+    int32 num_predicates_unhandled = 124; // number of times a predicate could not be generated for the query
+    int32 num_queries = 127; // number of queries run
+    int32 num_connections = 130; // number of connections observed
+    int64 max_thread_id = 133; // max thread/connection ID observed
+    double exec_time = 136; // time (seconds) running queries
+    double wait_time = 139; // time (seconds) waiting in queue for other queries to finish (see UserConfig.numCores)
+    google.protobuf.Timestamp timestamp = 142; // last time record was modified
+}
+
+

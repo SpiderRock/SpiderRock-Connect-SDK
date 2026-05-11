@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table contains the exchange SPAN risk parameters used to calculation OptionSpanRiskSlides.
+*/    
+message SpanRiskParameters {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float init_margin = 100;
+    float maint_margin = 103;
+    float long_cn_minimum = 106;
+    float short_cn_minimum = 109;
+    SpanScanMethod price_scan_method = 137;
+    float price_span_up = 112; // SPAN price move up (either in points or percentage, based on priceScanMethod)
+    float price_span_dn = 115; // SPAN price move down in points (either in points or percentage, based on priceScanMethod)
+    SpanScanMethod vol_scan_method = 138;
+    float vol_move_up = 118; // SPAN vol move up (either in points or percentage, based on priceScanMethod)
+    float vol_move_dn = 121; // SPAN vol move down (either in points or percentage, based on priceScanMethod)
+    float point_value = 124; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 127;
+    SpanPricingModel span_pricing_model = 130; // Exchange-defined model for SPAN option pricing calcs
+    AggregationRule aggregation_rule = 133;
+    google.protobuf.Timestamp timestamp = 136;
+}
+
+

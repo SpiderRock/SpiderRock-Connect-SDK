@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStreetRouteLatency records are published by SRFixStreetGateway servers and are used for internal analysis
+*/    
+message SpdrStreetRouteLatency {
+    message PKey {
+        
+        string client_firm = 10;
+        string routing_code = 11; // StreetGW routing code
+        MessageCategory message_category = 12;
+        string ex_destination = 13; // exchange or algo
+        google.protobuf.Timestamp summary_window = 14; // 10 minute time window
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string sender_comp_iD = 100;
+    string target_comp_iD = 103;
+    string sender_sub_iD = 106;
+    string target_sub_iD = 109;
+    string server_code = 112; // StreetGW ServerCode
+    int32 num_net_tick_actions = 115; // number messages with SrcTimestamp and NetTimestamp values
+    float min_net_tick_latency = 118; // SrcTimestamp (upstream/exchange timestamp) to NetTimestamp (arrival @ SR switch) Latency
+    float med_net_tick_latency = 121;
+    float max_net_tick_latency = 124;
+    int32 num_eng_tick_actions = 127; // number of new order with a NetTimestamp and EngTimestamp values
+    float min_eng_tick_latency = 130; // NetTimestamp (arrival @ SR switch) to EngTimestamp (arrival @ SR exec engine) Latency
+    float med_eng_tick_latency = 133;
+    float max_eng_tick_latency = 136;
+    int32 num_sgw_tick_actions = 139; // number of new order with a EngTimestamp and SgwTimestamp values
+    float min_sgw_tick_latency = 142; // EngTimestamp (arrival @ SR exec engine) to SgwTimestamp (arrival @ SR street gateway) Latency
+    float med_sgw_tick_latency = 145;
+    float max_sgw_tick_latency = 148;
+    int32 num_contingent_msgs = 151;
+    int32 num_contingent_actions = 154;
+    float min_cont_net_tick_latency = 157;
+    float med_cont_net_tick_latency = 160;
+    float max_cont_net_tick_latency = 163;
+    float min_cont_sgw_tick_latency = 166;
+    float med_cont_sgw_tick_latency = 169;
+    float max_cont_sgw_tick_latency = 172;
+    float min_cont_prep_latency = 175;
+    float med_cont_prep_latency = 178;
+    float max_cont_prep_latency = 181;
+    int32 num_lo_priority = 184;
+    float min_lo_priority_queue_delay = 187;
+    float med_lo_priority_queue_delay = 190;
+    float max_lo_priority_queue_delay = 193;
+    int32 num_hi_priority = 196;
+    float min_hi_priority_queue_delay = 199;
+    float med_hi_priority_queue_delay = 202;
+    float max_hi_priority_queue_delay = 205;
+    float min_prep_delay = 208;
+    float med_prep_delay = 211;
+    float max_prep_delay = 214;
+    float min_send_delay = 217;
+    float med_send_delay = 220;
+    float max_send_delay = 223;
+    float min_ack_latency = 226;
+    float med_ack_latency = 229;
+    float max_ack_latency = 232;
+    float max_ten_ms_window_msg_rate = 235;
+    float max_hund_ms_window_msg_rate = 238;
+    float max_one_sec_window_msg_rate = 241;
+    float max_ten_sec_window_msg_rate = 244;
+    float max_minute_window_msg_rate = 247;
+    google.protobuf.Timestamp timestamp = 250;
+}
+
+

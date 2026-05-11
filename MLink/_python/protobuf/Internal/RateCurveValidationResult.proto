@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RateCurveValidationResult {
+    message PKey {
+        
+        TickerKey rate_key = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_valid = 100;
+    string error = 101;
+    google.protobuf.Timestamp timestamp = 110;
+}
+
+

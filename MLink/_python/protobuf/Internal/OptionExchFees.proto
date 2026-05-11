@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionExchFees {
+    message PKey {
+        
+        TickerKey ticker = 10; // "*" = All Tickers
+        string opt_exch = 11;
+        FirmType cust_class = 12;
+        OptNameClass name_class = 13; // should be None if ticker != "*"
+        string client_firm = 14; // "*" = Default
+        string exec_brkr_code = 15; // "*" = Default
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_enabled = 143;
+    float make_fee = 100; // base (lowest tier) make fee for the exchange/cust class
+    float take_fee = 103;
+    float cob_make_fee = 106; // base (lowest tier) make fee for the exchange/cust class
+    float cob_take_fee = 109;
+    float auction_resp_fee = 112; // auction response fee (applied to one-sided auction responses)
+    float breakup_fee = 115; // auction breakup fee (applies to two-sided auction responses)
+    float cob_auction_resp_fee = 124; // [cob] auction response fee (applied to one-sided auction responses)
+    float cob_breakup_fee = 127; // [cob] auction breakup fee (applies to two-sided auction responses)
+    float venue_adj_fee = 144; // additional routing metric fee (baseFee + venuAdjFee affects routing decisions; venueAdjFee not paid or collected)
+    string modified_by = 136;
+    SysEnvironment modified_in = 139;
+    google.protobuf.Timestamp timestamp = 142;
+}
+
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: StockEarningsHistoryETL + StockDefinitionETL
+    CalcEngine: Spark/ETL
+*/    
+message StockEarningsForecastETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey earnings_date = 11;
+    }
+
+    message FutureEarnings {
+        
+        DateKey earnings_date = 115;
+        EarnTime earnings_time = 118;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    IntervalType interval_type = 100;
+    DateKey interval_date = 103; // starting date of the earnings reporting period
+    EarnTime earn_time = 106; // time of day earnings was announced
+    int64 security_iD = 109;
+    google.protobuf.Timestamp timestamp = 121;
+    repeated FutureEarnings future_earnings = 112;
+}
+
+

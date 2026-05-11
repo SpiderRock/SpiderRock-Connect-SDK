@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message GlobalClock {
+    message PKey {
+        
+        int32 clock = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp date_time = 100; // current DateTime value (from publishing server clock)
+}
+
+

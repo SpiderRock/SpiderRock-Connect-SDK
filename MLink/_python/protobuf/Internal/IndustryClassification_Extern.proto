@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    IndustryClassification is the ICB classification for SpiderRock tickers.
+*/    
+message IndustryClassification_Extern {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 ind_num = 100; // IND (2 digits)
+    int32 sub_num = 103; // SUB (4 digits)
+    int32 grp_num = 106; // GRP (6 digits)
+    int32 nbr_num = 109; // NBR (8 digits)
+    google.protobuf.Timestamp timestamp = 112; // record update timestamp
+}
+
+

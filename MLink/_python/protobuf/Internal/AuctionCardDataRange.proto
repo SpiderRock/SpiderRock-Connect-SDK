@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message AuctionCardDataRange {
+    message PKey {
+        
+        int32 range_id = 10;
+    }
+
+    message VisibleCards {
+        
+        string auction_key = 108;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_cards = 100;
+    int32 num_active = 101;
+    int32 num_crossed = 102;
+    int32 num_closed = 103;
+    int32 num_ignored = 104;
+    int32 num_matching = 105; // number of cards that match the filter
+    int32 st_pos = 106;
+    repeated VisibleCards visible_cards = 107;
+}
+
+

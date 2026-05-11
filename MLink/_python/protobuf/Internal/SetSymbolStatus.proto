@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message SetSymbolStatus {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100;
+    string client_firm = 119;
+    TickerKey ticker = 103;
+    YesNo set_opt_status = 106;
+    OptStatus opt_status = 109;
+    YesNo set_stk_status = 112;
+    StkStatus stk_status = 115;
+    string user_name = 118;
+}
+
+

@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message SpdrExecutionAggregationV2 {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_records = 100; // total number of records aggregated
+    float sum_parent_size = 103; // total parent order size
+    float sum_parent_mkt_width = 106; // total parent market width
+    float avg_parent_size = 109; // average parent size
+    float avg_parent_mkt_width = 112; // average parent market width
+    float avg_parent_limit_vol = 115; // average parent order volatility (options only)
+    float sum_child_size = 118; // total child order size
+    float sum_child_mkt_width = 121; // total child market width
+    float avg_child_size = 124; // average child size
+    float avg_child_mkt_width = 127; // average child market width
+    float avg_child_limit_vol = 130; // average child order volatility (options only)
+    double avg_fill_size = 133; // average fill quantity
+    double avg_fill_price = 136; // average fill price (FillMoney / FillSz)
+    float avg_fill_vol = 139; // average fill volatility (options only)
+    float avg_fill_probability = 142; // average fill order probability
+    float avg_fill_mkt_width = 145; // average market width @ fill arrival
+    float avg_fill_uMkt_width = 148; // average underlier market width @ fill arrival
+    float avg_fill_theo_edge = 151; // average fill theo edge
+    float avg_fill_unit_edge = 154; // average fill unit edge
+    float avg_fill_m1_pn_l = 157; // average fill delta neutral PnL (Fill + 1M)
+    float avg_fill_m10_pn_l = 160; // average fill delta neutral PnL (Fill + 10M)
+    float avg_fill_day_pn_l = 163; // average (PnL to EOD)
+    float avg_fill_dn_day_pn_l = 166; // average fill delta neutral PnL (to EOD)
+    double sum_fill_size = 169; // total fill quantity
+    double sum_fill_money = 172; // total fill money
+    float sum_fill_delta = 175; // total fill delta
+    float sum_fill_dDelta = 178; // total fill $delta
+    float sum_fill_dBeta = 181; // total fill $beta
+    float sum_fill_vega = 184; // total fill vega
+    float sum_fill_wVega = 187; // total fill wvega
+    float sum_fill_tVega = 190; // total fill tvega
+    float sum_fill_wt_vega = 193; // total fill wtvega
+    float sum_fill_dTheta = 195; // total fill $theta
+    float sum_fill_notional = 199; // total fill notional value
+    float sum_fill_mkt_width = 202; // total fill market width
+    float sum_fill_uMkt_width = 205; // total fill underlier market width
+    float sum_fill_theo_edge = 208; // total fill theo edge
+    float sum_fill_unit_edge = 211; // total fill unit edge
+    float sum_fill_m1_pn_l = 214; // total fill delta neutral PnL (Fill + 1M)
+    float sum_fill_m10_pn_l = 217; // total fill delta neutral PnL (Fill + 10M)
+    float sum_fill_day_pn_l = 220; // total fill PnL (to EOD)
+    float sum_fill_dn_day_pn_l = 223; // total fill delta neutral PnL (to EOD)
+    float sum_fill_m1_uDrift = 226; // total fill underlier delta drift PnL (Fill + 1M)
+    float sum_fill_m10_uDrift = 229; // total fill underlier delta drift PnL (Fill + 10M)
+    float sum_fill_day_uDrift = 232; // total fill underlier delta drift PnL (to EOD)
+    float sum_fill_exch_fees = 235; // total estimated fill exchange fees
+    float sum_fill_brokerage = 238; // total fill billing brokerage rate
+    float sum_fill_vol = 241; // total fill volatility (options only)
+    float sum_fill_probability = 244; // total fill order probability
+    float sum_fill_gamma = 247; // total fill gamma
+    float sum_fill_price = 250; // total fill price
+}
+
+

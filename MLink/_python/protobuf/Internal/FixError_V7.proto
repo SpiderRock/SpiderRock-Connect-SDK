@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: FixError
+    V8 Message Name: FixError
+    Bridging pattern:  [V7 --> V8]
+*/    
+message FixError_V7 {
+    message PKey {
+        
+        int64 error_id = 5000; // v7 & v8
+        SysEnvironment sys_environment = 5001; // v7 & v8
+        RunStatus run_status = 5002; // v7 & v8 --- Original comment: run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string unique_id = 5003; // v7 & v8 --- Original comment: clOrdId, execId, etc
+    string msg_type = 5004; // v7 & v8
+    string routing_code = 5005; // v7 & v8
+    string base_routing_code = 5006; // v7 & v8 --- Original comment: for TcpAcceptor sessions
+    string sender_comp_id = 5007; // v7 & v8
+    string target_comp_id = 5008; // v7 & v8
+    string sender_sub_id = 5009; // v7 & v8
+    string target_sub_id = 5010; // v7 & v8
+    uint32 app_id = 5011; // v7 & v8 --- Original comment: AppId of the process handling this fix connection
+    string machine_name = 5012; // v7 & v8 --- Original comment: name of the machine which is hosting fix server
+    SessionType session_type = 5013; // v7 & v8 --- Original comment: type of session
+    google.protobuf.Timestamp session_date = 5014; // v7 & v8 --- Original comment: session start date (Sun for Weekly sessions)
+    int32 session_counter = 5015; // v7 & v8 --- Original comment: increments each time sequence numbers are reset
+    int32 seq_number = 5016; // v7 & v8
+    string error_msg = 5017; // v7 & v8
+    FixErrorType error_type = 5018; // v7 & v8
+    google.protobuf.Timestamp error_dttm = 5019; // v7 & v8
+    YesNo ackd = 5020; // v7 & v8
+    google.protobuf.Timestamp ack_dttm = 5021; // v7 & v8
+    string ackd_user = 5022; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUser]
+}
+
+

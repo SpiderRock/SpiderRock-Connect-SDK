@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SRDataIntegrityAck {
+    message PKey {
+        
+        string category1 = 10;
+        string category2 = 11;
+        SysRealm sys_realm = 12;
+        SysEnvironment sys_environment = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp last_error_dttm = 100;
+    string ack_user_name = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

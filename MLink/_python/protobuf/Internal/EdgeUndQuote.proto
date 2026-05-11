@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    user-to-edge
+*/    
+message EdgeUndQuote {
+    message PKey {
+        
+        ExpiryKey und_key = 10;
+        SpdrKeyType und_type = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 bid_price = 100;
+    int32 ask_price = 103;
+    int64 timestamp = 106;
+}
+
+

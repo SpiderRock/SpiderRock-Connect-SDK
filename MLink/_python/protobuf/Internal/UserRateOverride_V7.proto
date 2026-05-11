@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: UserRateOverride
+    V8 Message Name: UserRateOverride
+    Bridging pattern:  [V7 --> V8]
+*/    
+message UserRateOverride_V7 {
+    message PKey {
+        
+        string client_firm = 5000; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm]
+    }
+
+    message Curve {
+        
+        int32 days = 5004; // v7 & v8 --- Original comment: calendar days to expiration (actual/365 days per year)
+        float rate = 5005; // v7 & v8
+        float ln_rate = 5006; // v7 & v8
+        float sh_rate = 5007; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 5001; // v7 & v8
+    string text = 5002; // v7 & v8 --- Original comment: user detail (if any)
+    repeated Curve curve = 5003;
+}
+
+

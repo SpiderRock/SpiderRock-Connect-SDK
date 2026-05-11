@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserProxyAccessConfig {
+    message PKey {
+        
+        string user_name = 10;
+        string client_firm = 11;
+    }
+
+    message AccountAccess {
+        
+        string accnt = 103;
+        AccountAccessType access_type = 106;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AccountAccessType default_access_type_prod = 116;
+    AccountAccessType default_access_type_test = 117;
+    string modified_by = 109;
+    SysEnvironment modified_in = 112;
+    google.protobuf.Timestamp timestamp = 115; // timestamp of last modification
+    repeated AccountAccess account_access = 100;
+}
+
+

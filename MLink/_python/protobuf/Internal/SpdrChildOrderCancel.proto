@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrChildOrderCancel records are published by SRSE to indicate a child order has been manually cancelled.
+*/    
+message SpdrChildOrderCancel {
+    message PKey {
+        
+        int64 cl_ord_id = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string modified_by = 100; // user who last modified this record
+    SysEnvironment modified_in = 103;
+    google.protobuf.Timestamp timestamp = 106; // timestamp of last modification
+}
+
+

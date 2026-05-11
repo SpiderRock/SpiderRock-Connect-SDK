@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message FutureCloseMarkHist {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Duration sr_close_time = 100; // SR closing mark time (C)
+    ClsMarkState cls_mark_state = 103; // Close mark state: None; LastPrt; SRClose; ExchClose; Final
+    double opn_prc = 106; // Opening price
+    double min_prc = 109; // Low price
+    double max_prc = 112; // High Price
+    int32 open_interest = 115; // Open interest
+    int32 prt_count = 118; // print count
+    int32 prt_volume = 121; // print volume
+    int32 realized_cnt = 124; // number of minute bar segments used in realizedVol calc
+    float realized_vol = 158; // realizedVol = SQRT: SUM[ LOG( qteTwap(T) / qteTwap(T+1) ) ^ 2 ] / realizedCnt @ 1 minute intervals during market hours
+    float avg_mkt_size = 130; // MEAN[0.5 * (bidSize + askSize) ] @ 1 minute intervals during market hours
+    float avg_mkt_width = 133; // MEAN[ askPrice - bidPrice ] @ 1 minute intervals during market hours
+    double bid_prc = 136; // bid price (close - 1min)
+    double ask_prc = 139; // ask price (close - 1min)
+    double sr_cls_prc = 142; // sr close mark (close - 1min)
+    double close_prc = 145; // official exchange closing mark (last print;then official close)
+    google.protobuf.Timestamp prior_date = 148;
+    float prior_sRCls_prc = 151; // values archive in the previous trading period
+    float prior_close_prc = 154;
+    google.protobuf.Timestamp timestamp = 157;
+}
+
+

@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message FuturePrintETL {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+        int64 prt_number = 11; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TradingSession trading_session = 100;
+    DateKey trading_date = 103;
+    FutExch prt_exch = 106; // print exchange
+    int32 prt_size = 109; // print size [contracts]
+    double prt_price = 112; // print price
+    int32 prt_type = 115; // print type [exchange specific]
+    uint32 prt_orders = 118; // number of orders participating in this print
+    PrtSide prt_side = 121; // Print side (if available from exchange)
+    int64 prt_timestamp = 124; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 127; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    double bid_price = 130; // exch best bid @ print arrival time
+    double ask_price = 133; // exch best ask @ print arrival time
+    int32 bid_size = 136; // bid size @ print arrival time
+    int32 ask_size = 139; // ask size @ print arrival time
+    int64 qte_timestamp = 142; // exchange high precision timestamp (if available)
+    google.protobuf.Timestamp timestamp = 145;
+}
+
+

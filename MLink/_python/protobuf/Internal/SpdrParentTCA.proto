@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrParentTCA {
+    message PKey {
+        
+        string client_firm = 10;
+        string accnt = 11;
+        string user_name = 12;
+        string ticker = 13;
+        TickerSrc ticker_src = 14;
+        SpdrKeyType sec_type = 15;
+        SpdrSource spdr_source = 16;
+        google.protobuf.Timestamp trade_date = 17;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_parent_orders = 100;
+    int32 sum_parent_order_size = 101;
+    int32 cnt_expiry = 102;
+    int32 cnt_series = 103;
+    int32 active_order_cnt = 104;
+    float active_order_time = 105;
+}
+
+

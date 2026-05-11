@@ -1,0 +1,197 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    AtsAuctionState records are published periodically while ats auctions are active.
+*/    
+message AtsAuctionState {
+    message PKey {
+        
+        int64 ats_auction_number = 10; // SR block auction number
+    }
+
+    message AskResponder {
+        
+        int64 parent_number = 216; // baseParentNumber of response
+        int64 base_parent_number = 217;
+        ParentOrderHandling order_handling = 218;
+        string user_name = 219;
+        string accnt = 220;
+        string cfirm = 221;
+        double match_price = 222; // responder matchPrice (may include competitive slippage)
+        double best_price = 223; // best responder limit price (slippage included)
+        double base_price = 224; // base responder limit price (without slippage)
+        int32 response_size = 225; // response order size
+        YesNo is_disclosed = 226; // this responder is a disclosed counter-party
+        string client_firm_short_code = 227; // clientFirm short code (if disclosed)
+    }
+
+    message AskSolution {
+        
+        int32 num_responders = 197;
+        double match_price = 198; // current auction cross price (in exchange price increments)
+        int32 match_size = 199; // current auction size available @ match price
+        AcceptState accept_state = 200;
+        float solution_vol = 201; // solution vol (corresponds to solutionPrc @ uMid) [SR Vol]
+    }
+
+    message BidResponder {
+        
+        int64 parent_number = 203; // baseParentNumber of response
+        int64 base_parent_number = 204;
+        ParentOrderHandling order_handling = 205;
+        string user_name = 206;
+        string accnt = 207;
+        string cfirm = 208;
+        double match_price = 209; // responder matchPrice (may include competitive slippage)
+        double best_price = 210; // best responder limit price (slippage included)
+        double base_price = 211; // base responder limit price (without slippage)
+        int32 response_size = 212; // response order size
+        YesNo is_disclosed = 213; // this responder is a disclosed counter-party
+        string client_firm_short_code = 214; // clientFirm short code (if disclosed)
+    }
+
+    message BidSolution {
+        
+        int32 num_responders = 191;
+        double match_price = 192; // current auction cross price (in exchange price increments)
+        int32 match_size = 193; // current auction size available @ match price
+        AcceptState accept_state = 194;
+        float solution_vol = 195;
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 230;
+        InclExclDisclose incl_excl = 231;
+        YesNo is_comm_paying = 232;
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 238;
+        SpdrKeyType sec_type = 239;
+        BuySell side = 240;
+        uint32 ratio = 241;
+        float leg_ref_de = 242; // fixed ref delta for BlockDAC orders
+        StrikeType strike_type = 243; // Percent or PctVariable; if PctVariable responses should be in terms this strike for this leg as a pct of the underlier close
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trade_date = 100;
+    AuctionType auction_type = 101;
+    AuctionEvent auction_event = 102;
+    string ats_auction_code = 103; // auction short code (unique per day) (block auctions only)
+    YesNo did_reach_final_trial = 104;
+    SpdrOrderShape auction_shape = 105; // Auction Shape [Single or MLeg]
+    string accnt = 106; // SR accnt (initiating parent order)
+    string client_firm = 107; // SR client firm (initiating parent order)
+    string user_name = 108; // SR user name (initiating parent order)
+    OptionKey sec_key = 109; // SecKey (initiating parent order)
+    SpdrKeyType sec_type = 110; // SecType (initiating parent order)
+    BuySell order_side = 111; // OrderSide (initiating parent order)
+    SpdrSource spdr_source = 112; // spdrSource (initiating parent order)
+    TickerKey ticker = 113; // underlier ticker
+    int32 cust_quantity = 114;
+    CustQtyCond cust_qty_cond = 115; // from parentOrder.takeReachRule
+    int64 base_parent_number = 116; // BaseParentNumber (initiating parent order)
+    AtsCustClass cust_class = 244; // type of auction initiator
+    OptNameClass name_class = 245; // penny or non-penny
+    MarketWidth market_width = 246; // market width
+    YesNo marketable = 247; // is the cust limit >= nbbo
+    float notice_commission = 117;
+    YesNo has_notice_comm = 118; // noticeCommision contains responder auction commission; otherwise, commission is as agreed elsewhere.
+    float comm_enhancement = 119; // commission responder pays to initiator
+    CustProgressCond cust_progress_cond = 120; // from parentOrder.progressRule
+    google.protobuf.Timestamp auction_start_dttm = 121;
+    int32 auction_duration = 122; // [expected] auction duration (in milliseconds)
+    AtsVisibility ats_visibility = 123;
+    YesNo will_auto_complete = 124; // indicates that all limit and size conditions are currently met and the auction will trade (if still met) at the conclusion
+    SpdrLimitType order_limit_type = 125;
+    double best_limit_price = 126; // initiator (customer) best limit price @ conclusion (this is always a private price)
+    LimitError best_limit_error = 127;
+    string best_limit_desc = 128;
+    double cust_limit_price = 129; // initiator (customer) public limit price; price the initiator is willing to show and trade at (if AllowImmediate = Yes)
+    LimitError cust_limit_error = 130;
+    string cust_limit_desc = 131;
+    NbboCap cust_nbbo_cap = 132; // indicates if cust price is capped at NBBO (or 1, 5, 10 pennies through)
+    double ref_limit_price = 133; // customer reference limit price
+    double ref_uPrc = 134;
+    URefType u_ref_type = 135;
+    float ref_delta = 136;
+    float ref_gamma = 137;
+    float cust_limit_vol = 138; // volatility that corresponds to (live) cust limit price @ uPrc
+    float pkg_ref_prem_pct = 139; // package premium as a % of underlier closing price (fixed by initiator)
+    YesNo has_fixed_prem_pct = 140; // if yes package has a fixed premium as a % of underlier closing price; all responses should be in terms of strike pct for the leg with a variable strike.
+    PriceFormat price_format = 141;
+    YesNo contains_flex = 142; // legs list contains at least one flex instrument
+    FlexType flex_type = 143; // all legs are of this flex type
+    int32 ats_auction_counter = 144;
+    MatrixCrossState matrix_cross_state = 145;
+    AtsAuctionStatus ats_auction_status = 146;
+    string ats_auction_detail = 147;
+    int32 num_responders = 148;
+    CrossReason cross_reason = 149; // EarlyCross is any cross that occurs prior to the final trial; NormalCross is a cross that occurs during the final trial
+    int64 cross_cl_ord_id = 150; // clOrdId of the cross child order used to initiate the exchange cross
+    double cross_ref_uPrc = 151; // reference underlier price used to resolve all prices used in the auction cross
+    double cross_ref_uBid = 152; // reference underlier bid at initiation of auction cross
+    double cross_ref_uAsk = 153; // reference underlier ask at initiation of auction cross
+    float cross_bid_prc = 154; // reference nbbo bid at initiation of auction cross
+    float cross_ask_prc = 155; // reference nbbo ask at initiation of auction cross
+    int32 cross_bid_size = 156; // reference cum nbbo bid size at initiation of auction cross
+    int32 cross_ask_size = 157; // reference cum nbbo ask size at initiation of auction cross
+    float cross_surf_prc = 158;
+    float cross_surf_vol = 159;
+    int64 cross_timestamp = 160; // cross initiation net timestamp (hi precision)
+    google.protobuf.Timestamp cross_init_dttm = 161; // cross initiation dttm (system precision)
+    int32 init_cross_size = 162; // size of the initial cross on exchange
+    double init_cross_price = 163; // initial price on the exch cross order
+    double best_cross_price = 164; // best price that responders will trade at in the exch cross
+    int32 sweep_fill_quantity = 165; // cumulative sweep fill quantity (cust)
+    double sweep_avg_fill_price = 166;
+    int32 cust_fill_quantity = 167; // cumulative fill quantity (cust)
+    double cust_avg_fill_price = 168;
+    int32 face_fill_quantity = 169; // cumulative fill quantity (face) [all responders combined]
+    double face_avg_fill_price = 170;
+    float cpx1 = 171; // child price level #1 (ActiveMaker orders; if any)
+    int32 csz1 = 172; // cumulative size represented at this price
+    int64 cex1 = 173; // bit mask of all exchanges where we are at this price
+    float u_bid = 174; // underlier bid price (used to resolve limits during the last auction trial)
+    float u_ask = 175; // underlier ask price (used to resolve limits during the last auction trial)
+    float nbbo_bid = 176; // current option nbbo bid (at time of record publish)
+    float nbbo_ask = 177; // current option nbbo ask (at time of record publish)
+    int32 nbbo_bid_sz = 178; // current option nbbo cum bid size (at time of record publish)
+    int32 nbbo_ask_sz = 179; // current option nbbo cum ask size (at time of record publish)
+    int32 nbbo_bid_cnt = 180; // current option nbbo bid exchange count
+    int32 nbbo_ask_cnt = 181; // current option nbbo ask exchange count
+    float surface_prc = 182; // SR surface price @ record publish (uMid)
+    float surface_vol = 183; // SR surface volatility @ record publish
+    float u_prc_drift = 184; // mid-market drift
+    float surf_vol_drift = 185;
+    string engine_name = 186; // execution engine that handled the auction
+    int32 num_updates = 187; // number of record updates (cumulative for the day)
+    int64 net_timestamp = 188;
+    google.protobuf.Timestamp timestamp = 189; // SR system timestamp (record publish)
+    InclExclDisclose include_sRNetwork = 228; // SRNetwork has been selected
+    int32 num_opt_legs = 233;
+    SpreadClass spread_class = 234;
+    SpreadFlavor spread_flavor = 235;
+    YesNo contains_hedge = 236;
+    repeated AskResponder ask_responder = 215;
+    repeated AskSolution ask_solution = 196;
+    repeated BidResponder bid_responder = 202;
+    repeated BidSolution bid_solution = 190;
+    repeated DirectedCounterParty directed_counter_party = 229;
+    repeated OrderLegs order_legs = 237;
+}
+
+

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Live rate curves are computed from live markets; usually either broad based european exercise index option box spreads or interest rate futures.
+*/    
+message LiveRateCurveHist {
+    message PKey {
+        
+        TickerKey rate_key = 10; // liveRateKey; usually "$RATE-TickerSrc-AssetType" (eg. $RATE-NMS-RATE)
+    }
+
+    message Point {
+        
+        DateKey expiry = 106; // option expiry
+        int32 days = 109; // days to expiry;  total interest days = days + sDaysE - sDaysT
+        float rate = 112; // average rate (10s sampling; 1/4 ema average or ~40s look-back)
+        int32 s_days_t = 115; // settlement days (today)
+        int32 s_days_e = 118; // settlement days (expiry)
+        float lo_rate = 121; // implied rate (lo bound) [most recent fit pass]
+        float hi_rate = 124; // implied rate (hi bound) [most recent fit pass]
+        int32 n_points = 127; // number of bid/ask box spreads used for this expiry (if any)
+        int32 counter = 130; // number of samples (this trading date)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trade_date = 100;
+    google.protobuf.Timestamp timestamp = 133;
+    repeated Point point = 103;
+}
+
+

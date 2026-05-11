@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: GlobalRates
+    V8 Message Name: GlobalRates
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:GlobalRates
+*/    
+message GlobalRates_V7 {
+    message PKey {
+        
+        RateSource_V7 rate_source = 5000; // v7 & v8: Enums Do Not Match: V7=[enum,Name=RateSource,Values=Default=0,OIS=1,Libor=2,SpxBox=3,Test1=4,Test2=5,ESTR=6,StoxxBox=7,SONIA=8,FTSEBox=9,SARON=10,SMIBox=11], V8=[enum,Name=RateSource,Values=None=0,Default=1,SOFR=2,SpxBox=3,ESTR=4,StoxxBox=5,SONIA=6,FTSEBox=7,SARON=8,SMIBox=9,USDOIS=10,Test1=11,Test2=12]
+    }
+
+    message Curve {
+        
+        int32 days = 5003; // v7 & v8 --- Original comment: calendar days to expiration (actual/365 days per year)
+        float rate = 5004; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 5001; // v7 & v8
+    repeated Curve curve = 5002;
+}
+
+

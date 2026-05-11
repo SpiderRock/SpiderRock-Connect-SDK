@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrSymbolViewDetail {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 request_iD = 100;
+    ExpiryKey fkey = 103;
+    TickerKey ticker = 106;
+    int32 strike_precision = 109;
+    double cab_tick_size = 112;
+    double min_tick_size = 115;
+    PriceFormat price_format = 118;
+    PriceFormat u_price_format = 121;
+    CalendarCode holiday_calendar = 366;
+    TimeMetric time_metric = 124;
+    ExerciseTime exercise_time = 127;
+    google.protobuf.Timestamp expiration = 130;
+    int32 days = 133;
+    float years = 136;
+    float rate = 139;
+    float sdiv = 142;
+    float ddiv = 145;
+    float sdiv_ln = 148; // user overrides / if any
+    float sdiv_sh = 151;
+    float theo_rate = 154;
+    float theo_sDiv = 157;
+    float theo_dDiv = 160;
+    YesNo has_theo_rate = 163;
+    YesNo has_theo_dDiv = 166;
+    float x_axis = 169;
+    float axis_fUPrc = 172;
+    float axis_vol_rT = 175;
+    float ecnt = 181; // number of earnings events to expiration
+    int32 edays = 184; // days to next earning event (can be less than zero)
+    int32 ddays = 187; // days to next dividend (-99 = none)
+    string root_def = 190; // root settlement string
+    ExerciseType ex_type = 193;
+    CalcModelType model_type = 196;
+    PricingFramework prc_framework = 199;
+    float strike_ratio = 202;
+    float symbol_ratio = 205;
+    float cash_on_exercise = 208;
+    int32 underliers_per_cn = 211;
+    UnderlierType underlier_type = 214; // type of underlier (affects $greek calculations)
+    float tick_value = 217; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 220; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 223;
+    RateSource rate_source = 368;
+    TickerKey live_rate_key = 365;
+    string delivery_month_code = 226;
+    int32 delivery_year = 229;
+    float s_vol = 232; // current surface vol (spline)
+    float sr_slope = 367; // current surface vol slope
+    float atm_vol = 235; // atm vol
+    float binary_days = 238;
+    float c_width = 241; // exp [w=1/32] average market width (askPrice - bidPrice) [max width $1.00]
+    float c_tv = 244; // theo vol (fair vol)
+    int32 c_tv_err = 247; // theo vol error code
+    float c_bv = 250; // theo bvol
+    float c_sv = 253; // theo svol
+    float c_tVol_adj = 256; // theo vol adjustment (grid adj)
+    float c_ctrl_adj = 259; // risk ctrl theo vol adjustment
+    float c_bOpn_edge = 262; // additional buy open premium
+    float c_sOpn_edge = 265; // addtional sell open premium
+    float c_bCls_edge = 268; // additional close premium
+    float c_sCls_edge = 271; // additional close premium
+    float c_yUPrc = 274;
+    float c_yVol = 277; // yesterday's closing SRSurface volatility (from OptionOpenMark record)
+    float c_yOpx = 280; // yesterday's closing SRSurface price
+    float c_ySDv = 283; // yesterday's closing sdiv
+    float c_yDDv = 286; // yesterday's closing ddiv
+    float c_yBid_v = 289; // implied vol of SR closing bid price
+    float c_yAsk_v = 292; // implied vol of SR closing ask price
+    float c_yDe = 295; // greeks from SR surface volatility
+    int32 c_oI = 298; // open interest (market)
+    string c_cls_only_mask = 301; // list of close only exchanges
+    float p_width = 304; // exp [w=1/32] average market width (askPrice - bidPrice) [max width $1.00]
+    float p_tv = 307; // theo vol (fair vol)
+    int32 p_tv_err = 310; // theo vol error code
+    float p_bv = 313; // theo bvol
+    float p_sv = 316; // theo svol
+    float p_tVol_adj = 319; // theo vol adjustment (grid adj)
+    float p_ctrl_adj = 322; // risk ctrl theo vol adjustment
+    float p_bOpn_edge = 325; // additional buy open premium
+    float p_sOpn_edge = 328; // addtional sell open premium
+    float p_bCls_edge = 331; // additional close premium
+    float p_sCls_edge = 334; // additional close premium
+    float p_yUPrc = 337;
+    float p_yVol = 340; // yesterday's closing SRSurface volatility (from OptionOpenMark record)
+    float p_yOpx = 343; // yesterday's closing SRSurface price
+    float p_ySDv = 346; // yesterday's closing sdiv
+    float p_yDDv = 349; // yesterday's closing ddiv
+    float p_yBid_v = 352; // implied vol of SR closing bid price
+    float p_yAsk_v = 355; // implied vol of SR closing ask price
+    float p_yDe = 358; // greeks from SR surface volatility
+    int32 p_oI = 361; // open interest (market)
+    string p_cls_only_mask = 364; // put list of close only exchanges
+}
+
+

@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message PricingGrid {
+    message PKey {
+        
+        OptionKey okey = 10;
+        int32 r_counter = 11; // switches between 0 and 1 on each publish (allows system to maintain a cur/prv version of each record)
+        YesNo is_custom = 12; // if Yes this record is in response to a PricingGridRequest
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 requestor = 100; // unique ID assigned to requestor (usually AppId)
+    int64 request_iD = 103; // from PricingGridRequest.requestID (if custom); otherwise zero/unused.
+    PricingFramework prc_framework = 106;
+    CalcModelType calc_model = 109;
+    ExerciseType exercise_type = 112;
+    TimeMetric time_metric = 115;
+    ExerciseTime exercise_time = 118;
+    DateKey today = 121;
+    DateKey expiry = 124;
+    double u_prc = 127;
+    double strike = 130;
+    float vol = 133;
+    float years_v = 136; // volatility years to expiry (volatility time metric)
+    float sdiv = 139; // continuous dividend rate applied to pricing
+    float rate = 142; // global borrow rate
+    float axis_sDiv = 145; // axis sdiv (used for computing expiry consistent forward prices)
+    float ddiv = 148; // cumulative sum of all discrete dividends prior to expiry
+    float ddiv_pv = 151; // present value of all discrete dividends prior to expiry
+    int32 ddiv_hash = 154; // discrete dividend list hash
+    int32 settlement_days = 157;
+    int32 s_days_t = 160;
+    int32 s_days_e = 163;
+    int32 n_index = 166;
+    float tau0 = 169;
+    TickerKey rate_key = 172;
+    CalendarCode calendar_code = 175;
+    float ref_price = 178; // reference model option price @ above parameter point
+    float u_prc_range = 181; // error fn valid (unbounded) within [uPrc * Math.Exp(-uPrcRange), uPrc * Math.Exp(+uPrcRange)]
+    float i_vol_range = 184; // error fn valid (unbounded) within [vol * Math.Exp(-iVolRange), vol * Math.Exp(+iVolRange)]
+    StrikeFn strike_fn = 187;
+    float c00 = 190; // Kadj / K = c00               ; BS(Kadj, uPrc, vol, ...) = EXACT(K, uPrc, vol, ...)
+    float c01 = 193; // + c01 * x                ; x = ln(uPrc / uPrc0) / uPrcRange
+    float c02 = 196; // + c02 * x2
+    float c03 = 199; // + c03 * x3
+    float c04 = 202; // + c04 * y                ; y = ln(volMdl / volMdl0) / iVolRange
+    float c05 = 205; // + c05 * y2
+    float c06 = 208; // + c06 * y3
+    float c07 = 211; // + c07 * x * y
+    float c08 = 214; // + c08 * x * y2
+    float c09 = 217; // + c09 * x * y3
+    float c10 = 220; // + c10 * x2 * y
+    float c11 = 223; // + c11 * x2 * y2
+    float c12 = 226; // + c12 * x2 * y3
+    float c13 = 229; // + c13 * x3 * y
+    float c14 = 232; // + c14 * x3 * y2
+    float c15 = 235; // + c15 * x3 * y3
+    float u_prc_min = 253; // lower log-return bound: log(S_min / uPrc)
+    float u_prc_max = 256; // upper log-return bound: log(S_max / uPrc)
+    float fit_mse = 238; // Kadj model fit error (2d polynomial vs fit points)
+    CalcError error = 241; // SRPricingLib.CalcError
+    float bid_prc = 244; // reference option bid/ask (debugging)
+    float ask_prc = 247;
+    google.protobuf.Timestamp timestamp = 250;
+}
+
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    risk-to-edge
+*/    
+message EdgeUser {
+    message PKey {
+        
+        string user_name = 10; // SR assigned userName
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string cfirm = 100; // SR assigned client firm acronym
+    YesNo enabled = 103;
+    string password = 105;
+    string api_key = 106; // API access key (SR supplied; guid; plain text; HEX:32+4) (includes dashes) (must be refreshed at least 1x per 4 hours)
+    google.protobuf.Timestamp timestamp = 109; // timestamp of last modification
+}
+
+

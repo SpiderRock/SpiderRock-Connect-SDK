@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveSpreadDataResponse {
+    message PKey {
+        
+        TickerKey skey = 10;
+        string accnt = 11;
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string spread_key = 100;
+    double sprd_bid1 = 103;
+    double sprd_bid2 = 106;
+    double sprd_ask1 = 109;
+    double sprd_ask2 = 112;
+    int32 sprd_bSz1 = 115;
+    int32 sprd_bSz2 = 118;
+    int32 sprd_aSz1 = 121;
+    int32 sprd_aSz2 = 124;
+    double min_tick_size = 127;
+    PriceFormat price_format = 130;
+    SpreadDefStatus status = 133;
+    google.protobuf.Timestamp timestamp = 136;
+}
+
+

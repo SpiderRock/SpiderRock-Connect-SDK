@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message HdfsArchiveStats {
+
+
+    MessageMetadata _meta = 1;
+    
+    string uri = 100; // Name of file
+    string msg_type = 103; // MessageType being archived
+    google.protobuf.Duration elapsed = 106; // Time taken to upload
+    double file_size = 109; // Size (Mb)
+    google.protobuf.Timestamp created = 112; // Time file creation
+    ArchiveResult result = 115; // Result of upload attempt
+    string detail = 118; // error message
+    google.protobuf.Timestamp timestamp = 121; // Time of upload
+}
+
+

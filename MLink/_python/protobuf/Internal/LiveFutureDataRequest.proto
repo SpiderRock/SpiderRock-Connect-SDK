@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveFutureDataRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey fkey = 100;
+    string accnt = 103;
+    string client_firm = 110;
+    GetAction action = 106;
+    string error = 109;
+}
+
+

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message DataLineStatusAck {
+    message PKey {
+        
+        string ip_addr = 10; // data source addr (A channel)
+        int32 ip_port = 11; // data source port (A channel)
+        string server_name = 12; // data gateway process name
+        string machine_name = 13; // name of the machine running data gateway
+        SysEnvironment sys_environment = 14; // sys environment [Stable, Current, etc]
+        SysRealm sys_realm = 15;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp last_error_dttm = 100;
+    string ack_user_name = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

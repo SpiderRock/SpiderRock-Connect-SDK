@@ -1,0 +1,165 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridParentOrderMLeg {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string c_firm = 101; // SR client firm
+    string sec_key = 261; // ticker string (computed by WTS)
+    string spread_description = 262; // human-readable spread description (computed by WTS)
+    SpdrSource spdr_source = 104;
+    int64 grouping_code = 105;
+    BuySell order_side = 106;
+    string user_name = 107; // SR user name string
+    int64 parent_number = 108; // SR parent number
+    int64 base_parent_number = 109;
+    int64 modify_number = 110; // most recent parent number affecting this order (Modify)
+    int64 notice_number = 111; // SR noticeNumber
+    int64 risk_group_id = 112; // all orders with the same riskGroupId share a common set of risk counters
+    int64 trigger_group_id = 113;
+    string strategy = 114; // parent order strategy string (can be user supplied)
+    string exec_brkr_code = 115; // execBrkrCode attached to parent order (if any)
+    string alt_order_id = 116; // alternate order ID (usually clOrdId from client)
+    int64 package_id = 117; // groups related order/brokers together (eg. Legger w/MLeg Parent)
+    string alt_accnt = 118; // alternate (client assigned) "long" account string (optional)
+    string alt_user_name = 119; // alternate (client assigned) user name (optional)
+    SpdrStageType stage_type = 120; // parent is a staged order [ToolVisible]
+    YesNo is_flagged = 121; // broker state records is flagged for action (user alert only)
+    TickerKey ticker = 122; // underlier ticker
+    SpreadClass spread_class = 263;
+    SpreadFlavor spread_flavor = 264;
+    int32 num_legs = 265; // number of valid legs
+    string description = 266; // user defined spread description
+    BuySell stock_side = 267;
+    int32 stock_shares = 268; // number of shares included (zero if none)
+    int32 stock_fill_quan = 269;
+    double stock_avg_fill_price = 270;
+    float mleg_vega = 271; // net vega per spread
+    float mleg_wt_vega = 272; // net wt vega per spread
+    float mleg_delta = 273; // net delta per spread
+    float mleg_gamma = 274; // net gamma per spread
+    float mleg_theta = 275; // net theta per spread
+    int32 cum_square_qty = 276; // cumulative spread quantity filled (all legs received)
+    double avg_square_prc = 277;
+    int32 cum_partial_qty = 278; // cumulative partial fills (at least one leg received)
+    int32 open_legs = 279;
+    float fill_vega = 280; // net vega filled
+    float fill_wt_vega = 281; // net wt vega filled
+    float fill_delta = 282; // net delta filled
+    float fill_dDelta = 283; // net $delta filled
+    float fill_gamma = 284; // net gamma filled
+    float fill_theta = 285; // net theta filled
+    CompletionType completion_type = 286; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 287; // None, Pending, Complete
+    double avg_square_cmpl_price = 288; // completion trade price
+    float best_way_prc = 289; // current leg market nbbo (at time of record publish)
+    float wrst_way_prc = 290; // current leg market nbbo ask (at time of record publish)
+    int32 best_way_sz = 291; // current leg market nbbo cum bid size (at time of record publish)
+    int32 wrst_way_sz = 292; // current leg market nbbo cum ask size (at time of record publish)
+    float surface_prc = 129; // SR spread surface price @ record publish
+    float surface_vol = 130; // SR spread surface volatility @ record publish
+    float surface_uPrc = 293;
+    SpdrBrokerStatus spdr_broker_status = 133;
+    SpdrOrderStatus spdr_order_status = 134; // status of the most recent parent order handled by this broker
+    SpdrCloseReason spdr_close_reason = 135; // close reason of most recent parent order
+    SpdrRejectReason spdr_reject_reason = 136; // reject reason (if any) of most recent parent order
+    string spdr_close_detail_txt = 294;
+    string spdr_comment = 142;
+    int32 order_size = 143; // order size of most recent parent order
+    int32 order_active_size = 144; // total activated size (total size released for execution)
+    int32 active_duration = 145; // [optional] (number of seconds)
+    google.protobuf.Timestamp order_dttm = 295; // order entry date/time
+    google.protobuf.Timestamp good_till_dttm = 147; // order expiration date/time
+    int32 leaves_quantity = 148; // current child order leaves quantity
+    float cum_exch_fee = 156; // cumulative fill exch fee
+    float cum_m10_pnl = 157;
+    float cum_arrival_pnl = 158;
+    google.protobuf.Timestamp last_fill_dttm = 159;
+    int32 risk_limit_size = 160; // risk limit size (maximum size to nearest risk limit)
+    SpdrRisk risk_limit_desc = 161; // reason for size reduction
+    SpdrRiskLevel risk_limit_level = 162; // risk limit level responsible for reduction
+    double limit_price = 164; // spread limit price
+    double limit_ref_uPrc = 165;
+    LimitError limit_err = 166;
+    double make_limit_price = 171; // make limit
+    double take_limit_price = 175; // take limit
+    float mleg_prob_limit = 296; // live prob limit
+    float mleg_surf_offset = 297; // live surface offset (in premium)
+    BuySell lead_side = 298; // for legged orders, which side to lead with
+    double max_completion_slippage = 299; // maximum price slippage to complete an open basket
+    AutoHedge auto_hedge = 177;
+    HedgeInst hedge_instrument = 178; // auto-hedge instrument (from parent order)
+    ExpiryKey hedge_sec_key = 179; // auto-hedge sec key (if any)
+    SpdrKeyType hedge_sec_type = 180; // auto-hedge sec type (Stock or Future)
+    float hedge_beta_ratio = 181; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
+    HedgeScope hedge_scope = 182; // hedge group scope [RiskGroup or Accnt]
+    string extern_hedge_ex_dest = 184; // external broker exDest (only used if orderHandling=Extern)
+    string extern_hedge_params = 185; // external algo names/parameters
+    string user_data1 = 186; // client supplied data field
+    string user_data2 = 187; // client supplied data field
+    MaxProgress max_progress = 188; // maximum point of progress for most recent parent order
+    string max_progress_detail = 189; // additional detail on point of maximum progress
+    google.protobuf.Timestamp max_progress_time = 190; // time of last max progress advance
+    BrokerState broker_state = 191; // broker monitor state
+    int32 broker_counter = 192; // number of times order checked by broker monitor
+    AlgoState algo_state = 300; // current state of order handler
+    int32 algo_counter = 301; // number of times order checked by algo handler
+    AlgoState make_state = 193; // current state of make handler (maker)
+    int32 make_counter = 194; // number of times order checked by make algo handler
+    MktRespState mkt_resp_state = 197; // current state of response handler (if any)
+    int32 mkt_resp_counter = 198; // number of times order checked by market response handler
+    string progress_rule_detail = 201; // Twap/Vwap progress detail
+    google.protobuf.Timestamp last_child_reject_dttm = 203; // last child order reject dttm (if any)
+    string last_child_reject_text = 204; // last child order reject reason/text (if any)
+    SpdrMarketState spdr_mkt_state = 205; // [enum] market state
+    float cpx1 = 206; // child price level #1
+    int32 csz1 = 207; // cumulative size represented at this price
+    int64 cex1 = 208; // bit mask of all exchanges where we are at this price
+    float cpx2 = 210; // child price level #2
+    int32 csz2 = 211; // cumulative size represented at this price
+    int64 cex2 = 212; // bit mask of all exchanges where we are at this price
+    int32 c_more = 214;
+    PriceFormat u_price_format = 226; // underlier price format code
+    int32 num_new_orders = 234; // number of child orders generated by this broker
+    uint32 num_parent_limits = 235; // number of parent limit messages received for this broker
+    string engine_name = 302; // execution engine
+    float total_seconds = 303; // number of seconds that the parent order was active
+    float working_seconds = 250; // number of child order seconds
+    float u_prc_drift = 256; // underlier drift (since parent order start)
+    float s_vol_drift = 257; // surface vol drift (since parent order start)
+    UpdateSource update_src = 258;
+    int32 num_updates = 259; // number of record updates (cumulative for the day)
+    int32 active_size = 304; // effective active size
+    string till = 305; // time-in-force or terminal status string
+    string parent_order_status = 306; // composite parent order status (human-readable)
+    string mleg_algo_description = 307; // multi-leg algo description (e.g. LEG, COB, DMA)
+    string primary_limit_description = 308; // formatted user limit description
+    string parent_limit = 309; // formatted algo limit price
+    string child_order_str = 310; // formatted child order string (composite + per-leg)
+    string order_exec_status = 311; // order execution status
+    int32 legged = 312; // 1 if partially filled but not fully squared
+    string risk_hash = 313; // risk group hash
+    ToolOrderState tool_order_state = 314; // derived order state (Active/ActiveHold/Closed/Rejected)
+    google.protobuf.Timestamp timestamp = 260; // SR system timestamp
+    YesNo is_prod = 315; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 316; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 317; // WTS synthetic: alert message (null if no alert)
+}
+
+

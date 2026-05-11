@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    OptionPricePair records are created every 30 minutes while option markets are open.  They contain underlying, call, and put details for each outright option strike.  They also contain SR surface volatilities, prices, and greeks.
+    OptionPricePair records are visible in SRSE and are published to the SpiderRock elastic cluster at the same time.
+*/    
+message OptionPricePairSet {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string date = 100;
+    string time = 103;
+    YesNo is_end_of_session = 106; // Yes if EodOfSession record
+    ExpiryKey fkey = 109; // underlying fkey (if any)
+    TickerKey ticker = 112; // underlying ticker
+    int32 grp = 115; // product group/sector code
+    double u_bid = 118; // underlier bid
+    double u_ask = 121; // underlier ask
+    float yrs = 124; // years to expiry
+    float rate = 127; // interest rate
+    float sdiv = 130; // continuous stock dividend
+    float ddiv = 133; // discrete stock dividend value (sum of dividends <= expiration)
+    float x_axis = 136; // SR surface xAxis value
+    float ve_slope = 139; // veSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant);hedgeDelta = (de + ve * 100 * veSlope) if hedging with this assumption
+    string cycle = 142; // Option expiration cycle (Weekly; quarterly; LEAPS; etc.)
+    string otype = 145; // Optin type (Equity; Index; Future; Binary; Warrant; Flex)
+    string mhedge = 148;
+    float sym_ratio = 151; // Underlying symbol ratio (for non-standard, multi-hedge options).  effUPrc = uprc * symRatio
+    float strike_ratio = 154; // effStrike = okey_xx * strikeRatio
+    float cash_on_ex = 157; // Cash on exercise (multihedge only)
+    float c_bid = 160; // [call] bid price
+    float c_ask = 163; // [call] ask price
+    int32 c_bid_sz = 166; // [call] bid size (cumulative nbbo size)
+    int32 c_ask_sz = 169; // [call] ask size (cumulative nbbo size)
+    int32 c_open_int = 172; // [call] open interest
+    int32 c_volume = 175; // [call] trading volume
+    float c_bid_iv = 178; // [call] bid implied vol
+    float c_ask_iv = 181; // [call] ask implied vol
+    float c_surf_px = 184; // [call] SR surface price
+    float c_surf_vol = 187; // [call] SR surface volatility
+    float c_de = 190; // [call] SR surface delta
+    float c_ga = 193; // [call] SR surface gamma
+    float c_th = 196; // [call] SR surface theta
+    float c_ve = 199; // [call] SR surface vega
+    float c_ro = 202; // [call] SR surface rho
+    string c_err = 205; // [call] calc error flag
+    float c_atm = 208; // [call] SR surface ATM vol
+    float p_bid = 211; // [put] bid price
+    float p_ask = 214; // [put] ask price
+    int32 p_bid_sz = 217; // [put] bid size (cum nbbo size)
+    int32 p_ask_sz = 220; // [put] ask size (cum nbbo size)
+    int32 p_open_int = 223; // [put] open interest
+    int32 p_volume = 226; // [put] trading volume
+    float p_bid_iv = 229; // [put] bid implied vol
+    float p_ask_iv = 232; // [put] ask implied vol
+    float p_surf_px = 235; // [put] SR surface price
+    float p_surf_vol = 238; // [put] SR surface volatility
+    float p_de = 241; // [put] SR surface delta
+    float p_ga = 244; // [put] SR surface gamma
+    float p_th = 247; // [put] SR surface theta
+    float p_ve = 250; // [put] SR surface vega
+    float p_ro = 253; // [put] SR surface rho
+    string p_err = 256; // [put] calc error flag
+    float p_atm = 259; // [put] SR surface ATM vol
+}
+
+

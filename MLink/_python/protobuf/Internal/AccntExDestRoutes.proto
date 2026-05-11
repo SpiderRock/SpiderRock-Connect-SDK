@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AccntExDestRoutes {
+    message PKey {
+        
+        string accnt = 10;
+        TickerSrc ticker_src = 11;
+        SpdrKeyType sec_type = 12;
+        string exec_brkr_code = 16; // execBrkrCode (attach to parent order)
+        string ex_dest = 17; // algo name (attach to parent order)
+        string client_firm = 15;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string routing_code = 100;
+    string extern_params = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

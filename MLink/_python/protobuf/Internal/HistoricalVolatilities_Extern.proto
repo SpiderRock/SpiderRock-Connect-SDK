@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Values in this table are computed daily and are calculated from end-of-day marks from the previous period.  Official exchange closing values are used where possible.
+    HistoricalVolatility records are published to the SpiderRock elastic cluster nightly.
+*/    
+message HistoricalVolatilities_Extern {
+    message PKey {
+        
+        TickerKey ticker = 10; // current (today) tickers
+        string window_type = 11; // eg. cc, ccCen, ccClCen, hl, hlCen, iv63, iv126, betaSPY, betaQQQ, betaIWM, etc
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string date = 100; // most recent closing date
+    float value = 103; // most recent historical value
+    float mv_5d = 106; // historical mean value (5 day window)
+    float sd_5d = 109; // historical std dev (5 day window)
+    float mv_10d = 112;
+    float sd_10d = 115;
+    float mv_21d = 118;
+    float sd_21d = 121;
+    float mv_42d = 124;
+    float sd_42d = 127;
+    float mv_63d = 130;
+    float sd_63d = 133;
+    float mv_84d = 136;
+    float sd_84d = 139;
+    float mv_105d = 142;
+    float sd_105d = 145;
+    float mv_126d = 148;
+    float sd_126d = 151;
+    float mv_189d = 154;
+    float sd_189d = 157;
+    float mv_252d = 160;
+    float sd_252d = 163;
+    float mv_378d = 166;
+    float sd_378d = 169;
+    float mv_504d = 172;
+    float sd_504d = 175;
+    google.protobuf.Timestamp timestamp = 178; // record update timestamp
+}
+
+

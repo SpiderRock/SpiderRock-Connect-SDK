@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message DispersionStrikeRequest {
+    message Underlying {
+        
+        TickerKey ticker = 154; // max 2,000 tickers
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    GetAction action = 100;
+    int64 max_time_rcvd = 103; // only used if GetAction=Poll
+    float min_years = 106; // only used if GetAction=Refresh
+    float max_years = 109;
+    float min_xDelta = 112;
+    float max_xDelta = 115;
+    float min_abs_delta = 118;
+    float max_abs_delta = 121;
+    float min_ask_intrinsic = 124;
+    float min_bid_intrinsic = 127;
+    string theo_model = 130;
+    float min_theo_edge = 133;
+    float min_surf_edge = 136;
+    float min_buy_edge = 139;
+    float min_sell_edge = 142;
+    string strategy = 145;
+    string user_name = 148;
+    repeated Underlying underlying = 151;
+}
+
+

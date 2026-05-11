@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    TickerData records contain both static details and current prices for one specific ticker, the static fields (such as sector, subsector, etc) are not expected to change throughout the day, but others (bid, ask, last, etc) will be changing throughout the trading day
+*/    
+message TickerData {
+    message PKey {
+        
+        TickerKey ticker = 10; // Ticker key
+    }
+
+    message CurDayPrices {
+        
+        string time = 196; // time block index since start of period (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+        string prc = 199; // price @ time index
+    }
+
+    message FlexTypes {
+        
+        FlexType flex_type = 222;
+    }
+
+    message OpenInterests {
+        
+        string open_i = 220;
+    }
+
+    message PrvDayPrices {
+        
+        string time = 205; // time block index since start of period (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+        string prc = 208; // price @ time index
+    }
+
+    message Roots {
+        
+        string root = 217;
+        string description = 233;
+        ExerciseType exercise_type = 234;
+        int32 und_per_cn = 236;
+        int32 open_interest = 237;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string bid = 100; // Current bid price in the market
+    string ask = 103; // Current ask price in the market
+    string bid_sz = 104; // Current bid size in the market
+    string ask_sz = 105; // Current ask size in the market
+    string open = 106; // Price at market open
+    string close = 109; // Price at market close (if before market close, this is previous day close price)
+    string high = 112; // Highest price of the day
+    string low = 115; // Lowest price of the day
+    string last = 118; // Last trade price
+    string day_move = 121; // % move on the day
+    string move_prc = 122; // Price move on the day
+    string volume = 124; // Current volume traded today
+    ExpiryKey future_key = 223; // expiry key for futures
+    string settle_px = 224; // current settlement price for futures
+    string prv_settle_px = 225; // previous settlement price for futures
+    string front_month_future_code = 232; // display code for front month future
+    ToolCurrency currency = 215; // Currencies depending on market
+    ToolEarnStatus next_earn_status = 130; // Status of earnings date (Estimated, Announced, or Released)
+    string next_earn_dt = 127; // Date of next earnings date (or previous earnings date if within 3 days)
+    string earn_hist_move = 133; // Average % move of the past 8 earnings dates for this ticker (Not shown once earnings date has passed)
+    string earn_impl_move = 136; // Predicted % move of given earnings date
+    string earn_move = 139; // Actual % move of given earnings date (this field will only exist if the earnings date has passed within 3 days)
+    ToolDivStatus next_div_status = 145; // Status of earnings date (Estimated, Announced, or already distributed)
+    string next_div_dt = 142; // Next Dividend date (or most recent div date if within 3 days)
+    string last_div_amt = 148; // Last Dividend amount
+    string next_div_amt = 151; // Next Dividend amount (shown unless an exDivAmt exists)
+    string ex_div_amt = 154; // Current Dividend amount (only shown if within 3 days of div date)
+    string stk_volume_avg = 157; // trailing average daily stock volume
+    string fut_volume_avg = 160; // trailing average daily future volume
+    string opt_volume_avg = 163; // trailing average daily option volume
+    string sector = 166; // ticker sector
+    string subsector = 169; // ticker subsector description
+    ToolTickerTradingStatus trading_status = 172; // Current trading status of this ticker
+    TickerKey linked_primary_future = 174; // Primary related future to kick off FutExpirationBar subscription for EQT  (eg SX5E Eurostoxx -> FESX Stoxx Futures)
+    YesNo has_locate_info = 212; // whether or not locate info (including the menu for entering locates) should be shown
+    string locate_firm = 213; // typically a clearing firm (or 3rd party locate desk)
+    string locate_pool = 214; // locate pool @ firm granting the locate
+    int32 locate_quan = 226; // locate quantity pulled from clientStockLocate
+    ExpiryKey hedge_target = 227; // hedge target from AltHedgePolicyMap
+    HedgePolicy hedge_policy = 228; // Hedge policy type
+    YesNo pos_hedge_enabled = 230; // Hedge position policy enabled
+    string prv_open_prc = 175; // start of day previous period price (previous period closing price adjusted for corp actions)
+    string cur_open_prc = 178; // start of day current period price (previous period closing price adjusted for corp actions)
+    string prv_trd_day_sT = 181; // previous day start-of-regular trading time block index (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+    string prv_trd_day_eT = 184; // previous day end-of-regular trading time block index (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+    string cur_trd_day_sT = 187; // current day start-of-regular trading time block index (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+    string cur_trd_day_eT = 190; // current day end-of-regular trading time block index (0=start of period; 1=end of 1st window; 2=end of 2nd window; etc)
+    google.protobuf.Timestamp ts = 211; // last update time
+    string selected_root = 218;
+    repeated CurDayPrices cur_day_prices = 193;
+    repeated FlexTypes flex_types = 221;
+    repeated OpenInterests open_interests = 219;
+    repeated PrvDayPrices prv_day_prices = 202;
+    repeated Roots roots = 216;
+}
+
+

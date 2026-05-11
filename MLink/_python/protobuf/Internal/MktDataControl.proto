@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MktDataControl {
+    message PKey {
+        
+        MktDataFeed feed = 10;
+        string machine_name = 11; // if specified, only applies to this host
+        SysEnvironment sys_environment = 12;
+        SysRealm sys_realm = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string channel_set = 100; // [A, B, or AB]
+    string exchange_drop_list = 103; // comma separated list of exchange acronyms to exclude from feed
+    string interface_set = 106; // interface set to listen on [IFADDR_<DataCenter>_MKT_<ChannelSet>] (refactored - needs work)
+    google.protobuf.Timestamp timestamp = 109; // milliseconds since midnight
+}
+
+

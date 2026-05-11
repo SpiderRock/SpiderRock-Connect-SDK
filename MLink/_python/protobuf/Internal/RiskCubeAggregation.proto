@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message RiskCubeAggregation {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_records = 100; // total number of records in aggregation row
+    int32 num_stk = 103; // number of stock risk records in aggregation row
+    int32 num_opt = 106; // number of future risk records in aggregation row
+    int32 num_fut = 109; // number of option risk records in aggregation row
+    float skew_dD = 112; // dd (deep downside) skew metric (xde < -0.30)
+    float skew_dN = 115; // dn (downside) skew metric (-0.30 < xde < -0.10)
+    float skew_aT = 118; // at (atm) skew metric (-0.10 < xde < +0.10)
+    float skew_uP = 121; // up (upside) skew metric (+0.10 < xde < +0.30)
+    float skew_dU = 124; // du (deep upside) skew metric (+0.30 < xde)
+    int32 sh_opn_pos = 127; // shares (start-of-day)
+    int32 fc_opn_pos = 130; // futures contracts (start-of-day)
+    int32 cn_opn_pos = 133; // options contracts (start-of_day)
+    float cn_atm_equiv = 136; // atm equivalent contracts; (opr.cnOpnPos + opr.cnBot - opr.cnSld) * opr.ve / opr.atmVega
+    int32 sh_bot = 139; // shares bot
+    int32 sh_sld = 142; // shares sld
+    int32 sh_sld_shrt = 145; // shares sld short
+    int32 sh_cur_pos = 148; // current share position = open + bot - sld
+    int32 fc_bot = 151; // future contracts bot
+    int32 fc_sld = 154; // future contracts sld
+    int32 fc_cur_pos = 157; // current future contract position = open + bot - sld
+    int32 cn_bot = 160; // option contracts bot
+    int32 cn_sld = 163; // option contracts sld
+    int32 cn_opened = 166; // option contracts opened
+    int32 cn_closed = 169; // option contracts closed
+    int32 cn_cur_pos = 172; // current option contract position = open + bot - sld
+    int32 unit_opn_pos = 175; // effective opening position (shares or cn * underliersPerCn) (start-of-day)
+    int32 unit_cur_pos = 178; // effective current position (shares or cn * underliersPerCn) (start-of-day + trades)
+    int32 unit_qty_bot = 181; // effective shares bot (shares or cn * underliersPerCn)
+    int32 unit_qty_sld = 184; // effective shares sld (shares or cn * underliersPerCn)
+    float day_pn_l = 187; // day pnl
+    float day_dn_pn_l = 190; // day pnl (delta neutral)
+    float day_trd_delta = 193; // day trade delta
+    float day_trd_dDelta = 196; // day trade $delta
+    float day_trd_gamma = 199; // day trade gamma
+    float day_trd_dGamma = 202; // day trade $gamma
+    float day_trd_vega = 205; // day trade vega
+    float day_trd_wVega = 208; // day trade wVega (vol * vega)
+    float day_trd_tVega = 211; // day trade wVega (vega / sqrt(max(0.1, years * 4)))
+    float day_trd_wt_vega = 214; // day trade wtVega (vol * vega / sqrt(max(0.1, years * 4)))
+    float day_trd_theta = 217; // day trade theta
+    float day_edge_opened = 220; // day option edge opened (requires a theo model)
+    float day_edge_closed = 223; // day option edge closed (requires a theo model)
+    float opn_div_pn_l = 226; // dividends paid/received (since prior period)
+    float opn_htb_pn_l = 229; // HTB cash paid / received
+    float opn_pnl_vol_mark = 232; // (cur.surface - pr.surface) * cnOpnClr * und/cn
+    float opn_pnl_prv_mark = 235; // (cur.mid - pr.mid) * cnOpnClr * udn/cn
+    float opn_pnl_clr_mark = 238; // (cur.mid - pr.clr) * cnOpnClr * und/cn
+    float opn_mark_brk_mny = 241; // (cur.surface - cur.mid) * cnOpnClr * und/cn
+    float opn_theo_edge = 244; // opening edge (edge at start-of-day) (requires a theo model)
+    float pos_theo_edge = 247; // current edge (positions + trades) (requires a theo model)
+    float opn_pnl_de = 250; // open position * mult * hedgeDe * dUPrc			( pnlSD = sum(pnlDe) [stock + futures + options] )
+    float opn_pnl_ga = 253; // open position * mult * 0.5 * optGamma * dUPrc * dUPrc
+    float opn_pnl_th = 256; // open position * mult * optTheta * dTime
+    float opn_pnl_ve = 259; // open position * mult * optVega * dVol
+    float opn_pnl_sl = 262; // open position * mult * vol/uPrc * slope * optVega * dUPrc
+    float opn_pnl_rate = 265; // open position * mult * optRho * dRate
+    float opn_pnl_sDiv = 268; // open position * mult * optPhi * dSDv
+    float opn_pnl_dDiv = 271; // open position * mult * optPhi * dDDv
+    float opn_pnl_err = 274; // unattributed pnl: SR Vol PnL - opnPnLDe - opnPnLGa - opnPnLTh - opnPnLVe - opnPnLRat - opnPnLSDiv - opnPnLDDiv
+    float opn_edge_change = 277; // open position * mult * (tEdge - tEdgePr) (requires a theo model)
+    float pos_delta = 280; // live position * mult * optDelta
+    float pos_dDelta = 283; // live position * mult * optDelta * UPrc
+    float pos_dBeta = 286; // live position * mult * optDelta * beta * UPrc
+    float pos_hDelta = 329; // live position * mult * hedgeDelta
+    float pos_hDDelta = 330; // live position * mult * hedgeDelta * UPrc
+    float pos_gamma = 289; // live position * mult * optGamma
+    float pos_dGamma = 292; // live position * mult * optGamma * uPrc * uPrc / 100
+    float pos_hGamma = 331; // live position * mult * hedgeGamma
+    float pos_hDGamma = 332; // live position * mult * hedgeGamma * uPrc * uPrc / 100
+    float pos_vega = 295; // live position * mult * optVega
+    float pos_wVega = 298; // live position * mult * optVega * iVol
+    float pos_tVega = 301; // live position * mult * optVega / sqrt(max(0.1, years * 4))
+    float pos_wt_vega = 304; // live position * mult * optVega * iVol / sqrt(max(0.1, years * 4))
+    float pos_volga = 307; // live position * mult * optVolga
+    float pos_vanna = 310; // live position * mult * optVanna
+    float pos_theta = 313; // live position * mult * optTheta
+    float pos_rho = 316; // live position * mult * optRho
+    float pos_phi = 319; // live position * mult * optPhi
+    float pos_notional = 322; // live position * mult * uPrc
+    float pos_mkt_value = 325; // live position * mult * cur.surface
+    float pos_prem_oPar = 328; // live position * mult * premium over parity
+}
+
+

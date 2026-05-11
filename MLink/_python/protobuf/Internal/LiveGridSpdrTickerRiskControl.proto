@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridSpdrTickerRiskControl {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // should not be '*-ANY-ANY'
+    string risk_control_key = 101; // must be an SRClientAccnt if riskControlLevel=Accnt; must be an SRUser if riskControlLevel=User; ignored if riskControlLevel=ClientFirm
+    RiskControlLevel risk_control_level = 102;
+    string c_firm = 103;
+    YesNo is_test_accnt = 104; // if Yes, this control applies only to risk from test accnts
+    MarState stk_enabled = 105;
+    MarState fut_enabled = 106;
+    MarState opt_enabled = 107;
+    float margin_limit_day = 108; // maximum net (per symbol/day) day portfolio (day trades only) margin (can include external sources)
+    float open_exposure_limit = 109; // maximum abs open child order $Delta (no netting) (open child orders only)
+    float max_day_dDelta_ln = 110; // open long $Delta per trading session
+    float max_day_dDelta_sh = 111; // open short $Delta per trading session
+    float max_day_dDelta_abs = 112; // absolute $Delta, |ddBot| + |ddSld| position per trading session
+    float max_day_wt_vega_ln = 113; // open long WtVega per trading session
+    float max_day_wt_vega_sh = 114; // open short WtVega per trading session
+    float max_day_wt_vega_abs = 115; // open absolute WtVega, |WtVeBot| + |WtVeSld| per trading session
+    float max_day_nValue_ln = 116; // open long notional value per trading session
+    float max_day_nValue_sh = 117; // open short notional value per trading session
+    float max_day_nValue_abs = 118; // absolute notional value, |NValueBot| + |NValueSld| per trading session
+    string modified_by = 119;
+    SysEnvironment modified_in = 120;
+    google.protobuf.Timestamp last_modified = 121;
+    SysRealm sys_realm = 122;
+    SysEnvironment sys_environment = 123; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 124; // EE engine name
+    float net_day_dDelta = 125; // net day $Delta
+    float abs_day_dDelta = 126; // absolute day $Delta, |ddBot| + |ddSld| position
+    float net_day_vega = 127; // net day Vega per
+    float abs_day_vega = 128; // absolute day Vega, |veBot| + |veSld| position
+    float net_day_wt_vega = 129; // net day WtVega
+    float abs_day_wt_vega = 130; // absolute day WtVega, |wvBot| + |wvSld| position
+    float net_day_nValue = 131; // net day Notional Value
+    float abs_day_nValue = 132; // absolute day Notional Value, |nvBot| + |nvSld| position
+    float net_day_rMetric7 = 133; // net day RiskMetric7
+    float abs_day_rMetric7 = 134; // absolute day RiskMetric7, |rm7Bot| + |rm7Sld| position
+    float net_day_dDelta_ema = 135; // 60s (half-life) EMA $delta
+    float net_day_wt_vega_ema = 136; // 60s (half-life) EMA wtVega
+    double ema_timestamp = 137;
+    float live_margin_day = 138; // live net (per symbol) day portfolio (day trades only) margin (can include external sources)
+    float live_open_exposure = 139; // live abs open child order $Delta (no netting) (open child orders only)
+    float day_margin_uDn_vDn = 140; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 141; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 142; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 143; // day margin (UPrcUp/VolUp)
+    int32 num_stk_child_orders = 144;
+    int32 num_fut_child_orders = 145;
+    int32 num_opt_child_orders = 146;
+    int32 num_mLeg_child_orders = 147;
+    int32 counter = 148;
+    google.protobuf.Timestamp timestamp = 149;
+    YesNo is_prod = 150; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 151; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 152; // WTS synthetic: alert message (null if no alert)
+}
+
+

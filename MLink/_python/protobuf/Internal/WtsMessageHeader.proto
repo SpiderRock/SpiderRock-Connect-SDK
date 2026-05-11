@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message WtsMessageHeader {
+
+
+    MessageMetadata _meta = 1;
+    
+    string skey = 100; // set key for this request/response
+    string hndl = 103; // name of the backend handler this message routes to/from
+    string vset = 106; // query parameters (the "where" clause of this request)
+    string tid = 128; // toolActionId (optionally used for marking this message as an action, or from the server to denote this message as a response to a given action received with the corresponding TID) (limit 16 characters)
+    string mark = 109; // action mark for this request/response
+    string type = 112; // data type of the data payload (if DATA exists)
+    string time = 115; // message send time (app or backend)
+    string err = 118; // description of error encountered by server
+    HttpErrorLevel elvl = 121; // error level
+    HttpErrorType etyp = 124; // error type
+    string etxt = 127; // error text
+}
+
+

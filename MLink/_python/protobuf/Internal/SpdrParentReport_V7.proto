@@ -1,0 +1,415 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: SpdrParentReport
+    V8 Message Name: SpdrParentReport
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:SpdrParentReport
+*/    
+message SpdrParentReport_V7 {
+    message PKey {
+        
+        int64 parent_number = 5000; // v7 & v8 --- Original comment: SPDR order number
+    }
+
+    message DirectedCounterParty {
+        
+        string client_firm = 5194; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm]
+        InclExclDisclose incl_excl = 5195; // v7 & v8
+    }
+
+    message FaceLegs {
+        
+        int64 last_leg_ref_id = 5197; // ONLY V7: [long]
+        google.protobuf.Timestamp last_fill_dttm = 5198; // ONLY V7: [DateTime]
+        int32 cum_square_qty = 5199; // ONLY V7: [int] --- Original comment: cum spread quantity filled (all legs received)
+        double avg_square_prc = 5200; // ONLY V7: [double]
+        google.protobuf.Timestamp last_square_dttm = 5201; // ONLY V7: [DateTime]
+        int32 cum_partial_qty = 5202; // ONLY V7: [int] --- Original comment: cum spread quantity partially filled (at least one leg received) [expected cumFilledQty if all legs square up]
+        ShortSaleFlag ssale_flag = 5203; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7] --- Original comment: stock short sale flag
+        int32 stock_cum_fill_qty = 5204; // ONLY V7: [int]
+        double stock_avg_fill_prc = 5205; // ONLY V7: [double]
+        PositionType pos_type1 = 5206; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3]
+        ShortSaleFlag ssale_flag1 = 5207; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7]
+        int32 leg_cum_fill_qty1 = 5208; // ONLY V7: [int]
+        double leg_avg_fill_prc1 = 5209; // ONLY V7: [double]
+        PositionType pos_type2 = 5210; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3]
+        ShortSaleFlag ssale_flag2 = 5211; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7]
+        int32 leg_cum_fill_qty2 = 5212; // ONLY V7: [int]
+        double leg_avg_fill_prc2 = 5213; // ONLY V7: [double]
+        PositionType pos_type3 = 5214; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3]
+        ShortSaleFlag ssale_flag3 = 5215; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7]
+        int32 leg_cum_fill_qty3 = 5216; // ONLY V7: [int]
+        double leg_avg_fill_prc3 = 5217; // ONLY V7: [double]
+        PositionType pos_type4 = 5218; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3]
+        ShortSaleFlag ssale_flag4 = 5219; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7]
+        int32 leg_cum_fill_qty4 = 5220; // ONLY V7: [int]
+        double leg_avg_fill_prc4 = 5221; // ONLY V7: [double]
+        PositionType pos_type5 = 5222; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3]
+        ShortSaleFlag ssale_flag5 = 5223; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7]
+        int32 leg_cum_fill_qty5 = 5224; // ONLY V7: [int]
+        double leg_avg_fill_prc5 = 5225; // ONLY V7: [double]
+        PositionType pos_type6 = 5226; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3]
+        ShortSaleFlag ssale_flag6 = 5227; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7]
+        int32 leg_cum_fill_qty6 = 5228; // ONLY V7: [int]
+        double leg_avg_fill_prc6 = 5229; // ONLY V7: [double]
+    }
+
+    message FaceSide {
+        
+        int64 face_id = 5231; // ONLY V7: [long]
+        string alt_order_id = 5232; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: alternate order ID (usually clOrdId from client)
+        string accnt = 5233; // ONLY V7: [string,Length=16,Alias=SRAccountString,MetaType=NA]
+        string client_firm = 5234; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA]
+        string alt_accnt = 5235; // ONLY V7: [string,Length=32,Alias=NA,MetaType=NA] --- Original comment: alternate (client assigned) "long" account string (optional) [used to map between client and SR account strings]
+        FirmType firm_type = 5236; // ONLY V7: [enum,Name=FirmType,Values=None=0,Customer=1,Firm=2,MarketMaker=3,ProCustomer=4,BrokerDealer=5,AwayMM=6,FirmJBO=7,BrkrDlrCust=8]
+        OrderCapacity order_capacity = 5237; // ONLY V7: [enum,Name=OrderCapacity,Values=None=0,Agency=1,Principal=2,Individual=3,Proprietary=4,AgentOtherMember=5,RisklessPrincipal=6,MarketMaker=7]
+        ShortSaleFlag ssale_flag = 5238; // ONLY V7: [enum,Name=ShortSaleFlag,Values=None=0,Long=1,Short=2,Exempt=3,Auto=4,Open=5,Close=6,Cover=8,NA=7] --- Original comment: primary short sale flag (single leg orders)
+        PositionType position_type = 5239; // ONLY V7: [enum,Name=PositionType,Values=None=0,Opening=1,Closing=2,Auto=3] --- Original comment: primary position type (single leg orders)
+        int32 firm_position = 5240; // ONLY V7: [int]
+        int32 open_sell_sh = 5241; // ONLY V7: [int]
+        int32 locate_quan = 5242; // ONLY V7: [int] --- Original comment: available locate quantity (if selling short) @ arrival time
+        string locate_firm = 5243; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: locate firm (usually an MPID)
+        string locate_pool = 5244; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: locate pool @ locate firm
+        string locate_source = 5245; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: (deprecated) locate ID code (if any)
+        string no_cross_group = 5246; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+        string exch_trader_id = 5247; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+        string large_trader_id = 5248; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+        string trading_location = 5249; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+        string clearing_firm = 5250; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: clearing firm [from AccountConfig; may not match parent execution]
+        string clearing_accnt = 5251; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: clearing firm [from AccountConfig; may not match parent execution]
+        FlipType clearing_flip_type = 5252; // ONLY V7: [enum,Name=FlipType,Values=None=0,CMTA=1,Giveup=2,QSR=3,NSCC_Flip=4,DVP=5,BrkrAccnt=6] --- Original comment: Clearing Flip Type (None, ExecBroker, CMTA, Giveup, DTCC, QSR, etc) [used to override the SR account config delivery details]
+        string clearing_flip_firm = 5253; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: Clearing Flip Firm (if any)
+        string clearing_flip_accnt = 5254; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: Clearing Flip Account (if any)
+        string cat_src_brkr_iMID = 5255; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: B/D firm IMID (only exists if a B/D is the source) (supplied by FINRA fbo client) (from AccountConfig.catBrkrIMID)
+        CatAccntType cat_src_accnt_type = 5256; // ONLY V7: [enum,Name=CatAccntType,Values=None=0,Institutional=1,Employee=2,Foreign=3,Individual=4,MktMaking=5,FirmAvgPx=6,OtherProp=7,Error=8] --- Original comment: CAT account holder type (from AccountConfig.catBrkrAccntType [Eqt, Opt])
+        CatFirmType cat_src_firm_type = 5257; // ONLY V7: [enum,Name=CatFirmType,Values=None=0,Client=1,ClientBDAgency=2,ClientBDFirm=3,SRFirm=4] --- Original comment: CAT source type (from AccountConfig.catBrkrFirmType [Eqt, Opt])
+        string cat_accnt_origin_code = 5258; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: CAT exchange origin code field.  market maker, b/d, pro-cust, etc
+        int32 cum_fill_quantity = 5259; // ONLY V7: [int]
+        double avg_fill_price = 5260; // ONLY V7: [double]
+        int32 leaves_qty = 5261; // ONLY V7: [int]
+        int64 last_fill_number = 5262; // ONLY V7: [long]
+        google.protobuf.Timestamp last_fill_dttm = 5263; // ONLY V7: [DateTime]
+    }
+
+    message OrderLegs {
+        
+        int64 last_leg_ref_id = 5265; // v7 & v8
+        google.protobuf.Timestamp last_fill_dttm = 5266; // v7 & v8
+        int32 cum_square_qty = 5267; // v7 & v8 --- Original comment: cum spread quantity filled (all legs received)
+        double avg_square_prc = 5268; // v7 & v8
+        google.protobuf.Timestamp last_square_dttm = 5269; // v7 & v8
+        int32 cum_partial_qty = 5270; // v7 & v8 --- Original comment: cum spread quantity partially filled (at least one leg received) [expected cumFilledQty if all legs square up]
+        int32 review_cum_square_qty = 5271; // v7 & v8 --- Original comment: review cum spread quantity filled (all legs received)
+        double review_avg_square_prc = 5272; // v7 & v8
+        google.protobuf.Timestamp review_last_square_dttm = 5273; // v7 & v8
+        int32 review_cum_partial_qty = 5274; // v7 & v8 --- Original comment: review cum spread quantity partially filled (at least one leg received) [expected cumFilledQty if all legs square up]
+        TickerKey ticker = 5275; // v7 & v8 --- Original comment: stock ticker
+        BuySell stock_side = 5276; // v7 & v8 --- Original comment: [Buy | Sell | None]
+        int32 stock_shares = 5277; // v7 & v8 --- Original comment: number of shares included (zero if none)
+        int64 stock_leg_id = 5278; // v7 & v8 --- Original comment: SR stock leg Id
+        string alt_stk_leg_id = 5279; // v7 & v8 --- Original comment: client stock leg Id (usually from a FIX order)
+        string review_stk_leg_id = 5280; // v7 & v8 --- Original comment: client review stock leg Id (usually from a FIX order)
+        string review_stk_leg_alt_id = 5281; // v7 & v8 --- Original comment: client review stock leg alt Id (usually from a FIX order)
+        ShortSaleFlag ssale_flag = 5282; // v7 & v8 --- Original comment: stock short sale flag
+        int32 stock_cum_fill_qty = 5283; // v7 & v8
+        double stock_avg_fill_prc = 5284; // v7 & v8
+        int32 stock_review_cum_fill_qty = 5285; // v7 & v8
+        double stock_review_avg_fill_prc = 5286; // v7 & v8
+        int32 num_legs = 5287; // v7 & v8 --- Original comment: number of valid legs below
+        OptionKey sec_key1 = 5288; // v7 & v8 --- Original comment: leg #1
+        SpdrKeyType sec_type1 = 5289; // v7 & v8
+        uint32 mult1 = 5290; // v7 & v8
+        BuySell side1 = 5291; // v7 & v8
+        int64 leg_id1 = 5292; // v7 & v8 --- Original comment: SR leg Id
+        string alt_leg_id1 = 5293; // v7 & v8 --- Original comment: client leg Id (usually from a FIX order)
+        string review_leg_id1 = 5294; // v7 & v8 --- Original comment: client review leg Id (usually from a FIX order)
+        string review_leg_alt_id1 = 5295; // v7 & v8 --- Original comment: client review leg alt Id (usually from a FIX order)
+        PositionType pos_type1 = 5296; // v7 & v8
+        ShortSaleFlag ssale_flag1 = 5297; // v7 & v8
+        int32 leg_cum_fill_qty1 = 5298; // v7 & v8
+        double leg_avg_fill_prc1 = 5299; // v7 & v8
+        int32 leg_review_cum_fill_qty1 = 5300; // v7 & v8
+        double leg_review_avg_fill_prc1 = 5301; // v7 & v8
+        OptionKey sec_key2 = 5302; // v7 & v8 --- Original comment: leg #2
+        SpdrKeyType sec_type2 = 5303; // v7 & v8
+        uint32 mult2 = 5304; // v7 & v8
+        BuySell side2 = 5305; // v7 & v8
+        int64 leg_id2 = 5306; // v7 & v8 --- Original comment: SR leg Id
+        string alt_leg_id2 = 5307; // v7 & v8 --- Original comment: client leg Id (usually from a FIX order)
+        string review_leg_id2 = 5308; // v7 & v8 --- Original comment: client review leg Id (usually from a FIX order)
+        string review_leg_alt_id2 = 5309; // v7 & v8 --- Original comment: client review leg alt Id (usually from a FIX order)
+        PositionType pos_type2 = 5310; // v7 & v8
+        ShortSaleFlag ssale_flag2 = 5311; // v7 & v8
+        int32 leg_cum_fill_qty2 = 5312; // v7 & v8
+        double leg_avg_fill_prc2 = 5313; // v7 & v8
+        int32 leg_review_cum_fill_qty2 = 5314; // v7 & v8
+        double leg_review_avg_fill_prc2 = 5315; // v7 & v8
+        OptionKey sec_key3 = 5316; // v7 & v8 --- Original comment: leg #3
+        SpdrKeyType sec_type3 = 5317; // v7 & v8
+        uint32 mult3 = 5318; // v7 & v8
+        BuySell side3 = 5319; // v7 & v8
+        int64 leg_id3 = 5320; // v7 & v8 --- Original comment: SR leg Id
+        string alt_leg_id3 = 5321; // v7 & v8 --- Original comment: client leg Id (usually from a FIX order)
+        string review_leg_id3 = 5322; // v7 & v8 --- Original comment: client review leg Id (usually from a FIX order)
+        string review_leg_alt_id3 = 5323; // v7 & v8 --- Original comment: client review leg alt Id (usually from a FIX order)
+        PositionType pos_type3 = 5324; // v7 & v8
+        ShortSaleFlag ssale_flag3 = 5325; // v7 & v8
+        int32 leg_cum_fill_qty3 = 5326; // v7 & v8
+        double leg_avg_fill_prc3 = 5327; // v7 & v8
+        int32 leg_review_cum_fill_qty3 = 5328; // v7 & v8
+        double leg_review_avg_fill_prc3 = 5329; // v7 & v8
+        OptionKey sec_key4 = 5330; // v7 & v8 --- Original comment: leg #4
+        SpdrKeyType sec_type4 = 5331; // v7 & v8
+        uint32 mult4 = 5332; // v7 & v8
+        BuySell side4 = 5333; // v7 & v8
+        int64 leg_id4 = 5334; // v7 & v8 --- Original comment: SR leg Id
+        string alt_leg_id4 = 5335; // v7 & v8 --- Original comment: client leg Id (usually from a FIX order)
+        string review_leg_id4 = 5336; // v7 & v8 --- Original comment: client review leg Id (usually from a FIX order)
+        string review_leg_alt_id4 = 5337; // v7 & v8 --- Original comment: client review leg alt Id (usually from a FIX order)
+        PositionType pos_type4 = 5338; // v7 & v8
+        ShortSaleFlag ssale_flag4 = 5339; // v7 & v8
+        int32 leg_cum_fill_qty4 = 5340; // v7 & v8
+        double leg_avg_fill_prc4 = 5341; // v7 & v8
+        int32 leg_review_cum_fill_qty4 = 5342; // v7 & v8
+        double leg_review_avg_fill_prc4 = 5343; // v7 & v8
+        OptionKey sec_key5 = 5344; // v7 & v8 --- Original comment: leg #5
+        SpdrKeyType sec_type5 = 5345; // v7 & v8
+        uint32 mult5 = 5346; // v7 & v8
+        BuySell side5 = 5347; // v7 & v8
+        int64 leg_id5 = 5348; // v7 & v8 --- Original comment: SR leg Id
+        string alt_leg_id5 = 5349; // v7 & v8 --- Original comment: client leg Id (usually from a FIX order)
+        string review_leg_id5 = 5350; // v7 & v8 --- Original comment: client review leg Id (usually from a FIX order)
+        string review_leg_alt_id5 = 5351; // v7 & v8 --- Original comment: client review leg alt Id (usually from a FIX order)
+        PositionType pos_type5 = 5352; // v7 & v8
+        ShortSaleFlag ssale_flag5 = 5353; // v7 & v8
+        int32 leg_cum_fill_qty5 = 5354; // v7 & v8
+        double leg_avg_fill_prc5 = 5355; // v7 & v8
+        int32 leg_review_cum_fill_qty5 = 5356; // v7 & v8
+        double leg_review_avg_fill_prc5 = 5357; // v7 & v8
+        OptionKey sec_key6 = 5358; // v7 & v8 --- Original comment: leg #6
+        SpdrKeyType sec_type6 = 5359; // v7 & v8
+        uint32 mult6 = 5360; // v7 & v8
+        BuySell side6 = 5361; // v7 & v8
+        int64 leg_id6 = 5362; // v7 & v8 --- Original comment: SR leg Id
+        string alt_leg_id6 = 5363; // v7 & v8 --- Original comment: client leg Id (usually from a FIX order)
+        string review_leg_id6 = 5364; // v7 & v8 --- Original comment: client review leg Id (usually from a FIX order)
+        string review_leg_alt_id6 = 5365; // v7 & v8 --- Original comment: client review leg alt Id (usually from a FIX order)
+        PositionType pos_type6 = 5366; // v7 & v8
+        ShortSaleFlag ssale_flag6 = 5367; // v7 & v8
+        int32 leg_cum_fill_qty6 = 5368; // v7 & v8
+        double leg_avg_fill_prc6 = 5369; // v7 & v8
+        int32 leg_review_cum_fill_qty6 = 5370; // v7 & v8
+        double leg_review_avg_fill_prc6 = 5371; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 report_number = 5001; // v7 & v8
+    SpdrOrderShape parent_shape = 5002; // v7 & v8
+    int32 record_version = 5003; // v7 & v8
+    RecordSource record_source = 5004; // v7 & v8
+    int32 parent_version = 5005; // v7 & v8 --- Original comment: SPDR order instance number (1 = original order; 2 = 1st cancel/replace, etc)
+    int64 base_parent_number = 5006; // v7 & v8 --- Original comment: SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
+    int64 prev_parent_number = 5007; // v7 & v8 --- Original comment: SPDR order number (order being cancelled/replaced) (zero if none)
+    int64 next_parent_number = 5008; // v7 & v8 --- Original comment: SPDR order number (next order in cxl/replace sequence) (zero if none)
+    google.protobuf.Timestamp prev_parent_create_dttm = 5009; // v7 & v8 --- Original comment: none/undefined if first order in a sequence
+    int32 prev_parent_cum_fill_qty = 5010; // v7 & v8
+    int32 client_seq_num_in = 5011; // v7 & v8 --- Original comment: inbound client seq number (FIX orders only)
+    string alt_order_id = 5012; // v7 & v8 --- Original comment: usually client clOrdId (from FIX or SRSE)
+    string alt_prev_order_id = 5013; // v7 & v8 --- Original comment: usually previous/orig (cxl/repl) client clOrdId (from FIX or SRSE)
+    string alt_cross_id = 5014; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: client crossId (from FIX or SRSE)
+    string alt_cancel_id = 5015; // v7 & v8 --- Original comment: client cancelId (from FIX or SRSE) [identifies the message responsible for user cxl actions]
+    string src_routing_code = 5016; // v7 & v8 --- Original comment: inbound FIX routing code, if any
+    int64 package_id = 5017; // v7 & v8 --- Original comment: references spread orderNumber, if a legged spread order
+    int64 prev_package_id = 5018; // v7 & v8
+    int64 risk_group_id = 5019; // v7 & v8 --- Original comment: all orders with the same riskGroupId share a common set of risk counters; .Grp. risk limits apply to these shared counters
+    int64 trigger_group_id = 5020; // v7 & v8 --- Original comment: WaitTrigger group Id
+    OptionKey sec_key = 5021; // v7 & v8
+    SpdrKeyType sec_type = 5022; // v7 & v8
+    string accnt = 5023; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=16,Alias=SRAccountString,MetaType=SRAccount] --- Original comment: SR trading account
+    string client_firm = 5024; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm] --- Original comment: SR client firm
+    string client_accnt = 5025; // v7 & v8 --- Original comment: client assigned "long" account string (from AccountConfig) [used to map between client and SR account strings]
+    string user_name = 5026; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUser] --- Original comment: name of the user entering the order
+    string alt_accnt = 5027; // v7 & v8 --- Original comment: alternate (client assigned) "long" account string (optional) [used to map between client and SR account strings]
+    string alt_user_name = 5028; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUserRef] --- Original comment: alternate (client assigned) user name (optional) [used to map between client and SR account strings]
+    string exec_broker_accnt = 5029; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: account at executing broker (if any) [from accountConfig]
+    string exec_broker_cl_firm = 5030; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: client/firm at executing broker (if any) [from accountConfig]
+    string exec_username = 5031; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: userName at execution broker (if any) [from accountConfig]
+    SpdrSource spdr_source = 5032; // v7 & v8 --- Original comment: parent order source enum
+    int64 grouping_code = 5033; // v7 & v8 --- Original comment: unique broker code; broker.pkey = (key + accnt + spdrSource + groupingCode)
+    string engine_name = 5034; // v7 & v8 --- Original comment: execution engine (partition) handling this parent order
+    SysRealm sys_realm = 5035; // v7 & v8
+    SysEnvironment sys_environment = 5036; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 5037; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+    SRDataCenter_V7 data_center = 5038; // ONLY V7: [enum,Name=SRDataCenter,Values=None=0,NY4=1,NY5=2,CH2=3,CH3=4] --- Original comment: (deprecated) original (source) data center [NY4,CH2, etc]
+    google.protobuf.Timestamp order_dttm = 5039; // v7 & v8
+    BuySell order_side = 5040; // v7 & v8
+    PriceType price_type = 5041; // v7 & v8
+    int32 order_size = 5042; // v7 & v8
+    int32 order_active_size = 5043; // v7 & v8 --- Original comment: total activated size (total size released for execution) (-1 = all available size)
+    SpdrStageType_V7 spdr_stage_type = 5044; // v7 & v8: Enums Do Not Match: V7=[enum,Name=SpdrStageType,Values=None=0,StageLock=1,StageModify=2,StageReview=3], V8=[enum,Name=SpdrStageType,Values=None=0,ModifyAny=1,ModifyAlgo=2] --- Original comment: StageLock = stage pending modification (can reduce size); StageModify = stage pending modification (can increase/reduce size); StateReview = stage pending review/release;
+    ParentOrderHandling parent_order_handling = 5045; // v7 & v8
+    ParentBalanceHandling parent_balance_handling = 5046; // v7 & v8
+    double limit_price = 5047; // v7 & v8 --- Original comment: limit price @ order arrival
+    SpdrLimitType order_limit_type = 5048; // v7 & v8
+    SpdrLimitClass take_limit_class = 5049; // v7 & v8
+    SpdrLimitClass make_limit_class = 5050; // v7 & v8
+    StartType_V7 start_type = 5051; // v7 & v8: Enums Do Not Match: V7=[enum,Name=StartType,Values=Immediate=0,WaitTrigger=1,TriggerAll=2], V8=[enum,Name=StartType,Values=None=0,WaitTrigger=1,TriggerAll=2] --- Original comment: WaitTrigger associates this order with a triggerGroupId.  The initial wave of child orders from the TriggerGroup will be simultaneously delivered when a trigger signal is received.
+    TimeInForce time_in_force = 5052; // ONLY V7: [enum,Name=TimeInForce,Values=None=0,Day=1,IOC=2,GTD=3,ExtDay=4,Week=5,ExtWeek=6]
+    google.protobuf.Timestamp start_dttm = 5053; // v7 & v8 --- Original comment: [optional] (default: 2000-01-01)
+    google.protobuf.Timestamp good_till_dttm = 5054; // v7 & v8 --- Original comment: [optional] (default: 2099-01-01)
+    AutoHedge auto_hedge = 5055; // v7 & v8
+    HedgeInst hedge_instrument = 5056; // v7 & v8 --- Original comment: Default=underlier (EQT or FUT) [Index Options use ETF]; FrontMonth=underlier (EQT) or front month (FUT) [Index Options use FM Fut]; Stock=hedgeSecKey; Future=hedgeSecKey
+    ExpiryKey hedge_sec_key = 5057; // v7 & v8
+    SpdrKeyType hedge_sec_type = 5058; // v7 & v8
+    float hedge_beta_ratio = 5059; // v7 & v8 --- Original comment: portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0])
+    HedgeScope hedge_scope = 5060; // v7 & v8 --- Original comment: hedge group scope [RiskGroup or Accnt]
+    TimeInForce hedge_tIF = 5061; // ONLY V7: [enum,Name=TimeInForce,Values=None=0,Day=1,IOC=2,GTD=3,ExtDay=4,Week=5,ExtWeek=6]
+    google.protobuf.Timestamp order_create_dttm = 5062; // v7 & v8 --- Original comment: order send time
+    float order_create_latency = 5063; // v7 & v8 --- Original comment: order send to order ack latency (in milliseconds)
+    OrderCancelReason cancel_reason = 5064; // v7 & v8
+    google.protobuf.Timestamp order_cancel_dttm = 5065; // v7 & v8 --- Original comment: order cancel time
+    float order_cancel_latency = 5066; // v7 & v8 --- Original comment: cancel send to cancel ack latency (in milliseconds)
+    google.protobuf.Timestamp order_working_dttm = 5067; // v7 & v8 --- Original comment: order send ack time (acknowleged working/new) (first exec report indicating the order is active)
+    google.protobuf.Timestamp order_closed_dttm = 5068; // v7 & v8 --- Original comment: order terminated ack time (first exec report indicating the order is in a terminal state;eg. cancelled, filled, rejected, etc)
+    string order_closed_text = 5069; // v7 & v8
+    int32 max_exposure_size = 5070; // v7 & v8 --- Original comment: maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    PublicSizeHandling public_size = 5071; // v7 & v8 --- Original comment: public order size handling: None=algo default; Randomize=randomize public size; MktSize=expose typical market size; FullSize=expose entire order size where possible; FullSizeR=randomize full size
+    YesNo can_overlap_cxl_repl = 5072; // v7 & v8 --- Original comment: can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
+    int32 progress_expose_time = 5073; // v7 & v8 --- Original comment: minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
+    ProgressRule_V7 progress_rule = 5074; // v7 & v8: Enums Do Not Match: V7=[enum,Name=ProgressRule,Values=Immediate=0,Twap=1,Vwap=2,TwapReset=3,VwapReset=4,FastReset=5,SlowReset=6,TwapAlpha=7,VwapAlpha=8,TwapAlphaC=9,VwapAlphaC=10,AutoComplete=11,AllowImmediate=12,Manual=13,SpdrPulse=14,KeepAlive=15], V8=[enum,Name=ProgressRule,Values=None=0,Twap=1,Vwap=2,TwapReset=3,VwapReset=4,FastReset=5,SlowReset=6,TwapAlpha=7,VwapAlpha=8,TwapAlphaC=9,VwapAlphaC=10,AutoComplete=11,AllowImmediate=12,Manual=13,SpdrPulse=14,IOC=15,FlashMakeTake=16] --- Original comment: Immediate = all size immediately available; TWAP = work from arrival to expiration; VWAP = work order not faster than participation rate
+    int32 progress_slice_cnt = 5075; // v7 & v8 --- Original comment: number of slices to use (default = 4 or 8) [max 20]
+    float vwap_participation = 5076; // v7 & v8 --- Original comment: target vwap participation rate (target % of trade activity)
+    AuctionResponder auction_responder = 5077; // v7 & v8 --- Original comment: if set, parent order can be an auction responder
+    float max_make_exch_fee = 5078; // v7 & v8 --- Original comment: maximum making exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    float max_take_exch_fee = 5079; // v7 & v8 --- Original comment: maximum taking exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    IncExchFee inc_take_exch_fee = 5080; // v7 & v8 --- Original comment: include exchange fee in probability and surface based take limit calculations
+    IncExchFee inc_make_exch_fee = 5081; // v7 & v8 --- Original comment: include exchange fee in probability and surface based make limit calculations
+    MakeExchRule make_exch_rule = 5082; // v7 & v8 --- Original comment: ActiveMaker exchange preference rule: 'MaxPart' = maximize participation; 'FeeOrder' = minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO; 'RoundRobin' will rotate through exch list
+    UPrcCxl cxl_uPrc_range = 5083; // v7 & v8 --- Original comment: cancel parent order if/when outside the uPrice range [ _Halt = also cancel if halted ]
+    float min_uBid = 5084; // v7 & v8 --- Original comment: [optional]
+    float max_uAsk = 5085; // v7 & v8 --- Original comment: [optional] (< $0.01 = none)
+    float min_option_px = 5086; // v7 & v8 --- Original comment: [optional] option price floor for tied to stock orders
+    int32 max_child_orders = 5087; // v7 & v8 --- Original comment: maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
+    int32 order_duration = 5088; // v7 & v8 --- Original comment: [optional] (number of seconds)
+    ReachRule_V7 take_reach_rule = 5089; // v7 & v8: Enums Do Not Match: V7=[enum,Name=ReachRule,Values=Immediate=0,Delayed=1,Passive=2,WeakOnly=3,RespondOnly=4,FullSize=5,ISOSweep=6,AllOrNone=7,QtyOrMore=8,UpToQty=9,AtMost25=10,AtMost50=11,MinTakeFee=12], V8=[enum,Name=ReachRule,Values=None=0,Delayed=1,Passive=2,WeakOnly=3,RespondOnly=4,FullSize=5,ISOSweep=6,AllOrNone=7,QtyOrMore=8,UpToQty=9,AtMost25=10,AtMost50=11,MinTakeFee=12,BalanceOrNone=13] --- Original comment: Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    double order_prc_limit = 5090; // v7 & v8 --- Original comment: Applies if LimitType = Prc[]
+    double order_ref_uPrc = 5091; // v7 & v8 --- Original comment: default=underlier.mid
+    float order_ref_delta = 5092; // v7 & v8 --- Original comment: default=option.delta
+    float order_ref_gamma = 5093; // v7 & v8 --- Original comment: default=option.gamma
+    float order_vol_limit = 5094; // v7 & v8 --- Original comment: Applies if LimitType = Vol[] [uses SR dividends and borrow rates]
+    float rate_override = 5095; // v7 & v8 --- Original comment: zero = ignore; > zero = override
+    float sdiv_override = 5096; // v7 & v8
+    string ddiv_override = 5097; // v7 & v8 --- Original comment: discrete dividend string override ([yearsToExpiry,divYears:divAmount,divYears:divAmount, ...])
+    OverrideCode override_code = 5098; // v7 & v8
+    double order_prc_offset = 5099; // v7 & v8 --- Original comment: default=0 [surface, relX and pegX limit offsets]
+    AlphaType take_alpha_type = 5100; // v7 & v8 --- Original comment: Applies if takeLimitClass = Probability
+    AlphaType make_alpha_type = 5101; // v7 & v8 --- Original comment: Applies if makeLimitClass = Probability
+    float take_alpha_factor = 5102; // v7 & v8 --- Original comment: [-2,+2] takeProbLimit = MAX(takeProbability, takeProbAvg + takeAlphaFactor * takeProbStd) [if AlphaType = Relative]
+    float make_alpha_factor = 5103; // v7 & v8 --- Original comment: [-2,+2] makeProbLimit = MAX(makeProbability, makeProbAvg + makeAlphaFactor * makeProbStd) [if AlphaType = Relative]
+    float take_probability = 5104; // v7 & v8 --- Original comment: takeProbLimit = takeProbability [if AlphaType = Static]
+    float make_probability = 5105; // v7 & v8 --- Original comment: makeProbLimit = makeProbability [if AlphaType = Static]
+    double take_surf_prc_offset = 5106; // v7 & v8 --- Original comment: default=0
+    float take_surf_vol_offset = 5107; // v7 & v8 --- Original comment: default=0
+    float take_surf_width_offset = 5108; // v7 & v8 --- Original comment: [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
+    double make_surf_prc_offset = 5109; // v7 & v8 --- Original comment: default=0
+    float make_surf_vol_offset = 5110; // v7 & v8 --- Original comment: default=0
+    float make_surf_width_offset = 5111; // v7 & v8 --- Original comment: [-1.x to +1.x]       -1.0 = -0.5 * avgMktWidth, +1.0 = +0.5 * avgMktWidth
+    float order_ref_event_mult = 5112; // v7 & v8
+    google.protobuf.Timestamp order_ref_event_dttm = 5113; // v7 & v8
+    string extern_hedge_ex_dest = 5114; // v7 & v8 --- Original comment: external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
+    string extern_hedge_params = 5115; // v7 & v8 --- Original comment: external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
+    SpdrOrderStatus spdr_order_status = 5116; // v7 & v8
+    SpdrCloseReason spdr_close_reason = 5117; // v7 & v8
+    SpdrRejectReason_V7 spdr_reject_reason = 5118; // v7 & v8: Enums Do Not Match: V7=[enum,Name=SpdrRejectReason,Values=None=0,AccntHold=1,UnknwnOpt=2,UnknwnStk=3,Expired=4,BadSize=5,BadOrdNum=6,DupOrdNum=7,BadVolPx=8,BadLmtType=9,BadMktPrc=10,BadLimit=11,SysReject=12,TestOrder=13,CustType=14,NoFirmPos=15,BadCent=16,NoSurface=17,UnknwnAcc=18,UnknwnRoot=19,OrdSpacing=20,BadOptMkt=21,BadStkMkt=22,SendFailed=23,BadExpose=24,BadPrem=25,NoOptLeg=26,Min2Leg=27,Max6Leg=28,BadStkSz=29,BadRatio=30,BadLegID=31,DupLegID=32,MixedRoots=33,OffMkt=34,CentVol=35,CentLeg=36,CentRng=37,CentSAtm=38,CentSpln=39,CentErr=40,NoRiskGrp=41,BadDDivs=42,NoPricer=43,CalcErr=44,TwapLate=45,TwapTime=46,NoAcctMap=47,UserUnk=48,UserHold=49,GTCHold=50,SysException=51,StkCrossed=52,BadOrdType=53,BadSSaleFlag=54,NoBorrow=55,NoFacilitateAccnt=56,UnknwnFut=57,MktNotOpen=58,NoRoutes=59,NoLocate=60,SSaleRstr=61,NoLegs=62,BadSide=63,BadLegKeyType=64,UnknwnRefStk=65,BadRefMktPrc=66,UnknwnRefFut=67,UnknwnRefAtm=68,BadRefVe=69,BadProdDef=70,MarNoRec=71,MarDisabled=72,MarMaxCn=73,MarMaxSh=74,MarOptMny=75,MarStkMny=76,MarRestricted=77,MarCrdtAcc=78,MarCrdtDay=79,MarTotExp=80,MarOddLot=81,MarFutMny=82,MarMaxFc=83,MarNoRec2=84,MarDisabled2=85,MarMaxCn2=86,MarMaxSh2=87,MarOptMny2=88,MarStkMny2=89,MarRestricted2=90,MarCrdtAcc2=91,MarCrdtDay2=92,MarTotExp2=93,MarOddLot2=94,MarFutMny2=95,MarMaxFc2=96,MarNoRec3=97,MarDisabled3=98,MarMaxCn3=99,MarMaxSh3=100,MarOptMny3=101,MarStkMny3=102,MarRestricted3=103,MarCrdtAcc3=104,MarCrdtDay3=105,MarTotExp3=106,MarOddLot3=107,MarFutMny3=108,MarMaxFc3=109,SpdrMaxSh=110,SpdrMaxFc=111,SpdrMaxCn=112,SpdrStkMny=113,SpdrFutMny=114,SpdrOptMny=115,SpdrHold=116,SpdrOptNv=117,SpdrDayCn=118,SpdrDayFc=119,SpdrDaySh=120,SpdrDayNv=121,SpdrFutPosDeAbs=122,SpdrFutDayDeAbs=123,SpdrFutDayDeBot=124,SpdrFutDayDeSld=125,SpdrExpPosDeAbs=126,SpdrExpDayDeAbs=127,SpdrExpDayDeBot=128,SpdrExpDayDeSld=129,UserRisk=130,UserMaxCn=131,UserMaxSh=132,UserOptMny=133,UserStkMny=134,UserFutMny=135,UserOptNv=136,UserDayCn=137,UserDayNv=138,UserDayFc=139,UserDaySh=140,USymFutMny=141,UserMaxFc=142,USymMaxFc=143,USymHold=144,USymMaxCn=145,USymMaxSh=146,USymOptMny=147,USymStkMny=148,USymOptNv=149,USymDayCn=150,USymDayNv=151,USymDayFc=152,USymDaySh=153,AccFrozen=154,ConfigErr=155,NoFMFuture=156,NoSpdrSymCtrl=157,NoSpdrSymExpCtrl=158,NoLinkage=159,NoProdDef=160,BadRiskID=161,InvldAutoH=162,LegChange=163,CxlSpacing=164,BadHedgeInst=165,TooLateToReduce=166,PendCxlRepl=167,InvldCxlRepl=168,InvldCxl=169,DmaReject=170,NoUPrc=171,TwapSteps=172,UnknwnFirm=173,NoSSaleFlg=174,MarExemptHold=175,AccntNotMM=176,BadSource=177,VwapLate=178,AlreadyFilled=179,UnknownSecKey=180,InvldGTD=181,FutRiskHold=182,NoFutRiskCtrl=183,SpdrDayAbsDD=184,SpdrDayAbsNV=185,SpdrDayAbsWtV=186,SpdrDayLnDD=187,SpdrDayLnNV=188,SpdrDayLnWtV=189,SpdrDayShDD=190,SpdrDayShNV=191,SpdrDayShWtV=192,UserDayAbsDD=193,UserDayAbsNV=194,UserDayAbsWtV=195,UserDayLnDD=196,UserDayLnNV=197,UserDayLnWtV=198,UserDayShDD=199,UserDayShNV=200,UserDayShWtV=201,USymDayAbsDD=202,USymDayAbsNV=203,USymDayAbsWtV=204,USymDayLnDD=205,USymDayLnNV=206,USymDayLnWtV=207,USymDayShDD=208,USymDayShNV=209,USymDayShWtV=210,CutoffTime=211,ParentShape=212,NoFaceSide=213,NoFaceLegs=214,AuctionSize=215,InvldClFirm=216,BadLegBrkr=217,NoLegBrkr=218,StkLegNotAllowed=219,BadLeadSide=220,UnknwnRefUnd=221,ExecEngineType=222,NoExchAvail=223,SelfTrade=224,PointValueErr=225,MarMaxDDLn=226,MarMaxDDSh=227,MarMaxDDAbs=228,MarMaxVeLn=229,MarMaxVeSh=230,MarMaxVeAbs=231,MarMaxWtVeLn=232,MarMaxWtVeSh=233,MarMaxWtVeAbs=234,CfMaxDdLn=235,CfMaxDdSh=236,CfMaxDdAbs=237,CfMaxVeLn=238,CfMaxVeSh=239,CfMaxVeAbs=240,CfMaxWtVeLn=241,CfMaxWtVeSh=242,CfMaxWtVeAbs=243,NoCfRisk=244,MarCollar=245,LmtCollar=246,RefUPrcErr=247,InvldUser=248,InvldAccnt=249,UnknownCrossId=250,WidUMkt=251,UMktCls=252,UPrcRange=253,RiskCollarRng=254], V8=[enum,Name=SpdrRejectReason,Values=None=0,AccntHold=1,UnknwnOpt=2,UnknwnStk=3,Expired=4,BadSize=5,BadOrdNum=6,DupOrdNum=7,BadVolPx=8,BadLmtType=9,BadMktPrc=10,BadLimit=11,SysReject=12,TestOrder=13,CustType=14,NoFirmPos=15,BadCent=16,NoSurface=17,UnknwnAcc=18,UnknwnRoot=19,OrdSpacing=20,BadOptMkt=21,BadStkMkt=22,SendFailed=23,BadExpose=24,BadPrem=25,NoOptLeg=26,Min2Leg=27,Max6Leg=28,BadStkSz=29,BadRatio=30,BadLegID=31,DupLegID=32,MixedRoots=33,OffMkt=34,CentVol=35,CentLeg=36,CentRng=37,CentSAtm=38,CentSpln=39,CentErr=40,NoRiskGrp=41,BadDDivs=42,NoPricer=43,CalcErr=44,TwapLate=45,TwapTime=46,NoAcctMap=47,UserUnk=48,UserHold=49,GTCHold=50,SysException=51,StkCrossed=52,BadOrdType=53,BadSSaleFlag=54,NoBorrow=55,NoFacilitateAccnt=56,UnknwnFut=57,MktNotOpen=58,NoRoutes=59,NoLocate=60,SSaleRstr=61,NoLegs=62,BadSide=63,BadLegKeyType=64,UnknwnRefStk=65,BadRefMktPrc=66,UnknwnRefFut=67,UnknwnRefAtm=68,BadRefVe=69,BadProdDef=70,StkOddLot=71,RiskException=72,MaxParticipation=73,MarExemptHold=78,NoMarRec=79,NullCounter=80,StkQty=81,FutQty=82,OptQty=83,StkDDelta=84,FutDDelta=85,OptDDelta=86,StkClsOnly=87,StkDisabled=88,FutClsOnly=89,FutDisabled=90,OptClsOnly=91,OptDisabled=92,OrderMargin=93,AccMargin=94,DayMargin=95,OpenExpose=96,DayLnDDelta=97,DayShDDelta=98,DayAbsDDelta=99,DayLnWtVega=100,DayShWtVega=101,DayAbsWtVega=102,DayLnNValue=103,DayShNValue=104,DayAbsNValue=105,DayLnVega=106,DayShVega=107,DayAbsVega=108,InvldStratAccnt=110,AccFrozen=154,ConfigErr=155,NoFMFuture=156,NoLinkage=159,NoProdDef=160,BadRiskID=161,InvldAutoH=162,LegChange=163,CxlSpacing=164,BadHedgeInst=165,TooLateToReduce=166,PendCxlRepl=167,InvldCxlRepl=168,InvldCxl=169,DmaReject=170,NoUPrc=171,TwapSteps=172,UnknwnFirm=173,NoSSaleFlg=174,AccntNotMM=176,BadSource=177,VwapLate=178,AlreadyFilled=179,UnknownSecKey=180,InvldGTD=181,NotSupported=182,CutoffTime=211,ParentShape=212,NoFaceSide=213,NoFaceLegs=214,AuctionSize=215,InvldClFirm=216,BadLegBrkr=217,NoLegBrkr=218,StkLegNotAllowed=219,BadLeadSide=220,UnknwnRefUnd=221,ExecEngineType=222,NoExchAvail=223,SelfTrade=224,PointValueErr=225,PointCurrencyErr=226,StkCollar=243,FutCollar=244,OptCollar=245,LmtCollar=246,RefUPrcErr=247,InvldUser=248,InvldAccnt=249,UnknownCrossId=250,WidUMkt=251,UMktCls=252,UPrcRange=253,RiskCollarRng=254,WrongSecType=255]
+    FirmType firm_type = 5119; // v7 & v8
+    OrderCapacity order_capacity = 5120; // v7 & v8
+    ShortSaleFlag ssale_flag = 5121; // v7 & v8 --- Original comment: primary short sale flag (single leg orders)
+    PositionType position_type = 5122; // v7 & v8 --- Original comment: primary position type (single leg orders)
+    int32 arrive_firm_pos = 5123; // v7 & v8 --- Original comment: firm position [resolved @ parent order arrival]
+    ShortSaleFlag arrive_sSale_flag = 5124; // v7 & v8 --- Original comment: primary short sale flag (single leg orders) [resolved @ parent order arrival; short if any of order size would be short]
+    string no_cross_group = 5125; // v7 & v8
+    string exch_trader_id = 5126; // v7 & v8
+    string large_trader_id = 5127; // v7 & v8
+    string trading_location = 5128; // v7 & v8
+    int32 firm_position = 5129; // v7 & v8
+    int32 open_sell_sh = 5130; // v7 & v8
+    int32 locate_quan = 5131; // v7 & v8 --- Original comment: available locate quantity (if selling short) @ arrival time
+    string locate_firm = 5132; // v7 & v8 --- Original comment: locate firm (usually an MPID)
+    string locate_pool = 5133; // v7 & v8 --- Original comment: locate pool @ locate firm
+    string locate_source = 5134; // ONLY V7: [string,Length=12,Alias=NA,MetaType=NA] --- Original comment: (deprecated) locate ID code (if any)
+    string clearing_firm = 5135; // v7 & v8 --- Original comment: clearing firm [from AccountConfig; may not match parent execution]
+    string clearing_accnt = 5136; // v7 & v8 --- Original comment: clearing firm [from AccountConfig; may not match parent execution]
+    FlipType clearing_flip_type = 5137; // ONLY V7: [enum,Name=FlipType,Values=None=0,CMTA=1,Giveup=2,QSR=3,NSCC_Flip=4,DVP=5,BrkrAccnt=6] --- Original comment: Clearing Flip Type [from ParentOrder then AccountConfig; may not match parent execution]
+    string clearing_flip_firm = 5138; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: Clearing Flip Firm [from ParentOrder then AccountConfig; may not match parent execution]
+    string clearing_flip_accnt = 5139; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA] --- Original comment: Clearing Flip Account [from ParentOrder then AccountConfig; may not match parent execution]
+    CatReportType cat_reportable = 5140; // v7 & v8 --- Original comment: CAT reportable type (from AccountConfig.catReportable)
+    string cat_src_brkr_iMID = 5141; // v7 & v8 --- Original comment: B/D firm IMID (only exists if a B/D is the source) (supplied by FINRA fbo client) (from AccountConfig.catBrkrIMID)
+    CatAccntType cat_src_accnt_type = 5142; // v7 & v8 --- Original comment: CAT account holder type (from AccountConfig.catSrcAccntType [Eqt, Opt])
+    CatFirmType cat_src_firm_type = 5143; // v7 & v8 --- Original comment: CAT source type (from AccountConfig.catBrkrFirmType [Eqt, Opt])
+    CatDeptType cat_dest_dept_type = 5144; // v7 & v8 --- Original comment: Infer from ParentOrder Agency or ATS (BlockInitiate/BlockRespond)
+    string cat_accnt = 5145; // v7 & v8 --- Original comment: CAT Firm Designated ID
+    string cat_brkr_accnt = 5146; // v7 & v8 --- Original comment: Brokers CAT Firm Designated ID
+    string cat_accnt_origin_code = 5147; // ONLY V7: [string,Length=4,Alias=NA,MetaType=NA] --- Original comment: CAT exchange origin code field.  cust, firm, market maker, etc
+    int32 cum_fill_quantity = 5148; // v7 & v8
+    double avg_fill_price = 5149; // v7 & v8
+    double avg_fill_uPrice = 5150; // v7 & v8
+    int32 leaves_qty = 5151; // v7 & v8
+    int64 last_fill_number = 5152; // v7 & v8
+    google.protobuf.Timestamp last_fill_dttm = 5153; // v7 & v8
+    string review_routing_code = 5154; // ONLY V7: [text1]
+    string review_cl_ord_id = 5155; // v7 & v8
+    string review_orig_cl_ord_id = 5156; // v7 & v8
+    string review_cancel_cl_ord_id = 5157; // v7 & v8
+    int32 review_order_size = 5158; // v7 & v8
+    int32 review_order_active_size = 5159; // v7 & v8
+    int32 review_cum_fill_quantity = 5160; // v7 & v8
+    double review_avg_fill_price = 5161; // v7 & v8
+    int32 review_leaves_qty = 5162; // v7 & v8
+    SpdrOrderStatus review_order_status = 5163; // v7 & v8
+    int32 progress_timeout = 5164; // ONLY V7: [int] --- Original comment: cancel if [optional] (number of milliseconds)
+    MaxProgress max_progress = 5165; // v7 & v8
+    string max_progress_detail = 5166; // v7 & v8
+    google.protobuf.Timestamp max_progress_time = 5167; // v7 & v8
+    int32 num_child_orders = 5168; // v7 & v8 --- Original comment: [is390Eligible] (numChildOrders > 0 if parent order is 390 Eligible and also generated at least 1 child order)
+    int32 num_reg_count = 5169; // v7 & v8 --- Original comment: prototype field - SPR-29209
+    double nbbo_bid = 5170; // v7 & v8 --- Original comment: best nbbo bid @ arrival time
+    double nbbo_ask = 5171; // v7 & v8 --- Original comment: best nbbo ask @ arrival time
+    int32 nbbo_bid_sz = 5172; // v7 & v8 --- Original comment: public cumulative bid size @ nbboBid
+    int32 nbbo_ask_sz = 5173; // v7 & v8 --- Original comment: public cumulative ask size @ nbboAsk
+    MktStance mkt_stance = 5174; // v7 & v8
+    string parent_strategy = 5175; // v7 & v8 --- Original comment: client strategy [usually client supplied]
+    TickerKey ticker = 5176; // v7 & v8 --- Original comment: underlier (option only)
+    float tick_value = 5177; // v7 & v8 --- Original comment: $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 5178; // v7 & v8 --- Original comment: $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 5179; // v7 & v8
+    float notional_mult = 5180; // v7 & v8
+    string security_iD = 5181; // v7 & v8 --- Original comment: from ProductDefinition.securityID
+    string security_desc = 5182; // v7 & v8 --- Original comment: from ProductDefinition.securityDesc
+    string product_group = 5183; // v7 & v8 --- Original comment: from ProductDefinition.productGroup
+    ProductClass product_class = 5184; // v7 & v8 --- Original comment: from ProductDefinition.productClass
+    ExpiryKey und_key = 5185; // v7 & v8 --- Original comment: from ProductDefinition.undKey
+    SpdrKeyType und_type = 5186; // v7 & v8 --- Original comment: from ProductDefinition.undType
+    string u_sec_desc = 5187; // v7 & v8 --- Original comment: [options only] underlier security description
+    PriceFormat price_format = 5188; // v7 & v8
+    string user_data1 = 5189; // v7 & v8 --- Original comment: client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 5190; // v7 & v8 --- Original comment: client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    google.protobuf.Timestamp timestamp = 5191; // v7 & v8
+    InclExclDisclose include_sRNetwork = 5192; // v7 & v8
+    repeated DirectedCounterParty directed_counter_party = 5193;
+    repeated FaceLegs face_legs = 5196;
+    repeated FaceSide face_side = 5230;
+    repeated OrderLegs order_legs = 5264;
+}
+
+

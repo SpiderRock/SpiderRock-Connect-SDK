@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveAtmModel {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        string model = 11; // model archive name
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlying stock key that this option expiration attaches to
+    float years = 103; // time to expiration (in years)
+    float u_mid = 106;
+    float u_mid_ema1 = 109;
+    float u_mid_ema2 = 112;
+    float u_mid_ema3 = 115;
+    float u_mid_ema4 = 118;
+    float cp_adj = 121; // can be either sdiv or uPrcRatio
+    float cp_adj_ema1 = 124;
+    float cp_adj_ema2 = 127;
+    float cp_adj_ema3 = 130;
+    float cp_adj_ema4 = 133;
+    CPAdjType cp_adj_type = 136;
+    float atm_vol = 139; // atm vol (xAxis = 0)
+    float atm_vol_ema1 = 142;
+    float atm_vol_ema2 = 145;
+    float atm_vol_ema3 = 148;
+    float atm_vol_ema4 = 151;
+    float v_width = 154; // vol width
+    float v_width_ema1 = 157;
+    float v_width_ema2 = 160;
+    float v_width_ema3 = 163;
+    float v_width_ema4 = 166;
+    float bid_size = 169; // inputs: bidSize / bidSizeEma4, bidSizeEma1 / bidSizeEma4, bidSizeEma2 / bidSizeEma4, bidSizeEma3 / bidSizeEma4
+    float bid_size_ema1 = 172;
+    float bid_size_ema2 = 175;
+    float bid_size_ema3 = 178;
+    float bid_size_ema4 = 181;
+    float ask_size = 184;
+    float ask_size_ema1 = 187;
+    float ask_size_ema2 = 190;
+    float ask_size_ema3 = 193;
+    float ask_size_ema4 = 196;
+    float bid_prt_size = 199; // bid side print size (most recent time step)
+    float bid_prt_size_ema1 = 202;
+    float bid_prt_size_ema2 = 205;
+    float bid_prt_size_ema3 = 208;
+    float bid_prt_size_ema4 = 211;
+    float ask_prt_size = 214; // ask side print size (most recent time step)
+    float ask_prt_size_ema1 = 217;
+    float ask_prt_size_ema2 = 220;
+    float ask_prt_size_ema3 = 223;
+    float ask_prt_size_ema4 = 226;
+    string idx_name = 229;
+    float u_mid_idx = 232;
+    float u_mid_idx_ema1 = 235;
+    float u_mid_idx_ema2 = 238;
+    float u_mid_idx_ema3 = 241;
+    float u_mid_idx_ema4 = 244;
+    float atm_vol_idx = 247; // atm vol (xAxis = 0)
+    float atm_vol_idx_ema1 = 250;
+    float atm_vol_idx_ema2 = 253;
+    float atm_vol_idx_ema3 = 256;
+    float atm_vol_idx_ema4 = 259;
+    float vxx_prc = 262; // atm vol (xAxis = 0)
+    float vxx_prc_ema1 = 265;
+    float vxx_prc_ema2 = 268;
+    float vxx_prc_ema3 = 271;
+    float vxx_prc_ema4 = 274;
+    float vix_prc = 277; // atm vol (xAxis = 0)
+    float vix_prc_ema1 = 280;
+    float vix_prc_ema2 = 283;
+    float vix_prc_ema3 = 286;
+    float vix_prc_ema4 = 289;
+    float vxs_prc = 292; // atm vol (xAxis = 0)
+    float vxs_prc_ema1 = 295;
+    float vxs_prc_ema2 = 298;
+    float vxs_prc_ema3 = 301;
+    float vxs_prc_ema4 = 304;
+    int32 ema_counter = 307;
+    float u_avg_daily_vlm = 310; // underlier average daily share volume
+    float atm_phi = 313; // surface phi @ ATM (xAxis=0)
+    float atm_vega = 316; // surface vega @ ATM (xAxis=0)
+    float p_width = 319; // prc width
+    TradingSession trading_session = 368; // trading session this surface is from
+    TradeableStatus tradeable_status = 325; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    float cp_adj_p10 = 328; // cpAdj forward predict (S10)
+    float atm_vol_p10 = 331; // atmVol forward predict (S10)
+    float cp_adj_p60 = 334; // cpAdj forward predict (S60)
+    float atm_vol_p60 = 337; // atmVol forward predict (S60)
+    int32 counter = 340;
+    google.protobuf.Timestamp timestamp = 343;
+    float u_mid_f10 = 346;
+    float cp_adj_f10 = 349;
+    float atm_vol_f10 = 352; // atm vol (one step forward in time) [step is 10 seconds or whenever a large enough change occurs]
+    google.protobuf.Timestamp timestamp_f10 = 355;
+    float u_mid_f60 = 358;
+    float cp_adj_f60 = 361;
+    float atm_vol_f60 = 364; // atm vol (one step forward in time) [step is 60 seconds or whenever a large enough change occurs]
+    google.protobuf.Timestamp timestamp_f60 = 367;
+}
+
+

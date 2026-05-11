@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message StockExchBookQuote {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        StkExch exch = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float ask_price1 = 100; // best ask price
+    float ask_price2 = 103; // 2nd best ask price
+    float ask_price3 = 106; // 3rd best ask price
+    float ask_price4 = 109; // 4th best ask price
+    int32 ask_size1 = 112; // ask size in shares (aggregate at best price)
+    int32 ask_size2 = 115; // ask size in shares (aggregate at 2nd best price)
+    int32 ask_size3 = 118; // ask size in shares (aggregate at 3rd best price)
+    int32 ask_size4 = 121; // ask size in shares (aggregate at 4th best price)
+    float bid_price1 = 124; // best bid price
+    float bid_price2 = 127; // 2nd best bid price
+    float bid_price3 = 130; // 3rd best bid price
+    float bid_price4 = 133; // 4th best bid price
+    int32 bid_size1 = 136; // bid size in shares (aggregate at best price)
+    int32 bid_size2 = 139; // bid size in shares (aggregate at 2nd best price)
+    int32 bid_size3 = 142; // bid size in shares (aggregate at 3rd best price)
+    int32 bid_size4 = 145; // bid size in shares (aggregate at 4th best price)
+    int64 net_timestamp = 148; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+}
+
+

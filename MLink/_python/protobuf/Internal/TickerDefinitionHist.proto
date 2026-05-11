@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message TickerDefinitionHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11; // all trading dates
+    }
+
+    message Exchange {
+        
+        StkExch stk_exch = 332;
+        TickerKey ticker = 335;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100; // Security ID number from the source - Vendor, SR, Feed
+    SymbolType symbol_type = 106; // symbol type
+    string name = 109; // Symbol name
+    string country = 112; // ISO Issuer Country Code
+    Currency primary_currency = 115;
+    RateSource rate_source = 117;
+    float par_value = 120; // Security Parvalue
+    string par_value_currency = 122; // Security Parvalue currency
+    float point_value = 125;
+    Currency point_currency = 128;
+    PriceFormat price_format = 130; // PriceFormat: ex: NMS_Penny, NMS_HalfPenny
+    float min_tick_size = 133;
+    PrimaryExchange primary_exch = 140; // Primary Exchange
+    int64 alt_iD = 143; // Alt Security ID number
+    string mic = 145; // ISO Market Identification Code
+    string mic_seg = 147; // ISO Market Indentification Segment Code
+    string symbol = 150; // trading symbol (w/o dot notation)
+    string issue_class = 155; // issue class of stock symbol.  if no issue class field will be blank.
+    int64 shares_outstanding = 160; // symbol shares outstanding
+    string cik = 182; // Central Index Key (US specific)
+    string isin = 200; // ISIN code
+    string figi = 205; // FIGI code
+    int32 roundlot = 225; // round lot
+    TapeCode tape_code = 280; // SIP Tape Code
+    YesNo has_options = 300; // Has Options flag
+    int32 num_options = 302; // total number of listed options
+    TickerKey regional_composite_ticker = 320; // regional composite ticker - set on European contributor products only
+    string default_root = 342; // Default Root selected for Index Options
+    repeated Exchange exchange = 330;
+}
+
+

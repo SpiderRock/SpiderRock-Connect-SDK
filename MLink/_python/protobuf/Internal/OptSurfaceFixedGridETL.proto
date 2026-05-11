@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 4
+    Inputs: OptExpiryPriceETL, OptCallPutPriceETL, PricingGridETL
+    CalcEngine: SurfaceRunner
+*/    
+message OptSurfaceFixedGridETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+        int32 days = 13; // days to expiration [5, 21, 42, 63, 84, 105, 126, 189, 252, 378, 504]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float i_eMove = 100; // Implied earnings move (from LiveSurfaceTerm.eMove)
+    float h_eMove = 103; // Historical earnings move (from LiveSurfaceTerm.eMoveHist)
+    float vol_d40 = 106; // xde = -40		(from LiveSurfaceCurve.surfaceType = 'Live')
+    float vol_d30 = 109; // xde = -30
+    float vol_d20 = 112; // xde = -20
+    float vol_d10 = 115; // xde = -10
+    float vol_aTM = 118; // xde = 0
+    float vol_u10 = 121; // xde = +10
+    float vol_u20 = 124; // xde = +20
+    float vol_u30 = 127; // xde = +30
+    float vol_u40 = 130; // xde = +40
+    float v_width = 133; // atm volatility width (Live)
+    float lo_years = 136; // LiveSurfaceCurve.years before days	[-1 = none]
+    float hi_years = 139; // LiveSurfaceCurve.years after days	[-1 = none]
+    google.protobuf.Timestamp timestamp = 142; // surface fit timestamp
+}
+
+

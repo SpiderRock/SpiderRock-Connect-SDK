@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserPoolAccess {
+    message PKey {
+        
+        string user_name = 10;
+        UserPool user_pool = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string last_pwd_change_location = 100;
+    google.protobuf.Timestamp last_pwd_change_timestamp = 103; // timestamp of last password modification
+    string last_jwt_access_location = 106;
+    google.protobuf.Timestamp last_jwt_access_timestamp = 109; // timestamp of last JWT access
+}
+
+

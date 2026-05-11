@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message FutureBarData {
+    message PKey {
+        
+        string symbol = 10; // Future display symbol
+        ExpiryKey exp_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string bid = 100; // Bid value
+    string ask = 101; // Ask value
+    string move_prc = 102; // Daily move price
+    string move_pct = 103; // Daily move percentage
+}
+
+

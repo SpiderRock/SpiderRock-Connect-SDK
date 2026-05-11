@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrEngineStatus {
+    message PKey {
+        
+        string server_code = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 app_id = 100;
+    string stripe = 103;
+    ExecEngineMode exec_engine_mode = 106;
+    SysRealm sys_realm = 109;
+    SysEnvironment sys_environment = 112;
+    int32 process_id = 115;
+    string machine_name = 118;
+    string engine_error = 121;
+    SpdrEngineState spdr_engine_state = 124;
+    AutoEngineState auto_engine_state = 127;
+    EngineFeedState eqt_feed_state = 130;
+    EngineFeedState fut_feed_state = 133;
+    EngineFeedState eqt_opt_feed_state = 136;
+    EngineFeedState fut_opt_feed_state = 139;
+    float avg_stk_quote_prob_rate = 142; // number of messages per second (trailing 1 seconds)
+    float avg_fut_quote_prob_rate = 145; // number of messages per second (trailing 1 seconds)
+    float avg_opt_quote_prob_rate = 148; // number of messages per second (trailing 1 seconds)
+    float avg_exch_auction_mLeg_rate = 151; // number of messages per second (trailing 1 seconds)
+    float avg_exch_auction_single_rate = 154; // number of messages per second (trailing 1 seconds)
+    float parent_order_message_rate = 157; // number of messages per second (trailing 60 seconds)
+    float parent_limit_message_rate = 160; // number of messages per second (trailing 60 seconds)
+    int32 num_street_sessions = 163;
+    int32 num_gateway_sessions = 166;
+    float avg_gateway_msgs_sent = 169; // number of messages per second (trailing 5 seconds)
+    float avg_gateway_msgs_rcvd = 172; // number of messages per second (trailing 5 seconds)
+    int64 cum_gateway_msgs_sent = 175;
+    int64 cum_gateway_msgs_rcvd = 178;
+    int32 num_auto_hedge_symbols = 181;
+    YesNo warmup_executions_oK = 184;
+    google.protobuf.Timestamp engine_start_dttm = 187;
+    int32 num_active_stk_brokers = 190;
+    int32 num_active_fut_brokers = 193;
+    int32 num_active_opt_brokers = 196;
+    int32 num_active_dma_brokers = 199;
+    int32 num_active_mLeg_brokers = 202;
+    int32 num_parent_orders = 205;
+    int32 num_parent_rejects = 208;
+    google.protobuf.Timestamp last_parent_order = 211;
+    google.protobuf.Timestamp last_parent_reject = 214;
+    google.protobuf.Timestamp timestamp = 217;
+}
+
+

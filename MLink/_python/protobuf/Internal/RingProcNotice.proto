@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RingProcNotice {
+    message PKey {
+        
+        string ring_name = 10; // name of a ring managed by a process MMREnqueue endpoint (eg. MMR.Proc.003456)
+        int32 process_iD = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 app_iD = 100;
+    string app_name = 103;
+    RingProtocol ring_proto = 106;
+    int32 geom_seg_count = 119; // (optional) FIX may supply this value, MBUS/MKT will allow MMRHost to control it and return it as an ack = Yes
+    uint32 geom_seg_sz = 120; // (optional) FIX may supply this value, MBUS/MKT will allow MMRHost to control it and return it as an ack = Yes
+    uint32 geom_seg_cap = 121;
+    uint32 geom_seg_pay_off = 122;
+    int32 geom_start_off = 123;
+    uint32 u_sN = 115; // update sequence number
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

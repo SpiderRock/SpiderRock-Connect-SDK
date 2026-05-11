@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 2
+    Inputs: OptExpiryPriceETL, OptCallPutPriceETL, StockDividendForecastETL, RateCurveETL
+    CalcEngine: PricingGridRunner
+*/    
+message ImpliedTickerDividendsETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+    message DateAmt {
+        
+        DateKey date = 106; // dividend exDiv date
+        float amount = 109; // dividend amount
+        DateKey init_date = 112; // initial (pre-fit) dividend date
+        float init_amount = 115; // initial (pre-fit) dividend amount
+        DivFitResult fit_result = 118; // dividend fit result (if dividend is adjustable)
+        YesNo is_est_date = 121;
+        YesNo is_est_amount = 124;
+        DivKind kind = 127; // dividend type
+        DivFreq freq = 130;
+        Currency currency = 133;
+        DivSource source = 136; // dividend source
+        DivOverrideSource override_src = 139; // dividend override source if any
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string text = 142; // extra text (if any)
+    google.protobuf.Timestamp timestamp = 145;
+    repeated DateAmt date_amt = 103;
+}
+
+

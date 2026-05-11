@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ActivFeedSubscriptionControl {
+    message PKey {
+        
+        string activ_topic_id = 10; // -- Activ Financial Unique Topic ID for subscription
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey native_exch_key = 102; // -- Used to capture TickerKey for stock subscriptions, ExpiryKey for Futures or OptionKey for Options
+    TickerKey primary_tKey = 100; // -- Primary Ticker Key that the contributors roll into. NOTE - Wildcard ANY-ANY-* used to capture products without composite
+    SpdrKeyType sec_type = 101; // -- Can be Option, Stock, Future
+    StkExch stk_exch = 103; // -- Will only be set on Stock subscriptions
+    OptExch opt_exch = 104; // -- Will only be set on Option subscriptions
+    FutExch fut_exch = 105; // -- Will only be set on Future subscriptions
+    ActivPublishControl activ_publish_control = 109; // -- Tells the FH if we should publish exchange, composite or both for Option (equity, index and fut options) quotes
+    int64 update_count = 108; // -- Total number of updates received on this subscription
+    YesNo is_delayed = 110; // -- Should this subscription control use the delayed feeds or live
+    google.protobuf.Timestamp timestamp = 107;
+}
+
+

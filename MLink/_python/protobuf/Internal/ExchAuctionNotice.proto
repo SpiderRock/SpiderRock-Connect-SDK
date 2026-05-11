@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ExchAuctionNotice messages are published at the start of an exchange auction and represent a consolidated auction notice feed.
+*/    
+message ExchAuctionNotice {
+    message PKey {
+        
+        OptExch auction_exch = 10; // exchange handling the auction
+        string auction_ex_dest = 11; // external exDest of auction (usually means auction is off-exchange)
+    }
+
+    message Legs {
+        
+        OptionKey leg_sec_key = 166;
+        SpdrKeyType leg_sec_type = 169;
+        BuySell leg_side = 172;
+        uint32 leg_ratio = 175; // leg ratio (1, 2, etc)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exch_auction_id = 100; // last published auction id for the auction exchange
+    string exch_auction_type = 103;
+    AuctionEvent auction_event = 106;
+    NoticeShape auction_shape = 109;
+    AuctionType auction_type = 112;
+    OptionKey sec_key = 115;
+    SpdrKeyType sec_type = 118;
+    BuySell cust_side = 121; // client/imbalance side of auction; if known [responder should be opposite side]
+    int32 cust_size = 124; // size available to trade
+    double cust_price = 127; // cust price (can be positive or negative)
+    YesNo is_cust_price_valid = 130;
+    int64 auction_start_timestamp = 132; // auction start timestamp
+    int32 auction_duration = 133; // expected auction / imbalance action duration (ms)
+    int32 min_response_size = 136; // minimum size of the response order
+    int32 matched_size = 138; // size already matched (may still be available to trade at a better price)
+    FirmType cust_firm_type = 139; // firm type of the client side of auction (if available)
+    string member_mPID = 142; // exchange member initiating auction (if available)
+    string cust_accnt = 145; // client account designation (if known)
+    string other_detail = 148; // additional auction detail (exchange specific)
+    int64 src_timestamp = 151; // source timestamp (nanoseconds) if available
+    int64 net_timestamp = 154; // network timestamp message arrival @ direct exchange gateway
+    int64 dgw_timestamp = 157; // network timestamp mbus message send @ direct exchange gateway
+    google.protobuf.Timestamp timestamp = 160;
+    repeated Legs legs = 163;
+}
+
+

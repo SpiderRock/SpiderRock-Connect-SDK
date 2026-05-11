@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrOptPrintCluster {
+    message PKey {
+        
+        OptionKey okey = 10;
+        int32 print_cluster_iD = 11; // unique SR Print Cluster ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float nbbo_bid_prc1 = 100; // best (max) bid price during print event
+    float nbbo_ask_prc1 = 103; // best (min) ask price during print event
+    int32 nbbo_bid_size1 = 106; // max cumulative size @ best bid price
+    int32 nbbo_ask_size1 = 109; // max cumulative size @ best ask price
+    int64 nbbo_bid_mask1 = 350; // sum of masks @ best bid price
+    int64 nbbo_ask_mask1 = 351; // sum of masks @ best ask price
+    float nbbo_bid_prc2 = 118; // 2nd best bid price during print event
+    float nbbo_ask_prc2 = 121; // 2nd best ask price during print event
+    int32 nbbo_bid_size2 = 124; // max cumulative size @ 2nd best bid price
+    int32 nbbo_ask_size2 = 127; // max cumulative size @ 2nd best ask price
+    int64 nbbo_bid_mask2 = 352; // sum of masks @ 2nd best bid price
+    int64 nbbo_ask_mask2 = 353; // sum of masks @ 2nd best ask price
+    float avg_bid_size = 136; // 10 minute EMA average of cum bid size @ best price level
+    float avg_ask_size = 139; // 10 minute EMA average of cum ask szie @ best price level
+    float avg_mkt_width = 142; // 10 minute EMA average of bid/ask width
+    float min_surf_vol = 145;
+    float min_surf_prc = 148;
+    float max_surf_vol = 151;
+    float max_surf_prc = 154;
+    float de = 157;
+    float ga = 160;
+    float ve = 163;
+    float yrs = 166;
+    double und_bid_prc1 = 169; // best (max) bid price during print event
+    double und_ask_prc1 = 172; // best (min) ask price during print event
+    int32 und_bid_size1 = 175; // max cumulative size @ best bid price
+    int32 und_ask_size1 = 178; // max cumulative size @ best ask price
+    int64 und_bid_mask1 = 354; // sum of masks @ best bid price
+    int64 und_ask_mask1 = 355; // sum of masks @ best ask price
+    double und_bid_prc2 = 187; // 2nd best bid price during print event
+    double und_ask_prc2 = 190; // 2nd best ask price during print event
+    int32 und_bid_size2 = 193; // max cumulative size @ 2nd best bid price
+    int32 und_ask_size2 = 196; // max cumulative size @ 2nd best ask price
+    int64 und_bid_mask2 = 356; // sum of masks @ 2nd best bid price
+    int64 und_ask_mask2 = 357; // sum of masks @ 2nd best ask price
+    float und_avg_bid_size = 205; // 10 minute EMA average of cum bid size @ best price level
+    float und_avg_ask_size = 208; // 10 minute EMA average of cum ask szie @ best price level
+    float und_avg_mkt_width = 211; // 10 minute EMA average of bid/ask width
+    float und_avg_realized_vol = 214; // 10 minute EMA average realized volatility of underlier
+    double und_prt_min_price = 217;
+    double und_prt_max_price = 220;
+    double und_prt_avg_price = 223; // volume weighted average print price
+    int32 und_prt_print_cnt = 226; // number of underlier print reports received up in cluster window
+    int32 und_prt_print_cum_size = 229; // cum size of all underlier prints
+    int64 und_prt_print_exch_mask = 358; // exch mask of all exchanges w/prints
+    int32 und_prt_print_cum_size_iSO = 235; // cum size of all ISO sweep prints
+    int64 und_prt_print_exch_mask_iSO = 359; // exch mask of all exchanges w/sweep prints
+    PrtSide prt_side = 241; // option print cluster side
+    float ini_print_price = 244; // initial print price (first print in cluster)
+    float min_print_price = 247;
+    float max_print_price = 250;
+    float avg_print_price = 253; // volume weighted average print price
+    int32 print_cnt = 256; // number of option print reports received up in cluster window
+    int32 print_cum_size = 259; // cum size of all prints
+    int64 print_exch_mask = 360; // exch mask of all exchanges w/prints
+    int32 print_cum_size_iSO = 265; // cum size of all ISO sweep prints
+    int64 print_exch_mask_iSO = 361; // exch mask of all exchanges w/sweep print types
+    int32 prt_cum_size_auction = 271; // cum size of all auction prints
+    int64 prt_exch_mask_auction = 362; // exch mask of all exchanges w/auction print types
+    int64 net_timestamp_st = 277; // (SR) net timestamp of the first print message in the sweep set
+    int64 net_timestamp_en = 280; // (SR) net timestamp of the final print message in the sweep set
+    int64 src_timestamp_st = 283; // source timestamp of the first print message in the sweep set
+    int64 src_timestamp_en = 286; // source timestamp of the final print message in the sweep set
+    OptExch opt_exch_auction = 289; // first exchange advertising and exposure auction (if any)
+    int32 num_auction_exch = 292; // number of exchange advertising exposure auctions during the event
+    int64 auction_exch_mask = 363; // exch mask of all exchanges advertising exposure auctions during event
+    int32 cum_auction_size = 298; // cumulative advertized size of exposure auctions during event
+    int64 src_timestamp_auction = 301; // src timestamp from the first exchange exposure auction advertised (if any)
+    int64 net_timestamp_auction = 304; // net timestamp from the first exchange exposure auction advertised (if any)
+    float fwd_nbbo_price_m1 = 307; // projected NBBO price (T+1) minute conditional on print cluster
+    float fwd_nbbo_price_m10 = 310; // projected NBBO price (T+10) minutes conditional on print cluster
+    float fwd_uPrc_m1 = 313; // projected underlier price (T+1)
+    float fwd_uPrc_m10 = 316; // projected underlier price (T+10)
+    float nbbo_bid_price_m1 = 319; // nbbo market T+1 minute
+    float nbbo_ask_price_m1 = 322;
+    float surf_prc_m1 = 325;
+    float u_bid_m1 = 328;
+    float u_ask_m1 = 331;
+    float nbbo_bid_price_m10 = 334; // nbbo market T+10 minutes
+    float nbbo_ask_price_m10 = 337;
+    float surf_prc_m10 = 340;
+    float u_bid_m10 = 343;
+    float u_ask_m10 = 346;
+    google.protobuf.Timestamp timestamp = 349;
+}
+
+

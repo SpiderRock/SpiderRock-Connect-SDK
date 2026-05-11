@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrChildOrderPending {
+    message PKey {
+        
+        int64 cl_ord_id = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string init_pending_reason = 100; // init child order pending reason
+    int32 child_version = 103; // child order instance number (1 = original order; 2 = 1st cancel/replace, etc)
+    int32 record_version = 106; // record instance number (1 = original record; 2 = 1st update, etc)
+    RecordSource record_source = 109;
+    int64 risk_group_id = 112; // parent order risk group Id
+    int64 parent_number = 115; // order number from parent order
+    int64 base_parent_number = 118; // base order number (first parent number in chain)
+    SpdrSource spdr_source = 121;
+    int64 grouping_code = 124;
+    string street_cl_ord_id = 127; // usually clOrdID.X16 but can be different if street gateway was translating clOrdId
+    string street_order_id = 130; // street side order ID (for canceling order)
+    string accnt = 133; // primary (customer side) account
+    string client_firm = 136; // primary (customer side) client firm
+    string user_name = 139;
+    SpdrOrderShape child_shape = 142;
+    RouteType route_type = 145;
+    OptionKey sec_key = 148;
+    SpdrKeyType sec_type = 151; // note: MLeg and Stock both mean only the TickerKey portion of the secKey is valid
+    ExpiryKey fkey = 154; // underlier (if option on future); reference future (if trade at settlement; priceType != None)
+    TickerKey ticker = 157; // base stock key (all orders)
+    string routing_code = 160; // routing code order was sent on
+    int32 order_size = 163;
+    BuySell order_side = 166;
+    PriceType price_type = 169;
+    double order_price = 172;
+    double exch_order_price = 175; // eg. iLink price
+    double exch_display_factor = 178;
+    int32 order_exch = 181;
+    string order_ex_dest = 293;
+    TimeInForce time_in_force = 187;
+    google.protobuf.Timestamp order_expire_dttm = 190;
+    YesNo mass_qte = 193;
+    YesNo iso_sweep = 196;
+    YesNo make_only = 199;
+    YesNo do_not_route = 202;
+    SpdrOrderType order_type = 205;
+    TradingSession trading_session = 208;
+    string child_order_handling = 211;
+    ChildHandler algo_handler = 214; // algo handler for this child order
+    OrderStatus order_status = 217;
+    ChildRejectReason reject_reason = 220;
+    string order_cancel_text = 223; // cancel reason (from algo handler)
+    google.protobuf.Timestamp order_cancel_dttm = 226; // order cancel time
+    ChildCancelReason order_cancel_reason = 229;
+    RoutePriority order_cancel_priority = 232;
+    google.protobuf.Timestamp order_working_dttm = 235; // order send ack time (acknowleged working/new) (first exec report indicating the order is active)
+    google.protobuf.Timestamp order_closed_dttm = 238; // order terminated ack time (first exec report indicating the order is in a terminal state;eg. cancelled, filled, rejected, etc)
+    YesNo order_cancel_flag = 241; // indicated the algo handler attempted to cancel the order while it was in a working state (does not necessarily mean that a cancel message was generated and send)
+    string last_street_text = 244; // text message on the (initial) exec report terminating the order sequence
+    int32 cum_fill_quantity = 247; // cum fill quantity (SUM: ExecReport.lastQuantity)
+    double avg_fill_price = 250; // avg fill price (AVG: ExecReport.lastPrice)
+    int32 cum_fill_qty_exec = 253; // from ExecReport.cumFillQuantity
+    double avg_fill_prc_exec = 256; // from ExecReport.avgFillPrice
+    int32 last_msg_seq_num = 259; // largest execReport.msgSeqNum process for this child order
+    int32 num_executions = 262; // num ExecReports w/lastQuantity > 0
+    int32 leaves_qty = 265;
+    google.protobuf.Timestamp timestamp = 268;
+    int64 face_cl_ord_id = 271; // face side.clOrdId (alternate clOrdID)
+    CrossHandling face_cross_handling = 274;
+    YesNo face_has_best_price = 277;
+    double face_best_order_price = 280; // best limit price of facilitation side
+    FaceParticipation face_participation = 283; // min or max facilitation participation
+    int32 face_cum_fill_quantity = 286; // cum fill quantity (SUM: faceSide.lastQuantity) [all allocation sides]
+    double face_avg_fill_price = 289; // avg fill price (SUM: faceSide.avgFillPrice * faceSide.lastQuantity) / (SUM: faceSide.lastQuantity)
+    int32 face_leaves_qty = 292; // (SUM: faceSide.leavesQty)
+}
+
+

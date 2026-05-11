@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    This table allows custom option pricing based on either user or SR supplied input values.
+*/    
+message OptionCalculator {
+    message PKey {
+        
+        string user_name = 10;
+        OptionKey okey = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double vol = 100; // volatility
+    FieldSrc vol_src = 103;
+    double u_prc = 106; // underlying price
+    FieldSrc u_prc_src = 109;
+    double years = 112; // years-to-expiration (default uses SR volatility time value)
+    FieldSrc years_src = 115;
+    double sdiv = 118; // continuous stock dividend using for pricing
+    FieldSrc sdiv_src = 121;
+    double rate = 124; // discount rate used for pricing
+    FieldSrc rate_src = 127;
+    ExerciseType ex_type = 130; // exercise type of the option (American or European)
+    FieldSrc ex_type_src = 133;
+    double eff_strike = 136; // effective strike used for pricing (default is okey.Strike)
+    FieldSrc eff_strike_src = 139;
+    double sym_ratio = 142; // underlying symbol ratio (for non-standard options); discrete dividend will be scaled by this factor
+    FieldSrc sym_ratio_src = 145;
+    string div_string = 148; // discrete dividend string [ yearsToExpiry, years1:amt1, years2:amt2, ...] or [ -1, date1:amt1, date2:amt2, ... ]
+    FieldSrc div_src = 151;
+    CalcModelType model_type = 154; // Normal or LogNormal (default is product specific)
+    FieldSrc model_type_src = 157;
+    PricingFramework prc_framework = 160; // None, Spot, Forward, Future, Physical (default is product specific)
+    FieldSrc prc_framework_src = 163;
+    CalcPrecision calc_precision = 166; // numerical precision (# of steps) if a numerical method is used;  [more steps will be slower to calculate]
+    YesNo inc_greeks = 169;
+    double price = 172; // price (premium)
+    float delta = 175; // delta
+    float gamma = 178; // gamma
+    float theta = 181; // theta
+    float vega = 184; // vega
+    float volga = 187; // volga
+    float vanna = 190; // vanna
+    float rho = 193; // rho
+    float phi = 196; // phi
+    float de_decay = 199; // delta decay
+    string error = 202;
+    string pricer_model = 205;
+    google.protobuf.Timestamp timestamp = 208;
+}
+
+

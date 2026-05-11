@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    #SecurityMaster records exist for all SpiderRock tickers including equity tickers (stocks and ETFs)
+*/    
+message SecurityMaster_Extern {
+    message PKey {
+        
+        TickerKey ticker = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 189; // Security ID number from the source - Vendor, SR, Feed
+    int64 alt_iD = 190; // Alt ID number - previously used Sec ID
+    SymbolType symbol_type = 106; // symbol type
+    string name = 109; // Short name
+    string officialname = 112; // Full/Official name
+    string description = 115; // Description
+    string country = 118; // ISO Issuer Country Code
+    float par_value = 121; // Security Parvalue
+    string par_value_currency = 124; // Security Parvalue currency
+    PrimaryExchange primary_exch = 127; // Primary Exchange
+    string mic = 130; // ISO Market Identification Code
+    string mic_seg = 133; // ISO Market Indentification Segment Code
+    int32 shares_outstanding = 136; // shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)
+    string cusip = 139; // cusip code
+    string sic = 142; // SIC (Standard Industrial Classification) code
+    string cik = 145; // Central Index Key (US specific)
+    string lei = 148; // Legal Entity Identifier
+    string naics = 151; // North American Industry Classification System
+    string cfi = 154; // ISO Classification of Financial Instruments
+    string cic = 157; // Complementay Identification Code
+    string fisn = 160; // Financial Instrument Short Name
+    string isin = 163; // ISIN code
+    string figi = 166; // FIGI code
+    string bbg_composite_ticker = 169; // Bloomberg Composite Ticker
+    string bbg_exchange_ticker = 172; // Bloomberg Exchange Ticker
+    string bbg_composite_global_iD = 175; // Bloomberg Composite Global ID
+    string bbg_global_iD = 178; // Bloomberg Global ID
+    string bbg_currency = 181; // Bloomberg Trading Currency
+    google.protobuf.Timestamp timestamp = 184; // record update timestamp
+    string gics = 187; // Global Industry Classification Standard
+    int32 roundlot = 188; // round lot
+}
+
+

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OptionMultiRootDefinition {
+    message PKey {
+        
+        ExpiryKey sec_key = 10; // SR Security Key  #composite
+        OptExch exchange = 11; // listing exchange
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey root = 100; // root is use for this combination
+}
+
+

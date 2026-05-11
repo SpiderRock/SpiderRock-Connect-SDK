@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MMPreference {
+    message PKey {
+        
+        string client_firm = 10;
+        TickerKey ticker = 13;
+        OptExch exch = 12;
+    }
+
+    message Codes {
+        
+        string code = 105;
+        double credit = 106;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string modified_by = 107;
+    google.protobuf.Timestamp timestamp = 103;
+    repeated Codes codes = 104;
+}
+
+

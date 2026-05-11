@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SysMonResponse {
+
+
+    MessageMetadata _meta = 1;
+    
+    SysMonRequestType response_type = 100;
+    SysMonApplication source_application = 103;
+    SysMonApplication target_application = 106;
+    string source_user_name = 109;
+    string target_user_name = 112;
+    string error_text = 115;
+    google.protobuf.Timestamp error_dttm = 118;
+    YesNo response_handled = 121;
+    google.protobuf.Timestamp handled_dttm = 124;
+    string handled_user_name = 127;
+}
+
+

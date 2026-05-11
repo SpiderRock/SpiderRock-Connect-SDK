@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockRealizedVarianceHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    double prt_open = 103; // Open print
+    double prt_high = 106; // High print
+    double prt_low = 109; // Low print
+    double prt_last = 112; // Last print
+    double prt_vWap = 115; // VWap (print)
+    int32 prt_volume = 118; // Print volume
+    int32 prt_count = 121; // Print count
+    double qte_hi_bid = 124; // Quote high bid
+    double qte_lo_ask = 127; // Quote low ask
+    double qte_twap = 130; // Quote TWap
+    int32 qte_count = 133; // Quote count
+    google.protobuf.Timestamp timestamp = 136; // same as date + time
+}
+
+

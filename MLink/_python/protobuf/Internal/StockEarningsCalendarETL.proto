@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 2
+    Inputs: StockEarningsMarkupETL + SurfaceFixedTermETL
+    CalcEngine: Spark/ETL
+*/    
+message StockEarningsCalendarETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey earnings_date = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    DateKey earn_date = 103; // date/time of earnings announcement
+    EarnTime earn_time = 106;
+    EarnType earn_type = 109; // can be actual, announced, or forecast
+    float earn_move = 112; // earnings move (actual or forecast) [can be +/-]
+    float hist_avg_move = 115; // average 1 day abs move (earnMoveDate.Prev - earnMoveDate] (typically the preceeding ~60 trading days)
+    float hist_avg_earn_move_y0 = 118; // average abs earnMove (preceeding 4 earnings)
+    float hist_avg_earn_move_y1 = 121; // average abs earnMove (preceeding 4 earnings)
+    float hist_avg_earn_move_y2 = 124; // average abs earnMove (preceeding 4 earnings)
+    float i_eMove = 127; // iEMove from just before earningsDate
+    float avg_iEMove_y0 = 130; // average iEMove (preceeding 4 earnings)
+    float avg_iEmove_y1 = 133; // average iEMove (preceeding 4 earnigns)
+    float avg_iEmove_y2 = 136; // average iEMove (preceeding 4 earnigns)
+    google.protobuf.Timestamp timestamp = 139;
+}
+
+

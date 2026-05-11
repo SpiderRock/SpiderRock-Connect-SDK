@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RFQResponseReport {
+    message PKey {
+        
+        int64 order_number = 10; // SR Generated
+    }
+
+    message QuoteLegs {
+        
+        OptionKey leg_key = 193;
+        LegKeyType leg_key_type = 196;
+        int64 leg_security_iD = 199; // product securityID (if available, 0 otherwise) (can be another spread)
+        int64 leg_parent_sec_iD = 202; // product securityID of parent (if unrolled from a compound spread)
+        string leg_security_desc = 205; // Security description
+        int32 leg_size = 208; // leg ratio (1, 2, etc)
+        BuySell leg_side = 211;
+        int32 leg_cum_fill_quan = 214;
+        double leg_avg_fill_price = 217;
+        LegPositionType leg_pos_type = 220;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100; // eg. CME ProductID or ISE SecurityID
+    string security_desc = 103; // Exchange supplied (CME);SR constructed (NMS)
+    ExchSource exch_source = 106;
+    string engine_name = 221;
+    string exec_firm = 112; // exec firm override (CMTA)
+    string exec_accnt = 115; // exec accnt (if any)
+    string broker_accnt = 118;
+    SpdrOrderStatus spdr_order_status = 121;
+    SpdrCloseReason spdr_close_reason = 124;
+    SpdrRejectReason spdr_reject_reason = 127;
+    string spdr_close_detail_txt = 130;
+    int32 leaves_qty = 133;
+    double avg_fill_price = 136;
+    int32 cum_fill_quantity = 139;
+    int64 last_fill_number = 142;
+    google.protobuf.Timestamp last_fill_dttm = 145;
+    string strategy = 148;
+    string user_name = 151;
+    string cxl_reason = 154;
+    int32 resp_quantity = 157;
+    double resp_price = 160;
+    RFQSide resp_side = 163;
+    string resp_accnt = 166;
+    google.protobuf.Timestamp resp_time = 169;
+    MarketSession market_session = 222;
+    int32 order_duration = 175; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 178; // [optional] (default: 2099-01-01)
+    AutoHedge auto_hedge = 181;
+    ShortSaleFlag ssale_flag = 184; // short sale flag for auto-hedge (if applicable)
+    google.protobuf.Timestamp timestamp = 187;
+    repeated QuoteLegs quote_legs = 190;
+}
+
+

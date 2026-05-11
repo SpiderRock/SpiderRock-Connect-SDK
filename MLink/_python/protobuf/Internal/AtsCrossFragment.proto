@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AtsCrossFragment {
+    message PKey {
+        
+        int64 child_order_id = 10; // clOrdId (or crossId) of the child order that this fragment is associated with
+        OptionKey sec_key = 11;
+        SpdrKeyType sec_type = 12;
+        string accnt = 13;
+        FaceSide face_side = 14;
+        string client_firm = 15; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string cust_accnt = 100; // Initiator accnt
+    int64 ats_auction_number = 101; // SR block auction number
+    int64 parent_number = 102; // current parentNumber (initiator or responder) associated with this fragment (broker.Accnt = accnt)
+    int64 base_parent_number = 103; // baseParentNumber (initiator or responder) associated with this fragment (broker.Accnt = accnt)
+    int64 leg_iD = 104;
+    int32 leg_size = 105;
+    int32 face_index = 106; // [1-N] index of face allocation slice (faceBroker)
+    int32 num_face_sides = 107;
+    string face_omni_accnt = 108; // (blank if no omni accnt utilized)
+    string face_omni_client_firm = 109; // SR client firm
+    SpdrOrderShape child_shape = 110; // child order shape associated with clOrdId
+    BuySell side = 111;
+    int32 child_order_qty = 112; // total child order qty (can include multiple parties)
+    int32 child_leaves_qty = 113; // total child order leaves qty (active in market)
+    int32 fragment_qty = 114; // portion of total child order qty allocated to this fragment (broker.Accnt = accnt)
+    int32 frag_fill_qty = 115; // fill quantity for this fragment (can be less than fragmentQty if there was a partial breakup on exchange)
+    double frag_fill_price = 116;
+    google.protobuf.Timestamp frag_fill_dttm = 117;
+    string frag_exec_accnt = 118; // SR account used for on-exchange execution (as reported in execReported) [if fragExecAccnt == accnt no allocation is necessary]
+    string frag_exec_client_firm = 119; // SR client firm
+    string frag_exec_broker = 120; // execution broker (as reported by exchange)
+    int64 alloc_order_id = 121; // allocation child order ID (if an allocation notice has been sent)
+    int32 alloc_notice_qty = 122;
+    ShortSaleFlag ssale_flag = 123; // ssale flag (if secType = Stock)
+    PositionType position_type = 124; // positionType (if secType != Stock)
+    string exec_brkr_code = 125; // execBrkrCode associated delivery instructions below (this should be the final delivery destination)
+    string exec_brkr_accnt = 126; // exec broker account (supplied by exec broker) (usually Account<1>)
+    string exec_brkr_cl_firm = 127; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+    string exec_brkr_user_name = 128; // exec broker user name (supplied by exec broker)
+    FlipType clearing_flip_type = 129; // [visible in all fix templates]
+    string clearing_flip_firm = 130; // [visible in all fix templates]
+    string clearing_flip_accnt = 131; // [visible in all fix templates]
+    string clearing_agent = 132; // [visible in all fix templates]
+    string clearing_tax_iD = 133; // [visible in all fix templates]
+    string clearing_brkr_mPID = 134; // [visible in all fix templates]
+    google.protobuf.Timestamp timestamp = 135;
+}
+
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Use this to perform bulk actions on orders in the OrderCard Handler
+*/    
+message ToolOrderCardActions {
+    message Accounts {
+        
+        string accnt = 102;
+        string client_firm = 103;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    ToolOrderCardAction action_type = 100; // Type of action to perform on order cards
+    google.protobuf.Timestamp timestamp = 104; // timestamp of when this message was sent to the server
+    repeated Accounts accounts = 101;
+}
+
+

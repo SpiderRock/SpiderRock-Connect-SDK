@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionTradeSheetData {
+    message PKey {
+        
+        double strike = 11; // Strike price (primary key for ag-grid row grouping)
+    }
+
+    message ExpiryData {
+        
+        google.protobuf.Timestamp expiry_date = 174; // Expiry date (for grouping and identification)
+        ExpiryKey exp_key = 175; // Expiry key reference
+        string x_axis = 176; // xAxis = Moneyness (per expiry)
+        int32 x_atm_offset = 177; // 0 = ATM, +1,+2,+3 = 1st, 2nd, 3rd upside strike, -1/-2/-3 = 1st,2nd,3rd downside strike (per expiry)
+        string s_vol = 178; // current surface svol (live SR surface, per expiry)
+        string s_div = 179; // current surface sdiv (live SR surface, per expiry)
+        string s_vol_prv = 180; // yesterday's closing surface svol (per expiry)
+        string s_div_prv = 181; // yesterday's closing surface sdiv (per expiry)
+        string s_vol_chg = 182; // change in sVol from yesterday (per expiry)
+        string atm_vol = 183; // sVol @ xAxis = 0 (per expiry)
+        string c_bid = 184; // call bid
+        string c_ask = 185; // call ask
+        int32 c_bid_sz = 186; // call bid size
+        int32 c_ask_sz = 187; // call ask size
+        string c_bid_iv = 188; // call bid implied volatility
+        string c_ask_iv = 189; // call ask implied volatility
+        string c_de = 190; // call delta
+        string c_ga = 191; // call gamma
+        string c_th = 192; // call theta
+        string c_ve = 193; // call vega
+        string c_sOpx = 194; // current call surface price
+        string c_sOpx_prv = 195; // yesterday's closing call surface price (sVolPrv + sDivPrv + live uPrc)
+        int32 c_oI = 196; // call open interest (market)
+        int32 c_vlm = 197; // call print volume (this exchange)
+        int32 c_trd = 198; // call contracts traded today
+        int32 c_pos = 199; // call contract position (start-of-period + traded today)
+        string p_bid = 200; // put bid
+        string p_ask = 201; // put ask
+        int32 p_bid_sz = 202; // put bid size
+        int32 p_ask_sz = 203; // put ask size
+        string p_bid_iv = 204; // put bid implied volatility
+        string p_ask_iv = 205; // put ask implied volatility
+        string p_de = 206; // put delta
+        string p_ga = 207; // put gamma
+        string p_th = 208; // put theta
+        string p_ve = 209; // put vega
+        string p_sOpx = 210; // current put surface price
+        string p_sOpx_prv = 211; // yesterday's closing put surface price (sVolPrv + sDivPrv + live uPrc)
+        int32 p_oI = 212; // put open interest (market)
+        int32 p_vlm = 213; // put print volume (this exchange)
+        int32 p_trd = 214; // put contracts traded today
+        int32 p_pos = 215; // put contract position (start-of-period + traded today)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp ts = 172; // last update time (Date)
+    repeated ExpiryData expiry_data = 173;
+}
+
+

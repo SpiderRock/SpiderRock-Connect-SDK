@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrChildOrderPendingAck records are published by the SystemMonitor to communicate to other SystemMonitor users that a SpdrOrderPending message has been seen (and hopefully dealt with accordingly) to remove the corresponding row from any grids
+*/    
+message SpdrChildOrderPendingAck {
+    message PKey {
+        
+        int64 cl_ord_id = 10; // clOrdId of the SpdrChildOrderPending message
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp last_pending_update_dttm = 100;
+    string ack_user_name = 103;
+    google.protobuf.Timestamp timestamp = 106;
+}
+
+

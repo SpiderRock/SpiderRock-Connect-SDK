@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TickerHistory {
+    message PKey {
+        
+        google.protobuf.Timestamp date = 10;
+        int32 security_iD = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 dn = 100;
+    string ticker = 103;
+    float open = 106;
+    float high = 109;
+    float low = 112;
+    float close = 115;
+    float close_pr = 118;
+    float volume = 121;
+    float shares = 124;
+    float cc_var = 127;
+    float hl_var = 130;
+    float rv_var = 133;
+    string earn_flag = 136;
+    float sdiv_rate = 139;
+    float ddiv_rate = 142;
+    float a = 145;
+    float b = 148;
+    float e_mult = 151;
+    float decay = 154;
+    float sh_atm = 157;
+    float ln_atm = 160;
+    float sh_wid = 163;
+    float ln_wid = 166;
+    float sh_d1 = 169;
+    float ln_d1 = 172;
+    float atm5 = 175;
+    float atm21 = 178;
+    float atm42 = 181;
+    float atm63 = 184;
+    float atm84 = 187;
+    float atm105 = 190;
+    float atm126 = 193;
+    float atm189 = 196;
+    float atm252 = 199;
+    float atm378 = 202;
+    float atm504 = 205;
+}
+
+

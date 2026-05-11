@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records inserted into this table represent locates that clients have received away from SpiderRock.  After validation, any away locate inserted into this table is turned into a ClientStockLocate record
+*/    
+message AwayStockLocateGateway {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string core_client_firm = 11;
+        string locate_firm = 12;
+        string locate_pool = 13; // locate pool @ firm granting the locate
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 locate_quan = 100;
+    YesNo is_locate_exempt = 103; // Yes = ticker is locate exempt (only allowed for market makers)
+    string alt_security_id = 106; // An alternative securityID (can be cusip or other)
+    google.protobuf.Timestamp timestamp = 109; // will be set by SRSE server on upload
+}
+
+

@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStkBrkrEvent records are published when a new or clx/replace parent order arrives causes a broker to beging working and again when a parent order terminates and the underlying broker stops working.  The initial version contains state and market data from just after the initial risk check and first attempt at generating child orders.
+*/    
+message SpdrStkBrkrEvent {
+    message PKey {
+        
+        int64 parent_number = 10;
+        EventRecType rec_type = 11; // type of record [New,Repl,Close]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    string accnt = 103;
+    SpdrSource spdr_source = 106;
+    int64 grouping_code = 109;
+    BuySell order_side = 112;
+    string client_firm = 115; // SR client firm code
+    string alt_accnt = 118; // alternate (client assigned) "long" account string (optional)
+    string alt_user_name = 121; // alternate (client assigned) user name (optional)
+    uint32 event_number = 124;
+    SpdrStageType stage_type = 127; // parent is a staged order [ToolVisible]
+    int64 base_parent_number = 130; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
+    int64 prev_parent_number = 133; // SPDR order number (order being cancelled/replaced) (zero if none)
+    string engine_name = 284; // engine name
+    SpdrBrokerStatus spdr_broker_status = 139;
+    SpdrOrderStatus spdr_order_status = 142;
+    SpdrCloseReason spdr_close_reason = 145;
+    SpdrRejectReason spdr_reject_reason = 148;
+    string spdr_comment = 151; // additional detail if parent closed or rejected
+    float nbbo_bid = 172;
+    float nbbo_ask = 175;
+    int32 arrive_nbbo_size = 178; // size of the single largest exchange on parent order arrival
+    StkExch arrive_nbbo_exch = 181; // exchange representing largest size on order arrival
+    int32 arrive_cum_size = 184; // cum size of all exchanges at NBBO price on parent order arrival
+    int32 arrive_num_exch = 187; // num exchanges making up cum size on parent order arrival
+    int32 arrive_limit_size = 190; // immediately marketable size up to limit price on parent order arrival
+    double arrive_limit_prc = 193; // expected average fill price if all immediately marketable size executed as advertized
+    double avg_fill_prc = 196; // average fill price of all fills attributed parent order
+    int32 cum_fill_quan = 199; // cumulative fill quantity attributed to parent order
+    uint32 num_child_orders = 202; // total number of child orders generated servicing parent order
+    int32 open_order_size = 205;
+    int32 action_order_size = 208;
+    int32 risk_limit_size = 211; // risk limit size
+    SpdrRisk risk_limit_desc = 214; // reason for size reduction
+    SpdrRiskLevel risk_limit_level = 285; // risk limit level responsible for reduction
+    string risk_limit_detail = 217; // risk limit level responsible for reduction
+    double limit_price = 220; // simple limit
+    double make_limit_price = 223; // make limit
+    LimitError make_limit_err = 226;
+    double take_limit_price = 229; // take limit
+    LimitError take_limit_err = 232;
+    BrokerState broker_state = 235; // broker monitor state
+    AlgoState make_state = 238; // [enum] current state of non-marketable order handler (maker)
+    AlgoState take_state = 241; // [enum] current state of marketable order handler (taker)
+    MktCrossState mkt_cross_state = 244; // [enum] current state of mkt cross handler (if any)
+    ChildEvent last_child_event = 247;
+    SpdrMarketState spdr_mkt_state = 250;
+    int32 locate_quan = 253;
+    YesNo is_sSale_restricted = 256;
+    string borrow_firm = 259;
+    string borrow_pool = 262;
+    string borrow_src = 265;
+    int32 num_orders = 268;
+    int32 leaves_qty = 271;
+    int64 child_order_mask = 286; // bit-mask of all exchange for which a child order was generated
+    string modified_by = 277; // user who last modified this record
+    SysEnvironment modified_in = 280;
+    google.protobuf.Timestamp timestamp = 283; // timestamp of last modification
+}
+
+

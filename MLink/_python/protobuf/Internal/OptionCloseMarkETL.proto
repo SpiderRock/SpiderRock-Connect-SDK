@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 4
+    Inputs:
+    CalcEngine: Spark/ETL
+*/    
+message OptionCloseMarkETL {
+    message PKey {
+        
+        OptionKey okey = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey und_sec_key = 100;
+    SpdrKeyType und_sec_type = 103;
+    google.protobuf.Duration sr_close_time = 106; // SR closing mark time (C)
+    ClsMarkState cls_mark_state = 109; // Close mark state: None; LastPrt; SRClose; ExchClose; Final
+    float u_bid = 112; // SR closing underlier bid (C - 5m)
+    float u_ask = 115; // SR closing underlier ask (C - 5m)
+    float u_sr_cls = 118; // SR underlier closing mark (C - 5m)
+    float u_close = 121; // Exchange underlier closing mark
+    float bid_prc = 124; // SR closing option bid (C - 5m)
+    float ask_prc = 127; // SR closing option ask (C - 5m)
+    float sr_cls_prc = 130; // SR close mark (close - 1min)
+    MarkSrc sr_cls_prc_src = 133;
+    float close_prc = 136; // exchange closing mark (note: may not be as/of srCloseTime)
+    MarkSrc close_prc_src = 139;
+    float bid_iV = 142; // implied vol of SpiderRock closing bid price (C - 5m)
+    float ask_iV = 145; // implied vol of SpiderRock closing ask price (C - 5m)
+    float sr_prc = 148; // SpiderRock surface price (price corresponding to srVol; may not always be within bid/ask) (C - 5m)
+    float sr_vol = 151; // SpiderRock surface volatility (C - 5m)
+    float sr_slope = 154; // slope of SR surface (dSRVol/dUPrc; assuming expiry curve slides left/right with no shape change)
+    float k_adj = 158; // adjusted strike
+    float de = 160; // delta (SR surface)
+    float ga = 163; // gamma (SR surface)
+    float th = 166; // theta (SR surface)
+    float ve = 169; // vega (SR surface)
+    float rh = 172; // rho (SR surrface)
+    float ph = 175; // phi (SR surface)
+    float vo = 178; // volga (SR surface)
+    float va = 181; // vanna (SR surface)
+    float de_decay = 184; // delta decay (SR surface)
+    float sdiv = 187; // SR sdiv rate
+    float ddiv = 190; // SR ddiv rate (sum of discrete dividend amounts)
+    float rate = 193; // SR interest rate
+    float years = 196; // years to expiration
+    int32 error = 199; // SR pricing library calculation error code
+    int32 open_interest = 202; // Open Interest
+    int32 prt_count = 205;
+    int32 prt_volume = 208; // total printed volume
+    google.protobuf.Timestamp prior_date = 211;
+    float prc_adj_value = 214; // corp action adjustment value (0.0 on most days); [todayPrice = priorPrice * prcAdjRatio + prcAdjValue]
+    float prc_adj_ratio = 217; // corp action adjustment factor (1.0 on most days)
+    float prior_sRCls_prc = 220; // values archive in the previous trading period
+    float prior_close_prc = 223;
+    google.protobuf.Timestamp timestamp = 226;
+}
+
+

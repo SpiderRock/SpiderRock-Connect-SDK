@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStreetAlloc records are published by SRFixStreetGateway servers and are used to maintain/reload state for all handled orders
+*/    
+message SpdrStreetSecDef {
+    message PKey {
+        
+        int64 sec_def_iD = 10; // SR child secDefId (EE)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string server_code = 100; // StreetGW ServerCode
+    string fix_route_dn = 103;
+    string up_sender_comp_id = 106; // senderCompID/targetCompID of the StreetGW -> EE session
+    string up_target_comp_id = 109;
+    string up_sender_sub_id = 112; // senderSubID/targetSubID of the StreetGW -> EE session
+    string up_target_sub_id = 115;
+    google.protobuf.Timestamp street_session_date = 118;
+    int32 street_session_counter = 121;
+    int32 street_seq_num_out = 124;
+    string street_sec_def_id = 127;
+    string template_name = 130; // outbound rewrite template name
+    string accnt = 167;
+    string client_firm = 168; // SR client firm
+    OptionKey sec_key = 136;
+    SpdrKeyType sec_type = 139;
+    string security_iD = 142;
+    RequestStatus usd_status = 145;
+    YesNo is_acked = 148;
+    float ack_latency = 151; // new order to ack latency (in milliseconds)
+    string alt_order_iD = 154;
+    string text = 157;
+    string up_error = 160;
+    string dn_error = 163;
+    google.protobuf.Timestamp timestamp = 166;
+}
+
+

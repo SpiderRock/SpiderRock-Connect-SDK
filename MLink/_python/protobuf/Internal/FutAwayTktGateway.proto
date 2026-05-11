@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    FutAwayTktGateway inserts are validated and convered to away SpdrParentExecution records and published. If successfully published they will be visible in the SpdrParentExecution table and on SpiderRock GUI tools.
+    Replaces are allowed but they are functionally identical to updates in that only the fillPrice and fillQuantity fields are actually changed.
+*/    
+message FutAwayTktGateway {
+    message PKey {
+        
+        string accnt = 10;
+        int64 client_fill_iD = 11; // client execution ID, these must be unique on a per-account basis [copied into SpdrParentExecution.altFillId]
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_order_iD = 103; // client orderID [copied into SpdrParentExecution.altOrderId]
+    int64 risk_group_id = 106; // Default: 0 (none).  Required to be non-zero if incorporating risk into an existing riskGroupId
+    ExpiryKey fkey = 109;
+    BuySell fill_side = 112;
+    double fill_price = 115;
+    int32 fill_quantity = 118;
+    double fill_ref_uPrc = 121; // reference underlier price @ fill arrival time
+    YesNo deliver_exec_report = 124; // Drop a copy of the execution report
+    int64 sRfill_iD = 127; // SR internal fill number, any values submitted will be overwritten by the SR generated fill number
+    string comment = 130; // text comment (if any)
+    string exec_brkr = 133; // client (external) exec broker code
+    string user_data1 = 136; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string user_data2 = 139; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string strategy = 142; // client-supplied strategy string
+    google.protobuf.Timestamp fill_dttm = 145;
+    google.protobuf.Timestamp timestamp = 148;
+    int32 checksum = 151; // Must be set to 13.  This helps detect some column,value misalignments.
+}
+
+

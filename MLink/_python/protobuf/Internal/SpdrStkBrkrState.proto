@@ -1,0 +1,209 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStkBrkrState records are published by execution engines and describe the current state of a broker that is managing a SpiderRock parent order.  These records include a description of the active child orders managed by the broker.  Records are updated whenever a child order changes and also at other times but are not completely live and may not always reflect current market data or limit levels for working orders.
+*/    
+message SpdrStkBrkrState {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11;
+        SpdrSource spdr_source = 12;
+        int64 grouping_code = 13;
+        BuySell order_side = 14;
+        string client_firm = 15; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string engine_name = 638; // server stripe
+    int64 parent_number = 103; // SR parent number
+    int64 base_parent_number = 106;
+    string alt_order_id = 109; // alternate order ID (usually clOrdId from client)
+    int64 package_id = 112; // groups related order/brokers together (eg. Legger w/MLeg Parent)
+    string alt_accnt = 118; // alternate (client assigned) "long" account string (optional)
+    string alt_user_name = 121; // alternate (client assigned) user name (optional)
+    SpdrStageType stage_type = 124; // parent is a staged order [ToolVisible]
+    YesNo is_flagged = 127; // broker state records is flagged for action (user alert only)
+    float u_prc = 130; // current stock price (as of most recent state record update)
+    float u_prc_order = 133; // stock price at the time of most recent parent order entry
+    float nbbo_bid = 136; // current market bid (at time of record publish)
+    float nbbo_ask = 139; // current market ask (at time of record publish)
+    int32 nbbo_bid_sz = 142; // current market cum bid size (at time of record publish)
+    int32 nbbo_ask_sz = 145; // current market cum ask size (at time of record publish)
+    SpdrOrderStatus spdr_order_status = 148; // status of the most recent parent order handled by this broker
+    SpdrCloseReason spdr_close_reason = 151; // close reason of most recent parent order
+    SpdrRejectReason spdr_reject_reason = 154; // reject reason (if any) of most recent parent order
+    string spdr_comment = 157;
+    int32 order_size = 160; // order size of most recent parent order
+    int32 order_active_size = 163; // total activated size (total size released for execution) (-1 = all available size)
+    int32 leaves_quantity = 166; // current child order leaves quantity (quantity actively working in the market;all child orders)
+    double avg_fill_price = 169; // average fill price
+    int32 cum_fill_quantity = 172; // cumulative fill quantity
+    google.protobuf.Timestamp last_fill_dttm = 175;
+    int32 risk_limit_size = 178; // risk limit size (maximum size to nearest risk limit)
+    SpdrRisk risk_limit_desc = 181; // reason for size reduction
+    SpdrRiskLevel risk_limit_level = 639; // risk limit level responsible for reduction
+    double limit_price = 184; // simple limit
+    double make_limit_price = 187; // make limit
+    LimitError make_limit_err = 190;
+    double take_limit_price = 193; // take limit
+    LimitError take_limit_err = 196;
+    string strategy = 199; // parent order strategy (description only)
+    string user_name = 202; // user that entered the most recent parent order
+    YesNo visible_in_sV = 647; // allow order to be visible in SV (do not use for high volume of orders)
+    string exec_brkr_code = 644; // execBrkrCode attached to parent order (if any)
+    ShortSaleFlag ssale_flag = 208;
+    int32 locate_quan = 211; // available locate quantity (if selling short) @ child order send time
+    string locate_firm = 214; // firm granting the locate (also locate firm used on street FIX orders)
+    string locate_pool = 217; // locate pool @ firm granting the locate
+    int32 max_exposure_size = 220; // maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    int32 num_make_exchanges = 223; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
+    PublicSizeHandling public_size = 226; // public order size handling
+    YesNo can_overlap_cxl_repl = 229; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
+    ProgressRule progress_rule = 232; // Immediate = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
+    int32 progress_slice_cnt = 235; // number of progress slices to use (default = 4 or 8) [max 20]
+    int32 progress_expose_time = 238; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
+    float vwap_participation = 241; // target vwap participation rate (target % of trade activity)
+    int32 min_mkt_on_close_pct = 244; // Minimum pct [0 - 100] of order reserved for the on-close auction
+    TriggerType trigger_type = 247; // type of trigger (PrintVol/SurfVol only for options) [print = print or actionable quote]
+    float trigger_level = 250; // stop/trigger level for parent order to go active (can be either a price or vol)
+    int32 max_child_orders = 253; // maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
+    int64 exch_mask = 648; // eligible exchanges (0 = all)
+    MarketSession market_session = 641;
+    google.protobuf.Timestamp start_dttm = 262; // Order Start Date/Time
+    int32 order_duration = 265; // [optional] (number of seconds)
+    int32 active_duration = 642;
+    google.protobuf.Timestamp good_till_dttm = 268; // [optional] (default: 2099-01-01)
+    google.protobuf.Timestamp expire_dttm = 271; // expected order expiration dttm
+    ParentOrderHandling parent_order_handling = 274;
+    ParentBalanceHandling parent_balance_handling = 277;
+    SpdrLimitType order_limit_type = 280;
+    SpdrLimitClass take_limit_class = 283; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    SpdrLimitClass make_limit_class = 286; // Simple = LimitPrice, Surface = BEST(LimitPrice, SurfLimit), Probability = BEST(LimitPrice, ProbLimit)
+    ReachRule take_reach_rule = 289; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    double order_prc_limit = 292; // Applies if LimitType = Prc[]
+    double order_prc_offset = 295; // default=0
+    AlphaType take_alpha_type = 298; // Applies if takeLimitClass = Probability
+    AlphaType make_alpha_type = 301; // Applies if makeLimitClass = Probability
+    float take_alpha_factor = 304; // [-2,+2] takeProbLimit = MAX(takeProbability, takeProbAvg + takeAlphaFactor * takeProbStd) [if takeAlphaType = Relative]
+    float make_alpha_factor = 307; // [-2,+2] makeProbLimit = MAX(makeProbability, makeProbAvg + makeAlphaFactor * makeProbStd) [if makeAlphaType = Relative]
+    float take_probability = 310; // takeProbLimit = takeProbability [if takeAlphaType = Static]
+    float make_probability = 313; // makeProbLimit = makeProbability [if makeAlphaType = Static]
+    StateModel state_model = 316;
+    string extern_ex_dest = 645;
+    ClosingAuctionStatus closing_auction = 322; // closing auction state
+    int32 order_ratio = 325; // (various) can be a mleg leg ratio
+    google.protobuf.Timestamp order_dttm = 328; // order entry date/time
+    MaxProgress max_progress = 331; // maximum point of progress for most recent parent order
+    string max_progress_detail = 334; // additional detail on point of maximum progress
+    google.protobuf.Timestamp max_progress_time = 337; // time of last max progress advance
+    BrokerState broker_state = 340; // broker monitor state
+    int32 broker_counter = 343; // number of times order checked by broker monitor (note: most checks result in no action)]
+    AlgoState make_state = 346; // [enum] current state of non-marketable order handler (maker)
+    int32 make_counter = 349; // number of times order checked by post handler (note: most checks result in no action)
+    AlgoState take_state = 352; // [enum] current state of marketable order handler (taker)
+    int32 take_counter = 355; // number of times order checked by take handler (note: most checks result in no action)
+    MktRespState mkt_resp_state = 358; // [enum] current state of response handler (if any)
+    int32 mkt_resp_counter = 361; // number of times order checked by market response handler (note: most checks result in no action)
+    MktCrossState mkt_cross_state = 364; // [enum] current state of mkt cross handler (if any)
+    int32 mkt_cross_counter = 367; // number of times order checked by market cross handler (note: most checks result in no action)
+    string progress_rule_detail = 370; // Twap/Vwap progress detail
+    ExchEvent exch_event01 = 373;
+    ExchEvent exch_event02 = 376;
+    ExchEvent exch_event03 = 379;
+    ExchEvent exch_event04 = 382;
+    ExchEvent exch_event05 = 385;
+    ExchEvent exch_event06 = 388;
+    ExchEvent exch_event07 = 391;
+    ExchEvent exch_event08 = 394;
+    ExchEvent exch_event09 = 397;
+    ExchEvent exch_event10 = 400;
+    ExchEvent exch_event11 = 403;
+    ExchEvent exch_event12 = 406;
+    ExchEvent exch_event13 = 409;
+    ExchEvent exch_event14 = 412;
+    ExchEvent exch_event15 = 415;
+    ChildEvent last_child_event = 418; // [enum] last child event code from broker/chld order handler
+    SpdrMarketState spdr_mkt_state = 421; // [enum] market state
+    float cpx1 = 424; // child price level #1
+    int32 csz1 = 427; // cumulative size represented at this price
+    int64 cex1 = 649; // bit mask of all exchanges where we are at this price
+    float cpx2 = 433; // child price level #2
+    int32 csz2 = 436; // cumulative size represented at this price
+    int64 cex2 = 650; // bit mask of all exchanges where we are at this price
+    int32 c_more = 442; // number of additional child orders at inferior prices (if any)
+    int32 arrive_sweep_count = 445; // number of parent orders arriving with immediately available sweep qty
+    int32 arrive_sweep_order_qty = 448; // total size of all child orders generated due to parent order arrival sweep
+    int32 arrive_sweep_fill_qty = 451; // total fill size due to parent order arrival sweep
+    int32 num_sweep_child_orders = 454; // child orders generated in initial arrival sweep
+    int32 prt_sh_active = 457; // total shares printed while parent order was active
+    float prt_sh_active_mny = 460; // total of (shares printed x print price) while parent order was active;  vwap price (while parent is active) = prtShActiveMny / prtShActive
+    int32 prt_sh_limit_oK = 463; // total shares printed at or better than parent limit while parent was active
+    float prt_sh_limit_oKMny = 466; // total of (shares printed x print price) @ or better than parent limit while parent order was active;  vwap (limitOK) price (while parent is active) = prtShLimitOKMny / prtShLimitOK
+    int32 prt_sh_compete = 469; // total shares printed on an exchange on which we had a competitive child order
+    int32 prt_sh_away_chld = 472; // total shares printed on an away exchange when we had a competitive child order(s) in the market and the away exchange was competitive prior to the print
+    int32 prt_sh_no_compete = 475; // total shares printed on an away exchange when we had a competitive child order(s) in the market and the away exchange was not competitive prior to the print
+    int32 mk_check_cnt = 478; // total number of times order was checked for making
+    float min_mk_prob = 481; // min make probability while broker active
+    float avg_mk_prob = 484; // average make probability while broker active
+    float cur_mk_prob = 487; // current make probability
+    int32 tk_check_cnt = 490; // total number of times order was checked for taking
+    float max_tk_prob = 493; // max take probability while broker active
+    float avg_tk_prob = 496; // average take probability while broker active
+    float cur_tk_prob = 499; // current take probability
+    int32 prt_prb_cnt = 502; // total number of print probability records while broker active (all limit types)
+    int32 prt_prb_check = 505; // number of print probability records with active probability printTake handler
+    int32 prt_prb_lmt_oK = 508; // number of print probability records that pass broker takeLimit
+    int32 tk_sh_lmt_oK = 511; // total shares available to take at parent limit or better while broker active
+    float avg_qte_sz_ratio = 514; // average ratio of child size / nbbo size during the life of the working order when child order is at nbbo
+    int32 cnt_qte_sz_ratio = 517; // sample counter for above [1 second intervals];qteShRatio / qteShRatioSht = avg of child size / nbbo size while broker active
+    float min_qte_width = 520; // minimum quote width during active order window
+    float avg_qte_width = 523; // average quote width (during active order window)
+    int32 cnt_qte_width = 526;
+    int32 num_imprv_chld = 529; // number of child orders that improved an existing market
+    float total_seconds = 532; // number of seconds that the parent order was active
+    float working_seconds = 535; // number of seconds with one or more working child orders that are part of nbbo
+    float alone_seconds = 538; // number of seconds with one or more working child orders that make up 100% of nbbo
+    int32 num_risk_cancels = 541; // number of child orders cancels for risk reasons
+    float risk_hold_seconds = 544; // number of seconds with parent order active but on risk hold (zero child order risk size)
+    float risk_thrtl_seconds = 547; // number of seconds with parent order active but in risk throttle condition (temporary hold after fast/mass risk cancel)
+    int32 num_make_throttle_skips = 550; // number of childs orders not send to market dues to outbound lines being in a queued/throttled state
+    float sum_make_throttle_delay = 553; // cumulative seconds of queue skip delay (seconds that a child order was not in the market dues to outbound lines being in a queued/throttled state)
+    int32 num_new_orders = 556; // number of child orders generated by this broker (all parent orders)
+    int32 num_exec_reports = 559; // number of child execution reports handled by this broker (all parent orders)
+    int32 num_fill_reports = 562; // number of child fill reports handled by this broker (all parent orders)
+    uint32 num_parent_limits = 565; // number of parent limit messages received for this broker
+    int64 risk_group_id = 568; // all orders with the same riskGroupId share a common set of risk counters;.Grp. risk limits apply to these shared counters
+    int64 trigger_group_id = 571; // WaitTrigger group Id
+    float max_grp_day_dDelta_ln = 583; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_dDelta_sh = 586; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float ref_cum_fill_qty = 592; // 5 minute trailing reference cumFillQty
+    float market_ref_price = 595; // 5 minute trailing market reference price
+    float market_ref_volume = 598; // 5 minute trailing market reference volume
+    float max_part_ratio = 601; // max participation ratio max[fill qty since ref / mkt vlm since ref]
+    float max_impact_ratio = 604; // max impact ratio max[dir * log(limit / mkt ref price)]
+    AutoHedge auto_hedge = 607;
+    HedgeInst hedge_instrument = 610; // auto-hedge instrument (from parent order)
+    ExpiryKey hedge_sec_key = 613; // auto-hedge sec key (if any)
+    SpdrKeyType hedge_sec_type = 616; // auto-hedge sec type (Stock or Future)
+    float hedge_beta_ratio = 619; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
+    HedgeScope hedge_scope = 622; // hedge group scope [RiskGroup or Accnt]
+    MarketSession hedge_session = 643; // market session for the autohedge order
+    YesNo hedge_fill_uMark_lmt_prc = 646; // set a price limit on the autohedge order based on the most recent option fillUMark
+    string user_data1 = 628; // user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
+    string user_data2 = 631; // user supplied additional detail (255 char);supplied via FIX or SRSE when entering order
+    int32 num_updates = 634; // number of record updates (cumulative for the day)
+    google.protobuf.Timestamp timestamp = 637; // SR system timestamp
+}
+
+

@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SecDefRequestGateway {
+    message PKey {
+        
+        int64 sec_request_iD = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SecDefType sec_def_type = 100;
+    string accnt = 103; // routing code of exchange session handling product def request
+    string client_firm = 476;
+    string alt_request_id = 106; // Alternate request ID. Can by used by client for tracking
+    OptionKey sec_key1 = 109; // Symbol for leg #1.  Must be a valid symbol.
+    SpdrKeyType sec_type1 = 112; // Security Type [Stock, Future, Option]
+    uint32 ratio1 = 115; // Ratio for leg #1.  Must be greater than zero.
+    BuySell side1 = 118; // Order side for leg #1.
+    double ref_prc1 = 121; // Reference price for leg #1.
+    float ref_delta1 = 124; // Reference delta for leg #1.
+    OptionKey sec_key2 = 127; // Symbol for leg #2.  Must be a valid symbol.
+    SpdrKeyType sec_type2 = 130; // Security Type [Stock, Future, Option]
+    uint32 ratio2 = 133; // Ratio for leg #2.  Must be greater than zero.
+    BuySell side2 = 136; // Order side for leg #2.
+    double ref_prc2 = 139; // Reference price for leg #2.
+    float ref_delta2 = 142; // Reference delta for leg #2.
+    OptionKey sec_key3 = 145; // Symbol for leg #3.  Must be a valid symbol.
+    SpdrKeyType sec_type3 = 148; // Security Type [Stock, Future, Option]
+    uint32 ratio3 = 151; // Ratio for leg #3.  Must be greater than zero.
+    BuySell side3 = 154; // Order side for leg #3.
+    double ref_prc3 = 157; // Reference price for leg #3.
+    float ref_delta3 = 160; // Reference delta for leg #3.
+    OptionKey sec_key4 = 163; // Symbol for leg #4.  Must be a valid symbol.
+    SpdrKeyType sec_type4 = 166; // Security Type [Stock, Future, Option]
+    uint32 ratio4 = 169; // Ratio for leg #4.  Must be greater than zero.
+    BuySell side4 = 172; // Order side for leg #4.
+    double ref_prc4 = 175; // Reference price for leg #4.
+    float ref_delta4 = 178; // Reference delta for leg #4.
+    OptionKey sec_key5 = 181; // Symbol for leg #5.  Must be a valid symbol.
+    SpdrKeyType sec_type5 = 184; // Security Type [Stock, Future, Option]
+    uint32 ratio5 = 187; // Ratio for leg #5.  Must be greater than zero.
+    BuySell side5 = 190; // Order side for leg #5.
+    double ref_prc5 = 193; // Reference price for leg #5.
+    float ref_delta5 = 196; // Reference delta for leg #5.
+    OptionKey sec_key6 = 199; // Symbol for leg #6.  Must be a valid symbol.
+    SpdrKeyType sec_type6 = 202; // Security Type [Stock, Future, Option]
+    uint32 ratio6 = 205; // Ratio for leg #6.  Must be greater than zero.
+    BuySell side6 = 208; // Order side for leg #6.
+    double ref_prc6 = 211; // Reference price for leg #6.
+    float ref_delta6 = 214; // Reference delta for leg #6.
+    OptionKey sec_key7 = 217; // Symbol for leg #7.  Must be a valid symbol.
+    SpdrKeyType sec_type7 = 220; // Security Type [Stock, Future, Option]
+    uint32 ratio7 = 223; // Ratio for leg #7.  Must be greater than zero.
+    BuySell side7 = 226; // Order side for leg #7.
+    double ref_prc7 = 229; // Reference price for leg #7.
+    float ref_delta7 = 232; // Reference delta for leg #7.
+    OptionKey sec_key8 = 235; // Symbol for leg #8.  Must be a valid symbol.
+    SpdrKeyType sec_type8 = 238; // Security Type [Stock, Future, Option]
+    uint32 ratio8 = 241; // Ratio for leg #8.  Must be greater than zero.
+    BuySell side8 = 244; // Order side for leg #8.
+    double ref_prc8 = 247; // Reference price for leg #8.
+    float ref_delta8 = 250; // Reference delta for leg #8.
+    OptionKey sec_key9 = 253; // Symbol for leg #9.  Must be a valid symbol.
+    SpdrKeyType sec_type9 = 256; // Security Type [Stock, Future, Option]
+    uint32 ratio9 = 259; // Ratio for leg #9.  Must be greater than zero.
+    BuySell side9 = 262; // Order side for leg #9.
+    double ref_prc9 = 265; // Reference price for leg #9.
+    float ref_delta9 = 268; // Reference delta for leg #9.
+    OptionKey sec_key10 = 271; // Symbol for leg #10.  Must be a valid symbol.
+    SpdrKeyType sec_type10 = 274; // Security Type [Stock, Future, Option]
+    uint32 ratio10 = 277; // Ratio for leg #10.  Must be greater than zero.
+    BuySell side10 = 280; // Order side for leg #10.
+    double ref_prc10 = 283; // Reference price for leg #10.
+    float ref_delta10 = 286; // Reference delta for leg #10.
+    OptionKey sec_key11 = 289; // Symbol for leg #11.  Must be a valid symbol.
+    SpdrKeyType sec_type11 = 292; // Security Type [Stock, Future, Option]
+    uint32 ratio11 = 295; // Ratio for leg #11.  Must be greater than zero.
+    BuySell side11 = 298; // Order side for leg 1#1.
+    double ref_prc11 = 301; // Reference price for leg #11.
+    float ref_delta11 = 304; // Reference delta for leg #11.
+    OptionKey sec_key12 = 307; // Symbol for leg #12.  Must be a valid symbol.
+    SpdrKeyType sec_type12 = 310; // Security Type [Stock, Future, Option]
+    uint32 ratio12 = 313; // Ratio for leg #12.  Must be greater than zero.
+    BuySell side12 = 316; // Order side for leg #12.
+    double ref_prc12 = 319; // Reference price for leg #12.
+    float ref_delta12 = 322; // Reference delta for leg #12.
+    OptionKey sec_key13 = 325; // Symbol for leg #13.  Must be a valid symbol.
+    SpdrKeyType sec_type13 = 328; // Security Type [Stock, Future, Option]
+    uint32 ratio13 = 331; // Ratio for leg #13.  Must be greater than zero.
+    BuySell side13 = 334; // Order side for leg #13.
+    double ref_prc13 = 337; // Reference price for leg #13.
+    float ref_delta13 = 340; // Reference delta for leg #13.
+    OptionKey sec_key14 = 343; // Symbol for leg #14.  Must be a valid symbol.
+    SpdrKeyType sec_type14 = 346; // Security Type [Stock, Future, Option]
+    uint32 ratio14 = 349; // Ratio for leg 1#4.  Must be greater than zero.
+    BuySell side14 = 352; // Order side for leg #14.
+    double ref_prc14 = 355; // Reference price for leg #14.
+    float ref_delta14 = 358; // Reference delta for leg #14.
+    OptionKey sec_key15 = 361; // Symbol for leg #15.  Must be a valid symbol.
+    SpdrKeyType sec_type15 = 364; // Security Type [Stock, Future, Option]
+    uint32 ratio15 = 367; // Ratio for leg #15.  Must be greater than zero.
+    BuySell side15 = 370; // Order side for leg #15.
+    double ref_prc15 = 373; // Reference price for leg #15.
+    float ref_delta15 = 376; // Reference delta for leg #15.
+    OptionKey sec_key16 = 379; // Symbol for leg #16.  Must be a valid symbol.
+    SpdrKeyType sec_type16 = 382; // Security Type [Stock, Future, Option]
+    uint32 ratio16 = 385; // Ratio for leg #16.  Must be greater than zero.
+    BuySell side16 = 388; // Order side for leg #16.
+    double ref_prc16 = 391; // Reference price for leg #16.
+    float ref_delta16 = 394; // Reference delta for leg #16.
+    OptionKey sec_key17 = 397; // Symbol for leg #17.  Must be a valid symbol.
+    SpdrKeyType sec_type17 = 400; // Security Type [Stock, Future, Option]
+    uint32 ratio17 = 403; // Ratio for leg #17.  Must be greater than zero.
+    BuySell side17 = 406; // Order side for leg #17.
+    double ref_prc17 = 409; // Reference price for leg #17.
+    float ref_delta17 = 412; // Reference delta for leg #17.
+    OptionKey sec_key18 = 415; // Symbol for leg #18.  Must be a valid symbol.
+    SpdrKeyType sec_type18 = 418; // Security Type [Stock, Future, Option]
+    uint32 ratio18 = 421; // Ratio for leg #18.  Must be greater than zero.
+    BuySell side18 = 424; // Order side for leg #18.
+    double ref_prc18 = 427; // Reference price for leg #18.
+    float ref_delta18 = 430; // Reference delta for leg #18.
+    OptionKey sec_key19 = 433; // Symbol for leg #19.  Must be a valid symbol.
+    SpdrKeyType sec_type19 = 436; // Security Type [Stock, Future, Option]
+    uint32 ratio19 = 439; // Ratio for leg #19.  Must be greater than zero.
+    BuySell side19 = 442; // Order side for leg #19.
+    double ref_prc19 = 445; // Reference price for leg #19.
+    float ref_delta19 = 448; // Reference delta for leg #19.
+    OptionKey sec_key20 = 451; // Symbol for leg #20.  Must be a valid symbol.
+    SpdrKeyType sec_type20 = 454; // Security Type [Stock, Future, Option]
+    uint32 ratio20 = 457; // Ratio for leg #20.  Must be greater than zero.
+    BuySell side20 = 460; // Order side for leg #20.
+    double ref_prc20 = 463; // Reference price for leg #20.
+    float ref_delta20 = 466; // Reference delta for leg #20.
+    string modified_by = 469; // user who last modified this record
+    SysEnvironment modified_in = 472;
+    google.protobuf.Timestamp timestamp = 475; // timestamp of last modification
+}
+
+

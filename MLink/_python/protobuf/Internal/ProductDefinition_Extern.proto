@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    exchange product definitions.  Includes future, option on futures.
+*/    
+message ProductDefinition_Extern {
+    message PKey {
+        
+        OptionKey sec_key = 10; // SR Security Key [can be partially filled in (look at secType)]
+        SpdrKeyType sec_type = 11; // Security Type [Stock, Future, Option]
+    }
+
+    message Legs {
+        
+        string leg_iD = 205; // leg SecurityId (exch assigned)
+        OptionKey sec_key = 209;
+        SpdrKeyType sec_type = 212;
+        BuySell side = 215;
+        uint32 ratio = 218;
+        float ref_delta = 221;
+        double ref_prc = 224;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string security_iD = 100; // unique exchange id (exch assigned)
+    TickerKey ticker = 103; // master underlier
+    ProductClass product_class = 106;
+    int64 underlier_iD = 109; // underlier product id (option only) [securityID of undKey/undType product]
+    ExpiryKey und_key = 112; // SR Underlier Security Key [can be partially filled in (look at undType)] (option only)
+    SpdrKeyType und_type = 115; // Underlier Security Type [Stock, Future] (option only)
+    string product_group = 118; // Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message
+    string security_group = 121; // Exchange specific code for a group of related securities that are all affected by market events.  I.E. All E-mini weekly options (EW) - This is SecurityGroup field from the SecurityDefinition messages
+    int32 market_segment_iD = 124; // Exchange specific market segment identifier
+    string security_desc = 127; // full exchange symbol
+    string exchange = 130; // listing exchange
+    ProductType product_type = 133;
+    ProductTerm product_term = 136;
+    ProductIndexType product_index_type = 139;
+    float product_rate = 142;
+    float contract_size = 145;
+    ContractUnit contract_unit = 148;
+    PriceFormat price_format = 151;
+    double min_tick_size = 154;
+    double display_factor = 157;
+    double strike_scale = 160; // manual strike price adjustment multiplier (used for some CME products if set, otherwise displayFactor is used) (okey_xx = strikePrice * manualStrikeScale)
+    int32 min_lot_size = 163; // minimum lot size
+    int32 book_depth = 166; // levels in the Globex quote book
+    int32 implied_book_depth = 167; // levels in the globex implied quote book (0 if no implied depth)
+    int32 imp_market_ind = 168; // implied market type (0 = no implied, 1 = implied in, 2 = implied out, 3 = implied in & out)
+    float min_price_increment_amount = 170;
+    float par_value = 175; // per contract par value
+    float cont_multiplier = 180; // contract deliverable multipler
+    Currency trade_curr = 182;
+    Currency settle_curr = 185;
+    Currency strike_curr = 187;
+    google.protobuf.Timestamp expiration = 190; // future expiration or option expiration (if product is an option). we use the last TRADING day as the expiration date.
+    DateKey maturity = 192; // future maturity date or option maturity date.  this is the delivery month.
+    ExerciseType exercise_type = 198; // (depricate; in RootDefinition) Exercise style
+    double cab_price = 248; // cabinet price (minimum closing price for OOM options)
+    google.protobuf.Timestamp timestamp = 247;
+    repeated Legs legs = 200;
+}
+
+

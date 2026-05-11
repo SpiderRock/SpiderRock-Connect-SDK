@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    IndustryDefinition contains the definitions of numeric industry codes; ind (00), sub (0000), grp (000000), and nbr (00000000) used in the SpiderRock platform.
+*/    
+message IndustryDefinition_Extern {
+    message PKey {
+        
+        int32 code = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    IndType ind_type = 100;
+    string name = 103; // industry Def name
+    google.protobuf.Timestamp timestamp = 106; // record update timestamp
+}
+
+

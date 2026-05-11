@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionPairData {
+    message PKey {
+        
+        OptionKey opt_key = 10; // Option key
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string x_axis = 100; // xAxis = Moneyness
+    int32 x_atm_offset = 103; // 0 = ATM, +1,+2,+3 = 1st, 2nd, 3rd upside strike, -1/-2/-3 = 1st,2nd,3rd downside strike
+    string s_vol = 106; // current surface svol (live SR surface)
+    string s_div = 109; // current surface sdiv (live SR surface)
+    string s_vol_prv = 112; // yesterday's closing surface svol
+    string s_div_prv = 115; // yesterday's closing surface sdiv
+    string s_vol_chg = 118; // change in sVol from yesterday
+    string atm_vol = 121; // sVol @ xAxis = 0
+    string c_bid = 124; // call bid
+    string c_ask = 127; // call ask
+    int32 c_bid_sz = 130; // call bid size
+    int32 c_ask_sz = 133; // call ask size
+    string c_bid_iv = 136; // call bid implied volatility
+    string c_ask_iv = 139; // call ask implied volatility
+    string c_de = 142; // call delta
+    string c_ga = 145; // call gamme
+    string c_th = 148; // call theta
+    string c_ve = 151; // call vega
+    string c_sOpx = 154; // current call surface price
+    string c_sOpx_prv = 157; // yesterday's closing surface price (sVolPrv + sDivPrv + live uPrc)
+    int32 c_oI = 160; // call open interest (market)
+    int32 c_vlm = 163; // call print volume (this exchange)
+    string c_fWidth = 257; // call fair market width
+    int32 c_trd = 166; // call contracts traded today
+    int32 c_pos = 169; // call contract position (start-of-period + traded today)
+    double c_bid2_fair_min = 172; // from market shadows
+    double c_bid2_fair_max = 175;
+    double c_ask2_fair_min = 178;
+    double c_ask2_fair_max = 181;
+    double c_fair_px_min = 184; // from ML models
+    double c_fair_px_max = 187; // from ML models
+    string p_bid = 190; // put bid
+    string p_ask = 193; // put ask
+    int32 p_bid_sz = 196; // put bid size
+    int32 p_ask_sz = 199; // put ask size
+    string p_bid_iv = 202; // put bid implied volatility
+    string p_ask_iv = 205; // put ask implied volatility
+    string p_de = 208; // put delta
+    string p_ga = 211; // put gamma
+    string p_th = 214; // put theta
+    string p_ve = 217; // put vega
+    string p_sOpx = 220; // current call surface price
+    string p_sOpx_prv = 223; // yesterday's closing surface price (sVolPrv + sDivPrv + live uPrc)
+    int32 p_oI = 226; // put open interest (market)
+    int32 p_vlm = 229; // put print volume (this exchange)
+    string p_fWidth = 258; // put fair market width
+    int32 p_trd = 232; // put contracts traded today
+    int32 p_pos = 235; // put contract position (start-of-period + traded today)
+    double p_bid2_fair_min = 238; // from market shadows
+    double p_bid2_fair_max = 241;
+    float p_bid_take_prob = 242; // Probability bid for Puts
+    float p_ask_take_prob = 243; // Probability ask for Puts
+    float c_bid_take_prob = 248; // Probability bid for Calls
+    float c_ask_take_prob = 249; // Probability ask for Calls
+    double p_ask2_fair_min = 244;
+    double p_ask2_fair_max = 247;
+    double p_fair_px_min = 250; // from ML models
+    double p_fair_px_max = 253; // from ML models
+    google.protobuf.Timestamp ts = 256; // last update time (Date)
+}
+
+

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridMeta {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+    }
+
+    message Column {
+        
+        string c_name = 101;
+        CType c_type = 102;
+        string label = 103;
+        string grp = 104;
+        string enum_options = 105; // will be a comma separated string if an enum or will be an empty string
+        YesNo is_backing_store_pkey = 106;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    repeated Column column = 100;
+}
+
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message FutureChainResponse {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    string exch_yr_mn = 103;
+    float u_prc = 106;
+    float years = 109;
+    UnderlierType underlier_type = 112;
+    ChainRequest chain_request = 115;
+}
+
+

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: FutureChildQuote
+    V8 Message Name: FutureChildQuote
+    Bridging pattern:  [V7 --> V8]
+*/    
+message FutureChildQuote_V7 {
+    message PKey {
+        
+        ExpiryKey fkey = 5000; // v7 & v8
+        string engine_name = 5001; // v7 & v8
+        YesNo is_test_accnt = 5002; // v7 & v8
+        SysEnvironment sys_environment = 5003; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+        RunStatus run_status = 5004; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double bid_price = 5005; // v7 & v8 --- Original comment: bid price
+    double ask_price = 5006; // v7 & v8 --- Original comment: ask price
+    int32 bid_size = 5007; // v7 & v8 --- Original comment: bid size in contracts
+    int32 ask_size = 5008; // v7 & v8 --- Original comment: ask size in contracts
+    google.protobuf.Timestamp timestamp = 5009; // v7 & v8 --- Original comment: quote update
+}
+
+

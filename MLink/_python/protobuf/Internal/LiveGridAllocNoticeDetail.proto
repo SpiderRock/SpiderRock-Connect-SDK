@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAllocNoticeDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 alloc_number = 100; // unique allocation notice number
+    DateKey trade_date = 101;
+    string client_firm = 102;
+    string omni_accnt = 103;
+    string sec_key = 104; // conditionally formatted secKey based on secType
+    SpdrKeyType sec_type = 105;
+    string mleg_leg_key = 106; // [secKey;legRatio;side;positionEffect, ...]
+    BuySell order_side = 107;
+    SpdrOrderShape order_shape = 108; // Single or MLeg
+    ShortSaleFlag ssale_flag = 109;
+    PositionType position_type = 110;
+    NoticeState notice_state = 111; // notice lifecycle: ReadyToSend, HoldForReview, Canceled, Error
+    string notice_text = 112;
+    AllocMethod alloc_method = 113; // delivery method: FIX or FilePAS
+    string exec_brkr_code = 114; // used for FIX routing
+    string alloc_ex_dest = 115; // used for FIX routing
+    int32 cum_fill_quantity = 116;
+    double avg_fill_price = 117;
+    double net_money = 118;
+    AllocationStatus status = 119; // custodian response: Submitted, Accepted, Rejected, etc.
+    string reject_reason = 120;
+    string fragments = 121; // flattened fragment list (accnt:allocSize, ...)
+    string modified_by = 122;
+    SysEnvironment modified_in = 123;
+    google.protobuf.Timestamp timestamp = 124;
+    YesNo is_prod = 125; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 126; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 127; // WTS synthetic: alert message (null if no alert)
+}
+
+

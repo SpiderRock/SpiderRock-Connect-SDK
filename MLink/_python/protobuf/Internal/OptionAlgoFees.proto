@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionAlgoFees {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string opt_exch = 11;
+        FirmType cust_class = 12;
+        OptNameClass name_class = 13;
+        string client_firm = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float make_fee = 100; // make fee used in exchange routing decisions
+    float take_fee = 103; // take fee used in exchange routing decisions
+    float cob_make_fee = 106; // base (lowest tier) make fee for the exchange/cust class
+    float cob_take_fee = 109;
+    google.protobuf.Timestamp timestamp = 112;
+}
+
+

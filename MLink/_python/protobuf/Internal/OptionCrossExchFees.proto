@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionCrossExchFees {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string opt_exch = 11;
+        FirmType cust_class = 12;
+        OptNameClass name_class = 13;
+        CrossHandling cross_handling = 15;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_enabled = 100;
+    float auction_init_fee = 101; // auction initiation (agency or cust side) fee
+    float auction_contra_fee = 102; // auction contra (face side) fee
+    float breakup_credit = 103; // auction breakup credit (due if/when an initiated cross is broken up)
+    float cob_auction_init_fee = 104; // [cob] auction initiation fee
+    float cob_auction_contra_fee = 105; // [cob] auction contra (face side) fee
+    float cob_auction_contra_cust_rebate = 106; // [cob] auction contra (face side) exch rebate (facing cust) (should be >= 0) (QCC primarily)
+    float cob_auction_contra_pro_cust_rebate = 107; // [cob] auction contra (face side) exch rebate (facing proCust) (should be >= 0) (QCC primarily)
+    float cob_auction_contra_firm_rebate = 108; // [cob] auction contra (face side) exch rebate (facing firm) (should be >= 0) (QCC primarily)
+    float cob_auction_contra_mMRebate = 109; // [cob] auction contra (face side) exch rebate (facing mm) (should be >= 0) (QCC primarily)
+    float cob_breakup_credit = 110; // [cob] auction breakup credit (due if/when an initiated cross is broken up)
+    float cob_stk_clearing_fee = 111; // [cob] per share fee for clearing stock legs (should be in mills or ~ 1/100th of the option fees)
+    YesNo is_strategy_capped = 112; // common cob strategy orders are fee capped (rev/con, box, etc)
+    int32 strategy_priority = 113; // 0 - 255 (higher # -> preferred exchange for capped strategy orders)
+    string modified_by = 114;
+    SysEnvironment modified_in = 115;
+    google.protobuf.Timestamp timestamp = 116;
+}
+
+

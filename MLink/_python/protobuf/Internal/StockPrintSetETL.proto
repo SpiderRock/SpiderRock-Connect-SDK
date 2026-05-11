@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: StockPrintETL + StockMinuteBarETL
+    CalcEngine: Spark/ETL
+*/    
+message StockPrintSetETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int64 prt_number = 11; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    DateKey trading_date = 103;
+    TradingSession trading_session = 106;
+    StkExch prt_exch = 109; // print exch
+    int32 prt_size = 112; // print size
+    float prt_price = 115; // print price level
+    int32 prt_volume = 118; // cumulative print size today
+    int32 prt_type = 121; // print type
+    int32 prt_cond1 = 124; // print condition (from SIP feed)
+    int32 prt_cond2 = 127;
+    int32 prt_cond3 = 130;
+    int32 prt_cond4 = 133;
+    PrtSide prt_side = 136; // Print side: None; Mid; Bid; Ask
+    int64 prt_timestamp = 139; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 142; // inbound print packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    float bid_price = 145; // nbbo bid @ print arrival time
+    float ask_price = 148; // nbbo ask @ print arrival time
+    int32 bid_size = 151;
+    int32 ask_size = 154;
+    int64 qte_timestamp = 157; // exchange high precision timestamp (if available)
+    float bid_price_m1 = 160; // Bid price +1 minute
+    float ask_price_m1 = 163; // Ask price +1 minute
+    float prt_price_m1 = 166; // market price +1 minute [mid-quote if not intervening prints;most recent print otherwise]
+    float pnl_m1 = 169; // pnl after 1 minute
+    YesNo pnl_m1_err = 172;
+    float bid_price_m10 = 175; // Bid price +10 minutes
+    float ask_price_m10 = 178; // Ask price +10 minutes
+    float prt_price_m10 = 181; // market price +10 minutes [most recent print (if any) otherwise mid-quote]
+    float pnl_m10 = 184; // pnl after 10 minutes
+    YesNo pnl_m10_err = 187;
+    google.protobuf.Timestamp timestamp = 190;
+}
+
+

@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrFutPrintCluster {
+    message PKey {
+        
+        ExpiryKey fkey = 10;
+        int32 print_cluster_iD = 11; // unique SR Print Cluster ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double bid_prc1 = 100; // best (max) bid price during print event
+    double ask_prc1 = 103; // best (min) ask price during print event
+    int32 bid_size1 = 106; // max cumulative size @ best bid price
+    int32 ask_size1 = 109; // max cumulative size @ best ask price
+    double bid_prc2 = 112; // 2nd best bid price during print event
+    double ask_prc2 = 115; // 2nd best ask price during print event
+    int32 bid_size2 = 118; // max cumulative size @ 2nd best bid price
+    int32 ask_size2 = 121; // max cumulative size @ 2nd best ask price
+    double bid_prc3 = 124; // 3rd best bid price during print event
+    double ask_prc3 = 127; // 3rd best ask price during print event
+    int32 bid_size3 = 130; // max cumulative size @ 3rd best bid price
+    int32 ask_size3 = 133; // max cumulative size @ 3rd best ask price
+    double bid_prc4 = 136; // 4th best bid price during print event
+    double ask_prc4 = 139; // 4th best ask price during print event
+    int32 bid_size4 = 142; // max cumulative size @ 4th best bid price
+    int32 ask_size4 = 145; // max cumulative size @ 4th best ask price
+    float avg_bid_size = 148; // 10 minute EMA average of cum bid size @ best price level
+    float avg_ask_size = 151; // 10 minute EMA average of cum ask szie @ best price level
+    float avg_mkt_width = 154; // 10 minute EMA average of bid/ask width
+    float avg_realized_vol = 157; // 10 minute EMA average realized volatility
+    double print_min_price = 160;
+    double print_max_price = 163;
+    double print_avg_price = 166; // volume weighted average print price
+    int32 print_cnt = 169; // number of option print reports received up in cluster window
+    int32 print_cum_size = 172; // cum size of all prints
+    int64 net_timestamp_st = 175; // (SR) net timestamp of the first print message in the sweep set
+    int64 net_timestamp_en = 178; // (SR) net timestamp of the final print message in the sweep set
+    int64 src_timestamp_st = 181; // source timestamp of the first print message in the sweep set
+    int64 src_timestamp_en = 184; // source timestamp of the final print message in the sweep set
+    double fwdrice_m1 = 187; // projected mid-price (T+1) minute conditional on print cluster
+    double fwd_price_m10 = 190; // projected mid-price (T+10) minutes conditional on print cluster
+    double bid_price_m1 = 193; // nbbo market T+1 minute
+    double ask_price_m1 = 196;
+    double bid_price_m10 = 199; // nbbo market T+10 minutes
+    double ask_price_m10 = 202;
+    google.protobuf.Timestamp timestamp = 205;
+}
+
+

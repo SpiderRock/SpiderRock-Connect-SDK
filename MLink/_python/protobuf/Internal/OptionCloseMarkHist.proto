@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionCloseMarkHist {
+    message PKey {
+        
+        OptionKey okey = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey und_sec_key = 100;
+    SpdrKeyType und_sec_type = 103;
+    int64 security_iD = 106;
+    google.protobuf.Duration sr_close_time = 109; // SR closing mark time (C)
+    ClsMarkState cls_mark_state = 112; // Close mark state: None; LastPrt; SRClose; ExchClose; Final
+    double u_bid = 115; // SR closing underlier bid (C - 5m)
+    double u_ask = 118; // SR closing underlier ask (C - 5m)
+    double u_sr_cls = 121; // SR underlier closing mark (C - 5m)
+    double u_close = 124; // Exchange underlier closing mark
+    float bid_prc = 127; // SR closing option bid (C - 5m)
+    float ask_prc = 130; // SR closing option ask (C - 5m)
+    float sr_cls_prc = 133; // SR close mark (close - 5min)
+    MarkSrc sr_cls_prc_src = 136;
+    float close_prc = 139; // exchange closing mark (note: may not be as/of srCloseTime)
+    MarkSrc close_prc_src = 142;
+    double syn_spot = 143; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    float atm_vol = 160; // atm vol (xAxis = 0)
+    float atm_cen = 153; // atm vol (xAxis = 0) (eMove/earnCntAdj censored)
+    float bid_iV = 145; // implied vol of SpiderRock closing bid price (C - 5m)
+    float ask_iV = 148; // implied vol of SpiderRock closing ask price (C - 5m)
+    float sr_prc = 151; // SpiderRock surface price (price corresponding to srVol; may not always be within bid/ask) (C - 5m)
+    float sr_vol = 154; // SpiderRock surface volatility (C - 5m)
+    float sr_slope = 157; // slope of SR surface (dSRVol/dUPrc; assuming expiry curve slides left/right with no shape change)
+    float k_adj = 161; // adjusted strike
+    float de = 163; // delta (SR surface)
+    float ga = 166; // gamma (SR surface)
+    float th = 169; // theta (SR surface)
+    float ve = 172; // vega (SR surface)
+    float vo = 175; // volga (SR surface)
+    float va = 178; // vanna (SR surface)
+    float rh = 181; // rho (SR surrface)
+    float ph = 184; // phi (SR surface)
+    float de_decay = 187; // delta decay (SR surface)
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233;
+    ExerciseType ex_type = 224; // exercise type
+    float years = 152; // volatility years to expiration (from SR time/calendar metrics)
+    float years_c = 199; // calendar years to expiration
+    float rate = 155; // SR interest rate (from global rate curve)
+    float sdiv = 173; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 158; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 162; // SR ddivPv (sum of present value discrete dividend amounts)
+    int32 s_days_t = 236; // settlement days (today)
+    int32 s_days_e = 239; // settlement days (expiry)
+    int32 error = 202; // SR pricing library calculation error code
+    int32 open_interest = 205; // Open Interest
+    int32 prt_count = 208;
+    int32 prt_volume = 211; // total printed volume
+    google.protobuf.Timestamp prior_date = 214;
+    float prc_adj_value = 217; // corp action adjustment value (0.0 on most days); [todayPrice = priorPrice * prcAdjRatio + prcAdjValue]
+    float prc_adj_ratio = 220; // corp action adjustment factor (1.0 on most days)
+    float prior_sRCls_prc = 223; // values archive in the previous trading period
+    float prior_close_prc = 226;
+    google.protobuf.Timestamp timestamp = 229;
+}
+
+

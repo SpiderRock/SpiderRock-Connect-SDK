@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message OptionRootDefinitionETL {
+    message PKey {
+        
+        TickerKey root = 10;
+        DateKey trading_date = 11;
+    }
+
+    message Underlying {
+        
+        TickerKey ticker = 196;
+        float und_per_cn = 199; // note: _root basket = sum(undPerCn * ticker) / 100
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    string osi_root = 103; // long version of the root.  the short version is used in the TickerKey (for example RYAAY1, not RYAA1)
+    int64 security_iD = 106;
+    TickerKey ccode = 109;
+    ExpirationMap expiration_map = 112;
+    UnderlierMode underlier_mode = 115;
+    OptionType option_type = 118; // indicator for option type
+    Multihedge multihedge = 121; // indicates type of multihedge
+    ExerciseTime exercise_time = 124; // Exercise time type
+    ExerciseType exercise_type = 127; // Exercise style
+    TimeMetric time_metric = 130; // trading time metric - 252 or 365 trading days or a weekly cycle type
+    PricingModel pricing_model = 133;
+    MoneynessType moneyness_type = 136; // moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)
+    PriceQuoteType price_quote_type = 139; // quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)
+    int32 position_limit = 142; // max contract limit
+    string exchanges = 145; // exchange codes
+    float tick_value = 148; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 151; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 154;
+    double strike_scale = 157; // manual strike price adjustment multiplier (used for some CME products if set, otherwise displayFactor is used) (okey_xx = strikePrice * manualStrikeScale)
+    float strike_ratio = 160; // note: effective strike = strike * strikeRatio - cashOnExercise
+    float cash_on_exercise = 163; // note: cashOnExercise is positive if it decreases the effective strike price
+    int32 underliers_per_cn = 166; // note: always 100 if underlying list is in use
+    double premium_mult = 169; // note: OCC premium/strike multiplier (usually 100)
+    AdjConvention adj_convention = 172;
+    OptPriceInc opt_price_inc = 175;
+    PriceFormat price_format = 178; // price display format
+    Currency trade_curr = 181;
+    Currency settle_curr = 184;
+    Currency strike_curr = 187;
+    google.protobuf.Timestamp timestamp = 190;
+    repeated Underlying underlying = 193;
+}
+
+

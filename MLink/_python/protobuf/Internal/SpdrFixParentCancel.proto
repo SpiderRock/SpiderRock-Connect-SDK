@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records inserted into this table causes the corresponding parent order to be cancelled if it is active and cancellable.
+*/    
+message SpdrFixParentCancel {
+    message PKey {
+        
+        string alt_cancel_id = 10; // usually client FIX clOrdId of the inbound OrderCancel request
+        string src_routing_code = 11; // client FIX session
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 client_seq_num_in = 100;
+    string alt_order_id = 103; // usually client FIX origClOrdId (order to be cancelled)
+    OptionKey sec_key = 106; // Composite Security Key
+    SpdrKeyType sec_type = 109; // Security Type [Stock, Future, Option]
+    string cxl_reason = 112;
+    SpdrCloseReason spdr_close_reason = 115; // Valid values from CGW: UserCxl, System
+    string engine_name = 128; // set by the engine handling event (should be blank on arrival)
+    string modified_by = 121; // user who last modified this record
+    SysEnvironment modified_in = 124;
+    google.protobuf.Timestamp timestamp = 127; // timestamp of last modification
+}
+
+

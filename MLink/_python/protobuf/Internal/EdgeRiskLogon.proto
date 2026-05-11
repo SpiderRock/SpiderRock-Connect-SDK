@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    risk-to-edge
+*/    
+message EdgeRiskLogon {
+
+
+    MessageMetadata _meta = 1;
+    
+    string risk_ctrl_server = 100; // risk control server name
+    string risk_aPIKey = 103; // must match the edge device API key currently advertised in vault
+    int64 timestamp = 106; // message send timestamp
+}
+
+

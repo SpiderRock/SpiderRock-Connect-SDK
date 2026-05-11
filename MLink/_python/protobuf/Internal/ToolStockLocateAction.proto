@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+/*
+    When sent from the client to the WebToolServer, these are capable (depending on the input) of creating either a StockLocateResponse or StockLocateRequest message in the system
+*/    
+message ToolStockLocateAction {
+    message PKey {
+        
+        TickerKey ticker = 10; // ticker symbol
+        string accnt = 11; // selected account
+        string client_firm = 12; // account client firm (not the locate client firm)
+        string locate_firm = 13; // typically a clearing firm (or 3rd party locate desk)
+        string locate_pool = 14; // locate pool @ firm granting the locate
+        LocateSource locate_source = 15; // original source of the locate response
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ToolLocateAction action = 100; // Required. Which action to perform with this message
+    string locate_iD = 101; // (not used for Requests) ID used to make locate requests (SR generated request ID if SR made the locate request; client supplied otherwise)
+    int32 request_qty = 102; // original request quantity for requestID
+}
+
+

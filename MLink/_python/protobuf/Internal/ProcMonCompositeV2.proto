@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ProcMonCompositeV2 {
+    message PKey {
+        
+        string process_key = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    RunStatus orig_run_status = 100; // run status [Prod,Beta]
+    SysRealm orig_sys_realm = 103; // sysRealm [NMS, CME, etc.]
+    SysEnvironment orig_sys_environment = 106; // sys environment [Stable, Current, etc]
+    uint32 app_id = 109; // zero if not scheduled
+    string server_name = 112; // process instance name
+    string machine_name = 115;
+    ScheduledTaskScheduler scheduler = 118;
+    ScheduledTaskRunDays days = 121;
+    Lifespan lifespan = 124;
+    string sched_server = 127;
+    string sched_name = 130;
+    string sched_command_line = 133;
+    int32 sched_process_id = 136;
+    ScheduledTaskStatus sched_status = 139;
+    string sched_details = 142;
+    google.protobuf.Timestamp sched_timestamp = 145;
+    google.protobuf.Timestamp proc_start = 148;
+    string last_signal = 151; // string indicating the signal it got , for example READY, SHUTDOWN
+    float cpu_usage = 154; // cpu usage (number of cores utilized)
+    float memory_usage = 157; // CLR memory (GB)
+    ResourceLevel server_cPU = 160;
+    ResourceLevel server_memory = 163;
+    float avg_mMRDelay = 166; // avg (inbound) DBL MMR ring delay (ms)
+    float max_mMRDelay = 169; // max (inbound) DBL MMR ring delay (ms)
+    int32 packets_per_sec = 172; // MMR/MBUS packet rcvd rate (multiple msgs per packet)
+    int32 num_msg_drops = 175; // number of MBUS message drops
+    float msg_recv_rate = 178; // total (inbound) messages per second
+    float msg_send_rate = 181; // total (outbound) messages per second
+    PulseError pulse_error = 184;
+    string proc_detail = 187; // additional detail as reported by the process
+    int32 num_app_errors = 190;
+    string last_app_error = 193;
+    google.protobuf.Timestamp last_app_dttm = 196;
+    int32 num_fix_errors = 199;
+    string last_fix_error = 202;
+    google.protobuf.Timestamp last_fix_dttm = 205;
+    int32 num_msg_errors = 208;
+    string last_msg_error = 211;
+    google.protobuf.Timestamp last_msg_dttm = 214;
+    int32 num_sys_errors = 217;
+    string last_sys_error = 220;
+    google.protobuf.Timestamp last_sys_dttm = 223;
+    google.protobuf.Timestamp timestamp = 226;
+}
+
+

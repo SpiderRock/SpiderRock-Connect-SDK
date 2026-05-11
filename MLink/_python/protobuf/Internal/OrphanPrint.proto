@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OrphanPrint {
+    message PKey {
+        
+        int64 prt_number = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptionKey okey = 100;
+    OptExch prt_exch = 101;
+    int32 prt_size = 102; // print size [contracts]
+    float prt_price = 103; // print price
+    PrtType prt_type = 104;
+    OrphanReason orphan_reason = 118;
+    float ebid = 105; // exchange bid (@ print time)
+    float eask = 106; // exchange ask (@ print time)
+    int32 ebsz = 107; // exchange bid size
+    int32 easz = 108; // exchange ask size
+    float bid_price = 109; // nbbo bid price (@ print time)
+    float ask_price = 110; // nbbo ask price (@ print time)
+    int32 bid_size = 111; // bid size in contracts (total nbbo size)
+    int32 ask_size = 112; // ask size in contracts (total nbbo size)
+    int64 bid_mask = 119; // exchange bid bit mask
+    int64 ask_mask = 120; // exchange ask bit mask
+    int64 prt_timestamp = 115; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 116; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+    google.protobuf.Timestamp timestamp = 117;
+}
+
+

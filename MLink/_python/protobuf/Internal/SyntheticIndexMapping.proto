@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SyntheticIndexMapping {
+    message PKey {
+        
+        TickerKey ticker = 10; // Ticker/TickerKey for the published StockBookQuote, StockPrint messages
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey index_ticker = 100; // Index ticker used for the calculations if synthTickerSrc = Index
+    TickerKey implied_index_ticker = 103; // Front month future ccode used for the calculations if synthTickerSrc = Implied
+    SynthTickSrc synth_ticker_src = 106; // Ticker source/calcuation method for the calculated StockBookQuote, StockPrint messages
+    float implied_index_ticker_weight = 109; // Multiplier for the impliedIndexTicker price in Spread calculations
+    TickerKey offset_ticker = 112; // Offset ticker used in Spread calculations
+    float offset_ticker_weight = 115; // Multiplier for the offsetTicker price in Spread calculations
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message OptionPrintETL {
+    message PKey {
+        
+        OptionKey okey = 10;
+        int64 prt_number = 11; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trading_date = 100;
+    TradingSession trading_session = 103;
+    OptExch prt_exch = 106; // Exchange on which print took place
+    int32 prt_size = 109; // print size [contracts]
+    float prt_price = 112; // print price
+    PrtType prt_type = 115; // print type
+    uint32 prt_orders = 118; // number of participating orders
+    int64 prt_timestamp = 121; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 124; // inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock
+    float ebid = 127; // exchange bid (@ print time)
+    float eask = 130; // exchange ask (@ print time)
+    int32 ebsz = 133; // exchange bid size
+    int32 easz = 136; // exchange ask size
+    float eage = 139; // age of prevailing quote at time of print
+    PrtSide prt_side = 142; // if available from exchange
+    float o_bid = 145; // Option NBBO bid a the time the print was received
+    float o_ask = 148; // Option NBBO ask a the time the print was received
+    int32 o_bid_sz = 151; // Option NBBO cumulative bid size at the time the print was received
+    int32 o_ask_sz = 154; // Option NBBO cumulative ask size at the time the print was received
+    OptExch o_bid_ex = 157; // First (or largest) option exchange on the bid
+    OptExch o_ask_ex = 160; // First (or largest) option exchange on the ask
+    int32 o_bid_ex_sz = 163; // Option bid size of the largest exchange on the bid at the time the print was received
+    int32 o_ask_ex_sz = 166; // Option ask size of the largest exchange on the ask at the time the print was received
+    int32 o_bid_cnt = 169; // Number of exchanges on the NBBO bid
+    int32 o_ask_cnt = 172; // Number of exchanges on the NBBO ask
+    int64 qte_timestamp = 175; // exchange high precision timestamp (if available)
+    double u_bid = 178; // underlier bid
+    double u_ask = 181; // underlier ask
+    double u_prc = 184; // underlier price
+    google.protobuf.Timestamp timestamp = 187;
+}
+
+

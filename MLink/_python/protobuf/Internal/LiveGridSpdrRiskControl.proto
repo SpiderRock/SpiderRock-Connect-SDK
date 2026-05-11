@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridSpdrRiskControl {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string risk_control_key = 100; // must be an SRClientAccnt if riskControlLevel=Accnt; must be an SRUser if riskControlLevel=User; ignored if riskControlLevel=ClientFirm
+    RiskControlLevel risk_control_level = 101;
+    string c_firm = 102;
+    YesNo is_test_accnt = 103; // if Yes, this control applies only to risk from test accnts
+    MarState stk_enabled = 104;
+    MarState fut_enabled = 105;
+    MarState opt_enabled = 106;
+    float margin_limit_day = 107; // maximum net (per symbol/day) day portfolio (day trades only) margin (can include external sources)
+    float open_exposure_limit = 108; // maximum abs open child order $Delta (no netting) (open child orders only)
+    float max_day_dDelta_ln = 109; // open long $Delta per trading session
+    float max_day_dDelta_sh = 110; // open short $Delta per trading session
+    float max_day_dDelta_abs = 111; // absolute $Delta, |ddBot| + |ddSld| position per trading session
+    float max_day_wt_vega_ln = 112; // open long WtVega per trading session
+    float max_day_wt_vega_sh = 113; // open short WtVega per trading session
+    float max_day_wt_vega_abs = 114; // open absolute WtVega, |WtVeBot| + |WtVeSld| per trading session
+    float max_day_nValue_ln = 115; // open long notional value per trading session
+    float max_day_nValue_sh = 116; // open short notional value per trading session
+    float max_day_nValue_abs = 117; // absolute notional value, |NValueBot| + |NValueSld| per trading session
+    string modified_by = 118;
+    SysEnvironment modified_in = 119;
+    google.protobuf.Timestamp last_modified = 120;
+    SysRealm sys_realm = 121;
+    SysEnvironment sys_environment = 122; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 123; // EE engine name
+    float net_day_dDelta = 124; // net day $Delta
+    float abs_day_dDelta = 125; // absolute day $Delta, |ddBot| + |ddSld| position
+    float net_day_vega = 126; // net day Vega per
+    float abs_day_vega = 127; // absolute day Vega, |veBot| + |veSld| position
+    float net_day_wt_vega = 128; // net day WtVega
+    float abs_day_wt_vega = 129; // absolute day WtVega, |wvBot| + |wvSld| position
+    float net_day_nValue = 130; // net day Notional Value
+    float abs_day_nValue = 131; // absolute day Notional Value, |nvBot| + |nvSld| position
+    float net_day_rMetric7 = 132; // net day RiskMetric7
+    float abs_day_rMetric7 = 133; // absolute day RiskMetric7, |rm7Bot| + |rm7Sld| position
+    float net_day_dDelta_ema = 134; // 60s (half-life) EMA $delta
+    float net_day_wt_vega_ema = 135; // 60s (half-life) EMA wtVega
+    double ema_timestamp = 136;
+    float live_margin_day = 137; // live net (per symbol) day portfolio (day trades only) margin (can include external sources)
+    float live_open_exposure = 138; // live abs open child order $Delta (no netting) (open child orders only)
+    float day_margin_uDn_vDn = 139; // day margin (UPrcDn/VolDn)
+    float day_margin_uDn_vUp = 140; // day margin (UPrcDn/VolUp)
+    float day_margin_uUp_vDn = 141; // day margin (UPrcUp/VolDn)
+    float day_margin_uUp_vUp = 142; // day margin (UPrcUp/VolUp)
+    int32 num_stk_child_orders = 143;
+    int32 num_fut_child_orders = 144;
+    int32 num_opt_child_orders = 145;
+    int32 num_mLeg_child_orders = 146;
+    int32 counter = 147;
+    google.protobuf.Timestamp timestamp = 148;
+    YesNo is_prod = 149; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 150; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 151; // WTS synthetic: alert message (null if no alert)
+}
+
+

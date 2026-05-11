@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrChildTCA {
+    message PKey {
+        
+        int64 tCAID = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100;
+    string accnt = 101;
+    string user_name = 102;
+    string ticker = 103;
+    TickerSrc ticker_src = 104;
+    SpdrKeyType sec_type = 105;
+    SpdrSource spdr_source = 106;
+    SpdrOrderShape child_shape = 107;
+    ChildHandler algo_handler = 108;
+    string exec_broker_mPID = 109;
+    TCAAuctionType auction_type = 110;
+    string order_ex_dest = 177;
+    MktWidthCode mkt_width_code = 112; // Narrow, Mid, Wide (Option, MLeg) else Narrow=<20, Mid=<200, Wide=>200
+    TCAOrderSizeBucket order_size_bucket = 113;
+    ChildCreateReason order_create_reason = 114;
+    google.protobuf.Timestamp trade_date = 115;
+    int32 sum_nbbo_size = 116;
+    int32 num_child_orders = 117;
+    int32 sum_child_order_size = 118;
+    int32 sum_child_cn_size = 119;
+    int32 sum_child_mkt_order_size = 120;
+    float sum_child_mkt_width = 121;
+    int32 num_hi_create_latency = 122;
+    float sum_hi_create_latency = 123;
+    int32 num_lo_create_latency = 124;
+    float sum_lo_create_latency = 125;
+    int32 num_hi_cancel_latency = 126;
+    float sum_hi_cancel_latency = 127;
+    int32 num_lo_cancel_latency = 128;
+    float sum_lo_cancel_latency = 129;
+    int32 num_child_off_mkt = 130;
+    int32 num_child_exch_join = 131;
+    int32 num_child_mkt_join = 132;
+    int32 num_child_exch_impr = 133;
+    int32 num_child_mkt_impr = 134;
+    int32 num_child_marketable = 135;
+    int32 sum_marketable_size = 136;
+    double sum_active_time = 137;
+    int32 num_child_executions = 138;
+    int32 sum_child_fill_qty = 139;
+    int32 sum_child_fill_units = 140;
+    float sum_child_prc_impr = 141;
+    int32 sum_child_m1_size = 142;
+    float sum_child_m1_pn_l = 143;
+    int32 sum_child_m10_size = 144;
+    float sum_child_m10_pn_l = 145;
+    float sum_child_brkr_fee = 146;
+    float sum_child_routing_fee = 147;
+    float sum_child_exch_fee = 148;
+    int32 sum_prob_size = 149;
+    float sum_fill_prob = 150;
+    int32 num_fill_after_cxl = 151;
+    float sum_fill2_cxl_latency = 152;
+    int32 sum_fill_cxl_m1_size = 153;
+    float sum_fill_cxl_m1_pn_l = 154;
+    int32 sum_fill_cxl_m10_size = 155;
+    float sum_fill_cxl_m10_pn_l = 156;
+    int32 num_pos_slippage = 157;
+    float sum_pos_slippage_size = 158;
+    float sum_pos_limit_slippage = 159;
+    int32 num_neg_slippage = 160;
+    float sum_neg_slippage_size = 161;
+    float sum_neg_limit_slippage = 162;
+    float sum_surf_edge_size = 163;
+    float sum_surf_edge = 164;
+    float sum_fill2_cxl_size = 165;
+    float sum_fill2_cxl_slippage = 166;
+    float sum_child_fill_vega = 167;
+    float sum_child_fill_wt_vega = 168;
+    int32 num_contingent_cxl = 169;
+    float sum_contingent_cxl_size = 170;
+    float sum_cxl_tick2_action = 171;
+    float sum_cxl_action_latency = 172;
+    float sum_day_pn_l = 173;
+    float sum_arrival_pn_l = 174;
+    int32 sum_arrival_size = 175;
+    float sum_far_touch_pn_l = 178;
+    float sum_near_touch_pn_l = 181;
+    google.protobuf.Timestamp timestamp = 184;
+}
+
+

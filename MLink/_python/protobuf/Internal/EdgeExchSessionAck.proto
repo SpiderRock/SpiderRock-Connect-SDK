@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    edge-to-risk
+    sent on every state change or otherwise every 60 seconds
+*/    
+message EdgeExchSessionAck {
+    message PKey {
+        
+        string routing_code = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exec_brkr_code = 100;
+    EdgeExDest edge_ex_dest = 103;
+    ExchConnectState exch_connect_state1 = 106;
+    string exch_connect_details1 = 109;
+    ExchConnectState exch_connect_state2 = 112;
+    string exch_connect_details2 = 115;
+    EdgeSessionState session_status = 118;
+    string session_detail = 121;
+    int32 line_integrity_counter = 124;
+    YesNo line_integrity_error = 127;
+    string line_integrity_text = 130;
+    int32 line_integrity_reset_counter = 133; // from EdgeExchSessionReset
+    int32 num_msg_sent = 136;
+    int32 num_msg_recv = 139;
+    google.protobuf.Timestamp last_msg_sent = 142;
+    google.protobuf.Timestamp last_msg_recv = 145;
+    google.protobuf.Timestamp timestamp = 148;
+}
+
+

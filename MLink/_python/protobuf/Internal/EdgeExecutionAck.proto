@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    user-to-edge
+*/    
+message EdgeExecutionAck {
+    message PKey {
+        
+        int64 fill_number = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 version = 100; // from the associated EdgeExecution message
+    DateKey trade_date = 103;
+    int64 timestamp = 106; // timestamp of this record
+}
+
+

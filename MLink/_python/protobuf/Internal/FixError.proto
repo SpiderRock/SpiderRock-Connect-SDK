@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message FixError {
+    message PKey {
+        
+        int64 error_id = 10;
+        SysEnvironment sys_environment = 11;
+        RunStatus run_status = 12; // run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string unique_id = 100; // clOrdId, execId, etc
+    string msg_type = 103;
+    string routing_code = 106;
+    string base_routing_code = 109; // for TcpAcceptor sessions
+    string sender_comp_id = 112;
+    string target_comp_id = 115;
+    string sender_sub_id = 118;
+    string target_sub_id = 121;
+    uint32 app_id = 124; // AppId of the process handling this fix connection
+    string machine_name = 127; // name of the machine which is hosting fix server
+    SessionType session_type = 130; // type of session
+    google.protobuf.Timestamp session_date = 133; // session start date (Sun for Weekly sessions)
+    int32 session_counter = 136; // increments each time sequence numbers are reset
+    int32 seq_number = 139;
+    string error_msg = 142;
+    FixErrorType error_type = 145;
+    google.protobuf.Timestamp error_dttm = 148;
+    YesNo ackd = 151;
+    google.protobuf.Timestamp ack_dttm = 154;
+    string ackd_user = 157;
+}
+
+

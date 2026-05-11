@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStreetQuote records are published by SRFixQuoteGateway servers and are used to maintain/reload state for all handled orders
+*/    
+message SpdrStreetQuote {
+    message PKey {
+        
+        string cl_ord_id = 10; // SR child order number (EE)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string server_code = 100; // QuoteGW ServerCode
+    string fix_route_dn = 103; // QuoteGW -> Exchange session
+    string up_sender_comp_id = 106; // senderCompID/targetCompID of the QuoteGW -> EE session
+    string up_target_comp_id = 109;
+    string up_sender_sub_id = 112; // senderSubID/targetSubID of the QuoteGW -> EE session
+    string up_target_sub_id = 115;
+    string quote_key = 118; // quote key associated with this order (eg. QuoteEntryId)
+    string accnt = 121; // SR account
+    string client_firm = 124; // SR clientFirm
+    string exch_accnt = 127; // exchange account
+    string exch_cl_firm = 130; // exchange clientFirm
+    int64 base_cl_ord_id = 133; // EE side base clOrdId
+    int64 parent_number = 136; // SR parent number
+    int64 base_parent_number = 139;
+    OptionKey sec_key = 142;
+    SpdrKeyType sec_type = 145;
+    SpdrSource spdr_source = 148; // from child order
+    int64 grouping_code = 151; // from child order
+    string cti_code = 154;
+    string ext_trader_id = 157;
+    string ext_trading_location = 160;
+    YesNo is_manual = 163;
+    string symbol = 166;
+    int64 security_id = 169;
+    string product_group = 172; // Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message
+    BuySell order_side = 175;
+    double order_price = 178;
+    double exch_order_price = 181;
+    double exch_display_factor = 184;
+    string price_format = 187;
+    int32 order_size = 190;
+    int32 leaves_qty = 193;
+    string ord_status = 196;
+    int32 cum_fill_qty = 199;
+    double avg_fill_price = 202;
+    int32 new_counter = 205; // updateCounter at time of quote update
+    int32 cxl_counter = 208; // updateCounter at time of quote cancel
+    YesNo is_acked = 211; // has initial ack been returned to EE
+    YesNo is_cxl_request = 214; // has EE requested a cancel
+    YesNo is_cxl_acked = 217; // has the EE cancel request been acked
+    string cancel_reason = 220;
+    YesNo is_rejected = 223; // has exchange rejected the resulting quote
+    string reject_reason = 226;
+    YesNo is_pending = 229;
+    YesNo is_peg_limit = 232; // Yes if order sent to exchange with a Market or 'Peg' style limit (returned in exec report)
+    YesNo is_held = 235; // Yes if order sent to exchange marked "Held"
+    YesNo is_directed = 238; // Yes if order sent to exchange directed to a specific exchange, as opposed to a smart router
+    double new_timestamp = 241;
+    double cxl_timestamp = 244;
+    int32 base_active_quantity = 247; // base parent number (total active quantity @ child create time)
+    int32 base_cum_fill_quantity = 250; // base parent number (cum fill quantity @ child create time)
+    SGContingency contingency = 253; // QuoteGW fast contingency (if any exists)
+    double contingent_level = 256; // StreetGW contingency trigger level
+    OptionKey contingent_sec_key = 259;
+    SGContingentAction action = 262;
+    int64 action_net_timestamp = 265; // netTimestamp of action trigger (if any)
+    int64 action_src_timestamp = 268; // source timestamp of action trigger (if any)
+    float action_latency = 271; // latency from netTimestamp to action completion
+    ChildCreateReason order_create_reason = 274;
+    ChildCancelReason order_cancel_reason = 277;
+    int64 new_tick_src_timestamp = 280; // srcTimestamp of new order triggering packet (if any)
+    int64 new_tick_net_timestamp = 283; // netTimestamp of new order triggering packet (if any)
+    int64 new_tick_eng_timestamp = 286; // execution engine host tick timestamp (packet arrival)
+    int64 new_tick_sgw_timestamp = 289; // street gateway host tick timestamp (packet arrival)
+    int64 cxl_tick_src_timestamp = 292; // srcTimestamp of cxl order triggering packet (if any)
+    int64 cxl_tick_net_timestamp = 295; // netTimestamp of cxl order triggering packet (if any)
+    int64 cxl_tick_eng_timestamp = 298; // execution engine host tick timestamp (packet arrival)
+    int64 cxl_tick_sgw_timestamp = 301; // street gateway host tick timestamp (packet arrival)
+    float new_queue_delay = 304; // new order queue delay (waiting in StreetGW send queue)
+    float cxl_queue_delay = 307; // cxl order queue delay (waiting in StreetGW send queue)
+    float new_prep_delay = 310; // new order create delay (time spend procesing new order)
+    float cxl_prep_delay = 313; // cxl order create delay (time spend procesing cxl order)
+    float new_send_delay = 316; // new order send delay (time spend sending /blocking/ network packet)
+    float cxl_send_delay = 319; // cxl order send delay (time spent sending /blocking/ network packet)
+    int64 new_net_timestamp = 322; // netTimestamp @ new packet send
+    int64 cxl_net_timestamp = 325; // netTimestamp @ cxl packet send
+    float ack_latency = 328; // new order to fill/ack latency (in milliseconds)
+    float cxl_latency = 331; // cxl to fill/ack latency (in milliseconds; if canceled)
+    string up_error = 334;
+    string dn_error = 337;
+    google.protobuf.Timestamp timestamp = 340;
+}
+
+

@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: SpdrDropExecution
+    V8 Message Name: SpdrDropExecution
+    Bridging pattern:  [V7 --> V8]
+*/    
+message SpdrDropExecution_V7 {
+    message PKey {
+        
+        int64 drop_number = 5000; // v7 & v8 --- Original comment: SR drop record number
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysEnvironment sys_environment = 5001; // v7 & v8 --- Original comment: original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 5002; // v7 & v8 --- Original comment: original (source) run status [Prod,Beta]
+    SRDataCenter_V7 data_center = 5003; // ONLY V7: [enum,Name=SRDataCenter,Values=None=0,NY4=1,NY5=2,CH2=3,CH3=4] --- Original comment: original (source) data center [NY4,CH2, etc]
+    string routing_code = 5004; // v7 & v8
+    int32 routing_seq_num = 5005; // v7 & v8
+    OptionKey sec_key = 5006; // v7 & v8
+    SpdrKeyType sec_type = 5007; // v7 & v8
+    string security_desc = 5008; // v7 & v8
+    string security_type = 5009; // v7 & v8
+    string symbol = 5010; // v7 & v8 --- Original comment: symbol (+ '.' + symbolSfx)
+    google.protobuf.Timestamp maturity_date = 5011; // v7 & v8
+    double strike = 5012; // v7 & v8
+    CallPut call_put = 5013; // v7 & v8
+    string account = 5014; // v7 & v8 --- Original comment: FixTag.1
+    string giveup_firm = 5015; // v7 & v8
+    string giveup_accnt = 5016; // v7 & v8
+    string clearing_firm = 5017; // v7 & v8
+    string clearing_accnt = 5018; // v7 & v8
+    string drop_data1 = 5019; // v7 & v8
+    string drop_data2 = 5020; // v7 & v8
+    string cl_ord_id = 5021; // v7 & v8 --- Original comment: child order clOrdId (if available)
+    int32 fill_version = 5022; // v7 & v8 --- Original comment: cancel/correct version number (initial fill is version=1)
+    ExecStatus fill_exec_status = 5023; // v7 & v8 --- Original comment: SpiderRock execution status (Fill,Bust,Correct,Reject,SysRej,MktMiss)
+    google.protobuf.Timestamp fill_dttm = 5024; // v7 & v8 --- Original comment: fill DateTime (from SRDateTime)
+    int32 fill_quantity = 5025; // v7 & v8 --- Original comment: fill size (from execReport.lastSize)
+    BuySell fill_side = 5026; // v7 & v8 --- Original comment: fill side (from execReport.side)
+    ShortSaleFlag fill_sSale_flag = 5027; // v7 & v8 --- Original comment: fill side (from execReport.side)
+    PositionType fill_position_type = 5028; // v7 & v8
+    double fill_price = 5029; // v7 & v8 --- Original comment: fill price (from execReport.lastPrice)
+    google.protobuf.Timestamp fill_transact_dttm = 5030; // v7 & v8 --- Original comment: fill DateTime (from execReport.fillDttm)
+    string fill_market = 5031; // v7 & v8 --- Original comment: fill market (from execReport.lastMarket)
+    string fill_sRLiq_tag = 5032; // v7 & v8 --- Original comment: fill SR normalized liquidity tag
+    string fill_exch_liq_tag = 5033; // v7 & v8 --- Original comment: fill exchange liquidity code
+    float fill_exch_fee = 5034; // v7 & v8 --- Original comment: fill exchange fee (if available)
+    string fill_exec_id = 5035; // v7 & v8 --- Original comment: fill execution id (from execReport.execId)
+    string fill_ref_exec_id = 5036; // v7 & v8 --- Original comment: fill ref execution id (from execReport.refExecId) [only set on a cancel or correct]
+    int64 fill_leg_ref_id = 5037; // v7 & v8 --- Original comment: fill leg ref id (from execReport.legRefId)
+    string fill_firm_type = 5038; // v7 & v8 --- Original comment: fill firm type (as reported from street side)
+    string fill_exec_broker = 5039; // v7 & v8 --- Original comment: fill execution broker (as reported from street side)
+    OrderCapacity fill_order_capacity = 5040; // v7 & v8 --- Original comment: fill order capacity (as reported from street side)
+    string fill_contra_detail = 5041; // v7 & v8 --- Original comment: fill contra party additional detail (if available)
+    OrderCapacity fill_contra_capacity = 5042; // v7 & v8 --- Original comment: fill order capacity of contra party (if available)
+    string fill_street_text = 5043; // v7 & v8
+    int64 net_timestamp = 5044; // v7 & v8 --- Original comment: drop gateway arrival timestamp
+    google.protobuf.Timestamp timestamp = 5045; // v7 & v8
+}
+
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: ULinkContextEvent
+    V8 Message Name: ULinkContextEvent
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:ULinkContextEvent
+*/    
+message ULinkContextEvent_V7 {
+    message PKey {
+        
+        string user_name = 5000; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUser]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 5001; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm]
+    string accnt = 5002; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=SRAccountString,MetaType=NA], V8=[string,Length=16,Alias=SRAccountString,MetaType=SRAccount] --- Original comment: most recent SR accnt (optional)
+    TickerKey ticker = 5003; // v7 & v8 --- Original comment: most recent symbol (optional)
+    string source = 5004; // v7 & v8 --- Original comment: source tool name (eg. SV, CT, BBLink, SRSE, etc)
+    string ulink_event = 5005; // v7 & v8 --- Original comment: ulink event (eg: F1, F2, Enter, etc) (if any)
+    string ulink_detail = 5006; // v7 & v8 --- Original comment: additional ulink context detail (if any)
+    google.protobuf.Timestamp timestamp = 5007; // v7 & v8 --- Original comment: timestamp of ulink initiation
+}
+
+

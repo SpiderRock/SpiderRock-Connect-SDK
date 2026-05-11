@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message HedgePolicyConfigDataVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 10; // Account to grab hedge policies for
+    string client_firm = 11; // Client firm to grab hedge policies for
+    HedgePolicy policy = 12; // specifiying none returns all hedge policies for a given accnt and clientFirm
+}
+
+

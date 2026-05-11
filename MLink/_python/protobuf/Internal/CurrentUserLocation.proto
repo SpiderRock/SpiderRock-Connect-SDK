@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CurrentUserLocation {
+    message PKey {
+        
+        string user_name = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    UserLocation user_location = 100;
+    google.protobuf.Timestamp last_modified = 103;
+}
+
+

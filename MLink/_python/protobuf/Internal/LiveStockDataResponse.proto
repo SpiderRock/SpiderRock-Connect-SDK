@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message LiveStockDataResponse {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11;
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float stk_bid = 100;
+    float stk_ask = 103;
+    float stk_prt = 106;
+    int32 stk_bSz = 109;
+    int32 stk_aSz = 112;
+    int32 stk_pSz = 115;
+    StkExch stk_bEx = 118;
+    StkExch stk_aEx = 121;
+    float stk_adv = 124;
+    int32 pos = 127;
+    int32 bot = 130;
+    int32 sld = 133;
+    float bid_take_prob = 136;
+    float bid_tk_im_prob = 139;
+    float ask_take_prob = 142;
+    float ask_tk_im_prob = 145;
+}
+
+

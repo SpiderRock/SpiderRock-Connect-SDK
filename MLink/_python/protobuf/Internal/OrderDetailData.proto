@@ -1,0 +1,386 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    OrderDetailData messages will be sent (immediately) in response to OrderActionMessage(s) (user initiated actions).
+    OrderDetailData message can also be sent in response to SCR triggers while an order is active or otherwise attached to live data (server initiated action(s))
+    The initial OrderDetailData message for a given session/ordKey will be complete; all subsequent messages will only contain fields that have changed.
+    ticker + expiry fields define which keys to use to align TickerPanel/ExpiryPanel/OptionPanel (if demanded by a change in OrderKey)
+    note: if there was an error processing an OrderActionMessage then the actionError/actionErrorDetail fields will be populated.
+    orderShape controls which order item (legs) view to use when rendering
+    algoType controls which order parameters view and order details view to use when rendering
+    orderMode controls which actions (buttons) to make available for the order
+    - OrderMode.Preview -> OrderAction.Create or OrderAction.Stage
+    - OrderMode.Staged -> OrderAction.Release
+    - OrderMode.Active -> OrderAction.Update or OrderAction.Cancel
+    - OrderMode.Crossing -> OrderAction.Clone
+    - OrderMode.Terminated -> OrderAction.Clone
+    note: The OrderEntry.Items (legs) panel is only editable while in OrderMode.Preview (and auction responses can only edit legPosType in Preview mode)
+    note: The above generally apply to all algo types (auction or electronic) and all order shapes (single, multi-leg, etc)
+    note: The following tool UI actions are also possible:
+    - TickerPanelClick (if tradeable) -> Set/Append TickerKey/Stock to OrderEntry.Legs and send OrderAction.Preview + OrderAction.AlgoType + OrderAction.Legs
+    - FuturePanelClick (if tradeable) -> Set/Append ExpiryKey/Future ot OrderEntry.Legs and send OrderAction.Preview + OrderAction.AlgoType + OrderAction.Legs
+    - OptionPanelClick (if tradeable) -> Set/Append OptionKey/Option ot OrderEntry.Legs and send OrderAction.Preview + OrderAction.AlgoType + OrderAction.Legs
+    - OrderCardClick (simple) -> Change OrderPanel subscription to OrderCard.OrderKey (do not send an OrderAction)
+    - OrderCardClick (clone) -> Send OrderAction.Clone + OrderAction.TargetKey = OrderID (subscription to new OrderKey will be implicit)
+    - AuctionCardClick (already responded) -> Change OrderPanel subscription to AuctionCard.OrderKey (do not send an OrderAction)
+    - AuctionCardClick (no current response) -> Send OrderAction.Respond + OrderAction.TargetKey = AuctionID (subscription to new OrderKey will be implicit)
+    note: the above clicks/actions may cause the order entry panel to switch to a new OrderKey. If this happens any pending actions/edits can be discarded.
+    note: the order in which legs appear in the OrderAction.Legs list is not relevant (the OrderDetail.Legs list will be returned in standard order regardless)
+    note: the UI should immediately send actions from clicks as well as 'immediate' edits and expect an immediate response from the server.
+    note: all other 'batch' edits should be held on the UI and only sent if/when a sendable click or other 'immediate' edit occurs.
+    note: ActionMessages with OrderAction.Cancel should not be sent with any other 'batch' updates.  If there are pending batch updates they should be discarded.
+*/    
+message OrderDetailData {
+    message PKey {
+        
+        int64 ord_key = 11; // baseParentNumber.X
+    }
+
+    message AuctionAsk {
+        
+        int32 num_rsp = 694; // number of responders
+        string mch_prc = 697; // current auction cross price (2 or 4 decimal places); top (large) value
+        string mch_size = 700; // current auction size available @ match price
+        AcceptState accept_state = 703; // accept state
+        string sln_vol = 706; // solution vol (corresponds to solutionPrc @ live uPrc) [SR Vol]
+        string sln_prc = 709; // solution price [matchPrc projected into an orderLimitType style price] ('lmt' value; 3 decimal places)
+        double sln_prc_dbl = 764; // solution price [matchPrc projected into an orderLimitType style price] (copy to limit box on select)
+        YesNo is_mine = 712; // If the client firm of the tool user is included at this auction level, this will be 'Yes'
+        string disclosed_firms = 715; // if the tool user is the initiator this will be a list of the disclosed counterparty label participating at this level
+        YesNo is_nBBO = 737; // solution matches NBBO at this level
+    }
+
+    message AuctionBid {
+        
+        int32 num_rsp = 664; // number of responders
+        string mch_prc = 667; // current auction cross price (2 or 4 decimal places); top (large) value
+        string mch_size = 670; // current auction size available @ match price
+        AcceptState accept_state = 673; // None=0,Active=1,CanAccept=2,Matched=3,Closed=4
+        string sln_vol = 676; // solution vol (corresponds to solutionPrc @ live uPrc) [SR Vol] (alt large font)
+        string sln_prc = 679; // solution price [matchPrc projected into an orderLimitType style price] (large font; 3 decimal places)
+        double sln_prc_dbl = 763; // solution price [matchPrc projected into an orderLimitType style price] (copy to limit box on select)
+        YesNo is_mine = 682; // If the client firm of the tool user is included at this auction level, this will be 'Yes'
+        string disclosed_firms = 685; // if the tool user is the initiator this will be a list of the disclosed counterparty label participating at this level
+        YesNo is_nBBO = 736; // solution matches NBBO at this level
+    }
+
+    message CounterParty {
+        
+        string client_firm = 457; // client firm identifier
+        string client_firm_name = 460; // SR assigned client firm Name
+        string client_firm_short_code = 463; // client firm short code (for short form display)
+        InclExclDisclose incl_excl = 466;
+        YesNo is_comm_party = 469;
+    }
+
+    message DetailLeg {
+        
+        string leg_desc = 595; // leg description
+        OptionKey leg_sec_key = 598; // Leg security key
+        ExpiryKey leg_fut_sec_key = 837; // Leg security key Futures
+        SpdrKeyType leg_sec_type = 601; // leg security type
+        FlexType leg_flex_type = 817; // FLEX: leg flex type (might be Listed)
+        StrikeType leg_strike_type = 770; // FLEX: BlockPOC/PCV: Percent = PctOfClose, PctVariable = PctOfClose (response strike)
+        BuySell leg_side = 604; // leg side (Buy/Sell)
+        int32 leg_size = 607; // leg size
+        int32 leg_ratio = 610; // Used for mutli leg orders
+        ToolPositionType leg_pos_type = 613; // leg position type
+        string leg_bid = 616; // leg bid price
+        string leg_ask = 619; // leg ask price
+        string leg_bid_sz = 622; // leg bid size
+        string leg_ask_sz = 625; // leg ask size
+        string leg_fair_px = 628; // leg fair price
+        string leg_fair_vol = 735; // leg fair volatility (option only)
+        string leg_bid_vol = 818; // leg bid vol (option only)
+        string leg_ask_vol = 819; // leg ask vol (option only)
+        string leg_bid_vega = 838; // leg bid vega (option only)
+        string leg_ask_vega = 839; // leg ask vega (option only)
+        string leg_bid_prob = 840; // leg bid probability (option only)
+        string leg_ask_prob = 841; // leg ask probability (option only)
+        string leg_de = 634; // leg delta (option only) [ref delta if DAC]
+        string leg_ve = 637; // leg vega (option only)
+        string leg_ga = 757; // leg gamma (option only)
+        string leg_qty = 640; // total leg quantity (share or contracts)
+        string leg_open = 643; // total leg leaves quantity (shares or contracts)
+        string leg_avg_px = 646; // leg average price
+        string leg_fill_qty = 649; // leg fill quantity
+        string leg_fill_vega = 652; // leg fill vega
+        string leg_fill_delta = 653; // leg fill delta
+        string leg_child_str = 655; // mleg/legger orders only
+        double leg_cmpl_avg_px_num = 820; // average leg completion price
+        string leg_cmpl_avg_px = 851; // average leg completion price as a formatted string for display
+        double leg_fill_uRef_num = 852; // fillURef as a double. Corresponds to pExecution.fillLimitRefUPrc
+        string leg_fill_uRef = 853; // formatted value of fillURef for display purposes.
+        OptionKey leg_cmpl_sec_key = 821; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+        SpdrKeyType leg_cmpl_sec_type = 822; // usually Future or Option (None if not yet valid)
+        string leg_error = 658; // leg error string (if any)
+        string leg_fut_display_symbol = 850; // Future display symbol (future only)
+    }
+
+    message Exchanges {
+        
+        TickerSrc exch = 783;
+    }
+
+    message SelectedExchanges {
+        
+        TickerSrc selected_exchange = 786; // selected exchange for Europe options
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 counter = 738; // increment on every update
+    int64 risk_group_iD = 787; // riskGroupID (basketID)
+    ToolOrderShape order_shape = 103;
+    MLegPerspective user_mLeg_perspective = 759; // OrderAbs: number line in abs(.) order and always B|Reg, OrderRaw: number line in -/+ order and B|Reg + S|Inv
+    ToolAlgoType algo_type = 106; // algo type
+    ToolOrderStatus order_status = 109;
+    string order_status_detail = 112; // Additional detail (usually associated with orderStatus = Close or Rejected) (user displayable on/near order status chip)
+    CompletionType completion_type = 788; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 789; // None, Prelim, Complete
+    double avg_completion_price = 790; // completion trade price (close adjusted)
+    YesNo is_away_staged = 722; // if this order was staged elsewhere
+    string cust_strategy = 723; // customer supplied strategy/comment string (away staged only)
+    TickerKey ticker = 115; // Ticker key [TickerKey associated with the first leg in the legs list]
+    ExpiryKey expiry = 118; // Expiry key [first ExpiryKey in the legs list; if any]
+    ToolActionError last_action_error = 121; // should be added to the general tool error queue/display if different from previous error
+    string last_action_detail = 124; // user displayable error string
+    string accnt = 127; // order account
+    string client_firm = 130; // order client firm
+    string item = 775; // display description of order (single or mleg)
+    string algo_desc = 776; // formatted algo description
+    YesNo show_countdown = 137; // if the client should display a countdown timer for the panel
+    int32 countdown_ms = 758; // number of milliseconds left on the countdown timer
+    YesNo is_europe = 784;
+    string bid_px = 139; // formatted bid string (nbbo 1st price level)
+    string ask_px = 142; // formatted ask string
+    string bid_px2 = 145; // formatted bid string (nbbo 2nd price level)
+    string ask_px2 = 148; // formatted ask string
+    string bid_sz = 151; // formatted bid size string (nbbo 1st price level)
+    string ask_sz = 154; // formatted ask size string
+    string bid_sz2nd = 157; // formatted bid size string (nbbo 2st price level)
+    string ask_sz2nd = 160; // formatted ask size string
+    string fair_px = 163; // formatted fair price (surface price @ sVol + live UPrc) (3 decimal places) (middle (smaller) #)
+    string fair_vol = 724; // formatted sVol string
+    string fair_sln_px = 725; // fair solution price [fairPx projected into an orderLimitType style price] (large font; 3 decimal places) [top (larger) #]
+    string rc_dDiv_pv = 726; // rev/con present value of ddiv stream
+    string rc_strike_pv = 727; // rev/con present value of strike
+    string rc_eEx_prem = 728; // rev/con early exercise premium
+    string rc_loan_pv = 729; // rev/con present value of effective stock loan
+    string rc_loan_rate = 730; // rev/con effective stock loan rate
+    string prem = 172; // total order premium for entire order
+    string vega = 175; // total order vega for entire order
+    string theta = 178; // total order theta for entire order
+    string delta = 181; // total order delta for entire order
+    string ddelta = 184; // total order $delta for entire order
+    string fill_prem = 750; // total fill premium for entire order
+    string fill_vega = 751; // total fill vega for entire order
+    string fill_theta = 752; // total fill theta for entire order
+    string fill_delta = 753; // total fill delta for entire order
+    string fill_ddelta = 754; // total fill $delta for entire order
+    string opt_bid_px = 187; // formatted bid string (option legs only)
+    string opt_ask_px = 190; // formatted ask string (option legs only)
+    string opt_bid_sz = 193; // formatted bid size string (option legs only)
+    string opt_ask_sz = 196; // formatted ask size string (option legs only)
+    string opt_fair_px = 199; // formatted fair price (option legs only)
+    int32 cum_fill_qty_int = 205; // total contracts filled (integer)
+    string cum_fill_qty = 208; // total contracts filled
+    string avg_fill_prc = 211; // average price per contract filled
+    string avg_cmpl_fill_prc = 791; // average price per contract filled (completion)
+    string leaves_qty = 214; // formatted leavesQty string
+    string child_order_str = 217; // formatted child order string
+    string algo_state = 220; // formatted algo state
+    string user_lmt_px = 223; // formatted user limit price
+    string user_lmt_vol = 792; // formatted user limit price (options only)
+    string make_eff_lmt_px = 226; // formatted make effective limit price
+    string take_eff_lmt_px = 229; // formatted formatted take effective limit price
+    string vol_drift = 232; // vol drift
+    string und_drift = 235; // underlier drift
+    float working_time = 238; // working time (in seconds) [active parent order @ execution engine]
+    string algo_status = 241; // composite algo status
+    string risk_limit_size = 244; // risk limit size (maximum size to nearest risk limit)
+    SpdrRisk risk_limit_desc = 247; // reason for size reduction
+    double progress_duration = 250; // expected duration of this algo (seconds)
+    google.protobuf.Timestamp st_dttm = 253; // order start time (Date)
+    google.protobuf.Timestamp gtt = 256; // order expiration time (Date)
+    YesNo needs_locate = 771; // Preview only: if this preview order would require locate to work
+    YesNo has_locate = 772; // Preview only: if this preview order has the necessary locate to work (either from pools set up or manual marking on the order)
+    double u_bid = 739; // raw/unformatted underlier bid price
+    double u_ask = 740; // raw/unformatted underlier ask price
+    double bid_prc_num = 259; // raw/unformatted bid price
+    double ask_prc_num = 262; // raw/unformatted ask price
+    double bid_prc2_num = 265; // raw/unformatted bid price 2
+    double ask_prc2_num = 268; // raw/unformatted ask price 2
+    double bid_prc10m_num = 271; // raw/unformatted bid price 10m
+    double ask_prc10m_num = 274; // raw/unformatted ask price 10m
+    double bid_sz10m_num = 277; // raw/unformatted bid size 10m
+    double ask_sz10m_num = 280; // raw/unformatted ask size 10m
+    double fair_vol_num = 731; // raw/unformatted fair vol
+    double fair_px_num = 286; // raw/unformatted fair price
+    double fair_px10m_num = 289; // raw/unformatted fair price 10m
+    double mid_market_num = 290; // (auctions only) raw/unformatted accepted midmarket
+    double bid2_fair_min_num = 292; // from market shadows
+    double bid2_fair_max_num = 295; // from market shadows
+    double ask2_fair_min_num = 298; // from market shadows
+    double ask2_fair_max_num = 301; // from market shadows
+    double fair_px_min_num = 304; // from ML models
+    double fair_px_max_num = 307; // from ML models
+    double user_lmt_px_num = 310; // raw/unformatted user limit price
+    double user_lmt_vol_num = 793; // raw/unformatted user limit volatility (options only)
+    double make_eff_lmt_px_num = 313; // raw/unformatted make effective limit price
+    double take_eff_lmt_px_num = 316; // raw/unformatted take effective limit price
+    double c_px1_num = 319; // raw/unformatted child order (1st price level)
+    double c_px2_num = 322; // raw/unformatted child order (2nd price level)
+    PriceFormat price_format = 325; // price formatting code for all prices
+    int32 price_decimals = 328; // standard number of decimal place in prices (display rounding)
+    double min_prc_increment = 331; // minimum price variation (increment)
+    ToolLmtPxError lmt_px_error = 760;
+    string surf_prc = 842; // formatted surface limit price
+    double surf_prc_num = 843; // raw/unformatted surface limit price
+    string prob_prc = 844; // formatted probability limit price (take)
+    double prob_prc_num = 845; // raw/unformatted probability limit price (take)
+    string mk_prob_px = 846; // formatted make probability limit price
+    double mk_prob_px_num = 847; // raw/unformatted make probability limit price
+    string tk_prob_px = 848; // formatted take probability limit price
+    double tk_prob_px_num = 849; // raw/unformatted take probability limit price
+    string time_working = 334; // time parent order has been (or was) working (brkrDetail.activeSeconds)
+    string num_prints = 337; // number of prints
+    string prt_volume = 340; // total print volume
+    string arrive_bid = 343; // market bid @ parent order start (brkrDetail.arriveBid)
+    string arrive_ask = 346; // market ask @ parent order start (brkrDetail.arrivaAsk)
+    string num_child_orders = 349; // number of child orders
+    string est_exch_fees = 352; // estimated exchange fees for this order
+    string avg_mkt_width = 355; // average market width
+    string arrival_pnl = 358; // cumulative arrival pnl (per unit) (mid-market @ parent start to fill price) for all fills
+    string m10_pnl = 755; // cumulative m10 pnl for this order
+    YesNo is_size_pending = 794; // None/No = nothing pending
+    int32 order_size_pending = 795;
+    int32 active_size_pending = 823;
+    ToolLimitType order_limit_type_pending = 796; // None = nothing pending
+    double order_limit_value_pending = 797;
+    BuySell order_side = 361; // order side
+    int32 order_size = 364; // order size
+    int32 active_size = 741; // size currently working (can be less than orderSize if only partially release)
+    YesNo is_staged = 742; // None = not specified (yet)
+    ToolLimitType order_limit_type = 367; // price or price/delta
+    double order_limit_value = 370;
+    string package_prc = 743; // live public/package price (aka effLimitPx) (display only)
+    string rounded_prc = 744; // live public/package price rounded to nearest legal limit price (aka RoundedPx) (display only)
+    RoundRule round_rule = 745;
+    YesNo did_reset_to_live = 376; // Yes if the server has pro-actively reset orderLimitValue to live/fair price
+    uint32 algo_duration = 379; // duration in seconds (zero -> one)
+    ToolMktSession algo_mkt_session = 382; // Regular / Extended Hours
+    ToolAutoHedge auto_hedge = 385; // autoHedge type
+    ToolShortSaleFlag auto_hedge_sSale_flag = 388;
+    ToolMktSession auto_hedge_mkt_session = 391; // default: Day (only required if autoHedge != None)
+    ExpiryKey auto_hedge_target = 392;
+    SpdrKeyType auto_hedge_sec_type = 393;
+    int32 u_prc_valid_pct_dn = 394; // integer number of basis points (down) (can be zero)
+    int32 u_prc_valid_pct_up = 395; // integer number of basis points (up) (can be zero)
+    RefUPrcType ref_uPrc_type = 397; // reference underlier price type
+    double ref_uPrc = 400; // reference underlier price (default = underlier.mid)
+    double ref_uPrc_live = 403; // reference underlier price (live server version)
+    YesNo ref_uPrc_warning = 406; // warning (server side calc fail or there is a significant difference between actual and live)
+    double ref_de = 409; // reference delta for all price adjustments
+    double ref_de_live = 412; // reference delta (live server version) [footer of leg summary]
+    YesNo ref_de_wrn = 415; // reference delta warning (server side calc fail or there is a significant difference between actual and live)
+    double ref_ga = 418; // reference gamma for all price adjustments (default = option.gamma)
+    double ref_ga_live = 421; // reference gamma (live server version)[footer of leg summary]
+    YesNo ref_ga_wrn = 424; // reference gamma warning (server side calc fail or there is a significant difference between actual and live)
+    double ref_ve_live = 427; // reference vega (live server version) [footer of leg summary]
+    string locate_firm = 773; // firm granting the locate (also locate firm used on street FIX orders) (required if selling short and no auto-locate is available)
+    string locate_pool = 774; // locate pool @ firm granting the locate
+    int32 ats_trial_number = 824; // current auction trial number (used for testing)
+    AuctionType auction_type = 825;
+    ToolInitSizeCond ats_init_size_cond = 826; // AllOrNone, QtyOrMore, UpToQty (cannot be modified after order create) (Flash is automatically UpToQty)
+    ToolInitAcceptCode ats_init_accept_code = 827; // AllowImmediate, AutoComplete (cannot be modified after order create) (Flash is automatically AutoComplete)
+    AtsVisibility ats_init_visibility = 828; // Neither, Side, SidePrice (can be modified after order create; but only increasing visibility) (Flash cannot modify)
+    double ats_init_best_offset = 829; // Never visible to responders; only used in Final Trial (tied to underlier if adjPrice=Y)
+    YesNo has_ats_init_best_offset = 830; // Yes if init ats best offset is valid / available
+    ToolAuctionTime ats_auction_time = 831; // auction duration (15s to 5m) (Flash is automatically IOC)
+    float pkg_ref_prem_pct = 799; // BlockPCV: package premium as a % of underlier closing price (fixed by initiator)
+    InclExclDisclose include_sRNetwork = 733; // whether or not to make this visible to the general SR auction network
+    ToolRespSizeCond ats_resp_size_cond = 832; // FullSize, Max25Pct, Max50Pct
+    double ats_resp_best_offset = 833; // Never visible to initiator or responders; only used if there is a competitive responder
+    YesNo has_ats_resp_best_offset = 834; // Yes if resp offset is valid / available
+    NbboCap nbbo_cap = 777; // indicates if order price is capped at NBBO (or 1, 5, 10 pennies through). Primarily for when parentOrderHandling = BlockAuction
+    ToolSpdrLimitType taker_sec_limit_type = 481; // Surface, Probability
+    double taker_sec_limit_value = 484; // either SurfaceVolOffset (if Surface) or ProbLevel (if Probability)
+    ToolReachRule take_reach_rule = 487; // Immediate = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    ToolSpdrLimitType maker_sec_limit_type = 490; // Surface, Probability
+    double maker_sec_limit_value = 493;
+    ToolBalanceHandling maker_balance_handling = 496; // PostWith, PostTurn, etc.
+    int32 maker_max_make_exchanges = 499; // maker maximium make exchanges (range: 1-4)
+    int32 maker_max_exposure_size = 800; // maximum simultaneous cumulative child order public size exposure (as pct of orderSize) (range: 10 - 400) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    ToolPublicSize maker_public_size = 502; // maker public size condition
+    YesNo mleg_allow_legging = 505; // allow legging (MLeg Only)
+    double mleg_leg_slip = 508; // leg slippage (MLeg Only)
+    ToolLegExposure mleg_leg_expose = 511; // leg exposure (MLeg Only)
+    string auction_key = 514; // notice number for initiating auction (if exists)
+    string short_code = 769; // auction short code (unique per day) (block auctions only)
+    AtsAuctionStatus auction_status = 835; // ats auction status (if exists)
+    string auction_detail = 520; // ats auction detail (if exists)
+    string auction_ref_uPrc = 801; // auction reference uPrc (from most recent; or last) trial match
+    string cust_qty = 523; // public quantity the cust is showing
+    string cust_cFirm = 746; // cust (initiator) client firm (if disclosed)
+    CustQtyCond cust_qty_cond = 526; // cust quantity condition (from parent order)
+    CustProgressCond cust_prg = 529; // from parentOrder.progressRule
+    AtsVisibility cust_visibility = 836;
+    BuySell cust_side = 535; // always available for initiator (conditional for responder)
+    CustPosition cust_position = 761; // if Left: [Fair . AskList], if Mid: [BidList . Fair . AskList], if Right: [BidList . Fair]
+    string cust_mch_prc = 538; // cust match price (2 or 4 decimal places) (conditional for responder)
+    string cust_sln_vol = 541; // cust solution vol (corresponds to custMchPrc @ live uPrc) (2 decimal places)
+    string cust_sln_prc = 544; // solution price [custMatchPrc projected into an orderLimitType style price] ('lmt' value; 3 decimal places)
+    double cust_sln_prc_dbl = 762; // solution price [custMatchPrc projected into an orderLimitType style price] (copy into limit box on select)
+    google.protobuf.Timestamp auction_st_dttm = 547; // Auction start time (Date)
+    int32 auction_duration = 550; // expected auction duration (in milliseconds)
+    YesNo auto_comp = 556; // all conditions have been meet and the order will auto-complete in the FinalTrial (if nothing changes)
+    int32 num_crossed = 559; // number of contracts crossed
+    int32 num_swept = 562; // number of contracts swept
+    int32 num_broken = 565; // Number of fills that responders were not party to
+    string prc_improved = 568; // Difference between units original price and the final fill price
+    google.protobuf.Timestamp cross_dttm = 756; // time this auction was crossed (if at all)
+    RMetricSource r_metric1_src = 802;
+    float r_metric1_buy = 803; // total bot size limit (in terms of rMetric1)
+    float r_metric1_sell = 804; // total sld size limit
+    float r_metric1_leg = 805; // max leg exposure size
+    BuySell r_metric1_dir = 806; // leg lead exposure direction (None = either side)
+    RMetricSource r_metric2_src = 807;
+    float r_metric2_net_ln = 808; // max net long size (in terms of rMetric2)
+    float r_metric2_net_sh = 809; // max net short size
+    YesNo ddelta_net_enabled = 810;
+    float d_delta_net_ln = 811; // max net $delta long
+    float d_delta_net_sh = 812; // max net $delta short
+    YesNo opt_dDelta_net_enabled = 813;
+    float opt_dDelta_net_ln = 814; // max net opt$delta long
+    float opt_dDelta_net_sh = 815; // max net opt$delta short
+    string default_hedge_target = 854; // the default hedge target. To be used by small baskets to display in order legs
+    YesNo edit_stock_leg_pos_type = 571; // LegPosType is only editable for a Leg.TickerKey if YES (choices are BUY: NA/Cover and SELL: Short/Long/Exempt) if NO default to Auto
+    YesNo edit_future_leg_pos_type = 574; // LegPosType is only editable for a Leg.FutureKey if YES (choices are Open/Close) if NO default to Auto
+    YesNo edit_option_leg_pos_type = 577; // LegPosType is only editable for a Leg.OptionKey if YES (choices are Open/Close) if NO default to Auto
+    int32 num_opt_legs = 580; // number of option legs
+    SpreadClass spread_class = 778; // spread class (eg. Call, Put, RevCon, Box, JRoll, etc.)
+    SpreadFlavor spread_flavor = 586; // spread flavor (Normal, Flipped) of this order
+    YesNo contains_hedge = 589; // if this order contains a stock/future leg
+    YesNo contains_multi_hedge = 766; // contains MultiHedge (corp action adjusted) options
+    FlexType flex_type = 816; // all legs are of this flex type (or are a listed look-alike); Other = mixed or unknown set.  Should never be other for trades that originate from an SR app.
+    string pkg_neutral_de = 734; // string to display instead of refDe if orderLimitType=PkgNeutral;  pkgNeutralDe = 0.01 * stkLegDir * stkLegSize;  in the EE: limitPrc = orderLimitPrice + pkgNeutralDe * refUPrc if PkgNeutral
+    google.protobuf.Timestamp ts = 721; // last update time (Date)
+    repeated AuctionAsk auction_ask = 691;
+    repeated AuctionBid auction_bid = 661;
+    repeated CounterParty counter_party = 454;
+    repeated DetailLeg detail_leg = 592;
+    repeated Exchanges exchanges = 782;
+    repeated SelectedExchanges selected_exchanges = 785;
+}
+
+

@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 4
+    Inputs: OptExpiryPriceETL, OptCallPutPriceETL, PricingGridETL
+    CalcEngine: SurfaceRunner
+*/    
+message OptCallPutRiskETL {
+    message PKey {
+        
+        OptionKey okey = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double u_prc = 100; // underlier price (mid-market)
+    double u_bid = 103; // should be the underlier bid/ask if available (future or equity)
+    double u_ask = 106;
+    int32 days = 109; // interest days to expiry
+    float rate = 112; // average interest rate from tradeDate to expiration (SR global rate curve)
+    float years = 115; // volatility years (Volatility Time Metric)
+    double eff_strike = 118; // strike * strikeRatio - cashOnExercise (if any; multihedge only)
+    double earn_cnt = 121; // number of qualifying earnings events from tradeDate/tradeTime to Expiry [can be fractional; can be adjusted]
+    float u_beta_hist = 124; // beta to SPX (if any) (censored; best estimate of underlier betaSPX to expiry)
+    float u_vol_hist = 127; // underlier historical volatility (censored; best estimate of underlier volatility to expiry)
+    float h_eMove = 130; // historical earnings multiplier (trailing 8-12 earnings events; Equity only)
+    float s_div = 133; // SR sDiv (stock dividend) rate
+    float d_div = 136; // cumulative discrete dividend
+    float d_div_pV = 139; // cumulative discrete dividend (present value)
+    float s_vol = 142; // SR surface volatility
+    float atm_vol = 145; // atm volatility (SR surface) (@ xAxis = 0)
+    float atm_slope = 148; // slope of SR surface (dSRVol/dUPrc; assuming expiry curve slides left/right with no shape change)
+    float c_bid = 151; // [call] bid price
+    float c_ask = 154; // [call] ask price
+    int32 c_bid_sz = 157; // [call] bid size (cumulative nbbo size)
+    int32 c_ask_sz = 160; // [call] ask size (cumulative nbbo size)
+    int32 c_open_int = 163; // [call] open interest
+    float c_bid_iv = 166;
+    float c_ask_iv = 169;
+    float c_sPrc = 172; // surface price
+    float c_de = 175; // delta (SR surface)
+    float c_ga = 178; // gamma (SR surface)
+    float c_th = 181; // theta (SR surface)
+    float c_ve = 184; // vega (SR surface)
+    float c_rh = 187; // rho (SR surrface)
+    float c_ph = 190; // phi (SR surface)
+    float c_vo = 193; // volga (SR surface)
+    float c_va = 196; // vanna (SR surface)
+    float c_de_decay = 199; // delta decay (SR surface)
+    float c_th_decay = 202; // theta decay (SR surface)
+    CalcError c_error = 205; // SR pricing error code
+    float p_bid = 208; // [put] bid price
+    float p_ask = 211; // [put] ask price
+    int32 p_bid_sz = 214; // [put] bid size (cum nbbo size)
+    int32 p_ask_sz = 217; // [put] ask size (cum nbbo size)
+    int32 p_open_int = 220; // [put] open interest
+    float p_bid_iv = 223;
+    float p_ask_iv = 226;
+    float p_sPrc = 229; // surface price
+    float p_de = 232; // delta (SR surface)
+    float p_ga = 235; // gamma (SR surface)
+    float p_th = 238; // theta (SR surface)
+    float p_ve = 241; // vega (SR surface)
+    float p_rh = 244; // rho (SR surrface)
+    float p_ph = 247; // phi (SR surface)
+    float p_vo = 250; // volga (SR surface)
+    float p_va = 253; // vanna (SR surface)
+    float p_de_decay = 256; // delta decay (SR surface)
+    float p_th_decay = 259; // theta decay (SR surface)
+    CalcError p_error = 262; // SR pricing error code
+    google.protobuf.Timestamp timestamp = 265; // capture timestamp
+}
+
+

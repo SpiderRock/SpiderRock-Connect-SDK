@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAutoVegaDirDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+    message Calibration {
+        
+        float c_value = 206; // client surface volatility @ moneyness
+        float moneyness = 207; // moneyness = SR xAxis value
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string c_firm = 101;
+    ExpiryKey ekey = 201;
+    BuySell resp_side = 103; // auction responder side (your side)
+    int64 responder_iD = 202; // client supplied responder ID (can be any number including zero)
+    string user_name = 105; // username used for responding to auction notices
+    YesNo is_disabled = 106; // if Yes, this auto-responder record is disabled
+    google.protobuf.Timestamp enabled_until = 107; // will be enabled up until this time
+    YesNo can_include_stock = 109; // if yes, can respond to auction notices that include a stock leg
+    YesNo can_respond_sR = 110; // if yes, can respond to auction notices from SR
+    YesNo can_respond_exch = 111; // if yes, can respond to auction notices from exchanges
+    CallPut cp_flag = 116; // if not Pair must match all option legs
+    float min_xDelta = 122; // all leg xDelta must be between [minXDelta, maxXDelta]
+    float max_xDelta = 123;
+    double min_strike = 124; // all leg strikes must be between [minStrike, maxStrike]
+    double max_strike = 125;
+    ClientSurface client_vol_surface = 203;
+    float atm_vol = 204; // [AtmVolPinned] clientSurface = SRSurface pinned to atmVol @ atmStrike (strike = fwdUPrcRef)
+    float min_surf_edge_vol = 127; // spread surface edge (in vol) (0.01 = 1.0 vol pts) (+ = through surface; - = behind surface)
+    float min_surf_edge_prem = 126; // spread surface edge (in premium) (+ = through surface; - = behind surface)
+    float min_probability = 208; // option response probability will be >= minProbability
+    YesNo inc_fees_in_resp = 128; // include all estimated responder exchange fees in final response price (prior to rounding)
+    RoundRule round_rule = 129;
+    int32 max_response_size = 130; // maximum number of contracts per response (will respond for 100% if auction size <= maxResponseSize)
+    float max_response_vega = 131; // maximum total vega per response
+    float total_response_size = 209; // maximum number of contracts (filled) all day (this responder record)
+    float total_response_vega = 132; // maximum vega (filled) all day (this responder record)
+    YesNo policy_auto_hedge = 210; // if yes, all option fills will be autoHedgePolicy eligible
+    int64 risk_group_id = 148; // Default: 0 (none).
+    float min_uPrc = 211; // min/max underlier price bounds (no responses while underlier is outside of bounds)
+    float max_uPrc = 212;
+    int32 num_notices = 213; // number of notices that match response bucket
+    int32 num_notice_block = 214; // number of SR block auction numNotices
+    int32 num_notice_flash = 215; // number of SR flash auction numNotices
+    int32 num_notice_exch_pI = 216; // number of Exch Price Improvement auction numNotices
+    int32 num_notice_exch_eX = 217; // number of Exch Exposure auction numNotices
+    int32 num_not_mkt_penny = 218; // number auction numNotices
+    int32 num_mkt_penny1 = 219; // number auction numNotices
+    int32 num_mkt_penny2 = 220; // number auction numNotices
+    int32 num_mkt_penny3p = 221; // number auction numNotices
+    int32 num_not_mkt_nickle = 222; // number auction numNotices
+    int32 num_mkt_nickle1 = 223; // number auction numNotices
+    int32 num_mkt_nickle2 = 224; // number auction numNotices
+    int32 num_mkt_nickle3p = 225; // number auction numNotices
+    int32 resp_disabled_skips = 226; // number skipped from isDisabled
+    int32 stock_disabled_skips = 227; // number skipped from canIncludeStock != Yes
+    int32 cp_flag_skips = 228; // number skipped from cpFlag not matching notice legs CallPut
+    int32 flex_skips = 229; // number skipped from flex/listed filter
+    int32 ekey_skips = 230; // number skipped from leg ekey mismatch
+    int32 x_delta_range_skips = 231; // number skipped from out of range XDelta value
+    int32 strike_range_skips = 232; // number skipped from out of range strike
+    int32 s_vol_error_skips = 233;
+    int32 user_vol_err_skips = 234;
+    int32 zero_size_skips = 235; // number skipped from zero avail response size
+    int32 total_size_skips = 236; // number skipped from total contract size limit
+    int32 total_vega_skips = 237; // number skipped from total vega size limit
+    int32 sys_error_skips = 238;
+    int32 user_surf_skips = 239;
+    int32 prob_error_skips = 240;
+    int32 off_market_skips = 241; // number skipped from response price at or worse that exch/nbbo market
+    int32 notice_price_skips = 242; // number skipped from limit price worse that notice price (and already committed)
+    int32 num_reject_hold_skips = 243; // number skipped from reject hold (prior reject)
+    int32 num_responses = 244; // number of response attempts (number of parentOrders/NoticeExecReports)
+    int32 num_rejects = 245; // number of response rejects (in the SR execution engines)
+    string last_reject_reason = 246;
+    int32 num_responds_block = 247; // number of SR block auction responses
+    int32 num_responds_flash = 248; // number of SR flash auction responses
+    int32 num_responses_exch_pI = 249; // number of Exch Price Improvement auction responses
+    int32 num_responses_exch_eX = 250; // number of Exch Exposure auction responses
+    int32 num_full_size = 251;
+    int32 num_alloc_size = 252;
+    int32 num_price_miss = 253;
+    int32 num_too_late = 254;
+    int32 num_other_miss = 255;
+    int32 num_did_not_trade = 256;
+    int32 num_traded = 186;
+    int32 qty_traded = 187;
+    float vega_traded = 257;
+    float sum_width_traded = 258; // SUM: marketWidth * trdQty      => AvgMktWidth = sumWidthTraded / qtyTraded
+    float sum_surf_edge_traded = 259; // SUM: printEdge * trdQty        => AvgPrintEdge = sumSurfEdgeTraded / qtyTraded
+    float sum_m1_pn_lTraded = 260; // SUM: M1PnL * trdQty            => AvgM1PnL = sumM1PnLTraded / qtyTraded
+    float sum_m10_pn_lTraded = 261; // SUM: M10PnL * trdQty           => AvgM10PnL = sumM10PnLTraded / qtyTraded
+    int32 num_traded_block = 262; // number of SR block auctions traded
+    int32 num_traded_flash = 263; // number of SR flash auctions traded
+    int32 num_traded_exch_pI = 264; // number of Exch Price Improvement auctions traded
+    int32 num_traded_exch_eX = 265; // number of Exch Exposure auctions traded
+    string modified_by = 198; // user who last modified this record
+    SysEnvironment modified_in = 199;
+    google.protobuf.Timestamp timestamp = 200; // timestamp of last modification
+    YesNo is_prod = 266; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 267; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 268; // WTS synthetic: alert message (null if no alert)
+    repeated Calibration calibration = 205;
+}
+
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CurrentTradingPeriod {
+    message PKey {
+        
+        TickerSrc ticker_src = 10;
+        string ticker = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TradingPeriod trading_period = 12;
+    google.protobuf.Timestamp period_start = 103;
+    google.protobuf.Timestamp period_end = 106;
+    google.protobuf.Timestamp timestamp = 109;
+}
+
+

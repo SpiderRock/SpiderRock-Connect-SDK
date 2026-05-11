@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockExchMarkHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float open_prc = 100; // official exchange closing mark (if any)
+    float high_prc = 103; // official exchange high mark (if any)
+    float low_prc = 106; // official exchange low mark (if any)
+    float close_prc = 109; // official exchange closing mark (if any)
+    google.protobuf.Timestamp timestamp = 112;
+}
+
+

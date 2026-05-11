@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OrderActionMessage {
+    message CounterParty {
+        
+        string client_firm = 190; // client firm has been selected as a disclosed counter-party (cannot be modified after an auction has started)
+        InclExclDisclose incl_excl = 193;
+    }
+
+    message OrderLeg {
+        
+        OptionKey leg_sec_key = 241; // Leg security key
+        ExpiryKey leg_fut_sec_key = 334; // Leg security key Futures
+        SpdrKeyType leg_sec_type = 244;
+        BuySell leg_side = 247;
+        int32 leg_size = 250; // Used for single leg orders, otherwise can be left blank or set to 1
+        int32 leg_ratio = 253; // Used for mutli leg orders, otherwise can be left blank or set to 1
+        ToolPositionType leg_pos_type = 256;
+        YesNo leg_is_listed = 309; // FLEX: used to force listed leg when flexType != None
+        StrikeType leg_strike_type = 269; // FLEX: used to indicate leg is Percent or PctVariable (POC/PCV only)
+    }
+
+    message SelectedExchanges {
+        
+        TickerSrc selected_exchange = 305; // selected exchange for Europe options
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    ToolOrderAction order_action = 103;
+    int64 ord_key = 335; // should exist if orderAction=[Clone, Update, Cancel, or Release]; blank otherwise
+    string auction_key = 109; // should exist if orderAction=Respond or algoType=BlockResp or orderAction=Preview, for a closed order; blank otherwise
+    string short_code = 275; // alternative, used in place of auctionKey
+    string action_trace = 112; // (optional; logging only) info about the source of user action that led to to this message (eg, hot-key; click, etc.)
+    SpreadFlavor preferred_flavor = 265; // only used during Preview phase; switches spread to the requested flavor if possible; will flip the legs of the order action message if flavor is changed
+    MLegPerspective mleg_perspective = 266; // used to set user perspective for the subject order.
+    string accnt = 115; // default: User.DefaultAccnt
+    string client_firm = 260;
+    ToolAlgoType algo_type = 118; // default: AlgoTaker
+    BuySell order_side = 121;
+    int32 order_size = 124;
+    int32 active_size = 262;
+    ToolLimitType order_limit_type = 127;
+    double order_limit_value = 130;
+    uint32 algo_duration = 133; // duration in seconds (zero -> one)
+    ToolMktSession algo_mkt_session = 136; // default: RegMkt
+    ToolAutoHedge auto_hedge = 139; // default: None
+    ToolShortSaleFlag auto_hedge_sSale_flag = 142; // default: Auto (if UserConfig allows) otherwise None (only required if autoHedge != None)
+    ToolMktSession auto_hedge_mkt_session = 145; // default: Day (only required if autoHedge != None)
+    ExpiryKey auto_hedge_target = 146;
+    SpdrKeyType auto_hedge_sec_type = 147;
+    int32 u_prc_valid_pct_dn = 148; // integer number of basis points (down) (can be zero)
+    int32 u_prc_valid_pct_up = 149; // integer number of basis points (up) (can be zero)
+    double ref_uPrc = 151; // reference underlier price (default = underlier.mid)
+    RefUPrcType ref_uPrc_type = 154;
+    double ref_de = 157; // reference delta for all price adjustments
+    double ref_ga = 160; // reference gamma for all price adjustments (default = option.gamma)
+    string locate_firm = 270; // firm granting the locate (also locate firm used on street FIX orders) (required if selling short and no auto-locate is available)
+    string locate_pool = 271; // locate pool @ firm granting the locate
+    ToolInitSizeCond ats_init_size_cond = 325; // AllOrNone, QtyOrMore, UpToQty (cannot be modified after order create)
+    ToolInitAcceptCode ats_init_accept_code = 326; // AllowImmediate, AutoComplete (cannot be modified after order create)
+    AtsVisibility ats_init_visibility = 327; // Neither, Side, SidePrice (can be modified after order create; but only increasing visibility)
+    double ats_init_best_offset = 328; // Never visible to responders; only used in Final Trial (tied to underlier if adjPrice=Y)
+    YesNo has_ats_init_best_offset = 329; // Yes if init ats best offset is valid / available
+    ToolAuctionTime ats_auction_time = 330; // default: _2_min (IOC = FlashAuction)
+    float pkg_ref_prem_pct = 306; // BlockPCV: package premium as a % of underlier closing price (fixed by initiator)
+    InclExclDisclose include_sRNetwork = 261; // SRNetwork has been selected
+    ToolRespSizeCond ats_resp_size_cond = 331; // FullSize, Max25Pct, Max50Pct
+    double ats_resp_best_offset = 332; // Never visible to initiator or responders; only used if there is a competitive responder
+    YesNo has_ats_resp_best_offset = 333; // Yes if resp ats best offset is valid / available
+    NbboCap nbbo_cap = 272; // indicates if order price is capped at NBBO (or 1, 5, 10 pennies through). Primarily for when parentOrderHandling = BlockAuction
+    ToolSpdrLimitType taker_sec_limit_type = 205; // Surface, Probability
+    double taker_sec_limit_value = 208; // either SurfaceXXXOffset (if Surface) or ProbLevel (if Probability)
+    ToolReachRule take_reach_rule = 211; // default: Immediate
+    ToolSpdrLimitType maker_sec_limit_type = 214; // Surface, Probability
+    double maker_sec_limit_value = 217;
+    ToolBalanceHandling maker_balance_handling = 220; // default: PostTurn
+    int32 maker_max_make_exchanges = 223; // number of maker exchanges (range: 1-4)
+    int32 maker_max_exposure_size = 307; // maximum simultaneous cumulative child order public size exposure (as pct of orderSize) (range: 10 - 400) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    ToolPublicSize maker_public_size = 226; // default: MktSize
+    YesNo mleg_allow_legging = 229; // allow legging (MLeg Only)
+    double mleg_leg_slip = 232; // leg slippage (MLeg Only)
+    ToolLegExposure mleg_leg_expose = 235; // leg exposure (MLeg Only)
+    FlexType flex_type = 308; // all legs are of this flex type (replaces forceFlex)
+    int64 risk_group_iD = 310; // riskGroupID (basketID)
+    RMetricSource r_metric1_src = 311;
+    float r_metric1_buy = 312; // total bot size limit (in terms of rMetric1)
+    float r_metric1_sell = 313; // total sld size limit
+    float r_metric1_leg = 314; // max leg exposure size
+    BuySell r_metric1_dir = 315; // leg lead exposure direction (None = either side)
+    RMetricSource r_metric2_src = 316;
+    float r_metric2_net_ln = 317; // max net long size (in terms of rMetric2)
+    float r_metric2_net_sh = 318; // max net short size
+    YesNo ddelta_net_enabled = 319;
+    float d_delta_net_ln = 320; // max net $delta long
+    float d_delta_net_sh = 321; // max net $delta short
+    YesNo opt_dDelta_net_enabled = 322;
+    float opt_dDelta_net_ln = 323; // max net opt$delta long
+    float opt_dDelta_net_sh = 324; // max net opt$delta short
+    google.protobuf.Timestamp ts = 259; // tool action send time (Dttm)
+    repeated CounterParty counter_party = 187;
+    repeated OrderLeg order_leg = 238;
+    repeated SelectedExchanges selected_exchanges = 304;
+}
+
+

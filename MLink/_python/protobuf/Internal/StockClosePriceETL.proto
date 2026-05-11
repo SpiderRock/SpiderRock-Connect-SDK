@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 0
+    Inputs: Wild Files
+    CalcEngine: Spark/ETL
+*/    
+message StockClosePriceETL {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float open_prc = 100; // open price
+    float low_prc = 103; // Low price
+    float high_prc = 106; // High price
+    float close_prc = 109; // official exchange closing mark (last print;then official close)
+    float bid_prc = 112; // bid price (close - 1min)
+    float ask_prc = 115; // ask price (close - 1min)
+    float sr_cls_prc = 118; // SR close mark (close - 1min)
+    google.protobuf.Duration sr_close_time = 121; // SR closing mark time (C)
+    google.protobuf.Timestamp timestamp = 124;
+}
+
+

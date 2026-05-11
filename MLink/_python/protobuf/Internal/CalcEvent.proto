@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CalcEvent {
+
+
+    MessageMetadata _meta = 1;
+    
+    google.protobuf.Timestamp timestamp = 100;
+    string machine_name = 103;
+    SysEnvironment sys_environment = 106;
+    SysRealm sys_realm = 109;
+    string proc_name = 112;
+    string context = 115;
+    TraceLevel trace_level = 118;
+    TraceCategory trace_category = 121;
+    DateKey trade_date = 124;
+    string trade_time = 127;
+    string entry_pt = 130;
+    string mng_func = 133;
+    string fit_func = 136;
+    string lib_func = 139;
+    TickerKey tkey = 142;
+    ExpiryKey ekey = 145;
+    double strike = 148;
+    string message = 151;
+}
+
+

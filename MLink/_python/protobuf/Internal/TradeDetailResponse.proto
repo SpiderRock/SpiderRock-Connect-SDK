@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TradeDetailResponse {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 request_iD = 100;
+    string accnt = 103;
+    string client_firm = 242;
+    string ticker = 106;
+    TickerSrc ticker_src = 109;
+    string expiration = 112;
+    SecType sec_type = 115;
+    double strike = 118;
+    int32 grp = 121;
+    string method = 124;
+    string strategy = 127;
+    string user_name = 130;
+    string origin = 133;
+    string source = 136;
+    string server = 139;
+    string route = 142;
+    string liqudity_tag = 145;
+    string clear_firm = 148;
+    string exec_brkr = 151;
+    int64 order_number = 154;
+    int64 risk_group_id = 157;
+    string risk_hash = 160;
+    BuySell side = 163;
+    float order_vol = 166;
+    double order_price = 169;
+    int32 order_size = 172;
+    ShortSaleFlag ssale_flag = 175;
+    PositionType position_type = 178;
+    float fill_vol = 181;
+    double fill_price = 184;
+    int32 fill_size = 187;
+    string fill_exch = 190;
+    google.protobuf.Timestamp fill_dttm = 193;
+    float fill_probability = 196;
+    float dn_pn_l = 199;
+    float m1_pn_l = 202;
+    float m10_pn_l = 205;
+    float day_pn_l = 208;
+    float de = 211;
+    float ga = 214;
+    float th = 217;
+    float ve = 220;
+    float vo = 223;
+    float va = 226;
+    float de_decay = 229;
+    float rh = 232;
+    float ph = 235;
+    float theo_edge = 238;
+    google.protobuf.Timestamp timestamp = 241;
+}
+
+

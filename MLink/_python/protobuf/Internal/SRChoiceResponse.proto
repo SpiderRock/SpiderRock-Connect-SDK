@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message SRChoiceResponse {
+
+
+    MessageMetadata _meta = 1;
+    
+    uint32 source_iD = 100; // Effectively the ID of the request.  Each client process manages its own space of source IDs such that each request is unique.  The server will set the SourceId for each item it returns to this value.
+    string choice_name = 103;
+    string kv_pairs = 106;
+}
+
+

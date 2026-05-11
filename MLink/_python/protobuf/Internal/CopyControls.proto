@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message CopyControls {
+
+
+    MessageMetadata _meta = 1;
+    
+    string to_accnt = 100;
+    string from_accnt = 103;
+    YesNo copy_account_config = 106;
+    YesNo copy_book_control = 109;
+    YesNo copy_ind_control = 112;
+    YesNo copy_exp_control = 115;
+    YesNo copy_risk_class_control = 118;
+    YesNo copy_sector_control = 121;
+    YesNo copy_opt_quote_control = 124;
+    YesNo copy_stk_quote_control = 127;
+    YesNo copy_client_config = 130;
+    google.protobuf.Timestamp last_modified = 133;
+    string user_name = 136;
+    string result = 139;
+}
+
+

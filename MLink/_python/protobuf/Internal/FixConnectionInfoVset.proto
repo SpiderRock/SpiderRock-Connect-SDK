@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message FixConnectionInfoVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 range_start = 100; // (optional) First index of visible range
+    int32 range_end = 103; // (optional) Last index of visible range
+}
+
+

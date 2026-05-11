@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message IndexClose {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        IndexSource source = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double idx_bid = 100; // index bid value (if from quote, otherwise idxPrice)
+    double idx_ask = 103; // index ask value (if from quote, otherwise idxPrice)
+    double idx_price = 106; // index price
+    TickerKey syn_ticker = 109; // syn quote ticker
+    double syn_bid = 112; // syn quote bid (market close)
+    double syn_ask = 115; // syn quote ask (market close)
+    double syn_price = 118; // syn last print (market close)
+    ExpiryKey syn_fKey = 121; // future key used to create the synthetic quote (if any)
+    double syn_ratio = 124; // synBid = futBid * synRatio + synOffset
+    double syn_offset = 127; // synAsk = futAsk * synRatio + synOffset
+    google.protobuf.Timestamp timestamp = 130; // record timestamp
+}
+
+

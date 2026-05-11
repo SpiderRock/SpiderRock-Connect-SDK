@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message SpreadDisplayRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    GetAction action = 100;
+    int64 filter_id = 103;
+    string ticker = 106; // sym,sym,sym ...
+    string expiry = 109; // YYYYMMDD,YYYYMMDD,YYYYMMDD (must match 1st expiry in spread)
+    string industry = 112; // ind, ind, ind (numeric values)
+    string tokens = 115; // additional search tokens
+    float min_years = 118; // (-1 = no limit)
+    float max_years = 121;
+    float min_underlying_price = 124; // (-1 = no limit)
+    float max_underlying_price = 127;
+    float min_surf_edge = 130;
+    float min_surf_vega = 133;
+    float max_surf_vega = 136;
+    float min_surf_wt_vega = 139;
+    float max_surf_wt_vega = 142;
+    float min_surf_delta = 145;
+    float max_surf_delta = 148;
+    int32 min_spread_quantity = 151;
+    YesNo is_covered = 154; // Yes = covered options only, No = options w/o undelier
+    YesNo is_future_spread = 157;
+    int64 spread_class_mask = 170;
+    int32 max_num_results = 166;
+    string user_name = 169;
+}
+
+

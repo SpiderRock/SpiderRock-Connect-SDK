@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockPrintHistory {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int32 tick_number = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float price = 100;
+    int32 up_quan_d = 103;
+    int32 dn_quan_d = 106;
+    double up_quan_r = 109;
+    double dn_quan_r = 112;
+    google.protobuf.Timestamp timestamp = 115;
+}
+
+

@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAuctionPrintZeroVega {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 164;
+        SpdrKeyType sec_type = 165;
+        BuySell side = 166;
+        uint32 ratio = 167;
+        int32 und_per_cn = 168;
+        float point_value = 169;
+        Currency point_currency = 170;
+        ExpiryType exp_type = 171; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
+        float years = 172; // SR volatility years to expiry
+        float rate = 173; // SR global (discount) rate to expiry
+        float atm_vol = 174; // ATM (fwd uPrc) SR surface volatility
+        float ddiv_pv = 175; // SR present value of ddiv stream
+        float t_vol = 176; // client theo surface volatility (if client surfaces uploaded to SR)
+        float s_vol = 177; // SR Surface Volatility
+        float s_div = 178; // SR Surface SDiv
+        float s_prc = 179; // SR Surface Price
+        float de = 180;
+        float ga = 181;
+        float th = 182;
+        float ve = 183;
+        YesNo s_vol_ok = 184; // Yes if live market and sVol are tracking as expected
+        float bid = 185; // Leg bid price
+        int32 bid_sz = 186; // cumulative leg bid size
+        int64 bid_mask = 187; // bit-mask of participating exchanges
+        float ask = 188; // leg ask price
+        int32 ask_sz = 189; // cumulative leg ask size
+        int64 ask_mask = 190; // bit-mask of participating exchanges
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 notice_number = 100; // AuctionNotice.noticeNumber
+    TickerKey ticker = 101; // underlier ticker
+    YesNo is_test_auction = 102; // if yes, auction is a test auction (not a prod/live auction)
+    google.protobuf.Timestamp notice_time = 103; // notice create timestamp (high precision)
+    AuctionType auction_type = 104; // (eg. Block, Flash, Improvement, Facilitation, etc.)
+    AuctionSource auction_source = 105; // source of the auction notice (eg. SRC, MIAX, etc.)
+    string industry = 106; // industry string
+    SymbolType symbol_type = 107;
+    float u_avg_daily_vlm = 108; // underlier average daily trading volume
+    BuySell cust_side = 109; // from AuctionNotice (if known)
+    int32 cust_qty = 110; // from AuctionNotice (if known)
+    double cust_prc = 111; // from AuctionNotice (if known)
+    YesNo has_cust_prc = 112; // from AuctionNotice (if known)
+    FirmType cust_firm_type = 113; // cust firm type (if disclosed)
+    string cust_agent_mPID = 114; // cust agent exchange member initiating the auction (if disclosed)
+    float comm_enhancement = 115; // additional commission (if any) paid by responder
+    int32 num_opt_legs = 116; // MLEG Only
+    SpreadClass spread_class = 117;
+    SpreadFlavor spread_flavor = 118; // MLEG Only
+    YesNo contains_hedge = 119; // MLEG Only
+    YesNo contains_flex = 120; // contains FLEX options (not regular listed options)
+    YesNo contains_multi_hedge = 121; // contains MultiHedge (corp action adjusted) options
+    double u_bid = 122;
+    double u_ask = 123;
+    float net_de = 124;
+    float net_ga = 125;
+    float net_th = 126;
+    float net_ve = 127;
+    float pkg_surf_prc = 128; // SR Surface Price (entire package)
+    float pkg_bid_prc = 129; // pkg bid price (best way price) (entire package)
+    float pkg_ask_prc = 130; // pkg ask price (best way price) (entire package)
+    double prt_price = 131; // reported OPRA print price (pkgPrice if MLeg)
+    double prt_price2 = 132; // if reported as 2 separate prints at different prices (ie, partial size improvement)
+    int32 prt_size = 133; // reported OPRA print size (pgkSize if MLeg)
+    int32 prt_size2 = 134; // reported OPRA print size (pgkSize if MLeg)
+    google.protobuf.Timestamp prt_time = 135; // reported OPRA print time (1st print if MLeg) (high precision)
+    PrtType prt_type = 136; // reported OPRA print type
+    double prt_uBid = 137; // best estimate of uBid @ auction print time
+    double prt_uAsk = 138; // best estimate of uAsk @ auction print time
+    double prt_uPrc = 139; // best estimate of uPrc @ auction print time
+    float prt_surf_vol = 140; // surface vol @ auction print time (single option auction only)
+    float prt_surf_prc = 141; // surface prc @ auction print time (@ uMid) (pkgSurfPrc if MLeg)
+    float bid_prc = 142; // option nbbo bid @ auction print time
+    int32 bid_sz = 143; // nbbo bid cum size
+    int64 bid_mask = 144; // nbbo bid exch mask
+    float ask_prc = 145; // option nbbo ask @ auction print time
+    int32 ask_sz = 146; // nbbo ask cum size
+    int64 ask_mask = 147; // nbbo ask exch mask
+    float exch_bid_prc = 148; // exch bid @ auction print time
+    int32 exch_bid_sz = 149; // exch bid size
+    float exch_ask_prc = 150; // exch ask @ auction print time
+    int32 exch_ask_sz = 151; // exch ask size
+    float u_prc1m = 152; // uPrc (mid market) @ auction print time + 1m
+    float bid_prc1m = 153; // option nbbo bid @ auction print time + 1m
+    float ask_prc1m = 154; // option nbbo ask @ auction print time + 1m
+    float surf_vol1m = 155; // surface vol @ auction print time + 1m (single option auction only)
+    float surf_prc1m = 156; // surface prc @ auction print time + 1m (@ uMid)
+    float u_prc10m = 157; // uPrc (mid market) @ auction print time + 10m
+    float bid_prc10m = 158; // option nbbo bid @ auction print time + 10m
+    float ask_prc10m = 159; // option nbbo ask @ auction print time + 10m
+    float surf_vol10m = 160; // surface vol @ auction print time + 10m (single option auction only)
+    float surf_prc10m = 161; // surface prc @ auction print time + 10m (@ uMid)
+    google.protobuf.Timestamp timestamp = 162;
+    YesNo is_prod = 191; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 192; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 193; // WTS synthetic: alert message (null if no alert)
+    repeated OrderLegs order_legs = 163;
+}
+
+

@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridSpreadBookMarkup {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+    message MarkupLegs {
+        
+        OptionKey leg_sec_key = 148;
+        string leg_sec_key_ticker_src = 149;
+        string leg_sec_key_asset_type = 150;
+        SpdrKeyType leg_sec_type = 151;
+        PriceFormat leg_price_format = 152;
+        string leg_security_desc = 153; // Security description
+        BuySell leg_side = 154;
+        uint32 leg_ratio = 155; // leg ratio (1, 2, etc)
+        double leg_bid_price = 156; // leg market bid
+        int32 leg_bid_size = 157;
+        double leg_ask_price = 158; // leg market ask
+        int32 leg_ask_size = 159;
+        float leg_years = 160;
+        double leg_uPrc = 161;
+        float leg_surf_vol = 162; // leg surface volatility
+        float leg_surf_price = 163; // surface price as of message arrival
+        float leg_surf_de = 164;
+        float leg_surf_ga = 165;
+        float leg_surf_ve = 166;
+        int32 leg_surf_err = 167;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_test = 100; // Yes indicates that response is made of entirely of isTest=Yes SpreadExchOrders
+    TickerKey skey = 101; // SR Spread Key (should have corresponding ProductDefinition record)
+    TickerKey ticker = 102; // common spread underlier
+    int64 sRspread_iD = 103;
+    PriceFormat price_format = 104;
+    double bid_price1 = 105; // bid price
+    YesNo is_bid_price1_valid = 106;
+    double ask_price1 = 107; // ask price
+    YesNo is_ask_price1_valid = 108;
+    int32 bid_size1 = 109; // cumulative size at bidPrice
+    int32 ask_size1 = 110; // cumulative size at askPrice
+    int64 bid_mask1 = 111; // exchange bid bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
+    int64 ask_mask1 = 112; // exchange ask bit mask (OptExch mask for NMS spreads; zero for single exchange spreads)
+    OptExch bid_exch1 = 113; // exchange at bid price with the largest size (if any)
+    OptExch ask_exch1 = 114; // exchange at ask price with the largest size (if any)
+    google.protobuf.Timestamp bid_time = 115; // last bid price or size change
+    google.protobuf.Timestamp ask_time = 116; // last ask price or size change
+    UpdateType update_type = 117;
+    int32 num_stk_legs = 118;
+    int32 num_fut_legs = 119;
+    int32 num_opt_legs = 120;
+    YesNo user_defined = 121;
+    SpreadClass spread_class = 122;
+    YesNo contains_hedge = 123;
+    double leg_bid_prc = 124;
+    double leg_ask_prc = 125;
+    int32 leg_bid_sz = 126;
+    int32 leg_ask_sz = 127;
+    double surf_prc = 128;
+    float surf_delta = 129;
+    float surf_gamma = 130;
+    float surf_vega = 131;
+    float surf_wt_vega = 132;
+    int32 surf_error = 133; // error code from surface price calc (if any)
+    google.protobuf.Timestamp min_expiry = 134; // expiry of earliest option leg(s)
+    google.protobuf.Timestamp max_expiry = 135; // expiry of latest option leg(s)
+    float min_years = 136;
+    float max_years = 137;
+    float ref_uPrc = 138; // reference underlier price
+    float print_price = 139; // last spread print price (if any)
+    google.protobuf.Timestamp print_time = 140;
+    int32 print_size = 141; // last spread print size (if any)
+    int32 print_volume = 142;
+    int32 grp_num = 143;
+    string security_desc = 144;
+    int64 filter_id = 145; // tool server filter request ID
+    google.protobuf.Timestamp timestamp = 146;
+    YesNo is_prod = 168; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 169; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 170; // WTS synthetic: alert message (null if no alert)
+    repeated MarkupLegs markup_legs = 147;
+}
+
+

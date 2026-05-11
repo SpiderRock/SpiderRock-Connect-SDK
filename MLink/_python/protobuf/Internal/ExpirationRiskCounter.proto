@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ExpirationRiskCounter {
+    message PKey {
+        
+        DateKey expiry = 12;
+        string accnt = 13;
+        string risk_firm = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 103; // original (source) sys environment [Stable, Current, etc]
+    string risk_engine = 212; // EE engine name
+    ChangeReason change_reason = 213;
+    float dd_bot_ioc_filled = 214; // fills + IOC leaves
+    float dd_sld_ioc_filled = 215; // fills + IOC leaves
+    float wt_ve_bot_ioc_filled = 216; // fills + IOC leaves
+    float wt_ve_sld_ioc_filled = 217; // fills + IOC leaves
+    float rm6_bot_ioc_filled = 218; // fills + IOC leaves
+    float rm6_sld_ioc_filled = 219; // fills + IOC leaves
+    int32 counter = 208;
+    google.protobuf.Timestamp timestamp = 211;
+}
+
+

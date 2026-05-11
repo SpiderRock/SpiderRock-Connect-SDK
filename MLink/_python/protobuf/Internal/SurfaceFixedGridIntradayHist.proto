@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SurfaceFixedGridIntradayHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int32 days = 11; // days to expiration [5, 21, 42, 63, 84, 105, 126, 189, 252, 378, 504]
+        google.protobuf.Timestamp date = 12; // end of minute bar
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    DateKey trading_date = 103;
+    TradingSession trading_session = 106;
+    float i_eMove = 109; // Implied earnings move (from LiveSurfaceTerm.eMove)
+    float h_eMove = 112; // Historical earnings move (from LiveSurfaceTerm.eMoveHist)
+    float vol_d40 = 115; // xde = -40		(from LiveSurfaceCurve.surfaceType = 'Live')
+    float vol_d30 = 118; // xde = -30
+    float vol_d20 = 121; // xde = -20
+    float vol_d10 = 124; // xde = -10
+    float vol_aTM = 127; // xde = 0
+    float vol_u10 = 130; // xde = +10
+    float vol_u20 = 133; // xde = +20
+    float vol_u30 = 136; // xde = +30
+    float vol_u40 = 139; // xde = +40
+    float v_width = 142; // atm volatility width (Live)
+    float lo_years = 145; // LiveSurfaceCurve.years before days	[-1 = none]
+    float hi_years = 148; // LiveSurfaceCurve.years after days	[-1 = none]
+    google.protobuf.Timestamp timestamp = 151; // surface fit timestamp
+}
+
+

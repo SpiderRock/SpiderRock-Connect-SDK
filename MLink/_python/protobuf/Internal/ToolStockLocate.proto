@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ToolStockLocates are sent to and from WebtoolServer to client. They are roughly equivalent to the StockLocateResponse message.
+*/    
+message ToolStockLocate {
+    message PKey {
+        
+        TickerKey ticker = 10; // ticker symbol
+        string locate_firm = 11; // typically a clearing firm (or 3rd party locate desk)
+        string locate_pool = 12; // locate pool @ firm granting the locate
+        LocateSource locate_source = 13; // original source of the locate response
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string locate_iD = 100; // ID used to make locate requests (SR generated request ID if SR made the locate request; client supplied otherwise)
+    int32 request_qty = 101; // original request quantity for requestID
+    int32 locate_qty = 102; // total actual locate quantity received (can be different from requestQty in some cases)
+    LocateStatus locate_status = 103; // status of the locate response
+    int32 available_locate_qty = 105; // locate balance currently available
+    YesNo is_editable = 106; // can the user put in an update for this locate record
+    google.protobuf.Timestamp timestamp = 104; // last update time
+}
+
+

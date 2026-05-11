@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LogonResponse {
+
+
+    MessageMetadata _meta = 1;
+    
+    AuthResult auth_result = 100;
+    string auth_result_detail = 103;
+    string session_key = 106; // SessionKey a token with an expiration time which can be used to access services
+    google.protobuf.Timestamp session_key_expires = 109; // Expiration time for SessionKey
+    string mfa_secret_label = 112; // MFA secret label (can be used in Authenticator App to identify this key)
+    string mfa_secret = 115; // MFA secret used to generate QR code for TOTP apps
+    string contact_name = 118; // Friendly name of the user
+    string client_firm_name = 121; // Friendly name of the clientFirm the user is associated with
+    google.protobuf.Timestamp timestamp = 124; // timestamp of last modification
+}
+
+

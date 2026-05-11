@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message ToolAutoHedgeSymbol {
+    message PKey {
+        
+        TickerKey root_key = 10; // Option root for which we are picking hedge targets
+    }
+
+    message HedgeTargets {
+        
+        YesNo is_primary_hedge_target = 105;
+        ExpiryKey target_key = 106; // A valid hedge target expiryKey
+        SpdrKeyType target_sec_type = 108; // Sectype of target
+        string ticker_desc = 110; // Description from stock object for hedge target (shared at TickerKey level)
+        ToolCurrency point_currency = 111;
+        SwapProvider swap_provider = 117; // swap provider available for this target
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    repeated HedgeTargets hedge_targets = 103;
+}
+
+

@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SurfaceAtmIntradayHist {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        google.protobuf.Timestamp date = 11; // as-of datetime for surface  snapshot
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlying stock key that this option expiration attaches to
+    int64 security_iD = 103;
+    ExpiryKey und_sec_key = 106; // underlier sec key
+    SpdrKeyType und_sec_type = 109; // underlier sec type
+    ExpiryKey u_prc_driver_key = 107; // underlier driver key
+    SpdrKeyType u_prc_driver_type = 110; // underlier driver key type (stock or future)
+    double u_prc_driver = 113; // underlier driver (mid-market)
+    DateKey trading_date = 112;
+    TradingSession trading_session = 115;
+    double u_prc = 118; // underlier price used for surface fit
+    double u_bid = 121; // underlier bid price
+    double u_ask = 124; // underlier ask price
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233; // Spot, Forward, Future, or Physical
+    ExerciseType ex_type = 224; // exercise type (American or European)
+    float years = 152; // years to expiration (from SR time/calendar metrics)
+    float rate = 155; // SR interest rate (from global rate curve)
+    float sdiv = 173; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 158; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 161; // SR ddivPv (sum of present value discrete dividend amounts)
+    float symbol_ratio = 139; // underlier price ratio (usually 1.0 or a multi-hedge option price ratio; if one exists)
+    float earn_cnt = 151; // number of qualifying earnings events prior to expiration [can be fractional] (from StockEarningsCalendar)
+    float earn_cnt_adj = 154; // number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
+    float axis_vol_rT = 157; // axis volatility x sqrt(years) (used to compute xAxis) [usually 4m atm vol]
+    float axis_fUPrc = 160; // axis FwdUPrc (fwd underlying price used to compute xAxis)
+    float atm_strike = 163; // synthetic strike with cPrice = pPrice
+    MoneynessType moneyness_type = 166; // moneyness (xAxis) convention
+    UnderlierMode underlier_mode = 169; // underlier pricing mode (None=use spot/stock market; FrontMonth=use front month future market * uPrcRatio; Actual = use actual underlier future market)
+    CPAdjType cp_adj_type = 172; // adjustment used to align calls/puts (if any)
+    PriceQuoteType price_quote_type = 175; // Price or Vol
+    float atm_vol = 178; // atm vol (xAxis = 0)
+    float atm_cen = 181; // atm vol (xAxis = 0) (eMove/earnCntAdj censored)
+    float atm_vol_hist = 184; // historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
+    float atm_cen_hist = 187; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
+    float min_atm_vol = 190; // minimum estimated atm vol
+    float max_atm_vol = 193; // maximum estimated atm vol
+    double min_cPAdj_val = 196; // minimum CP adjust value (sdiv or uPrcRatio)
+    double max_cPAdj_val = 199; // maximum CP adjust value (sdiv or uPrcRatio)
+    double syn_spot = 188; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    float i_eMove = 202; // implied earnings move (from LiveSurfaceTerm)
+    float h_eMove = 205; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
+    double u_prc_ratio = 208; // implied ratio for use when fkey is not the natural underlier for this option expiry [most recent fit value]
+    float atm_fixed_move = 211; // fixed strike atm move from prior period
+    float atm_phi = 214; // surface phi @ xAxis = 0
+    float atm_vega = 217; // surface vega @ xAxis = 0
+    float slope = 220; // volatility surface slope (dVol / dXAxis) @ ATM (xAxis=0)
+    float var_swap_fV = 223; // variance swap fair value (estimated by numerical integration over OTM price surface)
+    GridType grid_type = 226; // gridType defines skew curve coeff points + spline type
+    float min_xAxis = 229; // minimum xAxis value; xAxis values to the left extrapolate horizontally
+    float max_xAxis = 232; // maximum xAxis value; xAxis values to the right extrapolate horizontally
+    float min_curv_value = 235; // minimum curvature (2nd derivative) of skew curve (can be negative if curve is not strictly convex)
+    float min_curv_xAxis = 238; // xAxis of minimum curvature point
+    float max_curv_value = 241; // maximum curvature (2nd derivative) of skew curve
+    float max_curv_xAxis = 244; // xAxis of maximum curvature point
+    float skew_min_x = 247; // xAxis = (effStrike / effAxisFUPrc - 1.0) / axisVolRT; effStrike = strike * strikeRatio; effAxisFUPrc = axisFUPrc * symbolRatio
+    float skew_min_y = 250; // skewMinX / skewMinY are the skew curve minimum point (usually a positive x value and a negative y value)
+    float skew_d11 = 253; // skew @ D11 point (volatility skew curve)
+    float skew_d10 = 256; // skew @ D10 point
+    float skew_d9 = 259; // skew @ D9 point
+    float skew_d8 = 262; // skew @ D8 point
+    float skew_d7 = 265; // skew @ D7 point
+    float skew_d6 = 268; // skew @ D6 point
+    float skew_d5 = 271; // skew @ D5 point
+    float skew_d4 = 274; // skew @ D4 point
+    float skew_d3 = 277; // skew @ D3 point
+    float skew_d2 = 280; // skew @ D2 point
+    float skew_d1 = 283; // skew @ D1 point
+    float skew_c0 = 286; // central value (@xAxis = 0) [usually zero]
+    float skew_u1 = 289; // skew @ U1 point
+    float skew_u2 = 292; // skew @ U2 point
+    float skew_u3 = 295; // skew @ U3 point
+    float skew_u4 = 298; // skew @ U4 point
+    float skew_u5 = 301; // skew @ U5 point
+    float skew_u6 = 304; // skew @ U6 point
+    float skew_u7 = 307; // skew @ U7 point
+    float skew_u8 = 310; // skew @ U8 point
+    float skew_u9 = 313; // skew @ U9 point
+    float skew_u10 = 316; // skew @ U10 point
+    float skew_u11 = 319; // skew @ U11 point
+    float cp_adj_d4 = 322; // xAxis = -4.0
+    float cp_adj_d3 = 325; // xAxis = -3.0
+    float cp_adj_d2 = 328; // xAxis = -2.0
+    float cp_adj_d1 = 331; // xAxis = -1.0
+    float cp_adj_u1 = 334; // xAxis = +1.0
+    float cp_adj_u2 = 337; // xAxis = +2.0
+    float cp_adj_u3 = 340; // xAxis = +3.0
+    float cp_adj_u4 = 343; // xAxis = +4.0
+    float pwidth = 346; // minimum mkt premium width
+    float vwidth = 349; // minimum mkt volatility width
+    int32 c_cnt = 352; // num call strikes
+    int32 p_cnt = 355; // num put strikes
+    int32 c_bid_miss = 358; // number of call bid violations (surface outside the market)
+    int32 c_ask_miss = 361; // number of call ask violations (surface outside the market)
+    int32 p_bid_miss = 364; // number of put bid violations
+    int32 p_ask_miss = 367; // number of put ask violations
+    float fit_avg_err = 370; // average error (sPrc - midPrc)
+    float fit_avg_abs_err = 373; // average absolute error (sPrc - midPrc)
+    float fit_max_prc_err = 376; // worst case surface premium violation
+    float fit_err_xX = 379; // okey_xx of the option with the largest fit error in this expiration
+    CallPut fit_err_cP = 382; // okey_cp of the option with the largest fit error in this expiration
+    float fit_err_de = 385; // delta of fixErrXX
+    float fit_err_bid = 388; // bid of the option with the largest fit error
+    float fit_err_ask = 391; // ask of the option with the largest fit error
+    float fit_err_prc = 394; // surface prc of the option with the largest fit error
+    float fit_err_vol = 397; // surface vol of the option with the largest fit error
+    TradeableStatus tradeable_status = 403; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
+    SurfaceResult surface_result = 406;
+    google.protobuf.Timestamp timestamp = 409;
+}
+
+

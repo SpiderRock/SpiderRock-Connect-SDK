@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    Utilizes metatypes for nullable doubles and nullable float values for JSON encoding
+*/    
+message NullableFieldsTest {
+
+
+    MessageMetadata _meta = 1;
+    
+    double double_field = 100;
+    double nullable_double_field = 103;
+    float float_field = 106;
+    float nullable_float_field = 109;
+}
+
+

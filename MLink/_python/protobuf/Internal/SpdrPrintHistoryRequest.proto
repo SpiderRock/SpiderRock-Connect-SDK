@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrPrintHistoryRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey sec_key = 100;
+    SpdrKeyType sec_type = 103; // Stock, Future, or MLeg (spread)
+    int32 request_iD = 106;
+    GetAction action = 109;
+    int64 high_water_mark = 112;
+    string user_name = 115;
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

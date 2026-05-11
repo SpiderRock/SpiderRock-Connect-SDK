@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Records inserted, updated, or replaced into the StockOrderGateway table are validated and then converted to SpdrParentOrder records and forwarded to the appropriate execution engine for futher processing.  Parent orders can be inserted as either active/ready or in a wait start mode that requires subsequent release.
+    See the SpiderRock Execution Engine concept guide for more details.
+*/    
+message StkOrderGateway {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11; // SR Account (default = primary account associated with SRSE login)
+        BuySell order_side = 12; // Order side.  Values: Buy/Sell.
+        int64 grouping_code = 13; // Client supplied order
+        string client_firm = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrActionType spdr_action_type = 103; // [Add (new order), AddReplace (add or replace order), Cancel (cxl existing), Replace (update existing only), Release (modify order active size)]
+    string alt_order_id = 106; // Alternate client order ID.  This order ID will be copied to all execution reports.
+    string alt_accnt = 109; // alternate (client assigned) "long" account string (optional) [used to map between client and SR account strings]
+    string alt_user_name = 112; // alternate (client assigned) user name (optional) [used to map between client and SR account strings]
+    string exec_brkr_code = 335; // (optional) override the default execBrkrCode for this order
+    string extern_ex_dest = 336; // routing code for orders directed to an external order router (default = null); should match FixRoutingTable.destination (in SR accnt config)
+    string extern_params = 121; // external algo names/parameters (usually just an algo name)
+    string strategy = 124; // Client strategy string.  This value will appear on the SR Trade Monitor and in execution reports.
+    string strategy_accnt = 339; // SR strategy account (option; if exists will be validated)
+    YesNo visible_in_sV = 340; // allow order to be visible in SV (do not use for high volume of orders)
+    google.protobuf.Timestamp order_dttm = 130; // order entry time (from client;if any)
+    int32 order_size = 133; // parent order size (contracts) [-1 = no change;used when spdrActionType=Release]
+    int32 order_active_size = 136; // total activated size (total size released for execution) (-1 = all available size)
+    YesNo add_cum_fill_quantity = 139; // If Yes then OrderSize is calculated @ order arrival as requested OrderSize + existing 'CumFillQuantity'.
+    int64 exch_mask = 341; // eligible exchanges (0 = all)
+    int32 max_exposure_size = 145; // maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]
+    int32 num_make_exchanges = 148; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
+    PublicSizeHandling public_size = 151; // public order size handling: None=use default size handling (usually limits public size to 'typical' market size); Randomize=randomize public size; MktSize=expose only 'typical' market size; FullSize=expose entire order size where possible
+    YesNo randomize_size = 154; // randomize public order size
+    YesNo can_overlap_cxl_repl = 157; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
+    ProgressRule progress_rule = 160; // None = all size immediately available;TWAP = size released in time intervals;VWAP = size released in volume intervals;
+    int32 twap_slice_cnt = 163; // [ProgressSliceCnt] number of progress slices to use. if none given will compute based on active size and duration. [max 20]
+    int32 progress_expose_time = 166; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
+    float vwap_participation = 169; // target vwap participation rate (target % of trade activity)
+    int32 min_mkt_on_close_pct = 172; // Minimum pct [0 - 100] of order reserved for the on-close auction
+    AuctionResponder auction_responder = 175; // if set, parent order can be an auction responder
+    float max_make_exch_fee = 178; // maximum making exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    float max_take_exch_fee = 181; // maximum taking exchange fee (in point value) [zero = no limit; use non-zero number for limit to apply]
+    TriggerType trigger_type = 184; // type of trigger (PrintVol/SurfVol only for options) [print = print or actionable quote]
+    float trigger_level = 187; // stop/trigger price for parent order to go active
+    UPrcCxl cxl_uPrc_range = 190; // cancel parent order if/when outside min/max uPrc range [_Halt = also cancel if the security/underlier has been halted]
+    float min_uBid = 193; // [optional]
+    float max_uAsk = 196; // [optional] (< $0.01 = none)
+    MinMaxType min_max_type = 199; // if Prc minUBid/maxUAsk are expressed as prices; if Pct then they are expresses as pct change since parent order arrival
+    int32 max_child_orders = 202; // maximum number of child orders that can be generated by this parent order [order will terminate if/when this cap is reached;zero or neg = unlimited]
+    SpdrStageType spdr_stage_type = 205; // SizeLock = stage pending modification (can reduce size); SizeModify = stage pending modification (can increase/reduce size)
+    MarketSession market_session = 326;
+    google.protobuf.Timestamp start_dttm = 211; // [optional] (parent order start time)
+    int32 order_duration = 214; // [optional] (number of seconds)
+    int32 active_duration = 327; // [optional] (number of seconds)
+    google.protobuf.Timestamp good_till_dttm = 217; // [optional] (default: 2000-01-01)
+    StartType start_type = 220; // [None, WaitTrigger]
+    ParentOrderHandling parent_order_handling = 226;
+    ParentBalanceHandling parent_balance_handling = 229;
+    SpdrLimitType order_limit_type = 232; // Various (Market, Prc, etc.); establishes the primary LimitPrice for a parent order
+    SpdrLimitClass take_limit_class = 235; // Simple = LimitPrice, Probability = BEST(LimitPrice, ProbLimit)
+    SpdrLimitClass make_limit_class = 238; // Simple = LimitPrice, Probability = BEST(LimitPrice, ProbLimit)
+    ReachRule take_reach_rule = 241; // None = reach room immediately available; Delayed = available after [1-3] seconds; Passive = available if contra side aggresses; WeakOnly = only take if available size < avgMarketSize; ISOSweep = Intermarket Sweep [requires WaitTrigger]
+    double order_prc_limit = 244; // Applies if LimitType = Prc[]
+    double order_prc_offset = 247; // default=0
+    AlphaType take_alpha_type = 250; // Applies if takeLimitClass = Probability
+    AlphaType make_alpha_type = 253; // Applies if makeLimitClass = Probability
+    float take_alpha_factor = 256; // [-2,+2] takeProbLimit = MAX(takeProbability, takeProbAvg + takeAlphaFactor * takeProbStd) [if takeAlphaType = Relative]
+    float make_alpha_factor = 259; // [-2,+2] makeProbLimit = MAX(makeProbability, makeProbAvg + makeAlphaFactor * makeProbStd) [if makeAlphaType = Relative]
+    float take_probability = 262; // takeProbLimit = takeProbability [if takeAlphaType = Static]
+    float make_probability = 265; // makeProbLimit = makeProbability [if makeAlphaType = Static]
+    AutoHedge auto_hedge = 268;
+    ExpiryKey hedge_sec_key = 271; // auto-hedge instrument (either TickerKey or ExpiryKey) [hedgeSecKey.TickerKey cannot equal order.ticker]
+    SpdrKeyType hedge_sec_type = 274; // None, Stock, or Future
+    float hedge_beta_ratio = 277; // Portion of executed $money to auto-hedge (can be 1.0 / Beta for beta hedging) [-4.0 to +4.0]
+    HedgeScope hedge_scope = 280; // Auto-hedge at the RiskGroup or Accnt level
+    MarketSession hedge_session = 328;
+    SwapProvider use_swap_provider = 605;
+    ShortSaleFlag ssale_flag = 286; // Used to determine stock auto-hedge flags.
+    string locate_firm = 337; // firm granting the locate if using an away locate source for this order
+    string locate_pool = 338; // locate pool @ firm granting the locate
+    float max_exch_fee = 289; // maximum exchange fee allowed when generating orders
+    int64 risk_group_id = 292; // All group (grp) risk limits below are relative to this riskGroupId.  Default: 0 (none).  Required to be non-zero if `autoHedge` is something other than None.
+    YesNo req_aux_risk_group_ctrl = 329;
+    float sym_day_dDelta_offset = 330; // max acct+symbol day $delta offset (target)
+    float max_sym_day_dDelta_ln = 301; // max acct+symbol day $delta long (positive number;-1=no limit);risk limit = max limit - (current net counter - offset)
+    float max_sym_day_dDelta_sh = 304; // max acct+symbol day $delta short (positive number;-1=no limit);risk limit = max limit + (current net counter - offset)
+    float max_grp_day_dDelta_ln = 307; // max acct+riskGroup day $delta long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_dDelta_sh = 310; // max acct+riskGroup day $delta short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric1_ln = 331; // max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
+    float max_grp_day_rMetric1_sh = 332; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
+    float max_grp_day_rMetric1_abs = 333; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    float grp_day_rMetric1_ratio = 334; // target bot / sld ratio (eg ratio=0.5 means that neutral is bot rMetric1 = 0.5x sld rMetric1)
+    string trader_name = 313; // Name of the trader associated with the order
+    string user_data1 = 316; // client supplied data field; passes through to parent and child executions and reports as well as FIX child orders and drops
+    string user_data2 = 319; // client supplied data field; passes through to parent and child executions and reports as well as FIX child orders and drops
+    string child_data = 322; // client supplied data field; passes through to down stream child orders
+    int32 checksum = 325; // Must be set to 13.  This helps detect some column/value misalignments.
+}
+
+

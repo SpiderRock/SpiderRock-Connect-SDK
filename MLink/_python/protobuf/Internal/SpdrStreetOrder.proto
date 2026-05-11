@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrStreetOrder records are published by SRFixStreetGateway servers and are used to maintain/reload state for all handled orders
+*/    
+message SpdrStreetOrder {
+    message PKey {
+        
+        string cl_ord_id = 10; // SR child order number (EE)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string server_code = 100; // StreetGW ServerCode
+    string fix_route_dn = 103;
+    string up_sender_comp_id = 106; // senderCompID/targetCompID of the StreetGW -> EE session
+    string up_target_comp_id = 109;
+    string up_sender_sub_id = 112; // senderSubID/targetSubID of the StreetGW -> EE session
+    string up_target_sub_id = 115;
+    google.protobuf.Timestamp street_session_date = 118;
+    int32 street_session_counter = 121;
+    int32 street_seq_num_out = 124;
+    string street_cl_ord_id = 127;
+    string order_id = 130;
+    string template_name = 133; // outbound rewrite template name
+    RouteType route_type = 136;
+    string accnt = 139;
+    string client_firm = 142;
+    SpdrOrderShape order_shape = 145;
+    int32 num_legs = 148;
+    int64 base_cl_ord_id = 151; // EE side base clOrdId
+    int64 parent_number = 154; // SR parent number
+    int64 base_parent_number = 157;
+    OptionKey sec_key = 160;
+    SpdrKeyType sec_type = 163;
+    SpdrSource spdr_source = 166; // from child order
+    int64 grouping_code = 169; // from child order
+    string exch_security = 172; // Exchange symbol description necessary for translated securities
+    string market_segment = 377; // Market segment description necessary for translated securities]
+    string cancel_pairs = 175; // FIX tag/value pairs necessary to construct a cancel message
+    BuySell order_side = 178;
+    double order_price = 181;
+    double exch_order_price = 184;
+    double exch_display_factor = 187;
+    string price_format = 190;
+    TimeInForce time_in_force = 193;
+    SpdrOrderType order_type = 196;
+    YesNo iso_sweep = 199;
+    YesNo is_peg_limit = 202; // Yes if order sent to exchange with a Market or 'Peg' style limit (returned in exec report)
+    YesNo is_held = 205; // Yes if order sent to exchange marked "Held"
+    YesNo is_directed = 208; // Yes if order sent to exchange directed to a specific exchange, as opposed to a smart router
+    string sr_street_acct_origin_list = 379; // Account origins list, comma separated.  One item if a new order single, multiple items if a cross, where items item 0 is the initiating side, and 1..N are the responding sides.
+    YesNo is_persistent = 211; // Yes means that street order should not be rotated until the end of day (even if terminated/not filled)
+    int32 order_size = 214;
+    int32 leaves_qty = 217;
+    string ex_destination = 220; // SR ExDest: eg AMEXOPT, ARCASTK, CMEFUT, CMEOPT
+    string ord_status = 223;
+    int32 cum_fill_qty = 226;
+    double avg_fill_price = 229;
+    YesNo is_open = 232;
+    YesNo is_ord_sent = 235;
+    YesNo is_acked = 238;
+    YesNo is_cxl_sent = 241;
+    string cancel_reason = 244;
+    YesNo cxl_requested = 247;
+    YesNo rpl_requested = 250;
+    YesNo cxl_reject_rcvd = 253;
+    string reject_text = 256;
+    int32 base_active_quantity = 259; // base parent number (total active quantity @ child create time)
+    int32 base_cum_fill_quantity = 262; // base parent number (cum fill quantity @ child create time)
+    int32 base_max_open_child_cnt = 265; // base parent number (max open child order count)
+    string exch_trader = 378; // executing trader id
+    string wait_trigger_id = 268;
+    SGContingency contingency = 271; // StreetGW fast contingency (if any exists)
+    double contingent_level = 274; // StreetGW contingency trigger level
+    OptionKey contingent_sec_key = 277;
+    SGContingentAction action = 280;
+    int64 action_src_timestamp = 283; // srcTimestamp of action trigger (if any)
+    int64 action_net_timestamp = 286; // netTimestamp of action trigger (if any)
+    int64 action_sgw_timestamp = 289; // sgwTimestamp of action trigger (if any)
+    float action_prep_latency = 292; // latency from sgwTimestamp to action send
+    ChildCreateReason order_create_reason = 295;
+    ChildCancelReason order_cancel_reason = 298;
+    int64 new_tick_src_timestamp = 301; // srcTimestamp of new order triggering packet (if any)
+    int64 new_tick_net_timestamp = 304; // netTimestamp of new order triggering packet (if any)
+    int64 new_tick_eng_timestamp = 307; // execution engine host tick timestamp (packet arrival)
+    int64 new_tick_sgw_timestamp = 310; // street gateway host tick timestamp (packet arrival)
+    int64 cxl_tick_src_timestamp = 313; // srcTimestamp of cxl order triggering packet (if any)
+    int64 cxl_tick_net_timestamp = 316; // netTimestamp of cxl order triggering packet (if any)
+    int64 cxl_tick_eng_timestamp = 319; // execution engine host tick timestamp (packet arrival)
+    int64 cxl_tick_sgw_timestamp = 322; // street gateway host tick timestamp (packet arrival)
+    YesNo new_hi_priority = 325; // queue priority of new order
+    YesNo cxl_hi_priority = 328; // queue priority of cxl order
+    float new_queue_delay = 331; // new order queue delay (waiting in StreetGW send queue)
+    float cxl_queue_delay = 334; // cxl order queue delay (waiting in StreetGW send queue)
+    float new_prep_delay = 337; // new order create delay (time spend procesing new order)
+    float cxl_prep_delay = 340; // cxl order create delay (time spend procesing cxl order)
+    float new_send_delay = 343; // new order send delay (time spend sending /blocking/ network packet)
+    float cxl_send_delay = 346; // cxl order send delay (time spent sending /blocking/ network packet)
+    int64 new_net_timestamp = 349; // netTimestamp @ new packet send
+    int64 new_fix_timestamp = 352; // fix.sendingTime claimed in the new order ack exec report
+    int64 cxl_net_timestamp = 355; // netTimestamp @ cxl packet send
+    int64 cxl_fix_timestamp = 358; // fix.sendingTime claimed in the cancel ack exec report
+    float ack_latency = 361; // new order to fill/ack latency (in milliseconds)
+    float cxl_latency = 364; // cxl to fill/ack latency (in milliseconds; if canceled)
+    int32 send_buffer_counter = 367; // network buffer send counter (increments on every network send)
+    string up_error = 370;
+    string dn_error = 373;
+    google.protobuf.Timestamp timestamp = 376;
+}
+
+

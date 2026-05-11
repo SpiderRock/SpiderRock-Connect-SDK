@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: MarFutRestrictedList
+    V8 Message Name:
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:MarFutRestrictedList
+*/    
+message MarFutRestrictedList_V7 {
+    message PKey {
+        
+        string client_firm = 5000; // ONLY V7: [string,Length=16,Alias=ClientFirmString,MetaType=NA]
+        string risk_group = 5001; // ONLY V7: [string,Length=16,Alias=NA,MetaType=NA]
+        ExpiryKey expiry = 5002; // ONLY V7: [ExpiryKey] --- Original comment: note: can be a future key (secType='Future') or the root+expiration part of an option key (secType='Option')
+        SpdrKeyType sec_type = 5003; // ONLY V7: [enum,Name=SpdrKeyType,Values=None=0,Stock=1,Future=2,Option=3,MLeg=4]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp start_restricted_date = 5004; // ONLY V7: [DateTime]
+    google.protobuf.Timestamp end_restricted_date = 5005; // ONLY V7: [DateTime]
+    SysEnvironment modified_in = 5006; // ONLY V7: [enum,Name=SysEnvironment,Values=None=0,Neptune=1,Pluto=2,V7_Stable=3,V7_Latest=4,Saturn=5,Venus=6,Mars=7,SysTest=8,V7_Current=9]
+    google.protobuf.Timestamp timestamp = 5007; // ONLY V7: [DateTime]
+}
+
+

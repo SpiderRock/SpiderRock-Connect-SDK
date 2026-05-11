@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ULinkContextEvent {
+    message PKey {
+        
+        string user_name = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100;
+    string accnt = 103; // most recent SR accnt (optional)
+    TickerKey ticker = 106; // most recent symbol (optional)
+    string source = 109; // source tool name (eg. SV, CT, BBLink, SRSE, etc)
+    string ulink_event = 112; // ulink event (eg: F1, F2, Enter, etc) (if any)
+    string ulink_detail = 115; // additional ulink context detail (if any)
+    google.protobuf.Timestamp timestamp = 118; // timestamp of ulink initiation
+}
+
+

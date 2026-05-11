@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrRespondedAuctionTCA {
+    message PKey {
+        
+        string client_firm = 10;
+        string accnt = 11;
+        string user_name = 12;
+        google.protobuf.Timestamp trade_date = 13;
+        TCAShapeAuctionType auction_type = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 filled = 100;
+    int32 auction_size_when_filled = 101;
+    int32 no_print = 102;
+    int32 print_at = 103;
+    int32 print_better = 104;
+    float print_better_at = 105;
+    float print_away_better = 106;
+}
+
+

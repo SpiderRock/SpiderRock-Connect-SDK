@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    used to monitor individual market data channels (ie, individual multicast channels or product tickers)
+    note: published by individual market data consuming processes (if enabled)
+*/    
+message MarketDataCounter {
+    message PKey {
+        
+        string feed_name = 10; // feed name
+        string channel_name = 11; // channel name
+        string server_name = 12; // process instance name (should be unique)
+        string machine_name = 13; // name of the machine which is hosting process
+        SysEnvironment sys_environment = 14; // sys environment [Stable, Current, etc]
+        SysRealm sys_realm = 15; // sysRealm [NMS, CME, etc.]
+        RunStatus run_status = 16; // run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 period_net_time = 100; // net time of start of the most recent trading period
+    google.protobuf.Timestamp period_timestamp = 103; // timestamp of the start of the most recent trading period
+    int64 num_data_ticks = 106; // number of ticks since start of most recent trading period
+    int64 num_window_ticks = 109; // number of ticks in the most recent window
+    YesNo is_oK = 112;
+    float tick_window = 115; // tick window length (in seconds)
+    int32 tick_threshold = 118;
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

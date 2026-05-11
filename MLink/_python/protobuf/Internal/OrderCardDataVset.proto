@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message OrderCardDataVset {
+    message Accounts {
+        
+        string accnt = 110; // (optional) SR accnt (Admin only)
+        string client_firm = 111; // SR client firm (Admin only)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    OrderCardStatus status_filter = 112; // order card filter by status
+    string token_filter = 113; // filter on text fields
+    OrderCardSort sort_type = 114; // sorting type
+    int32 st_pos = 115;
+    int32 num_cards = 116; // Deprecated
+    int32 page_size = 117; // The maximum number of order cards that the WTS should return. It can return less than pageSize but not more.
+    OrderCardDayBucket day_bucket = 118; // The option to retrieve todays orders or the previous day. Default is Today. None defaults to Today.
+    repeated Accounts accounts = 109;
+}
+
+

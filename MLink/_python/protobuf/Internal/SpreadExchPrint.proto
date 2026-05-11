@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpreadExchPrint {
+    message PKey {
+        
+        int64 print_number = 10; // SR assigned print number
+        OptExch exch = 11; // Exchange reporting print
+    }
+
+    message Legs {
+        
+        OptionKey leg_sec_key = 163;
+        SpdrKeyType leg_sec_type = 166;
+        BuySell leg_side = 169;
+        uint32 leg_ratio = 172; // leg ratio (1, 2, etc)
+        PositionType position_type = 175;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey skey = 100; // feed handler TickerKey
+    string strategy_iD = 103;
+    TickerKey ticker = 106; // underlier (or product group) tickerKey (from leg option)
+    BuySell side = 109;
+    int32 print_size = 112;
+    double print_price = 115;
+    YesNo is_print_price_valid = 118;
+    string print_type = 120; // print type (best effort to match opra print code)
+    BuySell min_anchor_side = 121;
+    OptionKey min_anchor_leg = 124; // earliest expiry / smallest strike / call prefered
+    BuySell max_anchor_side = 127;
+    OptionKey max_anchor_leg = 130; // furtherest expiry / largest strike / put prefered
+    YesNo has_flex_leg = 133;
+    YesNo has_hedge_leg = 136;
+    BuySell stock_leg_side = 139;
+    BuySell future_leg_side = 142;
+    StrategyClass strategy_class = 145; // Synthetic = (+C/-P), RevCon = (+C/-P/-S), Box = (+C/-P) & (-C/+P), CoveredSingle=(+C/-S) | (+P/+S), Straddle = (+C/+P), Vertical = SameExpiry, Horizontal = SameStrike, Mixed = Other
+    int32 num_opt_legs = 148;
+    int64 src_timestamp = 151; // source high precision timestamp (if available)
+    int64 net_timestamp = 154; // PTP timestamp
+    google.protobuf.Timestamp timestamp = 157;
+    repeated Legs legs = 160;
+}
+
+

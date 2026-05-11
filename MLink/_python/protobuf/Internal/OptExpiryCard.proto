@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptExpiryCard {
+    message PKey {
+        
+        ExpiryKey exp_key = 10; // Expiration Key
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey fut_exp = 100; // Future Expiration Key
+    string opt_exch_code = 164; // Option Exchange Code for Futures
+    TickerKey ticker = 103; // Stock ticker key
+    string rate = 106; // global (discount) rate to expiry
+    string ddiv = 109; // cumulative discrete dividends to expiry
+    string ddiv_pv = 161; // present value of discrete dividends to expiry
+    string i_days = 162; // interest (calendar) days to expiry
+    string years = 115; // volatility years to expiry
+    string u_prc = 165; // Option uPrc
+    string atm_vol = 118; // surface volatility @ fwdPrice
+    string atm_sDiv = 121; // surface sdiv @ fwdPrice
+    string atm_vol_move = 124; // ATM ivol change
+    string atm_sDiv_move = 127; // ATM svol change
+    string atm_width = 130;
+    string atm_slope = 133;
+    string atm_straddle_prc = 136; // Surface price (FairPx) of atm put + surface price (FairPx) of atm call
+    string atm_straddle_pct = 139; // atmStraddlePrc / uPrc
+    string vlm_day = 142; // option trade volume on the day
+    string vlm20_day = 145; // average option trade volume in the past 20 days
+    string ecnt = 151; // number of earnings events to expiration
+    string surf_status = 154;
+    ToolExpType exp_type = 157; // Expiration type of this option
+    google.protobuf.Timestamp ts = 160; // last update time (Date)
+    YesNo is_multihedge = 163;
+    string skew_change = 166; // skew change (atmVol - prevAtmSlope)
+}
+
+

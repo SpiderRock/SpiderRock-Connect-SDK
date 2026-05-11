@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrAuctionPrintTCA {
+    message PKey {
+        
+        google.protobuf.Timestamp trade_date = 10;
+        OptExch auction_exch = 11;
+        NoticeShape auction_shape = 12;
+        AuctionType auction_type = 13;
+        SpdrKeyType sec_type = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 sum_auction_size = 100;
+    int32 sum_print_size = 101;
+    float sum_surf_edge = 102;
+    float sum_short_term_pn_l = 103;
+    float sum_child_mkt_width = 104;
+    float sum_surf_print_size = 105;
+    float sum_short_term_pn_lSize = 106;
+}
+
+

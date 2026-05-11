@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionClosePriceHist {
+    message PKey {
+        
+        OptionKey okey = 10;
+        DateKey trading_date = 11;
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey und_sec_key = 100;
+    SpdrKeyType und_sec_type = 103;
+    float bid = 106; // SR closing bid (typically close - 5min)
+    float ask = 109; // SR closing ask (typically close - 5min)
+    double u_bid = 112; // SR closing underlier bid (C - 5m)
+    double u_ask = 115; // SR closing underlier ask (C - 5m)
+    float sr_cls_prc = 118; // SR close mark (typically close - 5min)
+    MarkSrc sr_cls_prc_src = 121;
+    double sr_cls_uPrc = 124; // SR underlier close price (srClsPrc and srClsUPrc should be as of the same time)
+    google.protobuf.Duration sr_cls_time = 127; // SR closing mark time
+    float close_prc = 130; // exchange closing mark
+    MarkSrc close_prc_src = 133;
+    double close_uPrc = 136; // underlier close price (closePrc and closeUPrc should be as of the same time)
+    google.protobuf.Duration close_time = 139; // exchange closing mark time
+    int32 open_interest = 142; // Open Interest
+    TradingPeriod trading_period = 145;
+    ClsMarkState cls_mark_state = 148; // Close mark state: None; LastPrt; SRClose; ExchClose; Final
+    google.protobuf.Timestamp timestamp = 151;
+}
+
+

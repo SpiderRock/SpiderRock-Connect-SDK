@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    edge-to-user
+    sent on logon and then every second (if changed in the prior second) otherwise every 60 seconds
+*/    
+message EdgeUnderlierStatus {
+    message PKey {
+        
+        string accnt = 10; // SR assigned accnt code
+        string cfirm = 11; // SR assigned client firm acronym
+        ExpiryKey sec_key = 12; // underlier stock or future key
+        SpdrKeyType sec_type = 13; // qualifies ExpiryKey
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_orders = 100; // number of distinct edge order numbers received
+    int32 num_order_event = 103; // total number of edge order updates (all changes)
+    int32 num_exch_orders = 106; // number of distinct exch orders (new + cxl/replace) sent
+    int32 num_open_exch_orders = 109;
+    int32 cum_open_exch_qty = 112;
+    int64 cum_open_abs_dDelta = 115;
+    int64 cum_open_abs_dGamma = 118;
+    int32 cum_fill_qty = 121;
+    int64 cum_fill_dDelta = 124;
+    int64 cum_fill_dGamma = 127;
+    int64 timestamp = 130;
+}
+
+

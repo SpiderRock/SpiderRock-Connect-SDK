@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LSSCAtmExpEvent {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string app_name = 100;
+    string stripe = 103;
+    AtmExpResult result = 106;
+    string detail = 109;
+    SurfaceAdjResult surface_result = 112;
+    float u_prc = 115;
+    float years = 118;
+    float atm_vol = 121;
+    int32 num_strikes = 124;
+    float p_width = 127;
+    float v_width = 130;
+    int32 num_atm_strikes = 133;
+    int32 num_new_curves = 136;
+    int32 num_list_resets = 139;
+    int32 num_move_skip = 142;
+    int32 num_curve_publish = 145;
+    int32 num_passes = 148;
+    double sum_elapsed = 151;
+    double max_elapsed = 154;
+    google.protobuf.Timestamp timestamp = 157;
+}
+
+

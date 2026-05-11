@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridEvaluationVset {
+    message AggregateColumns {
+        
+        string nm = 108; // agg column name for calculated aggregate (should be the spec agg column label:xxx)
+        string fmt = 109; // optional format string (C# Format)
+        LiveGridSortDir sd = 110; // sort direction
+        int32 so = 111; // sort order: 1,2,3
+        AggType tp = 112; // Aggregation for column; Cnt(*), Sum(e1), Min(e1), Max(e1), Avg(e1), RoS(e1/e2);  note:  RoS(e1,e2) = Sum(e1)/Sum(e2); Avg(e1) = Rat(e1,1);
+        string e1 = 113; // row expression#1: eg; "cname1", "EQ(cname1, "string") * cname2"
+        string e2 = 114; // row expression#2: eg; "cname3", ""EQ(cname1, "string") * cname2" (only applies for tp=Rat
+    }
+
+    message DetailColumns {
+        
+        string nm = 102; // cname or expression name (if expr is supplied)
+        string fmt = 103; // optional format string, as a C# .ToString()
+        LiveGridSortDir s_dir = 104;
+        int32 s_order = 105; // 1,2,3
+        string expr = 106; // row expression: eg; cname1 OR EQ(cname1, "string") * cname2; note: if expr is null/missing then expr = nm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    LiveGridDataSet d_set = 100;
+    repeated AggregateColumns aggregate_columns = 107;
+    repeated DetailColumns detail_columns = 101;
+}
+
+

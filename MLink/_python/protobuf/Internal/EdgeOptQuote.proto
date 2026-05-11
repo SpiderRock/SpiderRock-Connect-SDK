@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    user-to-edge
+*/    
+message EdgeOptQuote {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 s_vol = 106;
+    int32 s_div = 109;
+    int32 prc_strike = 112;
+    int64 timestamp = 118;
+}
+
+

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: GlobalDividendOverride
+    V8 Message Name: GlobalDividendOverride
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:GlobalDividendOverride
+*/    
+message GlobalDividendOverride_V7 {
+    message PKey {
+        
+        TickerKey ticker = 5000; // v7 & v8
+        int32 priority = 5001; // v7 & v8
+    }
+
+    message DateAmt {
+        
+        DateKey div_date = 5006; // v7 & v8 --- Original comment: ex-dividend date
+        float div_value = 5007; // v7 & v8 --- Original comment: dividend amount
+        string div_currency = 5008; // v7 & v8
+        DivKind div_kind = 5009; // v7 & v8 --- Original comment: dividend type
+        DivSource div_source = 5010; // v7 & v8 --- Original comment: dividend source
+        DivFreq div_freq = 5011; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 5002; // v7 & v8
+    string text = 5003; // v7 & v8 --- Original comment: user detail (if any)
+    MergeType merge_type = 5004; // v7 & v8
+    repeated DateAmt date_amt = 5005;
+}
+
+

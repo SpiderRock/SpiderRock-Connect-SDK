@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: StockBetaExt
+    V8 Message Name: StockBetaExt
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:StockBetaExt
+*/    
+message StockBetaExt_V7 {
+    message PKey {
+        
+        TickerKey ticker = 5000; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    BetaStatus status = 5001; // v7 & v8
+    float beta_ind = 5002; // v7 & v8 --- Original comment: SR beta to IND
+    float beta_sub = 5003; // v7 & v8 --- Original comment: SR beta to SUB
+    float beta_grp = 5004; // v7 & v8 --- Original comment: SR beta to GRP
+    float beta_nbr = 5005; // v7 & v8 --- Original comment: SR beta to NBR
+    float beta_sPY = 5006; // v7 & v8 --- Original comment: SR beta [2 year; weekly (fri - fri)]
+    float beta_sPY__r2 = 5007; // v7 & v8 --- Original comment: SR beta R2 [2 year; weekly (fri - fri)]
+    float beta_qQQ = 5008; // v7 & v8 --- Original comment: SR beta [2 year; weekly (fri - fri)]
+    float beta_qQQ__r2 = 5009; // v7 & v8 --- Original comment: SR beta R2 [2 year; weekly (fri - fri)]
+    float beta_iWM = 5010; // v7 & v8 --- Original comment: SR beta [2 year; weekly (fri - fri)]
+    float beta_iWM__r2 = 5011; // v7 & v8 --- Original comment: SR beta R2 [2 year; weekly (fri - fri)]
+    float beta_eEM = 5012; // v7 & v8 --- Original comment: SR beta [2 year; weekly (fri - fri)]
+    float beta_eEM__r2 = 5013; // v7 & v8 --- Original comment: SR beta R2 [2 year; weekly (fri - fri)]
+    float beta_eFA = 5014; // v7 & v8 --- Original comment: SR beta [2 year; weekly (fri - fri)]
+    float beta_eFA__r2 = 5015; // v7 & v8 --- Original comment: SR beta R2 [2 year; weekly (fri - fri)]
+    TickerKey beta_ticker = 5016; // v7 & v8 --- Original comment: ETF ticker with the largest beta R2 [from the set of ETF's with significant option volume]
+    float beta_value = 5017; // v7 & v8 --- Original comment: beta value for the above ticker
+    float beta_r2 = 5018; // v7 & v8 --- Original comment: R2 value for the above ticker
+    TickerKey beta_ticker_a = 5019; // v7 & v8 --- Original comment: ETF ticker A with the largest joint (A+B) beta R2 [Y ~ a + betaA * A + betaB * B]
+    TickerKey beta_ticker_b = 5020; // v7 & v8 --- Original comment: ETF ticker B with the largest joint (A+B) beta R2
+    float beta_value_a = 5021; // v7 & v8 --- Original comment: joint beta value for TickerA
+    float beta_value_b = 5022; // v7 & v8 --- Original comment: joint beta value for TickerB
+    float beta_r2_b = 5023; // v7 & v8 --- Original comment: joint R2 value for the TickerA + TickerB
+    float beta_sPY1y = 5024; // v7 & v8 --- Original comment: SR beta [1 year; weekly (fri - fri)]
+    float beta_sPY1y__r2 = 5025; // v7 & v8 --- Original comment: SR beta R2 [1 year; weekly (fri - fri)]
+    google.protobuf.Timestamp timestamp = 5026; // v7 & v8
+}
+
+

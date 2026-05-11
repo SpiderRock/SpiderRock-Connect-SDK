@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message SpdrRiskSpanAggregation {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string aggregate1 = 100;
+    string aggregate2 = 103;
+    AggregationSpanType aggregation_span_type = 106;
+    float cur_pos = 109; // Current position in this metric
+    float span01 = 112; // span1: uPrc=unch, vol=up
+    float span02 = 115; // span2: uPrc=unch, vol=down
+    float span03 = 118; // span3: uPrc=+33.33%, vol=up
+    float span04 = 121; // span4: uPrc=+33.33%, vol=dn
+    float span05 = 124; // span5: uPrc=-33.33%, vol=up
+    float span06 = 127; // span6: uPrc=-33.33%, vol=down
+    float span07 = 130; // span7: uPrc=+66.67%, vol=up
+    float span08 = 133; // span8: uPrc=+66.67%, vol=down
+    float span09 = 136; // span9: uPrc=-66.67%, vol=up
+    float span10 = 139; // span10: uPrc=-66.67%, vol=down
+    float span11 = 142; // span11: uPrc=+100%, vol=up
+    float span12 = 145; // span12: uPrc=+100%, vol=down
+    float span13 = 148; // span13: uPrc=-100%, vol=up
+    float span14 = 151; // span14: uPrc=-100%, vol=down
+    float span15 = 154; // span15: uPrc=+300%; price slide * 0.33
+    float span16 = 157; // span16: uPrc=-300%, price slide * 0.33
+    float max_loss = 160; // max loss: worst of span01 - span16
+    string max_loss_column = 163; // max loss column: label of worst loss span column
+    float beta = 166; // max beta adjustment
+    float prc_span = 169; // max price scan range
+    float vol_span = 172; // max vol scan range
+    float hedge_up = 175; // $pnl @ +100% from hedge (Existing, DeNeutral, or AdjDeNeutral)
+}
+
+

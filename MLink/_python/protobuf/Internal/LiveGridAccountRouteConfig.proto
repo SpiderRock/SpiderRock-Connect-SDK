@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAccountRouteConfig {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string client_firm = 101;
+    string exec_brkr_code = 102;
+    YesNo enabled = 103;
+    RelationshipType relationship = 104;
+    string cat_dest_firm_iMID = 105;
+    CatDeptType cat_dest_dept_type = 106;
+    RoutingRule routing_rule = 107;
+    string backup_route_code = 108;
+    string extern_params = 109;
+    string comment = 110;
+    string modified_by = 111;
+    SysEnvironment modified_in = 112;
+    google.protobuf.Timestamp timestamp = 113;
+    YesNo is_prod = 114; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 115; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 116; // WTS synthetic: alert message (null if no alert)
+}
+
+

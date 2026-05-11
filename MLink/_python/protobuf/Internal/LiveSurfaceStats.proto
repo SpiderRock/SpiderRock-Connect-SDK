@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveSurfaceStats {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        string time_block = 11;
+        StatsServer source_server = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    float u_prc = 103; // underlier price
+    int32 num_passes = 106; // number of evaluation passes
+    int32 cnt_strikes_dd_p = 109; // number of strikes examined
+    int32 cnt_pn_lDd_bot_p = 112; // number of deep downside puts bought (xAxis < -2.5)
+    float sum_pn_lDd_bot_p = 115; // sum PnL from buying surface ask misses
+    float pct_pos_pn_lDd_bot_p = 200; // percent of surface ask misses that yielded positive PnL
+    int32 cnt_pn_lDd_sld_p = 118; // number of deep downside puts sold (xAxis < -2.5)
+    float sum_pn_lDd_sld_p = 121; // sum PnL from selling surface bid misses
+    float pct_pos_pn_lDd_sld_p = 201; // percent of surface bid misses that yielded positive PnL
+    int32 cnt_strikes_dn_p = 124;
+    int32 cnt_pn_lDn_bot_p = 127; // number of downside puts bought (-2.5 < xAxis < -0.5)
+    float sum_pn_lDn_bot_p = 130; // sum PnL from buying surface ask misses
+    float pct_pos_pn_lDn_bot_p = 202; // percent of surface ask misses that yielded positive PnL
+    int32 cnt_pn_lDn_sld_p = 133; // number of downside puts sold (-2.5 < xAxis < -0.5)
+    float sum_pn_lDn_sld_p = 136; // sum PnL from selling surface bid misses
+    float pct_pos_pn_lDn_sld_p = 203; // percent of surface bid misses that yielded positive PnL
+    int32 cnt_strikes_at_p = 139;
+    int32 cnt_pn_lAt_bot_p = 142; // number of atm puts bought (-0.5 < xAxis < +0.5)
+    float sum_pn_lAt_bot_p = 145; // sum PnL from buying surface ask misses
+    float pct_pos_pn_lAt_bot_p = 204; // percent of surface ask misses that yielded positive PnL
+    int32 cnt_pn_lAt_sld_p = 148; // number of atm puts sold (-0.5 < xAxis < +0.5)
+    float sum_pn_lAt_sld_p = 151; // sum PnL from selling surface bid misses
+    float pct_pos_pn_lAt_sld_p = 205; // percent of surface bid misses that yielded positive PnL
+    int32 cnt_strikes_at_c = 154;
+    int32 cnt_pn_lAt_bot_c = 157; // number of atm calls bought (0.5 < xAxis < +0.5)
+    float sum_pn_lAt_bot_c = 160; // sum PnL from buying surface ask misses
+    float pct_pos_pn_lAt_bot_c = 206; // percent of surface ask misses that yielded positive PnL
+    int32 cnt_pn_lAt_sld_c = 163; // number of atm calls sold (-0.5 < xAxis < +0.5)
+    float sum_pn_lAt_sld_c = 166; // sum PnL from selling surface bid misses
+    float pct_pos_pn_lAt_sld_c = 207; // percent of surface bid misses that yielded positive PnL
+    int32 cnt_strikes_up_c = 169;
+    int32 cnt_pn_lUp_bot_c = 172; // number of upside calls bought (+0.5 < xAxis < +2.5)
+    float sum_pn_lUp_bot_c = 175; // sum PnL from buying surface ask misses
+    float pct_pos_pn_lUp_bot_c = 208; // percent of surface ask misses that yielded positive PnL
+    int32 cnt_pn_lUp_sld_c = 178; // number of upside calls sold (+0.5 < xAxis < +2.5)
+    float sum_pn_lUp_sld_c = 181; // sum PnL from selling surface bid misses
+    float pct_pos_pn_lUp_sld_c = 209; // percent of surface bid misses that yielded positive PnL
+    int32 cnt_strikes_uu_c = 184;
+    int32 cnt_pn_lUu_bot_c = 187; // number of far upside calls bought (+2.5 < xAxis)
+    float sum_pn_lUu_bot_c = 190; // sum PnL from buying surface ask misses
+    float pct_pos_pn_lUu_bot_c = 210; // percent of surface ask misses that yielded positive PnL
+    int32 cnt_pn_lUu_sld_c = 193; // number of far upside calls sold (+2.5 < xAxis)
+    float sum_pn_lUu_sld_c = 196; // sum PnL from selling surface bid misses
+    float pct_pos_pn_lUu_sld_c = 211; // percent of surface bid misses that yielded positive PnL
+    google.protobuf.Timestamp timestamp = 199;
+}
+
+

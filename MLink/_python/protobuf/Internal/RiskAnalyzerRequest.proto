@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message RiskAnalyzerRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    string access_key = 100; // client access key (password)
+    string accounts = 103;
+    GetAction action = 106;
+}
+
+

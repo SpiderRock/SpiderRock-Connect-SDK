@@ -1,0 +1,157 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrScanMacro {
+    message PKey {
+        
+        string user_name = 10;
+        string macro_name = 11;
+    }
+
+    message ExcludedSymbols {
+        
+        OptionKey ticker = 481;
+        ExclusionType exclusion_type = 484;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AccessLevel access_level = 100; // controls who can see this scan macro
+    string symbol_list = 103; // comma separated list of symbols or symbol macros [saved with the scan macro]
+    CPScan cp_scan = 106; // Whether to scan for just puts, calls or both
+    RiskSide risk_side = 109;
+    PosRiskType pos_risk_type = 112;
+    YesNo use_risk_ctrl_limits = 115; // if yes, BookControl, SymbolControl, RiskClassControl, IndustryControl, and ExpirationControl will apply.
+    YesNo exclude_zero_size = 118; // if yes and risk control applies then any record with a zero size will be EXCLUDED from result set
+    double risk_fill_percentage = 121; // if use Risk Control checked;then the percentage up to max limit used to calculate order size.
+    int32 min_order_size = 124; // if use Risk Control checked; minimum order size (in contracts) [orders less than this size are skipped]
+    int32 max_order_size = 127; // if use Risk Control checked; maximum order size (in contracts) regardless of room to RiskControl limit
+    YesNo show_calc_errors = 130; // if yes only records with calc errors will be returned (used for data debugging)
+    float u_prc_lo = 133; // Underlier price filter
+    float u_prc_hi = 136;
+    YesNo u_prc_all = 139;
+    float u_vlm_lo = 142; // Underlier average daily volume [(shares or contracts)] filter
+    float u_vlm_hi = 145;
+    YesNo u_vlm_all = 148;
+    float u_mkt_cap_lo = 151; // Underlier market cap [(sd.sharesOutstanding * uPrc)] filter
+    float u_mkt_cap_hi = 154;
+    YesNo u_mkt_cap_all = 157;
+    float u_prc_chg_perc_lo = 160; // Underlier Price Percentage move on the day
+    float u_prc_chg_perc_hi = 163;
+    YesNo u_prc_chg_perc_all = 166;
+    float i_eMove_lo = 169; // Underlier iEMove filter
+    float i_eMove_hi = 172;
+    YesNo i_eMove_all = 175;
+    float h_eMove_lo = 178; // Underlier hEMove filter
+    float h_eMove_hi = 181;
+    YesNo h_eMove_all = 184;
+    float e_move_ratio_rank_lo = 187; // Underlier iEMove/hEMove ratio rank filter
+    float e_move_ratio_rank_hi = 190;
+    YesNo e_move_ratio_rank_all = 193;
+    int32 e_days_lo = 196; // Time to next earnings date filter
+    int32 e_days_hi = 199;
+    YesNo e_days_all = 202;
+    int32 e_cnt_lo = 205; // [EXP] earnings events prior to expiration filter
+    int32 e_cnt_hi = 208;
+    YesNo e_cnt_all = 211;
+    float o_prc_lo = 214; // [OPT] option price [(oq.bidPrice/oq.askPrice)] filter
+    float o_prc_hi = 217;
+    YesNo o_prc_all = 220;
+    float atm_lo = 223; // [EXP] atm volatility [(lsa.atm)] filter
+    float atm_hi = 226;
+    YesNo atm_all = 229;
+    int32 days_lo = 232; // [EXP] time to expiration [(Trading Days)] filter
+    int32 days_hi = 235;
+    YesNo days_all = 238;
+    float xde_lo = 241; // [OPT] xdelta [(option.key.CallPut == CallPut.Call ? +0.5 - oiq.de : -0.5 - oiq.de)] filter
+    float xde_hi = 244;
+    YesNo xde_all = 247;
+    float abs_delta_lo = 250; // [OPT] absolute delta [abs(oiq.de)] filter
+    float abs_delta_hi = 253;
+    YesNo abs_delta_all = 256;
+    float v_width_lo = 259; // [EXP] atm volatility width [(lsa.vWidth)] filter [note: lsa.vWidth = 2nd tightest vol width (in pts) for an expiration]
+    float v_width_hi = 262;
+    YesNo v_width_all = 265;
+    float atm_vol_chg_lo = 268; // [EXP] atm volatility change (in pts) for an expiration]
+    float atm_vol_chg_hi = 271;
+    YesNo atm_vol_chg_all = 274;
+    float u_prc_chg_rank_lo = 277; // uPrc change ([log(uPrc / uPrc.prev)]) rank filter
+    float u_prc_chg_rank_hi = 280;
+    YesNo u_prc_chg_rank_all = 283;
+    float u_mkt_cap_rank_lo = 286; // Underlier underlier market cap [(sd.sharesOutstanding * uPrc)] rank filter
+    float u_mkt_cap_rank_hi = 289;
+    YesNo u_mkt_cap_rank_all = 292;
+    float stk_vlm_rank_lo = 295; // Underlier average daily volume [sd.stockVolume] ($ over trailing 30 days) rank filter
+    float stk_vlm_rank_hi = 298;
+    YesNo stk_vlm_rank_all = 301;
+    float atm_vol_chg_rank_lo = 304; // [EXP] atm volatility change [log(lsa.atm / psa.atm)] rank filter
+    float atm_vol_chg_rank_hi = 307;
+    YesNo atm_vol_chg_rank_all = 310;
+    float atm_slope_rank_lo = 313; // [EXP] atm slope [lsa.slope] rank filter
+    float atm_slope_rank_hi = 316;
+    YesNo atm_slope_rank_all = 319;
+    float atm_slope_chg_rank_lo = 322; // [EXP] atm slope change [lsa.slope - psa.slope] rank filter
+    float atm_slope_chg_rank_hi = 325;
+    YesNo atm_slope_chg_rank_all = 328;
+    float x_vol_slope_lo = 331; // [OPT] xVolSlope [(oiq.sVol - oiq.atmVol) / oiq.xAxis] filter
+    float x_vol_slope_hi = 334;
+    YesNo x_vol_slope_all = 337;
+    float exp_vega_vlm_rank_lo = 340; // [EXP] Symbol/Expiration today vega trading volume [optionOpenVega.vegaVolume] rank filter
+    float exp_vega_vlm_rank_hi = 343;
+    YesNo exp_vega_vlm_rank_all = 346;
+    float exp_vega_vlm_chg_rank_lo = 349; // [EXP] Symbol/Expiration vega volume change [log(vegaVlm / vegaVlm.prev)] rank filter
+    float exp_vega_vlm_chg_rank_hi = 352;
+    YesNo exp_vega_vlm_chg_rank_all = 355;
+    float exp_open_vega_rank_lo = 358; // [EXP] Symbol/Expiration today open vega  [optionOpenVega.openVega] rank filter
+    float exp_open_vega_rank_hi = 361;
+    YesNo exp_open_vega_rank_all = 364;
+    float open_wt_vega_rank_lo = 367; // [OPT] option open wtVega [spc * openInt * vega * vol / sqrt(T)] rank filter
+    float open_wt_vega_rank_hi = 370;
+    YesNo open_wt_vega_rank_all = 373;
+    float i_vol_chg_rank_lo = 376; // [OPT] volatility change [log(ivol / ivol.prev)] rank filter
+    float i_vol_chg_rank_hi = 379;
+    YesNo i_vol_chg_rank_all = 382;
+    string theo_model = 385;
+    TheoEdgeType theo_edge_type = 388;
+    EdgeMetric theo_edge_metric = 391;
+    EdgeMetric surf_edge_metric = 394;
+    float theo_edge_lo = 397;
+    float theo_edge_hi = 400;
+    YesNo theo_edge_all = 403;
+    float theo_edge_rank_lo = 406;
+    float theo_edge_rank_hi = 409;
+    YesNo theo_edge_rank_all = 412;
+    float surface_edge_lo = 415;
+    float surface_edge_hi = 418;
+    YesNo surface_edge_all = 421;
+    float surface_edge_rank_lo = 424;
+    float surface_edge_rank_hi = 427;
+    YesNo surface_edge_rank_all = 430;
+    float o_prob_lo = 433; // [OPT] current take probability [0.0, 1.0]
+    float o_prob_hi = 436;
+    YesNo o_prob_all = 439;
+    float o_prob_rank_lo = 442; // [OPT] relative probability ratio (current prob) [] rank filter
+    float o_prob_rank_hi = 445;
+    YesNo o_prob_rank_all = 448;
+    float o_prob10m_rank_lo = 451; // [OPT] relative probability ratio (current prob - 10m EMA prob) [] rank filter
+    float o_prob10m_rank_hi = 454;
+    YesNo o_prob10m_rank_all = 457;
+    OrderBy order_by = 460;
+    OrderDirection order_direction = 463;
+    int32 max_results_per_query = 466; // the overall maximum number of records to be returned from this query
+    int32 max_results_per_underlier = 469; // the maximum number of records to be returned per Underlier
+    int32 max_results_per_expiry = 472; // the overall maximum number of records to be returned per Ticker/Expiration
+    google.protobuf.Timestamp timestamp = 475;
+    repeated ExcludedSymbols excluded_symbols = 478;
+}
+
+

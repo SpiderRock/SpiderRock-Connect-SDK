@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    OptExpiryPriceETL records contain the raw (non-derived) data for each option expiry.
+    OptExpiryPriceETL records serve as inputs to surface fitting algorithms in both live and historical contexts.
+    Step: 1
+    Inputs: ???
+    CalcEngine: ???
+*/    
+message OptExpiryPriceETL {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        DateKey trade_date = 11;
+        string trade_time = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlying stock key that this option expiration attaches to
+    ExpiryKey fkey = 103; // future key (if option settles into a future)
+    ExpiryKey u_prc_driver_key = 106; // underlier driver key
+    SpdrKeyType u_prc_driver_type = 109; // underlier driver key type (stock or future)
+    double u_prc_driver = 112; // underlier price
+    double u_bid_driver = 115; // should be the underlier bid/ask if available (future or equity)
+    double u_ask_driver = 118;
+    double u_prc_ratio = 119; // implied uPrcRatio
+    CalendarCode calendar_code = 121;
+    TimeMetric time_metric = 124;
+    TickerKey rate_key = 154; // rate curve pkey
+    ExerciseType ex_type = 127; // exercise type (American or European)
+    ExerciseTime ex_time = 130; // [AM or PM]
+    CalcModelType model_type = 133; // [LogNormal or Normal]
+    PricingFramework prc_framework = 136; // [Spot or Forward]
+    Currency point_currency = 139; // point currency
+    int32 settlement_days = 157; // settlement day convention (eg. T+1)
+    double cash_on_exercise = 178; // CashOnExercise (if any; multihedge only)
+    float strike_ratio = 181;
+    float symbol_ratio = 184;
+    TickerKey basis_key = 160; // skew basis fn pkey
+    YesNo reverse_skew = 163; // if Yes/No, force skew curve norma/reverse (left/right) orientation,  if None, auto-determine from data
+    float u_beta_hist = 169; // beta to SPX (if any) (censored; best estimate of underlier betaSPX to expiry; weekly; 1 year lookback)
+    float u_volatility = 172; // underlier historical volatility (censored; best estimate of underlier volatility to expiry; 90 day lookback)
+    float h_earn_mult = 175; // historical earnings multiplier (trailing 12 earnings events; equity names only)
+    google.protobuf.Timestamp timestamp = 187; // capture timestamp
+}
+
+

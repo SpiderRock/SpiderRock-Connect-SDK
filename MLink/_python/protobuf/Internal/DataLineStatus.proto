@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message DataLineStatus {
+    message PKey {
+        
+        string ip_addr = 10; // data source addr (A channel)
+        int32 ip_port = 11; // data source port (A channel)
+        string server_name = 12; // data gateway process name
+        string machine_name = 13; // name of the machine running data gateway
+        SysEnvironment sys_environment = 14; // sys environment [Stable, Current, etc]
+        SysRealm sys_realm = 15; // sysRealm [NMS, CME, etc.]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string channel_label = 100;
+    DataType data_type = 103;
+    int64 seq_num_a = 106;
+    int64 seq_num_b = 109;
+    float byte_rate_a = 112; // bytes per second (A channel)
+    float byte_rate_b = 115; // bytes per second (B channel)
+    float frm_rate = 118; // frames per second (A + B)
+    float msg_rate = 121; // messages per second (composite)
+    float pub_rate = 124; // messages per second (composite)
+    float gap_count = 127; // gaps per second (composite)
+    float slow_count = 130; // slow frames per second (composite)
+    float max_delay = 133; // max slow frame delay (milliseconds)
+    string last_error = 143;
+    google.protobuf.Timestamp last_error_dttm = 139;
+    google.protobuf.Timestamp timestamp = 142;
+}
+
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAggregate {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string rows = 100; // result row dKeys (in order): dKey,dKey,dKey,... [max 100] (re: current visible screen order)
+    int32 st_pos = 101; // start position (reflected from LiveGridAggregateVset)
+    int32 total_rows = 102; // number of available rows after filtering by LiveGridAggregateVset
+    google.protobuf.Timestamp ts = 103;
+    string summary_rows = 104; // CSV of summary dKeys (e.g., "-1,-2,-3,-4"); negative keys = vertical metric rows
+}
+
+

@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OrderCardData {
+    message PKey {
+        
+        int64 ord_key = 11; // baseParentNumber.X or riskGroupID
+    }
+
+    message Expiry {
+        
+        string item = 187; // display description of order legs for given expiry
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ToolOrderClass order_class = 210;
+    string symbol = 100; // order symbol string
+    string ticker_src = 204; // order tickerSrc string
+    string asset_type = 205; // order assetType string
+    string accnt = 103; // order account
+    ToolCurrency currency = 206; // Currencies depending on market
+    string client_firm = 191; // order client firm
+    BuySell order_side = 106; // order side (buy or sell)
+    int32 num_opt_legs = 109; // number of option legs
+    SpreadClass spread_class = 203;
+    SpreadFlavor spread_flavor = 115;
+    YesNo contains_hedge = 118; // if this order contains a stock/future leg (with other options legs)
+    YesNo contains_multi_hedge = 201; // contains MultiHedge (corp action adjusted) options
+    FlexType flex_type = 207; // if this order contains flex leg(s)
+    ToolOrderStatus order_status = 121; // display status of order (single or mleg.) Rejected, Filled, Expired and PendClose are all specific types of closed orders. 'Closed' is a generic umbrella for all the closed orders not covered by the other 4
+    string spdr_close_reason = 124; // close reason of most this parent order
+    string spdr_reject_reason = 127; // reject reason (if any) of this parent order
+    YesNo is_staged = 194; // if this order is staged (activeSize >= 0)
+    YesNo is_away_staged = 192; // if this order was staged from outside of the system
+    string algo_desc = 130; // formatted algo description
+    YesNo show_countdown = 133; // if the client should display a countdown timer for this card
+    int32 countdown_ms = 197; // number of milliseconds left on the countdown timer
+    ToolAlgoType algo_type = 136; // algo type of this order
+    string bid = 139; // formatted bid string
+    string ask = 142; // formatted ask string
+    string last = 145; // formatted last print string
+    double move = 148; // pct change since start of day
+    string limit_value = 151; // limit price for this order
+    DebitCredit debit_credit = 199;
+    string order_size = 154; // formatted order size
+    string order_active_size = 157; // formatted order active size
+    string fill_qty = 160; // total contracts filled
+    string avg_fill_prc = 163; // average price per contract filled
+    string filled_cn_bot = 300; // aggregate buy contracts filled (basket card)
+    string filled_cn_sld = 301; // aggregate sell contracts filled (basket card)
+    string active_cn_bot = 302; // aggregate active buy contracts (basket card)
+    string active_cn_sld = 303; // aggregate active sell contracts (basket card)
+    RMetricSource r_metric1_src = 167; // risk group metric 1 source
+    string leaves_qty = 170; // formatted leavesQty string
+    CompletionType completion_type = 208; // None, DAC, TAS, TACO, BTIC
+    CompletionState completion_state = 209; // None, Pending, Complete
+    google.protobuf.Timestamp st_dttm = 169; // order start time (Date)
+    google.protobuf.Timestamp gtt = 172; // order expiration time (Date)
+    google.protobuf.Timestamp update_time = 193; // last order update time (Date)
+    string auction_key = 195; // (Auction only) auction notice number for initiating auction (if exists)
+    string short_code = 202; // (Auction only) auction short code (unique per day) (block auctions only)
+    YesNo has_best_price = 175; // (Auction only) If the user's offer is the best offer on the auction
+    int32 num_responders = 178; // (Auction only) Total number of responses to this auction
+    double dist_from_surf = 181; // (Auction only) How far your price is from the calculated surface price
+    MLegPerspective user_mLeg_perspective = 198; // OrderAbs: number line in abs(.) order and always B|Reg, OrderRaw: number line in -/+ order and B|Reg + S|Inv
+    google.protobuf.Timestamp ts = 190; // last update time (Date)
+    AuctionType auction_type = 211; // Block, BlockDAC, BlockPOC, BlockPCV
+    repeated Expiry expiry = 184;
+}
+
+

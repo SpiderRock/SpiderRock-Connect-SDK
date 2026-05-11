@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrChildTrigger records are used to trigger distributed release of (SGW) staged child orders.  These message at published by execution engines and consumed by street gateways
+*/    
+message SpdrChildTrigger {
+    message PKey {
+        
+        string trigger_key = 10;
+        string queue_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string client_firm = 110;
+    int32 num_queues = 103; // number of queues that are expected to send SpdrChildTrigger orders for this triggerKey (2x8 for equities; 2x1 for futures)
+    int64 net_timestamp = 106; // record send timestamp
+    google.protobuf.Timestamp timestamp = 109;
+}
+
+

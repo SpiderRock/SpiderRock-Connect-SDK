@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionPrintSetHist {
+    message PKey {
+        
+        OptionKey okey = 10;
+        google.protobuf.Timestamp timestamp = 11;
+        int64 prt_number = 12; // Unique print set identifier, will increment but not guaranteed to be sequential
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    DateKey trading_date = 100;
+    TradingSession trading_session = 103;
+    TickerKey ticker = 106;
+    int64 security_iD = 109;
+    ExpiryKey und_sec_key = 112; // underlier sec key
+    SpdrKeyType und_sec_type = 115; // underlier sec type
+    OptExch prt_exch = 118; // Exchange on which print took place
+    int32 prt_size = 121; // print size [contracts]
+    float prt_price = 124; // print price
+    PrtType prt_type = 127; // print type
+    uint32 prt_orders = 130; // number of participating orders
+    int32 prt_cluster_num = 133; // incremental print cluster counter (one counter per okey; used to group prints into clusters)
+    int32 prt_cluster_size = 136; // cumulative size of prints in this sequence (prints @ same or more aggressive price with less than 25 ms elapsing since first print; can span exchanges)
+    int32 prt_volume = 139; // day print volume in contracts
+    int32 cxl_volume = 142; // day print/cancel volume (num of contracts printed and then cancelled)
+    uint32 bid_count = 145; // number of bid prints
+    uint32 ask_count = 148; // number of ask prints
+    int32 bid_volume = 151; // bid print volume in contracts
+    int32 ask_volume = 154; // ask print volume in contracts
+    float ebid = 157; // exchange bid (@ print time)
+    float eask = 160; // exchange ask (@ print time)
+    int32 ebsz = 163; // exchange bid size
+    int32 easz = 166; // exchange ask size
+    float eage = 169; // age of prevailing quote at time of print
+    PrtSide prt_side = 172;
+    int64 prt_timestamp = 175; // exchange high precision timestamp (if available)
+    int64 net_timestamp = 178; // inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock
+    float o_bid = 181; // Option NBBO bid a the time the print was received
+    float o_ask = 184; // Option NBBO ask a the time the print was received
+    int32 o_bid_sz = 187; // Option NBBO cumulative bid size at the time the print was received
+    int32 o_ask_sz = 190; // Option NBBO cumulative ask size at the time the print was received
+    OptExch o_bid_ex = 193; // First (or largest) option exchange on the bid
+    OptExch o_ask_ex = 196; // First (or largest) option exchange on the ask
+    int32 o_bid_ex_sz = 199; // Option bid size of the largest exchange on the bid at the time the print was received
+    int32 o_ask_ex_sz = 202; // Option ask size of the largest exchange on the ask at the time the print was received
+    int32 o_bid_cnt = 205; // Number of exchanges on the NBBO bid
+    int32 o_ask_cnt = 208; // Number of exchanges on the NBBO ask
+    float o_bid2 = 211; // Second level bid price
+    float o_ask2 = 214; // Second level ask price
+    int32 o_bid_sz2 = 217; // Cumulative size on the second level bid price
+    int32 o_ask_sz2 = 220; // Cumulative size on the second level ask price
+    double u_bid = 223; // underlier bid
+    double u_ask = 226; // underlier ask
+    double u_prc = 229; // underlier price
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233;
+    ExerciseType ex_type = 224; // exercise type
+    float years = 152; // volatility years to expiration (from SR time/calendar metrics)
+    float years_c = 200; // calendar years to expiration
+    float rate = 155; // SR interest rate (from global rate curve)
+    float sdiv = 173; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 158; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 161; // SR ddivPv (sum of present value discrete dividend amounts)
+    int32 s_days_t = 236; // settlement days (today)
+    int32 s_days_e = 239; // settlement days (expiry)
+    float x_de = 244; // xDelta
+    float x_axis = 247; // SR surface xAxis value
+    Multihedge multihedge = 250; // Distinguishes options that have a single underlying security from those that are more complex:  multiple securities,cash components, binary options,etc:  'None','Simple','Complex','AllCash','Binary'
+    float prt_iv = 253; // print implied vol
+    float prt_de = 256; // print delta
+    float prt_ga = 259; // print gamma
+    float prt_th = 262; // print theta
+    float prt_ve = 265; // print vega
+    float prt_ro = 268; // print rho
+    string calc_err = 271; // calc error flag
+    double syn_spot = 273; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    float surf_vol = 274; // SR surface volatility
+    float surf_opx = 277; // SR surface price
+    float surf_atm = 280; // SR surface ATM vol
+    float sr_slope = 149; // srSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * srSlope) if hedging with this assumption
+    float prt_probability = 283; // [M1] probability that buying prtSize contracts @ prtPrice will have positive m10 pnl (prtPriceM10 >= prtPrice) [recorded at time of print]
+    float prt_probability_m2 = 286; // alternate probability model
+    float prt_probability_m3 = 289; // alternate probability model
+    float o_bid_m1 = 292; // NBBO option bid 1 minute after print was received
+    float o_ask_m1 = 295; // NBBO option ask 1 minute after print was received
+    double u_bid_m1 = 298; // NBBO underlying bid 1 minute after print was received
+    double u_ask_m1 = 301; // NBBO underlying ask 1 minute after print was received
+    double u_prc_m1 = 304; // Underlying price 1 minute after print was received
+    float s_vol_m1 = 307; // Suface volatility 1 minute after print was received
+    float s_opx_m1 = 310; // Surface option price 1 minute after print was received
+    float s_div_m1 = 313; // sDiv 1 minute after print was received
+    string s_err_m1 = 316; // Surface error condition (if any) 1 minute after print was received
+    float pnl_m1 = 319; // pnl after 1 minute
+    YesNo pnl_m1_err = 322; // Error condition for PnL calculated over the first 1 minute after the print was received
+    float o_bid_m10 = 325; // NBBO option bid 10 minutes after print was received
+    float o_ask_m10 = 328; // NBBO option ask 10 minutes after print was received
+    double u_bid_m10 = 331; // NBBO underlying bid 10 minutes after print was received
+    double u_ask_m10 = 334; // NBBO underlying ask 10 minutes after print was received
+    double u_prc_m10 = 337; // Underlying price 10 minutes after print was received
+    float s_vol_m10 = 340; // Suface volatility 10 minutes after print was received
+    float s_opx_m10 = 343; // Surface option price 10 minutes after print was received
+    float s_div_m10 = 346; // sDiv 10 minutes after print was received
+    string s_err_m10 = 349; // Surface error condition (if any) 10 minutes after print was received
+    float pnl_m10 = 352; // pnl after 10 minutes
+    YesNo pnl_m10_err = 355; // Error condition for PnL calculated 10 minutes after the print was received
+}
+
+

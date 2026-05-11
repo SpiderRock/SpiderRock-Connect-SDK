@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Use this to tell the WebToolServer to send out a SpdrBrkrCancel message to cancel the corresponding parent order if active and cancellable
+*/    
+message ToolBrokerCancel {
+    message PKey {
+        
+        string accnt = 10; // SR trading account
+        OptionKey sec_key = 11; // Composite Security Key
+        SpdrKeyType sec_type = 12; // Security Type [Stock, Future, Option]
+        string grouping_code = 13;
+        SpdrSource spdr_source = 14;
+        BuySell order_side = 15;
+        string client_firm = 16; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 100; // timestamp of when this message was filled out to send to the server
+}
+
+

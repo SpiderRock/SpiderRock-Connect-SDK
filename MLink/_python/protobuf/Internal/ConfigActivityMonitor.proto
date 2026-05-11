@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ConfigActivityMonitor {
+
+
+    MessageMetadata _meta = 1;
+    
+    SysEnvironment sys_environment = 100;
+    string server = 103; // server
+    string message_type = 106; // type of config message that changed (e.g., "UserConfig", "AccountConfig")
+    string user_name = 109; // user who made the change (from modifiedBy)
+    string client_firm = 112; // client firm associated with the change (userConfig Firm)
+    string pkey = 115; // primary key of the changed object (e.g., "userName" for UserConfig)
+    string field_name = 118; // name of the field that changed
+    string old_value = 121; // previous value
+    string new_value = 124; // new value
+    string modified_by = 127; // user who made the change
+    google.protobuf.Timestamp timestamp = 130; // timestamp of the change
+    string detail = 133; // additional details about the change
+}
+
+

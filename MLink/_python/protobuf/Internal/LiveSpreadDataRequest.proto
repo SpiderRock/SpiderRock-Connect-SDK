@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message LiveSpreadDataRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey skey = 100; // [optional] Spread.skey
+    string spread_key = 103; // [optional] Spread.spreadKey
+    string accnt = 106;
+    string client_firm = 113;
+    GetAction action = 109;
+    string error = 112;
+}
+
+

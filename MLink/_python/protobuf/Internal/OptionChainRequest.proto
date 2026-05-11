@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message OptionChainRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey root = 100;
+    int32 year = 103;
+    int32 month = 106;
+    int32 day = 109;
+    ChainRequest chain_request = 112;
+    GetAction action = 115;
+}
+
+

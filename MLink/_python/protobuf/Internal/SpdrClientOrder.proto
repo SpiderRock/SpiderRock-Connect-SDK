@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrClientOrder records are published by SRFixClientGateway servers and are used to maintain/reload state for all handled orders
+*/    
+message SpdrClientOrder {
+    message PKey {
+        
+        int64 base_parent_number = 10; // SR parent order number (EE)
+        ServerType server_type = 11;
+        string server_code = 12; // ClientGW or DropServer ServerCode
+        string machine_name = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 127;
+    string client_firm = 130;
+    OptionKey sec_key = 142;
+    SpdrKeyType sec_type = 145;
+    google.protobuf.Timestamp timestamp = 238;
+}
+
+

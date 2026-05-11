@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SurfaceFit coefficients (raw coefficients for TS and CrossSectional models). Archived on each surface fit pass
+*/    
+message SurfaceFitRecord {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    double u_fwd = 100;
+    int32 days = 103;
+    float years = 106;
+    float rate = 109;
+    float axis_sDiv = 112;
+    float ddiv_pv = 115;
+    float beta_mkt = 118;
+    PricingFramework prc_framework = 121;
+    float fit_atm_vol = 124;
+    float fit_atm_skew = 127;
+    float fit_xMult = 130;
+    float fit_xShift = 133;
+    float fit_skew_mult = 136;
+    YesNo has_bracketed_min = 139;
+    YesNo has_xMult_aBFit = 142;
+    YesNo has_best_xShift = 145;
+    google.protobuf.Timestamp timestamp = 148;
+}
+
+

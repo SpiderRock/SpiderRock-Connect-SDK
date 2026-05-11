@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrControlRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    string key = 100; // not used with all request types
+    string account = 103; // not used with all request types
+    string source_account = 106; // not used with all request types
+    CopyItems copy_items = 109;
+    ControlTab control_tab = 112;
+    int64 last_sequence_number = 115;
+    google.protobuf.Timestamp poll_timestamp = 118;
+    string user_name = 121;
+    GetAction action = 124;
+}
+
+

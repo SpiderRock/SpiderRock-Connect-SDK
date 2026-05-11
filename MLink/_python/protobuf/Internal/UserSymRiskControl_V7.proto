@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: UserSymRiskControl
+    V8 Message Name:
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:UserSymRiskControl
+*/    
+message UserSymRiskControl_V7 {
+    message PKey {
+        
+        string accnt = 5000; // ONLY V7: [string,Length=16,Alias=SRAccountString,MetaType=NA]
+        string risk_user = 5001; // ONLY V7: [string,Length=25,Alias=NA,MetaType=NA]
+        string risk_symbol = 5002; // ONLY V7: [string,Length=24,Alias=NA,MetaType=NA] --- Original comment: underlying symbol (e.g. MSFT, *, SPY, @CL) or symbol/expiration (eg. @ES/EXP, @ES/2016-02-24)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo disabled = 5003; // ONLY V7: [enum,Name=YesNo,Values=None=0,Yes=1,No=2]
+    int32 max_stk_shares = 5004; // ONLY V7: [int] --- Original comment: single order share limit
+    float max_stk_money = 5005; // ONLY V7: [float] --- Original comment: single order money limit (shares x orderPrice)
+    int32 max_fut_contracts = 5006; // ONLY V7: [int] --- Original comment: single order contract limit
+    float max_fut_money = 5007; // ONLY V7: [float] --- Original comment: single order money limit (contracts x orderPrice x multiplier)
+    int32 max_opt_contracts = 5008; // ONLY V7: [int] --- Original comment: single order contract limit
+    float max_opt_money = 5009; // ONLY V7: [float] --- Original comment: single order money limit (contracts x orderPrice x multiplier)
+    float max_opt_notional = 5010; // ONLY V7: [float] --- Original comment: single order notional value limit (contracts x uPrice x multiplier)
+    float max_day_haircut = 5011; // ONLY V7: [float]
+    float max_day_dDelta_ln = 5012; // ONLY V7: [float]
+    float max_day_dDelta_sh = 5013; // ONLY V7: [float]
+    float max_day_dDelta_abs = 5014; // ONLY V7: [float]
+    float max_day_vega_ln = 5015; // ONLY V7: [float]
+    float max_day_vega_sh = 5016; // ONLY V7: [float]
+    float max_day_vega_abs = 5017; // ONLY V7: [float]
+    float max_day_wt_vega_ln = 5018; // ONLY V7: [float]
+    float max_day_wt_vega_sh = 5019; // ONLY V7: [float]
+    float max_day_wt_vega_abs = 5020; // ONLY V7: [float]
+    float max_day_notional_ln = 5021; // ONLY V7: [float]
+    float max_day_notional_sh = 5022; // ONLY V7: [float]
+    float max_day_notional_abs = 5023; // ONLY V7: [float]
+    int32 max_day_stk_sh_abs = 5024; // ONLY V7: [int]
+    int32 max_day_fut_cn_abs = 5025; // ONLY V7: [int]
+    int32 max_day_opt_cn_abs = 5026; // ONLY V7: [int]
+    string user_name = 5027; // ONLY V7: [string,Length=24,Alias=UserNameString,MetaType=NA]
+    SysEnvironment modified_in = 5028; // ONLY V7: [enum,Name=SysEnvironment,Values=None=0,Neptune=1,Pluto=2,V7_Stable=3,V7_Latest=4,Saturn=5,Venus=6,Mars=7,SysTest=8,V7_Current=9]
+    google.protobuf.Timestamp timestamp = 5029; // ONLY V7: [DateTime]
+}
+
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ClientFirmNotes {
+    message PKey {
+        
+        int64 client_firm_note_id = 10; // system wide unique ID
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100; // SR assigned client firm ID (subject of the note)
+    string source_client_firm = 103; // client firm ID (source of note)
+    ClientFirmType source_client_firm_type = 106; // client firm type (source of note)
+    string notes_text = 109; // up to 10k bytes
+    string modified_by = 112; // user who last modified this record
+    SysEnvironment modified_in = 115;
+    google.protobuf.Timestamp timestamp = 118; // timestamp of last modification
+}
+
+

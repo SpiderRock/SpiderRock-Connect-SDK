@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AccntRouteTreeComposite {
+    message PKey {
+        
+        string accnt = 103;
+        string client_firm = 106;
+        ExchGroup exch_group = 127; // eg (NMS, CMX, ICE, SCE)
+        SpdrSecType sec_type = 130; // eg (Stock, Future, Option)
+        string exec_brkr_code = 139;
+        string routing_code = 172; // routing session code (is a RouteDefinition.pkey.routingCode) [RouteDefinition.execBrkrCode must match execBrkrCode]
+    }
+
+    message ExDestExecBrkrInst {
+        
+        string ex_dest = 301; // exchange (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+        string exec_brkr_accnt = 304; // exec broker account (supplied by exec broker) (usually Account<1>)
+        string exec_brkr_cl_firm = 307; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+        string exec_brkr_user_name = 310; // exec broker user name (supplied by exec broker)
+    }
+
+    message ExDestExecClrFlipInst {
+        
+        string ex_dest = 316; // exchange (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+        FlipType clr_flip_type = 319; // type of clearing corp delivery
+        string clr_flip_firm = 322; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
+        string clr_flip_accnt = 325; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
+        string clr_agent = 328; // deliverTo agent (eg. DVP Agent Bank ID)
+        string clr_tax_iD = 331; // deliverTo taxID (eg. DVP TaxID)
+        string clr_brkr_mPID = 342; // clearing broker MPID (equity leg of MLeg orders)
+    }
+
+    message ExDestRoutes {
+        
+        string ex_dest = 256; // exchange (eg. CBOEOPT, NMS$OPT, NMS$STK, CMX$FUT) or custom (eg. INET$NIGHTHAWK)
+        TradingPeriod trading_period = 259; // only required if this exDest has more specific trading hours that ticker -> tickerDefinition -> tradingHours
+        YesNo config_disable = 262; // this exDest is disabled in the AccountRouteConfig.ExchControl repeating group
+        int32 msg_rate = 265; // maximum message rate per second for this route (<= zero nothing low priority will be routed to this exDest)
+        SecTypeFlag sec_type = 268; // Tied = MLeg w/Stock
+        YesNo order_entry = 271; // can handle normal order entry messages
+        YesNo active_maker = 274; // can handle active making (ActiveMaker algo) order entry messages
+        MktSessionFlag mkt_session = 277;
+        YesNo mkt_auction = 280; // can handle exchange SOD/EOD (eg. MarketOnClose) auctions
+        CrossHandlingFlag cross_handling = 283;
+        CrossAttrFlag cross_attributes = 286; // can process ISO crosses; can instruct exDest to sweep away markets; can accept allocation inst on cross order; can cross FLEX options
+        OtherMsgFlag other_msgs = 289;
+        DeliveryCoding delivery_coding = 292; // per-exDest override of above delivery coding
+        string session_giveup_firm = 295; // per-exDest override of primary (default) session giveup/clearing firm (eg. 659)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo is_test_accnt = 100;
+    string check_results = 109; // results in automated integrity check
+    AccountType account_type = 112; // SR account type (omnibus accounts are expected to be flat at the end of the day)
+    AccntStatus accnt_status = 115; // This accounts current status
+    google.protobuf.Timestamp accnt_status_dttm = 118; // The Date/time this accounts status was changed
+    string accnt_name = 121; // account name
+    YesNo is_ats_enabled = 124; // must be Yes for ATS participation
+    ExecEngineMode exec_engine_mode = 133;
+    RouteAllocRule route_alloc_rule = 136;
+    YesNo exch_group_enabled = 142;
+    float route_alloc_metric = 145;
+    string brkr_ex_dest = 148; // order routing string (if any) [used to force orders use a specific ExDest regardless of the actual exchange destination]
+    YesNo accnt_route_config_missing = 153;
+    YesNo route_config_enabled = 154; // yes=route enabled
+    RelationshipType relationship = 157;
+    string cat_dest_firm_iMID = 160; // Destination Firm IMID (supplied by FINRA fbo destination; can be B/D or Exchange)
+    CatDeptType cat_dest_dept_type = 163; // CAT destination department type
+    RoutingRule routing_rule = 166;
+    string extern_params = 169; // pass through params (must be understood by end point handler) usually [tag=value;tag=value;tag=value]
+    FeatureDisable feature_disable = 341; // Indicates if route can handle MLEG orders and/or COB orders tied to an underlier (must also be set on the underling route definition/exDest)
+    YesNo is_backup = 178;
+    string machine_name = 181; // name of the machine which is hosting fix server
+    FixBaseSessionState session_state = 184;
+    FixBaseSequenceState sequence_state = 187;
+    FixBaseTransportState transport_state = 190;
+    RouteControl session_route_control = 193; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    FixBaseSessionStatus session_status = 196;
+    google.protobuf.Timestamp status_timestamp = 199;
+    YesNo client_firm_control_skip = 202; // if yes, this accnt/client firm is being excluded in the route definition ClientFirmControl repeating group
+    DestinationType destination_type = 205; // type of industry member
+    string server_code = 208; // designates individual server (-serverCode) responsible for handling this routes
+    RouteControl route_control = 211; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    ConnectionClass connection_class = 214; // type of industry member
+    SessionType session_type = 217;
+    SessionResetType session_reset_type = 220; // When does the session reset sequence numbers
+    Protocol protocol = 223;
+    string template_name = 226; // name of FixMsgTemplate (rewrite template) used for this session (if any)
+    string sender_iD = 229;
+    string target_iD = 232; // can be (*) if connectType = Acceptor
+    string sender_sub_iD = 235; // (depricated in FixBase)
+    string target_sub_iD = 238; // (depricated in FixBase)
+    ConnectType initiator = 241;
+    string comment = 244; // a comment for admin viewer
+    DeliveryCoding delivery_coding = 247; // (street side routes only) indicates what style of delivery instruction coding this session utilizes (coding is implemented inside each template)
+    string session_giveup_firm = 250; // primary (default) session giveup/clearing firm (eg. 659)
+    SysEnvironment sys_environment = 334;
+    SysRealm sys_realm = 337;
+    google.protobuf.Timestamp timestamp = 340; // event create timestamp
+    repeated ExDestExecBrkrInst ex_dest_exec_brkr_inst = 298;
+    repeated ExDestExecClrFlipInst ex_dest_exec_clr_flip_inst = 313;
+    repeated ExDestRoutes ex_dest_routes = 253;
+}
+
+

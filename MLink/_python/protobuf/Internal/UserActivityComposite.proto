@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    UserActivityComposite contain user level tool and trading summary details.
+*/    
+message UserActivityComposite {
+    message PKey {
+        
+        string user_name = 10; // Users Name
+        SysEnvironment sys_environment = 11; // System environment this user is currently im
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    UserType user_type = 100; // Type (SRUserType) of user
+    string client_firm = 103; // SR assigned client firm
+    int32 sh_exec = 106; // number of Shares executed
+    int32 fc_exec = 109; // number of Futures Contracts executed
+    int32 cn_exec = 112; // number of Option Contracts executed
+    int32 sh_drop = 115; // number of Shares dropped
+    int32 fc_drop = 118; // number of Futures Contracts dropped
+    int32 cn_drop = 121; // number of Option Contracts dropped
+    int32 sh_test = 124; // number of Shares executed in TEST
+    int32 fc_test = 127; // number of Futures Contracts executed in TEST
+    int32 cn_test = 130; // number of Option Contracts executed in TEST
+    int32 num_rejects = 133; // number of Execution rejects
+    string last_reject_text = 136;
+    google.protobuf.Timestamp last_reject_dttm = 139; // Date/Time of last execution reject
+    google.protobuf.Timestamp last_trade_activity = 142; // Date/Time of last trade activity
+    int32 active_sV = 145; // number of active Symbol Viewer
+    int32 active_rV = 148; // number of active Risk Viewer
+    int32 active_hT = 151; // number of active Hedge Tool
+    int32 active_rM = 154; // number of active Risk Manager
+    int32 active_oM = 157; // number of active Order Manager
+    int32 active_cT = 160; // number of active Chart Tool
+    int32 active_mM = 163; // number of active Market Monitor
+    int32 active_rA = 166; // number of active Risk Analyzer
+    int32 active_tA = 169; // number of active Trade Analyzer
+    int32 active_cV = 172; // number of active Control Viewer
+    int32 active_aV = 175; // number of active Admin Viewer
+    int32 active_sM = 178; // number of active System Monitor
+    int32 active_eS = 181; // number of active ES Data Tools
+    int32 active_bT = 184; // number of active Billing Tools
+    int32 active_dS = 187; // number of active Data Team Tools
+    int32 active_uT = 190; // number of active Utility Type Tools
+    int32 active_sA = 193; // number of active Standalone Tools
+    int32 active_uK = 196; // number of active Unknown Tools
+    float cpu_usage = 199; // cpu usage (number of cores utilized)
+    float memory_usage = 202; // CLR memory (GB)
+    float msg_recv_rate = 205; // total (inbound) messages per second
+    float msg_send_rate = 208; // total (outbound) messages per second
+    int32 num_tool_errors = 211; // number of tool errors
+    string last_tool_error = 214;
+    google.protobuf.Timestamp last_tool_error_dttm = 217; // Date/Time of last tool error
+    google.protobuf.Timestamp last_tool_launch = 220; // Date/Time of last tool launch
+    int32 num_sRSEQueries = 223; // number of SRSE Queries
+    string last_sRSEQuery = 226; // Last SRSE Query text
+    int32 num_sRSEErrors = 229; // number of SRSE Errors
+    string last_sRSEError = 232; // last SRSE Error
+    google.protobuf.Timestamp last_sRSEError_dttm = 235; // Date/Time of last SRSE error
+    google.protobuf.Timestamp last_sRSEActivity = 238; // Date/Time of last SRSE Activity
+    google.protobuf.Timestamp timestamp = 241; // Date/Time of last record addition or
+}
+
+

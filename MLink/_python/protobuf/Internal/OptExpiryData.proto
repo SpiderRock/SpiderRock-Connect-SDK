@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptExpiryData {
+    message PKey {
+        
+        ExpiryKey exp_key = 10; // Expiration Key formatted: {Ticker}-{TickerSrc}-{AssetType}-{Year}-{Month}-{Day}
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExpiryKey fut_exp = 100; // Future Expiration key
+    TickerKey ticker = 103; // Stock ticker key
+    double u_prc = 106; // underlier price (common or synthetic expiry underlier price)
+    double u_off = 109; // roll price (uPrc - uPrcBase) (futures only)
+    string rate = 112;
+    string ddiv = 115;
+    string i_days = 161; // interest (calendar) days
+    string years = 121; // vol trading years
+    string atm_vol = 124;
+    string atm_sDiv = 127;
+    string atm_vol_move = 130; // ATM ivol change
+    string atm_sDiv_move = 133; // ATM svol change
+    string atm_width = 136;
+    string atm_slope = 139;
+    string vlm_day = 142; // option trade volume on the day
+    string vlm20_day = 145; // average option trade volume in the past 20 days
+    string ecnt = 148; // number of earnings events to expiration
+    string surf_status = 151;
+    ToolExpType exp_type = 154; // Expiration type of this option, added to know when to set deliverable field
+    string deliverable = 157; // text field used when MultiHedge is selected
+    google.protobuf.Timestamp ts = 160; // last update time (Date)
+}
+
+

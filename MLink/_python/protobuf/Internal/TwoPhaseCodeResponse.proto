@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message TwoPhaseCodeResponse {
+
+
+    MessageMetadata _meta = 1;
+    
+    Direction direction = 100;
+    string user_name = 103; // userName (much match userConfig)
+    string two_phase_code = 106;
+    YesNo two_phase_code_oK = 109;
+    string local_iPAddr = 112; // used to validate user (if required in userConfig)
+    string error_response = 115; // null/empty discovery request succeeded
+    google.protobuf.Timestamp timestamp = 118; // request / response datetime
+}
+
+

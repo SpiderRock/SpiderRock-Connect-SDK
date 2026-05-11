@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: CCodeDefinition
+    V8 Message Name: CCodeDefinition
+    Bridging pattern:  [V7 --> V8]
+*/    
+message CCodeDefinition_V7 {
+    message PKey {
+        
+        TickerKey ccode = 5000; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    FutExch futexch = 5001; // v7 & v8 --- Original comment: listing exchange
+    TickerKey ticker = 5002; // v7 & v8 --- Original comment: master underlying
+    SettleTime settle_time = 5003; // v7 & v8 --- Original comment: Settlement time: None; PM; AM
+    int32 position_limit = 5004; // v7 & v8 --- Original comment: max contract limit
+    float tick_value = 5005; // v7 & v8 --- Original comment: $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 5006; // v7 & v8 --- Original comment: $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 5007; // v7 & v8
+    float price_scaling = 5008; // v7 & v8 --- Original comment: underlying price scale factor - products where the underlying quotes in cents will have 0.01
+    int32 underliers_per_cn = 5009; // v7 & v8 --- Original comment: shares, bond, or index units underlying the future (contract size)
+    UnderlierType underlier_type = 5010; // v7 & v8 --- Original comment: Underlying type; None; Equity; Other; FX
+    string clearing_code = 5011; // v7 & v8 --- Original comment: GMI/Clearing code
+    string ric_code = 5012; // ONLY V7: [string,Length=6,Alias=NA,MetaType=NA] --- Original comment: RIC Code
+    string bbg_root = 5013; // v7 & v8 --- Original comment: Bloomberg root
+    BbgYrCode bbg_yr_code = 5014; // v7 & v8 --- Original comment: Format for the year field in the Bloomberg Code
+    YellowKey bbg_group = 5015; // v7 & v8 --- Original comment: Bloomberg Yellow Key
+    string gmi_exchange = 5016; // v7 & v8 --- Original comment: GMI (Sungard) exchange code
+    string gmi_product = 5017; // v7 & v8 --- Original comment: GMI (Sungard) product code
+    string gmi_sub_type = 5018; // v7 & v8 --- Original comment: GMI (Sungard) subtype code
+    float display_price_scaling = 5019; // v7 & v8 --- Original comment: internal display price scale factor override
+    float strike_scaling = 5020; // v7 & v8 --- Original comment: internal strike price scale factor override
+    string description = 5021; // v7 & v8 --- Original comment: product description
+    string market_center = 5022; // v7 & v8 --- Original comment: market center, eg "ICE Market Type", "CME MarketGroup"
+    google.protobuf.Timestamp timestamp = 5023; // v7 & v8
+    TradingPeriod trading_period = 5024; // v7 & v8
+}
+
+

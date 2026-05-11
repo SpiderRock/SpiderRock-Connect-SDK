@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message AuctionCardDataVset {
+    message IgnoredCards {
+        
+        string auction_key = 112;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    AuctionCardStatus status_filter = 106; // filter on status
+    string token_filter = 107; // filter on text fields
+    AuctionCardSort sort_type = 108; // sorting type
+    int32 st_pos = 109;
+    int32 num_cards = 110;
+    repeated IgnoredCards ignored_cards = 111;
+}
+
+

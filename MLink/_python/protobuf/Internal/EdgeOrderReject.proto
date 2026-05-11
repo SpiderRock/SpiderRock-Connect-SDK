@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    edge-to-user
+*/    
+message EdgeOrderReject {
+    message PKey {
+        
+        int64 edge_order_number = 10; // user order guid (clOrdID)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    uint32 version = 100; // EdgeOrder.version
+    EdgeRejectCode reject = 103;
+    string reject_detail = 106;
+    google.protobuf.Timestamp timestamp = 109; // timestamp of this record
+}
+
+

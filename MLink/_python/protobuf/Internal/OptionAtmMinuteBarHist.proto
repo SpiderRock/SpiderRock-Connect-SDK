@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionAtmMinuteBarHist {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        google.protobuf.Timestamp date = 11; // end of minute bar time
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 minute = 100; // minute since 2000-01-01
+    TickerKey ticker = 103;
+    int64 security_iD = 106;
+    DateKey trading_date = 109;
+    TradingSession trading_session = 112;
+    double u_prc = 115; // Underlying price
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233;
+    ExerciseType ex_type = 224; // exercise type
+    float years = 152; // volatility years to expiration (from SR time/calendar metrics)
+    float years_c = 199; // calendar years to expiration
+    float rate = 155; // SR interest rate (from global rate curve)
+    float sdiv = 173; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 158; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 161; // SR ddivPv (sum of present value discrete dividend amounts)
+    int32 s_days_t = 236; // settlement days (today)
+    int32 s_days_e = 239; // settlement days (expiry)
+    double u_prc_ratio = 130; // Implied underlying price offset. For options with futures underlyings.
+    float ivol = 133; // atm ivol (atm: strike = fUPrc)
+    float ivxx = 136; // fixed strike ivol (ivol @ refStrike)
+    float iv_cen = 139; // atm ivol (atm: strike = fUPrc) [eMove/earnings censored]
+    float slope = 142; // dVol / dXAxis
+    float v_width = 145; // implied volatility width (best market)
+    float ref_strike = 148; // reference strike (usually prior day closing uPrc)
+    float ivol_hi = 151; // Implied Volatility high value (during bar)
+    float ivol_lo = 154; // Implied Volatility low value (during bar)
+    float ivxx_hi = 157; // Implied Volatility of Previous Day's ATM strike, high value (during bar)
+    float ivxx_lo = 160; // Implied Volatility of Previous Day's ATM strike, low value (during bar)
+    float iv_cen_hi = 163; // Censored implied volatility high value (during bar)
+    float iv_cen_lo = 166; // Censored implied volatility low value (during bar)
+    float sdiv_hi = 169; // Continuous carry rate, high value (during bar)
+    float sdiv_lo = 172; // Continuous carry rate, low value (during bar)
+    double u_prc_ratio_hi = 175; // Underlying price offset value, high value (during bar)
+    double u_prc_ratio_lo = 178; // Underlying price offset value, low value (during bar)
+    float slope_hi = 181; // Slope high value (during bar).  The difference between the put and call at 1/2 standard deviation from the ATM point.
+    float slope_lo = 184; // Slope low value (during bar).  The difference between the put and call at 1/2 standard deviation from the ATM point.
+    float var_swap_fV = 187; // variance swap fair value (estimated by numerical integration over OTM price surface)
+    YesNo is_eOB = 190; // is end-of-bar (every 10 minutes)
+    YesNo is_eOH = 193; // is end-of-hour
+    google.protobuf.Timestamp timestamp = 196;
+}
+
+

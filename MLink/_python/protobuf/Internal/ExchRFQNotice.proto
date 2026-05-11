@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ExchRFQNotice {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11;
+        BuySell rfq_side = 12; // from perspective of RFQ requestor
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string notice_iD = 100;
+    int64 security_iD = 103;
+    int32 rfq_size = 106;
+    double rfq_price = 109; // proposed price (if any)
+    ExchSource exchange = 112;
+    google.protobuf.Timestamp timestamp = 115; // SR system timestamp
+    int64 src_timestamp = 118; // exchange reported source timestamp
+    int64 net_timestamp = 121; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
+}
+
+

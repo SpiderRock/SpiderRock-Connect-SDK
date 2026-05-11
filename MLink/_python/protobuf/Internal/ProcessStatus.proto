@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ProcessStatus {
+    message PKey {
+        
+        uint32 app_id = 10;
+        string server_name = 11; // process instance name (should be unique)
+        string machine_name = 12; // name of the machine which is hosting process
+        SysRealm sys_realm = 13;
+        SysEnvironment sys_environment = 14; // sys environment [Stable, Current, etc]
+        RunStatus run_status = 15;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp process_start = 100;
+    string last_signal = 103; // string indicating the signal it got , for example READY, SHUTDOWN
+    float cpu_usage = 106; // cpu usage (number of cores utilized)
+    float memory_usage = 109; // CLR memory (GB)
+    ResourceLevel server_cPU = 112;
+    ResourceLevel server_memory = 115;
+    float avg_mMRDelay = 118; // avg (inbound) DBL MMR ring delay (ms)
+    float max_mMRDelay = 121; // max (inbound) DBL MMR ring delay (ms)
+    int32 packets_per_sec = 124; // MMR/MBUS packet rcvd rate (multiple msgs per packet)
+    int32 num_msg_drops = 127; // number of MBUS message drops
+    float msg_recv_rate = 130; // total (inbound) messages per second
+    float msg_send_rate = 133; // total (outbound) messages per second
+    PulseError pulse_error = 136;
+    string proc_detail = 139;
+    int32 num_slow_handlers = 142; // total number of slow handlers
+    int32 num_app_errors = 145;
+    string last_app_error = 182;
+    google.protobuf.Timestamp last_app_dttm = 151;
+    int32 num_fix_errors = 154;
+    string last_fix_error = 183;
+    google.protobuf.Timestamp last_fix_dttm = 160;
+    int32 num_msg_errors = 163;
+    string last_msg_error = 184;
+    google.protobuf.Timestamp last_msg_dttm = 169;
+    int32 num_sys_errors = 172;
+    string last_sys_error = 185;
+    google.protobuf.Timestamp last_sys_dttm = 178;
+    google.protobuf.Timestamp timestamp = 181;
+    SRDataCenter_V7 data_center__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
+    string last_app_error__v7 = 5001; // only V7: Field name [lastAppError] matched but type did not: text2 != text1
+    string last_fix_error__v7 = 5002; // only V7: Field name [lastFixError] matched but type did not: text2 != text1
+    string last_msg_error__v7 = 5003; // only V7: Field name [lastMsgError] matched but type did not: text2 != text1
+    string last_sys_error__v7 = 5004; // only V7: Field name [lastSysError] matched but type did not: text2 != text1
+}
+
+

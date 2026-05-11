@@ -1,0 +1,141 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SurfaceFixedTermIntradayHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        google.protobuf.Timestamp date = 11; // end of minute bar
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    DateKey trading_date = 103;
+    TradingSession trading_session = 106;
+    float h_eMove = 109; // expected forward earnings move (average of the last 8-12 underlier earnings moves; w/max clipping)
+    int32 h_eMove_num = 112; // num historical earnings moves in historical window
+    float h_eMove_avg = 115; // avg historical earnings move (last 8-12 underlier earnings moves)
+    float h_eMove_std = 118; // std historical earnings move (last 8-12 underlier earnings moves)
+    float h_eMove_min = 121; // max historical earnings move (last 8-12 underlier earnings moves)
+    float h_eMove_max = 124; // min historical earnings move (last 8-12 underlier earnings moves)
+    float i_eMove = 127; // implied earnings move (implied move; all earnings events)
+    EFitCode i_eFit_code = 130; // implied EFit Code
+    float i_eFit_error = 133; // eMove fit error (term surface fit error)
+    int32 expiry_count = 136; // number of actual expirations involved
+    float i_eMove_avg = 139; // average eMove today
+    float i_eMove_std = 142; // eMove std dev today
+    float i_eMove_min = 145; // eMove min today
+    float i_eMove_max = 148; // emove max today
+    int32 i_eMove_cnt = 151; // number of surface term fits today
+    int32 e_move_exp_adj1 = 154; // number of expirations (+/-) that the next earn date was moved to best fit market term structure (if any)
+    float e_move_yrs_adj1 = 157; // number of trading years (+/-) that the next earn date was moved to best fit market term structure (if any)
+    float e_move_years1 = 160; // years to expiration from LiveSurfaceCurve.pkey.ekey = eMoveFKey1
+    ExpiryKey e_move_eKey1 = 163; // LiveSurfaceCurve.pkey.ekey immediately after 1st implied earnings move (note: this will not match the base earnings calendar if eMoveDtAdj1 != 0)
+    int32 e_move_exp_adj2 = 166; // number of expirations (+/-) that the 2nd earn date was moved to best fit market term structure (if any)
+    float e_move_yrs_adj2 = 169; // number of trading years (+/-) that the 2nd earn date was moved to best fit market term structure (if any)
+    float e_move_years2 = 172; // years to expiration from LiveSurfaceCurve.pkey.fkey = eMoveFKey2
+    ExpiryKey e_move_eKey2 = 175; // LiveSurfaceCurve.pkey.ekey immediately after 2nd implied earnings move (note: this will not match the base earnings calendar if eMoveDtAdj2 != 0)
+    float atm_cen_i_st = 178; // short term (5 day) model atm volatility (censored using iEMult)
+    float atm_cen_i_lt = 181; // long term (504 day) model atm volatility
+    float atm_cen_i_decay = 184; // model decay parameter
+    float atm_cen_i_5d = 187; // Interpolated 5 day atm vol (censored using iEMult)
+    float atm_cen_i_10d = 190; // Interpolated 10 day atm vol
+    float atm_cen_i_21d = 193; // Interpolated 21 day atm vol
+    float atm_cen_i_42d = 196; // Interpolated 42 day atm vol
+    float atm_cen_i_63d = 199; // Interpolated 63 day atm vol
+    float atm_cen_i_84d = 202; // Interpolated 84 day atm vol
+    float atm_cen_i_105d = 205; // Interpolated 105 day atm vol
+    float atm_cen_i_126d = 208; // Interpolated 126 day atm vol
+    float atm_cen_i_189d = 211; // Interpolated 189 day atm vol
+    float atm_cen_i_252d = 214; // Interpolated 252 day atm vol
+    float atm_cen_i_378d = 217; // Interpolated 378 day atm vol
+    float atm_cen_i_504d = 220; // Interpolated 504 day atm vol
+    float atm_cen_h_st = 223; // short term (5 day) model atm volatility (censored using hEMult)
+    float atm_cen_h_lt = 226; // long term (504 day) model atm volatility
+    float atm_cen_h_decay = 229; // model decay parameter
+    float atm_cen_h_5d = 232; // Interpolated 5 day atm vol (censored using hEMult)
+    float atm_cen_h_10d = 235; // Interpolated 10 day atm vol
+    float atm_cen_h_21d = 238; // Interpolated 21 day atm vol
+    float atm_cen_h_42d = 241; // Interpolated 42 day atm vol
+    float atm_cen_h_63d = 244; // Interpolated 63 day atm vol
+    float atm_cen_h_84d = 247; // Interpolated 84 day atm vol
+    float atm_cen_h_105d = 250; // Interpolated 105 day atm vol
+    float atm_cen_h_126d = 253; // Interpolated 126 day atm vol
+    float atm_cen_h_189d = 256; // Interpolated 189 day atm vol
+    float atm_cen_h_252d = 259; // Interpolated 252 day atm vol
+    float atm_cen_h_378d = 262; // Interpolated 378 day atm vol
+    float atm_cen_h_504d = 265; // Interpolated 504 day atm vol
+    float s_div_5d = 268; // Interpolated 5 day implied sdiv rate
+    float s_div_10d = 271; // Interpolated 10 day implied sdiv rate
+    float s_div_21d = 274; // Interpolated 21 day implied sdiv rate
+    float s_div_42d = 277; // Interpolated 42 day implied sdiv rate
+    float s_div_63d = 280; // Interpolated 63 day implied sdiv rate
+    float s_div_84d = 283; // Interpolated 84 day implied sdiv rate
+    float s_div_105d = 286; // Interpolated 105 day implied sdiv rate
+    float s_div_126d = 289; // Interpolated 126 day implied sdiv rate
+    float s_div_189d = 292; // Interpolated 189 day implied sdiv rate
+    float s_div_252d = 295; // Interpolated 252 day implied sdiv rate
+    float s_div_378d = 298; // Interpolated 378 day implied sdiv rate
+    float s_div_504d = 301; // Interpolated 504 day implied sdiv rate
+    float fwd_uPrc_5d = 304; // Interpolated 5 day implied forward price
+    float fwd_uPrc_10d = 307; // Interpolated 10 day implied forward price
+    float fwd_uPrc_21d = 310; // Interpolated 21 day implied forward price
+    float fwd_uPrc_42d = 313; // Interpolated 42 day implied forward price
+    float fwd_uPrc_63d = 316; // Interpolated 63 day implied forward price
+    float fwd_uPrc_84d = 319; // Interpolated 84 day implied forward price
+    float fwd_uPrc_105d = 322; // Interpolated 105 day implied forward price
+    float fwd_uPrc_126d = 325; // Interpolated 126 day implied forward price
+    float fwd_uPrc_189d = 328; // Interpolated 189 day implied forward price
+    float fwd_uPrc_252d = 331; // Interpolated 252 day implied forward price
+    float fwd_uPrc_378d = 334; // Interpolated 378 day implied forward price
+    float fwd_uPrc_504d = 337; // Interpolated 504 day implied forward price
+    float v_width_5d = 340; // Interpolated 5 day market vwidth
+    float v_width_10d = 343; // Interpolated 10 day market vwidth
+    float v_width_21d = 346; // Interpolated 21 day market vwidth
+    float v_width_42d = 349; // Interpolated 42 day market vwidth
+    float v_width_63d = 352; // Interpolated 63 day market vwidth
+    float v_width_84d = 355; // Interpolated 84 day market vwidth
+    float v_width_105d = 358; // Interpolated 105 day market vwidth
+    float v_width_126d = 361; // Interpolated 126 day market vwidth
+    float v_width_189d = 364; // Interpolated 189 day market vwidth
+    float v_width_252d = 367; // Interpolated 252 day market vwidth
+    float v_width_378d = 370; // Interpolated 378 day market vwidth
+    float v_width_504d = 373; // Interpolated 504 day market vwidth
+    float v_slope_5d = 376; // Interpolated 5 day atm vol slope
+    float v_slope_10d = 379; // Interpolated 10 day atm vol slope
+    float v_slope_21d = 382; // Interpolated 21 day atm vol slope
+    float v_slope_42d = 385; // Interpolated 42 day atm vol slope
+    float v_slope_63d = 388; // Interpolated 63 day atm vol slope
+    float v_slope_84d = 391; // Interpolated 84 day atm vol slope
+    float v_slope_105d = 394; // Interpolated 105 day atm vol slope
+    float v_slope_126d = 397; // Interpolated 126 day atm vol slope
+    float v_slope_189d = 400; // Interpolated 189 day atm vol slope
+    float v_slope_252d = 403; // Interpolated 252 day atm vol slope
+    float v_slope_378d = 406; // Interpolated 378 day atm vol slope
+    float v_slope_504d = 409; // Interpolated 504 day atm vol slope
+    int32 e_cnt_5d = 412; // number of expected earnings events
+    int32 e_cnt_10d = 415; // number of expected earnings events
+    int32 e_cnt_21d = 418; // number of expected earnings events
+    int32 e_cnt_42d = 421; // number of expected earnings events
+    int32 e_cnt_63d = 424; // number of expected earnings events
+    int32 e_cnt_84d = 427; // number of expected earnings events
+    int32 e_cnt_105d = 430; // number of expected earnings events
+    int32 e_cnt_126d = 433; // number of expected earnings events
+    int32 e_cnt_189d = 436; // number of expected earnings events
+    int32 e_cnt_252d = 439; // number of expected earnings events
+    int32 e_cnt_378d = 442; // number of expected earnings events
+    int32 e_cnt_504d = 445; // number of expected earnings events
+    google.protobuf.Timestamp timestamp = 448; // update timestamp
+}
+
+

@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridOptionPrintMLeg {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+    message Legs {
+        
+        OptionKey leg_key = 157;
+        uint32 leg_ratio = 158; // leg ratio (1, 2, etc)
+        double prt_prc = 159; // leg print price
+        int32 prt_size = 160; // leg print size
+        int64 prt_timestamp = 161; // leg print timestamp
+        double surf_prc = 162; // leg surface price
+        double surf_de = 163; // leg surface delta
+        CalcError surf_err = 164;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 prt_number = 100; // SR Print Number
+    OptExch exch = 101;
+    PrtType prt_type = 102;
+    int32 print_size = 103; // number of spread units
+    int32 total_cn = 104; // total contracts in the print (all legs)
+    TickerKey ticker = 105; // underlier ticker
+    OptionKey min_anchor_leg = 106; // earliest expiry / smallest strike / call prefered
+    OptionKey max_anchor_leg = 107; // furtherest expiry / largest strike / put prefered
+    OpraSpreadClass opra_spread_class = 108; // Single = (C | P) (with stock); CallPut = (C/P), CallPutBox = (C/P) & (C/P), Vertical = SameExpiry, Horizontal = SameStrike, Mixed = Other
+    StkExch stk_prt_exch = 109;
+    int32 stock_prt_size = 110;
+    double stock_prt_price = 111;
+    int32 stk_prt_cond1 = 112; // print condition (from SIP feed)
+    int32 stk_prt_cond2 = 113;
+    int32 stk_prt_cond3 = 114;
+    int32 stk_prt_cond4 = 115;
+    double stock_prt_age = 116; // age of stock price (SIP print time - OPRA print time)
+    double rate = 117; // current global rate (typically SPX box rates)
+    double years = 118; // volatility years to expiry (365 calendar if revcon)
+    double rc_prt_rate = 119;
+    double rc_prt_price = 120;
+    double rc_prt_sDiv = 121;
+    CalcError rc_prt_sDiv_err = 122;
+    double rc_surf_xDe = 123; // xdelta of the call/put pair (-0.5 to +0.5)
+    double rc_surf_vol = 124; // surface vol
+    double rc_surf_sDiv = 125; // surface sdiv
+    double rc_surf_dDiv = 126; // surface ddiv (cumulative discrete dividend stream)
+    double rc_surf_uPrc = 127; // underlier mid-market at the time of the option print(s)
+    double rc_surf_call_price = 128; // rev/con surface call price
+    double rc_surf_put_price = 129; // rev/con surface put price
+    double rc_surf_rate = 130; // rev/con rate using surface mid prices
+    double rc_surf_price = 131; // rev/con intrinsic price using surface mid prices
+    double rc_euro_rate = 132; // rev/con rate using surface mid prices (european pricing)
+    double rc_euro_price = 133; // rev/con intrinsic price using surface mid prices (european pricing)
+    double rc_call_price = 134; // rev/con call price
+    double rc_put_price = 135; // rev/con put price
+    double i_days = 136; // iDays = effective interest days [SR supplied]
+    double i_years = 137; // iYears = iDays / 360.0
+    double money_rate = 138; // effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+    double ddiv_pv = 139; // present value of any expected dividends to expiry [SR Supplied Estimate]
+    YesNo has_est_dDivs = 140; // Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+    double s_vol = 141; // surface volatility for rev/con strike [SR Supplied Estimate]
+    double rc_eEx_prem = 142; // rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+    double strike_pv = 143; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double eff_stock_lend_pv = 144; // effStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]
+    double eff_stock_rate = 145; // effStockRate = effStockLendPv / (uMid * iYears) [if cust price is visible]
+    double surf_mark_age = 146; // number of seconds between srcTimestamp and surface mark time
+    int32 num_opt_legs = 147;
+    FlexType flex_type = 148;
+    string flex_root = 149;
+    YesNo has_exch_print = 150;
+    int64 src_timestamp = 151; // source high precision timestamp (if available) (first print in the set)
+    int64 net_timestamp = 152; // PTP timestamp (first print in the set)
+    int64 chk_timestamp = 153; // spread grouping check timestamp
+    int32 num_checks = 154; // number of unallocated legs when this spread print was created
+    google.protobuf.Timestamp timestamp = 155;
+    YesNo is_prod = 165; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 166; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 167; // WTS synthetic: alert message (null if no alert)
+    repeated Legs legs = 156;
+}
+
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AppMonitorAck {
+    message PKey {
+        
+        string app_name = 10; // tool name (should be unique)
+        string user_name = 11; // SR user name
+        int32 process_id = 12; // tool process ID
+        string machine_name = 13; // name of the machine which is hosting process
+        SysEnvironment sys_environment = 14;
+        RunStatus run_status = 15; // run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp last_error_dttm = 100;
+    string modified_by = 103; // user who last modified this record
+    SysEnvironment modified_in = 106;
+    google.protobuf.Timestamp timestamp = 109; // timestamp of last modification
+}
+
+

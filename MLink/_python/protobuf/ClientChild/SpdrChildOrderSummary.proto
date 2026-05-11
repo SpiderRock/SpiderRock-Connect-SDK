@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    SpdrChildOrderSummary records are created at the end of a trading period and contain a summary of trading activity for the period; Summary of SpdrChildOrder records
+*/    
+message SpdrChildOrderSummary {
+    message PKey {
+        
+        string accnt = 10;
+        SpdrKeyType sec_type = 11;
+        TickerSrc ticker_src = 12;
+        SpdrSource spdr_source = 13;
+        SpdrOrderShape child_shape = 14;
+        MktWidthCode mkt_width_code = 15;
+        ChildHandler algo_handler = 16;
+        string routing_code = 17;
+        string exec_brkr_code = 22;
+        string order_ex_dest = 23;
+        DateKey trading_period = 20;
+        string client_firm = 21; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_markets = 103; // number of unique secKeys
+    int32 num_child_orders = 106;
+    int32 sum_child_order_size = 109;
+    float sum_child_mkt_width = 112; // mkt width at child order create time
+    float sum_active_seconds = 115; // total seconds child order is active (create to cancel/fill)
+    int32 num_mkt_prints = 118; // number of comparable market prints (same series; same side; same day) [options only]
+    float sum_mkt_print_m1_pn_l = 121;
+    float sum_mkt_print_m10_pn_l = 124;
+    int32 sum_marketable_size = 127; // size that would be expected to fill immediately when child order is generated
+    int32 num_order_latency = 130;
+    float sum_order_latency = 133;
+    int32 num_cancel_latency = 136;
+    float sum_cancel_latency = 139;
+    int32 num_fill_after_cxl = 142;
+    float sum_fill2_cxl_latency = 145;
+    int32 num_contingent_cxl = 148;
+    int32 num_child_off_mkt = 151;
+    int32 num_child_mkt_join = 154;
+    int32 num_child_mkt_imprv = 157;
+    int32 num_child_marketable = 160;
+}
+
+

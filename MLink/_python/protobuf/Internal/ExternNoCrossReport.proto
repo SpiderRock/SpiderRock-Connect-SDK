@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ExternNoCrossReport {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11;
+        int64 report_number = 12; // Report number (ensures that MLEG reports are unique)
+        string no_cross_group = 13; // SpiderRock-assigned no-cross group (up to 16 characters)
+        string child_ex_dest = 18; // exchange destination string
+        SysEnvironment sys_environment = 15; // original (source) sys environment [Stable, Current, etc]
+        RunStatus run_status = 16; // original (source) run status [Prod,Beta]
+        ExternSource extern_source = 17;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string mleg_key = 100; // contains a string version of a mleg order key (or null if not an mleg order)
+    double bid_price = 103; // best bid
+    double ask_price = 106; // best ask
+    int32 bid_leaves = 109; // current bid size @ bidPrice (best market) [used for no-cross EE checks]
+    int32 ask_leaves = 112; // current ask size @ askPrice (best market) [used for no-cross EE checks]
+    google.protobuf.Timestamp timestamp = 115;
+    YesNo bid_mAuction__v7 = 5000; // only v7 - enum values match with v8
+    YesNo bid_lAuction__v7 = 5001; // only v7 - enum values match with v8
+    YesNo ask_mAuction__v7 = 5002; // only v7 - enum values match with v8
+    YesNo ask_lAuction__v7 = 5003; // only v7 - enum values match with v8
+}
+
+

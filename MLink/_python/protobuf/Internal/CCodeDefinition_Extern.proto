@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Commodity code (product code) definitions for all futures.
+*/    
+message CCodeDefinition_Extern {
+    message PKey {
+        
+        TickerKey ccode = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    FutExch futexch = 100; // listing exchange
+    TickerKey ticker = 103; // master underlying
+    SettleTime settle_time = 106; // Settlement time: None; PM; AM
+    int32 position_limit = 109; // max contract limit
+    float tick_value = 112; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
+    float point_value = 115; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
+    Currency point_currency = 118;
+    int32 underliers_per_cn = 121; // shares, bond, or index units underlying the future (contract size)
+    UnderlierType underlier_type = 124; // Underlying type; None; Equity; Other; FX
+    string clearing_code = 127; // GMI/Clearing code
+    string ric_code = 130; // RIC Code
+    string bbg_root = 133; // Bloomberg root
+    YellowKey bbg_group = 136; // Bloomberg Yellow Key
+    float price_scaling = 139; // underlying price scale factor - products where the underlying quotes in cents will have 0.01
+    float display_price_scaling = 142; // internal display price scale factor override
+    float strike_scaling = 145; // internal strike price scale factor override
+    string description = 148; // product description
+    string market_center = 151; // market center, eg "ICE Market Type", "CME MarketGroup"
+    string asset_class = 154; // Underlying asset type
+    string asset_sub_class = 157; // Sub class within asset class
+    string sector = 160; // Sector associated with product
+    string itc_code = 163; // Product code as reflected on ITC market data.
+    string unitof_measure = 166; // Unit of measure for the product
+    float unit_of_measure_qty = 169; // Unit of measure quantity for the product
+    string px_unit_of_measure = 172; // Unit of measure quantity of the price if different from the product
+    int32 px_unit_of_measure_qty = 175; // Unit of measure quantity of the price if different from the product
+    string price_quotation = 178; // How price quotes are described on the website for the product.
+    float price_quotation_multiplier = 181; // multiplier for point value calc, 1 is default, 0.01 for cents and 0.01 for 100 basis point quotes
+    double min_tick = 184; // min tick for the product
+    double price_multiplier = 187; // multiplier to convert price to actual economic value
+    SettlementMethod settlement_method = 190; // settlement method, Cash or physical deliverable
+    double display_factor = 193; // display Factor
+    string min_tick_notes = 196; // min tick notes
+    string schedule_notes = 199; // globex trading schedule notes
+    TradingPeriod trading_period = 203;
+    google.protobuf.Timestamp timestamp = 202;
+}
+
+

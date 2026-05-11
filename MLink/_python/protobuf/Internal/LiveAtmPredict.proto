@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveAtmPredict {
+    message PKey {
+        
+        ExpiryKey ekey = 10;
+        string model = 11; // model archive name
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float u_mid = 100;
+    float cp_adj = 103; // can be either sdiv or uPrcRatio
+    CPAdjType cp_adj_type = 106;
+    float atm_vol = 109; // atm vol (xAxis = 0)
+    TradingSession trading_session = 146; // trading session this surface is from
+    TradeableStatus tradeable_status = 115; // indicates whether the record is currently tradeable or not (all server surface integrity checks pass)
+    float cp_adj_p10 = 118; // cpAdj forward predict
+    float atm_vol_p10 = 121; // atmVol forward predict
+    float cp_adj_p60 = 124; // cpAdj forward predict
+    float atm_vol_p60 = 127; // atmVol forward predict
+    float cp_adj_s10 = 130; // cpAdj forward sensivity (dCPAdjP / dUPrc)
+    float atm_vol_s10 = 133; // atmVol forward sensivity (dAtmVolP / dUPrc)
+    float cp_adj_s60 = 136; // cpAdj forward sensivity (dCPAdjP / dUPrc)
+    float atm_vol_s60 = 139; // atmVol forward sensivity (dAtmVolP / dUPrc)
+    int32 counter = 142;
+    google.protobuf.Timestamp timestamp = 145;
+}
+
+

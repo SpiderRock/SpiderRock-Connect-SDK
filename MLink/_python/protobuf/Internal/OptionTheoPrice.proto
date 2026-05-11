@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptionTheoPrice {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string theo_model = 100; // required in where clause (theo model must be associated with an accnt that is visible)
+    TickerKey ticker = 103;
+    float yrs = 106;
+    float u_prc = 109; // stock price
+    float obid = 112; // option bid
+    float oask = 115; // option ask
+    float tvol = 118; // theo vol
+    float tprc = 121; // theo vol price
+    float de = 124; // implied greeks
+    float ga = 127;
+    float th = 130;
+    float ve = 133;
+    float ddiv = 136;
+    float rate = 139;
+    float sdiv = 142;
+    float x_axis = 145;
+    float tvol_atm = 148;
+    float ivol_atm = 151;
+    int32 err = 154;
+    string theo_err = 157;
+    string calc_err = 160;
+    TheoStatus theo_status = 163;
+    google.protobuf.Timestamp timestamp = 166;
+}
+
+

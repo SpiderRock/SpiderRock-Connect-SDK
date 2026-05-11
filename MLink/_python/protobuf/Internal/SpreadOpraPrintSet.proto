@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpreadOpraPrintSet {
+    message PKey {
+        
+        int64 print_number = 10; // SR Print Number
+    }
+
+    message Legs {
+        
+        OptionKey leg_key = 232;
+        uint32 leg_ratio = 235; // leg ratio (1, 2, etc)
+        double prt_prc = 238; // leg print price
+        int32 prt_size = 241; // leg print size
+        int64 prt_timestamp = 244; // leg print timestamp
+        double surf_prc = 247; // leg surface price
+        double surf_de = 250; // leg surface delta
+        CalcError surf_err = 253;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptExch exch = 100;
+    PrtType prt_type = 103;
+    int32 print_size = 106; // number of spread units
+    int32 total_cn = 109; // total contracts in the print (all legs)
+    TickerKey ticker = 112; // underlier ticker
+    OptionKey min_anchor_leg = 115; // earliest expiry / smallest strike / call prefered
+    OptionKey max_anchor_leg = 118; // furtherest expiry / largest strike / put prefered
+    OpraSpreadClass opra_spread_class = 121; // Single = (C | P) (with stock); CallPut = (C/P), CallPutBox = (C/P) & (C/P), Vertical = SameExpiry, Horizontal = SameStrike, Mixed = Other
+    StkExch stk_prt_exch = 124;
+    int32 stock_prt_size = 127;
+    double stock_prt_price = 130;
+    int32 stk_prt_cond1 = 133; // print condition (from SIP feed)
+    int32 stk_prt_cond2 = 136;
+    int32 stk_prt_cond3 = 139;
+    int32 stk_prt_cond4 = 142;
+    double stock_prt_age = 145; // age of stock price (SIP print time - OPRA print time)
+    double rate = 148; // current global rate (typically SPX box rates)
+    double years = 151; // volatility years to expiry (365 calendar if revcon)
+    double rc_prt_rate = 154;
+    double rc_prt_price = 157;
+    double rc_prt_sDiv = 160;
+    CalcError rc_prt_sDiv_err = 163;
+    double rc_surf_xDe = 166; // xdelta of the call/put pair (-0.5 to +0.5)
+    double rc_surf_vol = 169; // surface vol
+    double rc_surf_sDiv = 172; // surface sdiv
+    double rc_surf_dDiv = 175; // surface ddiv (cumulative discrete dividend stream)
+    double rc_surf_uPrc = 178; // underlier mid-market at the time of the option print(s)
+    double rc_surf_call_price = 254; // rev/con surface call price
+    double rc_surf_put_price = 255; // rev/con surface put price
+    double rc_surf_rate = 181; // rev/con rate using surface mid prices
+    double rc_surf_price = 184; // rev/con intrinsic price using surface mid prices
+    double rc_euro_rate = 187; // rev/con rate using surface mid prices (european pricing)
+    double rc_euro_price = 190; // rev/con intrinsic price using surface mid prices (european pricing)
+    double rc_call_price = 193; // rev/con call price
+    double rc_put_price = 196; // rev/con put price
+    double i_days = 256; // iDays = effective interest days [SR supplied]
+    double i_years = 257; // iYears = iDays / 360.0
+    double money_rate = 258; // effective rate to borrow/lend money to expiry (360 day convention) [compares to globalRate * 360 / 365] [SR Supplied Estimate]
+    double ddiv_pv = 259; // present value of any expected dividends to expiry [SR Supplied Estimate]
+    YesNo has_est_dDivs = 260; // Yes if one or more expected ddiv is an estimate (not yet announced) [SR Supplied]
+    double s_vol = 261; // surface volatility for rev/con strike [SR Supplied Estimate]
+    double rc_eEx_prem = 262; // rcEExPrem = (pRv.price - pRvE.price) - (cRv.price - cRvE.price) [american price - european price] [same model parameters; SR supplied parameters including DDivs; is zero for flex revcons]
+    double strike_pv = 263; // strikePv = strike * (1.0 - moneyRate * iYears) [moneyRate supplied above]
+    double eff_stock_lend_pv = 264; // effStockLendPv = custPrice - strikePv - ddivPv - rcEExPrem  [if cust price is visible]
+    double eff_stock_rate = 265; // effStockRate = effStockLendPv / (uMid * iYears) [if cust price is visible]
+    double surf_mark_age = 199; // number of seconds between srcTimestamp and surface mark time
+    int32 num_opt_legs = 202;
+    FlexType flex_type = 205;
+    string flex_root = 208;
+    YesNo has_exch_print = 211;
+    int64 src_timestamp = 214; // source high precision timestamp (if available) (first print in the set)
+    int64 net_timestamp = 217; // PTP timestamp (first print in the set)
+    int64 chk_timestamp = 220; // spread grouping check timestamp
+    int32 num_checks = 223; // number of unallocated legs when this spread print was created
+    google.protobuf.Timestamp timestamp = 226;
+    repeated Legs legs = 229;
+}
+
+

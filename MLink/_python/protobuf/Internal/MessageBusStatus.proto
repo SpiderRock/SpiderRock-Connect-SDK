@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MessageBusStatus {
+    message PKey {
+        
+        string msg_name = 10; // MBUS message name
+        string server_name = 11; // cache server process name
+        string machine_name = 12; // machine name of the cache server publishing this record
+        SysEnvironment sys_environment = 13; // sys environment [Stable, Current, etc]
+        SysRealm sys_realm = 14; // sysRealm [NMS, CME, etc.]
+        RunStatus run_status = 15; // run status [Prod,Beta]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_frames = 100; // total number of frames (messages) in set
+    int64 num_bytes = 103; // total size of message set (in bytes)
+    int32 num_dirty = 106; // number of new messages re-allocating a frame
+    int64 num_updates = 109; // total number of update messages since cache server startup
+    float msg_rate = 112; // messages per second
+    float byte_rate = 115; // bytes per second
+    google.protobuf.Timestamp timestamp = 118;
+}
+
+

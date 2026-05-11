@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message DataBridgeSubscription {
+    message MessageTypes {
+        
+        string message_type = 144;
+        string sample_sha256 = 145;
+        string blank_sha256 = 146;
+        int64 watermark = 147;
+        string stripes = 148;
+        uint32 subscriber_message_type = 149;
+        uint32 publisher_message_type = 150;
+    }
+
+    message WhereClause {
+        
+        string message_type = 140;
+        string filter_term = 141;
+        FilterOperator filter_operator = 142;
+        string filter_comparand = 143;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    SysEnvironment sys_environment = 100;
+    string sys_version = 112; // Sink/subscriber version (i.e. V7, V8)
+    string app_name = 106;
+    DataEncoding encoding = 115;
+    string status_text = 137;
+    string error_text = 138;
+    repeated MessageTypes message_types = 124;
+    repeated WhereClause where_clause = 139;
+}
+
+

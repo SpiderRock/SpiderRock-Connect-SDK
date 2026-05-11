@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ExchAuctionPrint messages are published from direct exchange print notices.
+*/    
+message ExchAuctionPrint {
+    message PKey {
+        
+        string exch_trade_id = 100;
+        string exch_auction_id = 103;
+    }
+
+    message Legs {
+        
+        OptionKey leg_sec_key = 175;
+        SpdrKeyType leg_sec_type = 178;
+        BuySell leg_side = 181;
+        uint32 leg_ratio = 184; // leg ratio (1, 2, etc)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    OptExch auction_exch = 104; // exchange handling the auction
+    string auction_ex_dest = 105; // external exDest of auction (usually means auction is off-exchange)
+    NoticeShape auction_shape = 109;
+    AuctionType auction_type = 112;
+    OptionKey sec_key = 115;
+    SpdrKeyType sec_type = 118;
+    BuySell cust_side = 121; // cust side (single side or mleg/top side) [responder should be opposite]
+    FirmType cust_firm_type = 124; // firm type of the client side of auction (if available)
+    string cust_member_mPID = 130; // exchange member initiating auction (if available)
+    string cust_clear_accnt = 133; // client account designation (if known)
+    string cust_other_detail = 136; // responder additional detail (exchange specific)
+    int32 print_size = 139; // size traded
+    double print_price = 142; // price (can be positive or negative) (single or mleg/package)
+    string print_type = 143; // print type (best effort to match opra print code)
+    FirmType resp_firm_type = 145;
+    PositionType resp_position = 148; // responder open/close indicator
+    string resp_member_mPID = 151; // exchange member responding (if available)
+    string resp_clear_accnt = 154; // responder clear accnt (if known)
+    string resp_other_detail = 157; // responder additional detail (exchange specific)
+    int64 src_timestamp = 160; // source timestamp (nanoseconds) if available
+    int64 net_timestamp = 163; // network timestamp message arrival @ direct exchange gateway
+    int64 dgw_timestamp = 166; // network timestamp mbus message send @ direct exchange gateway
+    google.protobuf.Timestamp timestamp = 169;
+    repeated Legs legs = 172;
+}
+
+

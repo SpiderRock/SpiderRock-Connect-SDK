@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message CellGrid_TradeSheetVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100; // (Optional) Account for associated positions
+    string client_firm = 101;
+    TickerKey ticker = 129; // primary ticker
+    ExpiryFilter expiry_filter = 130;
+    string h_set = 131; // hIndex,hIndex,hIndex, ...
+    int32 v_st = 132; // vertical viewport: [vSt,vEn]
+    int32 v_en = 133;
+    ToolPricer pricer = 108; // note: if any flex parameter is in use (not None/Null) then the server always uses the Exact pricer model
+    int32 i_days = 109; // interest days [0, N]
+    OptOverride i_days_oO = 110; // analysis type for iDays
+    int32 s_days = 111; // settlement days [0, 1, 2, 3, 4]
+    OptOverride s_days_oO = 112; // analysis type for sDays
+    double v_yrs = 113; // volatility years [0.0, 10.0]
+    OptOverride v_yrs_oO = 114; // analysis type for vYrs
+    double rate = 115; // interest (discount) rate [-99, +99.0]
+    OptOverride rate_oO = 116; // analysis type for rateOO
+    double u_prc = 117; // underlier price [0 - 999,999] (CalcModel=LogNorm)  [-999,999, +999,999] (CalcModel=Normal) (note: CalcModel is from root/expiry definition)
+    OptOverride u_prc_oO = 118; // analysis type for uPrc
+    double atm_sDiv = 119; // atmSDiv [-99.0, +999.0]
+    OptOverride atm_sDiv_oO = 120; // analysis type for atmSDiv
+    double atm_sVol = 121; // atmSVol [0.01, 999.0]
+    OptOverride atm_sVol_oO = 122; // analysis type for atmSVol
+    double x_mult = 123; // BasisFn XMult [-10.0, +10.0; cannot be zero] (not used if SVolCurve=Flat)
+    OptOverride x_mult_oO = 124; // analysis type for xMult
+    double x_min_pt = 125; // BasisFn XShift [-9.9, +9.9; can be zero] (not used if SVolCurve=Flat)
+    OptOverride x_min_pt_oO = 126; // analysis type for xMinPt
+    SDivCurve s_div_curve = 127; // type of sDivCurve
+    SVolCurve s_vol_curve = 128; // sticky strike or sticky surface (full surface or BasisFn only)
+}
+
+

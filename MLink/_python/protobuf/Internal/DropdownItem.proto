@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message DropdownItem {
+    message PKey {
+        
+        string text = 10; // Display text
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string detail = 100; // Item details
+}
+
+

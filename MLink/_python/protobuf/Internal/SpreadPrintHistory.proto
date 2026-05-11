@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpreadPrintHistory {
+    message PKey {
+        
+        TickerKey skey = 10;
+        int32 tick_number = 11; // tickNumber = price / minTickSize
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100; // underlier (or product group) tickerKey
+    double price = 103;
+    double min_tick_size = 106;
+    int32 up_quan_d = 109; // all day
+    int32 dn_quan_d = 112;
+    double up_quan_r = 115; // recent period (about 10 minutes)
+    double dn_quan_r = 118;
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

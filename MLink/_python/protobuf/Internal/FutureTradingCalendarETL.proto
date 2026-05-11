@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Step: 1
+    Inputs: FutureHolidayCalendarETL - Cardinal days and years counted 2011-01-01
+    CalcEngine: Spark/ETL
+*/    
+message FutureTradingCalendarETL {
+    message PKey {
+        
+        DateKey trading_date = 10;
+        TickerKey ticker = 11; // eg. FUT-CME-@ES, FUT-NYMEX-@CL, etc.
+        TradingSession trading_session = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    MarketDayType market_day_type = 100;
+    int32 cardinal_day = 103;
+    int32 cardinal_year = 106;
+    float cardinal_minute = 109;
+    google.protobuf.Timestamp timestamp = 112;
+}
+
+

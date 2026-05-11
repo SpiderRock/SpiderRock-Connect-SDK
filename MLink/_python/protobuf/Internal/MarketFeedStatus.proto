@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MarketFeedStatus {
+    message PKey {
+        
+        string channel_label = 10; // market feed channel label
+        DataType data_type = 11; // market feed type
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string stripe1 = 100; // SpiderRock stripe
+    string stripe2 = 101; // SpiderRock stripe (if this channel feeds more than one stripe)
+    MarketFeedOperationalState operation_state = 102; // monitors the heartbeats
+    MarketFeedSequenceState data_state = 103; // monitors for data gaps
+    google.protobuf.Timestamp operation_state_dttm = 104; // date time of when the current state was entered
+    google.protobuf.Timestamp data_state_dttm = 105; // date time of when the current state was entered
+    MarketFeedOperationalState last_operation_state = 106; // if this is a transition, this is the state we transitioned from, empty otherwise
+    MarketFeedSequenceState last_data_state = 107; // if this is a transition this is the dataState we transitions from
+    google.protobuf.Timestamp timestamp = 108;
+}
+
+

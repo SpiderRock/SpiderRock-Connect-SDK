@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SRVendorDividends records contain projected discrete dividend payment dates and amounts for dividend paying equities.
+*/    
+message SRVendorDividends_Extern {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DivVendor div_vendor = 11;
+    }
+
+    message DateAmt {
+        
+        DateKey div_date = 109; // ex-dividend date
+        float div_value = 112; // dividend value
+        string div_currency = 115; // dividend currency
+        DivKind div_kind = 118;
+        DivSource div_source = 121;
+        DivFreq div_freq = 124;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 100; // record update timestamp
+    string text = 103; // extra text (if any)
+    repeated DateAmt date_amt = 106;
+}
+
+

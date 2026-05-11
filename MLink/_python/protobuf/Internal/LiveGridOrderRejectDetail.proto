@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridOrderRejectDetail {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // SpiderRock Accnt Code
+    string c_firm = 101;
+    string user_name = 102; // SpiderRock user name associated with the parent order
+    string remote_text = 103; // text comment from endpoint (if any)
+    int64 base_parent_number = 104; // SpiderRock baseParentNumber (either a parentNumber or a childNumber)
+    google.protobuf.Timestamp trade_date = 105; // trade date
+    string cl_ord_id = 106; // clOrdId resulting in fill (child order)
+    int64 parent_number = 107; // SpiderRock parent number
+    string alt_order_id = 108; // alternate order ID (usually clOrdId from client)
+    string src_routing_code = 109; // inbound FIX routing code, if any
+    SpdrSource spdr_source = 110; // SpiderRock parent order source code [broker pkey]
+    int64 grouping_code = 111; // SpiderRock parent broker number [broker pkey]
+    string sec_key = 142; // Security Key [can be partially filled in (look at secType)]
+    string sec_key_ticker_src = 143;
+    string sec_key_asset_type = 144;
+    SpdrKeyType sec_type = 113; // Security Type [Stock, Future, Option]
+    PriceFormat price_format = 114; // SpiderRock price display format code
+    PriceFormat u_price_format = 115; // SpiderRock underlier price display code
+    string routing_code = 116; // SpiderRock market routing code
+    string machine_name = 117; // name of the machine which is hosting server
+    string engine_name = 118; // SpiderRock execution engine that handled the parent order
+    string gateway_name = 119; // StreetGateway server than handled the child order (if any)
+    ExecStatus exec_status = 120; // SpiderRock execution status (Fill,Bust,Correct,Reject,SysRej)
+    SpdrLimitType order_limit_type = 121; // parent order limit type [Vol, VolX, PrcDe, PrcDeX, etc]
+    SpdrLimitClass order_limit_class = 122; // parent order limit class (makeLimitClass if fill was from making; takeLimitClass if fill was from taking)
+    ParentOrderHandling parent_order_handling = 123; // base parent order algo [take style algo]
+    ParentBalanceHandling parent_balance_handling = 124; // base parent order balance handling [make style algo]
+    int32 parent_order_size = 125; // parent order size
+    string method = 126; // execution method string
+    string strategy = 127; // client strategy [usually client supplied]
+    string origin = 128; // parent order origin string
+    string source = 129; // execution source string
+    int64 risk_group_id = 130; // riskGroupId (parent order group ID) for this execution report
+    AutoHedge auto_hedge = 131; // SpiderRock auto-hedge algorithm (if any)
+    google.protobuf.Timestamp order_dttm = 132; // Date/time of parent order arrival
+    BuySell order_side = 133; // parent/child order side
+    int32 child_size = 134; // child order size
+    double child_price = 135; // child order price
+    string child_exch = 136; // child order exchange code (SpiderRock)
+    string child_ex_dest = 137; // child order exchange code (downstream)
+    google.protobuf.Timestamp child_dttm = 138; // child order send date/time
+    string child_order_handling = 139; // algo that generated the child order responsible for this fill
+    MktStance child_mkt_stance = 140; // child order was expected to be marketable @ child send time
+    google.protobuf.Timestamp timestamp = 141; // SR system timestamp
+    YesNo is_prod = 145; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 146; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 147; // WTS synthetic: alert message (null if no alert)
+}
+
+

@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message FixSessionStatus {
+    message PKey {
+        
+        string routing_code = 10;
+        SysEnvironment sys_environment = 11;
+        string sender_comp_id = 12;
+        string target_comp_id = 13;
+        string sender_sub_id = 14;
+        string target_sub_id = 15;
+        YesNo is_acceptor = 16;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100; // sysRealm [NMS, CME, etc.]
+    string server_code = 103;
+    uint32 app_id = 106; // AppId of the process handling this fix connection
+    string base_routing_code = 109; // for TcpAcceptor sessions
+    string machine_name = 112; // name of the machine which is hosting fix server
+    SessionType session_type = 115; // type of session
+    ConnectType connect_type = 118;
+    string tcp_address = 121; // IPAddress / Port (used to advertise SRFixBase/StreetGateway endpoint for EE/TcpInitiation sessions)
+    int32 tcp_port = 124;
+    string udp_address = 127; // IPAddress / Port (used to advertise SRFixBase/StreetGateway endpoint for EE/DblInitiation sessions)
+    int32 udp_port = 130;
+    FixBaseSessionState session_state = 133;
+    FixBaseSequenceState sequence_state = 136;
+    FixBaseTransportState transport_state = 139;
+    RouteControl route_control = 142; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    google.protobuf.Timestamp route_control_change_dttm = 145;
+    google.protobuf.Timestamp session_date = 148; // session start date (Sun for Weekly sessions)
+    int32 session_counter = 151; // increments each time sequence numbers are reset
+    int32 incoming_seq_num = 154;
+    int32 outgoing_seq_num = 157;
+    int32 num_logon_rcvd = 160;
+    int32 num_logon_sent = 163;
+    int32 num_msg_rcvd = 166;
+    int32 num_msg_sent = 169;
+    int32 num_app_msg_rcvd = 172;
+    int32 num_app_msg_sent = 175;
+    float num_msg_rcvd_per_sec5s = 178; // total number of outgoing messages in the last 5 clock seconds / 5
+    float num_msg_sent_per_sec5s = 181; // total number of incoming messages in the last 5 clock seconds / 5
+    float msg_rcvd_time5s = 184; // 100 * total time (in seconds) spent processing incoming messages / total clock seconds (100.0 = @ max incoming capacity)
+    float msg_sent_time5s = 187; // 100 * total time (in seconds) spent processing outgoing messages / total clock seconds (100.0 = @ max outgoing capacity)
+    google.protobuf.Timestamp last_logon_rcvd = 190;
+    google.protobuf.Timestamp last_fix_route_control_rcvd = 193;
+    google.protobuf.Timestamp last_session_config_change = 196;
+    string last_session_modify_detail = 199;
+    FixBaseSessionStatus session_status = 202;
+    FixBaseSessionError max_session_error = 205;
+    string max_session_error_text = 208;
+    google.protobuf.Timestamp max_session_error_dttm = 211;
+    MonitorCode monitor_code = 214;
+    google.protobuf.Timestamp timestamp = 217;
+    RunStatus run_status__v7 = 5000; // only v7 - enum values match with v8
+    SRDataCenter_V7 data_center__v7 = 5001; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
+}
+
+

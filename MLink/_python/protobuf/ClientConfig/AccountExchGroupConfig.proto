@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AccountExchGroupConfig {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 13; // SR assigned client firm acronym
+        ExchGroup exch_group = 11; // eg (NMS, CMX, ICE, SCE, ICEFEC, ICEFEF)
+        SpdrSecType sec_type = 12; // eg (Stock, Future, Option)
+    }
+
+    message AccntRouteTable {
+        
+        YesNo enabled = 280;
+        string exec_brkr_code = 296;
+        float route_alloc_metric = 277;
+        string brkr_ex_dest = 304; // order routing string (if any) [used to force orders use a specific ExDest regardless of the actual exchange destination]
+    }
+
+    message CapStrategyID {
+        
+        string ex_dest = 303; // exchange
+        string cap_strategy_iD = 300; // client cap strategy ID (if any)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ExecEngineMode exec_engine_mode = 100;
+    StageReview stage_review = 290; // Strict will re-review user changes; Normal will re-review size incr only
+    string review_ex_dest = 301; // order routing string (if any) [StageReview Orders]
+    YesNo allow_review_execs = 109; // allow stage review executions [StageReview Orders]
+    string stage_review_uRL = 291; // Stage Review URL for this account (HTTP(S) / REST / WS)
+    string pri_agg_group = 112; // primary stk grouping code (for computing aggregate positions) [default = ClientFirm]
+    string sec_agg_group = 115; // secondary stk grouping code (for computing aggregate positions) [default = ""]
+    YesNo user_marking = 118; // users are required to do the long/short marking on orders
+    RequireLocate require_locate = 310; // locate check enforced in SR systems
+    YesNo require_extern_pos = 124; // all sell orders require an ExternAggGroupReport (externSource = SRSE) record
+    string locate_firm = 127; // locate firm [must be one of the items in the clientFirmConfig.LocatePool list]
+    string locate_pool = 130; // locate pool @ firm granting the locate
+    string ticket_locate_firm = 307; // ticket/chat (default) locate firm (only used for chat/concierge locate scenarios)
+    FirmType firm_type = 133;
+    OrderCapacity order_capacity = 136; // Order capacity
+    OrderCapacity cust_order_capacity = 139; // Order capacity of Account at Customer's Firm
+    string badge = 119; // exchange memembership and badge id
+    FutClearingRange fut_clearing_range = 142;
+    FutCustType fut_cust_type = 145;
+    int64 cme_stp_id = 311; // CME Self-Trade Prevention ID (co-ordinate with client for value)
+    StpInstruction cme_stp_instruction = 312; // CME Self-Trade Prevention Instruction (default: Cancel Oldest)
+    YesNo is_low_velocity = 148; // if Yes all 390Rule counters will be computed even if not a PriorityCust
+    CatReportType cat_reportable = 151; // CAT reportable type
+    string cat_accnt = 154; // CAT Firm Designated ID
+    string cat_brkr_accnt = 157; // Brkrs CAT Firm Designated ID
+    CatAccntType cat_brkr_accnt_type = 160; // CAT account holder type
+    CatFirmType cat_brkr_firm_type = 163; // CAT source firm type
+    string cat_brkr_iMID = 166; // B/D firm FDID (only if client is a B/D) (supplied by FINRA fbo client)
+    string client_accnt = 169; // client assigned account string (optional) [overrides AccountConfig.clientAccnt]
+    string client_user_name = 172; // client assigned account userName (optional) [overrides AccountConfig.clientUserName]
+    AllocMethod alloc_method = 175; // method for delivery of the allocation instruction to the broker
+    AllocMLegRule alloc_mLeg_rule = 178; // rule for how to send allocation instructions for mleg orders to the broker
+    string alloc_accnt = 181;
+    string alloc_ex_dest = 302; // allocation routing string (if any) [Allocation Messages]
+    string exec_brkr_accnt_alloc = 187; // exec broker account (usually Account)
+    string exec_brkr_cl_firm_alloc = 190; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
+    string exec_brkr_user_name_alloc = 193;
+    string clearing_firm_name = 196; // string name (can be anything) [commonly used by position loaders] (not used in any FIX message)
+    string clearing_firm = 199; // stock clearing firm name or code [books and records only; not visible in fix templates]
+    string clearing_accnt = 202; // eg C233702
+    string client_accnt_ids = 205; // all other accounts that affect this accounts position (eg. C233702, C233703).  Affects incoming FIX drops (and perhaps scripts).
+    PositionSource position_src = 208; // SR = use SR rotated positions; CLR = use clearing records; CLR_SR = use clearing records if loaded but fallback to SR positions; Default (None) = behaves like CLR_SR
+    ClearingLoadTime clearing_load_time = 211;
+    TiedPriceRounding tied_price_rounding = 214; // option limit price rounding rule: Loose = up to 1/4 tick extra; Strict = never exceed limit
+    int32 algo_flash_pct = 305; // percent of orders for which algo will start flash auctions [0 - 100]
+    int32 algo_block_pct = 306; // percent of orders for which algo will start block auctions [0 - 100]
+    YesNo can_iSOSweep = 220; // can initiate ISO Sweep WaitTrigger orders
+    NbboCap nbbo_cap = 309; // indicates if order price is capped at NBBO (or 1, 5, 10 pennies through) unless overridden by ParentOrder
+    AuctionResponder auction_responder = 223; // can respond to exchange / away auctions
+    string take_exch_list = 226; // exchange order for marketable orders eg: BATS,NYSE,CBOE
+    string make_exch_list = 229; // exchange order for non-marketable orders eg: BATS,NYSE,CBOE
+    IncExchFee inc_take_exch_fee = 232; // include exchange fee in limit calculations
+    IncExchFee inc_make_exch_fee = 235; // include exchange fee in limit calculations
+    MakeExchRule make_exch_rule = 238; // ActiveMaker exchange preference rule: 'MaxPart' will pick exchanges to maximize participation; 'FeeOrder' will pick exchanges to minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO.
+    YesNo use_active_opt_maker = 239; // if yes, all ActiveMaker option orders will use the ActiveOptMaker AlgoHandler (enables edge order handling)
+    RoundRule round_rule = 241; // Stock Price Rounding rule (Fuzzy = 90%, Exact = 100%)
+    ExecMode exec_mode = 244;
+    YesNo cxl_on_halt = 247; // cancel parent orders if the item being traded (or underlier) is halted
+    YesNo split_zero = 250; // sell stock down to zero before selling short
+    OddLotFlag odd_lot_flag = 253; // RoundLotsOnly restricts most child order sizes to multiples of 100
+    int32 max_child_orders_per_day = 256; // maximum number of option child orders allowed for this account per day (zero = no restriction)
+    int32 max_parent_brkrs_per_day = 259; // maximum number of execution engine stock broker (default=2,000)
+    int32 risk_cxl_throttle = 262; // maximum risk throttle cancel rate (per second)
+    BetaSource beta_source = 265;
+    RouteAllocRule route_alloc_rule = 294;
+    string modified_by = 283; // user who last modified this record
+    SysEnvironment modified_in = 286;
+    google.protobuf.Timestamp timestamp = 289; // timestamp of last modification
+    repeated AccntRouteTable accnt_route_table = 271;
+    repeated CapStrategyID cap_strategy_i_d = 298;
+}
+
+

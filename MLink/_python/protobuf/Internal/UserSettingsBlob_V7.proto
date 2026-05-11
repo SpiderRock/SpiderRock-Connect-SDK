@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: UserSettingsBlob
+    V8 Message Name: UserSettingsBlob
+    Bridging pattern:  [V8 --> V7] [V7 --> V8]
+    BridgeFromV8:UserSettingsBlob
+*/    
+message UserSettingsBlob_V7 {
+    message PKey {
+        
+        string user_name = 5000; // v7 & v8: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=SRUser]
+        UserLocation user_location = 5001; // v7 & v8
+        string group_name = 5002; // v7 & v8 --- Original comment: This will either be user set or AUTOSAVE(something)
+        string tool_name = 5003; // v7 & v8
+        string element_name = 5004; // v7 & v8 --- Original comment: eg;	APP:LOCATION, GRID:users, GRID:orders, ...
+        int32 chunk_id = 5005; // v7 & v8 --- Original comment: If blob was broken into multiple chunks, which chunk this is
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 5006; // v7 & v8: Using Meta Types: V7=[string,Length=16,Alias=ClientFirmString,MetaType=NA], V8=[string,Length=16,Alias=SRClientFirmString,MetaType=SRClientFirm]
+    SettingVisible setting_visible = 5007; // v7 & v8
+    string settings = 5008; // v7 & v8 --- Original comment: up to 32kb
+    string description = 5009; // v7 & v8
+    int32 chunk_total = 5010; // v7 & v8 --- Original comment: Number of chunks blob has been broken into, 1 for not broken up
+    google.protobuf.Timestamp last_modified = 5011; // v7 & v8 --- Original comment: Time last modified, also used to track groups of blob chunks
+}
+
+

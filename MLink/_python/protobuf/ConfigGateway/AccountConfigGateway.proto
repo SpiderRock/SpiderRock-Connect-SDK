@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message AccountConfigGateway {
+    message PKey {
+        
+        string accnt = 10;
+        string client_firm = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    AccountType account_type = 100; // SR account type
+    string omni_accnt = 103; // omnibus account (if any)  (must be an existing account with the same clientFirm and type=Omnibus)
+    string omni_accnt2 = 104; // omnibus account (if any)  (must be an existing account with the same clientFirm and type=Omnibus)
+    string client_accnt = 112; // client assigned "long" account string (optional) [used to map between client and SR account strings]
+    string client_accnt_ids = 113; // comma separated list of alternate client defined accnt strings that all map to this accountConfig
+    string client_tags = 114; // (optional) user defined account tag(s) (eg. tag,tag,tag,tag) [max of 10,000 total chars (including seps)]
+    string accnt_name = 115; // account name (SR assigned)
+    string proxy_firm1 = 121; // proxy firm #1
+    string proxy_firm2 = 124; // proxy firm #2
+    string proxy_firm3 = 127; // proxy firm #3
+    string client_mPID = 130;
+    string internal_mPID = 133;
+    string exec_brkr_code = 136;
+    string exec_brkr_account_stk = 139;
+    string exec_brkr_cl_firm_stk = 142;
+    string exec_brkr_account_fut = 145;
+    string exec_brkr_cl_firm_fut = 148;
+    string exec_brkr_account_opt = 151;
+    string exec_brkr_cl_firm_opt = 154;
+    string review_brkr_ex_dest_stk = 157;
+    string review_brkr_ex_dest_fut = 160;
+    string review_brkr_ex_dest_opt = 163;
+    string exec_user_name_stk = 166;
+    string exec_user_name_fut = 169;
+    string exec_user_name_opt = 172;
+    string clearing_firm_name = 175; // string name (can be anything) [commonly used by position loaders] (not used in any FIX message)
+    string clearing_firm_stk = 178; // stock clearing firm name or code [books and records only; visible in fix drop templates]
+    string clearing_accnt_stk = 181; // eg C233702
+    string clearing_firm_fut = 184; // futures clearing firm name or code [books and records only; visible in fix drop templates]
+    string clearing_accnt_fut = 187; // eg C233702
+    string clearing_firm_opt = 190; // options clearing firm name or code [books and records only; visible in fix drop templates]
+    string clearing_accnt_opt = 193; // eg C233701
+    string clearing_flip_type_opt = 196;
+    string clearing_flip_firm_opt = 199;
+    string clearing_flip_accnt_opt = 201;
+    PositionSource stk_position_src = 204;
+    PositionSource fut_position_src = 207;
+    PositionSource opt_position_src = 210;
+    string theo_model = 213; // theo model (primary)
+    string theo_model2 = 214; // theo model #2
+    string pri_stk_agg_group = 216; // primary stk grouping code (for computing aggregate positions) [default = ClientFirm]
+    string sec_stk_agg_group = 219; // secondary stk grouping code (for computing aggregate positions) [default = ""]
+    string opt_agg_group = 222; // opt grouping code (for computing aggregate positions) [default = ClientFirm]
+    string fut_agg_group = 225; // fut grouping code (for computing aggregate positions) [default = ClientFirm]
+    string accnt_color = 231;
+    AccntStatus accnt_status = 234; // This accounts current status
+    string default_trading_accnt = 237; // [our type=Rollup] default trading accnt (must be type=Trading) (if ticker not found in AltSymbolMap)
+    string mifid_accnt_id = 240; // MIFID account identifier
+    DateKey cat_fdid_open_date = 243; // CAT FDID OpenDate
+    string no_cross_group = 249; // no cross grouping code (accounts with the same nCrossGroup will not cross with themselves) [default = ClientFirm]
+    HedgeDeltaRule hedge_delta_rule = 252; // HedgeDelta Source (IVol = use SR implied surface (sticky strike), IvS = use SR surface (dynamic), TVol = use user supplied theo surface (sticky strike), TvS = use user supplied theo surface (dynamic)) [AccountConfig.hedgeDelta]
+    float binary_days = 255; // used to force delta calcs binary prior to expiration
+    AwayExecControl away_exec_control = 258; // Whether to include Away Executions in EE risk counters
+    RiskGroupControl risk_group_control = 261; // enables enhanced risk group controls, ParentCap.n means each parent order can be at most 1/n of the risk group limit, StrictLimits implies PC.4
+    YesNo is_ats_enabled = 264;
+    YesNo clr_flip_enabled = 267; // used to enable broker/dealers to send agency clearing (ClrFlip) instructions on parent orders
+    StageReview stage_review = 270; // Strict will re-review user changes; Normal will re-review size incr only
+    string review_ex_dest = 273; // order routing string (if any) [StageReview Orders]
+    YesNo user_marking = 276; // users are required to do the long/short marking on orders
+    RequireLocate require_locate = 279; // locate check enforced in SR systems
+    string locate_firm = 282; // locate firm [must be one of the items in the clientFirmConfig.LocatePool list]
+    string locate_pool = 285; // locate pool @ firm granting the locate
+    FirmType firm_type = 288;
+    OrderCapacity order_capacity = 291; // Order capacity
+    OrderCapacity cust_order_capacity = 294; // Order capacity of Account at Customer's Firm
+    FutClearingRange fut_clearing_range = 297;
+    FutCustType fut_cust_type = 300;
+    CatReportType cat_reportable = 303; // CAT reportable type
+    string cat_accnt = 306; // CAT Firm Designated ID
+    string cat_brkr_accnt = 309; // Brkrs CAT Firm Designated ID
+    CatAccntType cat_brkr_accnt_type = 312; // CAT account holder type
+    CatFirmType cat_brkr_firm_type = 315; // CAT source firm type
+    string cat_brkr_iMID = 318; // B/D firm FDID (only if client is a B/D) (supplied by FINRA fbo client)
+    TiedPriceRounding tied_price_rounding = 321; // option limit price rounding rule: Loose = up to 1/4 tick extra; Strict = never exceed limit
+    int32 algo_flash_pct = 324; // percent of orders for which algo will start flash auctions [0 - 100]
+    int32 algo_block_pct = 327; // percent of orders for which algo will start block auctions [0 - 100]
+    AuctionResponder auction_responder = 330; // can respond to exchange / away auctions
+    string take_exch_list = 336; // exchange order for marketable orders eg: BATS,NYSE,CBOE
+    string make_exch_list = 339; // exchange order for non-marketable orders eg: BATS,NYSE,CBOE
+    IncExchFee inc_take_exch_fee = 342; // include exchange fee in limit calculations
+    IncExchFee inc_make_exch_fee = 345; // include exchange fee in limit calculations
+    MakeExchRule make_exch_rule = 348; // ActiveMaker exchange preference rule: 'MaxPart' will pick exchanges to maximize participation; 'FeeOrder' will pick exchanges to minimize fees [maximize rebates]; 'ImprvOnly' will only make when improving NBBO.
+    RoundRule round_rule = 351; // Stock Price Rounding rule (Fuzzy = 90%, Exact = 100%)
+    ExecMode exec_mode = 354;
+    YesNo cxl_on_halt = 357; // cancel parent orders if the item being traded (or underlier) is halted
+    YesNo split_zero = 360; // sell stock down to zero before selling short
+    BetaSource beta_source = 363;
+    string billing_schedule = 366; // overrides billingSchedule at clientFirm level
+    string route_templates = 369; // comma separated list of AccountRouteConfigTemplate IDs
+    string account_config_risk_template = 372; // AccountConfigRiskTemplate ID
+    string exch_group_cap_strat_template_nms_eqt = 375; // AccountExchGroupCapStratTemplate ID for NMS EQT config's CapStrategyTable
+    string exch_group_cap_strat_template_nms_opt = 378; // AccountExchGroupCapStratTemplate ID for NMS OPT config's CapStrategyTable
+    string exch_group_cap_strat_template_cmx_fut = 381; // AccountExchGroupCapStratTemplate ID for CMX FUT config's CapStrategyTable
+    string exch_group_rte_template_nms_eqt = 384; // AccountExchGroupRteTableTemplate ID For NMS EQT config's AccountRouteTable
+    string exch_group_rte_template_nms_opt = 387; // AccountExchGroupRteTableTemplate ID for NMS OPT config's AccountRouteTable
+    string exch_group_rte_template_cmx_fut = 390; // AccountExchGroupRteTableTemplate ID for CMX FUT config's AccountRouteTable
+}
+
+

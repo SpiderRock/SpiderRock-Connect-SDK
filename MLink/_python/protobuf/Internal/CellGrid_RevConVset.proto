@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message CellGrid_RevConVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100; // (Optional) Account for associated positions
+    string client_firm = 101;
+    TickerKey ticker = 108; // primary ticker
+    ExpiryFilter expiry_filter = 109;
+    string h_set = 110; // hIndex,hIndex,hIndex, ...
+    int32 v_st = 111; // vertical viewport: [vSt,vEn]
+    int32 v_en = 112;
+}
+
+

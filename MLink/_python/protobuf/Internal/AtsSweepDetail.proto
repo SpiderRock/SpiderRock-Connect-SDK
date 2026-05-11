@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AtsSweepDetail {
+    message PKey {
+        
+        int64 sweep_iD = 10; // SR Guid
+    }
+
+    message ExchQuote {
+        
+        OptExch opt_exch = 131;
+        float bid_prc = 132;
+        int32 bid_size = 133;
+        float ask_prc = 134;
+        int32 ask_size = 135;
+        AtsSweep result = 136;
+    }
+
+    message ExchSweep {
+        
+        int64 cl_ord_id = 120; // sweep clOrdId
+        string ex_dest = 121;
+        BuySell side = 122;
+        int32 size = 123;
+        double price = 124;
+        int32 leaves = 125;
+        int32 cum_fill_qty = 126;
+        double avg_fill_prc = 127;
+        OrderStatus status = 128;
+        int64 sent_time = 129;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 ats_auction_number = 100; // SR block auction number
+    string accnt = 101;
+    string client_firm = 102;
+    OptionKey sec_key = 103;
+    SpdrKeyType sec_type = 104;
+    int64 parent_number = 105; // current parentNumber (initiator or responder) associated with this fragment (broker.Accnt = accnt)
+    int64 base_parent_number = 106; // baseParentNumber (initiator or responder) associated with this fragment (broker.Accnt = accnt)
+    float nbbo_bid = 107; // option nbbo bid (@ trial time)
+    float nbbo_ask = 108; // option nbbo ask (@ trial time)
+    int32 nbbo_bid_sz = 109; // option nbbo cum bid size (@ trial time)
+    int32 nbbo_ask_sz = 110; // option nbbo cum ask size (@ trial time)
+    int32 nbbo_bid_cnt = 111; // option nbbo cum bid exch count (@ trial time)
+    int32 nbbo_ask_cnt = 112; // option nbbo cum ask exch count (@ trial time)
+    int32 cum_sweep_order_qty = 113;
+    int32 cum_sweep_leaves_qty = 114;
+    int32 cum_sweep_fill_qty = 115; // cumulative sweep fill quantity (all sweep orders)
+    double avg_sweep_fill_prc = 116; // average sweep price (all sweep orders)
+    YesNo is_iso_eligible = 117;
+    google.protobuf.Timestamp sweep_timestamp = 118;
+    google.protobuf.Timestamp timestamp = 137;
+    repeated ExchQuote exch_quote = 130;
+    repeated ExchSweep exch_sweep = 119;
+}
+
+

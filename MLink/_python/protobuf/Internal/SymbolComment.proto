@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SymbolComment {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        int64 comment_iD = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string user_name = 100;
+    string user_group = 103;
+    int32 is_deleted = 106;
+    google.protobuf.Timestamp timestamp = 109;
+    string comment = 112;
+}
+
+

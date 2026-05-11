@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SurfaceFitStats records contain surface fit statistics for a curve (sampled every 10 seconds; reported every 10 minutes)
+*/    
+message SurfaceFitStats {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey ekey = 100; // Expiry key
+    string stripe = 103; // stripe
+    int32 num_passes = 106; // number of passes in the sample window
+    int32 num_strikes = 109; // maximum number of strikes in the region in any given pass
+    double avg_uPrc = 112; // average underlier price in the sample window
+    float avg_vega_volume = 115; // average vega volume
+    int32 price_fit_cnt = 118; // number of times surface fit waterfall method was based on price fit
+    int32 recent_fit_cnt = 121; // number of times surface fit waterfall method was based on recent fit
+    int32 interp_expiry_fit_cnt = 124; // number of times surface fit waterfall method was based on prev and next expiry interpolation
+    int32 next_expiry_fit_cnt = 127; // number of times surface fit waterfall method was based on next expiry interpolation
+    int32 median_fit_cnt = 130; // number of times surface fit waterfall method was based on median surface
+    int32 static_fit_cnt = 133; // number of times surface fit waterfall method was based on static surface
+    float min_atm_vol = 136; // minimum Atm volatility
+    float max_atm_vol = 139; // maximum Atm volatility
+    float avg_atm_vol = 142; // average Atm volatility
+    float avg_atm_vWidth = 145; // average min vol width across all passes
+    float min_sDiv = 148; // minimum SDiv
+    float max_sDiv = 151; // maximum SDiv
+    float avg_sDiv = 154; // average SDiv
+    double min_uRatio = 157; // minimum UPrcRatio
+    double max_uRatio = 160; // maximum UPrcRatio
+    double avg_uRatio = 163; // average UPrcRatio
+    float min_knot_shift = 166; // minimum skew knot shift
+    float max_knot_shift = 169; // maximum skew knot shift
+    float min_xmin = 172; // minimum Xmin value
+    float max_xmin = 175; // maximum Xmin value
+    float min_xmax = 178; // minimum Xmax value
+    float max_xmax = 181; // maximum Xmax value
+    float min_emove = 184; // minimum Emove value
+    float max_emove = 187; // maximum Emove value
+    int32 min_num_saddle_pts = 190; // minimum number of saddle points
+    int32 max_num_saddle_pts = 193; // maximum number of saddle points
+    float avg_num_saddle_pts = 196; // average number of saddle points
+    float min_saddle_curvature = 199; // minimum saddle curvature
+    float max_saddle_curvature = 202; // maximum saddle curvature
+    float avg_saddle_curvature = 205; // average saddle curvature
+    float min_min_saddle_span = 208; // minimum span between saddle points
+    float max_min_saddle_span = 211; // maximum span between saddle points
+    float avg_min_saddle_span = 214; // average span between saddle points
+    int32 num_surface_tradable = 217; // number of times surface tradeable status was OK
+    int32 num_surface_result_oK = 220; // number of times surface result was OK
+    int32 num_surface_non_tradable = 223; // number of times surface tradeable status was not OK
+    int32 num_surface_result_not_oK = 226; // number of times surface result was not OK
+    google.protobuf.Timestamp batch_timestamp = 229;
+}
+
+

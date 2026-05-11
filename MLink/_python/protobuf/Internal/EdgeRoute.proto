@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    risk-to-edge
+*/    
+message EdgeRoute {
+    message PKey {
+        
+        string accnt = 10; // SR assigned accnt code
+        string cfirm = 11; // SR assigned client firm acronym
+        string exec_brkr_code = 12; // SR execBrkrCode (SR Assigned)
+        EdgeExDest edge_ex_dest = 13; // SR assigned ex-dest code
+    }
+
+    message RoutingTable {
+        
+        string routing_code = 121; // routing session code (is a RouteDefinition.pkey.routingCode) [RouteDefinition.execBrkrCode must match execBrkrCode]
+        FeatureDisable feature_disable = 124; // used to disable certain route features before reaching the routingCode/routeDefinition
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo enabled = 100;
+    FlipType clr_flip_type = 103; // type of clearing corp delivery
+    string clr_flip_firm = 106; // deliverTo clearing member (eg. OCC#, NSCC#, MPID, or InstitutionID)
+    string clr_flip_accnt = 109; // deliverTo client account (eg. OCC AID# or a DVP FBO code)
+    string clr_brkr_mPID = 112; // clearing broker (equity clearing only) [exDest is an option exch exDest=NMS$STK must exist in this list]
+    RoutingRule routing_rule = 115;
+    google.protobuf.Timestamp timestamp = 127; // timestamp of last modification
+    repeated RoutingTable routing_table = 118;
+}
+
+

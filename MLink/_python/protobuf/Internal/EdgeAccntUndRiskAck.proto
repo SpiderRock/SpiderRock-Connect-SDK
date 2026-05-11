@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    risk-to-edge
+*/    
+message EdgeAccntUndRiskAck {
+    message PKey {
+        
+        string accnt = 10; // SR assigned accnt code
+        string cfirm = 11; // SR assigned client firm acronym
+        ExpiryKey und_key = 12;
+        SpdrKeyType und_type = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo enabled = 100;
+    int64 und_dDelta_check_pt = 103; // [per underlier] [this edge device only]
+    int32 min_und_dDelta = 106; // deviation from checkPt
+    int32 max_und_dDelta = 109;
+    int64 und_dGamma_check_pt = 112; // [per underlier] [this edge device only]
+    int32 min_und_dGamma = 115; // deviation from checkPt
+    int32 max_und_dGamma = 118;
+    int64 timestamp = 121;
+}
+
+

@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockMinuteBarHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        google.protobuf.Timestamp date = 11; // end of minute bar
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    DateKey trading_date = 103;
+    TradingSession trading_session = 106;
+    double prt_open = 109; // Open print
+    double prt_high = 112; // High print
+    double prt_low = 115; // Low print
+    double prt_last = 118; // Last print
+    double prt_vWap = 121; // VWap (print)
+    double prt_volume = 124; // Print volume
+    int32 prt_count = 127; // Print count
+    double qte_hi_bid = 130; // Quote high bid
+    double qte_lo_ask = 133; // Quote low ask
+    double qte_twap = 136; // Quote TWap
+    int32 qte_count = 139; // Quote count
+    double bid = 142; // Bid
+    double ask = 145; // Ask
+    int32 bid_sz = 148; // Bid size
+    int32 ask_sz = 151; // Ask size
+    float width = 154; // Bid/ask spread
+    YesNo is_eOB = 157; // is end-of-bar (every 10 minutes)
+    YesNo is_eOH = 160; // is end-of-hour
+    google.protobuf.Timestamp timestamp = 163; // same as date + time
+}
+
+

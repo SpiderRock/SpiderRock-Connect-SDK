@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message HolidayCalendarETL {
+    message PKey {
+        
+        CalendarCode calendar_code = 10;
+        YesNo is_user_override = 11;
+    }
+
+    message Holiday {
+        
+        DateKey date = 101;
+        MarketDayType market_day_type = 104; // fraction of a volatility day (full holidays = 0.0, full trading day = 1.0)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp timestamp = 103;
+    repeated Holiday holiday = 100;
+}
+
+

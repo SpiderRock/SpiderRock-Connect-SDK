@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrFixParentExecution {
+    message PKey {
+        
+        int64 fill_number = 10;
+        string unique_msg_iD = 11; // internal stream unique messageId.  Usually either an execId, clOrdId, or crossId.   Unique across drop stream (drop server and client firm)
+        string server_code = 12; // SR Drop Server Code
+        string client_firm = 13; // SR Client Firm
+        StreamType stream_type = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100; // SR internal account (used for permissioning/routing)
+    OptionKey sec_key = 103;
+    SpdrKeyType sec_type = 106;
+    int64 base_parent_number = 109; // SpiderRock base parent number
+    int64 parent_number = 112; // SpiderRock parent number
+    int32 fill_version = 115;
+    int64 cl_ord_id = 118; // SR Child Order Number (matches SpdrChildOrder.pkey.clOrdId)
+    BuySell side = 121;
+    ExecStatus exec_status = 124; // SpiderRock execution status (Fill,Bust,Correct)
+    int32 last_fill_qty = 127;
+    double last_fill_price = 130;
+    google.protobuf.Timestamp last_fill_dttm = 133;
+    int32 cum_fill_qty = 136; // from SpdrParentExecution.cumFillQty
+    double avg_fill_price = 139; // from SpdrParentExecution.avgFillPrice
+    string fix_cl_ord_id = 142; // stream clOrdID<11>
+    string fix_cross_id = 145; // stream crossID<548>
+    string fix_exec_id = 148; // stream execID<17>
+    string fix_exec_type = 151; // stream execType<150>
+    string fix_ord_status = 154; // stream ordStatus<39>
+    int32 fix_cum_fill_qty = 157; // stream cumQty<14>
+    double fix_avg_fill_px = 160; // stream avgPx<6>
+    google.protobuf.Timestamp fix_transact_dttm = 163; // stream transactTime<60>
+    int64 net_timestamp = 166; // drop gateway arrival timestamp
+    google.protobuf.Timestamp timestamp = 169;
+}
+
+

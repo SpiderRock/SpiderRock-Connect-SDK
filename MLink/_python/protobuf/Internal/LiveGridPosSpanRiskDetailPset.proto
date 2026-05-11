@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message LiveGridPosSpanRiskDetailPset {
+
+
+    MessageMetadata _meta = 1;
+    
+    float prc_span = 100; // input prcSpan value
+    float vol_span = 101; // input volSpan value
+    SpanType prc_span_type = 102; // input prcSpan type
+    SpanType vol_span_type = 103; // input volSpan type
+    float adj_days = 110; // calendar days subtracted from time-to-expiry; -1 = disabled
+    float max_days = 111; // upper bound for time-to-expiry in days; -1 = disabled
+}
+
+

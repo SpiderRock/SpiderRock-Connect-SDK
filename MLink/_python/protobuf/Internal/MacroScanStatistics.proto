@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message MacroScanStatistics {
+    message PKey {
+        
+        string user_name = 10;
+        string macro_name = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 macro_scan_iD = 100; // scan ID of most recent scan
+    string theo_model = 103;
+    RiskAggregate aggregate1 = 106;
+    RiskAggregate aggregate2 = 109;
+    int32 num_und_universe = 112; // Num underliers in symbol list
+    int32 num_und_context_skips = 115; // Underliers not included in selected screen context
+    int32 num_und_explicity_excluded = 118; // Underliers explicity excluded
+    int32 num_und_sym_ctrl = 121; // SymbolControl either missing or held (and required)
+    int32 num_und_no_stk_def = 124; // No StockDefinition (sd) record
+    int32 num_und_price_range = 127; // range: uPrc
+    int32 num_und_stk_vlm_range = 130; // range: uPrc * sd.StockVolume / 1mm
+    int32 num_und_mkt_cap_range = 133; // range: uPrc * sd.SharesOutstanding / 1mm
+    int32 num_und_price_perc_range = 136; // Outside the underlier price % change range
+    int32 num_und_eDays_range = 139; // range: eDays (NearEarnDays) (days to next earnings [-3 to 65])
+    int32 num_und_iEMove_range = 142; // range: iEMove (term.eMove) [SR implied earnings move]
+    int32 num_und_hEMove_range = 145; // range: hEMove (term.eMoveHist) [SR historical earnings move]
+    int32 num_und_eMove_ratio_rank = 148; // rank: log( iEMove / hEMove )
+    int32 num_und_stk_vlm_rank = 151; // rank: uPrc * sd.StockVolume
+    int32 num_und_mkt_cap_rank = 154; // rank: uPrc * sd.SharesOutstanding
+    int32 num_und_price_chg_rank = 157; // rank: log( uPrc / uPrc.prev )
+    int32 num_sym_risk_controls = 160; // risk control: zero size
+    int32 num_und_oK = 163;
+    int32 num_exp_universe = 166; // Num symbol/expirations scanned
+    int32 num_exp_context_skips = 169; // Expirations not included in selected screen context
+    int32 num_exp_explicity_excluded = 172; // Expirations explicity excluded
+    int32 num_exp_days_range = 175; // Trading days to expiry outside of range
+    int32 num_exp_eCnt_range = 178; // Expiry earnings count outside of range (lsa.eDaysAdj)
+    int32 num_exp_no_live_surface = 181; // LiveSurface record missing
+    int32 num_exp_atm_vol_range = 184; // lsa.atm outside of range (vol pts)
+    int32 num_exp_atm_vWidth_range = 187; // lsa.vwidth (best width;3 strike range) outside of range (vol pts)
+    int32 num_exp_atm_vol_chg_rank = 190; // rank: log(lsa.atm / psa.atm)
+    int32 num_exp_atm_vol_chg_range = 193; // range: lsa.atm - psa.atm
+    int32 num_exp_atm_slope_rank = 196; // rank: lsa.slope
+    int32 num_exp_atm_slope_chg_rank = 199; // rank: lsa.slope - psa.slope
+    int32 num_exp_vega_vlm_rank = 202; // rank: optionOpenVega.vegaVolume [today expiry vega volume]
+    int32 num_exp_vega_vlm_chg_rank = 205; // rank: log(vegaVlm / vegaVlm.prev) [today expiry vega volume / prev day expiry vega volume]
+    int32 num_exp_open_vega_rank = 208; // rank: optionOpenVega.openVega [start of day open expiry vega]
+    int32 num_exp_risk_controls = 211; // risk control: zero size
+    int32 num_exp_oK = 214;
+    int32 num_opt_universe = 217; // Num options scanned (x2: Buy + Sell)
+    int32 num_opt_context_skips = 220; // Options not included in selected screen context
+    int32 num_opt_explicity_excluded = 223; // Options explicity excluded
+    int32 num_opt_no_implied_qte = 226; // OptionImpliedQuote (oiq) record missing
+    int32 num_opt_abs_de_range = 229; // option abs(de) outside of range
+    int32 num_opt_xde_range = 232; // option xde outside of range
+    int32 num_opt_xVol_slope_range = 235; // option xaxis vol slope outside of range
+    int32 num_opt_price_range = 238; // option surface mark outside of range
+    int32 num_opt_iVol_chg_rank = 241; // rank: log(ivol / ivol.prev)
+    int32 num_opt_opn_wt_vega_rank = 244; // rank: option open time weighted vega
+    int32 num_opt_theo_edge_range = 247; // theo edge outside of range
+    int32 num_opt_theo_edge_rank = 250; // rank: theo edge
+    int32 num_opt_surf_edge_range = 253; // surface edge outside of range
+    int32 num_opt_surf_edge_rank = 256; // rank: surface edge
+    int32 num_opt_prob_range = 259; // take.probability outside of range
+    int32 num_opt_prob_rank = 262; // rank: take.probability
+    int32 num_opt_rel_prob10m_rank = 265; // rank: take.probability - avg.take.prob (10m)
+    int32 num_opt_cPSkip = 268; // options excluded by call/put filter
+    int32 num_opt_calc_err = 271; // errors calculating option prices/greeks/theos
+    int32 num_opt_skip_err = 274; // num options skip because they had no calc error (showCalcErrors = Y)
+    int32 num_opt_min_size = 277; // order size > 0 && < minimum size
+    int32 num_opt_no_position = 280; // PositionType != Any and no option position
+    int32 num_opt_risk_controls = 283; // risk control: zero size
+    int32 num_opt_oK = 286;
+    double elapsed = 289;
+    int32 num_over_max_query_count = 292;
+    int32 num_over_max_symbol_count = 295;
+    int32 num_over_max_expiry_count = 298;
+    int32 num_over_max_results_count = 301;
+    google.protobuf.Timestamp last_scan_dttm = 304; // timestamp of most recent scan
+    string last_user_name = 307; // last username to execute this scan
+}
+
+

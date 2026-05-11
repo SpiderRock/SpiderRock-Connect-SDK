@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrVolChartRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100;
+    string accnt = 103;
+    string client_firm = 116;
+    TickerKey relative_ticker = 106;
+    string user_name = 109;
+    GetAction action = 112;
+    google.protobuf.Timestamp timestamp = 115; // server timestamp
+}
+
+

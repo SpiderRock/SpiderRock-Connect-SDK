@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message OptExpiryCardVset {
+    message SelectedRoots {
+        
+        string selected_root = 126;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100; // Requested ticker key
+    FlexType flex_type = 127; // flex exercise type (if not None will show expiries for the selected flex type instead of regular/listed expiries)
+    google.protobuf.Timestamp flex_expiry = 128; // A single custom expiry to be added to the list as type Flex (cannot be in the past, non-trading date (Sat/Sun + holidays), or more than 5 years in the future)
+    YesNo show_zDte = 116; // Show zDte expiries
+    YesNo show_daily = 103; // Show daily expiries
+    YesNo show_weekly = 106; // Show weekly expiries
+    YesNo show_regular = 112; // Show regular expiries
+    YesNo show_quarterly = 109; // Show quarterly expiries
+    YesNo show_long_term = 117; // Show long term expiries
+    YesNo show_other_exp = 118; // Show other (none of the above) expiries
+    YesNo show_multihedge = 115; // Show multihedge expiries
+    string selected_root = 124;
+    repeated SelectedRoots selected_roots = 125;
+}
+
+

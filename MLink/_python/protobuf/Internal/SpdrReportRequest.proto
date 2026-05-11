@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message SpdrReportRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    string accnt = 100;
+    string client_firm = 131;
+    ToolType tool_type = 103;
+    int64 rfq_seq_number = 106;
+    int64 stock_seq_number = 109;
+    int64 future_seq_number = 112;
+    int64 option_seq_number = 115;
+    int64 multi_leg_seq_number = 118;
+    int64 risk_grp_ctrl_seq_number = 121;
+    int64 product_seq_number = 124;
+    int64 tick_size_seq_number = 127;
+    GetAction action = 130;
+}
+
+

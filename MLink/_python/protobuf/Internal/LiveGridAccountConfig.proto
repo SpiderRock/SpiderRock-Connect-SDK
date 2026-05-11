@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveGridAccountConfig {
+    message PKey {
+        
+        LiveGridDataSet d_set = 10;
+        int32 d_key = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string accnt = 100;
+    string client_firm = 101;
+    AccountType account_type = 102;
+    AccntStatus accnt_status = 103;
+    google.protobuf.Timestamp accnt_status_dttm = 104;
+    string accnt_name = 105;
+    string omni_accnt = 106;
+    string tgt_rollup_accnt = 107;
+    string tgt_reconcile_accnt_sR = 108;
+    string proxy_firm1 = 109;
+    string client_accnt = 110;
+    string client_user_name = 111;
+    YesNo require_alt_order_id = 112;
+    string no_cross_group = 113;
+    string theo_model = 114;
+    HedgeDeltaRule hedge_delta_rule = 115;
+    RiskGroupControl risk_group_control = 116;
+    AwayExecControl away_exec_control = 117;
+    YesNo is_ats_enabled = 118;
+    YesNo clr_flip_enabled = 119;
+    PricingVersion pricing_version = 120;
+    string billing_schedule = 121;
+    DateKey cat_fdid_open_date = 122;
+    DateKey cat_fdid_end_date = 123;
+    string modified_by = 124;
+    SysEnvironment modified_in = 125;
+    google.protobuf.Timestamp timestamp = 126;
+    YesNo is_prod = 127; // WTS synthetic: Yes=prod, No=test, None=indeterminate
+    AlertSeverity alert_severity = 128; // WTS synthetic: Critical, Warning, Info (None if no alert)
+    string alert_text = 129; // WTS synthetic: alert message (null if no alert)
+}
+
+

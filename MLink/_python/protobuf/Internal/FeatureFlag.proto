@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    Defines a feature flag controlling access to platform features by scope, environment, user type, user, and client firm.
+    The enabled field is the default state; targeting groups act as allowlists (empty = unconstrained).
+    create_time, expiry_time, and region are audit fields only and do not influence enabled evaluation.
+*/    
+message FeatureFlag {
+    message PKey {
+        
+        string name = 10; // feature flag name (e.g. enable_ignite_tradesheet)
+    }
+
+    message ClientFirms {
+        
+        string client_firm = 163; // SR client firm code (e.g. SR, SRTEST)
+    }
+
+    message Environments {
+        
+        SysEnvironment environment = 154; // deployment environment (e.g. Venus, Mars, Saturn)
+    }
+
+    message Rules {
+        
+        YesNo enabled = 168; // flag state if this rule matches
+        string scope = 171; // comma-separated scope identifiers (empty = any; e.g. trade,sparc)
+        string region = 174; // comma-separated region identifiers (empty = any; e.g. US,EU)
+        string environment = 177; // comma-separated SysEnvironment names (empty = any; e.g. Venus,Mars)
+        string user_type = 180; // comma-separated UserType names (empty = any; e.g. SRAdmin,SRUser)
+        string user_name = 183; // comma-separated SR user handles (empty = any; e.g. boris.boguslavsky)
+        string client_firm = 186; // comma-separated client firm codes (empty = any; e.g. SR,SRTEST)
+    }
+
+    message Scopes {
+        
+        string scope = 151; // scope identifier (e.g. ignite, sparc)
+    }
+
+    message User {
+        
+        string user_name = 160; // SR user handle (e.g. boris.boguslavsky)
+    }
+
+    message UserTypes {
+        
+        UserType user_type = 157; // SR user type
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo enabled = 100; // whether the flag is on by default
+    string region = 106; // region at flag creation time (e.g. US, EU); audit only
+    google.protobuf.Timestamp create_time = 109; // when the flag was created; audit only
+    google.protobuf.Timestamp expiry_time = 112; // when the flag expires; audit only
+    string modified_by = 115;
+    SysEnvironment modified_in = 118;
+    google.protobuf.Timestamp timestamp = 121;
+    repeated ClientFirms client_firms = 162;
+    repeated Environments environments = 153;
+    repeated Rules rules = 165;
+    repeated Scopes scopes = 150;
+    repeated User user = 159;
+    repeated UserTypes user_types = 156;
+}
+
+

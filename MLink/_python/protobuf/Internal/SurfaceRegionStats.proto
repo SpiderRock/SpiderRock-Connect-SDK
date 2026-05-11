@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SurfaceStats records contain surface goodness of fit statistics for a curve segment (sampled every 10 seconds; reported every 10 minutes)
+*/    
+message SurfaceRegionStats {
+
+
+    MessageMetadata _meta = 1;
+    
+    ExpiryKey ekey = 100; // Expiry key
+    CurveRegion curve_region = 103; // WingDn < -10; DDown = [-10 / -4]; DSide = [-4.0 / -1.5]; ATM = [-1.5 / +1.5]; USide = [+1.5 / + 4.0]; FarUp = [4 / 10], WingUp = > +10
+    string stripe = 106; // ticker stripe
+    SurfaceFit surface_fit = 109; // surface fit (waterfall method)
+    int32 num_passes = 112; // number of passes in the sample window
+    int32 num_strikes = 115; // maximum number of strikes in the region in any given pass
+    double avg_uPrc = 118; // average uPrc in the sample window
+    double min_uPrc = 121;
+    double max_uPrc = 124;
+    float avg_atm_vol = 127; // average atm vol
+    float avg_vega_volume = 130; // average vega volume
+    float min_min_vol_width = 133; // minimum min vol width across all passes
+    float max_min_vol_width = 136; // maximum min vol width across all passes
+    float avg_min_vol_width = 139; // average min vol width across all passes
+    float bid_miss_ratio = 142; // number of times surfPrice < bidPrice / number of strikes sampled (cumulative)
+    float ask_miss_ratio = 145; // number of times surfPrice > askPrice / number of strikes sampled (cumulative)
+    float bid_ema_miss_ratio = 148; // number of times surfPriceEma < bidPriceEma / number of strikes sampled (cumlative)
+    float ask_ema_miss_ratio = 151; // number of times surfPriceEma > askPriceEma / number of strikes sampled (cumlative)
+    float mid_pos_ratio = 154; // number of times surfPrice < midPrice / number of strikes sampled (cumlative)
+    float mid_neg_ratio = 157; // number of times surfPrice > midPrice / number of strikes sampled (cumlative)
+    float mid_pos_ema_ratio = 160; // number of times surfPriceEma < midPriceEma / number of strikes sampled (cumlative)
+    float mid_neg_ema_ratio = 163; // number of times surfPriceEma > midPriceEma / number of strikes sampled (cumlative)
+    float max_bid_error = 166; // maximum surface bid cross error (bidPrice - surfPrice | 0)
+    float max_ask_error = 169; // maximum surface ask cross error (surfPrice - askPrice | 0)
+    float surf_bias = 172; // average surface bias (surfPrice - midPrice)
+    float surf_abs_bias = 175; // average surface absolute bias (surfPrice - midPrice)
+    float surf_ema_bias = 178; // average surface bias (surfEmaPrice - midEmaPrice)
+    float surf_ema_abs_bias = 181; // average surface absolute bias (surfEmaPrice - midEmaPrice)
+    float surf_bid_support_bias = 184; // average surface bid-support cross error (bidPrice' - surfPrice | 0)
+    float surf_ask_support_bias = 187; // average surface ask-support cross error (surfPrice - askPrice' | 0)
+    float num_zero_crossings = 190; // number of mid-price crossings / number of strikes sampled
+    double net_sVol2_sVol_chg01 = 193; // avg net (sVolT+1s - sVolT)
+    double net_sVol2_sVol_chg08 = 196; // avg net (sVolT+8s - sVolT)
+    double net_sVol2_sVol_chg60 = 199; // avg net (sVolT+60s - sVolT)
+    double abs_sVol2_sVol_chg01 = 202; // avg abs (sVolT+1s - sVolT)
+    double abs_sVol2_sVol_chg08 = 205; // avg abs (sVolT+8s - sVolT)
+    double abs_sVol2_sVol_chg60 = 208; // avg abs (sVolT+60s - sVolT)
+    double net_sVol2_mVol_chg01 = 211; // avg net (midVolT+1s - sVolT)
+    double net_sVol2_mVol_chg08 = 214; // avg net (midVolT+8s - sVolT)
+    double net_sVol2_mVol_chg60 = 217; // avg net (midVolT+60s - sVolT)
+    double abs_sVol2_mVol_chg01 = 220; // avg abs (midVolT+1s - sVolT)
+    double abs_sVol2_mVol_chg08 = 223; // avg abs (midVolT+8s - sVolT)
+    double abs_sVol2_mVol_chg60 = 226; // avg abs (midVolT+60s - sVolT)
+    double net_mVol2_mVol_chg01 = 229; // avg net (midVolT+1s - midVolT)
+    double net_mVol2_mVol_chg08 = 232; // avg net (midVolT+8s - midVolT)
+    double net_mVol2_mVol_chg60 = 235; // avg net (midVolT+60s - midVolT)
+    double abs_mVol2_mVol_chg01 = 238; // avg abs (midVolT+1s - midVolT)
+    double abs_mVol2_mVol_chg08 = 241; // avg abs (midVolT+8s - midVolT)
+    double abs_mVol2_mVol_chg60 = 244; // avg abs (midVolT+60s - midVolT)
+    double comp_s2_svs_s2_sChg01 = 247; // absSVol2SVolChg01 - abs(netSVol2MVolChg01)
+    double comp_s2_svs_s2_sChg08 = 250; // absSVol2SVolChg08 - abs(netSVol2MVolChg08)
+    double comp_s2_svs_s2_sChg60 = 253; // absSVol2SVolChg60 - abs(netSVol2MVolChg60)
+    double comp_s2_mvs_s2_mChg01 = 256; // absSVol2MVolChg01 - abs(netSVol2MVolChg01)
+    double comp_s2_mvs_s2_mChg08 = 259; // absSVol2MVolChg08 - abs(netSVol2MVolChg08)
+    double comp_s2_mvs_s2_mChg60 = 262; // absSVol2MVolChg60 - abs(netSVol2MVolChg60)
+    double comp_m2_mvs_m2_mChg01 = 265; // absMVol2MVolChg01 - abs(netMVol2MVolChg01)
+    double comp_m2_mvs_m2_mChg08 = 268; // absMVol2MVolChg08 - abs(netMVol2MVolChg08)
+    double comp_m2_mvs_m2_mChg60 = 271; // absMVol2MVolChg60 - abs(netMVol2MVolChg60)
+    float min_vol_adj = 274; // minimum surface vol adj (kernel adjustment)
+    float max_vol_adj = 277; // maximum surface vol adj (kernel adjustment)
+    float min_sDiv_adj = 280; // minimum surface sdiv adj (kernel adjustment)
+    float max_sDiv_adj = 283; // maximum surface sdiv adj (kernel adjustment)
+    google.protobuf.Timestamp batch_timestamp = 286;
+    int32 update_count = 287;
+    int32 num_iTMPrints = 288;
+    int32 num_oTMPrints = 289;
+    int32 num_call_prints = 290;
+    int32 num_put_prints = 291;
+    int32 num_surf_prc_misses_cPrt = 292;
+    int32 num_surf_prc_misses_pPrt = 293;
+    int32 num_surf_vol_misses_cPrt = 294;
+    int32 num_surf_vol_misses_pPrt = 295;
+    float d_delta_sld = 296;
+    float d_delta_bot = 297;
+    float d_delta_mid = 298;
+}
+
+

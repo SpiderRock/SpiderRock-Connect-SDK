@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+/*
+    SpdrChildExecutionSummary records are created at the end of a trading period and contain a summary of trading activity for the period; Aggregation of SpdrParentExecution x SpdrChildOrder (inner join) by clOrdId
+*/    
+message SpdrChildExecutionSummary {
+    message PKey {
+        
+        string accnt = 10;
+        SpdrKeyType sec_type = 11;
+        TickerSrc ticker_src = 12;
+        SpdrSource spdr_source = 13;
+        SpdrOrderShape child_shape = 14;
+        MktWidthCode mkt_width_code = 15; // from (SpdrChildOrder.nbboAsk - SpdrChildOrde.nbboBid)
+        ChildHandler algo_handler = 16;
+        string routing_code = 17;
+        string exec_brkr_code = 22;
+        string order_ex_dest = 23;
+        DateKey trading_period = 20;
+        string client_firm = 21; // SR client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 num_child_executions = 100;
+    float sum_child_prc_imprv = 103; // fill price to cross price at time of fill report
+    int32 sum_child_fill_qty = 106;
+    float sum_child_fill_vega = 109;
+    float sum_child_m1_pn_l = 112; // fill price to mid mkt (+1 minute)
+    float sum_child_m10_pn_l = 115; // fill price to mid mkt (+10 minutes)
+    float sum_child_exch_fee = 118;
+    float sum_child_brkr_fee = 121;
+    int32 num_limit_slippage = 124; // number of fills with limit slippage
+    float sum_limit_slippage = 127; // limit slippage sum (if any)
+    int32 num_fill_prob = 130; // fill probability at time of fill report
+    float sum_fill_prob = 133;
+    int32 num_surface_edge = 136; // surface edge at time of fill report
+    float sum_surface_edge = 139;
+}
+
+

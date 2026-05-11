@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SRPricingCalc {
+    message PKey {
+        
+        OptionKey okey = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    PricerModel model = 100; // SRPricingLib.Model
+    CalcError error = 103; // SRPricingLib.CalcError
+    PricingFramework prc_framework = 105;
+    ExerciseType ex_type = 106; // SRPricingLib.ExerciseType
+    CalcModelType model_type = 109; // SRPricingLib.CalcModelType
+    VolSource source = 112; // reference volatility source (0=unknown)
+    float strike = 115; // actual (effective) strike
+    float obid = 118; // option bid at time of calc
+    float oask = 121; // option ask at time of calc
+    float vol = 124;
+    float u_prc = 127; // actual (effective) stock price
+    float opx = 130;
+    google.protobuf.Timestamp today = 131;
+    google.protobuf.Timestamp expiry = 132;
+    float years_v = 133;
+    float sdiv = 136; // continuous dividend rate applied to pricing
+    float rate = 139; // global borrow rate
+    float ddiv = 142; // total value of all discrete dividends until expiration
+    int32 s_days_t = 143;
+    int32 s_days_e = 144;
+    float delta = 148; // reference greeks
+    float gamma = 151;
+    float theta = 154;
+    float vega = 157;
+    float rho = 160;
+    float phi = 163;
+    float volga = 166;
+    float vanna = 169;
+    float de_decay = 172;
+    float su50 = 175;
+    float sd50 = 178;
+    float su15 = 181;
+    float sd15 = 184;
+    float su06 = 187;
+    float sd08 = 190;
+    google.protobuf.Timestamp timestamp = 193;
+}
+
+

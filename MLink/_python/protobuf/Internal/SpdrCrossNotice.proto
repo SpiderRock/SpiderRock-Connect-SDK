@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrCrossNotice messages are used to indicate that potential cross existed at a point in time
+*/    
+message SpdrCrossNotice {
+    message PKey {
+        
+        int64 cross_notice_number = 10; // SR Guid Number for this cross event
+        int32 face_index = 11;
+    }
+
+    message OrderLegs {
+        
+        OptionKey sec_key = 148; // leg
+        SpdrKeyType sec_type = 151;
+        uint32 mult = 154;
+        BuySell side = 157;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 parent_number = 100; // parent order associated with the request
+    OptionKey sec_key = 103;
+    SpdrKeyType sec_type = 106;
+    string cust_accnt = 109;
+    string cust_client_firm = 112;
+    BuySell cust_side = 115;
+    double cust_limit = 118;
+    int32 cust_quantity = 121;
+    string face_accnt = 158;
+    string face_client_firm = 159;
+    double face_limit = 130;
+    int32 face_open_quantity = 133;
+    int32 face_avail_quantity = 136;
+    YesNo face_can_cross = 139;
+    google.protobuf.Timestamp timestamp = 142;
+    repeated OrderLegs order_legs = 145;
+}
+
+

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message TickerDataVset {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100; // Requested ticker key
+    string accnt = 101; // (Optional) selected account (used for locate information)
+    string client_firm = 102; // (Optional, required for accnt) selected account client firm (used for locate information)
+}
+
+

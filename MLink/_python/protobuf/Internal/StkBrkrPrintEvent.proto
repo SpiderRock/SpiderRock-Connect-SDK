@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StkBrkrPrintEvent {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100; // underlying ticker
+    PrtUpdateType update_type = 101;
+    int64 base_parent_number = 102;
+    string accnt = 103;
+    string client_firm = 104;
+    SpdrSource spdr_source = 105;
+    BuySell side = 106; // parent (and child) order side
+    float pri_limit = 107; // primary parent order limit (user limit)
+    int32 active_size = 108; // total order active size (algo may be more restrictive)
+    float make_limit = 109; // composite make limit (primary + secondary)
+    int32 make_size = 110; // current make algo active size
+    float take_limit = 111; // composite take limit (primary + secondary)
+    int32 take_size = 112; // current take algo active size
+    float fair_prc = 113; // SR Fair Price (50% probability pt) (@ print arrival)
+    float fair_edge = 114; // print to surface edge (+ = positive expected M1 pnl)
+    LimitTouch maker_touch = 115;
+    LimitTouch taker_touch = 116;
+    int32 child_size = 117; // child size and limit on prtExch at time of print (if any)
+    float child_limit = 118;
+    ChildTouch child_touch = 119;
+    int32 child_fill_size = 120; // child order fill qty associated with this print
+    int32 child_fill_offset = 121; // fill exec report SR PTP timestamp relative to srcTimestamp (nanoseconds)
+    CancelSource cxl_source = 122;
+    int32 cxl_snd_offset = 123; // cancel send SR PTP timestamp relative to srcTimestamp (nanoseconds)
+    int32 cxl_ack_offset = 124; // cancel ack SR PTP timestamp relative to srcTimestamp (nanoseconds)
+    StkExch prt_exch = 125; // exchange on which print took place
+    int32 prt_size = 126; // print size [contracts]
+    float prt_price = 127; // print price
+    StkPrintType prt_type = 128; // print type
+    float ebid = 129; // exchange bid (@ print arrival)
+    float eask = 130; // exchange ask (@ print arrival)
+    int32 ebsz = 131; // exchange bid size
+    int32 easz = 132; // exchange ask size
+    float bid = 133; // NBBO bid a the time the print was received
+    float ask = 134; // NBBO ask a the time the print was received
+    int32 bid_sz = 135; // NBBO cumulative bid size at the time the print was received
+    int32 ask_sz = 136; // NBBO cumulative ask size at the time the print was received
+    int32 bid_cnt = 137; // Number of exchanges on the NBBO bid
+    int32 ask_cnt = 138; // Number of exchanges on the NBBO ask
+    int32 qte_age = 139; // age of prevailing quote at time of print
+    int64 src_timestamp = 140; // OPRA or future exchange high precision print timestamp
+    int32 net_offset = 141; // inbound packet SR PTP timestamp; relative to srcTimestamp (nanoseconds)
+    float bid_m1 = 142; // nbbo bid (P+1min)
+    float ask_m1 = 143; // nbbo ask (P+1min)
+    float fair_prc_m1 = 144; // SR Fair Price (50% probability pt) (P+1min)
+    float pnl_m1 = 145; // pnl @ P+1min (prtPrice to fairPrcM10)
+    YesNo pnl_m1_err = 146; // P+1min pnl error
+    google.protobuf.Timestamp timestamp = 147;
+}
+
+

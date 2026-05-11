@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrFixLogData {
+    message PKey {
+        
+        string id = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp date = 100;
+    string cl_order_iD = 103;
+    string file_name = 106;
+    string log_message = 109;
+    string message_type = 112;
+    string data_format = 115;
+    string environment = 118;
+    string sender_iD = 121;
+    string target_iD = 124;
+    google.protobuf.Timestamp timestamp = 127;
+}
+
+

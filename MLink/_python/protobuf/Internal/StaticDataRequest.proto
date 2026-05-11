@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message StaticDataRequest {
+
+
+    MessageMetadata _meta = 1;
+    
+    uint32 msgtype = 100;
+    string accnt = 103;
+    string client_firm = 113;
+    string user_name = 106;
+    int64 time_rcvd = 109;
+    GetAction action = 112;
+}
+
+

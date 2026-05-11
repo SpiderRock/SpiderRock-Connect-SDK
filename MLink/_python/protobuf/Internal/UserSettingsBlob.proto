@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserSettingsBlob {
+    message PKey {
+        
+        string user_name = 10;
+        UserLocation user_location = 11;
+        string group_name = 12; // This will either be user set or AUTOSAVE(something)
+        string tool_name = 13;
+        string element_name = 14; // eg;	APP:LOCATION, GRID:users, GRID:orders, ...
+        int32 chunk_id = 15; // If blob was broken into multiple chunks, which chunk this is
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string client_firm = 100;
+    SettingVisible setting_visible = 103;
+    string settings = 106; // up to 32kb
+    string description = 109;
+    int32 chunk_total = 112; // Number of chunks blob has been broken into, 1 for not broken up
+    google.protobuf.Timestamp last_modified = 115; // Time last modified, also used to track groups of blob chunks
+}
+
+

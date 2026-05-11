@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SodPositionRecord SR contain start-of-day position, mark, and corporate action details.
+    These records are computed and published by SR rotation servers.
+*/    
+message SodPositionRecordV5 {
+    message PKey {
+        
+        string accnt = 10;
+        OptionKey sec_key = 11;
+        SpdrKeyType sec_type = 12;
+        DateKey trade_date = 13;
+        string client_firm = 14; // SR assigned client firm
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 sr_sod_position = 100; // SR position @ start-of-day
+    double sr_opening_mark = 103; // SR mark @ start-of-day
+    double sr_cash_in_lieu = 106;
+    int32 clr_sod_position = 109; // CLR position @ start-of-day
+    double clr_opening_mark = 112; // CLR mark @ start-of-day
+    double clr_cash_in_lieu = 115;
+    string comment = 118; // source description (if any)
+    google.protobuf.Timestamp timestamp = 121;
+}
+
+

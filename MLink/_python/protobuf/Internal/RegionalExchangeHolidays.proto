@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RegionalExchangeHolidays {
+    message PKey {
+        
+        string exchange_mic = 10; // MIC Code of the exchange for which these holidays relate
+    }
+
+    message Holidays {
+        
+        DateKey holiday = 103;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string country_code = 100; // domicile of the exchange (ISO 3166)
+    string region = 101; // region the exchange resides in (EU, NAM, ASIA etc)
+    google.protobuf.Timestamp timestamp = 104;
+    repeated Holidays holidays = 102;
+}
+
+

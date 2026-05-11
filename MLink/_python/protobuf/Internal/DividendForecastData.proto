@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message DividendForecastData {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey ex_date = 12; // 12 past + 4 future
+    }
+
+    message Dividends {
+        
+        float stk_prc = 106; // closing pricing
+        float stk_prc_prv = 109; // prior period closing price (corp action adjusted)
+        float div_value = 112; // dividend amount
+        string div_currency = 115;
+        DivKind div_kind = 118; // dividend type
+        DivSource div_source = 121; // dividend source
+        DivFreq div_freq = 124;
+        DateKey div_date = 128;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    google.protobuf.Timestamp ts = 100;
+    repeated Dividends dividends = 103;
+}
+
+

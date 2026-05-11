@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message UserActivityCompositeAggregate {
+    message PKey {
+        
+        string aggregate = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 sh_exec = 100;
+    int32 fc_exec = 103;
+    int32 cn_exec = 106;
+    int32 sh_drop = 109;
+    int32 fc_drop = 112;
+    int32 cn_drop = 115;
+    int32 sh_test = 118;
+    int32 fc_test = 121;
+    int32 cn_test = 124;
+    int32 num_rejects = 127;
+    string last_reject_text = 130;
+    google.protobuf.Timestamp last_reject_dttm = 133;
+    google.protobuf.Timestamp last_trade_activity = 136;
+    int32 active_sV = 139;
+    int32 active_rV = 142;
+    int32 active_hT = 145;
+    int32 active_rM = 148;
+    int32 active_oM = 151;
+    int32 active_cT = 154;
+    int32 active_mM = 157;
+    int32 active_rA = 160;
+    int32 active_tA = 163;
+    int32 active_cV = 166;
+    int32 active_aV = 169;
+    int32 active_sM = 172;
+    int32 active_eS = 175;
+    int32 active_bT = 178;
+    int32 active_dS = 181;
+    int32 active_uT = 184;
+    int32 active_sA = 187;
+    int32 active_uK = 190;
+    float cpu_usage = 193;
+    float memory_usage = 196;
+    float msg_recv_rate = 199;
+    float msg_send_rate = 202;
+    int32 num_tool_errors = 205;
+    string last_tool_error = 208;
+    google.protobuf.Timestamp last_tool_error_dttm = 211;
+    google.protobuf.Timestamp last_tool_launch = 214;
+    int32 num_sRSEQueries = 217;
+    string last_sRSEQuery = 220;
+    int32 num_sRSEErrors = 223;
+    string last_sRSEError = 226;
+    google.protobuf.Timestamp last_sRSEError_dttm = 229;
+    google.protobuf.Timestamp last_sRSEActivity = 232;
+    google.protobuf.Timestamp timestamp = 235; // Date/Time of last record addition or
+}
+
+

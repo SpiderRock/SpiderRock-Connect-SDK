@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ConsulProcStatus {
+    message PKey {
+        
+        string job_name = 10;
+        uint32 app_iD = 11;
+        SysEnvironment sys_environment = 12; // sys environment [Stable, Current, etc]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string proc_name = 100; // process instance name (should be unique)
+    string machine_name = 103; // name of the machine which is hosting process
+    string build_gUID = 106; // Build GUID associated with this current Process
+    google.protobuf.Timestamp process_start = 109;
+    string last_signal = 112; // string indicating the signal it got , for example READY, SHUTDOWN
+    float cpu_usage = 115; // cpu usage (number of cores utilized)
+    float memory_usage = 118; // CLR memory (GB)
+    ResourceLevel server_cPU = 121;
+    ResourceLevel server_memory = 124;
+    float avg_mMRDelay = 127; // avg (inbound) DBL MMR ring delay (ms)
+    float max_mMRDelay = 130; // max (inbound) DBL MMR ring delay (ms)
+    int32 packets_per_sec = 133; // MMR/MBUS packet rcvd rate (multiple msgs per packet)
+    int32 num_msg_drops = 136; // number of MBUS message drops
+    float msg_recv_rate = 139; // total (inbound) messages per second
+    float msg_send_rate = 142; // total (outbound) messages per second
+    string proc_detail = 145;
+    int32 num_slow_handlers = 148; // total number of slow handlers
+    int32 num_errors = 151;
+    string last_error = 161;
+    google.protobuf.Timestamp last_error_dttm = 157;
+    google.protobuf.Timestamp timestamp = 160;
+}
+
+

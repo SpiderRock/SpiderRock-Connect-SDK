@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SyntheticIndexDefinition {
+    message PKey {
+        
+        TickerKey ticker = 10; // Ticker/TickerKey for the Option Root
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string isin = 100; // ISIN code - links option root to future root
+    string description = 103; // Underlying Index descriptive name
+    TickerKey und_ticker = 106; // Underlying Index ticker
+    TickerKey price_driver_ticker = 109; // Future Price Driver ticker
+    Currency opt_currency = 112; // Trading currency of the option
+    OptExch opt_exch = 115; // The option exchange
+    PriceFormat und_price_format = 118; // The PriceFormat for the underlying index
+    float und_min_tick_size = 121; // The minimum tick size for the underlying index
+    float point_value = 124;
+    float point_value_future = 127; // Point value of the hedge future; must match Future.CoreDefinition
+    SynthIndexState status = 130; // Complete definitions are used to generate Option On Index product definitions
+    int64 open_interest = 133; // Open Interest for all option contracts on this index
+    int64 total_volume = 136; // Total daily volume for all option contracts on this index
+    YesNo is_regular_option = 139; // Yes if the option is a regular option (i.e. not a weekly or quarterly option)]
+    google.protobuf.Timestamp timestamp = 142;
+}
+
+

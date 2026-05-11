@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message StockEarnForecastHist {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        DateKey trading_date = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int64 security_iD = 100;
+    google.protobuf.Timestamp near_earn_date = 103; // empty unless earnings is within +/- 5 trading days of date
+    EarnType near_earn_type = 106;
+    EarnTime near_earn_time = 109;
+    google.protobuf.Timestamp next_earn_date1_adj = 112; // implied adjusted earnings date1
+    google.protobuf.Timestamp next_earn_date2_adj = 115; // implied adjusted earnings date2
+    google.protobuf.Timestamp next_earn_date1 = 118;
+    EarnType next_earn_type1 = 121;
+    EarnTime next_earn_time1 = 124;
+    google.protobuf.Timestamp next_earn_date2 = 127;
+    EarnType next_earn_type2 = 130;
+    EarnTime next_earn_time2 = 133;
+    google.protobuf.Timestamp next_earn_date3 = 136;
+    EarnType next_earn_type3 = 139;
+    EarnTime next_earn_time3 = 142;
+    google.protobuf.Timestamp next_earn_date4 = 145;
+    EarnType next_earn_type4 = 148;
+    EarnTime next_earn_time4 = 151;
+    google.protobuf.Timestamp next_earn_date5 = 154;
+    EarnType next_earn_type5 = 157;
+    EarnTime next_earn_time5 = 160;
+    google.protobuf.Timestamp next_earn_date6 = 163;
+    EarnType next_earn_type6 = 166;
+    EarnTime next_earn_time6 = 169;
+    google.protobuf.Timestamp next_earn_date7 = 172;
+    EarnType next_earn_type7 = 175;
+    EarnTime next_earn_time7 = 178;
+    google.protobuf.Timestamp next_earn_date8 = 181;
+    EarnType next_earn_type8 = 184;
+    EarnTime next_earn_time8 = 187;
+    google.protobuf.Timestamp timestamp = 190;
+}
+
+

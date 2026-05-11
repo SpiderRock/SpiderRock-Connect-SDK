@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+
+    
+message OptionChainResponse {
+    message PKey {
+        
+        string root = 10;
+        int32 year = 11;
+        int32 month = 12;
+        int32 day = 13;
+        double strike = 14;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    string exch_yr_mn = 103;
+    double u_prc = 106;
+    float xdelta = 109;
+    float years = 112;
+    ChainRequest chain_request = 115;
+}
+
+

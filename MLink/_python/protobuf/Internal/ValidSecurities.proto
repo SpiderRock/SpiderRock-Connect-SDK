@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    ValidSecurities (internal only) Contains list of valid securities for today (eqt and eqtopt)
+*/    
+message ValidSecurities {
+    message PKey {
+        
+        OptionKey sec_key = 10;
+        SpdrKeyType sec_type = 11;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    ValidSecSrc source = 100; // source of where we decided this was a valid security for today
+    DateKey trade_date = 103; // tradeDate
+    string user_name = 106; // modified by this user
+    google.protobuf.Timestamp timestamp = 109;
+}
+
+

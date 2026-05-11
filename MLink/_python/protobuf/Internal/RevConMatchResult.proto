@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message RevConMatchResult {
+    message PKey {
+        
+        TickerKey ticker = 10;
+        string accnt = 11;
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    BuySell side = 100; // note: Buy RevCon = let out shares;  Sell RevCon = receive shares;
+    int32 shares = 101; // shares potential available
+    float borrow_rate = 102; // my target borrow/lending rate (OvernightRate - HTB Rate) (should be ~zero for GC names; should be a positive rate for HTB names)
+    float ddiv_pv30 = 103;
+    DDivSource ddiv_source30 = 104;
+    float strike_pv30 = 105;
+    float rc_eEx_prem30 = 106;
+    float fair_loan_pv30 = 107; // uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)
+    float fair_loan_rate30 = 108; // (fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)
+    float edge_pv30 = 109; // fair to borrowPv
+    float edge_rate30 = 110; // fair to borrowRate
+    float bid_pv30 = 111; // best auto-responder bid
+    int32 bid_sz30 = 112;
+    float ask_pv30 = 113; // best auto-responder ask
+    int32 ask_sz30 = 114;
+    float my_bid_pv30 = 115; // my auto-response bid
+    int32 my_bid_sz30 = 116;
+    float my_ask_pv30 = 117; // my auto-response ask
+    int32 my_ask_sz30 = 118;
+    float last_pv30 = 119; // last 30 day benchmark trade
+    int32 last_sz30 = 120;
+    float ddiv_pv60 = 121;
+    DDivSource ddiv_source60 = 122;
+    float strike_pv60 = 123;
+    float rc_eEx_prem60 = 124;
+    float fair_loan_pv60 = 125; // uPrc + fairPutPrc - fairCallPrc - strikePv - ddivPv - rcEExPrem  (total present value of letting out shares) (term to expiry) (per share)
+    float fair_loan_rate60 = 126; // (fairLoanPv / uPrc) * (360 / iDays) * compoundingFactor;  compoundingFactor = 1 / (1 - globalRate / 365 * (iDays + 1) / 2)
+    float edge_pv60 = 127; // fair to borrowPv
+    float edge_rate60 = 128; // fair to borrowRate
+    float bid_pv60 = 129; // best auto-responder bid
+    int32 bid_sz60 = 130;
+    float ask_pv60 = 131; // best auto-responder ask
+    int32 ask_sz60 = 132;
+    float my_bid_pv60 = 133; // my auto-response bid
+    int32 my_bid_sz60 = 134;
+    float my_ask_pv60 = 135; // my auto-response ask
+    int32 my_ask_sz60 = 136;
+    float last_pv60 = 137; // last 60 day benchmark trade
+    int32 last_sz60 = 138;
+    google.protobuf.Timestamp ts = 139;
+}
+
+

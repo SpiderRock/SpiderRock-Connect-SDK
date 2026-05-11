@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    BasketGroupDetail messages will be sent (immediately) in response to BasketGroupMessage(s) (user initiated actions).
+    BasketGroupDetail message can also be sent in response to SCR triggers while an order is active or otherwise attached to live data (server initiated action(s))
+*/    
+message BasketGroupDetail {
+    message PKey {
+        
+        string accnt = 10;
+        string cfirm = 11;
+        int64 risk_group_iD = 12;
+    }
+
+    message OrdKey {
+        
+        int64 ord_key = 182;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    int32 counter = 100; // increment on every update
+    string tid = 101; // tool action id (from BasketGroupAction.tid or null)
+    ToolActionError last_action_error = 102; // should be added to the general tool error queue/display if different from previous error
+    string last_action_detail = 103; // user displayable error string
+    int64 new_risk_group_iD = 164; // new basket riskGroupID (on return from a Clone action)
+    string new_accnt = 351; // new account name (on return from a Clone action)
+    string new_cfirm = 352; // new client firm (on return from a Clone action)
+    ToolOrderStatus basket_status = 165; // Current status of the basket (set by backend based on status of constituent orders)
+    string basket_desc = 105; // display description of basket
+    string prem = 108; // total order premium for entire order
+    string prem_bot = 166; // total buy order premium for entire order
+    string prem_sld = 167; // total sell order premium for entire order
+    string vega = 109; // total order vega for entire order
+    string vega_bot = 168; // total buy order vega for entire order
+    string vega_sld = 169; // total sell order vega for entire order
+    string theta = 110; // total order theta for entire order
+    string delta = 111; // total order delta for entire order
+    string ddelta = 112; // total order $delta for entire order
+    string ddelta_bot = 170; // total buy order $delta for entire order
+    string ddelta_sld = 171; // total sell order $delta for entire order
+    string cn_bot = 172; // total buy contracts for entire basket
+    string cn_sld = 173; // total sell contracts for entire basket
+    string fill_prem = 113; // total fill premium for entire order
+    string fill_prem_bot = 174; // total buy fill premium for entire order
+    string fill_prem_sld = 175; // total sell fill premium for entire order
+    string fill_vega = 114; // total fill vega for entire order
+    string fill_vega_bot = 176; // total buy fill vega for entire order
+    string fill_vega_sld = 177; // total sell fill vega for entire order
+    string fill_theta = 115; // total fill theta for entire order
+    string fill_delta = 116; // total fill delta for entire order
+    string fill_ddelta = 117; // total fill $delta for entire order
+    string fill_ddelta_bot = 178; // total buy fill $delta for entire order
+    string fill_ddelta_sld = 179; // total sell fill $delta for entire order
+    string fill_cn_bot = 180; // total contracts bought that have been filled
+    string fill_cn_sld = 181; // total contracts sold that have been filled
+    double progress_duration = 118; // expected duration of this algo (seconds)
+    google.protobuf.Timestamp st_dttm = 119; // order start time (Date)
+    google.protobuf.Timestamp gtt = 120; // order expiration time (Date)
+    PriceFormat price_format = 121; // price formatting code for all prices
+    int32 price_decimals = 122; // standard number of decimal place in prices (display rounding)
+    double min_prc_increment = 123; // minimum price variation (increment)
+    string time_working = 124; // time parent order has been (or was) working (brkrDetail.activeSeconds)
+    string num_prints = 125; // number of prints
+    string prt_volume = 126; // total print volume
+    string arrive_bid = 127; // market bid @ parent order start (brkrDetail.arriveBid)
+    string arrive_ask = 128; // market ask @ parent order start (brkrDetail.arrivaAsk)
+    string num_child_orders = 129; // number of child orders
+    string est_exch_fees = 130; // estimated exchange fees for this order
+    string avg_mkt_width = 131; // average market width
+    string arrival_pnl = 132; // cumulative arrival pnl (per unit) (mid-market @ parent start to fill price) for all fills
+    string m10_pnl = 133; // cumulative m10 pnl for this order
+    string cust_strategy = 157; // customer supplied strategy/comment string (away staged only)
+    google.protobuf.Timestamp ts = 163; // last update time (Date)
+    repeated OrdKey ord_key = 158;
+}
+
+

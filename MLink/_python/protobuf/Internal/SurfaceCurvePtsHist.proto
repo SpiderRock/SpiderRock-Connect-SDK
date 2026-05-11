@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SurfaceCurvePtsHist {
+    message PKey {
+        
+        DateKey trading_date = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    float skew_x00 = 100; // skew curve xAxis
+    float skew_x01 = 103;
+    float skew_x02 = 106;
+    float skew_x03 = 109;
+    float skew_x04 = 112;
+    float skew_x05 = 115;
+    float skew_x06 = 118;
+    float skew_x07 = 121;
+    float skew_x08 = 124;
+    float skew_x09 = 127;
+    float skew_x10 = 130;
+    float skew_x11 = 133;
+    float skew_x12 = 136;
+    float skew_x13 = 139;
+    float skew_x14 = 142;
+    float skew_x15 = 145;
+    float skew_x16 = 148;
+    float skew_x17 = 151;
+    float skew_x18 = 154;
+    float skew_x19 = 157;
+    float skew_x20 = 160;
+    float skew_x21 = 163;
+    float skew_x22 = 166;
+    float skew_x23 = 169;
+    float skew_x24 = 172;
+    float skew_x25 = 175;
+    float skew_x26 = 178;
+    float skew_x27 = 181;
+    float skew_x28 = 184;
+    float cp_adj_xD4 = 187; // cpAdj curve xAxis
+    float cp_adj_xD3 = 190;
+    float cp_adj_xD2 = 193;
+    float cp_adj_xD1 = 196;
+    float cp_adj_xU1 = 199;
+    float cp_adj_xU2 = 202;
+    float cp_adj_xU3 = 205;
+    float cp_adj_xU4 = 208;
+    google.protobuf.Timestamp timestamp = 211;
+}
+
+

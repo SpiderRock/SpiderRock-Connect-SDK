@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SpdrChildReject {
+    message PKey {
+        
+        int64 cl_ord_id = 10; // SR fill number (same as SpdrParentOrder.pkey.fillNumber)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SpdrOrderShape child_shape = 100;
+    ExecShape exec_shape = 103;
+    string street_exec_id = 106; // Reject ExecReport execId
+    string street_cl_ord_id = 109; // usually clOrdID.X16 but can be different if street gateway was translating clOrdId
+    string street_order_id = 112; // street side order ID (for canceling order)
+    string street_text = 115;
+    int64 parent_number = 118; // parent order number
+    int64 base_parent_number = 121; // base order number (first parent number in chain)
+    string accnt = 124; // SR trading accnt
+    string client_firm = 127; // SR client firm
+    OptionKey sec_key = 130;
+    SpdrKeyType sec_type = 133;
+    TickerKey ticker = 136;
+    int32 order_exch = 139;
+    string order_ex_dest = 161;
+    string routing_code = 145;
+    RelationshipType relationship_type = 148; // type of SR <-> client relationship
+    int64 src_timestamp = 151; // source timestamp (fixMessage.sendingTime) from street side [might not be high precision]
+    int64 sgw_timestamp = 154; // street gateway arrival timestamp
+    int64 eng_timestamp = 157; // execution engine arrival timestamp
+    google.protobuf.Timestamp timestamp = 160;
+}
+
+

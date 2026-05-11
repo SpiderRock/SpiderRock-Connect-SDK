@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    FixedTermStats records contain fixed term fit statistics for a curve (sampled every 10 seconds; reported every 10 minutes)
+*/    
+message FixedTermStats {
+
+
+    MessageMetadata _meta = 1;
+    
+    TickerKey ticker = 100; // ticker key
+    string stripe = 103; // stripe
+    int32 num_passes = 106; // number of passes in the sample window
+    int32 num_expiries = 109; // maximum number of option expiries in any given pass
+    float avg_uPrc = 112; // number of passes in the sample window
+    float avg_vega_volume = 115; // average vega volume
+    float min_min_vol_width = 118; // minimum min vol width across all passes
+    float max_min_vol_width = 121; // maximum min vol width across all passes
+    float avg_min_vol_width = 124; // average min vol width across all passes
+    ExpiryKey min_eMove_eKey1 = 127; // minimum 1st adjusted expiry
+    ExpiryKey max_eMove_eKey1 = 130; // maximum 1st adjusted expiry
+    int32 min_eMove_exp_adj1 = 133; // minimum number of expirations 1st adjusted expiration was moved
+    int32 max_eMove_exp_adj1 = 136; // maximum number of expirations 1st adjusted expiration was moved
+    float min_eMove_yrs_adj1 = 139; // minimum number of years 1st adjusted expiration was moved
+    float max_eMove_yrs_adj1 = 142; // maximum number of years 1st adjusted expiration was moved
+    ExpiryKey min_eMove_eKey2 = 145; // minimum 2nd adjusted expiry
+    ExpiryKey max_eMove_eKey2 = 148; // maximum 2nd adjusted expiry
+    int32 min_eMove_exp_adj2 = 151; // minimum number of expirations 2nd adjusted expiration was moved
+    int32 max_eMove_exp_adj2 = 154; // maximum number of expirations 2nd adjusted expiration was moved
+    float min_eMove_yrs_adj2 = 157; // minimum number of expirations 2nd adjusted expiration was moved
+    float max_eMove_yrs_adj2 = 160; // maximum number of expirations 2nd adjusted expiration was moved
+    float min_emove = 163; // minimum Emove value
+    float max_emove = 166; // maximum Emove value
+    float avg_emove = 169; // average Emove value
+    float min_st_vol_cen = 172; // minimum censored short term vol
+    float max_st_vol_cen = 175; // maximum censored short term vol
+    float avg_st_vol_cen = 178; // average censored short term vol
+    float min_lt_vol_cen = 181; // minimum censored long term vol
+    float max_lt_vol_cen = 184; // maximum censored long term vol
+    float avg_lt_vol_cen = 187; // average censored long term vol
+    float min_decay_cen = 190; // minimum censored decay
+    float max_decay_cen = 193; // maximum censored decay
+    float avg_decay_cen = 196; // average censored decay
+    float min_fit_error = 199; // minimum fit error
+    float max_fit_error = 202; // maximum fit error
+    float avg_fit_error = 205; // average fit error
+    google.protobuf.Timestamp batch_timestamp = 208;
+}
+
+

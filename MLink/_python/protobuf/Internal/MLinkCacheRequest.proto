@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message MLinkCacheRequest {
+    message MsgType {
+        
+        uint32 msg_type = 115; // message type number being requested
+        int64 schema_hash = 118; // message schema hash (uniquely identifies a complete message schema) [if supplied and matches server schema hash binary encoding will be used for this message]
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    string query_label = 100; // query label (optional)
+    int64 highwater_ts = 103; // (optional) records must have a header.sentTs that is later than this value (nanoseconds after the UNIX epoch)
+    uint32 source_id = 106; // message.appId must match if > 0
+    string stripe = 109; // message.stripe must be in stripe list (if exists)
+    repeated MsgType msg_type = 112;
+}
+
+

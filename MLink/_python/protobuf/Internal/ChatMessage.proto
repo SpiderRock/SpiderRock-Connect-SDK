@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message ChatMessage {
+    message DetailLeg {
+        
+        OptionKey leg_sec_key = 147; // Leg security key
+        SpdrKeyType leg_sec_type = 148;
+        BuySell leg_side = 149;
+        int32 leg_size = 150;
+        int32 leg_ratio = 151; // Used for mutli leg orders
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    string chat_iD = 100; // Chat API ID if applicable
+    string message_text = 101; // raw text sent to chat client
+    string user_name = 102; // SR userName associated with this chat user
+    string client_firm = 103; // SR clientFirm associated with this chat user
+    string ats_auction_code = 158; // block auction short code (if any)
+    int64 ats_auction_number = 159; // SR block auction number
+    string symbol = 106;
+    IceMsgType ice_msg_type = 107;
+    ChatClient chat_client = 108;
+    ChatDirection direction = 109;
+    BuySell cust_side = 110; // customer side (buy or sell)
+    int32 cust_size = 111; // customer size (number of spread contracts)
+    double cust_price = 112; // customer public price (if any)
+    ToolInitSizeCond cust_size_cond = 113; // AllOrNone, QtyOrMore, UpToQty
+    ToolInitAcceptCode cust_accept_code = 114; // AllowImmediate, AutoComplete
+    AtsVisibility cust_visibility = 160; // Neither, Side, SidePrice
+    SpdrOrderShape auction_shape = 116; // Single Leg/ MLEG
+    double u_prc = 117; // live underlier price (@ last trial pass)
+    double surf_price = 118; // SR surface price (@ last trial pass)
+    double leg_bid_price = 119; // leg bid price
+    double leg_ask_price = 120; // leg ask price
+    double surface_edge = 121; // publicPrice - surfaceEdge (BUY) [@ last trial pass]
+    AtsAuctionStatus auction_status = 161;
+    string auction_detail = 123;
+    int32 auction_duration = 124; // expected (remaining) auction duration (in milliseconds) (relative to timestamp below)
+    YesNo will_auto_complete = 125; // all conditions have been meet and the order will auto-complete in the FinalTrial (if nothing changes)
+    string order_status = 156; // Status tag present on the message
+    ToolActionError last_action_error = 128; // should be added to the general tool error queue/display if different from previous error
+    string last_action_detail = 129; // user displayable error string
+    int32 order_size = 130; // size of order (number of spread contracts)
+    int32 cum_fill_qty = 131; // total contracts filled (integer)
+    double avg_fill_prc = 132; // average price per contract filled
+    int32 leaves_qty = 133; // formatted leavesQty string
+    double live_limit_price = 134; // (@ last trial pass) [liveLimitPrice = de * dUPrc + 0.5 * ga * dUPrc * dUPrc]
+    double ref_limit_price = 135;
+    YesNo is_tied_ref_limit = 136;
+    double ref_uPrc = 137;
+    double ref_de = 138;
+    double ref_ga = 139;
+    double ref_ve = 140;
+    double ref_range = 141; // maximum pct change (refUPrc to uPrc) [response is not valid outside of this range]
+    int32 num_opt_legs = 142;
+    SpreadClass spread_class = 157;
+    SpreadFlavor spread_flavor = 144;
+    YesNo contains_hedge = 145;
+    string api_username = 152;
+    string api_password = 153;
+    google.protobuf.Timestamp timestamp = 154; // SR internal timestamp
+    repeated DetailLeg detail_leg = 146;
+}
+
+

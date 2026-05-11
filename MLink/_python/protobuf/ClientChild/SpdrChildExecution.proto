@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    SpdrChildExecution records are published when a child order fill is received.  These records update if busted or corrected by a downstream venue.
+    SpdrChildExecution records are published to the SpiderRock elastic cluster as they arrive.
+*/    
+message SpdrChildExecution {
+    message PKey {
+        
+        int64 fill_number = 10; // SR fill number (same as SpdrParentOrder.pkey.fillNumber)
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    SysRealm sys_realm = 100;
+    SysEnvironment sys_environment = 103; // original (source) sys environment [Stable, Current, etc]
+    RunStatus run_status = 106; // original (source) run status [Prod,Beta]
+    int64 cl_ord_id = 109; // SR child order clOrdId, or CrossID on cross orders.
+    SpdrOrderShape child_shape = 112;
+    ExecShape exec_shape = 115;
+    string street_cl_ord_id = 118; // usually clOrdID.X16 but can be different if street gateway was translating clOrdId
+    string street_order_id = 121; // street side order ID (for canceling order)
+    int64 side_cl_ord_id = 124; // Cross Side ClOrdId.  From ChildOrder.custClOrdId, or ChildOrder.FaceSideList.alloclOrdID
+    int64 parent_number = 127; // parent order number
+    int32 parent_version = 130; // SPDR order instance number (1 = original order; 2 = 1st cancel/replace, etc)
+    int64 base_parent_number = 133; // base order number (first parent number in chain)
+    string accnt = 136; // SR trading accnt
+    string client_firm = 139; // SR client firm
+    string core_client_firm = 142;
+    string sponsor_client_firm = 145;
+    FaceSide face_side = 148;
+    FaceShape face_shape = 151; // CrossCust = split broker / cust side, CrossFace = split broker / face side, CrossBoth = single broker cross
+    int64 face_side_cl_ord_id = 154; // either custClOrdId, faceClOrdId, or zero
+    OptionKey sec_key = 157;
+    SpdrKeyType sec_type = 160;
+    TickerKey ticker = 163;
+    BuySell order_side = 166;
+    PriceType price_type = 169;
+    int32 order_exch = 172;
+    string order_ex_dest = 175;
+    YesNo iso_sweep = 178;
+    YesNo is_directed = 181; // child order isDirected flag
+    string engine_name = 184; // SpiderRock execution engine that handled the parent order
+    string gateway_name = 187; // StreetGateway server than handled the child order (if any)
+    string routing_code = 190;
+    RelationshipType relationship_type = 193; // type of SR <-> client relationship
+    FirmType firm_type = 196; // firm type markup on child order
+    OrderCapacity order_capacity = 199; // order capacity markup on child order
+    ShortSaleFlag ssale_flag = 202; // short sale flag @ child order send
+    PositionType position_type = 205; // position type @ child order send
+    int32 locate_quan = 208; // locate quantity @ child order send
+    OrderStatus order_status = 211;
+    int32 cum_fill_quantity = 214; // copied from child order immediately after this fill has been incorporated
+    double avg_fill_price = 217;
+    int32 leaves_qty = 220;
+    uint32 leg_ratio = 223;
+    string fill_proc_detail = 226;
+    ExecTransType exec_trans_type = 229;
+    int32 version = 232; // cancel/correct version number (initial fill is version=1)
+    double fill_ts = 235; // fill report ts (seconds since startup; 100 nanosec resolution)
+    google.protobuf.Timestamp fill_dttm = 238; // fill DateTime (from SRDateTime)
+    int32 fill_size = 241; // fill size (from execReport.lastSize)
+    BuySell fill_side = 244; // fill side (from execReport.side)
+    double fill_price = 247; // fill price (from execReport.lastPrice)
+    google.protobuf.Timestamp fill_transact_dttm = 250; // fill DateTime (from execReport.fillDttm)
+    string fill_market = 253; // fill market (from execReport.lastMarket)
+    string fill_sRLiq_tag = 256; // fill SR normalized liquidity tag
+    string fill_exch_liq_tag = 259; // fill exchange liquidity code
+    string fill_exch_detail = 262; // other fix tags (tag:value#tag:value) [additional detail used for analysis]
+    float fill_exch_fee = 265; // fill exchange fee (either estimated by SR or as reported by street gateway)
+    string fill_exec_id = 268; // fill execution id (from execReport.execId)
+    string fill_ref_exec_id = 271; // fill ref execution id (from execReport.refExecId) [only set on a cancel or correct]
+    int64 fill_leg_ref_id = 274; // fill leg ref id (from execReport.legRefId)
+    int32 fill_leg_ratio = 277; // legRatio (if spread order)
+    string fill_firm_type = 280; // fill firm type (as reported from street side)
+    string fill_exec_broker = 283; // fill execution broker (as reported from street side)
+    string alt_brkr_mPID = 286; // alternative broker MPID for a given route (if needed)
+    OrderCapacity fill_order_capacity = 289; // fill order capacity (as reported from street side)
+    string fill_report_detail = 292; // all non-standard fix tags received on child fill report (custom packing) [used for passing values back to client or drop gateways]
+    string fill_street_text = 295;
+    CrossSide cross_side = 298; // indicates if this order was the initiator or responder of the cross fill (None if not cross)
+    YesNo is_cross_breakup_fill = 301; // cross order was broken up on exchange, and this execution was filled by party not specified on the original cross order
+    CompletionType completion_type = 304; // None, DAC, POC, TAS, TACO, BTIC
+    CompletionState completion_state = 307;
+    double completion_price = 310; // completion trade price (final trade price)
+    OptionKey completion_sec_key = 313; // final settlement secKey (contract that DAC, TAS, TACO, etc. will convert to; might not be valid until completed)
+    SpdrKeyType completion_sec_type = 316; // usually Future or Option (None if not yet valid)
+    string locate_firm = 319; // firm granting the locate (also locate firm used on street FIX orders)
+    int64 src_timestamp = 322; // source timestamp (fixMessage.sendingTime) from street side [might not be high precision]
+    int64 sgw_timestamp = 325; // street gateway arrival timestamp
+    int64 eng_timestamp = 328; // execution engine arrival timestamp
+    google.protobuf.Timestamp timestamp = 331;
+    string alt_order_id__v7 = 5000; // only V7
+    string alt_leg_ref_id__v7 = 5001; // only V7
+    YesNo cxl_attempted__v7 = 5002; // only v7 - enum values match with v8
+    YesNo is_risk_cancel__v7 = 5003; // only v7 - enum values match with v8
+    string cxl_reason_text__v7 = 5004; // only V7
+    float cxl2_fill_latency__v7 = 5005; // only V7
+    ChildHandler algo_handler__v7 = 5006; // only v7 - enum values match with v8
+    string fill_contra_detail__v7 = 5007; // only V7
+    OrderCapacity fill_contra_capacity__v7 = 5008; // only v7 - enum values match with v8
+    double nbbo_bid__v7 = 5009; // only V7
+    double nbbo_ask__v7 = 5010; // only V7
+    int32 nbbo_bid_sz__v7 = 5011; // only V7
+    int32 nbbo_ask_sz__v7 = 5012; // only V7
+    double exch_bid__v7 = 5013; // only V7
+    double exch_ask__v7 = 5014; // only V7
+    int32 exch_bid_sz__v7 = 5015; // only V7
+    int32 exch_ask_sz__v7 = 5016; // only V7
+    double u_prc__v7 = 5017; // only V7
+    double u_bid__v7 = 5018; // only V7
+    double u_ask__v7 = 5019; // only V7
+    int32 u_bid_sz__v7 = 5020; // only V7
+    int32 u_ask_sz__v7 = 5021; // only V7
+    double u_bid_cxl__v7 = 5022; // only V7
+    double u_ask_cxl__v7 = 5023; // only V7
+}
+
+

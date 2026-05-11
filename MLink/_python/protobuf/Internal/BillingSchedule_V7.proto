@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    V7 Message Name: BillingSchedule
+    V8 Message Name: BillingSchedule
+    Bridging pattern:  [V8 --> V7]
+    BridgeFromV8:BillingSchedule
+*/    
+message BillingSchedule_V7 {
+    message PKey {
+        
+        string billing_schedule = 5000; // v7 & v8 --- Original comment: acronym assigned to this billing schedule
+        BillingEntity billing_entity = 5001; // v7 & v8
+        BillingSecType billing_sec_type = 5002; // v7 & v8
+        BillingCategory billing_category = 5003; // v7 & v8
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string symbol = 5004; // v7 & v8 --- Original comment: comma separated list [VIX,SPX,SPY] (only applies if billingCategory=SymOverride)
+    int32 packet_size = 5005; // v7 & v8 --- Original comment: eg, 1 = per cn/sh, 5units of 5000 sh/cn
+    TierStyle tier_style = 5006; // v7 & v8 --- Original comment: non-retro=each tier in order.  retro=use price of best tier reached
+    float ticket_cap = 5007; // v7 & v8 --- Original comment: max $ per ticket (zero = no cap)
+    int32 tier1_volume = 5008; // v7 & v8 --- Original comment: tier1Rate applies for [0 - tier1Volume] packets
+    float tier1_brkr_rate = 5009; // v7 & v8
+    float tier1_routing_rate = 5010; // v7 & v8
+    int32 tier2_volume = 5011; // v7 & v8 --- Original comment: tier2Rate applies for (tier1Volume - tier2Volume] packets
+    float tier2_brkr_rate = 5012; // v7 & v8
+    float tier2_routing_rate = 5013; // v7 & v8
+    int32 tier3_volume = 5014; // v7 & v8 --- Original comment: tier3Rate applies for (tier2Volume - tier3Volume] packets
+    float tier3_brkr_rate = 5015; // v7 & v8
+    float tier3_routing_rate = 5016; // v7 & v8
+    int32 tier4_volume = 5017; // v7 & v8 --- Original comment: tier3Rate applies for (tier3Volume - tier4Volume] packets
+    float tier4_brkr_rate = 5018; // v7 & v8
+    float tier4_routing_rate = 5019; // v7 & v8
+    google.protobuf.Timestamp timestamp = 5020; // v7 & v8
+    string user_name = 5021; // v7 & v8: Field Name Change: V7=[userName], V8=[modifiedBy]: Using Meta Types: V7=[string,Length=24,Alias=UserNameString,MetaType=NA], V8=[string,Length=24,Alias=SRUserString,MetaType=ModifiedBy]
+    SysEnvironment modified_in = 5022; // v7 & v8
+}
+
+

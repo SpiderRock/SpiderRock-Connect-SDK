@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+
+    
+message OptionDataResult {
+
+
+    MessageMetadata _meta = 1;
+    
+    int32 request_iD = 100;
+    OptionKey okey = 103;
+    ExpiryKey fkey = 106;
+    TickerKey skey = 109;
+    float bid_price = 112;
+    float ask_price = 115;
+    float bid_size = 118;
+    float ask_size = 121;
+    float u_prc = 124;
+    float vol = 127;
+    float de = 130;
+    float ga = 133;
+    float th = 136;
+    float ve = 139;
+    float vo = 142;
+    float va = 145;
+    float rh = 148;
+    float ph = 151;
+    float pr = 154;
+    float de_decay = 157;
+    float xde = 160;
+    int32 days = 163;
+}
+
+

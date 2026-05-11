@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message FixConnectionInfo {
+    message PKey {
+        
+        string routing_code = 10; // matches routingCode from routeDefinition
+        SysEnvironment sys_environment = 11;
+        string sender_iD = 12;
+        string target_iD = 13;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string server_code = 100; // server responsible for handling these routes
+    SysRealm sys_realm = 103; // sysRealm [NMS, CME, etc.]
+    string machine_name = 106; // name of the machine which is hosting fix server
+    SessionType session_type = 109; // type of session
+    string server_name = 112; // server code
+    RouteControl route_control = 115; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    ConnectType connect_type = 118;
+    google.protobuf.Timestamp connect_dttm = 121; // most recent connection initiated / accepted
+    int32 num_connects = 124; // number of fix connections today
+    int32 num_test_requests = 127; // number test requests, an indicator of line quality
+    SessionState session_state = 130;
+    YesNo is_available = 133;
+    string ip_addr = 136;
+    int32 ip_port = 139;
+    string if_addr = 142;
+    string ip_addr2 = 145;
+    int32 ip_port2 = 148;
+    string if_addr2 = 151;
+    int32 sender_seq = 154;
+    int32 target_seq = 157;
+    int32 num_order = 160; // total
+    int32 num_cancel = 163;
+    int32 num_reject = 166;
+    int32 num_cxl_reject = 169;
+    int32 num_exec_report = 172;
+    int32 num_oats_order = 175; // oats reportable
+    int32 num_oats_reject = 178;
+    int32 num_oats_ack = 181;
+    int32 num_open_order = 184;
+    int32 num_open_cancel = 187;
+    int32 queue_size = 190;
+    float queue_delay = 193;
+    int32 num_errors = 196;
+    string last_error = 199;
+    google.protobuf.Timestamp last_error_dttm = 202;
+    FixBaseSessionError max_session_error = 205;
+    google.protobuf.Timestamp max_session_error_dttm = 208;
+    string max_session_error_text = 211;
+    MonitorCode monitor_code = 214;
+    google.protobuf.Timestamp ts = 217;
+}
+
+

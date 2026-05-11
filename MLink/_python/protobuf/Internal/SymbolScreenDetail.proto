@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message SymbolScreenDetail {
+    message PKey {
+        
+        int32 id = 10;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    TickerKey ticker = 100;
+    float u_prc = 103;
+    float u_prc_prv = 106;
+    float u_prc_move = 109;
+    float sh_atm_iv = 112;
+    float ln_atm_iv = 115;
+    float sh_atm_iv_prv = 118;
+    float ln_atm_iv_prv = 121;
+    float sh_atm_iv_move = 124;
+    float ln_atm_iv_move = 127;
+    float sh_atm_tv = 130; // theo volatilities
+    float ln_atm_tv = 133;
+    float sh_bOpn_vol = 136;
+    float sh_sOpn_vol = 139;
+    float sh_bCls_vol = 142;
+    float sh_sCls_vol = 145;
+    TheoError sh_theo_err = 148;
+    float ln_bOpn_vol = 151;
+    float ln_sOpn_vol = 154;
+    float ln_bCls_vol = 157;
+    float ln_sCls_vol = 160;
+    TheoError ln_theo_err = 163;
+    float sh_opn_vega = 166; // open interest
+    float ln_opn_vega = 169;
+    float sh_prt_vega = 172; // total vega printed today
+    float ln_prt_vega = 175;
+    float pos_vega = 178; // our position
+    float pos_theta = 181;
+    int32 cn_bot = 184; // our contracts traded
+    int32 cn_sld = 187;
+    string sym_name = 190;
+    SymbolType symbol_type = 193;
+    string ind_name = 196;
+    string sub_name = 199;
+    string grp_name = 202;
+    string nbr_name = 205;
+    string sector = 208;
+    float stock_volume = 211; // trailing average daily volume
+    int64 shares_outstanding = 233; // symbol shares outstanding
+    int32 num_options = 217; // total number of listed options
+    float option_volume = 220; // trailing average daily volume (all options)
+    string exch_string = 223; // exchanges listing any options in this name
+    int32 next_earn_days = 226;
+    string next_earn_time = 229;
+    google.protobuf.Timestamp timestamp = 232;
+}
+
+

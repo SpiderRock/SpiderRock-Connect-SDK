@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message AuctionCardData {
+    message PKey {
+        
+        string auction_key = 10; // notice number for this auction
+    }
+
+    message Expiry {
+        
+        string item = 184; // display description of order legs for given expiry
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string symbol = 100; // order ticker symbol
+    AuctionType auction_type = 201; // Block, BlockDAC, BlockPOC, BlockPVC
+    YesNo is_test_auction = 200; // if the auction is a test or not
+    MLegPerspective mleg_perspective = 193;
+    DebitCredit debit_credit = 194;
+    BuySell order_side = 103; // order side (if available)
+    string order_size = 106; // size of order (in shares or contracts)
+    int32 num_responders = 109; // number of responders for this auction
+    int32 num_opt_legs = 112; // number of option legs
+    SpreadClass spread_class = 199; // spread class
+    SpreadFlavor spread_flavor = 118; // spread flavor
+    YesNo contains_hedge = 121; // if this auction contains a stock leg
+    YesNo contains_flex = 196; // if this auction contains flex leg(s)
+    YesNo contains_multi_hedge = 197; // contains MultiHedge (corp action adjusted) options
+    AtsAuctionStatus status = 202; // status of auction (single or mleg)
+    string details = 127; // formatted auction details (auction type / params)
+    string expire_time = 130; // time this auction expires
+    google.protobuf.Timestamp st_dttm = 133; // order start time (Date)
+    google.protobuf.Timestamp gtt = 136; // order expiration time (Date)
+    YesNo show_countdown = 139; // if the client should display a countdown timer for this card
+    int32 countdown_ms = 192; // number of milliseconds left on the countdown timer
+    string auction_state = 145;
+    string bid = 148; // formatted bid string
+    string ask = 151; // formatted ask string
+    string last = 154; // formatted last price string
+    string move = 157; // move on the day
+    int64 ord_key = 203; // baseParentNumber.X (from private response; if any)
+    string short_code = 198; // auction short code (unique per day) (block auctions only)
+    string cust_cFirm = 189; // client firm of the initiator (if disclosed to this responder/user)
+    YesNo is_comm_paying = 190; // is the initiator paying a commission to this responder/user
+    string u_prc = 166; // formatted underlier price string
+    string gamma = 172; // formatted gamma string
+    string delta = 169; // formatted delta string
+    string vega = 175; // formatted vega string
+    string s_edge = 178; // side edge
+    google.protobuf.Timestamp ts = 187; // last update time (Date)
+    repeated Expiry expiry = 181;
+}
+
+

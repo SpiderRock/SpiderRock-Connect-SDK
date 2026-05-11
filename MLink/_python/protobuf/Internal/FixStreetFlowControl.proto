@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+import "spiderrock_system_data_enums.proto";
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+/*
+    FixStreetFlowControl messages are sent from SFixBase StreetGW processes to all execution engines.  This messages contain outbound route queue size and state info and can throttle EE child order creation.
+*/    
+message FixStreetFlowControl {
+    message PKey {
+        
+        string routing_code = 10; // external (street side) routing code
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    FixBaseSessionState session_state = 100;
+    FixBaseSequenceState sequence_state = 103;
+    FixBaseTransportState transport_state = 106;
+    RouteControl route_control = 109; // Enabled = two-way; Disabled = disconnect/logout immediately; SafeMode = Cancel open orders / reject new orders; Unused = Remove route from gateway
+    int32 pending_queue_size = 112; // indicates the number of pending outgoing messages for this session (eg. pending streetGW -> broker messages)
+    double pending_queue_age = 115; // age of the oldest item currently in queue
+    string last_server_code = 118; // last server code of publishing server
+    SysEnvironment sys_environment = 121;
+    int32 num_messages_sent = 124; // num (application) fix messages sent since last fix log rotation
+    int32 num_messages_rcvd = 127; // num (application) fix messages rcvd since last fix log rotation
+    int64 counter = 130; // increments by 1 every time a flow control record is published
+    google.protobuf.Timestamp timestamp = 133;
+}
+
+

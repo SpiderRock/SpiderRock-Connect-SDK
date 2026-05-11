@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message LiveOptionDataResponse {
+    message PKey {
+        
+        OptionKey okey = 10;
+        string accnt = 11;
+        string client_firm = 12;
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    string exch_yr_mn = 100;
+    ExpiryKey fkey = 103;
+    TickerKey ticker = 106;
+    float opt_bid = 109;
+    float opt_ask = 112;
+    int32 opt_bSz = 115;
+    int32 opt_aSz = 118;
+    int32 opt_cum_aSz = 121;
+    int32 opt_cum_bSz = 124;
+    int32 opt_cum_aVega = 127;
+    int32 opt_cum_bVega = 130;
+    OptExch opt_bEx = 133;
+    OptExch opt_aEx = 136;
+    float opt_prt = 139;
+    int32 opt_pSd = 142;
+    int32 opt_pSz = 145;
+    OptExch opt_pEx = 148;
+    float opt_pAge = 151;
+    float eff_strike = 154;
+    float symbol_ratio = 157;
+    int32 ex_type = 160;
+    int32 model_type = 163;
+    PricingFramework prc_framework = 166;
+    double tick_value = 169;
+    double point_value = 172;
+    Currency point_currency = 175;
+    UnderlierType underlier_type = 178;
+    int32 underliers_per_cn = 181;
+    double cab_tick_size = 184;
+    double min_tick_size = 187;
+    PriceFormat price_format = 190;
+    PriceFormat u_price_format = 193;
+    google.protobuf.Timestamp today = 196;
+    google.protobuf.Timestamp expiry = 199;
+    float years = 202;
+    float rate = 205;
+    int32 s_days_t = 208;
+    int32 s_days_e = 211;
+    float i_bid = 214;
+    float i_ask = 217;
+    float u_bid = 220;
+    float u_ask = 223;
+    float u_prc = 226;
+    int32 u_bsz = 229;
+    int32 u_asz = 232;
+    float surf_vol = 235;
+    float surf_prc = 238;
+    float surf_vol_yChg = 241;
+    float theo_vol = 244;
+    float theo_opx = 247;
+    float theo_bid_vol = 250;
+    float theo_ask_vol = 253;
+    float theo_bid = 256;
+    float theo_ask = 259;
+    float de = 262;
+    float d_de = 265; // dollar delta
+    float ga = 268;
+    float d_ga = 271; // dollar gamma
+    float th = 274;
+    float ve = 277;
+    float vo = 280;
+    float va = 283;
+    float adj_de = 286; // adjusted delta (de + veSlope*100*ve)
+    float theo_adj_de = 289; // adjusted delta (de + veSlope*100*ve) from theo vol
+    float rh = 292;
+    float ph = 295;
+    float pr = 298;
+    float de_decay = 301;
+    float stk_adv = 304;
+    int32 max_impact_dDelta = 307;
+    int32 pos = 310;
+    int32 bot = 313;
+    int32 sld = 316;
+    float s_div = 319;
+    float s_div_ln = 322;
+    float s_div_sh = 325;
+    double p_uPrc = 328;
+    float p_delta = 331;
+    float bid_take_prob = 334;
+    float bid_tk_im_prob = 337;
+    float ask_take_prob = 340;
+    float ask_tk_im_prob = 343;
+    string d_div = 346;
+}
+
+

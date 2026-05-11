@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "spiderrock_common.proto";
+
+
+package spiderrock.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+    
+message WebToolGenericResponse {
+    message PKey {
+        
+        string key = 10; // unique identifier for this response
+    }
+
+
+    MessageMetadata _meta = 1;
+    
+    PKey pkey = 2;
+    YesNo success = 100; // did this succeed or not
+    string msg = 103; // extra details (if provided)
+    google.protobuf.Timestamp timestamp = 106; // time sent
+}
+
+
