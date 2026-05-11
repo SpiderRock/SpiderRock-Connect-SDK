@@ -66,10 +66,17 @@ message OptionPrintSet {
     double u_bid = 214; // underlier bid
     double u_ask = 217; // underlier ask
     double u_prc = 220; // underlier price
-    float yrs = 223; // years to expiry
-    float rate = 226; // interest rate
-    float sdiv = 229; // continuous stock dividend
-    float ddiv = 232; // discrete stock dividend value (sum of dividends <= expiration)
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233;
+    ExerciseType ex_type = 224; // exercise type
+    float years = 152; // volatility years to expiration (from SR time/calendar metrics)
+    float years_c = 200; // calendar years to expiration
+    float rate = 226; // SR interest rate (from global rate curve)
+    float sdiv = 229; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 232; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 161; // SR ddivPv (sum of present value discrete dividend amounts)
+    int32 s_days_t = 236; // settlement days (today)
+    int32 s_days_e = 239; // settlement days (expiry)
     float x_de = 235; // xDelta
     float x_axis = 238; // SR surface xAxis value
     Multihedge multihedge = 241; // Distinguishes options that have a single underlying security from those that are more complex:  multiple securities,cash components, binary options,etc:  'None','Simple','Complex','AllCash','Binary'
@@ -82,9 +89,11 @@ message OptionPrintSet {
     float prt_ve = 262; // print vega
     float prt_ro = 265; // print rho
     string calc_err = 268; // calc error flag
+    double syn_spot = 270; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
     float surf_vol = 271; // SR surface volatility
     float surf_opx = 274; // SR surface price
     float surf_atm = 277; // SR surface ATM vol
+    float sr_slope = 149; // srSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * srSlope) if hedging with this assumption
     float prt_probability = 280; // [M1] probability that buying prtSize contracts @ prtPrice will have positive m10 pnl (prtPriceM10 >= prtPrice) [recorded at time of print]
     float prt_probability_m2 = 283; // alternate probability model
     float prt_probability_m3 = 286; // alternate probability model

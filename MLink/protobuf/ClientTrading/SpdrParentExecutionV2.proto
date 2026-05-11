@@ -301,7 +301,8 @@ message SpdrParentExecutionV2 {
     int64 eng_timestamp = 931; // print arrival in an SR (execution or edge) engine
     double live_uPrc = 934; // SpiderRock internal use only
     double live_mark = 937; // SpiderRock internal use only
-    google.protobuf.Timestamp timestamp = 940; // timestamp of this record [not necessarily the timstamp of the fill itself]
+    SwapProvider swap_provider = 940; // swap provider used for this execution (if any)
+    google.protobuf.Timestamp timestamp = 943; // timestamp of this record [not necessarily the timstamp of the fill itself]
 }
 
 

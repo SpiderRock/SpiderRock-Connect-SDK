@@ -26,6 +26,8 @@ message RiskGroupCounter {
     ChangeReason change_reason = 103;
     float opt_qty_bot_ioc_filled = 104; // fills + IOC leaves
     float opt_qty_sld_ioc_filled = 105; // fills + IOC leaves
+    float fut_qty_bot_ioc_filled = 130; // fills + IOC leaves
+    float fut_qty_sld_ioc_filled = 131; // fills + IOC leaves
     float dd_bot_ioc_filled = 106; // fills + IOC leaves
     float dd_sld_ioc_filled = 107; // fills + IOC leaves
     float ve_bot_ioc_filled = 108; // fills + IOC leaves

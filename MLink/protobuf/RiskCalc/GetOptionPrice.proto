@@ -33,6 +33,7 @@ message GetOptionPrice {
     CalcEngine calc_engine = 145; // underlying calc engine:  FastHybrid (listed strikes + SR discrtete dividends only).  NumericX works for any strike/expiry + discrete dividend set but is significantly slower.
     YesNo inc_greeks = 148; // default (No)
     double price = 151; // price (premium)
+    Currency currency = 197;
     double eff_strike = 154; // effective strike used to for pricing calc
     int32 i_days = 157; // interest days to expiry
     float ddiv = 160; // sum of discrete dividend amounts payable prior to exercise (if any) (simple; not net present value)

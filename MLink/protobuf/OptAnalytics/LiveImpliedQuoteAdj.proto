@@ -33,7 +33,7 @@ message LiveImpliedQuoteAdj {
     float svol = 136; // option surface volatility
     float sprc = 139; // option surface price
     float smrk = 142; // option surface price (w/bounding rules)
-    float ve_slope = 145; // veSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant);hedgeDelta = (de + ve * 100 * veSlope) if hedging with this assumption
+    float sr_slope = 145; // srSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant);hedgeDelta = (de + ve * 100 * srSlope) if hedging with this assumption
     float de = 148; // option delta
     float ga = 151; // option gamma
     float th = 154; // option theta

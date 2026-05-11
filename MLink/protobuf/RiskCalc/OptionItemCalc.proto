@@ -32,6 +32,7 @@ message OptionItemCalc {
     double ddiv = 148;
     double ddiv_pV = 151;
     double price = 154; // price (premium)
+    Currency currency = 191;
     double eff_strike = 157; // effective strike used to for pricing calc
     float delta = 160; // delta
     float gamma = 163; // gamma

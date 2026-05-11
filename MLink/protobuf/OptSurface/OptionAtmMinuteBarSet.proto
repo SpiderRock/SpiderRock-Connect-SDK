@@ -26,10 +26,18 @@ message OptionAtmMinuteBarSet {
     string time = 109;
     TickerKey ticker = 112;
     double u_prc = 115; // Underlying price
-    float years = 118; // Years to expiry
-    float rate = 121; // Interest rate
-    float sdiv = 124; // Continuous stock dividend
-    float ddiv = 127; // Discrete stock dividend value
+    CalcModelType model_type = 230; // option pricing model used for price calcs (Normal, LogNormal, etc.)
+    PricingFramework prc_framework = 233;
+    ExerciseType ex_type = 224; // exercise type
+    float years = 152; // volatility years to expiration (from SR time/calendar metrics)
+    float years_c = 198; // calendar years to expiration
+    float rate = 155; // SR interest rate (from global rate curve)
+    float sdiv = 173; // SR sdiv rate (implied; from call-put alignment)
+    float ddiv = 158; // SR ddiv (sum of discrete dividend amounts)
+    float ddiv_pv = 161; // SR ddivPv (sum of present value discrete dividend amounts)
+    DDivSource ddiv_src = 164; // are all discete dividends Announce or are some Forecast?
+    int32 s_days_t = 236; // settlement days (today)
+    int32 s_days_e = 239; // settlement days (expiry)
     double u_prc_ratio = 130; // Implied underlying driver price rate. For options with index/futures underlyings
     float ivol = 133; // atm ivol (atm: strike = fUPrc)
     float ivxx = 136; // fixed strike ivol (ivol @ refStrike)

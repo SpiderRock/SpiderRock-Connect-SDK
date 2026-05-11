@@ -41,6 +41,7 @@ message SpdrAutoHedgeControl {
     int32 order_size = 142; // initial (and maximum) size of a hedge parent buy or sell order.  note: actual working size will be controlled by the autohedge server based on filled deltas but working size cannot exceed orderSize
     ShortSaleFlag ssale_flag = 145;
     PositionType position_type = 251;
+    SwapProvider use_swap_provider = 260;
     string locate_firm = 258; // firm granting the locate (also locate firm used on street FIX orders) (required if selling short and no auto-locate is available)
     string locate_pool = 259; // locate pool @ firm granting the locate
     int32 max_exposure_size = 148; // maximum simultaneous cumulative child order public size exposure (-1 = orderActiveSize) [order can overfill if > orderActiveSize and numMakeExchanges > 1]

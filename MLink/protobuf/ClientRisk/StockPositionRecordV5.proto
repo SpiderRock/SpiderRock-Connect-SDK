@@ -69,6 +69,7 @@ message StockPositionRecordV5 {
     float opn_pnl_clr_mark = 208;
     float ex_div_amt = 211; // amount of any dividend going ex today
     float borrow_rate = 214; // overnight rate required to borrow stock (if known)
+    float opn_div_pn_l = 236; // [estimate] cash to be rcvd / paid if long shares in the previous period (usually on exDiv date)
     float beta = 217; // beta (usually beta to SPX; see AccountConfig.betaSource)
     BetaSource beta_source = 220;
     float margin_uDn = 230; // Aggregate RiskSlide: uPrc dn

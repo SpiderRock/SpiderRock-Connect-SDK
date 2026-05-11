@@ -19,6 +19,7 @@ message StockLocateRequest {
         string core_client_firm = 11; // coreClientFirm
         string locate_firm = 15;
         string locate_pool = 16; // locate pool @ firm granting the locate
+        DateKey trade_date = 12;
         int64 request_iD = 14; // ID used to make locate requests (SR generated request ID)
     }
 

@@ -22,6 +22,11 @@ message TickerDefinition {
         TickerKey ticker = 277;
     }
 
+    message SupportSwapProviders {
+        
+        SwapProvider swap_provider = 297;
+    }
+
 
     MessageMetadata _meta = 1;
     
@@ -88,10 +93,13 @@ message TickerDefinition {
     TimeMetric time_metric = 278; // trading time metric - 252 or 365 trading days or a weekly cycle type
     TradingPeriod trading_period = 279; // trading period code (defines 24-hour trading period start/stop)
     TickerKey regional_composite_ticker = 285; // regional composite ticker - set on European contributor products only
+    YesNo is_hft_tax_liable = 288; // if Yes this stock is liable for high frequency taxation and require hft throttling for maker algos
+    double hft_tax_trigger_time = 291; // value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)
     google.protobuf.Timestamp timestamp = 280;
     string default_root = 266; // Default Root selected for Index Options
     TickerKey linked_primary_future = 270; // Primary related future to kick off FutExpirationBar subscription for EQT
     repeated Exchange exchange = 271;
+    repeated SupportSwapProviders support_swap_providers = 294;
 }
 
 

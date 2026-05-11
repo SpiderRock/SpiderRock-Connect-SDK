@@ -45,6 +45,8 @@ message CCodeDefinition {
     string description = 157; // product description
     string market_center = 160; // market center, eg "ICE Market Type", "CME MarketGroup"
     TradingPeriod trading_period = 165;
+    YesNo is_hft_tax_liable = 170; // if Yes futures in this ccode grouping are liable for high frequency taxation and require hft throttling for maker algos
+    double hft_tax_trigger_time = 175; // value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)
     google.protobuf.Timestamp timestamp = 163;
     string ric_code__v7 = 5000; // only V7
 }

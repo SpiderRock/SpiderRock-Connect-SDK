@@ -30,6 +30,8 @@ message AltSymbolMap {
         string exec_brkr_cl_firm = 154; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>) [only used if clrFlipType=BrkrAccnt]
         string exec_brkr_user_name = 155; // exec broker user name (supplied by exec broker)
         string badge = 156; // exchange memembership and badge id
+        string clearing_firm = 160; // used only for reporting and drops
+        string clearing_accnt = 161; // used only for reporting and drops
     }
 
 

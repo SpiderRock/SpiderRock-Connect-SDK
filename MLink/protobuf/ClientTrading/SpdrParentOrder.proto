@@ -242,6 +242,7 @@ message SpdrParentOrder {
     string extern_hedge_ex_dest = 1041; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 415; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     YesNo hedge_fill_uMark_lmt_prc = 1046; // set a price limit on the autohedge order based on the most recent option fillUMark
+    SwapProvider use_swap_provider = 1068;
     FirmType firm_type = 418; // used to override firmType in account config
     OrderCapacity order_capacity = 421;
     PositionType position_type = 424;
@@ -302,6 +303,9 @@ message SpdrParentOrder {
     int32 max_grp_day_contracts_ln = 646; // max acct+riskGroup day opt contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
     int32 max_grp_day_contracts_sh = 649; // max acct+riskGroup day opt contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
     int32 max_grp_day_contracts_abs = 652; // max acct+riskGroup day opt contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
+    int32 max_grp_day_fut_contracts_ln = 1073; // max acct+riskGroup day fut contracts long (positive number;-1=no limit);risk limit = max limit - current net counter
+    int32 max_grp_day_fut_contracts_sh = 1074; // max acct+riskGroup day fut contracts short (positive number;-1=no limit);risk limit = max limit + current net counter
+    int32 max_grp_day_fut_contracts_abs = 1075; // max acct+riskGroup day fut contracts abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)
     float max_grp_day_rMetric1_ln = 610; // max acct+riskGroup day rMetric1 long (positive number;-1=no limit);risk limit = max limit - current net counter
     float max_grp_day_rMetric1_sh = 613; // max acct+riskGroup day rMetric1 short (positive number;-1=no limit);risk limit = max limit + current net counter
     float max_grp_day_rMetric1_abs = 616; // max acct+riskGroup day rMetric1 abs (positive number;-1=no limit);risk limit = max limit - abs(current net counter)

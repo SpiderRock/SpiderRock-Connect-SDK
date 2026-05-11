@@ -31,6 +31,9 @@ message AuctionNotice {
         int32 und_per_cn = 136;
         ExpiryType exp_type = 138; // ZDte,Daily,Weekly,Regular,Quarterly,LongTerm,OtherExp
         float years = 139; // SR volatility years to expiry
+        float years_c = 242; // calendar years to expiration
+        int32 s_days_t = 236; // settlement days (today)
+        int32 s_days_e = 239; // settlement days (expiry)
         float rate = 140; // SR global (discount) rate to expiry
         float atm_vol = 141; // ATM (fwd uPrc) SR surface volatility
         float ddiv_pv = 142; // SR present value of ddiv stream
@@ -92,6 +95,7 @@ message AuctionNotice {
     double u_bid = 124;
     double u_ask = 125;
     double ref_uPrc = 184;
+    float ref_de = 203;
     float net_de = 172;
     float net_ga = 173;
     float net_th = 174;

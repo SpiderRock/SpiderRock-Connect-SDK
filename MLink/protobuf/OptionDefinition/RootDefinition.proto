@@ -84,6 +84,9 @@ message RootDefinition {
     BbgYrCode bbg_yr_code = 229; // Format for the year field in the Bloomberg Code
     YellowKey bbg_group = 228; // Bloomberg Yellow Key
     TickerKey regional_composite_root = 251; // regional composite ticker - set on European contributor products only
+    YesNo is_hft_tax_liable = 254; // if Yes options on this root are liable for high frequency taxation and require hft throttling for maker algos
+    double hft_tax_trigger_time = 257; // value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)
+    string description = 260; // product description (sourced from Activ FidName)
     google.protobuf.Timestamp timestamp = 232;
     PricingSource_V7 pricing_source__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]
     string ric_code__v7 = 5001; // only V7

@@ -117,6 +117,7 @@ message SpdrParentBrkrState {
     YesNo hedge_fill_uMark_lmt_prc = 609; // set a price limit on the autohedge order based on the most recent option fillUMark
     string user_data1 = 316; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 319; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
+    string future_spread_description = 622; // server-composed human-readable spread description for future spreads (populated by ToolServerV2)
     MaxProgress max_progress = 322; // maximum point of progress for most recent parent order
     string max_progress_detail = 325; // additional detail on point of maximum progress
     google.protobuf.Timestamp max_progress_time = 328; // time of last max progress advance

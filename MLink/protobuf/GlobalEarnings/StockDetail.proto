@@ -20,8 +20,8 @@ message StockDetail {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    float e_move = 100; // implied earnings move (from LiveSurfaceTerm.eMove)
-    float e_move_hist = 103; // average historical (trail 8 quarter) earnings move (from LiveSurfaceTerm.eMoveHist)
+    float i_eMove = 100; // implied earnings move (from LiveSurfaceTerm.eMove)
+    float h_eMove = 103; // average historical (trail 8 quarter) earnings move (from LiveSurfaceTerm.eMoveHist)
     int32 next_earn_days = 106; // estimated days to next earnings event (resets to next event immediately after earnings passes)
     int32 near_earn_days = 109; // estimated days to next earnings event (resets to next event 2 days after the most recent event has passed)
     string next_earn_time = 112; // estimated time of day of next earnings event

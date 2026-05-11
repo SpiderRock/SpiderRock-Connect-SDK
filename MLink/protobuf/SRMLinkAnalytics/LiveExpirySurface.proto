@@ -78,8 +78,8 @@ message LiveExpirySurface {
     float u_vol_hist = 250; // historical realized volatility (includes eMoveHist x earnCntAdj adjustment).  Note that this is the default atmVol if no implied markets existed previous day.
     float u_cen_hist = 253; // censored (earnings events removed) historical realized volatility.  Trailing periods is 2x forward time to expiration.  From HistoricalVolatility(windowType=hlCen).mv_nnn
     float u_beta_hist = 256; // beta (this underlier vs basis underlier; T + 1 week)
-    float e_move = 259; // implied earnings move (from LiveSurfaceTerm)
-    float e_move_hist = 262; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
+    float i_eMove = 259; // implied earnings move (from LiveSurfaceTerm)
+    float h_eMove = 262; // historical earnings move (avg of trailing 8 moves). From StockEarningsCalendar.eMoveHist
     float min_xAxis = 265; // minimum xAxis value; left most point with a valid supporting strike
     float max_xAxis = 268; // maximum xAxis value; right most point with a valid supporting strike
     float syn_spot = 271; // synthetic spot price (forward style pricing)

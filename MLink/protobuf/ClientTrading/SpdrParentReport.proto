@@ -271,6 +271,7 @@ message SpdrParentReport {
     string exec_brkr_code = 1094; // overrides the default executing broker for this parent order
     string extern_ex_dest = 1095; // routing code for orders directed to an external order router (default = null); must match an exDest associated with a RouteDefinition
     string extern_params = 199; // external algo names/parameters (usually just an algo name)
+    SwapProvider swap_provider = 1131; // swap provider for this order (if any)
     SpdrSource spdr_source = 202; // parent order source enum
     int64 grouping_code = 205; // unique broker code; broker.pkey = (key + accnt + spdrSource + groupingCode)
     string engine_name = 1042; // execution engine (partition) handling this parent order

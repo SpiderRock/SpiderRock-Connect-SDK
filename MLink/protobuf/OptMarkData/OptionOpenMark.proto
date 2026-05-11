@@ -29,6 +29,9 @@ message OptionOpenMark {
     float sr_prc = 133; // SR open surface price; [SR close surface price overnight adjusted]
     float sr_vol = 136; // SR surface volatility
     MarkSource sr_src = 139;
+    double syn_spot = 152; // Synthetic spot price (market-derived spot when the underlying is not a traded instrument)
+    float atm_vol = 143; // atm vol (xAxis = 0)
+    float atm_cen = 144; // atm vol (xAxis = 0) (eMove/earnCntAdj censored)
     float k_adj = 140; // adjusted strike
     float de = 142; // greeks from SR surface volatility
     float ga = 145;
@@ -44,6 +47,8 @@ message OptionOpenMark {
     float ddiv = 175; // sum of discrete dividends
     float ddiv_pv = 192; // sum of present value of discrete dividends
     float rate = 178; // term discount rate
+    float i_eMove = 179; // implied earnings move (from LiveSurfaceTerm)
+    float earn_cnt_adj = 180; // number of qualifying earnings events prior to expiration [adjusted] (from StockEarningsCalendar + LiveSurfaceTerm)
     float years = 181; // years to expiration
     int32 error = 184; // pricing calc error (0 = none)
     string corp_action = 187;

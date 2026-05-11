@@ -15,6 +15,7 @@ message MLinkStream {
     string msg_name = 100; // (required) a SpiderRock message name (topic channel) (can be string name or protobuf message number)
     string where = 103; // (optional) where clause; eg. "(bidexch:eq:AMEX | bidexch:eq:CBOE) & bidsize:ge:100"  (default is all records)
     string view = 106; // (optional) list (subset) of field names to return with this message (eg. bidprice,askprice,bidsize,asksize) (default is all names)
+    int64 ticker_basket = 145; // (optional) if supplied, only records whose underlying ticker key is in the specified TickerItemDef basket will be returned; basket is resolved by basketNumber + authenticated userName
     YesNo unsubscribe = 109; // (optional) if set to Yes the specified message type will be unsubscribed and thus no longer return
     int32 session_iD = 112; // (optional) actions below apply only to the sessionID virtual session; should be zero for non-multiplexed web-socket connections.
     int64 query_iD = 115; // (optional) queryID will be reflected back in the corresponding MLinkStreamAck message; nothing is assumed about structure of this number

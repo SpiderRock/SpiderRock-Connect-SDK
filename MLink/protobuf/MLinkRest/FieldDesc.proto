@@ -37,6 +37,7 @@ message FieldDesc {
     int32 c_color = 160; // grid column color number (color palette number) (0 means undefined)
     string context_query = 163; // context query for pseudo enum fields with format of contextQuery=otherMsgType|selectField|contextField|contextField|...|contextField
     YesNo is_required = 166; // YesNo enum. Determines if this field is required.
+    YesNo is_strict_context_query = 167; // YesNo enum. Determines if the context query is strict and only values from the context query are allowed in the field.
 }
 
 

@@ -39,7 +39,7 @@ message LiveImpliedQuote {
     float s_vol = 139; // option surface volatility (SR surface fit model)
     float s_prc = 142; // option surface price; ie. PRICE(sVol, uPrc + uOff, years, rate, sDiv, {discrete dividends, if any})
     float s_mark = 145; // option surface mark (option surface price w/bounding rules; always between bid/ask)
-    float ve_slope = 148; // veSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * veSlope) if hedging with this assumption
+    float sr_slope = 148; // srSlope = dVol / dUprc (assuming vol @ xAxis = 0 remains constant); hedgeDelta = (de + ve * 100 * srSlope) if hedging with this assumption
     float de = 151; // option delta
     float ga = 154; // option gamma
     float th = 157; // option theta

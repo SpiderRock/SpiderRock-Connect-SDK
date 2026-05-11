@@ -48,6 +48,11 @@ message AccountRouteConfig {
         FeatureDisable feature_disable = 197; // used to disable certain route features before reaching the routingCode/routeDefinition
     }
 
+    message SupportSwapProviders {
+        
+        SwapProvider swap_provider = 203;
+    }
+
 
     MessageMetadata _meta = 1;
     
@@ -67,6 +72,7 @@ message AccountRouteConfig {
     repeated ExchControl exch_control = 157;
     repeated ExecBrkrAccnts exec_brkr_accnts = 179;
     repeated RoutingTable routing_table = 148;
+    repeated SupportSwapProviders support_swap_providers = 200;
 }
 
 

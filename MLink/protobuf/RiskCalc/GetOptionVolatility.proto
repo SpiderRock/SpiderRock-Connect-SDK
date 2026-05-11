@@ -33,6 +33,7 @@ message GetOptionVolatility {
     CalcEngine calc_engine = 145; // underlying calc engine:  FastHybrid (listed strikes + SR discrtete dividends only).  NumericX works for any strike/expiry + discrete dividend set but is significantly slower.
     YesNo inc_greeks = 148; // default (No)
     double vol = 151; // volatility (implied)
+    Currency currency = 153;
     double eff_strike = 154; // effective strike used to for pricing calc
     float dividend_amount = 157; // sum of discrete dividend amounts payable prior to exercise (if any) (simple; not net present value)
     float delta = 160; // delta

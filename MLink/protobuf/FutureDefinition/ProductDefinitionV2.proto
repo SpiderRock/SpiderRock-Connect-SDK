@@ -75,6 +75,8 @@ message ProductDefinitionV2 {
     int32 decay_start_day = 214;
     int32 decay_qty = 217; // daily decay quantity
     double price_ratio = 220; // price ratio for interest rate intercommodity spreads
+    YesNo is_hft_tax_liable = 221; // if Yes spreads in this product def are liable for high frequency taxation and require hft throttling for maker algos
+    double hft_tax_trigger_time = 222; // value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)
     google.protobuf.Timestamp timestamp = 247;
     repeated Legs legs = 223;
 }
