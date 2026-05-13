@@ -146,7 +146,7 @@ public partial struct MessageType
             Type = 5710,
             Name = nameof(MarketFeedStatus),
             IsCore = true,
-            SchemaHash = 0x4d882fcdf9e5b0cc
+            SchemaHash = 0x58f7ad47c16ad4b8
         };
 
         attributes[5900] = new()
@@ -250,7 +250,7 @@ public partial struct MessageType
             Type = 4360,
             Name = nameof(ProductDefinitionV2),
             IsCore = true,
-            SchemaHash = 0x1ab476460cdd71ec
+            SchemaHash = 0x5371080ebeaa0488
         };
 
         attributes[4365] = new()

@@ -188,7 +188,9 @@ namespace SpiderRock
 			TRY=31,
 			TRYOZ=32,
 			USD=33,
-			ZAR=34
+			ZAR=34,
+			INR=37,
+			MTONS=38
 		};
 
  		enum class Currency : Enum 
@@ -268,7 +270,8 @@ namespace SpiderRock
 			AmexComplex=35,
 			ArcaComplex=36,
 			EmldAuctions=37,
-			PillarEquityBBO=38
+			PillarEquityBBO=38,
+			CBOEEqt=39
 		};
 
  		enum class ExchOrderStatus : Enum 
