@@ -80,6 +80,7 @@ message SpdrAutoHedgeControl {
     float make_alpha_factor = 241; // [-2,+2] makeProbLimit = MAX(makeProbability, makeProbAvg + makeAlphaFactor * makeProbStd) [if AlphaType = Relative]
     float take_probability = 244; // takeProbLimit = takeProbability [if AlphaType = Static]
     float make_probability = 247; // makeProbLimit = makeProbability [if AlphaType = Static]
+    string strategy_accnt = 263; // SR strategy account; copied from option parent so autohedge equity hedges can carry it to brokers (e.g. Cubist Street tag 5027)
     google.protobuf.Timestamp timestamp = 250; // record timestamp
 }
 
