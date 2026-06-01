@@ -31,6 +31,7 @@ message ResponderMarkupVegaDir {
     string user_name = 100; // username used for responding to auction notices
     YesNo is_disabled = 101; // if Yes, this auto-responder record is disabled
     google.protobuf.Timestamp enabled_until = 137; // will be enabled up until this time
+    YesNo parent_is_deleted = 282; // Yes if the parent AutoResponderVegaDir was deleted (delete time is on markup.timestamp)
     YesNo can_include_stock = 103; // if yes, can respond to auction notices that include a stock leg
     YesNo can_respond_sR = 178; // if yes, can respond to auction notices from SR
     YesNo can_respond_exch = 179; // if yes, can respond to auction notices from exchanges
@@ -80,8 +81,12 @@ message ResponderMarkupVegaDir {
     int32 total_size_skips = 251; // number skipped from total contract size limit
     int32 total_vega_skips = 252; // number skipped from total vega size limit
     int32 sys_error_skips = 253;
-    int32 user_surf_skips = 254;
+    int32 user_surf_error_skips = 254; // number skipped from user surf data errors (SVolError / UserVolError)
     int32 prob_error_skips = 255;
+    int32 user_vol_miss_skips20 = 283; // |interpolated miss| in (0.1, 0.2] vol pts
+    int32 user_vol_miss_skips50 = 284; // |interpolated miss| in (0.2, 0.5] vol pts
+    int32 user_vol_miss_skips100 = 285; // |interpolated miss| in (0.5, 1.0] vol pts
+    int32 user_vol_miss_skips100p = 286; // |interpolated miss| > 1.0 vol pts
     int32 off_market_skips = 256; // number skipped from response price at or worse that exch/nbbo market
     int32 notice_price_skips = 257; // number skipped from limit price worse that notice price (and already committed)
     int32 num_reject_hold_skips = 258; // number skipped from reject hold (prior reject)

@@ -94,7 +94,7 @@ message RiskCubeDetailV5 {
     float opn_pnl_clr_mark = 298; // (cur.mid - pr.clr) * cnOpnClr * upc
     float opn_clr_mark = 510; // start-of-day clearing mark [should be corp action adjusted]
     float opn_div_pn_l = 511; // dividends paid/received (since prior period)
-    float opn_mark_brk_mny = 301; // (cur.surface - cur.mid) * cnOpnClr * upc
+    float opn_mark_brk_mny = 301; // (cur.surface - cur.mid) * unitCurPos
     float opn_theo_edge = 304; // opening edge (edge at the end of prior period) (requires a theo model)
     float pos_theo_edge = 307; // current edge (opening positions + trades) (requires a theo model)
     float t_vol_move = 310; // LN(tVol / tVolPr)
@@ -147,6 +147,7 @@ message RiskCubeDetailV5 {
     float u_prc_ratio = 439; // stock price multiplier
     float u_prc_move = 442; // Underlier price change
     float i_vol_move = 445; // Implied vol change (fixed strike ivol change from prior period)
+    float i_vol_diff = 446; // today's ivol - previous ivol
     float ex_div_amt = 448; // estimated exDiv amount (if any)
     float borrow_rate = 451; // estimated stock borrow rate (if any)
     double cur_mid_mark = 508; // current mid market price

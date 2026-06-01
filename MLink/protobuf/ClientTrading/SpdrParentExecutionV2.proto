@@ -265,6 +265,7 @@ message SpdrParentExecutionV2 {
     float tick_value = 823; // $NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)
     float point_value = 826; // $NLV value of a single point change in display premium (pointValue = tickValue / tickSize)
     Currency point_currency = 829;
+    string isin = 941; // ISO 6166 instrument identifier (populated for securities with regional refdata, empty otherwise)
     float u_prc_ratio = 832; // UPrcRatio (SymbolRatio) from product definition
     float min_tick_size = 835; // minimum market price variation (dnTickSize if on a boundary)
     PriceFormat price_format = 838; // SpiderRock price display format code

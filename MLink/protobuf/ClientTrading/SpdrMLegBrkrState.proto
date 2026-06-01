@@ -233,6 +233,7 @@ message SpdrMLegBrkrState {
     SpdrKeyType hedge_sec_type = 631; // auto-hedge sec type (Stock or Future)
     float hedge_beta_ratio = 634; // auto-hedge ratio [from parent order (if supplied) or computed by SR]
     HedgeScope hedge_scope = 637; // hedge group scope [RiskGroup or Accnt]
+    MarketSession hedge_session = 638; // market session for the autohedge order
     string extern_hedge_ex_dest = 1055; // external broker exDest (only used if orderHandling=Extern)			# Should match FixRoutingTable.destination type (eg. #Nighthawk)
     string extern_hedge_params = 643; // external algo names/parameters (usually just an algo name)			# usually copied from the FixRoutingTable.externParams
     YesNo hedge_fill_uMark_lmt_prc = 1058; // set a price limit on the autohedge order based on the most recent option fillUMark

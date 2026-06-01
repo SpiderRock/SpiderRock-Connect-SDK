@@ -65,6 +65,7 @@ message SpdrParentBrkrState {
     SpdrRiskLevel spdr_reject_level = 599; // reject level (if any) of most recent parent order
     ActiveHoldState active_hold_state = 618;
     string active_hold_reason = 619;
+    SwapProvider swap_provider = 623; // swap provider propagated from SpdrParentOrder.useSwapProvider (None if not a swap order)
     YesNo is_permanently_closed = 184; // indicates that this broker is permanently closed (cannot be cxl/replaced or re-opened) [auto-hedge orders only]
     int32 num_extern_risk_hold = 187; // num external risk management rejects received
     string last_extern_risk_text = 190; // last external (exch?) risk management reject

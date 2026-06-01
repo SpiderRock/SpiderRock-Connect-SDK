@@ -80,7 +80,7 @@ message SymbolRiskSummaryV5 {
     double op_pnl_vol = 262; // Option Open Pnl (SR vol marks); =sum[opr.opnPnlVolMark]
     double op_pnl_mid = 265; // Option Open Pnl (SR mid marks); =sum[opr.opnPnlMidMark]
     double op_pnl_clr = 268; // Option Open Pnl (CLR marks); =sum[opr.opnPnlClrMark]
-    double op_pnl_brk = 271; // Option Mark Break Pnl (SR vol marks to CLR marks);=sum[(opr.cnOpnClr * opr.pointValue) * (opr.optVolMark - opr.optMidMark)]
+    double op_pnl_brk = 271; // Option Mark Break Pnl (SR vol marks to Mid marks);=sum[(opr.optOpnPos * opr.pointValue) * (opr.optVolMark - opr.optMidMark)]
     double op_pnl_day = 274; // Option Day Pnl;=sum[opr.dayPnl]
     double op_dn_pnl_day = 277; // Option DN Day Pnl (delta neutral);=sum[opr.dnDayPnl]
     float op_day_vega = 280; // Option Day Vega;=sum[opr.ve * (opr.cnBot - opr.cnSld) * opr.pointValue]
