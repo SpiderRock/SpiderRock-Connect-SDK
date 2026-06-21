@@ -174,6 +174,7 @@ message SpdrParentExecution {
     float fill_ga = 535; // fill gamma
     float fill_de = 538; // fill delta
     float fill_th = 541; // fill theta
+    float fill_pr = 544; // fill premium over parity
     float fill_ve_ratio = 547; // fill ve / fill atm ve
     float fill_beta = 550; // SpiderRock estimate of beta to SPX
     CompletionType completion_type = 857; // None, DAC, POC, TAS, TACO, BTIC
@@ -308,20 +309,19 @@ message SpdrParentExecution {
     string alt_brkr_mPID__v7 = 5003; // only V7: alias lengths match
     string child_locate_source__v7 = 5004; // only V7
     YesNo is_comm_paying__v7 = 5005; // only v7 - enum values match with v8
-    float fill_pr__v7 = 5006; // only V7
-    float fill_risk_metric1__v7 = 5007; // only V7
-    float fill_risk_metric2__v7 = 5008; // only V7
-    float fill_risk_metric3__v7 = 5009; // only V7
-    float fill_risk_metric4__v7 = 5010; // only V7
-    float fill_risk_metric5__v7 = 5011; // only V7
-    float fill_risk_metric6__v7 = 5012; // only V7
-    float fill_risk_metric7__v7 = 5013; // only V7
-    float fill_s08_dn__v7 = 5014; // only V7
-    float fill_s06_up__v7 = 5015; // only V7
-    float fill_s15_dn__v7 = 5016; // only V7
-    float fill_s15_up__v7 = 5017; // only V7
-    float fill_s50_dn__v7 = 5018; // only V7
-    float fill_s50_up__v7 = 5019; // only V7
+    float fill_risk_metric1__v7 = 5006; // only V7
+    float fill_risk_metric2__v7 = 5007; // only V7
+    float fill_risk_metric3__v7 = 5008; // only V7
+    float fill_risk_metric4__v7 = 5009; // only V7
+    float fill_risk_metric5__v7 = 5010; // only V7
+    float fill_risk_metric6__v7 = 5011; // only V7
+    float fill_risk_metric7__v7 = 5012; // only V7
+    float fill_s08_dn__v7 = 5013; // only V7
+    float fill_s06_up__v7 = 5014; // only V7
+    float fill_s15_dn__v7 = 5015; // only V7
+    float fill_s15_up__v7 = 5016; // only V7
+    float fill_s50_dn__v7 = 5017; // only V7
+    float fill_s50_up__v7 = 5018; // only V7
 }
 
 

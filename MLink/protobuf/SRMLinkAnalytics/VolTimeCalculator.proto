@@ -27,14 +27,19 @@ message VolTimeCalculator {
     google.protobuf.Duration end_time = 100; // period end time (CST)
     google.protobuf.Timestamp now_dttm = 103; // period start time (CST)
     FieldSrc now_src = 106; // default is clock time when selecting
+    TimeMetric time_metric = 109;
+    FieldSrc time_metric_src = 112;
     CalendarCode holiday_calendar = 115;
     FieldSrc holiday_calendar_src = 118;
-    double years_vT70 = 152; // volatility years from nowDttm to endDttm using TradingCalendar (SR NMS Trading/Volatility Calendar)
-    double years_y252 = 153;
-    double years_y365 = 154;
+    double years = 121; // volatility years from nowDttm to endDate + endDttm using TradingCalendar (SR Trading/Volatility Calendar)
+    double years365 = 124; // years calculation using an Act/365 daycount between nowDttm and endDate
     int32 partial_days = 127; // number of partial trading days (half-days) between endpoints.
     int32 holiday_days = 130; // number of holidays (days that would otherwise be trading days) between endpoints.
     int32 complete_days = 133; // number of complete trading days between endpoints.
+    int32 trd_minutes = 136; // number of market trading minutes between endpoints.
+    int32 clk_minutes = 139; // number of non-market trading minutes between endpoints.
+    double trd_measure = 142; // volatility years per trdMinute (expressed as multiple of 10^-6)
+    double clk_measure = 145; // volatility years per clkMinute (expressed as multiple of 10^-6)
     string error = 148; // calculation error
     google.protobuf.Timestamp timestamp = 151;
 }

@@ -40,6 +40,7 @@ message AccountRouteConfig {
         string exec_brkr_accnt = 182; // exec broker account (supplied by exec broker) (usually Account<1>)
         string exec_brkr_cl_firm = 183; // exec broker client/firm (supplied by exec broker) (usually OnBehalfOfCompId<115>)
         string exec_brkr_user_name = 184; // exec broker user name (supplied by exec broker)
+        string cat_dest_firm_iMID = 185; // per-(exchGroup,secType) override of top-level catDestFirmIMID; empty falls through
     }
 
     message RoutingTable {

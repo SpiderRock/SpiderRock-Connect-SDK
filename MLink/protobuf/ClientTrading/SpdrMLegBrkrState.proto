@@ -256,6 +256,7 @@ message SpdrMLegBrkrState {
     BuySell lead_side = 691; // for legged orders, which side to lead with.  (optional, None ok)
     double max_completion_slippage = 694; // maximum price slippage to complete an open basket or a cross auction (face side slippage)
     float order_ref_premium = 697; // reference premium (mleg orders only)
+    string strategy_accnt = 1189; // SR strategy account (option; if exists will be validated) [SPR-33194]
     string strategy = 700; // parent order strategy (description only)
     string user_name = 703; // user that entered the most recent parent order
     YesNo visible_in_sV = 1161; // allow order to be visible in SV (do not use for high volume of orders)

@@ -114,6 +114,7 @@ message SpdrParentExecutionV2 {
     float fill_ga = 373; // fill gamma
     float fill_de = 376; // fill delta
     float fill_th = 379; // fill theta
+    float fill_pr = 380; // fill premium over parity
     float fill_ve_ratio = 382; // fill ve / fill atm ve
     float fill_beta = 385; // SpiderRock estimate of beta to SPX
     string fill_proc_detail = 388; // fill processing detail (SR internal)
