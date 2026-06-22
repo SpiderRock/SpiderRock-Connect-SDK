@@ -258,7 +258,7 @@ public partial struct MessageType
             Type = 4365,
             Name = nameof(RootDefinition),
             IsCore = true,
-            SchemaHash = 0x5333481a05ec6d7
+            SchemaHash = 0x523ebb03a8263132
         };
 
         attributes[2525] = new()
@@ -378,7 +378,7 @@ public partial struct MessageType
             Type = 4380,
             Name = nameof(TickerDefinitionExt),
             IsCore = true,
-            SchemaHash = 0x79256c95ff1d6800
+            SchemaHash = 0x5f0f9b6842417a5c
         };
 
     }

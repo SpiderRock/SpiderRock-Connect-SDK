@@ -17,6 +17,7 @@ message MLinkStream {
     string view = 106; // (optional) list (subset) of field names to return with this message (eg. bidprice,askprice,bidsize,asksize) (default is all names)
     int64 ticker_basket = 145; // (optional) if supplied, only records whose underlying ticker key is in the specified TickerItemDef basket will be returned; basket is resolved by basketNumber + authenticated userName
     YesNo unsubscribe = 109; // (optional) if set to Yes the specified message type will be unsubscribed and thus no longer return
+    YesNo include_subfirm = 148; // (optional) If set to Yes, we will include messages that belong to Core and Subfirms that your user has access to
     int32 session_iD = 112; // (optional) actions below apply only to the sessionID virtual session; should be zero for non-multiplexed web-socket connections.
     int64 query_iD = 115; // (optional) queryID will be reflected back in the corresponding MLinkStreamAck message; nothing is assumed about structure of this number
     string query_label = 118; // (optional) query label; used for logging and query tracking

@@ -164,6 +164,15 @@ message TradeCubeDetailV5 {
     double fill_post_uMark10_m = 556; // underlier mark @ fill arrival + 10M
     double fill_post_mark1_m = 559; // SpiderRock mid or surface mark @ fill arrival + 1M
     double fill_post_mark10_m = 562; // SpiderRock mid or surface mark @ fill arrival + 10M
+    float fill_risk_metric1 = 707; // user defined (from parent order)
+    float fill_risk_metric2 = 708; // user defined (from parent order)
+    float fill_risk_metric3 = 709; // user defined (from parent order)
+    float fill_risk_metric4 = 710; // user defined (from parent order)
+    float fill_risk_metric5 = 711; // user defined (from parent order)
+    float fill_risk_metric6 = 712; // user defined (from parent order)
+    float fill_risk_metric7 = 713; // user defined (from parent order)
+    float fill_s15_dn = 714; // underlier down 15% shock slide
+    float fill_s15_up = 715; // underlier up 15% shock slide
     float margin_uDn_vDn = 701; // Aggregate RiskSlide: uPrc dn, vol dn
     float margin_uDn_vUp = 702; // Aggregate RiskSlide: uPrc dn, vol up
     float margin_uUp_vDn = 703; // Aggregate RiskSlide: uPrc up, vol dn
