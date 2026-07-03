@@ -1008,7 +1008,8 @@ namespace SpiderRock
 			NXML=31,
 			NXOS=32,
 			NXP=33,
-			X24=34
+			X24=34,
+			TXSE=36
 		};
 
  		enum class StkPrintType : Enum 

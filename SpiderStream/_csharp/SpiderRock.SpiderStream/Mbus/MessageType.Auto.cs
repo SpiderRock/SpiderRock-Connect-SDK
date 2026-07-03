@@ -162,7 +162,7 @@ public partial struct MessageType
             Type = 3080,
             Name = nameof(OddLotBookQuote),
             IsCore = true,
-            SchemaHash = 0x6ea4efc4b86103f7
+            SchemaHash = 0x126699f83339830b
         };
 
         attributes[3140] = new()
@@ -314,7 +314,7 @@ public partial struct MessageType
             Type = 3000,
             Name = nameof(StockBookQuote),
             IsCore = true,
-            SchemaHash = 0x6ea4efc4b86103f7
+            SchemaHash = 0x126699f83339830b
         };
 
         attributes[3020] = new()
@@ -330,7 +330,7 @@ public partial struct MessageType
             Type = 3035,
             Name = nameof(StockImbalance),
             IsCore = true,
-            SchemaHash = 0x58a45610c6b5b6b8
+            SchemaHash = 0x62dd62c6036f7507
         };
 
         attributes[3040] = new()
@@ -346,7 +346,7 @@ public partial struct MessageType
             Type = 3045,
             Name = nameof(StockPrint),
             IsCore = true,
-            SchemaHash = 0x32e5f711824660e5
+            SchemaHash = 0x3698bf4ca916c701
         };
 
         attributes[3055] = new()
@@ -354,7 +354,7 @@ public partial struct MessageType
             Type = 3055,
             Name = nameof(StockPrintMarkup),
             IsCore = true,
-            SchemaHash = 0x2da35b908111cb66
+            SchemaHash = 0x7b1af9b880ffff5
         };
 
         attributes[2700] = new()

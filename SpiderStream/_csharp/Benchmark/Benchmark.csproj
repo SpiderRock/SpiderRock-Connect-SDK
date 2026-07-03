@@ -6,7 +6,6 @@
     <RootNamespace>SRBenchmark</RootNamespace>
     <AssemblyName>SRBenchmark</AssemblyName>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpiderRock.SpiderStream\SpiderRock.SpiderStream.csproj" />
