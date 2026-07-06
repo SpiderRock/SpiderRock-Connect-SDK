@@ -5231,6 +5231,8 @@ enum StkExch {
     STKEXCH_NXOS = 32;
     STKEXCH_NXP = 33;
     STKEXCH_X24 = 34;
+    STKEXCH_TSX = 35;
+    STKEXCH_TXSE = 36;
 }
 
 
