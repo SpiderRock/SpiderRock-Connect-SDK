@@ -69,7 +69,7 @@ public enum AdjConvention : byte { None=0,Original=1,OSI=2,SpcOnly=3,OSIAlt=4 };
  public enum RunStatus : byte { None=0,Prod=1,Beta=2,UAT=3,SysTest=4 };		
  public enum SpdrKeyType : byte { None=0,Stock=1,Future=2,Option=3,MLeg=4 };		
  public enum SpreadClass : byte { None=0,Stk=1,Fut=2,Call=3,Put=4,Synth=5,RevCon=6,Box=7,JRoll=8,Roll=9,Straddle=10,Strangle=11,CSpread=12,PSpread=13,VStrip=14,VSpread=15,HStrip=16,HSpread=17,BFly=18,RiskRev=19,Mixed=20,VarSwap=21,Pair=22,ExpPair=23,VolPair=24 };		
- public enum StkExch : byte { None=0,AMEX=1,NQBX=2,NSX=3,FNRA=4,ISE=5,EDGA=6,EDGX=7,CHX=8,NYSE=9,ARCA=10,NSDQ=11,CBSX=12,PSX=13,BTSY=14,BATS=15,CBIDX=16,IEX=17,OTC=18,MPRL=19,LTSE=20,MEMX=21,MXIDX=22,DJIDX=23,BXE=24,CXE=25,DXE=26,XETRA=27,NXAM=28,NXBR=29,NXLS=30,NXML=31,NXOS=32,NXP=33,X24=34,TXSE=36 };		
+ public enum StkExch : byte { None=0,AMEX=1,NQBX=2,NSX=3,FNRA=4,ISE=5,EDGA=6,EDGX=7,CHX=8,NYSE=9,ARCA=10,NSDQ=11,CBSX=12,PSX=13,BTSY=14,BATS=15,CBIDX=16,IEX=17,OTC=18,MPRL=19,LTSE=20,MEMX=21,MXIDX=22,DJIDX=23,BXE=24,CXE=25,DXE=26,XETRA=27,NXAM=28,NXBR=29,NXLS=30,NXML=31,NXOS=32,NXP=33,X24=34,TSX=35,TXSE=36 };		
  public enum StkPrintType : byte { None=0,RegularSequence=1,OutOfSequence=2,VolumeOnly=3,ExtendedHours=4,OddLot=5,OddLotExtendedHours=6 };		
  public enum StrategyClass : byte { None=0,Single=1,Covered=2,Synthetic=3,Straddle=4,RevCon=5,OptRoll=6,Box=7,Vertical=8,Horizontal=9,Mixed=10 };		
  public enum SurfaceCurveType : byte { None=0,Live=1,PrevDay=2,Interp=3,Close=4,Test=5 };		

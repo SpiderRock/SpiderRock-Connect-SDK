@@ -1009,6 +1009,7 @@ namespace SpiderRock
 			NXOS=32,
 			NXP=33,
 			X24=34,
+			TSX=35,
 			TXSE=36
 		};
 
