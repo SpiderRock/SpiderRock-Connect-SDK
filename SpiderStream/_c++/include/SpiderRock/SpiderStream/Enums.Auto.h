@@ -553,7 +553,8 @@ namespace SpiderRock
 			NXP=34,
 			ICEFEC=35,
 			SRC=36,
-			ICEFEF=37
+			ICEFEF=37,
+			TMX=38
 		};
 
  		enum class OptMktType : Flag 
@@ -797,7 +798,8 @@ namespace SpiderRock
 			XLU=67,
 			XBD=68,
 			ICEFEC=69,
-			ICEFEF=70
+			ICEFEF=70,
+			XTSE=71
 		};
 
  		enum class ProductClass : Enum 
@@ -1203,7 +1205,9 @@ namespace SpiderRock
 			CEDX=32,
 			ICEFEC=33,
 			ICEFEF=34,
-			CEQT=35
+			CEQT=35,
+			TSX=36,
+			TMX=37
 		};
 
  		enum class TimeInForce : Enum 
@@ -1322,7 +1326,8 @@ namespace SpiderRock
 			EU_ES=73,
 			EU_CZ=74,
 			EU_HU=75,
-			EU_PL=76
+			EU_PL=76,
+			CA=77
 		};
 
  		enum class TradingSession : Enum 

@@ -66,7 +66,7 @@ public partial struct MessageType
             Type = 2580,
             Name = nameof(FutureBookQuote),
             IsCore = true,
-            SchemaHash = 0x1c8f950b134e1b12
+            SchemaHash = 0x3809f6ee3b7d75e2
         };
 
         attributes[2595] = new()
@@ -74,7 +74,7 @@ public partial struct MessageType
             Type = 2595,
             Name = nameof(FuturePrint),
             IsCore = true,
-            SchemaHash = 0x5e23212f89d1b5b1
+            SchemaHash = 0x6ded5c60bc7da01
         };
 
         attributes[2605] = new()
@@ -82,7 +82,7 @@ public partial struct MessageType
             Type = 2605,
             Name = nameof(FuturePrintMarkup),
             IsCore = true,
-            SchemaHash = 0x218f97c668157e53
+            SchemaHash = 0x57e148347f29e0f
         };
 
         attributes[2675] = new()
@@ -90,7 +90,7 @@ public partial struct MessageType
             Type = 2675,
             Name = nameof(IndexQuote),
             IsCore = true,
-            SchemaHash = 0x5c9ece77ef464c7
+            SchemaHash = 0xbd3f083e2ba5dc6
         };
 
         attributes[1015] = new()
@@ -98,7 +98,7 @@ public partial struct MessageType
             Type = 1015,
             Name = nameof(LiveImpliedQuote),
             IsCore = true,
-            SchemaHash = 0x3d6e5c6e0b51e0bf
+            SchemaHash = 0x155211d03294bf5
         };
 
         attributes[1021] = new()
@@ -106,7 +106,7 @@ public partial struct MessageType
             Type = 1021,
             Name = nameof(LiveImpliedQuoteNG),
             IsCore = true,
-            SchemaHash = 0x64c816eabe969cc6
+            SchemaHash = 0x4bf038183abf73c4
         };
 
         attributes[1125] = new()
@@ -114,7 +114,7 @@ public partial struct MessageType
             Type = 1125,
             Name = nameof(LiveRevConQuote),
             IsCore = true,
-            SchemaHash = 0x96ad7ed0837318e
+            SchemaHash = 0x7d05c25266497a5a
         };
 
         attributes[1030] = new()
@@ -122,7 +122,7 @@ public partial struct MessageType
             Type = 1030,
             Name = nameof(LiveSurfaceAtm),
             IsCore = true,
-            SchemaHash = 0x28efc8622b216c68
+            SchemaHash = 0x3a044ae4065d8f60
         };
 
         attributes[3355] = new()
@@ -138,7 +138,7 @@ public partial struct MessageType
             Type = 3382,
             Name = nameof(MLinkStreamCheckPt),
             IsCore = false,
-            SchemaHash = 0x5ac5d3dddf621278
+            SchemaHash = 0x28ee1a8ef2dd0dbb
         };
 
         attributes[5710] = new()
@@ -146,7 +146,7 @@ public partial struct MessageType
             Type = 5710,
             Name = nameof(MarketFeedStatus),
             IsCore = true,
-            SchemaHash = 0x58f7ad47c16ad4b8
+            SchemaHash = 0x781776e3e72d237a
         };
 
         attributes[5900] = new()
@@ -162,7 +162,7 @@ public partial struct MessageType
             Type = 3080,
             Name = nameof(OddLotBookQuote),
             IsCore = true,
-            SchemaHash = 0x290dffd345eb2073
+            SchemaHash = 0x416466e66db8d3fa
         };
 
         attributes[3140] = new()
@@ -170,7 +170,7 @@ public partial struct MessageType
             Type = 3140,
             Name = nameof(OptionCloseMark),
             IsCore = true,
-            SchemaHash = 0x74de529bd0685216
+            SchemaHash = 0x7914364aebb6e806
         };
 
         attributes[2765] = new()
@@ -178,7 +178,7 @@ public partial struct MessageType
             Type = 2765,
             Name = nameof(OptionExchOrder),
             IsCore = true,
-            SchemaHash = 0x209cee991f1bb0f6
+            SchemaHash = 0xd8d7640e7e3f71f
         };
 
         attributes[2770] = new()
@@ -186,7 +186,7 @@ public partial struct MessageType
             Type = 2770,
             Name = nameof(OptionExchPrint),
             IsCore = true,
-            SchemaHash = 0x2e3b62f722dd6d74
+            SchemaHash = 0x7eefce9d52e0d13b
         };
 
         attributes[2780] = new()
@@ -194,7 +194,7 @@ public partial struct MessageType
             Type = 2780,
             Name = nameof(OptionMarketSummary),
             IsCore = true,
-            SchemaHash = 0x7f9012a39d9864b1
+            SchemaHash = 0xef8710b535f345a
         };
 
         attributes[2785] = new()
@@ -202,7 +202,7 @@ public partial struct MessageType
             Type = 2785,
             Name = nameof(OptionNbboQuote),
             IsCore = true,
-            SchemaHash = 0x74689c22ef325b7d
+            SchemaHash = 0x3c882721a74583a2
         };
 
         attributes[3230] = new()
@@ -210,7 +210,7 @@ public partial struct MessageType
             Type = 3230,
             Name = nameof(OptionOpenInterest),
             IsCore = true,
-            SchemaHash = 0x4135df47aa835a34
+            SchemaHash = 0xfba2b213f052cf1
         };
 
         attributes[2800] = new()
@@ -218,7 +218,7 @@ public partial struct MessageType
             Type = 2800,
             Name = nameof(OptionPrint),
             IsCore = true,
-            SchemaHash = 0x53797a3a9b78bd37
+            SchemaHash = 0x3282f07e297b6b3a
         };
 
         attributes[2805] = new()
@@ -226,7 +226,7 @@ public partial struct MessageType
             Type = 2805,
             Name = nameof(OptionPrint2),
             IsCore = true,
-            SchemaHash = 0x66ffcbef74735215
+            SchemaHash = 0x787ec993a786b123
         };
 
         attributes[2810] = new()
@@ -234,7 +234,7 @@ public partial struct MessageType
             Type = 2810,
             Name = nameof(OptionPrintMarkup),
             IsCore = true,
-            SchemaHash = 0x1721239675213c8f
+            SchemaHash = 0x2bc6c9d675e254a8
         };
 
         attributes[1095] = new()
@@ -242,7 +242,7 @@ public partial struct MessageType
             Type = 1095,
             Name = nameof(OptionRiskFactor),
             IsCore = true,
-            SchemaHash = 0x7fdd72d67f8f4c65
+            SchemaHash = 0xacd531a8c9ce8a4
         };
 
         attributes[4360] = new()
@@ -250,7 +250,7 @@ public partial struct MessageType
             Type = 4360,
             Name = nameof(ProductDefinitionV2),
             IsCore = true,
-            SchemaHash = 0x5371080ebeaa0488
+            SchemaHash = 0x76aae491c0e52da4
         };
 
         attributes[4365] = new()
@@ -258,7 +258,7 @@ public partial struct MessageType
             Type = 4365,
             Name = nameof(RootDefinition),
             IsCore = true,
-            SchemaHash = 0x523ebb03a8263132
+            SchemaHash = 0x7b11e84795a976ff
         };
 
         attributes[2525] = new()
@@ -266,7 +266,7 @@ public partial struct MessageType
             Type = 2525,
             Name = nameof(SpdrAuctionState),
             IsCore = true,
-            SchemaHash = 0x6edc1742288f3aec
+            SchemaHash = 0x2565070b88513437
         };
 
         attributes[2900] = new()
@@ -274,7 +274,7 @@ public partial struct MessageType
             Type = 2900,
             Name = nameof(SpreadBookQuote),
             IsCore = true,
-            SchemaHash = 0x4e45fd1202ca5113
+            SchemaHash = 0x550c0b1b0259aa65
         };
 
         attributes[4390] = new()
@@ -282,7 +282,7 @@ public partial struct MessageType
             Type = 4390,
             Name = nameof(SpreadDefinition),
             IsCore = true,
-            SchemaHash = 0x34d36078cb31d27a
+            SchemaHash = 0x2f819580e1edc2d
         };
 
         attributes[4395] = new()
@@ -290,7 +290,7 @@ public partial struct MessageType
             Type = 4395,
             Name = nameof(SpreadExchDefinition),
             IsCore = true,
-            SchemaHash = 0x394b4b7752ee4d63
+            SchemaHash = 0x7a28ee55a64c843e
         };
 
         attributes[2915] = new()
@@ -298,7 +298,7 @@ public partial struct MessageType
             Type = 2915,
             Name = nameof(SpreadExchOrder),
             IsCore = true,
-            SchemaHash = 0x3e1a6c51b4b296cf
+            SchemaHash = 0xd6de6de84e339d2
         };
 
         attributes[2920] = new()
@@ -306,7 +306,7 @@ public partial struct MessageType
             Type = 2920,
             Name = nameof(SpreadExchPrint),
             IsCore = true,
-            SchemaHash = 0x66fd749c5c23eab6
+            SchemaHash = 0x626784b2891215c7
         };
 
         attributes[3000] = new()
@@ -314,7 +314,7 @@ public partial struct MessageType
             Type = 3000,
             Name = nameof(StockBookQuote),
             IsCore = true,
-            SchemaHash = 0x290dffd345eb2073
+            SchemaHash = 0x416466e66db8d3fa
         };
 
         attributes[3020] = new()
@@ -322,7 +322,7 @@ public partial struct MessageType
             Type = 3020,
             Name = nameof(StockExchImbalanceV2),
             IsCore = true,
-            SchemaHash = 0x6bdb8c82d5608d68
+            SchemaHash = 0xf528d6f0f33938
         };
 
         attributes[3035] = new()
@@ -330,7 +330,7 @@ public partial struct MessageType
             Type = 3035,
             Name = nameof(StockImbalance),
             IsCore = true,
-            SchemaHash = 0x550f4adc08284613
+            SchemaHash = 0x2a76b65ee6c9b40d
         };
 
         attributes[3040] = new()
@@ -338,7 +338,7 @@ public partial struct MessageType
             Type = 3040,
             Name = nameof(StockMarketSummary),
             IsCore = true,
-            SchemaHash = 0x5c5d73109bb9c6ba
+            SchemaHash = 0x3c991b826b842918
         };
 
         attributes[3045] = new()
@@ -346,7 +346,7 @@ public partial struct MessageType
             Type = 3045,
             Name = nameof(StockPrint),
             IsCore = true,
-            SchemaHash = 0x336e473799311af3
+            SchemaHash = 0x667e4a389b9be378
         };
 
         attributes[3055] = new()
@@ -354,7 +354,7 @@ public partial struct MessageType
             Type = 3055,
             Name = nameof(StockPrintMarkup),
             IsCore = true,
-            SchemaHash = 0x7098f6ae1df0f45c
+            SchemaHash = 0x50667664732a5b7c
         };
 
         attributes[2700] = new()
@@ -362,7 +362,7 @@ public partial struct MessageType
             Type = 2700,
             Name = nameof(SyntheticExpiryQuote),
             IsCore = true,
-            SchemaHash = 0x1d617821233b9033
+            SchemaHash = 0x692e0ea40f44f2fc
         };
 
         attributes[2695] = new()
@@ -370,7 +370,7 @@ public partial struct MessageType
             Type = 2695,
             Name = nameof(SyntheticFutureQuote),
             IsCore = true,
-            SchemaHash = 0xf2cebed6b10296f
+            SchemaHash = 0x31a879bd5cc30244
         };
 
         attributes[4380] = new()
@@ -378,7 +378,7 @@ public partial struct MessageType
             Type = 4380,
             Name = nameof(TickerDefinitionExt),
             IsCore = true,
-            SchemaHash = 0x5f0f9b6842417a5c
+            SchemaHash = 0x391d601bd7ddad5b
         };
 
     }

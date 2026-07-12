@@ -1866,7 +1866,7 @@ public partial class RootDefinition
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tcalcModelType\tprcFramework\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tbbgRoot\tbbgYrCode\tbbgGroup\tregionalCompositeRoot\tisHftTaxLiable\thftTaxTriggerTime\tdescription\ttimestamp\tpricingSource_V7\tricCode_V7\tExchange\tUnderlying\tUnderlying_V7";
+    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tcalcModelType\tprcFramework\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\texchanges\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tricRoot\tbbgRoot\tbbgYrCode\tbbgGroup\tregionalCompositeRoot\tisHftTaxLiable\thftTaxTriggerTime\tdescription\ttimestamp\tpricingSource_V7\tunderliersPerCn_V7\tricCode_V7\tExchange\tUnderlying\tUnderlying_V7";
 
     public string TabRecord
     {
@@ -1980,6 +1980,8 @@ public partial class RootDefinition
             recordBuilder.AppendInTabRecordFormat(Timestamp);
             recordBuilder.Append('\t');
             recordBuilder.Append(PricingSource_V7);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UnderliersPerCn_V7);
             recordBuilder.Append('\t');
             recordBuilder.Append(RicCode_V7);
 
