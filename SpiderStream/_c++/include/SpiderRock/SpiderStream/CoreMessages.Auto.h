@@ -2644,7 +2644,7 @@ private:
 		Double strikeScale;
 		Float strikeRatio;
 		Float cashOnExercise;
-		Int underliersPerCn;
+		Double underliersPerCn;
 		Double premiumMult;
 		Float symbolRatio;
 		AdjConvention adjConvention;
@@ -2665,6 +2665,7 @@ private:
 		String<80> description;
 		DateTime timestamp;
 		PricingSource_V7 pricingSource_V7;
+		Int underliersPerCn_V7;
 		String<6> ricCode_V7;
 	};
 	
@@ -2712,7 +2713,7 @@ public:
 	inline Double strikeScale() const { return layout_.strikeScale; }
 	inline Float strikeRatio() const { return layout_.strikeRatio; }
 	inline Float cashOnExercise() const { return layout_.cashOnExercise; }
-	inline Int underliersPerCn() const { return layout_.underliersPerCn; }
+	inline Double underliersPerCn() const { return layout_.underliersPerCn; }
 	inline Double premiumMult() const { return layout_.premiumMult; }
 	inline Float symbolRatio() const { return layout_.symbolRatio; }
 	inline AdjConvention adjConvention() const { return layout_.adjConvention; }
@@ -2733,6 +2734,7 @@ public:
 	inline const String<80>& description() const { return layout_.description; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
 	inline PricingSource_V7 pricingSource_V7() const { return layout_.pricingSource_V7; }
+	inline Int underliersPerCn_V7() const { return layout_.underliersPerCn_V7; }
 	inline const String<6>& ricCode_V7() const { return layout_.ricCode_V7; }
 	
 	inline void Decode(Header* buf) 

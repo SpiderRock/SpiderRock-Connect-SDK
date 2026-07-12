@@ -6498,7 +6498,7 @@ public partial class RootDefinition : IMessage
 		public double strikeScale;
 		public float strikeRatio;
 		public float cashOnExercise;
-		public int underliersPerCn;
+		public double underliersPerCn;
 		public double premiumMult;
 		public float symbolRatio;
 		public AdjConvention adjConvention;
@@ -6519,6 +6519,7 @@ public partial class RootDefinition : IMessage
 		public FixedString80Layout description;
 		public DateTimeLayout timestamp;
 		public PricingSource_V7 pricingSource_V7;
+		public int underliersPerCn_V7;
 		public FixedString6Layout ricCode_V7;
     }
 
@@ -6585,7 +6586,7 @@ public partial class RootDefinition : IMessage
      /// <summary>note: cashOnExercise is positive if it decreases the effective strike price</summary>
     public float CashOnExercise { get => body.cashOnExercise; set => body.cashOnExercise = value; }
      /// <summary>note: always 100 if underlying list is in use</summary>
-    public int UnderliersPerCn { get => body.underliersPerCn; set => body.underliersPerCn = value; }
+    public double UnderliersPerCn { get => body.underliersPerCn; set => body.underliersPerCn = value; }
      /// <summary>note: OCC premium/strike multiplier (usually 100)</summary>
     public double PremiumMult { get => body.premiumMult; set => body.premiumMult = value; }
      /// <summary>note: currently used when AdjConvention is None, value of 0 implies symbolRatio is 1</summary>
@@ -6626,6 +6627,8 @@ public partial class RootDefinition : IMessage
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
     public PricingSource_V7 PricingSource_V7 { get => body.pricingSource_V7; set => body.pricingSource_V7 = value; }
+     /// <summary>only V7: Field name [underliersPerCn] matched but type did not: double != int</summary>
+    public int UnderliersPerCn_V7 { get => body.underliersPerCn_V7; set => body.underliersPerCn_V7 = value; }
      /// <summary>only V7</summary>
     public string RicCode_V7 { get => body.ricCode_V7; set => body.ricCode_V7 = value; }
 
