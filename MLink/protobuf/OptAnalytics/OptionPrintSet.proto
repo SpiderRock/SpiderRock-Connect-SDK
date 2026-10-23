@@ -136,6 +136,8 @@ message OptionPrintSet {
     YesNo pnl_s1_err = 365; // Error condition for PnL calculated over the first 1 second after the print was received
     float o_bid_next = 366; // next NBBO option bid after print was received
     float o_ask_next = 367; // next NBBO option ask after print was received
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
 }
 
 

@@ -26,7 +26,7 @@ message MLinkSubscribeAck {
     message View {
         
         string msg_name = 115; // a SpiderRock message name (topic channel) (can be string name or protobuf message number)
-        string view = 118; // list (subset) of field names to return with this message type (eg. bidprice,askprice,bidsize,asksize)
+        string view = 118; // the view as received (MLinkSubscribe.View.view)
         SubscribeMsgResult result = 121;
         string detail = 124;
     }
@@ -37,7 +37,7 @@ message MLinkSubscribeAck {
     int32 session_iD = 100; // from MLinkSubscribe.sessionID
     int64 subscribe_iD = 103; // from MLinkSubscribe.subscribeID
     YesNo succeeded = 152; // did the subscribe succeed?
-    string error_msg = 153; // if it did not succeed errorMsg will be populated
+    string error_msg = 153; // populated if the subscribe did not succeed; on success may carry a warning (eg unknown fields in the request)
     int32 num_active_subscriptions = 106;
     YesNo did_reset = 109; // if Yes all current subscriptions were removed prior to applying the actions below
     repeated Subscribe subscribe = 139;

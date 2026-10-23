@@ -50,11 +50,6 @@ message AccountRouteConfig {
         FeatureDisable feature_disable = 197; // used to disable certain route features before reaching the routingCode/routeDefinition
     }
 
-    message SupportSwapProviders {
-        
-        SwapProvider swap_provider = 203;
-    }
-
 
     MessageMetadata _meta = 1;
     
@@ -66,6 +61,9 @@ message AccountRouteConfig {
     RoutingRule routing_rule = 145;
     string backup_route_code = 154; // backup route code (if above are unavailable)
     string comment = 169; // maintainer commments
+    YesNo is_swap_provider = 214; // Yes = this account may send swap orders to this execBrkrCode
+    string eurex_bu_code = 210; // Eurex BU short name (ESIMA, ESIMB in CloudSim)
+    int32 tes_enrichment_rule_id = 211; // Pre-registered enrichment rule ID; gates auto-approval
     string modified_by = 172; // user who last modified this record
     SysEnvironment modified_in = 175;
     google.protobuf.Timestamp timestamp = 178; // timestamp of last modification
@@ -73,7 +71,6 @@ message AccountRouteConfig {
     repeated ExchControl exch_control = 157;
     repeated ExecBrkrAccnts exec_brkr_accnts = 179;
     repeated RoutingTable routing_table = 148;
-    repeated SupportSwapProviders support_swap_providers = 200;
 }
 
 

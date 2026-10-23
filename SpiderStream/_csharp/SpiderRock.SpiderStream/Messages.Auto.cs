@@ -810,6 +810,227 @@ public partial class FuturePrintMarkup : IMessage
 
 
 /// <summary>
+/// IndexPrint:2705
+/// </summary>
+/// <remarks>
+	/// Live index print levels including SpiderRock synthetic index levels, and the official closing level where the feed publishes one./// </remarks>
+
+public partial class IndexPrint : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public IndexPrint()
+    {
+    }
+    
+    public IndexPrint(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public IndexPrint(IndexPrint source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal IndexPrint(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as IndexPrint);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(IndexPrint other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(IndexPrint target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.IndexPrint};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        
+        public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public TickerKeyLayout ticker;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	ticker.Equals(other.ticker);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = ticker.GetHashCode();
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public StkExch prtExch;
+		public IdxDataSource dataSource;
+		public double prtPrice;
+		public double mrkPrice;
+		public double clsPrice;
+		public long prtTimestamp;
+		public long netTimestamp;
+		public DateTimeLayout timestamp;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>print exch</summary>
+    public StkExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
+     /// <summary>source feed for this index print</summary>
+    public IdxDataSource DataSource { get => body.dataSource; set => body.dataSource = value; }
+     /// <summary>index print level</summary>
+    public double PrtPrice { get => body.prtPrice; set => body.prtPrice = value; }
+     /// <summary>last regular market index level</summary>
+    public double MrkPrice { get => body.mrkPrice; set => body.mrkPrice = value; }
+     /// <summary>official closing level (if available)</summary>
+    public double ClsPrice { get => body.clsPrice; set => body.clsPrice = value; }
+     /// <summary>exchange high precision timestamp (if available)</summary>
+    public long PrtTimestamp { get => body.prtTimestamp; set => body.prtTimestamp = value; }
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock</summary>
+    public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
+     
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+
+
+} // IndexPrint
+
+
+/// <summary>
 /// IndexQuote:2675
 /// </summary>
 /// <remarks>
@@ -1003,6 +1224,7 @@ public partial class IndexQuote : IMessage
 		public double idxAsk;
 		public double idxPrice;
 		public long netTimestamp;
+		public MarketStatus marketStatus;
 		public DateTimeLayout timestamp;
     }
 
@@ -1020,6 +1242,8 @@ public partial class IndexQuote : IMessage
     public double IdxPrice { get => body.idxPrice; set => body.idxPrice = value; }
      /// <summary>index price timestamp</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
+     /// <summary>market status of the index level (open, halted, closed); None where the source does not report one</summary>
+    public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
@@ -1934,7 +2158,7 @@ public partial class LiveRevConQuote : IMessage
     public float RcEExPrem { get => body.rcEExPrem; set => body.rcEExPrem = value; }
      /// <summary>fairCallPrc - fairPutPrc - uPrc + strike + strikePv + ddivPv  (total present value of letting out shares) (term to expiry) (per share)</summary>
     public float FairLoanPv { get => body.fairLoanPv; set => body.fairLoanPv = value; }
-     /// <summary>fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)</summary>
+     /// <summary>fairLoanPv / (uPrc * iDays / loanBasis - ddivDisc); loanBasis = region stock-loan basis (Act/360 NMS)</summary>
     public float FairLoanRate { get => body.fairLoanRate; set => body.fairLoanRate = value; }
      /// <summary>callBid - putAsk - uPrc + strike (best way) (join markets)</summary>
     public float RcBidPrc { get => body.rcBidPrc; set => body.rcBidPrc = value; }
@@ -2240,6 +2464,7 @@ public partial class LiveSurfaceAtm : IMessage
 		public TradeableStatus tradeableStatus;
 		public SurfaceResult surfaceResult;
 		public DateTimeLayout timestamp;
+		public float ssr;
     }
 
     internal BodyLayout body;
@@ -2432,6 +2657,8 @@ public partial class LiveSurfaceAtm : IMessage
     public SurfaceResult SurfaceResult { get => body.surfaceResult; set => body.surfaceResult = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>house skew-stickiness ratio (sticky strike = 1, sticky delta = 0); atm vol change per unit underlier = ssr * fixed-strike skew slope at the atm strike; -99 = not estimated</summary>
+    public float Ssr { get => body.ssr; set => body.ssr = value; }
 
 
 } // LiveSurfaceAtm
@@ -5754,7 +5981,7 @@ public partial class OptionRiskFactor : IMessage
 /// ProductDefinitionV2:4360
 /// </summary>
 /// <remarks>
-	/// SpiderRock normalized exchange product definitions.  Includes future, option, and spread definitions from a number of exchanges.  TickerDefinitions, RootDefinitions and CCodeDefinitions are consistent with these records./// </remarks>
+	/// SpiderRock normalized exchange futures contract definitions.  An option series is ProductExchMappingV3 (9130) under its RootDefinitionV3 (9112) and OptExpiryDefinitionV3 (9121); a spread is SpreadDefinitionV3 (9300) and SpreadExchIDV3 (9303).  TickerDefinitions, RootDefinitions and CCodeDefinitions are consistent with these records./// </remarks>
 
 public partial class ProductDefinitionV2 : IMessage
 {
@@ -5842,33 +6069,6 @@ public partial class ProductDefinitionV2 : IMessage
          target.body = body;
          target.SecurityID = SecurityID;
          target.SecurityDesc = SecurityDesc;
- 
-        if ((LegsList?.Length ?? 0) > 0)
-        {
-            if ((target.LegsList?.Length ?? 0) != LegsList.Length)
-            {
-                target.LegsList = new LegsItem[LegsList.Length];
-            }
-
-            for (int i = 0; i < LegsList.Length; i++)
-            {
-                var src = LegsList[i];
-                var dest = target.LegsList[i] ?? new LegsItem();
-				dest.LegID = src.LegID;
- 				dest.SecKey = src.SecKey;
- 				dest.SecType = src.SecType;
- 				dest.Side = src.Side;
- 				dest.Ratio = src.Ratio;
- 				dest.RefDelta = src.RefDelta;
- 				dest.RefPrc = src.RefPrc;
-
-                target.LegsList[i] = dest;
-            }
-        }
-        else if ((target.LegsList?.Length ?? 0) > 0)
-        {
-            target.LegsList = null;
-        }
 
     }
 
@@ -5878,7 +6078,6 @@ public partial class ProductDefinitionV2 : IMessage
          body = new BodyLayout();
          SecurityID = null;
          SecurityDesc = null;
-         LegsList = null;
 
     }
 
@@ -5906,7 +6105,7 @@ public partial class ProductDefinitionV2 : IMessage
         
         /// <summary>SR Security Key [can be partially filled in (look at secType)]</summary>
         public OptionKey SecKey { get => OptionKey.GetCreateOptionKey(body.secKey); set => body.secKey = value.Layout; }
-         /// <summary>Security Type [Stock, Future, Option]</summary>
+         /// <summary>Security Type [Future]</summary>
         public SpdrKeyType SecType { get => body.secType; set => body.secType = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -5972,47 +6171,11 @@ public partial class ProductDefinitionV2 : IMessage
 
     internal readonly PKey pkey = new();
      
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    public class LegsItem
-    {
-        public const int Length = 66;
-
-        public LegsItem() { }
-        
-        public LegsItem(string legID, OptionKey secKey, SpdrKeyType secType, BuySell side, ushort ratio, float refDelta, double refPrc)
-        {
-            this.LegID = legID;
-			this.SecKey = secKey;
-			this.SecType = secType;
-			this.Side = side;
-			this.Ratio = ratio;
-			this.RefDelta = refDelta;
-			this.RefPrc = refPrc;
-        }
-
-        private FixedString24Layout _legID;
-		public string LegID { get { return _legID; } internal set { _legID = value; } }
-		public OptionKey SecKey { get; internal set; }
-		public SpdrKeyType SecType { get; internal set; }
-		public BuySell Side { get; internal set; }
-		public ushort Ratio { get; internal set; }
-		public float RefDelta { get; internal set; }
-		public double RefPrc { get; internal set; }
-    }
-
-    public LegsItem[] LegsList { get; set; }
-
-     
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
         public TickerKeyLayout ticker;
-		public long SRspreadID;
 		public ProductClass productClass;
-		public long underlierID;
-		public ExpiryKeyLayout undKey;
-		public SpdrKeyType undType;
 		public FixedString6Layout productGroup;
 		public FixedString6Layout securityGroup;
 		public int marketSegmentID;
@@ -6027,7 +6190,6 @@ public partial class ProductDefinitionV2 : IMessage
 		public PriceFormat priceFormat;
 		public double minTickSize;
 		public double displayFactor;
-		public double strikeScale;
 		public short minLotSize;
 		public short bookDepth;
 		public short impliedBookDepth;
@@ -6035,13 +6197,10 @@ public partial class ProductDefinitionV2 : IMessage
 		public float minPriceIncrementAmount;
 		public float parValue;
 		public float contMultiplier;
-		public double cabPrice;
 		public Currency tradeCurr;
 		public Currency settleCurr;
-		public Currency strikeCurr;
 		public DateTimeLayout expiration;
 		public DateKeyLayout maturity;
-		public ExerciseType exerciseType;
 		public YesNo userDefined;
 		public short decayStartYear;
 		public byte decayStartMonth;
@@ -6060,15 +6219,7 @@ public partial class ProductDefinitionV2 : IMessage
      /// <summary>master underlier</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      
-    public long SRspreadID { get => body.SRspreadID; set => body.SRspreadID = value; }
-     
     public ProductClass ProductClass { get => body.productClass; set => body.productClass = value; }
-     /// <summary>underlier product id (option only) [securityID of undKey/undType product]</summary>
-    public long UnderlierID { get => body.underlierID; set => body.underlierID = value; }
-     /// <summary>SR Underlier Security Key [can be partially filled in (look at undType)] (option only)</summary>
-    public ExpiryKey UndKey { get => ExpiryKey.GetCreateExpiryKey(body.undKey); set => body.undKey = value.Layout; }
-     /// <summary>Underlier Security Type [Stock, Future] (option only)</summary>
-    public SpdrKeyType UndType { get => body.undType; set => body.undType = value; }
      /// <summary>Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message</summary>
     public string ProductGroup { get => body.productGroup; set => body.productGroup = value; }
      /// <summary>Exchange specific code for a group of related securities that are all affected by market events.  I.E. All E-mini weekly options (EW) - This is SecurityGroup field from the SecurityDefinition messages</summary>
@@ -6099,8 +6250,6 @@ public partial class ProductDefinitionV2 : IMessage
     public double MinTickSize { get => body.minTickSize; set => body.minTickSize = value; }
      
     public double DisplayFactor { get => body.displayFactor; set => body.displayFactor = value; }
-     /// <summary>manual strike price adjustment multiplier (used for some CME products if set, otherwise displayFactor is used) (okey_xx = strikePrice * manualStrikeScale)</summary>
-    public double StrikeScale { get => body.strikeScale; set => body.strikeScale = value; }
      /// <summary>minimum lot size</summary>
     public short MinLotSize { get => body.minLotSize; set => body.minLotSize = value; }
      /// <summary>levels in the Globex quote book</summary>
@@ -6115,20 +6264,14 @@ public partial class ProductDefinitionV2 : IMessage
     public float ParValue { get => body.parValue; set => body.parValue = value; }
      /// <summary>contract deliverable multipler</summary>
     public float ContMultiplier { get => body.contMultiplier; set => body.contMultiplier = value; }
-     /// <summary>(depricate) cabinet price (minimum closing price for OOM options)</summary>
-    public double CabPrice { get => body.cabPrice; set => body.cabPrice = value; }
      
     public Currency TradeCurr { get => body.tradeCurr; set => body.tradeCurr = value; }
      
     public Currency SettleCurr { get => body.settleCurr; set => body.settleCurr = value; }
-     
-    public Currency StrikeCurr { get => body.strikeCurr; set => body.strikeCurr = value; }
      /// <summary>future expiration or option expiration (if product is an option). we use the last TRADING day as the expiration date.</summary>
     public DateTime Expiration { get => body.expiration; set => body.expiration = value; }
      /// <summary>future maturity date or option maturity date.  this is the delivery month.</summary>
     public DateKey Maturity { get => DateKey.GetCreateDateKey(body.maturity); set => body.maturity = value.Layout; }
-     /// <summary>(depricate; in RootDefinition) Exercise style</summary>
-    public ExerciseType ExerciseType { get => body.exerciseType; set => body.exerciseType = value; }
      
     public YesNo UserDefined { get => body.userDefined; set => body.userDefined = value; }
      
@@ -6150,6 +6293,253 @@ public partial class ProductDefinitionV2 : IMessage
 
 
 } // ProductDefinitionV2
+
+
+/// <summary>
+/// ProductExchMappingV3:9130
+/// </summary>
+/// <remarks>
+	/// EXCHANGE-ASSIGNED IDENTIFIERS - one row per (instrument, venue). The ephemeral, hot half of what
+	/// was one ProductMapping table.
+	/// | THIS RECORD (exchange)          | ProductMapping (registry/vendor)
+	/// lifecycle    | EPHEMERAL - intraday to weekly  | PERMANENT identity
+	/// residency    | HOT, resident in every routing  | reference data
+	/// | and ingest process              |
+	/// writers      | PER-EXCHANGE FEED HANDLERS      | vendor loaders (EDI, GLEIF, OpenFIGI)
+	/// volume       | 10^4 - 10^5, churning daily     | one ISIN per instrument
+	/// The writer axis is the one that forces it rather than merely favours it - the same reason
+	/// SpreadExchID exists as rows instead of a repeater. A table written by per-venue handlers and by
+	/// vendor loaders together has two purge horizons and two hot/cold profiles in one resident set.
+	/// THERE IS NO extKeyType HERE, AND THAT IS THE POINT. For an exchange-assigned identifier the TYPE
+	/// AND THE AUTHORITY ARE THE SAME FACT - 'CBOE's id for this thing' - so the venue IS the type. mic is
+	/// key material and no separate type field is needed. That collapses the old venue-scoped-versus-global
+	/// question rather than answering it./// </remarks>
+
+public partial class ProductExchMappingV3 : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public ProductExchMappingV3()
+    {
+    }
+    
+    public ProductExchMappingV3(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public ProductExchMappingV3(ProductExchMappingV3 source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal ProductExchMappingV3(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as ProductExchMappingV3);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(ProductExchMappingV3 other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(ProductExchMappingV3 target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.ProductExchMappingV3};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        /// <summary>as much of the key as instKeyType says is meaningful</summary>
+        public OptionKey InstKey { get => OptionKey.GetCreateOptionKey(body.instKey); set => body.instKey = value.Layout; }
+         /// <summary>THE RUNG: Stock = ticker only / Future = + expiry / Option = full key</summary>
+        public SpdrKeyType InstKeyType { get => body.instKeyType; set => body.instKeyType = value; }
+         /// <summary>THE ROLE of the ticker portion: Ticker / CCode / Root</summary>
+        public TickerClass TickerClass { get => body.tickerClass; set => body.tickerClass = value; }
+         /// <summary>ISO 10383 - the venue that assigned the id, and the id's TYPE</summary>
+        public string Mic { get => body.mic; set => body.mic = value; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public OptionKeyLayout instKey;
+         public SpdrKeyType instKeyType;
+         public TickerClass tickerClass;
+         public MicString mic;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	instKey.Equals(other.instKey) &&
+					 	instKeyType.Equals(other.instKeyType) &&
+					 	tickerClass.Equals(other.tickerClass) &&
+					 	mic.Equals(other.mic);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = instKey.GetHashCode();
+                 hashCode = (hashCode*397) ^ ((int) instKeyType);
+                 hashCode = (hashCode*397) ^ ((int) tickerClass);
+                 hashCode = (hashCode*397) ^ (mic.GetHashCode());
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public VenueSymbolString exchID;
+		public DateKeyLayout validFrom;
+		public DateKeyLayout validTo;
+		public YesNo pendingDelete;
+		public V3Source v3Source;
+		public DateTimeLayout timestamp;
+		public VenueSymbolString exchSymbol;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>the venue's own identifier for this instrument</summary>
+    public string ExchID { get => body.exchID; set => body.exchID = value; }
+     /// <summary>exchange ids are REASSIGNED, so a mapping is a window</summary>
+    public DateKey ValidFrom { get => DateKey.GetCreateDateKey(body.validFrom); set => body.validFrom = value.Layout; }
+     /// <summary>last date this mapping holds; empty means still current</summary>
+    public DateKey ValidTo { get => DateKey.GetCreateDateKey(body.validTo); set => body.validTo = value.Layout; }
+     /// <summary>Yes = queued for removal; stop resolving against this row</summary>
+    public YesNo PendingDelete { get => body.pendingDelete; set => body.pendingDelete = value; }
+     /// <summary>Bridge = projected from a legacy record; Loader = written natively. None reads as Loader</summary>
+    public V3Source V3Source { get => body.v3Source; set => body.v3Source = value; }
+     /// <summary>when this row was last written</summary>
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>the venue's text symbol for this instrument; empty when the venue assigns none</summary>
+    public string ExchSymbol { get => body.exchSymbol; set => body.exchSymbol = value; }
+
+
+} // ProductExchMappingV3
 
 
 /// <summary>
@@ -6410,7 +6800,7 @@ public partial class RootDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class ExchangeItem
     {
-        public const int Length = 15;
+        public const int Length = 16;
 
         public ExchangeItem() { }
         
@@ -6429,7 +6819,7 @@ public partial class RootDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class UnderlyingItem
     {
-        public const int Length = 18;
+        public const int Length = 19;
 
         public UnderlyingItem() { }
         
@@ -6448,7 +6838,7 @@ public partial class RootDefinition : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class Underlying_V7Item
     {
-        public const int Length = 18;
+        public const int Length = 19;
 
         public Underlying_V7Item() { }
         
@@ -6634,6 +7024,426 @@ public partial class RootDefinition : IMessage
 
 
 } // RootDefinition
+
+
+/// <summary>
+/// RootDefinitionV3:9112
+/// </summary>
+/// <remarks>
+	/// One row per option root: its underlier, its delivery and exercise terms, and its pricing conventions. Sourced from the listing exchange for future options and from OCC for US equity options, and updated as SpiderRock receives changes.
+	/// Field 100 `ticker` is the MASTER UNDERLYING - the containing complex - which is not the same key as the root itself./// </remarks>
+
+public partial class RootDefinitionV3 : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    public RootDefinitionV3()
+    {
+    }
+    
+    public RootDefinitionV3(PKey pkey)
+    {
+        this.pkey.body = pkey.body;
+    }
+    
+    public RootDefinitionV3(RootDefinitionV3 source)
+    {
+        source.CopyTo(this);
+    }
+    
+    internal RootDefinitionV3(PKeyLayout pkey)
+    {
+        this.pkey.body = pkey;
+    }
+
+    public override bool Equals(object other)
+    {
+        return Equals(other as RootDefinitionV3);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public bool Equals(RootDefinitionV3 other)
+    {
+        if (ReferenceEquals(other, null)) return false;
+        if (ReferenceEquals(other, this)) return true;
+        return pkey.Equals(other.pkey);
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public override int GetHashCode()
+    {
+        return pkey.GetHashCode();
+    }
+    
+    public override string ToString()
+    {
+        return TabRecord;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void CopyTo(RootDefinitionV3 target)
+    {			
+        target.header = header;
+         pkey.CopyTo(target.pkey);
+         target.body = body;
+ 
+        if ((ExchangeList?.Length ?? 0) > 0)
+        {
+            if ((target.ExchangeList?.Length ?? 0) != ExchangeList.Length)
+            {
+                target.ExchangeList = new ExchangeItem[ExchangeList.Length];
+            }
+
+            for (int i = 0; i < ExchangeList.Length; i++)
+            {
+                var src = ExchangeList[i];
+                var dest = target.ExchangeList[i] ?? new ExchangeItem();
+				dest.Mic = src.Mic;
+ 				dest.MarketSegmentId = src.MarketSegmentId;
+ 				dest.ProductGroup = src.ProductGroup;
+ 				dest.SecurityGroup = src.SecurityGroup;
+ 				dest.Root = src.Root;
+
+                target.ExchangeList[i] = dest;
+            }
+        }
+        else if ((target.ExchangeList?.Length ?? 0) > 0)
+        {
+            target.ExchangeList = null;
+        }
+
+    }
+
+    public void Clear()
+    {
+        pkey.Clear();
+         body = new BodyLayout();
+         ExchangeList = null;
+
+    }
+
+    public PKey Key => pkey;
+    
+    internal SourceId SourceId => header.sourceid;
+
+    internal Header header = new() {msgtype = MessageType.RootDefinitionV3};
+    
+     public sealed class PKey : IEquatable<PKey>, ICloneable
+    {
+
+        internal PKeyLayout body;
+        
+        public PKey()					{ }
+
+        internal PKey(PKeyLayout body)	=> this.body = body;
+
+        public PKey(PKey other)
+        {
+            if (other is null) throw new ArgumentNullException(nameof(other));
+            body = other.body;
+				
+        }
+        
+        /// <summary>the option root; AT and TS identify the universe it belongs to</summary>
+        public TickerKey Root { get => TickerKey.GetCreateTickerKey(body.root); set => body.root = value.Layout; }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void Clear()
+        {
+            body = new PKeyLayout();
+
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public void CopyTo(PKey target)
+        {
+            target.body = body;
+
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+        public object Clone()
+        {
+            var target = new PKey(body);
+
+            return target;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKey other && Equals(other);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() => body.GetHashCode();
+    } 
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct PKeyLayout : IEquatable<PKeyLayout>
+    {
+        public TickerKeyLayout root;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(PKeyLayout other)
+        {
+            return	root.Equals(other.root);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = root.GetHashCode();
+
+                return hashCode;
+            }
+        }
+    }
+
+    internal readonly PKey pkey = new();
+     
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    public class ExchangeItem
+    {
+        public const int Length = 55;
+
+        public ExchangeItem() { }
+        
+        public ExchangeItem(string mic, string marketSegmentId, string productGroup, string securityGroup, TickerKey root)
+        {
+            this.Mic = mic;
+			this.MarketSegmentId = marketSegmentId;
+			this.ProductGroup = productGroup;
+			this.SecurityGroup = securityGroup;
+			this.Root = root;
+        }
+
+        private MicString _mic;
+		public string Mic { get { return _mic; } internal set { _mic = value; } }
+		private FixedString24Layout _marketSegmentId;
+		public string MarketSegmentId { get { return _marketSegmentId; } internal set { _marketSegmentId = value; } }
+		private FixedString6Layout _productGroup;
+		public string ProductGroup { get { return _productGroup; } internal set { _productGroup = value; } }
+		private FixedString6Layout _securityGroup;
+		public string SecurityGroup { get { return _securityGroup; } internal set { _securityGroup = value; } }
+		public TickerKey Root { get; internal set; }
+    }
+
+    public ExchangeItem[] ExchangeList { get; set; }
+
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public TickerKeyLayout ticker;
+		public FixedString8Layout osiRoot;
+		public TickerKeyLayout ccode;
+		public ExpiryKeyLayout uPrcDriverKey;
+		public SpdrKeyType uPrcDriverType;
+		public ExpiryKeyLayout uPrcDriverKey2;
+		public SpdrKeyType uPrcDriverType2;
+		public YesNo uPrcBoundCCode;
+		public ExpirationMap expirationMap;
+		public UnderlierMode underlierMode;
+		public OptionType optionType;
+		public Multihedge multihedge;
+		public ExerciseTime exerciseTime;
+		public ExerciseType exerciseType;
+		public TimeMetric timeMetric;
+		public TradingPeriod tradingPeriod;
+		public PricingModel pricingModel;
+		public CalcModelType calcModelType;
+		public PricingFramework prcFramework;
+		public MoneynessType moneynessType;
+		public PriceQuoteType priceQuoteType;
+		public VolumeTier volumeTier;
+		public int positionLimit;
+		public float tickValue;
+		public float pointValue;
+		public CurrencyString pointCurrency;
+		public double strikeScale;
+		public float strikeRatio;
+		public float cashOnExercise;
+		public double underliersPerCn;
+		public double premiumMult;
+		public float symbolRatio;
+		public AdjConvention adjConvention;
+		public OptPriceInc optPriceInc;
+		public PriceFormat priceFormat;
+		public double minTickSize;
+		public CurrencyString tradeCurr;
+		public CurrencyString settleCurr;
+		public CurrencyString strikeCurr;
+		public TickerKeyLayout defaultSurfaceRoot;
+		public TickerKeyLayout regionalCompositeRoot;
+		public YesNo isHftTaxLiable;
+		public double hftTaxTriggerTime;
+		public FixedString80Layout description;
+		public FlexType flexType;
+		public ClearVenueString clearVenue;
+		public V3Source v3Source;
+		public DateTimeLayout timestamp;
+		public ScheduleGroupString scheduleGroup;
+		public byte settlementDays;
+		public BbgYrCode bbgYrCode;
+		public TickerKeyLayout liveRateKey;
+		public TickerKeyLayout basisKey;
+		public YesNo reverseSkew;
+		public TickerKeyLayout uPrcDriverFxPair;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>the line this root hangs on, or its product for an option on a future; a delivery basket only when it delivers more than one line</summary>
+    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
+     /// <summary>long version of the root.  the short version is used in the TickerKey (for example RYAAY1, not RYAA1)</summary>
+    public string OsiRoot { get => body.osiRoot; set => body.osiRoot = value; }
+     /// <summary>the futures product code this root lists against, where the underlier is a future</summary>
+    public TickerKey Ccode { get => TickerKey.GetCreateTickerKey(body.ccode); set => body.ccode = value.Layout; }
+     /// <summary>(optional) option underlier price driver (all option expiries) (overrides optExpiryDefinition); on a line with composites a market or currency composite, empty = the primary market's</summary>
+    public ExpiryKey UPrcDriverKey { get => ExpiryKey.GetCreateExpiryKey(body.uPrcDriverKey); set => body.uPrcDriverKey = value.Layout; }
+     /// <summary>Stock or Future (note: if Future and uPrcDriverKey does not have an expiry month then FrontMonth will be used)</summary>
+    public SpdrKeyType UPrcDriverType { get => body.uPrcDriverType; set => body.uPrcDriverType = value; }
+     /// <summary>(optional) alternate option underlier price driver (all option expiries) (overrides optExpiryDefinition)</summary>
+    public ExpiryKey UPrcDriverKey2 { get => ExpiryKey.GetCreateExpiryKey(body.uPrcDriverKey2); set => body.uPrcDriverKey2 = value.Layout; }
+     /// <summary>Stock or Future (note: if Future and uPrcDriverKey does not have an expiry month then FrontMonth will be used)</summary>
+    public SpdrKeyType UPrcDriverType2 { get => body.uPrcDriverType2; set => body.uPrcDriverType2 = value; }
+     /// <summary>if Yes and if a future exists with ccode=CCode and futExpiry = optExpiry the use this future as a pricing bound</summary>
+    public YesNo UPrcBoundCCode { get => body.uPrcBoundCCode; set => body.uPrcBoundCCode = value; }
+     /// <summary>determines the underlying future (if any)</summary>
+    public ExpirationMap ExpirationMap { get => body.expirationMap; set => body.expirationMap = value; }
+     /// <summary>how the underlier price for this root is formed</summary>
+    public UnderlierMode UnderlierMode { get => body.underlierMode; set => body.underlierMode = value; }
+     /// <summary>indicator for option type</summary>
+    public OptionType OptionType { get => body.optionType; set => body.optionType = value; }
+     /// <summary>indicates type of multihedge (None = standard root; all other root types are not None)</summary>
+    public Multihedge Multihedge { get => body.multihedge; set => body.multihedge = value; }
+     /// <summary>Exercise time type</summary>
+    public ExerciseTime ExerciseTime { get => body.exerciseTime; set => body.exerciseTime = value; }
+     /// <summary>Exercise style</summary>
+    public ExerciseType ExerciseType { get => body.exerciseType; set => body.exerciseType = value; }
+     /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
+    public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
+     /// <summary>the rotation rule that sets this product's trade date - TradingPeriodDefinitionV3 9015</summary>
+    public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
+     /// <summary>non-functional. temporarily added back for binary compatibility with mars</summary>
+    public PricingModel PricingModel { get => body.pricingModel; set => body.pricingModel = value; }
+     /// <summary>[LogNormal or Normal] - default is determined by product characteristics and is usually correct. for binary compatibility with new quant package</summary>
+    public CalcModelType CalcModelType { get => body.calcModelType; set => body.calcModelType = value; }
+     /// <summary>[Spot or Forward] (override; default is usually ok). for binary compatibility with new quant package</summary>
+    public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
+     /// <summary>moneyness (xAxis) convention: PctStd = (K / fUPrc - 1) / (axisVol * RT), LogStd = LOG(K/fUPrc) / (axisVol * RT), NormStd = (K - fUPrc) / (axisVol * RT)</summary>
+    public MoneynessType MoneynessType { get => body.moneynessType; set => body.moneynessType = value; }
+     /// <summary>quoting style for the option series on the exchange, price (standard price quote) or volatility quoted (vol points)</summary>
+    public PriceQuoteType PriceQuoteType { get => body.priceQuoteType; set => body.priceQuoteType = value; }
+     /// <summary>liquidity tier for this root, used to scale quoting and surface work</summary>
+    public VolumeTier VolumeTier { get => body.volumeTier; set => body.volumeTier = value; }
+     /// <summary>max contract limit</summary>
+    public int PositionLimit { get => body.positionLimit; set => body.positionLimit = value; }
+     /// <summary>$NLV value of a single tick change in display premium	(pointValue = tickValue / tickSize)</summary>
+    public float TickValue { get => body.tickValue; set => body.tickValue = value; }
+     /// <summary>$NLV value of a single point change in display premium (pointValue = tickValue / tickSize)</summary>
+    public float PointValue { get => body.pointValue; set => body.pointValue = value; }
+     /// <summary>ISO 4217 currency pointValue is denominated in</summary>
+    public string PointCurrency { get => body.pointCurrency; set => body.pointCurrency = value; }
+     /// <summary>manual strike price adjustment multiplier (used for some CME products if set, otherwise displayFactor is used) (okey_xx = strikePrice * manualStrikeScale)</summary>
+    public double StrikeScale { get => body.strikeScale; set => body.strikeScale = value; }
+     /// <summary>note: effective strike = strike * strikeRatio - cashOnExercise</summary>
+    public float StrikeRatio { get => body.strikeRatio; set => body.strikeRatio = value; }
+     /// <summary>cash delivered per contract; positive decreases the effective strike. Cash alone: multihedge AllCash, ticker stays on the line</summary>
+    public float CashOnExercise { get => body.cashOnExercise; set => body.cashOnExercise = value; }
+     /// <summary>shares per contract; for a delivery-basket root, the contract's share count (100, or 1000 on a 1000-share contract)</summary>
+    public double UnderliersPerCn { get => body.underliersPerCn; set => body.underliersPerCn = value; }
+     /// <summary>note: OCC premium/strike multiplier (usually 100)</summary>
+    public double PremiumMult { get => body.premiumMult; set => body.premiumMult = value; }
+     /// <summary>note: currently used when AdjConvention is None, value of 0 implies symbolRatio is 1</summary>
+    public float SymbolRatio { get => body.symbolRatio; set => body.symbolRatio = value; }
+     /// <summary>how the root was adjusted for a corporate action; symbolRatio applies when this is None</summary>
+    public AdjConvention AdjConvention { get => body.adjConvention; set => body.adjConvention = value; }
+     /// <summary>the premium tick regime for series on this root</summary>
+    public OptPriceInc OptPriceInc { get => body.optPriceInc; set => body.optPriceInc = value; }
+     /// <summary>price display format</summary>
+    public PriceFormat PriceFormat { get => body.priceFormat; set => body.priceFormat = value; }
+     /// <summary>min tick size used for European native exchange options</summary>
+    public double MinTickSize { get => body.minTickSize; set => body.minTickSize = value; }
+     /// <summary>unit the option is quoted in: ISO 4217, or GBX where the venue quotes pence; money is pointCurrency</summary>
+    public string TradeCurr { get => body.tradeCurr; set => body.tradeCurr = value; }
+     /// <summary>ISO 4217 currency the option settles in</summary>
+    public string SettleCurr { get => body.settleCurr; set => body.settleCurr = value; }
+     /// <summary>unit strikes are quoted in: ISO 4217, or GBX for pence strikes</summary>
+    public string StrikeCurr { get => body.strikeCurr; set => body.strikeCurr = value; }
+     /// <summary>fallback ticker to use for option surfaces if no native surfaces are available</summary>
+    public TickerKey DefaultSurfaceRoot { get => TickerKey.GetCreateTickerKey(body.defaultSurfaceRoot); set => body.defaultSurfaceRoot = value.Layout; }
+     /// <summary>regional composite ticker - set on European contributor products only</summary>
+    public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
+     /// <summary>if Yes options on this root are liable for high frequency taxation and require hft throttling for maker algos</summary>
+    public YesNo IsHftTaxLiable { get => body.isHftTaxLiable; set => body.isHftTaxLiable = value; }
+     /// <summary>value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)</summary>
+    public double HftTaxTriggerTime { get => body.hftTaxTriggerTime; set => body.hftTaxTriggerTime = value; }
+     /// <summary>product description (sourced from Activ FidName)</summary>
+    public string Description { get => body.description; set => body.description = value; }
+     /// <summary>the FLEX type this root was minted as; Listed for a listed root. May-mint lives on the underlier (9106/9115/9109)</summary>
+    public FlexType FlexType { get => body.flexType; set => body.flexType = value; }
+     /// <summary>ClearVenueDefinitionV3 - where options on this root clear</summary>
+    public string ClearVenue { get => body.clearVenue; set => body.clearVenue = value; }
+     /// <summary>Bridge = projected from a legacy record; Loader = written natively. None reads as Loader</summary>
+    public V3Source V3Source { get => body.v3Source; set => body.v3Source = value; }
+     /// <summary>when this row was last written</summary>
+    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>-&gt; ScheduleDefinitionV3 9057; an option-on-future root carries its product's code; empty = '*'</summary>
+    public string ScheduleGroup { get => body.scheduleGroup; set => body.scheduleGroup = value; }
+     /// <summary>T+n of the current regime; 0 means T+0, never unknown</summary>
+    public byte SettlementDays { get => body.settlementDays; set => body.settlementDays = value; }
+     /// <summary>Bloomberg year-code and weekly rendering the drop-copy symbol builders key on; a counterparty rendering policy until one exists</summary>
+    public BbgYrCode BbgYrCode { get => body.bbgYrCode; set => body.bbgYrCode = value; }
+     /// <summary>empty = $MRGN-&lt;pointCurrency&gt;-RATE</summary>
+    public TickerKey LiveRateKey { get => TickerKey.GetCreateTickerKey(body.liveRateKey); set => body.liveRateKey = value.Layout; }
+     /// <summary>skew basis function key; empty = $SPX</summary>
+    public TickerKey BasisKey { get => TickerKey.GetCreateTickerKey(body.basisKey); set => body.basisKey = value.Layout; }
+     /// <summary>None = auto-determine the skew orientation from data</summary>
+    public YesNo ReverseSkew { get => body.reverseSkew; set => body.reverseSkew = value; }
+     /// <summary>the CUR pair (FxSpotDefinitionV3 9124) converting uPrcDriverKey's composite into the root's currency when its currency has no composite; empty otherwise</summary>
+    public TickerKey UPrcDriverFxPair { get => TickerKey.GetCreateTickerKey(body.uPrcDriverFxPair); set => body.uPrcDriverFxPair = value.Layout; }
+
+
+} // RootDefinitionV3
 
 
 /// <summary>
@@ -6865,7 +7675,7 @@ public partial class SpdrAuctionState : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class LegsItem
     {
-        public const int Length = 30;
+        public const int Length = 31;
 
         public LegsItem() { }
         
@@ -7119,8 +7929,8 @@ public partial class SpreadBookQuote : IMessage
 				
         }
         
-        /// <summary>SR Spread Key (should have corresponding ProductDefinition record)</summary>
-        public TickerKey Skey { get => TickerKey.GetCreateTickerKey(body.skey); set => body.skey = value.Layout; }
+        /// <summary>the content key (SPREAD_CONTENT_KEY.md): SpreadId tag + 15 bytes of the leg-set hash</summary>
+        public ContentKey SpreadID { get => body.spreadID; set => body.spreadID = value; }
          /// <summary>Yes indicates that response is made of entirely of isTest=Yes SpreadExchOrders</summary>
         public YesNo IsTest { get => body.isTest; set => body.isTest = value; }
 
@@ -7159,13 +7969,13 @@ public partial class SpreadBookQuote : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct PKeyLayout : IEquatable<PKeyLayout>
     {
-        public TickerKeyLayout skey;
+        public ContentKey spreadID;
          public YesNo isTest;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(PKeyLayout other)
         {
-            return	skey.Equals(other.skey) &&
+            return	spreadID.Equals(other.spreadID) &&
 					 	isTest.Equals(other.isTest);
         }
 
@@ -7177,7 +7987,7 @@ public partial class SpreadBookQuote : IMessage
         {
             unchecked
             {
-                var hashCode = skey.GetHashCode();
+                var hashCode = spreadID.GetHashCode();
                  hashCode = (hashCode*397) ^ ((int) isTest);
 
                 return hashCode;
@@ -7191,7 +8001,6 @@ public partial class SpreadBookQuote : IMessage
     internal struct BodyLayout
     {
         public TickerKeyLayout ticker;
-		public long SRspreadID;
 		public double bidPrice1;
 		public YesNo isBidPrice1Valid;
 		public double askPrice1;
@@ -7215,14 +8024,13 @@ public partial class SpreadBookQuote : IMessage
 		public long srcTimestamp;
 		public long netTimestamp;
 		public DateTimeLayout timestamp;
+		public SpreadScope scopeFlags;
     }
 
     internal BodyLayout body;
 
     /// <summary>common spread underlier</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-     
-    public long SRspreadID { get => body.SRspreadID; set => body.SRspreadID = value; }
      /// <summary>bid price</summary>
     public double BidPrice1 { get => body.bidPrice1; set => body.bidPrice1 = value; }
      
@@ -7269,579 +8077,11 @@ public partial class SpreadBookQuote : IMessage
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>what the leg set spans; MultiTicker = cross-complex</summary>
+    public SpreadScope ScopeFlags { get => body.scopeFlags; set => body.scopeFlags = value; }
 
 
 } // SpreadBookQuote
-
-
-/// <summary>
-/// SpreadDefinition:4390
-/// </summary>
-/// <remarks>
-/// </remarks>
-
-public partial class SpreadDefinition : IMessage
-{
-    #region IMessage implementation
-
-    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
-    
-    public long PublishedNsecsSinceUnixEpoch => header.sentts;
-
-    public bool FromCache
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal set
-        {
-            if (value)
-            {
-                header.bits |= HeaderBits.FromCache;
-            }
-            else
-            {
-                header.bits &= ~HeaderBits.FromCache;
-            }
-        }
-    }
-
-    public ushort Type => header.msgtype;
-
-    #endregion
-
-    public SpreadDefinition()
-    {
-    }
-    
-    public SpreadDefinition(PKey pkey)
-    {
-        this.pkey.body = pkey.body;
-    }
-    
-    public SpreadDefinition(SpreadDefinition source)
-    {
-        source.CopyTo(this);
-    }
-    
-    internal SpreadDefinition(PKeyLayout pkey)
-    {
-        this.pkey.body = pkey;
-    }
-
-    public override bool Equals(object other)
-    {
-        return Equals(other as SpreadDefinition);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(SpreadDefinition other)
-    {
-        if (ReferenceEquals(other, null)) return false;
-        if (ReferenceEquals(other, this)) return true;
-        return pkey.Equals(other.pkey);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override int GetHashCode()
-    {
-        return pkey.GetHashCode();
-    }
-    
-    public override string ToString()
-    {
-        return TabRecord;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void CopyTo(SpreadDefinition target)
-    {			
-        target.header = header;
-         pkey.CopyTo(target.pkey);
-         target.body = body;
-         target.SecurityDesc = SecurityDesc;
- 
-        if ((ExchSprIDsList?.Length ?? 0) > 0)
-        {
-            if ((target.ExchSprIDsList?.Length ?? 0) != ExchSprIDsList.Length)
-            {
-                target.ExchSprIDsList = new ExchSprIDsItem[ExchSprIDsList.Length];
-            }
-
-            for (int i = 0; i < ExchSprIDsList.Length; i++)
-            {
-                var src = ExchSprIDsList[i];
-                var dest = target.ExchSprIDsList[i] ?? new ExchSprIDsItem();
-				dest.ExchSprID = src.ExchSprID;
-
-                target.ExchSprIDsList[i] = dest;
-            }
-        }
-        else if ((target.ExchSprIDsList?.Length ?? 0) > 0)
-        {
-            target.ExchSprIDsList = null;
-        }
- 
-        if ((LegsList?.Length ?? 0) > 0)
-        {
-            if ((target.LegsList?.Length ?? 0) != LegsList.Length)
-            {
-                target.LegsList = new LegsItem[LegsList.Length];
-            }
-
-            for (int i = 0; i < LegsList.Length; i++)
-            {
-                var src = LegsList[i];
-                var dest = target.LegsList[i] ?? new LegsItem();
-				dest.LegSecKey = src.LegSecKey;
- 				dest.LegSecType = src.LegSecType;
- 				dest.LegSide = src.LegSide;
- 				dest.LegRatio = src.LegRatio;
- 				dest.RefDelta = src.RefDelta;
- 				dest.RefPrc = src.RefPrc;
-
-                target.LegsList[i] = dest;
-            }
-        }
-        else if ((target.LegsList?.Length ?? 0) > 0)
-        {
-            target.LegsList = null;
-        }
-
-    }
-
-    public void Clear()
-    {
-        pkey.Clear();
-         body = new BodyLayout();
-         SecurityDesc = null;
-         ExchSprIDsList = null;
-         LegsList = null;
-
-    }
-
-    public PKey Key => pkey;
-    
-    internal SourceId SourceId => header.sourceid;
-
-    internal Header header = new() {msgtype = MessageType.SpreadDefinition};
-    
-     public sealed class PKey : IEquatable<PKey>, ICloneable
-    {
-
-        internal PKeyLayout body;
-        
-        public PKey()					{ }
-
-        internal PKey(PKeyLayout body)	=> this.body = body;
-
-        public PKey(PKey other)
-        {
-            if (other is null) throw new ArgumentNullException(nameof(other));
-            body = other.body;
-				
-        }
-        
-        /// <summary>SR legs list hash</summary>
-        public long SRspreadID { get => body.SRspreadID; set => body.SRspreadID = value; }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void Clear()
-        {
-            body = new PKeyLayout();
-
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void CopyTo(PKey target)
-        {
-            target.body = body;
-
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public object Clone()
-        {
-            var target = new PKey(body);
-
-            return target;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKey other && Equals(other);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() => body.GetHashCode();
-    } 
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct PKeyLayout : IEquatable<PKeyLayout>
-    {
-        public long SRspreadID;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKeyLayout other)
-        {
-            return	SRspreadID.Equals(other.SRspreadID);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = SRspreadID.GetHashCode();
-
-                return hashCode;
-            }
-        }
-    }
-
-    internal readonly PKey pkey = new();
-     
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    public class ExchSprIDsItem
-    {
-        public const int Length = 30;
-
-        public ExchSprIDsItem() { }
-        
-        public ExchSprIDsItem(string exchSprID)
-        {
-            this.ExchSprID = exchSprID;
-        }
-
-        private FixedString30Layout _exchSprID;
-		public string ExchSprID { get { return _exchSprID; } internal set { _exchSprID = value; } }
-    }
-
-    public ExchSprIDsItem[] ExchSprIDsList { get; set; }
- 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    public class LegsItem
-    {
-        public const int Length = 44;
-
-        public LegsItem() { }
-        
-        public LegsItem(OptionKey legSecKey, SpdrKeyType legSecType, BuySell legSide, uint legRatio, float refDelta, double refPrc)
-        {
-            this.LegSecKey = legSecKey;
-			this.LegSecType = legSecType;
-			this.LegSide = legSide;
-			this.LegRatio = legRatio;
-			this.RefDelta = refDelta;
-			this.RefPrc = refPrc;
-        }
-
-        public OptionKey LegSecKey { get; internal set; }
-		public SpdrKeyType LegSecType { get; internal set; }
-		public BuySell LegSide { get; internal set; }
-		public uint LegRatio { get; internal set; }
-		public float RefDelta { get; internal set; }
-		public double RefPrc { get; internal set; }
-    }
-
-    public LegsItem[] LegsList { get; set; }
-
-     
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct BodyLayout
-    {
-        public TickerKeyLayout ticker;
-		public SpreadClass spreadClass;
-		public DateTimeLayout timestamp;
-    }
-
-    internal BodyLayout body;
-
-    /// <summary>underlier (or product group) tickerKey</summary>
-    public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-     /// <summary>option spread type</summary>
-    public SpreadClass SpreadClass { get => body.spreadClass; set => body.spreadClass = value; }
-     
-    public string SecurityDesc { get; set; } = string.Empty;
-     
-    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
-
-
-} // SpreadDefinition
-
-
-/// <summary>
-/// SpreadExchDefinition:4395
-/// </summary>
-/// <remarks>
-/// </remarks>
-
-public partial class SpreadExchDefinition : IMessage
-{
-    #region IMessage implementation
-
-    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
-
-    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
-    
-    public long PublishedNsecsSinceUnixEpoch => header.sentts;
-
-    public bool FromCache
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal set
-        {
-            if (value)
-            {
-                header.bits |= HeaderBits.FromCache;
-            }
-            else
-            {
-                header.bits &= ~HeaderBits.FromCache;
-            }
-        }
-    }
-
-    public ushort Type => header.msgtype;
-
-    #endregion
-
-    public SpreadExchDefinition()
-    {
-    }
-    
-    public SpreadExchDefinition(PKey pkey)
-    {
-        this.pkey.body = pkey.body;
-    }
-    
-    public SpreadExchDefinition(SpreadExchDefinition source)
-    {
-        source.CopyTo(this);
-    }
-    
-    internal SpreadExchDefinition(PKeyLayout pkey)
-    {
-        this.pkey.body = pkey;
-    }
-
-    public override bool Equals(object other)
-    {
-        return Equals(other as SpreadExchDefinition);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool Equals(SpreadExchDefinition other)
-    {
-        if (ReferenceEquals(other, null)) return false;
-        if (ReferenceEquals(other, this)) return true;
-        return pkey.Equals(other.pkey);
-    }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override int GetHashCode()
-    {
-        return pkey.GetHashCode();
-    }
-    
-    public override string ToString()
-    {
-        return TabRecord;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void CopyTo(SpreadExchDefinition target)
-    {			
-        target.header = header;
-         pkey.CopyTo(target.pkey);
-         target.body = body;
- 
-        if ((LegsList?.Length ?? 0) > 0)
-        {
-            if ((target.LegsList?.Length ?? 0) != LegsList.Length)
-            {
-                target.LegsList = new LegsItem[LegsList.Length];
-            }
-
-            for (int i = 0; i < LegsList.Length; i++)
-            {
-                var src = LegsList[i];
-                var dest = target.LegsList[i] ?? new LegsItem();
-				dest.LegSecKey = src.LegSecKey;
- 				dest.LegSecType = src.LegSecType;
- 				dest.LegSide = src.LegSide;
- 				dest.LegRatio = src.LegRatio;
- 				dest.RefDelta = src.RefDelta;
- 				dest.RefPrc = src.RefPrc;
-
-                target.LegsList[i] = dest;
-            }
-        }
-        else if ((target.LegsList?.Length ?? 0) > 0)
-        {
-            target.LegsList = null;
-        }
-
-    }
-
-    public void Clear()
-    {
-        pkey.Clear();
-         body = new BodyLayout();
-         LegsList = null;
-
-    }
-
-    public PKey Key => pkey;
-    
-    internal SourceId SourceId => header.sourceid;
-
-    internal Header header = new() {msgtype = MessageType.SpreadExchDefinition};
-    
-     public sealed class PKey : IEquatable<PKey>, ICloneable
-    {
-
-        internal PKeyLayout body;
-        
-        public PKey()					{ }
-
-        internal PKey(PKeyLayout body)	=> this.body = body;
-
-        public PKey(PKey other)
-        {
-            if (other is null) throw new ArgumentNullException(nameof(other));
-            body = other.body;
-				
-        }
-        
-        
-        public OptExch Exch { get => body.exch; set => body.exch = value; }
-         /// <summary>unique exchange spread id</summary>
-        public string ExchSprID { get => body.exchSprID; set => body.exchSprID = value; }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void Clear()
-        {
-            body = new PKeyLayout();
-
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public void CopyTo(PKey target)
-        {
-            target.body = body;
-
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public object Clone()
-        {
-            var target = new PKey(body);
-
-            return target;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKey other && Equals(other);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKey other) => other is not null && body.Equals(other.body);
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() => body.GetHashCode();
-    } 
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct PKeyLayout : IEquatable<PKeyLayout>
-    {
-        public OptExch exch;
-         public FixedString30Layout exchSprID;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(PKeyLayout other)
-        {
-            return	exch.Equals(other.exch) &&
-					 	exchSprID.Equals(other.exchSprID);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object obj) => obj is PKeyLayout other && Equals(other);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = (int) exch;
-                 hashCode = (hashCode*397) ^ (exchSprID.GetHashCode());
-
-                return hashCode;
-            }
-        }
-    }
-
-    internal readonly PKey pkey = new();
-     
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    public class LegsItem
-    {
-        public const int Length = 44;
-
-        public LegsItem() { }
-        
-        public LegsItem(OptionKey legSecKey, SpdrKeyType legSecType, BuySell legSide, uint legRatio, float refDelta, double refPrc)
-        {
-            this.LegSecKey = legSecKey;
-			this.LegSecType = legSecType;
-			this.LegSide = legSide;
-			this.LegRatio = legRatio;
-			this.RefDelta = refDelta;
-			this.RefPrc = refPrc;
-        }
-
-        public OptionKey LegSecKey { get; internal set; }
-		public SpdrKeyType LegSecType { get; internal set; }
-		public BuySell LegSide { get; internal set; }
-		public uint LegRatio { get; internal set; }
-		public float RefDelta { get; internal set; }
-		public double RefPrc { get; internal set; }
-    }
-
-    public LegsItem[] LegsList { get; set; }
-
-     
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
-    internal struct BodyLayout
-    {
-        public YesNo flipSide;
-		public DateTimeLayout timestamp;
-    }
-
-    internal BodyLayout body;
-
-    /// <summary>if the leg sides have been flipped</summary>
-    public YesNo FlipSide { get => body.flipSide; set => body.flipSide = value; }
-     
-    public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
-
-
-} // SpreadExchDefinition
 
 
 /// <summary>
@@ -7966,8 +8206,8 @@ public partial class SpreadExchOrder : IMessage
 				
         }
         
-        /// <summary>SR or exchange assigned Spread TickerKey (ProductDefinition.pkey) (might be null)</summary>
-        public TickerKey Skey { get => TickerKey.GetCreateTickerKey(body.skey); set => body.skey = value.Layout; }
+        /// <summary>the content key (SPREAD_CONTENT_KEY.md): SpreadId tag + 15 bytes of the leg-set hash</summary>
+        public ContentKey SpreadID { get => body.spreadID; set => body.spreadID = value; }
          
         public OptExch Exch { get => body.exch; set => body.exch = value; }
          
@@ -8010,7 +8250,7 @@ public partial class SpreadExchOrder : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct PKeyLayout : IEquatable<PKeyLayout>
     {
-        public TickerKeyLayout skey;
+        public ContentKey spreadID;
          public OptExch exch;
          public BuySell side;
          public YesNo isTest;
@@ -8018,7 +8258,7 @@ public partial class SpreadExchOrder : IMessage
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(PKeyLayout other)
         {
-            return	skey.Equals(other.skey) &&
+            return	spreadID.Equals(other.spreadID) &&
 					 	exch.Equals(other.exch) &&
 					 	side.Equals(other.side) &&
 					 	isTest.Equals(other.isTest);
@@ -8032,7 +8272,7 @@ public partial class SpreadExchOrder : IMessage
         {
             unchecked
             {
-                var hashCode = skey.GetHashCode();
+                var hashCode = spreadID.GetHashCode();
                  hashCode = (hashCode*397) ^ ((int) exch);
                  hashCode = (hashCode*397) ^ ((int) side);
                  hashCode = (hashCode*397) ^ ((int) isTest);
@@ -8067,6 +8307,7 @@ public partial class SpreadExchOrder : IMessage
 		public long dgwTimestamp;
 		public DateTimeLayout timestamp;
 		public FixedString30Layout exchSprID;
+		public SpreadScope scopeFlags;
     }
 
     internal BodyLayout body;
@@ -8111,6 +8352,8 @@ public partial class SpreadExchOrder : IMessage
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>unique exchange spread id</summary>
     public string ExchSprID { get => body.exchSprID; set => body.exchSprID = value; }
+     /// <summary>what the leg set spans; MultiTicker = cross-complex</summary>
+    public SpreadScope ScopeFlags { get => body.scopeFlags; set => body.scopeFlags = value; }
 
 
 } // SpreadExchOrder
@@ -8336,7 +8579,7 @@ public partial class SpreadExchPrint : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public class LegsItem
     {
-        public const int Length = 33;
+        public const int Length = 34;
 
         public LegsItem() { }
         
@@ -8362,7 +8605,7 @@ public partial class SpreadExchPrint : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public TickerKeyLayout skey;
+        public ContentKey spreadID;
 		public FixedString24Layout strategyID;
 		public TickerKeyLayout ticker;
 		public BuySell side;
@@ -8383,12 +8626,13 @@ public partial class SpreadExchPrint : IMessage
 		public long srcTimestamp;
 		public long netTimestamp;
 		public DateTimeLayout timestamp;
+		public SpreadScope scopeFlags;
     }
 
     internal BodyLayout body;
 
-    /// <summary>feed handler TickerKey</summary>
-    public TickerKey Skey { get => TickerKey.GetCreateTickerKey(body.skey); set => body.skey = value.Layout; }
+    /// <summary>the content key (SPREAD_CONTENT_KEY.md): SpreadId tag + 15 bytes of the leg-set hash</summary>
+    public ContentKey SpreadID { get => body.spreadID; set => body.spreadID = value; }
      
     public string StrategyID { get => body.strategyID; set => body.strategyID = value; }
      /// <summary>underlier (or product group) tickerKey (from leg option)</summary>
@@ -8429,6 +8673,8 @@ public partial class SpreadExchPrint : IMessage
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>what the leg set spans; MultiTicker = cross-complex</summary>
+    public SpreadScope ScopeFlags { get => body.scopeFlags; set => body.scopeFlags = value; }
 
 
 } // SpreadExchPrint
@@ -10639,15 +10885,15 @@ public partial class TickerDefinitionExt : IMessage
 		public FixedString72Layout issuerName;
 		public FixedString2Layout cntryOfIncorp;
 		public float parValue;
-		public FixedString3Layout parValueCurrency;
+		public CurrencyString parValueCurrency;
 		public float pointValue;
 		public Currency pointCurrency;
 		public PriceFormat priceFormat;
 		public float minTickSize;
 		public PrimaryExchange primaryExch;
 		public long altID;
-		public FixedString4Layout mic;
-		public FixedString4Layout micSeg;
+		public MicString mic;
+		public MicString micSeg;
 		public FixedString12Layout symbol;
 		public FixedString1Layout issueClass;
 		public int securityID;
@@ -10664,7 +10910,7 @@ public partial class TickerDefinitionExt : IMessage
 		public FixedString28Layout bbgExchangeTicker;
 		public FixedString12Layout bbgCompositeGlobalID;
 		public FixedString12Layout bbgGlobalID;
-		public FixedString3Layout bbgCurrency;
+		public CurrencyString bbgCurrency;
 		public float stkVolume;
 		public float futVolume;
 		public float optVolume;
@@ -10749,11 +10995,11 @@ public partial class TickerDefinitionExt : IMessage
     public string BbgGlobalID { get => body.bbgGlobalID; set => body.bbgGlobalID = value; }
      /// <summary>Bloomberg Trading Currency</summary>
     public string BbgCurrency { get => body.bbgCurrency; set => body.bbgCurrency = value; }
-     /// <summary>daily stock volume</summary>
+     /// <summary>trailing 20-day average daily stock volume (TickerAnalytics 3255 avgVolume); no daily count in V3</summary>
     public float StkVolume { get => body.stkVolume; set => body.stkVolume = value; }
-     /// <summary>daily future volume</summary>
+     /// <summary>not populated in V3</summary>
     public float FutVolume { get => body.futVolume; set => body.futVolume = value; }
-     /// <summary>daily option volume</summary>
+     /// <summary>not populated in V3</summary>
     public float OptVolume { get => body.optVolume; set => body.optVolume = value; }
      /// <summary>exchanges listing any options on this underlying</summary>
     public string ExchString { get => body.exchString; set => body.exchString = value; }
@@ -10937,6 +11183,8 @@ internal partial class MLinkStreamCheckPt : IMessage
 		public double sendElapsed;
 		public double flushElapsed;
 		public DateTimeLayout timestamp;
+		public long replayPosTs;
+		public long edgeTs;
     }
 
     internal BodyLayout body;
@@ -10969,6 +11217,10 @@ internal partial class MLinkStreamCheckPt : IMessage
     public double FlushElapsed { get => body.flushElapsed; set => body.flushElapsed = value; }
      
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>replay sessions: the virtual clock position (ns since the Unix epoch)</summary>
+    public long ReplayPosTs { get => body.replayPosTs; set => body.replayPosTs = value; }
+     /// <summary>replay sessions: the edge the window was clamped to (now - delay window)</summary>
+    public long EdgeTs { get => body.edgeTs; set => body.edgeTs = value; }
 
 
 } // MLinkStreamCheckPt

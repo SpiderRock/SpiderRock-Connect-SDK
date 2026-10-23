@@ -359,6 +359,7 @@ message SpdrMLegBrkrState {
     UpdateSource update_src = 1034;
     int32 num_updates = 1033; // number of record updates (cumulative for the day)
     google.protobuf.Timestamp timestamp = 1036;
+    RiskGroupType risk_group_type = 1196;
 }
 
 

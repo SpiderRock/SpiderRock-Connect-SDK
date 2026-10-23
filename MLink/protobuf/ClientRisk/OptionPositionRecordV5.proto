@@ -204,6 +204,7 @@ message OptionPositionRecordV5 {
     int32 num_executions = 609; // number of included SpdrParentExecution records
     google.protobuf.Timestamp max_exec_dttm = 610; // maximum activity dttm of execution records included in this option risk summary
     google.protobuf.Timestamp timestamp = 613;
+    float hedge_ssr = 617; // skew-stickiness ratio applied when hedgeDeltaRule = IvSsr (the house ssr when the account sets none)
 }
 
 

@@ -26,6 +26,7 @@ internal sealed partial class MessageCache : IFrameHandler
             /* FutureBookQuote */ 2580 => futureBookQuote.TryHandle(ref frame),
             /* FuturePrint */ 2595 => futurePrint.TryHandle(ref frame),
             /* FuturePrintMarkup */ 2605 => futurePrintMarkup.TryHandle(ref frame),
+            /* IndexPrint */ 2705 => indexPrint.TryHandle(ref frame),
             /* IndexQuote */ 2675 => indexQuote.TryHandle(ref frame),
             /* LiveImpliedQuote */ 1015 => liveImpliedQuote.TryHandle(ref frame),
             /* LiveImpliedQuoteNG */ 1021 => liveImpliedQuoteNG.TryHandle(ref frame),
@@ -44,11 +45,11 @@ internal sealed partial class MessageCache : IFrameHandler
             /* OptionPrintMarkup */ 2810 => optionPrintMarkup.TryHandle(ref frame),
             /* OptionRiskFactor */ 1095 => optionRiskFactor.TryHandle(ref frame),
             /* ProductDefinitionV2 */ 4360 => productDefinitionV2.TryHandle(ref frame),
+            /* ProductExchMappingV3 */ 9130 => productExchMappingV3.TryHandle(ref frame),
             /* RootDefinition */ 4365 => rootDefinition.TryHandle(ref frame),
+            /* RootDefinitionV3 */ 9112 => rootDefinitionV3.TryHandle(ref frame),
             /* SpdrAuctionState */ 2525 => spdrAuctionState.TryHandle(ref frame),
             /* SpreadBookQuote */ 2900 => spreadBookQuote.TryHandle(ref frame),
-            /* SpreadDefinition */ 4390 => spreadDefinition.TryHandle(ref frame),
-            /* SpreadExchDefinition */ 4395 => spreadExchDefinition.TryHandle(ref frame),
             /* SpreadExchOrder */ 2915 => spreadExchOrder.TryHandle(ref frame),
             /* SpreadExchPrint */ 2920 => spreadExchPrint.TryHandle(ref frame),
             /* StockBookQuote */ 3000 => stockBookQuote.TryHandle(ref frame),
@@ -71,6 +72,7 @@ internal sealed partial class MessageCache : IFrameHandler
             if (futureBookQuote.HasEventHandlers) yield return (MessageType)2580;
             if (futurePrint.HasEventHandlers) yield return (MessageType)2595;
             if (futurePrintMarkup.HasEventHandlers) yield return (MessageType)2605;
+            if (indexPrint.HasEventHandlers) yield return (MessageType)2705;
             if (indexQuote.HasEventHandlers) yield return (MessageType)2675;
             if (liveImpliedQuote.HasEventHandlers) yield return (MessageType)1015;
             if (liveImpliedQuoteNG.HasEventHandlers) yield return (MessageType)1021;
@@ -89,11 +91,11 @@ internal sealed partial class MessageCache : IFrameHandler
             if (optionPrintMarkup.HasEventHandlers) yield return (MessageType)2810;
             if (optionRiskFactor.HasEventHandlers) yield return (MessageType)1095;
             if (productDefinitionV2.HasEventHandlers) yield return (MessageType)4360;
+            if (productExchMappingV3.HasEventHandlers) yield return (MessageType)9130;
             if (rootDefinition.HasEventHandlers) yield return (MessageType)4365;
+            if (rootDefinitionV3.HasEventHandlers) yield return (MessageType)9112;
             if (spdrAuctionState.HasEventHandlers) yield return (MessageType)2525;
             if (spreadBookQuote.HasEventHandlers) yield return (MessageType)2900;
-            if (spreadDefinition.HasEventHandlers) yield return (MessageType)4390;
-            if (spreadExchDefinition.HasEventHandlers) yield return (MessageType)4395;
             if (spreadExchOrder.HasEventHandlers) yield return (MessageType)2915;
             if (spreadExchPrint.HasEventHandlers) yield return (MessageType)2920;
             if (stockBookQuote.HasEventHandlers) yield return (MessageType)3000;
@@ -111,6 +113,7 @@ internal sealed partial class MessageCache : IFrameHandler
     private readonly FutureBookQuoteCache futureBookQuote = new();
     private readonly FuturePrintCache futurePrint = new();
     private readonly FuturePrintMarkupCache futurePrintMarkup = new();
+    private readonly IndexPrintCache indexPrint = new();
     private readonly IndexQuoteCache indexQuote = new();
     private readonly LiveImpliedQuoteCache liveImpliedQuote = new();
     private readonly LiveImpliedQuoteNGCache liveImpliedQuoteNG = new();
@@ -129,11 +132,11 @@ internal sealed partial class MessageCache : IFrameHandler
     private readonly OptionPrintMarkupCache optionPrintMarkup = new();
     private readonly OptionRiskFactorCache optionRiskFactor = new();
     private readonly ProductDefinitionV2Cache productDefinitionV2 = new();
+    private readonly ProductExchMappingV3Cache productExchMappingV3 = new();
     private readonly RootDefinitionCache rootDefinition = new();
+    private readonly RootDefinitionV3Cache rootDefinitionV3 = new();
     private readonly SpdrAuctionStateCache spdrAuctionState = new();
     private readonly SpreadBookQuoteCache spreadBookQuote = new();
-    private readonly SpreadDefinitionCache spreadDefinition = new();
-    private readonly SpreadExchDefinitionCache spreadExchDefinition = new();
     private readonly SpreadExchOrderCache spreadExchOrder = new();
     private readonly SpreadExchPrintCache spreadExchPrint = new();
     private readonly StockBookQuoteCache stockBookQuote = new();
@@ -149,6 +152,7 @@ internal sealed partial class MessageCache : IFrameHandler
     public IMessageEvents<FutureBookQuote> FutureBookQuote => futureBookQuote;
     public IMessageEvents<FuturePrint> FuturePrint => futurePrint;
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => futurePrintMarkup;
+    public IMessageEvents<IndexPrint> IndexPrint => indexPrint;
     public IMessageEvents<IndexQuote> IndexQuote => indexQuote;
     public IMessageEvents<LiveImpliedQuote> LiveImpliedQuote => liveImpliedQuote;
     public IMessageEvents<LiveImpliedQuoteNG> LiveImpliedQuoteNG => liveImpliedQuoteNG;
@@ -167,11 +171,11 @@ internal sealed partial class MessageCache : IFrameHandler
     public IMessageEvents<OptionPrintMarkup> OptionPrintMarkup => optionPrintMarkup;
     public IMessageEvents<OptionRiskFactor> OptionRiskFactor => optionRiskFactor;
     public IMessageEvents<ProductDefinitionV2> ProductDefinitionV2 => productDefinitionV2;
+    public IMessageEvents<ProductExchMappingV3> ProductExchMappingV3 => productExchMappingV3;
     public IMessageEvents<RootDefinition> RootDefinition => rootDefinition;
+    public IMessageEvents<RootDefinitionV3> RootDefinitionV3 => rootDefinitionV3;
     public IMessageEvents<SpdrAuctionState> SpdrAuctionState => spdrAuctionState;
     public IMessageEvents<SpreadBookQuote> SpreadBookQuote => spreadBookQuote;
-    public IMessageEvents<SpreadDefinition> SpreadDefinition => spreadDefinition;
-    public IMessageEvents<SpreadExchDefinition> SpreadExchDefinition => spreadExchDefinition;
     public IMessageEvents<SpreadExchOrder> SpreadExchOrder => spreadExchOrder;
     public IMessageEvents<SpreadExchPrint> SpreadExchPrint => spreadExchPrint;
     public IMessageEvents<StockBookQuote> StockBookQuote => stockBookQuote;
@@ -269,6 +273,35 @@ internal sealed partial class MessageCache : IFrameHandler
         public override MessageType Type => 2605;
         
         public override string ToString() => nameof(FuturePrintMarkupCache); 
+    }
+
+    private sealed class IndexPrintCache : MessageTypeCache<IndexPrint, IndexPrint.PKeyLayout>
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, IndexPrint target, long timestamp)
+        {
+            Formatter.Default.Decode(buffer, target);
+            target.ReceivedNsecsSinceUnixEpoch = timestamp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void CopyTo(IndexPrint fromMessage, IndexPrint toMessage) => fromMessage.CopyTo(toMessage);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override IndexPrint CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
+        {
+            IndexPrint message = new();
+
+            UpdateFromBuffer(buffer, message, timestamp);
+
+            message.FromCache = fromCache;
+
+            return message;
+        }
+
+        public override MessageType Type => 2705;
+        
+        public override string ToString() => nameof(IndexPrintCache); 
     }
 
     private sealed class IndexQuoteCache : MessageTypeCache<IndexQuote, IndexQuote.PKeyLayout>
@@ -793,6 +826,35 @@ internal sealed partial class MessageCache : IFrameHandler
         public override string ToString() => nameof(ProductDefinitionV2Cache); 
     }
 
+    private sealed class ProductExchMappingV3Cache : MessageTypeCache<ProductExchMappingV3, ProductExchMappingV3.PKeyLayout>
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, ProductExchMappingV3 target, long timestamp)
+        {
+            Formatter.Default.Decode(buffer, target);
+            target.ReceivedNsecsSinceUnixEpoch = timestamp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void CopyTo(ProductExchMappingV3 fromMessage, ProductExchMappingV3 toMessage) => fromMessage.CopyTo(toMessage);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override ProductExchMappingV3 CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
+        {
+            ProductExchMappingV3 message = new();
+
+            UpdateFromBuffer(buffer, message, timestamp);
+
+            message.FromCache = fromCache;
+
+            return message;
+        }
+
+        public override MessageType Type => 9130;
+        
+        public override string ToString() => nameof(ProductExchMappingV3Cache); 
+    }
+
     private sealed class RootDefinitionCache : MessageTypeCache<RootDefinition, RootDefinition.PKeyLayout>
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -820,6 +882,35 @@ internal sealed partial class MessageCache : IFrameHandler
         public override MessageType Type => 4365;
         
         public override string ToString() => nameof(RootDefinitionCache); 
+    }
+
+    private sealed class RootDefinitionV3Cache : MessageTypeCache<RootDefinitionV3, RootDefinitionV3.PKeyLayout>
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, RootDefinitionV3 target, long timestamp)
+        {
+            Formatter.Default.Decode(buffer, target);
+            target.ReceivedNsecsSinceUnixEpoch = timestamp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override void CopyTo(RootDefinitionV3 fromMessage, RootDefinitionV3 toMessage) => fromMessage.CopyTo(toMessage);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected override RootDefinitionV3 CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
+        {
+            RootDefinitionV3 message = new();
+
+            UpdateFromBuffer(buffer, message, timestamp);
+
+            message.FromCache = fromCache;
+
+            return message;
+        }
+
+        public override MessageType Type => 9112;
+        
+        public override string ToString() => nameof(RootDefinitionV3Cache); 
     }
 
     private sealed class SpdrAuctionStateCache : MessageTypeCache<SpdrAuctionState, SpdrAuctionState.PKeyLayout>
@@ -878,64 +969,6 @@ internal sealed partial class MessageCache : IFrameHandler
         public override MessageType Type => 2900;
         
         public override string ToString() => nameof(SpreadBookQuoteCache); 
-    }
-
-    private sealed class SpreadDefinitionCache : MessageTypeCache<SpreadDefinition, SpreadDefinition.PKeyLayout>
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, SpreadDefinition target, long timestamp)
-        {
-            Formatter.Default.Decode(buffer, target);
-            target.ReceivedNsecsSinceUnixEpoch = timestamp;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected override void CopyTo(SpreadDefinition fromMessage, SpreadDefinition toMessage) => fromMessage.CopyTo(toMessage);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected override SpreadDefinition CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
-        {
-            SpreadDefinition message = new();
-
-            UpdateFromBuffer(buffer, message, timestamp);
-
-            message.FromCache = fromCache;
-
-            return message;
-        }
-
-        public override MessageType Type => 4390;
-        
-        public override string ToString() => nameof(SpreadDefinitionCache); 
-    }
-
-    private sealed class SpreadExchDefinitionCache : MessageTypeCache<SpreadExchDefinition, SpreadExchDefinition.PKeyLayout>
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected override void UpdateFromBuffer(ReadOnlySpan<byte> buffer, SpreadExchDefinition target, long timestamp)
-        {
-            Formatter.Default.Decode(buffer, target);
-            target.ReceivedNsecsSinceUnixEpoch = timestamp;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected override void CopyTo(SpreadExchDefinition fromMessage, SpreadExchDefinition toMessage) => fromMessage.CopyTo(toMessage);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected override SpreadExchDefinition CreateFromBuffer(ReadOnlySpan<byte> buffer, long timestamp, bool fromCache)
-        {
-            SpreadExchDefinition message = new();
-
-            UpdateFromBuffer(buffer, message, timestamp);
-
-            message.FromCache = fromCache;
-
-            return message;
-        }
-
-        public override MessageType Type => 4395;
-        
-        public override string ToString() => nameof(SpreadExchDefinitionCache); 
     }
 
     private sealed class SpreadExchOrderCache : MessageTypeCache<SpreadExchOrder, SpreadExchOrder.PKeyLayout>

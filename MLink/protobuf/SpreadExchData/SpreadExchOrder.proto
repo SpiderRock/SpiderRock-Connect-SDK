@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 message SpreadExchOrder {
     message PKey {
         
-        TickerKey skey = 10; // SR or exchange assigned Spread TickerKey (ProductDefinition.pkey) (might be null)
+        ContentKey spread_iD = 10; // the content key (SPREAD_CONTENT_KEY.md): SpreadId tag + 15 bytes of the leg-set hash
         OptExch exch = 11;
         BuySell side = 12;
         YesNo is_test = 13;
@@ -43,6 +43,7 @@ message SpreadExchOrder {
     int64 dgw_timestamp = 148; // SpiderRock data gateway timestamp
     google.protobuf.Timestamp timestamp = 151;
     string exch_spr_iD = 170; // unique exchange spread id
+    SpreadScope scope_flags = 174; // what the leg set spans; MultiTicker = cross-complex
 }
 
 

@@ -21,6 +21,7 @@ message StockLocateResponse {
         string locate_pool = 19; // locate pool @ firm granting the locate
         DateKey trade_date = 20;
         int64 request_iD = 17; // ID used to make locate requests (SR generated request ID)
+        ProdTest lane = 21;
     }
 
 

@@ -49,7 +49,7 @@ internal readonly struct OptionKeyLayout : IEquatable<OptionKeyLayout>, ICompara
             var order = (byte)AssetType - (byte)other.AssetType;
             if (order != 0) return order;
 
-            order = (byte)TickerSrc - (byte)other.TickerSrc;
+            order = (ushort)TickerSrc - (ushort)other.TickerSrc;
             if (order != 0) return order;
 
             order = Ticker.CompareTo(other.Ticker);
@@ -86,10 +86,11 @@ internal readonly struct OptionKeyLayout : IEquatable<OptionKeyLayout>, ICompara
              * day - 5 bits
              * flags - 3 bits (current 2 used)
              * AssetType - 6 bits (currently 4 used)
-             * TickerSrc - 6 bits (currently 5 used)
+             * TickerSrc - own mixing stage (16 bits)
              */
 
-            hashCode = hashCode * 397 ^ (year << 24 | Month << 20 | Day << 15 | (byte)CallPut << 12 | (byte)AssetType << 6 | (byte)TickerSrc);
+            hashCode = hashCode * 397 ^ (year << 24 | Month << 20 | Day << 15 | (byte)CallPut << 12 | (byte)AssetType);
+            hashCode = hashCode * 397 ^ (ushort)TickerSrc;
             hashCode = hashCode * 397 ^ Strike.GetHashCode();
             return hashCode;
         }

@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    SpdrParentExecution records are published every time a parent order execution is received.  They also update as additional post execution mark information is available at F+1m and F+10m.
+*/    
 message SpdrParentExecution {
     message PKey {
         
@@ -46,12 +48,16 @@ message SpdrParentExecution {
     SpdrOrderShape parent_shape = 178; // shape of originating parent order
     OptionKey sec_key = 181; // execution security key
     SpdrKeyType sec_type = 184; // execution security type [Stock, Future, Option]
-    TickerKey ticker = 187; // base stock key (used for symbol risk aggregation)
+    TickerKey ticker = 187; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 960; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey complex_key = 963; // the complex this row rolls up to: the product's line when it has one, else the product; the line for a share or an equity option
+    TickerKey family_head = 966; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
     string accnt = 190; // SpiderRock trading accnt [broker pkey]
     string client_firm = 193; // SR client firm
     string strategy_accnt = 848; // SR strategy account (optional; copied from parent order)
     SpdrSource spdr_source = 196; // SpiderRock parent order source code [broker pkey]
     int64 grouping_code = 199; // SpiderRock parent broker number [broker pkey]
+    int64 alloc_src_fill_number = 889; // source omni fillNumber this execution was allocated from (set on AllocClient/AllocOmni pair executions only)
     string core_client_firm = 809;
     string sponsor_client_firm = 810;
     string routing_code = 202; // SpiderRock market routing code
@@ -305,6 +311,10 @@ message SpdrParentExecution {
     int32 prt_sgw_offset = 880; // childOrder.swgTimestamp - printEvent.srcTimestamp
     SwapProvider swap_provider = 883; // swap provider used for this execution (if any)
     google.protobuf.Timestamp timestamp = 808; // timestamp of this record [not necessarily the timstamp of the fill itself]
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
+    AltLimitType alt_limit_type = 954; // alt limit type (None = no alt limit)
+    double alt_limit_price = 957; // live alt limit price at fill time (-1 = not resolvable)
     SRDataCenter_V7 data_center__v7 = 5000; // only v7: enum values do not match with v8: V7[None=0,NY4=1,NY5=2,CH2=3,CH3=4], V8[Does Not Exist]
     FaceSide face_side__v7 = 5001; // only v7 - enum values match with v8
     FaceShape face_shape__v7 = 5002; // only v7 - enum values match with v8

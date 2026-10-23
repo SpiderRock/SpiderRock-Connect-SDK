@@ -36,7 +36,10 @@ message SpdrParentBrkrEvent {
     int64 base_parent_number = 133; // SPDR order number (initial number in cancel/replace sequence) (also, source parent for dynamically generated orders;eg auto-hedges)
     int64 prev_parent_number = 136; // SPDR order number (order being cancelled/replaced) (zero if none)
     string engine_name = 139; // server stripe
-    TickerKey ticker = 142; // SpiderRock underlier stock key
+    TickerKey ticker = 142; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 954; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey complex_key = 957; // the complex this row rolls up to: the product's line when it has one, else the product; the line for a share or an equity option
+    TickerKey family_head = 960; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
     SpdrBrokerStatus spdr_broker_status = 145;
     string strategy_accnt = 373; // SR strategy account (option; if exists will be validated)
     SpdrOrderStatus spdr_order_status = 148; // parent order status
@@ -109,6 +112,8 @@ message SpdrParentBrkrEvent {
     PriceFormat u_price_format = 364; // underlier price display format code
     string user_name = 367; // user associated with the most recent parent order
     google.protobuf.Timestamp timestamp = 370; // timestamp of last modification
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
 }
 
 

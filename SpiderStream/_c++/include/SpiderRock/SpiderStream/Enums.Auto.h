@@ -16,6 +16,8 @@ namespace SpiderRock
 	{
 		typedef uint8_t Enum;
 		typedef uint8_t Flag;
+		typedef uint16_t Enum16;
+		typedef uint16_t Flag16;
 
 		enum class AdjConvention : Enum 
 		{
@@ -45,7 +47,14 @@ namespace SpiderRock
 			COIN=14,
 			TOKEN=15,
 			ANY=16,
-			RATE=17
+			RATE=17,
+			CRDT=18,
+			GCR=19,
+			SWAP=20,
+			ENT=21,
+			MBS=22,
+			SET=23,
+			LOAN=24
 		};
 
  		enum class AuctionEvent : Enum 
@@ -151,6 +160,14 @@ namespace SpiderRock
 			Final=2
 		};
 
+ 		enum class ContentKeyType : Enum 
+		{
+			None=0,
+			SpreadId=1,
+			ContractType=2,
+			Calendar=3
+		};
+
  		enum class ContractUnit : Enum 
 		{
 			None=0,
@@ -220,7 +237,20 @@ namespace SpiderRock
 			USX=22,
 			GBX=23,
 			DKK=24,
-			GEL=25
+			GEL=25,
+			HKD=26,
+			INR=27,
+			SGD=28,
+			TWD=29,
+			ILS=30,
+			PLN=31,
+			THB=32,
+			IDR=33,
+			PHP=34,
+			SAR=35,
+			AED=36,
+			CLP=37,
+			COP=38
 		};
 
  		enum class DDivSource : Enum 
@@ -338,6 +368,21 @@ namespace SpiderRock
 			BrkrDlrCust=8
 		};
 
+ 		enum class FlexType : Enum 
+		{
+			None=0,
+			AM_Amer_Cash=1,
+			AM_Euro_Cash=2,
+			PM_Amer_Cash=3,
+			PM_Euro_Cash=4,
+			PM_Amer_Physical=5,
+			PM_Euro_Physical=6,
+			Asian=7,
+			Cliquet=8,
+			Other=9,
+			Listed=10
+		};
+
  		enum class FutExch : Enum 
 		{
 			None=0,
@@ -411,7 +456,8 @@ namespace SpiderRock
 			Active=2,
 			Complete=3,
 			Replaced=4,
-			Terminated=5
+			Terminated=5,
+			Gap=6
 		};
 
  		enum class MarkSource : Enum 
@@ -554,7 +600,9 @@ namespace SpiderRock
 			ICEFEC=35,
 			SRC=36,
 			ICEFEF=37,
-			TMX=38
+			TMX=38,
+			MXTO=39,
+			IEXO=40
 		};
 
  		enum class OptMktType : Flag 
@@ -945,35 +993,20 @@ namespace SpiderRock
 			MLeg=4
 		};
 
- 		enum class SpreadClass : Enum 
+ 		enum class SpreadScope : Flag 
 		{
 			None=0,
-			Stk=1,
-			Fut=2,
-			Call=3,
-			Put=4,
-			Synth=5,
-			RevCon=6,
-			Box=7,
-			JRoll=8,
-			Roll=9,
-			Straddle=10,
-			Strangle=11,
-			CSpread=12,
-			PSpread=13,
-			VStrip=14,
-			VSpread=15,
-			HStrip=16,
-			HSpread=17,
-			BFly=18,
-			RiskRev=19,
-			Mixed=20,
-			VarSwap=21,
-			Pair=22,
-			ExpPair=23,
-			VolPair=24
-		};
-
+			MultiExpiry=1,
+			MultiTicker=2,
+			MultiProduct=4,
+			MultiSource=8,
+			MultiAsset=16
+		};		
+		inline SpreadScope operator|(SpreadScope a, SpreadScope b)
+		{
+			return static_cast<SpreadScope>(static_cast<int>(a) | static_cast<int>(b));
+		}
+			
  		enum class StkExch : Enum 
 		{
 			None=0,
@@ -1132,7 +1165,36 @@ namespace SpiderRock
 			Unit=15,
 			Warrant=16,
 			WhenIssued=17,
-			ForeignIssue=18
+			ForeignIssue=18,
+			Set=19,
+			FutureGroup=20,
+			CurrencyPair=21,
+			Spread=22,
+			BondProgramme=23,
+			Obligor=24,
+			CommodityGroup=25,
+			CommodityReceipt=26,
+			MbsPool=27,
+			SecuritisationDeal=28,
+			DealTranche=29,
+			LoanFacility=30,
+			Curve=31,
+			Root=32,
+			CCode=33,
+			RepoProduct=34,
+			TbaContract=35,
+			SwapProduct=36,
+			CommodityProduct=37,
+			RepoGroup=38,
+			MbsGroup=39,
+			SwapGroup=40,
+			Coin=41,
+			Token=42,
+			VenueListing=43,
+			IndexQuote=44,
+			DeliveryBasket=46,
+			MarketComposite=47,
+			CurrencyComposite=48
 		};
 
  		enum class SyntheticSource : Enum 
@@ -1168,7 +1230,15 @@ namespace SpiderRock
 			DR=6
 		};
 
- 		enum class TickerSrc : Enum 
+ 		enum class TickerClass : Enum 
+		{
+			None=0,
+			Ticker=1,
+			CCode=2,
+			Root=3
+		};
+
+ 		enum class TickerSrc : Enum16 
 		{
 			None=0,
 			SR=1,
@@ -1207,7 +1277,49 @@ namespace SpiderRock
 			ICEFEF=34,
 			CEQT=35,
 			TSX=36,
-			TMX=37
+			TMX=37,
+			CRCY=38,
+			CMDY=39,
+			DTI=40,
+			SOVN=41,
+			SR_US=42,
+			SR_EU=43,
+			SR_AP=44,
+			SR_UK=45,
+			USD=100,
+			EUR=101,
+			GBP=102,
+			CHF=103,
+			JPY=104,
+			CAD=105,
+			AUD=106,
+			HKD=107,
+			KRW=108,
+			INR=109,
+			SGD=110,
+			TWD=111,
+			CNY=112,
+			CNH=113,
+			BRL=114,
+			MXN=115,
+			ZAR=116,
+			SEK=117,
+			NOK=118,
+			DKK=119,
+			PLN=120,
+			ILS=121,
+			TRY=122,
+			NZD=123,
+			THB=124,
+			MYR=125,
+			IDR=126,
+			PHP=127,
+			CZK=128,
+			HUF=129,
+			SAR=130,
+			AED=131,
+			CLP=132,
+			COP=133
 		};
 
  		enum class TimeInForce : Enum 
@@ -1267,68 +1379,22 @@ namespace SpiderRock
 			PCntEma=17,
 			VWidthEma=18,
 			PWidthEma=19,
-			Closed=20
+			Closed=20,
+			WBidAskMiss=21
 		};
 
  		enum class TradingPeriod : Enum 
 		{
 			None=0,
-			NMS=1,
-			NMS_EXT=2,
-			NMS_GTH=3,
-			CME_ES=10,
-			CME_GRAIN=11,
-			CME_TRSY=12,
-			CME_ENGY=13,
-			CME_METAL=14,
-			CME_FX=15,
-			CME_COMD=16,
-			CME_CRYP=17,
-			CME_DAIRY=18,
-			CME_EQBTIC=19,
-			CME_NKBTIC=20,
-			CME_WEATHER=21,
-			CME_TACO=22,
-			CME_TPXBTIC=23,
-			CME_FTSE=24,
-			CME_BMD=25,
-			CME_BOVESPA=26,
-			CME_EQTMAC=27,
-			CME_TAM=28,
-			CME_OTHER=29,
-			CFE=30,
-			CFE_VX=31,
-			ICE_US=32,
-			ICE_EU=35,
-			SCE=50,
-			EU_ERX=51,
-			EU_CBOE=52,
-			EU_NXAM=53,
-			EU_NXBR=54,
-			EU_NXLS=55,
-			EU_NXML=56,
-			EU_NXOS=57,
-			EU_NXP=58,
-			EU_AT=59,
-			EU_BE=60,
-			EU_CH=61,
-			EU_DE=62,
-			EU_DK=63,
-			EU_FI=64,
-			EU_FR=65,
-			EU_GB=66,
-			EU_IE=67,
-			EU_IT=68,
-			EU_NL=69,
-			EU_NO=70,
-			EU_PT=71,
-			EU_SE=72,
-			EU_ES=73,
-			EU_CZ=74,
-			EU_HU=75,
-			EU_PL=76,
-			CA=77,
-			NMS_ETH=78
+			Chi_1915=1,
+			Lon_2215=2,
+			Chi_1645=3,
+			Nyc_1900=4,
+			Nyc_1915=5,
+			Utc_2315=6,
+			Utc_2330=7,
+			Cet_2315=8,
+			Lon_2315=9
 		};
 
  		enum class TradingSession : Enum 
@@ -1357,6 +1423,15 @@ namespace SpiderRock
 			PrcChange=1,
 			SizeOnly=2,
 			PrevPeriod=3
+		};
+
+ 		enum class V3Source : Enum 
+		{
+			None=0,
+			HardCode=1,
+			Bridge=2,
+			Loader=3,
+			Manual=4
 		};
 
  		enum class VolumeTier : Enum 

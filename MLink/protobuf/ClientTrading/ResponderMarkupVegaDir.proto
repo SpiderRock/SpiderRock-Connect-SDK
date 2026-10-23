@@ -121,6 +121,9 @@ message ResponderMarkupVegaDir {
     string modified_by = 134; // user who last modified this record
     SysEnvironment modified_in = 135;
     google.protobuf.Timestamp timestamp = 136; // timestamp of last modification
+    RespURef resp_uRef = 293; // responder underlier reference in force
+    float theo_vol_offset = 296; // responder theo vol offset in force
+    double theo_prc_offset = 299; // responder theo price offset in force
     repeated Calibration calibration = 221;
 }
 

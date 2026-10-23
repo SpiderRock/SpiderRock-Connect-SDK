@@ -172,7 +172,8 @@ message SpdrParentOrder {
     int32 num_make_exchanges = 199; // number of exchanges (1 - 4) on which to publish public making orders.  Effective number might be less than requested number if sufficient exchanges are not available.
     PublicSizeHandling public_size = 202; // public order size handling: None=algo default; Randomize=randomize public size; MktSize=expose typical market size; FullSize=expose entire order size where possible; FullSizeR=randomize full size
     YesNo can_overlap_cxl_repl = 205; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
-    ProgressRule progress_rule = 208; // Immediate = all size immediately available; TWAP = work from arrival to expiration; VWAP = work order not faster than participation rate
+    ProgressRule progress_rule = 208; // Immediate = all size immediately available; TWAP = work from arrival to expiration; VWAP = work order not faster than participation rate; QisTwap = fixed 10-min wall-clock window sliced evenly
+    ProgressCatchUpRule progress_catch_up_rule = 1091; // how a late arrival makes up elapsed slices: Immediate = one catch-up tranche at once; Distribute = spread the missed size across the remaining slices. None = Immediate
     AtsVisibility ats_visibility = 1067; // for BlockAuction orders, visibility (to responders) is neither, side only, or side + price
     int32 progress_slice_cnt = 214; // number of slices to use (default = 4 or 8) [max 20]
     int32 progress_expose_time = 217; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
@@ -340,6 +341,13 @@ message SpdrParentOrder {
     int64 sgw_timestamp = 682;
     google.protobuf.Timestamp timestamp = 685;
     InclExclDisclose include_sRNetwork = 1037;
+    AltLimitType alt_limit_type = 1094; // None = no alt limit; Prc = static price; Vol = live vol (options only); Theo = live client theo surface vol (options only; account primary theoModel)
+    double alt_prc_limit = 1097; // Applies if altLimitType = Prc
+    float alt_vol_limit = 1100; // Applies if altLimitType = Vol; repriced live at the underlier reference
+    float alt_vol_offset = 1103; // Applies if altLimitType = Theo; toward the market like the surface offsets: Buy = theo vol + offset, Sell = theo vol - offset (negative tightens both sides)
+    double alt_prc_offset = 1106; // Applies if altLimitType = Theo; toward the market: Buy = price + offset, Sell = price - offset, after altVolOffset
+    AltLimitURef alt_limit_uRef = 1109; // underlier reference for Vol/Theo pricing: Cross (default) = hedge side, Buy call / Sell put = uBid, Buy put / Sell call = uAsk; Mid = NBBO mid
+    RiskGroupType risk_group_type = 1112; // how the riskGroupId set was formed: Basket = basket member, Hedge = auto-hedge linkage, Legger = legger child. One type per group.
     repeated ClearingFlip clearing_flip = 1052;
     repeated DirectedCounterParty directed_counter_party = 694;
     repeated OrderLegs order_legs = 751;

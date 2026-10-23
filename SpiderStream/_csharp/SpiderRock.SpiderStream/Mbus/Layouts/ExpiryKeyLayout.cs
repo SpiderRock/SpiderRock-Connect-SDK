@@ -42,7 +42,7 @@ internal readonly struct ExpiryKeyLayout : IEquatable<ExpiryKeyLayout>, ICompara
         var order = (byte)AssetType - (byte)other.AssetType;
         if (order != 0) return order;
 
-        order = (byte)TickerSrc - (byte)other.TickerSrc;
+        order = (ushort)TickerSrc - (ushort)other.TickerSrc;
         if (order != 0) return order;
 
         order = Ticker.CompareTo(other.Ticker);
@@ -60,7 +60,7 @@ internal readonly struct ExpiryKeyLayout : IEquatable<ExpiryKeyLayout>, ICompara
     public override bool Equals(object obj) => obj is ExpiryKeyLayout other && Equals(other);
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public override int GetHashCode() => unchecked(Ticker.GetHashCode() * 397 ^ (year << 24 | Month << 17 | Day << 9 | (byte)AssetType << 5 | (byte)TickerSrc));
+    public override int GetHashCode() => unchecked((Ticker.GetHashCode() * 397 ^ (year << 24 | Month << 17 | Day << 9 | (byte)AssetType)) * 397 ^ (ushort)TickerSrc);
 
     public bool IsEmpty
     {

@@ -18,6 +18,7 @@ message AvailableStockLocates {
         string locate_firm = 12;
         string locate_pool = 13; // locate pool @ firm granting the locate
         DateKey trade_date = 15;
+        ProdTest lane = 16;
     }
 
 

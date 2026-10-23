@@ -118,6 +118,7 @@ message AuctionPrint {
     float surf_vol10m = 154; // surface vol @ auction print time + 10m (single option auction only)
     float surf_prc10m = 155; // surface prc @ auction print time + 10m (@ uMid)
     google.protobuf.Timestamp timestamp = 156;
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
     repeated OrderLegs order_legs = 164;
 }
 

@@ -17,6 +17,7 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<FutureBookQuote> futureBookQuoteDispatch;
     MessageEventsDispatcher<FuturePrint> futurePrintDispatch;
     MessageEventsDispatcher<FuturePrintMarkup> futurePrintMarkupDispatch;
+    MessageEventsDispatcher<IndexPrint> indexPrintDispatch;
     MessageEventsDispatcher<IndexQuote> indexQuoteDispatch;
     MessageEventsDispatcher<LiveImpliedQuote> liveImpliedQuoteDispatch;
     MessageEventsDispatcher<LiveImpliedQuoteNG> liveImpliedQuoteNGDispatch;
@@ -35,11 +36,11 @@ public sealed partial class MbusClient
     MessageEventsDispatcher<OptionPrintMarkup> optionPrintMarkupDispatch;
     MessageEventsDispatcher<OptionRiskFactor> optionRiskFactorDispatch;
     MessageEventsDispatcher<ProductDefinitionV2> productDefinitionV2Dispatch;
+    MessageEventsDispatcher<ProductExchMappingV3> productExchMappingV3Dispatch;
     MessageEventsDispatcher<RootDefinition> rootDefinitionDispatch;
+    MessageEventsDispatcher<RootDefinitionV3> rootDefinitionV3Dispatch;
     MessageEventsDispatcher<SpdrAuctionState> spdrAuctionStateDispatch;
     MessageEventsDispatcher<SpreadBookQuote> spreadBookQuoteDispatch;
-    MessageEventsDispatcher<SpreadDefinition> spreadDefinitionDispatch;
-    MessageEventsDispatcher<SpreadExchDefinition> spreadExchDefinitionDispatch;
     MessageEventsDispatcher<SpreadExchOrder> spreadExchOrderDispatch;
     MessageEventsDispatcher<SpreadExchPrint> spreadExchPrintDispatch;
     MessageEventsDispatcher<StockBookQuote> stockBookQuoteDispatch;
@@ -57,6 +58,7 @@ public sealed partial class MbusClient
         futureBookQuoteDispatch = new(messageCache.FutureBookQuote);
         futurePrintDispatch = new(messageCache.FuturePrint);
         futurePrintMarkupDispatch = new(messageCache.FuturePrintMarkup);
+        indexPrintDispatch = new(messageCache.IndexPrint);
         indexQuoteDispatch = new(messageCache.IndexQuote);
         liveImpliedQuoteDispatch = new(messageCache.LiveImpliedQuote);
         liveImpliedQuoteNGDispatch = new(messageCache.LiveImpliedQuoteNG);
@@ -75,11 +77,11 @@ public sealed partial class MbusClient
         optionPrintMarkupDispatch = new(messageCache.OptionPrintMarkup);
         optionRiskFactorDispatch = new(messageCache.OptionRiskFactor);
         productDefinitionV2Dispatch = new(messageCache.ProductDefinitionV2);
+        productExchMappingV3Dispatch = new(messageCache.ProductExchMappingV3);
         rootDefinitionDispatch = new(messageCache.RootDefinition);
+        rootDefinitionV3Dispatch = new(messageCache.RootDefinitionV3);
         spdrAuctionStateDispatch = new(messageCache.SpdrAuctionState);
         spreadBookQuoteDispatch = new(messageCache.SpreadBookQuote);
-        spreadDefinitionDispatch = new(messageCache.SpreadDefinition);
-        spreadExchDefinitionDispatch = new(messageCache.SpreadExchDefinition);
         spreadExchOrderDispatch = new(messageCache.SpreadExchOrder);
         spreadExchPrintDispatch = new(messageCache.SpreadExchPrint);
         stockBookQuoteDispatch = new(messageCache.StockBookQuote);
@@ -100,6 +102,7 @@ public sealed partial class MbusClient
             /* FutureBookQuote */ 2580 => futureBookQuoteDispatch,
             /* FuturePrint */ 2595 => futurePrintDispatch,
             /* FuturePrintMarkup */ 2605 => futurePrintMarkupDispatch,
+            /* IndexPrint */ 2705 => indexPrintDispatch,
             /* IndexQuote */ 2675 => indexQuoteDispatch,
             /* LiveImpliedQuote */ 1015 => liveImpliedQuoteDispatch,
             /* LiveImpliedQuoteNG */ 1021 => liveImpliedQuoteNGDispatch,
@@ -118,11 +121,11 @@ public sealed partial class MbusClient
             /* OptionPrintMarkup */ 2810 => optionPrintMarkupDispatch,
             /* OptionRiskFactor */ 1095 => optionRiskFactorDispatch,
             /* ProductDefinitionV2 */ 4360 => productDefinitionV2Dispatch,
+            /* ProductExchMappingV3 */ 9130 => productExchMappingV3Dispatch,
             /* RootDefinition */ 4365 => rootDefinitionDispatch,
+            /* RootDefinitionV3 */ 9112 => rootDefinitionV3Dispatch,
             /* SpdrAuctionState */ 2525 => spdrAuctionStateDispatch,
             /* SpreadBookQuote */ 2900 => spreadBookQuoteDispatch,
-            /* SpreadDefinition */ 4390 => spreadDefinitionDispatch,
-            /* SpreadExchDefinition */ 4395 => spreadExchDefinitionDispatch,
             /* SpreadExchOrder */ 2915 => spreadExchOrderDispatch,
             /* SpreadExchPrint */ 2920 => spreadExchPrintDispatch,
             /* StockBookQuote */ 3000 => stockBookQuoteDispatch,
@@ -141,6 +144,7 @@ public sealed partial class MbusClient
     public IMessageEvents<FutureBookQuote> FutureBookQuote => messageCache.FutureBookQuote;
     public IMessageEvents<FuturePrint> FuturePrint => messageCache.FuturePrint;
     public IMessageEvents<FuturePrintMarkup> FuturePrintMarkup => messageCache.FuturePrintMarkup;
+    public IMessageEvents<IndexPrint> IndexPrint => messageCache.IndexPrint;
     public IMessageEvents<IndexQuote> IndexQuote => messageCache.IndexQuote;
     public IMessageEvents<LiveImpliedQuote> LiveImpliedQuote => messageCache.LiveImpliedQuote;
     public IMessageEvents<LiveImpliedQuoteNG> LiveImpliedQuoteNG => messageCache.LiveImpliedQuoteNG;
@@ -159,11 +163,11 @@ public sealed partial class MbusClient
     public IMessageEvents<OptionPrintMarkup> OptionPrintMarkup => messageCache.OptionPrintMarkup;
     public IMessageEvents<OptionRiskFactor> OptionRiskFactor => messageCache.OptionRiskFactor;
     public IMessageEvents<ProductDefinitionV2> ProductDefinitionV2 => messageCache.ProductDefinitionV2;
+    public IMessageEvents<ProductExchMappingV3> ProductExchMappingV3 => messageCache.ProductExchMappingV3;
     public IMessageEvents<RootDefinition> RootDefinition => messageCache.RootDefinition;
+    public IMessageEvents<RootDefinitionV3> RootDefinitionV3 => messageCache.RootDefinitionV3;
     public IMessageEvents<SpdrAuctionState> SpdrAuctionState => messageCache.SpdrAuctionState;
     public IMessageEvents<SpreadBookQuote> SpreadBookQuote => messageCache.SpreadBookQuote;
-    public IMessageEvents<SpreadDefinition> SpreadDefinition => messageCache.SpreadDefinition;
-    public IMessageEvents<SpreadExchDefinition> SpreadExchDefinition => messageCache.SpreadExchDefinition;
     public IMessageEvents<SpreadExchOrder> SpreadExchOrder => messageCache.SpreadExchOrder;
     public IMessageEvents<SpreadExchPrint> SpreadExchPrint => messageCache.SpreadExchPrint;
     public IMessageEvents<StockBookQuote> StockBookQuote => messageCache.StockBookQuote;

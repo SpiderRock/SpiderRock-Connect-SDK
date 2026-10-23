@@ -59,6 +59,7 @@ message SymbolRiskDetailV5 {
     float base_vol = 205; // from earn mult fit (<0.75 yrs)
     float tail_vol = 208; // weighted toward max expiration
     google.protobuf.Timestamp timestamp = 211;
+    float hedge_ssr = 214; // skew-stickiness ratio for hedgeDeltaRule = IvSsr (SymbolControl, else account, else -99 = house)
 }
 
 

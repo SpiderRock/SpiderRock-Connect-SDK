@@ -113,6 +113,7 @@ message LiveSurfaceAtm {
     TradeableStatus tradeable_status = 373; // indicates whether the surface is currently tradeable or not (all server surface integrity checks pass)
     SurfaceResult surface_result = 376;
     google.protobuf.Timestamp timestamp = 379;
+    float ssr = 383; // house skew-stickiness ratio (sticky strike = 1, sticky delta = 0); atm vol change per unit underlier = ssr * fixed-strike skew slope at the atm strike; -99 = not estimated
 }
 
 

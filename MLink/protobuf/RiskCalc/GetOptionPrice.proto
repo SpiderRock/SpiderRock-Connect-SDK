@@ -26,7 +26,7 @@ message GetOptionPrice {
     double rate = 115; // discount rate used for pricing
     ExerciseType ex_type = 118; // exercise type of the option (American or European)
     ExerciseTime ex_time = 121; // exercise time (AM or PM)
-    CalendarCode holiday_calendar = 124; // holiday calendar code (eg. NYSE)
+    string calendar_id = 124; // a CalendarDefinitionV3 (9009) name ('XNYS', 'XCME') or a HolidayCalendarV3 (9012) content key (32 hex); empty = resolve from the product
     TimeMetric time_metric = 127; // time metric (D252, D365, etc.)
     PricingFramework prc_framework = 139;
     CalcModelType model_type = 142;

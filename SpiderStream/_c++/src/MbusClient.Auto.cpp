@@ -18,6 +18,7 @@ MbusClient::MbusClient(SysEnvironment environment, in_addr device_address)
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futurebookquote, { MessageType::FutureBookQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futureprint, { MessageType::FuturePrint });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->futureprintmarkup, { MessageType::FuturePrintMarkup });
+	impl_->frame_handler.RegisterMessageHandler(&impl_->indexprint, { MessageType::IndexPrint });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->indexquote, { MessageType::IndexQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->liveimpliedquote, { MessageType::LiveImpliedQuote });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->liveimpliedquoteng, { MessageType::LiveImpliedQuoteNG });
@@ -36,11 +37,11 @@ MbusClient::MbusClient(SysEnvironment environment, in_addr device_address)
 	impl_->frame_handler.RegisterMessageHandler(&impl_->optionprintmarkup, { MessageType::OptionPrintMarkup });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->optionriskfactor, { MessageType::OptionRiskFactor });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->productdefinitionv2, { MessageType::ProductDefinitionV2 });
+	impl_->frame_handler.RegisterMessageHandler(&impl_->productexchmappingv3, { MessageType::ProductExchMappingV3 });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->rootdefinition, { MessageType::RootDefinition });
+	impl_->frame_handler.RegisterMessageHandler(&impl_->rootdefinitionv3, { MessageType::RootDefinitionV3 });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->spdrauctionstate, { MessageType::SpdrAuctionState });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->spreadbookquote, { MessageType::SpreadBookQuote });
-	impl_->frame_handler.RegisterMessageHandler(&impl_->spreaddefinition, { MessageType::SpreadDefinition });
-	impl_->frame_handler.RegisterMessageHandler(&impl_->spreadexchdefinition, { MessageType::SpreadExchDefinition });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->spreadexchorder, { MessageType::SpreadExchOrder });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->spreadexchprint, { MessageType::SpreadExchPrint });
 	impl_->frame_handler.RegisterMessageHandler(&impl_->stockbookquote, { MessageType::StockBookQuote });
@@ -61,6 +62,7 @@ MbusClient::~MbusClient()
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FutureBookQuote>> observer) { impl_->futurebookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FuturePrint>> observer) { impl_->futureprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<IndexPrint>> observer) { impl_->indexprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<IndexQuote>> observer) { impl_->indexquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveImpliedQuote>> observer) { impl_->liveimpliedquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<LiveImpliedQuoteNG>> observer) { impl_->liveimpliedquoteng.RegisterObserver(observer); }
@@ -79,11 +81,11 @@ void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OptionPrint2>> 
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OptionPrintMarkup>> observer) { impl_->optionprintmarkup.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<OptionRiskFactor>> observer) { impl_->optionriskfactor.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<ProductDefinitionV2>> observer) { impl_->productdefinitionv2.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<ProductExchMappingV3>> observer) { impl_->productexchmappingv3.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<RootDefinition>> observer) { impl_->rootdefinition.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<RootDefinitionV3>> observer) { impl_->rootdefinitionv3.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SpdrAuctionState>> observer) { impl_->spdrauctionstate.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SpreadBookQuote>> observer) { impl_->spreadbookquote.RegisterObserver(observer); }
-void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SpreadDefinition>> observer) { impl_->spreaddefinition.RegisterObserver(observer); }
-void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SpreadExchDefinition>> observer) { impl_->spreadexchdefinition.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SpreadExchOrder>> observer) { impl_->spreadexchorder.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<SpreadExchPrint>> observer) { impl_->spreadexchprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<StockBookQuote>> observer) { impl_->stockbookquote.RegisterObserver(observer); }
@@ -99,6 +101,7 @@ void MbusClient::RegisterObserver(shared_ptr<CreateEventObserver<TickerDefinitio
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FutureBookQuote>> observer) { impl_->futurebookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FuturePrint>> observer) { impl_->futureprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<IndexPrint>> observer) { impl_->indexprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<IndexQuote>> observer) { impl_->indexquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveImpliedQuote>> observer) { impl_->liveimpliedquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<LiveImpliedQuoteNG>> observer) { impl_->liveimpliedquoteng.RegisterObserver(observer); }
@@ -117,11 +120,11 @@ void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OptionPrint2>> 
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OptionPrintMarkup>> observer) { impl_->optionprintmarkup.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<OptionRiskFactor>> observer) { impl_->optionriskfactor.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<ProductDefinitionV2>> observer) { impl_->productdefinitionv2.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<ProductExchMappingV3>> observer) { impl_->productexchmappingv3.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<RootDefinition>> observer) { impl_->rootdefinition.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<RootDefinitionV3>> observer) { impl_->rootdefinitionv3.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SpdrAuctionState>> observer) { impl_->spdrauctionstate.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SpreadBookQuote>> observer) { impl_->spreadbookquote.RegisterObserver(observer); }
-void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SpreadDefinition>> observer) { impl_->spreaddefinition.RegisterObserver(observer); }
-void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SpreadExchDefinition>> observer) { impl_->spreadexchdefinition.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SpreadExchOrder>> observer) { impl_->spreadexchorder.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<SpreadExchPrint>> observer) { impl_->spreadexchprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<StockBookQuote>> observer) { impl_->stockbookquote.RegisterObserver(observer); }
@@ -137,6 +140,7 @@ void MbusClient::RegisterObserver(shared_ptr<ChangeEventObserver<TickerDefinitio
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FutureBookQuote>> observer) { impl_->futurebookquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FuturePrint>> observer) { impl_->futureprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<FuturePrintMarkup>> observer) { impl_->futureprintmarkup.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<IndexPrint>> observer) { impl_->indexprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<IndexQuote>> observer) { impl_->indexquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveImpliedQuote>> observer) { impl_->liveimpliedquote.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<LiveImpliedQuoteNG>> observer) { impl_->liveimpliedquoteng.RegisterObserver(observer); }
@@ -155,11 +159,11 @@ void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OptionPrint2>> 
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OptionPrintMarkup>> observer) { impl_->optionprintmarkup.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<OptionRiskFactor>> observer) { impl_->optionriskfactor.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<ProductDefinitionV2>> observer) { impl_->productdefinitionv2.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<ProductExchMappingV3>> observer) { impl_->productexchmappingv3.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<RootDefinition>> observer) { impl_->rootdefinition.RegisterObserver(observer); }
+void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<RootDefinitionV3>> observer) { impl_->rootdefinitionv3.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<SpdrAuctionState>> observer) { impl_->spdrauctionstate.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<SpreadBookQuote>> observer) { impl_->spreadbookquote.RegisterObserver(observer); }
-void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<SpreadDefinition>> observer) { impl_->spreaddefinition.RegisterObserver(observer); }
-void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<SpreadExchDefinition>> observer) { impl_->spreadexchdefinition.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<SpreadExchOrder>> observer) { impl_->spreadexchorder.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<SpreadExchPrint>> observer) { impl_->spreadexchprint.RegisterObserver(observer); }
 void MbusClient::RegisterObserver(shared_ptr<UpdateEventObserver<StockBookQuote>> observer) { impl_->stockbookquote.RegisterObserver(observer); }

@@ -49,6 +49,7 @@ message SpdrAutoHedgeControl {
     PublicSizeHandling public_size = 154; // public order size handling: None=use default size handling (usually limits public size to 'typical' market size); Randomize=randomize public size; FullSize=expose entire order size where possible
     YesNo can_overlap_cxl_repl = 157; // can execution engines overlap cancel/replace operations [order can overfill if YES] (at most one active overlapping cxl/replace operation for each parent order)
     ProgressRule progress_rule = 160; // Immediate = all size immediately available; TWAP = size released in time intervals;VWAP = size released in volume intervals;TwapForce = size released in intervals/execution forced at the end of interval
+    ProgressCatchUpRule progress_catch_up_rule = 264; // late-arrival catch-up handling; None = Immediate
     int32 progress_slice_cnt = 163; // number of twap slices to use (default = 4 or 8) [max 20]
     int32 progress_expose_time = 166; // minimum time (secs) to expose order (0 = no minimum; used to guarantee that the order is exposed at mid-market for some time before actively taking)
     float vwap_participation = 169; // target vwap participation rate (target % of trade activity)

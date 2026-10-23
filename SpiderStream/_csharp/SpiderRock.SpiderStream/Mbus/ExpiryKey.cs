@@ -30,7 +30,7 @@ public sealed class ExpiryKey : IComparable<ExpiryKey>, IEquatable<ExpiryKey>, I
 
     public TickerSrc TickerSrc => Layout.TickerSrc;
 
-    public int TickerSrcInt => (byte)Layout.TickerSrc;
+    public int TickerSrcInt => (int)Layout.TickerSrc;
 
     public string CCode => ccode ??= Layout.Ticker.ToString();
 

@@ -33,7 +33,10 @@ message SpdrRiskExecution {
     SpdrOrderShape parent_shape = 142; // shape of originating parent order
     OptionKey sec_key = 145; // execution security key
     SpdrKeyType sec_type = 148; // execution security type [Stock, Future, Option]
-    TickerKey ticker = 151; // base stock key (used for symbol risk aggregation)
+    TickerKey ticker = 151; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 375; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey complex_key = 378; // the complex this row rolls up to: the product's line when it has one, else the product; the line for a share or an equity option
+    TickerKey family_head = 381; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
     string accnt = 154; // SpiderRock trading accnt [broker pkey]
     string client_firm = 157; // SR client firm
     SpdrSource spdr_source = 160; // SpiderRock parent order source code [broker pkey]

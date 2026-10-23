@@ -7,9 +7,7 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-/*
-    Option settlement marks from the listing exchange.
-*/    
+    
 message OptionSettlementMark {
     message PKey {
         
@@ -29,6 +27,8 @@ message OptionSettlementMark {
     int32 volume = 118; // Exchange volume (date prior to settle date)
     YesNo early = 121;
     google.protobuf.Timestamp timestamp = 124;
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
 }
 
 

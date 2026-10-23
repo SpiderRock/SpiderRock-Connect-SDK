@@ -32,6 +32,7 @@ public:
 	MessageEventSource<FutureBookQuote::Key, FutureBookQuote> futurebookquote;
 	MessageEventSource<FuturePrint::Key, FuturePrint> futureprint;
 	MessageEventSource<FuturePrintMarkup::Key, FuturePrintMarkup> futureprintmarkup;
+	MessageEventSource<IndexPrint::Key, IndexPrint> indexprint;
 	MessageEventSource<IndexQuote::Key, IndexQuote> indexquote;
 	MessageEventSource<LiveImpliedQuote::Key, LiveImpliedQuote> liveimpliedquote;
 	MessageEventSource<LiveImpliedQuoteNG::Key, LiveImpliedQuoteNG> liveimpliedquoteng;
@@ -50,11 +51,11 @@ public:
 	MessageEventSource<OptionPrintMarkup::Key, OptionPrintMarkup> optionprintmarkup;
 	MessageEventSource<OptionRiskFactor::Key, OptionRiskFactor> optionriskfactor;
 	MessageEventSource<ProductDefinitionV2::Key, ProductDefinitionV2> productdefinitionv2;
+	MessageEventSource<ProductExchMappingV3::Key, ProductExchMappingV3> productexchmappingv3;
 	MessageEventSource<RootDefinition::Key, RootDefinition> rootdefinition;
+	MessageEventSource<RootDefinitionV3::Key, RootDefinitionV3> rootdefinitionv3;
 	MessageEventSource<SpdrAuctionState::Key, SpdrAuctionState> spdrauctionstate;
 	MessageEventSource<SpreadBookQuote::Key, SpreadBookQuote> spreadbookquote;
-	MessageEventSource<SpreadDefinition::Key, SpreadDefinition> spreaddefinition;
-	MessageEventSource<SpreadExchDefinition::Key, SpreadExchDefinition> spreadexchdefinition;
 	MessageEventSource<SpreadExchOrder::Key, SpreadExchOrder> spreadexchorder;
 	MessageEventSource<SpreadExchPrint::Key, SpreadExchPrint> spreadexchprint;
 	MessageEventSource<StockBookQuote::Key, StockBookQuote> stockbookquote;

@@ -142,6 +142,8 @@ private:
 		Double sendElapsed;
 		Double flushElapsed;
 		DateTime timestamp;
+		Long replayPosTs;
+		Long edgeTs;
 	};
 	
 	Header header_;
@@ -169,6 +171,8 @@ public:
 	inline Double sendElapsed() const { return layout_.sendElapsed; }
 	inline Double flushElapsed() const { return layout_.flushElapsed; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
+	inline Long replayPosTs() const { return layout_.replayPosTs; }
+	inline Long edgeTs() const { return layout_.edgeTs; }
 	inline void sessionID(Short value) { layout_.sessionID = value; }
 	inline void queryID(Long value) { layout_.queryID = value; }
 	inline void signalID(Long value) { layout_.signalID = value; }
@@ -183,6 +187,8 @@ public:
 	inline void sendElapsed(Double value) { layout_.sendElapsed = value; }
 	inline void flushElapsed(Double value) { layout_.flushElapsed = value; }
 	inline void timestamp(DateTime value) { layout_.timestamp = value; }
+	inline void replayPosTs(Long value) { layout_.replayPosTs = value; }
+	inline void edgeTs(Long value) { layout_.edgeTs = value; }
 	
 	
 	inline uint16_t Encode(uint8_t* buf) 

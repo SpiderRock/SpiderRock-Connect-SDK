@@ -26,6 +26,7 @@ message IndexQuote {
     double idx_ask = 106; // index ask value (if from quote, otherwise idxPrice)
     double idx_price = 109; // index price
     int64 net_timestamp = 112; // index price timestamp
+    MarketStatus market_status = 118; // market status of the index level (open, halted, closed); None where the source does not report one
     google.protobuf.Timestamp timestamp = 115;
 }
 
