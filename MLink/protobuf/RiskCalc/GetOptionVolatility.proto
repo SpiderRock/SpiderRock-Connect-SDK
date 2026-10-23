@@ -27,7 +27,7 @@ message GetOptionVolatility {
     PricingFramework prc_framework = 118; // primarily controls exercise/settlement interest effects
     ExerciseType ex_type = 121; // exercise type of the option (American or European)
     ExerciseTime ex_time = 124; // exercise time (AM or PM)
-    CalendarCode holiday_calendar = 127; // holiday calendar code (eg. NYSE)
+    string calendar_id = 127; // a CalendarDefinitionV3 (9009) name ('XNYS', 'XCME') or a HolidayCalendarV3 (9012) content key (32 hex); empty = resolve from the product
     TimeMetric time_metric = 130; // time metric (D252, D365, etc.)
     CalcModelType model_type = 142;
     CalcEngine calc_engine = 145; // underlying calc engine:  FastHybrid (listed strikes + SR discrtete dividends only).  NumericX works for any strike/expiry + discrete dividend set but is significantly slower.

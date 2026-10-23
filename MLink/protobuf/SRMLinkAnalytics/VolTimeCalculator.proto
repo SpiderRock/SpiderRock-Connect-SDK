@@ -29,8 +29,8 @@ message VolTimeCalculator {
     FieldSrc now_src = 106; // default is clock time when selecting
     TimeMetric time_metric = 109;
     FieldSrc time_metric_src = 112;
-    CalendarCode holiday_calendar = 115;
-    FieldSrc holiday_calendar_src = 118;
+    string calendar_id = 115; // a CalendarDefinitionV3 (9009) name ('XNYS', 'XCME') or a HolidayCalendarV3 (9012) content key (32 hex); empty = resolve from the product
+    FieldSrc calendar_id_src = 118;
     double years = 121; // volatility years from nowDttm to endDate + endDttm using TradingCalendar (SR Trading/Volatility Calendar)
     double years365 = 124; // years calculation using an Act/365 daycount between nowDttm and endDate
     int32 partial_days = 127; // number of partial trading days (half-days) between endpoints.

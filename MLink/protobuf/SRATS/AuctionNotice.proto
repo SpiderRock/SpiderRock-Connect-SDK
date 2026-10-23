@@ -112,6 +112,7 @@ message AuctionNotice {
     int64 net_timestamp = 181;
     google.protobuf.Timestamp timestamp = 166; // from ats / exchange net timestamp if possible
     InclExclDisclose include_sRNetwork = 157;
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
     repeated DirectedCounterParty directed_counter_party = 158;
     repeated OrderLegs order_legs = 131;
 }

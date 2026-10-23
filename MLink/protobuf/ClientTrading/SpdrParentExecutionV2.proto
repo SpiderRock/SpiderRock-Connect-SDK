@@ -61,7 +61,10 @@ message SpdrParentExecutionV2 {
     int64 grouping_code = 217; // SpiderRock parent broker number [broker pkey]
     string engine_name = 220; // SpiderRock execution engine that handled the parent order
     string gateway_name = 223; // StreetGateway server than handled the child order (if any)
-    TickerKey ticker = 196; // base stock key (used for symbol risk aggregation)
+    TickerKey ticker = 196; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 960; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey complex_key = 963; // the complex this row rolls up to: the product's line when it has one, else the product; the line for a share or an equity option
+    TickerKey family_head = 966; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
     ExecRole exec_role = 226; // SpiderRock relationship to this execution record
     string exec_brkr_code = 229; // SR Assigned executing broker code
     string exec_brkr_mPID = 232; // FINRA/Assigned exec broker MPID (if any)
@@ -306,6 +309,10 @@ message SpdrParentExecutionV2 {
     double live_mark = 937; // SpiderRock internal use only
     SwapProvider swap_provider = 940; // swap provider used for this execution (if any)
     google.protobuf.Timestamp timestamp = 943; // timestamp of this record [not necessarily the timstamp of the fill itself]
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
+    AltLimitType alt_limit_type = 954; // alt limit type (None = no alt limit)
+    double alt_limit_price = 957; // live alt limit price at fill time (-1 = not resolvable)
 }
 
 

@@ -214,11 +214,49 @@ public partial class FuturePrintMarkup
     }
 }
 
+public partial class IndexPrint
+{
+    [ThreadStatic] private static StringBuilder recordBuilder;
+
+    public const string TabHeader = "ticker\tprtExch\tdataSource\tprtPrice\tmrkPrice\tclsPrice\tprtTimestamp\tnetTimestamp\ttimestamp";
+
+    public string TabRecord
+    {
+        get
+        {
+            recordBuilder?.Clear();
+            recordBuilder ??= new(4096);
+
+            recordBuilder.Append(pkey.Ticker);
+
+            recordBuilder.Append('\t');
+
+            recordBuilder.Append(PrtExch);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(DataSource);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PrtPrice);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(MrkPrice);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ClsPrice);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PrtTimestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(NetTimestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(Timestamp);
+
+            return recordBuilder.ToString();
+        }
+    }
+}
+
 public partial class IndexQuote
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "ticker\tpriceSource\tdataSource\tidxBid\tidxAsk\tidxPrice\tnetTimestamp\ttimestamp";
+    public const string TabHeader = "ticker\tpriceSource\tdataSource\tidxBid\tidxAsk\tidxPrice\tnetTimestamp\tmarketStatus\ttimestamp";
 
     public string TabRecord
     {
@@ -242,6 +280,8 @@ public partial class IndexQuote
             recordBuilder.Append(IdxPrice);
             recordBuilder.Append('\t');
             recordBuilder.Append(NetTimestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(MarketStatus);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
 
@@ -538,7 +578,7 @@ public partial class LiveSurfaceAtm
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "ekey\tsurfaceType\tticker\tfkey\tuBid\tuAsk\tyears\trate\tsdiv\tddiv\texType\tmodelType\tearnCnt\tearnCntAdj\taxisVolRT\taxisFUPrc\tmoneynessType\tunderlierMode\tpriceQuoteType\tatmVol\tatmCen\tatmVolHist\tatmCenHist\tminAtmVol\tmaxAtmVol\tiEMove\thEMove\tatmMove\tatmCenMove\tatmPhi\tatmVega\tslope\tvarSwapFV\tgridType\tminXAxis\tmaxXAxis\tminCurvValue\tminCurvXAxis\tmaxCurvValue\tmaxCurvXAxis\tskewMinX\tskewMinY\tskewD11\tskewD10\tskewD9\tskewD8\tskewD7\tskewD6\tskewD5\tskewD4\tskewD3\tskewD2\tskewD1\tskewC0\tskewU1\tskewU2\tskewU3\tskewU4\tskewU5\tskewU6\tskewU7\tskewU8\tskewU9\tskewU10\tskewU11\tsdivD3\tsdivD2\tsdivD1\tsdivU1\tsdivU2\tsdivU3\tpwidth\tvwidth\tcCnt\tpCnt\tcBidMiss\tcAskMiss\tpBidMiss\tpAskMiss\tfitAvgErr\tfitAvgAbsErr\tfitMaxPrcErr\tfitErrXX\tfitErrCP\tfitErrDe\tfitErrBid\tfitErrAsk\tfitErrPrc\tfitErrVol\tcounter\tskewCounter\tsdivCounter\ttradingSession\ttradeableStatus\tsurfaceResult\ttimestamp";
+    public const string TabHeader = "ekey\tsurfaceType\tticker\tfkey\tuBid\tuAsk\tyears\trate\tsdiv\tddiv\texType\tmodelType\tearnCnt\tearnCntAdj\taxisVolRT\taxisFUPrc\tmoneynessType\tunderlierMode\tpriceQuoteType\tatmVol\tatmCen\tatmVolHist\tatmCenHist\tminAtmVol\tmaxAtmVol\tiEMove\thEMove\tatmMove\tatmCenMove\tatmPhi\tatmVega\tslope\tvarSwapFV\tgridType\tminXAxis\tmaxXAxis\tminCurvValue\tminCurvXAxis\tmaxCurvValue\tmaxCurvXAxis\tskewMinX\tskewMinY\tskewD11\tskewD10\tskewD9\tskewD8\tskewD7\tskewD6\tskewD5\tskewD4\tskewD3\tskewD2\tskewD1\tskewC0\tskewU1\tskewU2\tskewU3\tskewU4\tskewU5\tskewU6\tskewU7\tskewU8\tskewU9\tskewU10\tskewU11\tsdivD3\tsdivD2\tsdivD1\tsdivU1\tsdivU2\tsdivU3\tpwidth\tvwidth\tcCnt\tpCnt\tcBidMiss\tcAskMiss\tpBidMiss\tpAskMiss\tfitAvgErr\tfitAvgAbsErr\tfitMaxPrcErr\tfitErrXX\tfitErrCP\tfitErrDe\tfitErrBid\tfitErrAsk\tfitErrPrc\tfitErrVol\tcounter\tskewCounter\tsdivCounter\ttradingSession\ttradeableStatus\tsurfaceResult\ttimestamp\tssr";
 
     public string TabRecord
     {
@@ -740,6 +780,8 @@ public partial class LiveSurfaceAtm
             recordBuilder.Append(SurfaceResult);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Ssr);
 
             return recordBuilder.ToString();
         }
@@ -780,7 +822,7 @@ internal partial class MLinkStreamCheckPt
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "sessionID\tqueryID\tsignalID\tstate\tdetail\thighwaterTs\tnumBytesSent\tnumMessagesSent\twaitElapsed\tqueryElapsed\ttryFwdElapsed\tsendElapsed\tflushElapsed\ttimestamp";
+    public const string TabHeader = "sessionID\tqueryID\tsignalID\tstate\tdetail\thighwaterTs\tnumBytesSent\tnumMessagesSent\twaitElapsed\tqueryElapsed\ttryFwdElapsed\tsendElapsed\tflushElapsed\ttimestamp\treplayPosTs\tedgeTs";
 
     public string TabRecord
     {
@@ -820,6 +862,10 @@ internal partial class MLinkStreamCheckPt
             recordBuilder.Append(FlushElapsed);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ReplayPosTs);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(EdgeTs);
 
             return recordBuilder.ToString();
         }
@@ -1750,7 +1796,7 @@ public partial class ProductDefinitionV2
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "secKey_rt\tsecKey_ts\tsecKey_at\tsecKey_yr\tsecKey_mn\tsecKey_dy\tsecKey_xx\tsecKey_cp\tsecType\tsecurityID\tticker\tSRspreadID\tproductClass\tunderlierID\tundKey\tundType\tproductGroup\tsecurityGroup\tmarketSegmentID\tricCode\tsecurityDesc\texchange\tproductType\tproductTerm\tproductIndexType\tproductRate\tcontractSize\tcontractUnit\tpriceFormat\tminTickSize\tdisplayFactor\tstrikeScale\tminLotSize\tbookDepth\timpliedBookDepth\timpMarketInd\tminPriceIncrementAmount\tparValue\tcontMultiplier\tcabPrice\ttradeCurr\tsettleCurr\tstrikeCurr\texpiration\tmaturity\texerciseType\tuserDefined\tdecayStartYear\tdecayStartMonth\tdecayStartDay\tdecayQty\tpriceRatio\tisHftTaxLiable\thftTaxTriggerTime\ttimestamp\tLegs";
+    public const string TabHeader = "secKey_rt\tsecKey_ts\tsecKey_at\tsecKey_yr\tsecKey_mn\tsecKey_dy\tsecKey_xx\tsecKey_cp\tsecType\tsecurityID\tticker\tproductClass\tproductGroup\tsecurityGroup\tmarketSegmentID\tricCode\tsecurityDesc\texchange\tproductType\tproductTerm\tproductIndexType\tproductRate\tcontractSize\tcontractUnit\tpriceFormat\tminTickSize\tdisplayFactor\tminLotSize\tbookDepth\timpliedBookDepth\timpMarketInd\tminPriceIncrementAmount\tparValue\tcontMultiplier\ttradeCurr\tsettleCurr\texpiration\tmaturity\tuserDefined\tdecayStartYear\tdecayStartMonth\tdecayStartDay\tdecayQty\tpriceRatio\tisHftTaxLiable\thftTaxTriggerTime\ttimestamp";
 
     public string TabRecord
     {
@@ -1769,15 +1815,7 @@ public partial class ProductDefinitionV2
             recordBuilder.Append('\t');
             recordBuilder.Append(Ticker);
             recordBuilder.Append('\t');
-            recordBuilder.Append(SRspreadID);
-            recordBuilder.Append('\t');
             recordBuilder.Append(ProductClass);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(UnderlierID);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(UndKey);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(UndType);
             recordBuilder.Append('\t');
             recordBuilder.Append(ProductGroup);
             recordBuilder.Append('\t');
@@ -1809,8 +1847,6 @@ public partial class ProductDefinitionV2
             recordBuilder.Append('\t');
             recordBuilder.Append(DisplayFactor);
             recordBuilder.Append('\t');
-            recordBuilder.Append(StrikeScale);
-            recordBuilder.Append('\t');
             recordBuilder.Append(MinLotSize);
             recordBuilder.Append('\t');
             recordBuilder.Append(BookDepth);
@@ -1825,19 +1861,13 @@ public partial class ProductDefinitionV2
             recordBuilder.Append('\t');
             recordBuilder.Append(ContMultiplier);
             recordBuilder.Append('\t');
-            recordBuilder.Append(CabPrice);
-            recordBuilder.Append('\t');
             recordBuilder.Append(TradeCurr);
             recordBuilder.Append('\t');
             recordBuilder.Append(SettleCurr);
             recordBuilder.Append('\t');
-            recordBuilder.Append(StrikeCurr);
-            recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Expiration);
             recordBuilder.Append('\t');
             recordBuilder.Append(Maturity);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(ExerciseType);
             recordBuilder.Append('\t');
             recordBuilder.Append(UserDefined);
             recordBuilder.Append('\t');
@@ -1856,6 +1886,48 @@ public partial class ProductDefinitionV2
             recordBuilder.Append(HftTaxTriggerTime);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
+
+            return recordBuilder.ToString();
+        }
+    }
+}
+
+public partial class ProductExchMappingV3
+{
+    [ThreadStatic] private static StringBuilder recordBuilder;
+
+    public const string TabHeader = "instKey_rt\tinstKey_ts\tinstKey_at\tinstKey_yr\tinstKey_mn\tinstKey_dy\tinstKey_xx\tinstKey_cp\tinstKeyType\ttickerClass\tmic\texchID\tvalidFrom\tvalidTo\tpendingDelete\tv3Source\ttimestamp\texchSymbol";
+
+    public string TabRecord
+    {
+        get
+        {
+            recordBuilder?.Clear();
+            recordBuilder ??= new(4096);
+
+            recordBuilder.Append(pkey.InstKey.TabRecord);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(pkey.InstKeyType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(pkey.TickerClass);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(pkey.Mic);
+
+            recordBuilder.Append('\t');
+
+            recordBuilder.Append(ExchID);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ValidFrom);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ValidTo);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PendingDelete);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(V3Source);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ExchSymbol);
 
             return recordBuilder.ToString();
         }
@@ -1990,6 +2062,138 @@ public partial class RootDefinition
     }
 }
 
+public partial class RootDefinitionV3
+{
+    [ThreadStatic] private static StringBuilder recordBuilder;
+
+    public const string TabHeader = "root\tticker\tosiRoot\tccode\tuPrcDriverKey\tuPrcDriverType\tuPrcDriverKey2\tuPrcDriverType2\tuPrcBoundCCode\texpirationMap\tunderlierMode\toptionType\tmultihedge\texerciseTime\texerciseType\ttimeMetric\ttradingPeriod\tpricingModel\tcalcModelType\tprcFramework\tmoneynessType\tpriceQuoteType\tvolumeTier\tpositionLimit\ttickValue\tpointValue\tpointCurrency\tstrikeScale\tstrikeRatio\tcashOnExercise\tunderliersPerCn\tpremiumMult\tsymbolRatio\tadjConvention\toptPriceInc\tpriceFormat\tminTickSize\ttradeCurr\tsettleCurr\tstrikeCurr\tdefaultSurfaceRoot\tregionalCompositeRoot\tisHftTaxLiable\thftTaxTriggerTime\tdescription\tflexType\tclearVenue\tv3Source\ttimestamp\tscheduleGroup\tsettlementDays\tbbgYrCode\tliveRateKey\tbasisKey\treverseSkew\tuPrcDriverFxPair\tExchange";
+
+    public string TabRecord
+    {
+        get
+        {
+            recordBuilder?.Clear();
+            recordBuilder ??= new(4096);
+
+            recordBuilder.Append(pkey.Root);
+
+            recordBuilder.Append('\t');
+
+            recordBuilder.Append(Ticker);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(OsiRoot);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Ccode);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UPrcDriverKey);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UPrcDriverType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UPrcDriverKey2);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UPrcDriverType2);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UPrcBoundCCode);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ExpirationMap);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UnderlierMode);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(OptionType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Multihedge);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ExerciseTime);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ExerciseType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(TimeMetric);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(TradingPeriod);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PricingModel);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(CalcModelType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PrcFramework);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(MoneynessType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PriceQuoteType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(VolumeTier);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PositionLimit);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(TickValue);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PointValue);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PointCurrency);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(StrikeScale);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(StrikeRatio);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(CashOnExercise);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UnderliersPerCn);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PremiumMult);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(SymbolRatio);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(AdjConvention);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(OptPriceInc);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(PriceFormat);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(MinTickSize);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(TradeCurr);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(SettleCurr);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(StrikeCurr);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(DefaultSurfaceRoot);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(RegionalCompositeRoot);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(IsHftTaxLiable);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(HftTaxTriggerTime);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Description);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(FlexType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ClearVenue);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(V3Source);
+            recordBuilder.Append('\t');
+            recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ScheduleGroup);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(SettlementDays);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(BbgYrCode);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(LiveRateKey);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(BasisKey);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ReverseSkew);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(UPrcDriverFxPair);
+
+            return recordBuilder.ToString();
+        }
+    }
+}
+
 public partial class SpdrAuctionState
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
@@ -2088,7 +2292,7 @@ public partial class SpreadBookQuote
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "skey\tisTest\tticker\tSRspreadID\tbidPrice1\tisBidPrice1Valid\taskPrice1\tisAskPrice1Valid\tbidSize1\taskSize1\tbidPrice2\tisBidPrice2Valid\taskPrice2\tisAskPrice2Valid\tbidSize2\taskSize2\tbidExch1\taskExch1\tbidMask1\taskMask1\tbidTime\taskTime\tprintVolume\tupdateType\tsrcTimestamp\tnetTimestamp\ttimestamp";
+    public const string TabHeader = "spreadID\tisTest\tticker\tbidPrice1\tisBidPrice1Valid\taskPrice1\tisAskPrice1Valid\tbidSize1\taskSize1\tbidPrice2\tisBidPrice2Valid\taskPrice2\tisAskPrice2Valid\tbidSize2\taskSize2\tbidExch1\taskExch1\tbidMask1\taskMask1\tbidTime\taskTime\tprintVolume\tupdateType\tsrcTimestamp\tnetTimestamp\ttimestamp\tscopeFlags";
 
     public string TabRecord
     {
@@ -2097,15 +2301,13 @@ public partial class SpreadBookQuote
             recordBuilder?.Clear();
             recordBuilder ??= new(4096);
 
-            recordBuilder.Append(pkey.Skey);
+            recordBuilder.Append(pkey.SpreadID);
             recordBuilder.Append('\t');
             recordBuilder.Append(pkey.IsTest);
 
             recordBuilder.Append('\t');
 
             recordBuilder.Append(Ticker);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(SRspreadID);
             recordBuilder.Append('\t');
             recordBuilder.Append(BidPrice1);
             recordBuilder.Append('\t');
@@ -2152,64 +2354,8 @@ public partial class SpreadBookQuote
             recordBuilder.Append(NetTimestamp);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
-
-            return recordBuilder.ToString();
-        }
-    }
-}
-
-public partial class SpreadDefinition
-{
-    [ThreadStatic] private static StringBuilder recordBuilder;
-
-    public const string TabHeader = "SRspreadID\tticker\tspreadClass\tsecurityDesc\ttimestamp\tExchSprIDs\tLegs";
-
-    public string TabRecord
-    {
-        get
-        {
-            recordBuilder?.Clear();
-            recordBuilder ??= new(4096);
-
-            recordBuilder.Append(pkey.SRspreadID);
-
             recordBuilder.Append('\t');
-
-            recordBuilder.Append(Ticker);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(SpreadClass);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(SecurityDesc);
-            recordBuilder.Append('\t');
-            recordBuilder.AppendInTabRecordFormat(Timestamp);
-
-            return recordBuilder.ToString();
-        }
-    }
-}
-
-public partial class SpreadExchDefinition
-{
-    [ThreadStatic] private static StringBuilder recordBuilder;
-
-    public const string TabHeader = "exch\texchSprID\tflipSide\ttimestamp\tLegs";
-
-    public string TabRecord
-    {
-        get
-        {
-            recordBuilder?.Clear();
-            recordBuilder ??= new(4096);
-
-            recordBuilder.Append(pkey.Exch);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(pkey.ExchSprID);
-
-            recordBuilder.Append('\t');
-
-            recordBuilder.Append(FlipSide);
-            recordBuilder.Append('\t');
-            recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append(ScopeFlags);
 
             return recordBuilder.ToString();
         }
@@ -2220,7 +2366,7 @@ public partial class SpreadExchOrder
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "skey\texch\tside\tisTest\tticker\torderID\tsize\tprice\tisPriceValid\tflipSide\torigOrderSize\torderType\torderStatus\tmarketQualifier\texecQualifier\ttimeInForce\tfirmType\tclearingFirm\tclearingAccnt\tsrcTimestamp\tnetTimestamp\tdgwTimestamp\ttimestamp\texchSprID";
+    public const string TabHeader = "spreadID\texch\tside\tisTest\tticker\torderID\tsize\tprice\tisPriceValid\tflipSide\torigOrderSize\torderType\torderStatus\tmarketQualifier\texecQualifier\ttimeInForce\tfirmType\tclearingFirm\tclearingAccnt\tsrcTimestamp\tnetTimestamp\tdgwTimestamp\ttimestamp\texchSprID\tscopeFlags";
 
     public string TabRecord
     {
@@ -2229,7 +2375,7 @@ public partial class SpreadExchOrder
             recordBuilder?.Clear();
             recordBuilder ??= new(4096);
 
-            recordBuilder.Append(pkey.Skey);
+            recordBuilder.Append(pkey.SpreadID);
             recordBuilder.Append('\t');
             recordBuilder.Append(pkey.Exch);
             recordBuilder.Append('\t');
@@ -2278,6 +2424,8 @@ public partial class SpreadExchOrder
             recordBuilder.AppendInTabRecordFormat(Timestamp);
             recordBuilder.Append('\t');
             recordBuilder.Append(ExchSprID);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ScopeFlags);
 
             return recordBuilder.ToString();
         }
@@ -2288,7 +2436,7 @@ public partial class SpreadExchPrint
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "printNumber\texch\tskey\tstrategyID\tticker\tside\tprintSize\tprintPrice\tisPrintPriceValid\tprintType\tminAnchorSide\tminAnchorLeg_rt\tminAnchorLeg_ts\tminAnchorLeg_at\tminAnchorLeg_yr\tminAnchorLeg_mn\tminAnchorLeg_dy\tminAnchorLeg_xx\tminAnchorLeg_cp\tmaxAnchorSide\tmaxAnchorLeg_rt\tmaxAnchorLeg_ts\tmaxAnchorLeg_at\tmaxAnchorLeg_yr\tmaxAnchorLeg_mn\tmaxAnchorLeg_dy\tmaxAnchorLeg_xx\tmaxAnchorLeg_cp\thasFlexLeg\thasHedgeLeg\tstockLegSide\tfutureLegSide\tstrategyClass\tnumOptLegs\tsrcTimestamp\tnetTimestamp\ttimestamp\tLegs";
+    public const string TabHeader = "printNumber\texch\tspreadID\tstrategyID\tticker\tside\tprintSize\tprintPrice\tisPrintPriceValid\tprintType\tminAnchorSide\tminAnchorLeg_rt\tminAnchorLeg_ts\tminAnchorLeg_at\tminAnchorLeg_yr\tminAnchorLeg_mn\tminAnchorLeg_dy\tminAnchorLeg_xx\tminAnchorLeg_cp\tmaxAnchorSide\tmaxAnchorLeg_rt\tmaxAnchorLeg_ts\tmaxAnchorLeg_at\tmaxAnchorLeg_yr\tmaxAnchorLeg_mn\tmaxAnchorLeg_dy\tmaxAnchorLeg_xx\tmaxAnchorLeg_cp\thasFlexLeg\thasHedgeLeg\tstockLegSide\tfutureLegSide\tstrategyClass\tnumOptLegs\tsrcTimestamp\tnetTimestamp\ttimestamp\tscopeFlags\tLegs";
 
     public string TabRecord
     {
@@ -2303,7 +2451,7 @@ public partial class SpreadExchPrint
 
             recordBuilder.Append('\t');
 
-            recordBuilder.Append(Skey);
+            recordBuilder.Append(SpreadID);
             recordBuilder.Append('\t');
             recordBuilder.Append(StrategyID);
             recordBuilder.Append('\t');
@@ -2344,6 +2492,8 @@ public partial class SpreadExchPrint
             recordBuilder.Append(NetTimestamp);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ScopeFlags);
 
             return recordBuilder.ToString();
         }

@@ -27,6 +27,8 @@ message MLinkStreamCheckPt {
     double send_elapsed = 133; // total time spend encoding/copying to send buffer
     double flush_elapsed = 136; // total time spend sending/blocking on web socket
     google.protobuf.Timestamp timestamp = 139;
+    int64 replay_pos_ts = 142; // replay sessions: the virtual clock position (ns since the Unix epoch)
+    int64 edge_ts = 145; // replay sessions: the edge the window was clamped to (now - delay window)
 }
 
 

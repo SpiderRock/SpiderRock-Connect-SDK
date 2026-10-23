@@ -48,7 +48,10 @@ message SpdrParentBrkrState {
     SpdrStageType stage_type = 133; // parent is a staged order [ToolVisible]
     YesNo visible_in_sV = 620; // allow order to be visible in SV (do not use for high volume of orders)
     YesNo is_flagged = 136; // broker state records is flagged for action (user alert only)
-    TickerKey ticker = 139; // underlier ticker
+    TickerKey ticker = 139; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 990; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey complex_key = 993; // the complex this row rolls up to: the product's line when it has one, else the product; the line for a share or an equity option
+    TickerKey family_head = 996; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
     double u_prc = 142; // underlier price (usually mid-market)
     double u_prc_order = 145; // underlier price at the time of last parent order arrival
     double nbbo_bid = 148; // current option nbbo bid (at time of record publish)
@@ -193,6 +196,20 @@ message SpdrParentBrkrState {
     UpdateSource update_src = 589;
     int32 num_updates = 592; // number of record updates (cumulative for the day)
     google.protobuf.Timestamp timestamp = 595; // SR system timestamp
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
+    AltLimitType alt_limit_type = 954; // None = no alt limit; Prc = static price; Vol = live vol (options only); Theo = live client theo surface vol (options only; account primary theoModel)
+    double alt_prc_limit = 957; // Applies if altLimitType = Prc
+    float alt_vol_limit = 960; // Applies if altLimitType = Vol; repriced live at the underlier reference
+    float alt_vol_offset = 963; // Applies if altLimitType = Theo; toward the market like the surface offsets: Buy = theo vol + offset, Sell = theo vol - offset (negative tightens both sides)
+    double alt_prc_offset = 966; // Applies if altLimitType = Theo; toward the market: Buy = price + offset, Sell = price - offset, after altVolOffset
+    AltLimitURef alt_limit_uRef = 969; // underlier reference for Vol/Theo pricing: Cross (default) = hedge side, Buy call / Sell put = uBid, Buy put / Sell call = uAsk; Mid = NBBO mid
+    double alt_limit_price = 972; // live alt limit price (-1 = not resolvable; see altLimitErr)
+    float alt_limit_vol = 975; // live alt vol after altVolOffset (Vol/Theo only)
+    LimitError alt_limit_err = 978; // None when altLimitPrice is valid; a non-None value holds the order
+    URefType alt_limit_uRef_type = 981; // underlier reference actually used
+    string alt_theo_model = 984; // theo model resolved from the account (Theo only)
+    RiskGroupType risk_group_type = 987;
 }
 
 

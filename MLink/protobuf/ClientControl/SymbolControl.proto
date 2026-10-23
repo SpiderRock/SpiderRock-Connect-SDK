@@ -31,6 +31,7 @@ message SymbolControl {
     string modified_by = 124; // user who last modified this record
     SysEnvironment modified_in = 127;
     google.protobuf.Timestamp timestamp = 130; // timestamp of last modification
+    float hedge_ssr = 133; // skew-stickiness ratio for hedgeDeltaRule = IvSsr (sticky strike = 1, sticky delta = 0); -99 = use the account value
 }
 
 

@@ -25,7 +25,10 @@ message SpdrAutoHedgeState {
     
     PKey pkey = 2;
     int64 grouping_code = 100;
-    TickerKey ticker = 106; // ticker group (eg. @ES, @ZN)
+    TickerKey ticker = 106; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 283; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey complex_key = 286; // the complex this row rolls up to: the product's line when it has one, else the product; the line for a share or an equity option
+    TickerKey family_head = 289; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
     string security_desc = 109;
     ShortSaleFlag ssale_flag = 112;
     PositionType position_type = 263;
@@ -80,6 +83,12 @@ message SpdrAutoHedgeState {
     double live_hedge_mark = 256; // hedgeSecKey live mark (mid-market) [zero in SRSE]
     string updt_reason = 259;
     google.protobuf.Timestamp timestamp = 262; // SR system timestamp
+    double hedge_sh = 265; // net share-equiv balance (option + hedge fills)
+    double hedge_mny = 268; // money leg
+    double no_hedge_sh = 271; // option-side fills only (unhedged counterfactual)
+    double no_hedge_mny = 274;
+    double hedge1m_sh = 277; // hedge pair flattened to zero each minute during market hours
+    double hedge1m_mny = 280;
 }
 
 

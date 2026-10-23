@@ -49,6 +49,7 @@ message FutureRiskDetailV5 {
     int32 underliers_per_cn = 175; // underliers per contract of the futures associated with this symbol (if any) [default = 1]
     UnderlierType underlier_type = 178;
     google.protobuf.Timestamp timestamp = 181;
+    float hedge_ssr = 184; // skew-stickiness ratio for hedgeDeltaRule = IvSsr (SymbolControl, else account, else -99 = house)
 }
 
 

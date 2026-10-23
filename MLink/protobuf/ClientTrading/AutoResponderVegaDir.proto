@@ -39,7 +39,7 @@ message AutoResponderVegaDir {
     float max_abs_delta = 111;
     double min_strike = 112; // all leg strikes must be between [minStrike, maxStrike]
     double max_strike = 113;
-    ClientSurface client_vol_surface = 159;
+    ClientSurface client_vol_surface = 159; // Theo = the account primary theo model through the theo resolver, plus theoVolOffset / theoPrcOffset
     float atm_vol = 160; // [AtmVolPinned] clientSurface = SRSurface pinned to atmVol @ atmStrike (strike = fwdUPrcRef)
     float min_surf_edge_vol = 130; // spread surface edge (in vol) (0.01 = 1.0 vol pts) (+ = through surface; - = behind surface)
     float min_surf_edge_prem = 114; // spread surface edge (in premium) (+ = through surface; - = behind surface)
@@ -59,6 +59,9 @@ message AutoResponderVegaDir {
     string modified_by = 127; // user who last modified this record
     SysEnvironment modified_in = 128;
     google.protobuf.Timestamp timestamp = 129; // timestamp of last modification
+    RespURef resp_uRef = 170; // underlier reference for every vol to price conversion in the response: Mid = notice NBBO mid (None = Mid), Cross = the hedge side of the response leg
+    float theo_vol_offset = 173; // [Theo] toward the market: response Buy leg = theo vol + offset, Sell leg = theo vol - offset (negative tightens)
+    double theo_prc_offset = 176; // [Theo] applied to the theo price after theoVolOffset, same direction
     repeated Calibration calibration = 161;
 }
 

@@ -31,6 +31,7 @@ message ClientAccountConfig {
     string modified_by = 127; // user who last modified this record
     SysEnvironment modified_in = 130;
     google.protobuf.Timestamp timestamp = 133; // timestamp of last modification
+    float hedge_ssr = 136; // skew-stickiness ratio for hedgeDeltaRule = IvSsr (sticky strike = 1, sticky delta = 0); -99 = use SR account config value
 }
 
 

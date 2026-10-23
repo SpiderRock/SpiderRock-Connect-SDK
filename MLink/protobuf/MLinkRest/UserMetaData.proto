@@ -38,6 +38,13 @@ message UserMetaData {
         google.protobuf.Timestamp expires = 253; // must exists (can be 2100-01-01)
     }
 
+    message WebAppControl {
+        
+        WebToken web_token = 275;
+        WebAccessType web_access_type = 276;
+        google.protobuf.Timestamp web_access_grant_dttm = 277; // grant timestamp; Temporary expiry = grant + policy duration
+    }
+
     message WebProductControl {
         
         WebProductToken token = 226;
@@ -83,12 +90,19 @@ message UserMetaData {
     string ice_company_id = 214; // ICE Company Id of trader (if any)
     string cboe_trader_id = 217; // Cboe assigned trader ID (if any)
     string badges = 220; // exchange memembership and badge ids.  CFEFUT:BADGE1,NYSESTK:BADGE2,...
+    WebUserRole web_user_role = 272; // single role across all web apps; None = most restricted
+    SysRegion web_region = 273; // governs web-app URL issuance at login
+    ChangeAccess cfg_change_access = 278; // config change requests: Propose = may raise one, Apply = may also approve/reject/return one (Apply implies Propose)
+    YesNo cfg_apply_own_changes = 279; // may approve a change request they themselves raised (only meaningful with Apply)
+    ChangeAccess risk_change_access = 280; // risk-control change requests, same ladder
+    YesNo risk_apply_own_changes = 281; // may approve their own risk-control change request
     YesNo has_api_key_access = 268; // User is allowed to use and manage (insert, update and delete) API keys
     google.protobuf.Timestamp timestamp = 256; // timestamp of last modification
     repeated AccountAccessControl account_access_control = 130;
     repeated ApiKeys api_keys = 263;
     repeated MLinkControl m_link_control = 235;
     repeated MarketDataControl market_data_control = 244;
+    repeated WebAppControl web_app_control = 274;
     repeated WebProductControl web_product_control = 223;
 }
 

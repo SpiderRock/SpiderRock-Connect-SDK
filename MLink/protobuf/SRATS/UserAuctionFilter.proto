@@ -55,7 +55,7 @@ message UserAuctionFilter {
     
     PKey pkey = 2;
     string client_firm = 100; // client firm of the user this filter belongs to
-    YesNo disabled = 151;
+    YesNo disabled = 151; // Yes = none of this preset's notices reach the user's chat line; the trade tool's column and the APIs do not read it
     YesNo include_covered = 114; // must match if not None
     YesNo include_eTFs = 115; // must match if not None
     YesNo include_aDRs = 116; // must match if not None

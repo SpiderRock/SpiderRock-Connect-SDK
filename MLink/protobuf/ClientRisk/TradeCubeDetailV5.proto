@@ -38,7 +38,10 @@ message TradeCubeDetailV5 {
     string sec_agg_group = 139; // secondary aggregation group
     OptionKey sec_key = 145; // security key
     SpdrKeyType sec_type = 148; // security type [Stock, Future, Option]
-    TickerKey ticker = 151; // base ticker
+    TickerKey ticker = 151; // DEPRECATED: the V2 value (the line; for a future the head V2 filed it under: @ plus its own code, CFE's shared heads VXM/VXMT @VIXMIN, VXT @VX, VN @VXN, VXEM @VXEEM, VXEW @VXEWZ, GV @GVZ, OV @OVX); read product, complexKey and familyHead
+    TickerKey product = 726; // the futures product (CCodeDefinitionV3 9115 key); empty for a share or an equity option
+    TickerKey family_head = 729; // the futures family the product is counted in (9115 familyHead); empty for a share, an equity option or a product that is its own family
+    TickerKey complex_key = 723; // the complex the fill rolls up to: a stock's or CFD's line, a future's product line else its product, an option's underlier complex; empty reads as ticker
     string view_group1 = 154; // viewGroup1 (user supplied; if any)
     string view_group2 = 157; // viewGroup2 (user supplied; if any)
     string view_group3 = 160; // viewGroup3 (user supplied; if any)
@@ -193,6 +196,7 @@ message TradeCubeDetailV5 {
     float trd_gamma = 604; // trade gamma
     float trd_vega = 607; // trade vega
     float trd_wt_vega = 610; // trade wtVega (vega * vol / sqrt(max(0.1, years * 4)))
+    float trd_tVega = 716; // trade tVega (vega / sqrt(max(0.1, years * 4)))
     float trd_theta = 613; // trade theta
     float trd_prem = 616; // trade premium over parity
     float trd_beta = 619; // trade beta
@@ -223,6 +227,8 @@ message TradeCubeDetailV5 {
     string user_data1 = 694; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     string user_data2 = 697; // client supplied data field; passes through to parent and child executions and reports as well as FIX drops
     google.protobuf.Timestamp timestamp = 700; // SR system timestamp
+    float sym_vol63d = 717; // underlier symbol volatility (term.63d;censored) - 1-day move pin for trdDGamma1d
+    float trd_dGamma1d = 718; // expected $delta change for a 1-sigma 1-day underlier move = trade $gamma x symVol63d x 100 / sqrt(252)
 }
 
 

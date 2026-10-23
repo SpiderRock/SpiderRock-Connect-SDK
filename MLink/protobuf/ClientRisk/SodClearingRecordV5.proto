@@ -7,7 +7,10 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    SodClearingRecords contain start-of-day option position and mark details.  They can be source directly from a prime broker by SpiderRock or inserted by clients.
+    They can also be modified after the start of trading. These records are the source of the CLR side positions in SR risk records.
+*/    
 message SodClearingRecordV5 {
     message PKey {
         

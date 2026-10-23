@@ -30,7 +30,7 @@ message OptionItemDef {
     string client_firm = 116;
     ExerciseType ex_type = 100; // exercise type of the option (American or European) (default: root definition)
     ExerciseTime ex_time = 101; // exercise time (AM or PM) (default: root definition)
-    CalendarCode holiday_calendar = 115; // holiday calendar code (eg. NYSE)
+    string calendar_id = 115; // a CalendarDefinitionV3 (9009) name ('XNYS', 'XCME') or a HolidayCalendarV3 (9012) content key (32 hex); empty = resolve from the product
     TimeMetric time_metric = 102; // time metric (VT70, Y252, Y365, etc.) (default: root definition)
     PricingFramework prc_framework = 103; // Spot (Equity), Forward (Cash), Future, Physical
     CalcModelType model_type = 104; // (default: root definition)

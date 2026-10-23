@@ -7,7 +7,9 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    StockEarningsCalendar records contain a historical (prior 12) earnings dates and future (next 12) projected dates.
+*/    
 message StockEarningsCalendar {
     message PKey {
         

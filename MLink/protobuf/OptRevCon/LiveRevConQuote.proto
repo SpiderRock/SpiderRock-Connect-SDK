@@ -42,7 +42,7 @@ message LiveRevConQuote {
     float rc_fair_prc = 119; // fairCallPrc - fairPutPrc - uPrc + strike  (revCon fairMid price)
     float rc_eEx_prem = 120; // (fairPutPrc - fairPutPrcE) - (fairCallPrc - fairCallPrcE)
     float fair_loan_pv = 121; // fairCallPrc - fairPutPrc - uPrc + strike + strikePv + ddivPv  (total present value of letting out shares) (term to expiry) (per share)
-    float fair_loan_rate = 122; // fairLoanPv / (uPrc * iDays / 365.0 - ddivDisc)
+    float fair_loan_rate = 122; // fairLoanPv / (uPrc * iDays / loanBasis - ddivDisc); loanBasis = region stock-loan basis (Act/360 NMS)
     float rc_bid_prc = 130; // callBid - putAsk - uPrc + strike (best way) (join markets)
     float rc_ask_prc = 131; // callAsk - putBid - uPrc + strike (worst way) (cross markets)
     string calc_error = 125;

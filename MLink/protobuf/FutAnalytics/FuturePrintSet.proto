@@ -54,6 +54,8 @@ message FuturePrintSet {
     double prt_price_m10 = 206; // market price +10 minutes [most recent print (if any) otherwise mid-quote]
     float pnl_m10 = 207; // pnl after 10 minutes
     YesNo pnl_m10_err = 208;
+    TradingPeriod trading_period = 950; // period for trade-date derivation; publisher-stamped (default None)
+    DateKey trade_date = 951; // frozen trade date; publisher-stamped (default 0)
 }
 
 

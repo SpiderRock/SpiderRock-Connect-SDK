@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 message SpreadBookQuote {
     message PKey {
         
-        TickerKey skey = 10; // SR Spread Key (should have corresponding ProductDefinition record)
+        ContentKey spread_iD = 10; // the content key (SPREAD_CONTENT_KEY.md): SpreadId tag + 15 bytes of the leg-set hash
         YesNo is_test = 11; // Yes indicates that response is made of entirely of isTest=Yes SpreadExchOrders
     }
 
@@ -22,7 +22,6 @@ message SpreadBookQuote {
     
     PKey pkey = 2;
     TickerKey ticker = 100; // common spread underlier
-    int64 sRspread_iD = 167;
     double bid_price1 = 103; // bid price
     YesNo is_bid_price1_valid = 106;
     double ask_price1 = 109; // ask price
@@ -46,6 +45,7 @@ message SpreadBookQuote {
     int64 src_timestamp = 160; // source high precision timestamp (if available)
     int64 net_timestamp = 163; // inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock
     google.protobuf.Timestamp timestamp = 166;
+    SpreadScope scope_flags = 171; // what the leg set spans; MultiTicker = cross-complex
 }
 
 

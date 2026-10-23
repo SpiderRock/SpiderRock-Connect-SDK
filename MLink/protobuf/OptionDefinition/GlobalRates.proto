@@ -7,7 +7,11 @@ package spiderrock.protobuf;
 
 import "google/protobuf/timestamp.proto";
 
-    
+/*
+    The daily rate curves per source, written by the SRGlobalRates publisher once a session. Readers resolve a curve
+    by key (RateCurveDefinitionV3 9263) and price on LiveRateCurve (1130) and RateCurveClose (1132); this record is
+    the fallback for a key with no live curve. Retires when the rate server projects it from the curve records.
+*/    
 message GlobalRates {
     message PKey {
         
@@ -25,6 +29,8 @@ message GlobalRates {
     
     PKey pkey = 2;
     google.protobuf.Timestamp timestamp = 100;
+    string currency = 112; // ISO 4217 - the currency this rate is in, set by the publisher from its own configuration
+    string rate_label = 115; // display name of the curve, set by the publisher from its own configuration; title case, family word last (SPX Box, SOFR, USD OIS); the same label for every producer of one rateSource
     repeated Curve curve = 103;
 }
 

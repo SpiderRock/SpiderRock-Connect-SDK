@@ -24,7 +24,7 @@ message MLinkSubscribe {
     message View {
         
         string msg_name = 118; // a SpiderRock message name (topic channel) (can be string name or protobuf message number)
-        string view = 121; // list (subset) of field names to return with this message type (eg. bidprice,askprice,bidsize,asksize)
+        string view = 121; // list (subset) of field names to return with this message type (eg. bidprice,askprice,bidsize,asksize); longer than 255 chars fails the subscribe (see MLinkSubscribeAck.errorMsg)
     }
 
 

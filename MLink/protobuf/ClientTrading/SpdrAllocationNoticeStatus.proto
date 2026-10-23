@@ -18,7 +18,7 @@ message SpdrAllocationNoticeStatus {
     MessageMetadata _meta = 1;
     
     PKey pkey = 2;
-    AllocationStatus status = 100;
+    AllocationStatus status = 100; // Queued = file pathway (in file queue, awaiting eject rule: > N records or M seconds); xxxErr after a required bust/amend the destination cannot accept = manual intervention; ExternDlvry = delivery is external to SR (allocStyle=None) - the record is complete and SR will never send it (terminal; busts/amends republish as ExternDlvry, never xxxErr)
     string reject_reason = 103;
     OptionKey sec_key = 106; // security key (stock, future, or option)
     SpdrKeyType sec_type = 109; // security type

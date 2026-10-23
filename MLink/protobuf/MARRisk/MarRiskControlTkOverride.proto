@@ -15,8 +15,9 @@ message MarRiskControlTkOverride {
         
         string risk_firm = 10;
         string risk_group = 11;
-        TickerKey ticker = 12;
+        TickerKey ticker = 12; // exact ticker (EQT); a futures product key (ES, MES) = the product grain, REQUIRED for futures, its own contracts and currency, !DFLT standing in when it has no row; a futures family head (@ES) = the family grain, OPTIONAL, Primary contracts and the realm currency, no default; both apply when both exist; !DFLT-{src}-{at} = default for every product of that (tickerSrc, assetType) with no exact record; wildcard (*) tickers are refused
         YesNo is_test_accnt = 13; // if Yes, this control applies only to risk from test accnts
+        MarRiskLevel risk_level = 14; // AccountConfig risk level this override binds to; a None record binds to no level and is never enforced; writes require a real level
     }
 
 
@@ -26,23 +27,25 @@ message MarRiskControlTkOverride {
     MarState stk_enabled = 100;
     MarState fut_enabled = 101;
     MarState opt_enabled = 102;
+    MarState fut_opt_enabled = 120; // futures options enable; required per declared risk level at product grain
     YesNo block_short_sales = 103; // block all short sales
     int32 order_max_stk_qty = 104; // number of equity shares that can be bought or sold by a single parent order
-    int32 order_max_fut_qty = 105; // number of futures contracts that can be bought or sold by a single parent order
-    int32 order_max_opt_qty = 106; // number of option contracts that can be bought or sold by a single parent order
+    int32 order_max_fut_qty = 105; // futures contracts per parent order, in the row's grain: a product row's own contracts, a head row's family Primary contracts (an MES order of 100 is 10 ES at the head)
+    int32 order_max_opt_qty = 106; // number of option contracts that can be bought or sold by a single parent order (Primary units for futures options)
     float order_max_stk_dDelta = 107; // maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
     float order_max_fut_dDelta = 108; // maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
     float order_max_opt_dDelta = 109; // maximum (abs) mny per option parent order; ddelta = contracts * pointValue * ABS(de) * uMidPrc
     float stk_collar_pct = 110; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     float fut_collar_pct = 111; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
     float opt_collar_pct = 112; // Maximum user limit vs bid/ask price control - percentage as a number between 0 and 1 in decimals
-    int32 max_acc_fut_cn_abs = 113; // max absolute (net) accnt future
-    int32 max_day_fut_cn_bot = 114; // day future contracts bot
-    int32 max_day_fut_cn_sld = 115; // day future contracts sld
-    int32 max_day_fut_cn_abs = 116; // max absolute (net) day future contracts
+    int32 max_acc_fut_cn_abs = 113; // max absolute (net) accnt future contracts, in the row's grain: a product row's own, a head row's family Primary's (MES counts 0.1 ES at the head)
+    int32 max_day_fut_cn_bot = 114; // day future contracts bot, in the row's grain (own contracts on a product row, Primary units on a head row)
+    int32 max_day_fut_cn_sld = 115; // day future contracts sld, in the row's grain (own contracts on a product row, Primary units on a head row)
+    int32 max_day_fut_cn_abs = 116; // max absolute (net) day future contracts, in the row's grain (own contracts on a product row, Primary units on a head row)
     string modified_by = 117;
     SysEnvironment modified_in = 118;
     google.protobuf.Timestamp timestamp = 119;
+    Currency currency = 121; // the currency the money limits are stated in: the product's on a product row, the realm's on a family row; None reads as the row's grain default
 }
 
 

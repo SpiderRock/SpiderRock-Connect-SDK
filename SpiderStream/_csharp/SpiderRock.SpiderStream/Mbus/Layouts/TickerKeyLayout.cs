@@ -30,7 +30,7 @@ internal readonly struct TickerKeyLayout : IEquatable<TickerKeyLayout>, ICompara
         var order = (byte)AssetType - (byte)other.AssetType;
         if (order != 0) return order;
 
-        order = (byte)TickerSrc - (byte)other.TickerSrc;
+        order = (ushort)TickerSrc - (ushort)other.TickerSrc;
         if (order != 0) return order;
 
         return Ticker.CompareTo(other.Ticker);
@@ -47,7 +47,7 @@ internal readonly struct TickerKeyLayout : IEquatable<TickerKeyLayout>, ICompara
         unchecked
         {
             var hashCode = Ticker.GetHashCode();
-            hashCode = hashCode * 397 ^ ((byte)TickerSrc << 8 | (byte)AssetType);
+            hashCode = hashCode * 397 ^ ((ushort)TickerSrc << 8 | (byte)AssetType);
             return hashCode;
         }
     }

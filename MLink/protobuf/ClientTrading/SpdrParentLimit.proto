@@ -137,6 +137,12 @@ message SpdrParentLimit {
     string modified_by = 394; // user who last modified this record
     SysEnvironment modified_in = 397;
     google.protobuf.Timestamp timestamp = 400; // timestamp of last modification
+    AltLimitType alt_limit_type = 429; // None = no alt limit; Prc = static price; Vol = live vol (options only); Theo = live client theo surface vol (options only; account primary theoModel)
+    double alt_prc_limit = 432; // Applies if altLimitType = Prc
+    float alt_vol_limit = 435; // Applies if altLimitType = Vol; repriced live at the underlier reference
+    float alt_vol_offset = 438; // Applies if altLimitType = Theo; toward the market like the surface offsets: Buy = theo vol + offset, Sell = theo vol - offset (negative tightens both sides)
+    double alt_prc_offset = 441; // Applies if altLimitType = Theo; toward the market: Buy = price + offset, Sell = price - offset, after altVolOffset
+    AltLimitURef alt_limit_uRef = 444; // underlier reference for Vol/Theo pricing: Cross (default) = hedge side, Buy call / Sell put = uBid, Buy put / Sell call = uAsk; Mid = NBBO mid
 }
 
 

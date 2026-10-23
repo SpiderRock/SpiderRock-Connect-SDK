@@ -26,6 +26,46 @@ namespace SpiderRock
 		typedef int64_t Long;
 		typedef uint64_t ULong;
 
+		/* Lossless fixed-point decimal: value = raw x 10^-9 in one int64. */
+		class Decimal64
+		{
+			int64_t raw_;
+
+		public:
+			Decimal64() : raw_(0) {}
+			explicit Decimal64(int64_t raw) : raw_(raw) {}
+
+			inline int64_t raw() const { return raw_; }
+			inline double to_double() const { return static_cast<double>(raw_) / 1000000000.0; }
+
+			inline bool operator==(const Decimal64 &other) const { return raw_ == other.raw_; }
+			inline bool operator!=(const Decimal64 &other) const { return raw_ != other.raw_; }
+			inline bool operator<(const Decimal64 &other) const { return raw_ < other.raw_; }
+		};
+
+		/* Tagged 16-byte content key: 1-byte ContentKeyType tag + 15-byte payload. */
+		class ContentKey
+		{
+			uint8_t ct_;
+			uint8_t payload_[15];
+
+		public:
+			ContentKey() : ct_(0) { memset(payload_, 0, sizeof(payload_)); }
+			ContentKey(ContentKeyType ct, const uint8_t (&payload)[15]) : ct_(static_cast<uint8_t>(ct)) { memcpy(payload_, payload, sizeof(payload_)); }
+
+			inline ContentKeyType ct() const { return static_cast<ContentKeyType>(ct_); }
+			inline const uint8_t* payload() const { return payload_; }
+
+			inline size_t hash_code() const
+			{
+				return std::hash<int64_t>()(*(const int64_t*)this) ^ std::hash<int64_t>()(*(const int64_t*)((const uint8_t*)this + 8));
+			}
+
+			inline bool operator==(const ContentKey &other) const { return memcmp(this, &other, sizeof(ContentKey)) == 0; }
+			inline bool operator!=(const ContentKey &other) const { return !(*this == other); }
+			inline bool operator<(const ContentKey &other) const { return memcmp(this, &other, sizeof(ContentKey)) < 0; }
+		};
+
 		typedef Byte SequenceNumber;
 		typedef UShort AppId;
 		typedef Byte AsciiChar;
@@ -180,7 +220,7 @@ namespace SpiderRock
 
 				size_t hash_code = *ptr;
 				hash_code = (hash_code * 397) ^ *(ptr + 1);
-				hash_code = (hash_code * 397) ^ *(int8_t *)(ptr + 2);
+				hash_code = (hash_code * 397) ^ *(int16_t *)(ptr + 2);
 
 				return hash_code;
 			}
@@ -191,7 +231,7 @@ namespace SpiderRock
 				auto other_ptr = reinterpret_cast<const int64_t *>(&other);
 				return *self_ptr == *other_ptr &&
 					   *(self_ptr + 1) == *(other_ptr + 1) &&
-					   *(int8_t *)(self_ptr + 1) == *(int8_t *)(other_ptr + 1);
+					   *(int16_t *)(self_ptr + 2) == *(int16_t *)(other_ptr + 2);
 			}
 		};
 
@@ -223,7 +263,7 @@ namespace SpiderRock
 
 				size_t hash_code = *ptr;
 				hash_code = (hash_code * 397) ^ *(int32_t *)(ptr + 1);
-				// only using 12 of the 14 bytes, betting on the fact
+				// only using 12 of the 15 bytes, betting on the fact
 				// that most tickers are empty at the end
 				// the equality should fill that gap
 
@@ -289,6 +329,7 @@ namespace SpiderRock
 				hash_code = (hash_code * 397) ^ *(ptr + 1);
 				hash_code = (hash_code * 397) ^ *(ptr + 2);
 				hash_code = (hash_code * 397) ^ *(int16_t *)(ptr + 3);
+				hash_code = (hash_code * 397) ^ *((const int8_t *)&k + 26);
 
 				return hash_code;
 			}
@@ -300,7 +341,8 @@ namespace SpiderRock
 				return *self_ptr == *other_ptr &&
 					   *(self_ptr + 1) == *(other_ptr + 1) &&
 					   *(self_ptr + 2) == *(other_ptr + 2) &&
-					   *(int16_t *)(self_ptr + 3) == *(int16_t *)(other_ptr + 3);
+					   *(int16_t *)(self_ptr + 3) == *(int16_t *)(other_ptr + 3) &&
+					   *((const int8_t *)this + 26) == *((const int8_t *)&other + 26);
 			}
 		};
 
@@ -334,18 +376,35 @@ namespace SpiderRock
 		static_assert(sizeof(UInt) == 4, "sizeof(UInt) must be 4 bytes");
 		static_assert(sizeof(Long) == 8, "sizeof(Long) must be 8 bytes");
 		static_assert(sizeof(ULong) == 8, "sizeof(ULong) must be 8 bytes");
+		static_assert(sizeof(Decimal64) == 8, "sizeof(Decimal64) must be 8 bytes");
+		static_assert(sizeof(ContentKey) == 16, "sizeof(ContentKey) must be 16 bytes");
 		static_assert(sizeof(Float) == 4, "sizeof(Float) must be 4 bytes");
 		static_assert(sizeof(Double) == 8, "sizeof(Double) must be 8 bytes");
 
-		static_assert(sizeof(ExpiryKey) == 17, "sizeof(CCodeKey) must be 17 bytes");
-		static_assert(sizeof(TickerKey) == 14, "sizeof(TickerKey) must be 14 bytes");
-		static_assert(sizeof(OptionKey) == 26, "sizeof(OptionKey) must be 26 bytes");
+		static_assert(sizeof(ExpiryKey) == 18, "sizeof(CCodeKey) must be 18 bytes");
+		static_assert(sizeof(TickerKey) == 15, "sizeof(TickerKey) must be 15 bytes");
+		static_assert(sizeof(OptionKey) == 27, "sizeof(OptionKey) must be 27 bytes");
 		static_assert(sizeof(DateTime) == 8, "sizeof(DateTime) must be 8 bytes");
 		static_assert(sizeof(DateKey) == 8, "sizeof(DateKey) must be 8 bytes");
 		static_assert(sizeof(TimeSpan) == 8, "sizeof(TimeSpan) must be 8 bytes");
 
 		static_assert(sizeof(Ticker) == 12, "sizeof(Ticker) must be 14 bytes");
 	}
+}
+
+namespace std
+{
+	template <>
+	struct hash<SpiderRock::SpiderStream::Decimal64>
+	{
+		inline size_t operator()(const SpiderRock::SpiderStream::Decimal64 &k) const { return hash<int64_t>()(k.raw()); }
+	};
+
+	template <>
+	struct hash<SpiderRock::SpiderStream::ContentKey>
+	{
+		inline size_t operator()(const SpiderRock::SpiderStream::ContentKey &k) const { return k.hash_code(); }
+	};
 }
 
 #pragma pack()

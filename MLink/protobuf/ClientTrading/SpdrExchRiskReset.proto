@@ -8,7 +8,7 @@ package spiderrock.protobuf;
 import "google/protobuf/timestamp.proto";
 
 /*
-    SpdrExchRiskMgmt records are created/published by SpiderRock Execution Engines and show exchange level risk management child order rejects.
+    SpdrExchRiskReset records are created/published by SpiderRock Execution Engines and show exchange level risk management child order rejects.
 */    
 message SpdrExchRiskReset {
     message PKey {

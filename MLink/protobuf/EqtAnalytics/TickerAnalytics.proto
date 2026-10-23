@@ -38,6 +38,7 @@ message TickerAnalytics {
     float dayreturn = 148; // daily return (adjusted for CorpAction)
     float returnfactor = 151; // adjustment factor
     float cumreturnfactor = 154; // cumulative adjustment factor
+    float opt_volume = 160; // daily option volume
     google.protobuf.Timestamp timestamp = 157; // record update timestamp
 }
 

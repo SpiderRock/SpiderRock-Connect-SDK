@@ -54,6 +54,16 @@ message SpdrHedgePolicyState {
     double point_value = 226;
     Currency point_currency = 229;
     google.protobuf.Timestamp timestamp = 232;
+    google.protobuf.Timestamp next_wave_dttm = 235; // next hedge wave trigger (slice trigger or period switch, whichever is first); unset when no wave is active
+    float accr_dDelta = 238; // open-book $delta drift from underlier moves since the SOD marks (excludes fills)
+    float opt_trd_dDelta = 241; // $delta of today's client (non-hedge) fills
+    float hdg_trd_dDelta = 244; // $delta of today's policy hedge fills (open + trade chains)
+    double hedge_sh = 247; // net share-equiv balance (option + hedge fills)
+    double hedge_mny = 250; // money leg
+    double no_hedge_sh = 253; // option-side fills only (unhedged counterfactual)
+    double no_hedge_mny = 256;
+    double hedge1m_sh = 259; // hedge pair flattened to zero each minute during market hours
+    double hedge1m_mny = 262;
 }
 
 

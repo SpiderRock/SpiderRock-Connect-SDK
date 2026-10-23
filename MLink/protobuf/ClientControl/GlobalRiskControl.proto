@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 message GlobalRiskControl {
     message PKey {
         
-        TickerKey ticker = 10;
+        TickerKey ticker = 10; // '*-ANY-ANY' default (if a more precise ticker control does not exist); a futures product key (ES, MES each their own record); a '@' head is read as its namesake product
     }
 
 
@@ -25,7 +25,7 @@ message GlobalRiskControl {
     MarState opt_enabled = 102; // Enabled or not for options (None=disabled)
     float order_max_margin = 103; // Maximum (abs) margin per parent order (SR variation margin)
     int32 order_max_stk_qty = 104; // Number of equity shares that can be bought or sold by a single parent order
-    int32 order_max_fut_qty = 105; // Number of futures contracts that can be bought or sold by a single parent order
+    int32 order_max_fut_qty = 105; // futures contracts per parent order, in the family Primary's contracts when the control is a family head's
     int32 order_max_opt_qty = 106; // Number of option contracts that can be bought or sold by a single parent order
     float order_max_stk_dDelta = 107; // Maximum (abs) mny per stock parent order; ddelta = shares * pointValue * midPrc
     float order_max_fut_dDelta = 108; // Maximum (abs) mny per future parent order; ddelta = contracts * pointValue * midPrc
