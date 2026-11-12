@@ -32,6 +32,7 @@ namespace SpiderRock
 			CmeAdmin = 25,
 			CfeAdmin = 27,
 			EqtAdmin = 28,
+			SysStatus = 31,
 			FundQuoteJ2J3J4J5 = 39,
 			IdxQuoteI1 = 51,
 			IdxQuoteI2 = 52,

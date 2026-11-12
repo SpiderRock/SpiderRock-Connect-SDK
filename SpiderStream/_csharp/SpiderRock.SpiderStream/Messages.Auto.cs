@@ -18,6 +18,7 @@ namespace SpiderRock.SpiderStream;
 /// FutureBookQuote:2580
 /// </summary>
 /// <remarks>
+	/// One record per future contract, replaced on each book change; updateType says whether the price, the size or both changed.
 	/// This table contains live future quote records from the listing exchange.  Each record contains up to four price levels and represents a live snapshot of the book for a specific future./// </remarks>
 
 public partial class FutureBookQuote : IMessage
@@ -136,7 +137,7 @@ public partial class FutureBookQuote : IMessage
 				
         }
         
-        
+        /// <summary>future expiry key (ticker + expiry date)</summary>
         public ExpiryKey Fkey { get => ExpiryKey.GetCreateExpiryKey(body.fkey); set => body.fkey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -234,7 +235,7 @@ public partial class FutureBookQuote : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>what changed on this update [None, PrcChange, SizeOnly, PrevPeriod]</summary>
     public UpdateType UpdateType { get => body.updateType; set => body.updateType = value; }
      /// <summary>market status (open, halted, etc)</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
@@ -286,9 +287,9 @@ public partial class FutureBookQuote : IMessage
     public ushort BidOrders4 { get => body.bidOrders4; set => body.bidOrders4 = value; }
      /// <summary>number of participating orders at the ask price</summary>
     public ushort AskOrders4 { get => body.askOrders4; set => body.askOrders4 = value; }
-     /// <summary>source high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -299,6 +300,7 @@ public partial class FutureBookQuote : IMessage
 /// FuturePrint:2595
 /// </summary>
 /// <remarks>
+	/// One record per future contract, replaced by each new print, so the record always holds the latest trade.
 	/// The most recent (last) print record for each active futures market./// </remarks>
 
 public partial class FuturePrint : IMessage
@@ -417,7 +419,7 @@ public partial class FuturePrint : IMessage
 				
         }
         
-        
+        /// <summary>future expiry key (ticker + expiry date)</summary>
         public ExpiryKey Fkey { get => ExpiryKey.GetCreateExpiryKey(body.fkey); set => body.fkey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -535,11 +537,11 @@ public partial class FuturePrint : IMessage
     public float Age { get => body.age; set => body.age = value; }
      /// <summary>implied print side (from bid/ask)</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>the matching engine's or participant's time where the feed carries one, else the sender's stamp</summary>
     public long PrtTimestamp { get => body.prtTimestamp; set => body.prtTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -550,6 +552,7 @@ public partial class FuturePrint : IMessage
 /// FuturePrintMarkup:2605
 /// </summary>
 /// <remarks>
+	/// Each record carries the exchange best quote as it stood at print arrival time alongside the print itself.
 	/// FuturePrintMarkup records are created for all future prints/// </remarks>
 
 public partial class FuturePrintMarkup : IMessage
@@ -668,7 +671,7 @@ public partial class FuturePrintMarkup : IMessage
 				
         }
         
-        
+        /// <summary>future expiry key (ticker + expiry date)</summary>
         public ExpiryKey Fkey { get => ExpiryKey.GetCreateExpiryKey(body.fkey); set => body.fkey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -760,9 +763,9 @@ public partial class FuturePrintMarkup : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>Unique print set identifier; will increment but not guaranteed to be sequential.</summary>
+    /// <summary>unique print set identifier; will increment but not guaranteed to be sequential.</summary>
     public long PrtNumber { get => body.prtNumber; set => body.prtNumber = value; }
-     /// <summary>underlying stock key</summary>
+     /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>print exchange</summary>
     public FutExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
@@ -780,15 +783,15 @@ public partial class FuturePrintMarkup : IMessage
     public int PrtClusterSize { get => body.prtClusterSize; set => body.prtClusterSize = value; }
      /// <summary>cumulative day (electronic) print volume in contracts</summary>
     public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
-     /// <summary>Print side: None; Mid; Bid; Ask</summary>
+     /// <summary>print side: None; Mid; Bid; Ask</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>exch best bid @ print arrival time</summary>
+     /// <summary>bid price; exchange best bid at print arrival time</summary>
     public double BidPrice { get => body.bidPrice; set => body.bidPrice = value; }
-     /// <summary>exch best ask @ print arrival time</summary>
+     /// <summary>ask price; exchange best ask at print arrival time</summary>
     public double AskPrice { get => body.askPrice; set => body.askPrice = value; }
-     /// <summary>bid size @ print arrival time</summary>
+     /// <summary>bid size in contracts; at print arrival time</summary>
     public int BidSize { get => body.bidSize; set => body.bidSize = value; }
-     /// <summary>ask size @ print arrival time</summary>
+     /// <summary>ask size in contracts; at print arrival time</summary>
     public int AskSize { get => body.askSize; set => body.askSize = value; }
      /// <summary>exch 2nd best bid @ print arrival time</summary>
     public double BidPrice2 { get => body.bidPrice2; set => body.bidPrice2 = value; }
@@ -798,11 +801,11 @@ public partial class FuturePrintMarkup : IMessage
     public int BidSize2 { get => body.bidSize2; set => body.bidSize2 = value; }
      /// <summary>2nd best ask @ print arrival time</summary>
     public int AskSize2 { get => body.askSize2; set => body.askSize2 = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound print packet PTP timestamp from SR gateway switch</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -813,6 +816,7 @@ public partial class FuturePrintMarkup : IMessage
 /// IndexPrint:2705
 /// </summary>
 /// <remarks>
+	/// One record per index ticker, replaced by each new print.
 	/// Live index print levels including SpiderRock synthetic index levels, and the official closing level where the feed publishes one./// </remarks>
 
 public partial class IndexPrint : IMessage
@@ -931,7 +935,7 @@ public partial class IndexPrint : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker; the index ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -1013,7 +1017,7 @@ public partial class IndexPrint : IMessage
     public StkExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
      /// <summary>source feed for this index print</summary>
     public IdxDataSource DataSource { get => body.dataSource; set => body.dataSource = value; }
-     /// <summary>index print level</summary>
+     /// <summary>print price; the index level</summary>
     public double PrtPrice { get => body.prtPrice; set => body.prtPrice = value; }
      /// <summary>last regular market index level</summary>
     public double MrkPrice { get => body.mrkPrice; set => body.mrkPrice = value; }
@@ -1021,9 +1025,9 @@ public partial class IndexPrint : IMessage
     public double ClsPrice { get => body.clsPrice; set => body.clsPrice = value; }
      /// <summary>exchange high precision timestamp (if available)</summary>
     public long PrtTimestamp { get => body.prtTimestamp; set => body.prtTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -1034,6 +1038,7 @@ public partial class IndexPrint : IMessage
 /// IndexQuote:2675
 /// </summary>
 /// <remarks>
+	/// One record per index ticker, covering both exchange-published indexes and SR synthetic indexes.
 	/// Live index levels and quotes including SpiderRock synthetic index levels and quotes./// </remarks>
 
 public partial class IndexQuote : IMessage
@@ -1152,7 +1157,7 @@ public partial class IndexQuote : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -1240,11 +1245,11 @@ public partial class IndexQuote : IMessage
     public double IdxAsk { get => body.idxAsk; set => body.idxAsk = value; }
      /// <summary>index price</summary>
     public double IdxPrice { get => body.idxPrice; set => body.idxPrice = value; }
-     /// <summary>index price timestamp</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      /// <summary>market status of the index level (open, halted, closed); None where the source does not report one</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -1376,7 +1381,7 @@ public partial class LiveImpliedQuote : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -1485,7 +1490,7 @@ public partial class LiveImpliedQuote : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>SR Ticker that this option rolls up to</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>underlier price (usually mid-market)</summary>
     public float UPrc { get => body.uPrc; set => body.uPrc = value; }
@@ -1549,7 +1554,7 @@ public partial class LiveImpliedQuote : IMessage
     public float Up06 { get => body.up06; set => body.up06 = value; }
      /// <summary>underlier dn 8% slide</summary>
     public float Dn08 { get => body.dn08; set => body.dn08 = value; }
-     /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
+     /// <summary>synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
     public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
      /// <summary>Spot (Equity), Forward (Cash), Future, Physical</summary>
     public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
@@ -1557,11 +1562,11 @@ public partial class LiveImpliedQuote : IMessage
     public ImpliedQuoteError CalcErr { get => body.calcErr; set => body.calcErr = value; }
      
     public CalcSource CalcSource { get => body.calcSource; set => body.calcSource = value; }
-     /// <summary>OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource != Tick</summary>
+     /// <summary>OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource is not equal to Tick</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
      /// <summary>SR timestamp @ publish time</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -1693,7 +1698,7 @@ public partial class LiveImpliedQuoteNG : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -1802,7 +1807,7 @@ public partial class LiveImpliedQuoteNG : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>SR Ticker that this option rolls up to</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>underlier price (usually mid-market)</summary>
     public float UPrc { get => body.uPrc; set => body.uPrc = value; }
@@ -1866,7 +1871,7 @@ public partial class LiveImpliedQuoteNG : IMessage
     public float Up06 { get => body.up06; set => body.up06 = value; }
      /// <summary>underlier dn 8% slide</summary>
     public float Dn08 { get => body.dn08; set => body.dn08 = value; }
-     /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
+     /// <summary>synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
     public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
      /// <summary>Spot (Equity), Forward (Cash), Future, Physical</summary>
     public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
@@ -1874,11 +1879,11 @@ public partial class LiveImpliedQuoteNG : IMessage
     public ImpliedQuoteError CalcErr { get => body.calcErr; set => body.calcErr = value; }
      
     public CalcSource CalcSource { get => body.calcSource; set => body.calcSource = value; }
-     /// <summary>OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource != Tick</summary>
+     /// <summary>OPRA source timestamp (nanoseconds since epoch); will be zero if calcSource is not equal to Tick</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
      /// <summary>SR timestamp @ publish time</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -2009,7 +2014,7 @@ public partial class LiveRevConQuote : IMessage
         
         /// <summary>cp = Both</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
-         
+         /// <summary>trade date</summary>
         public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -2112,7 +2117,7 @@ public partial class LiveRevConQuote : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>SR Ticker (Product Group)</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>xAxis = Moneyness</summary>
     public float XAxis { get => body.xAxis; set => body.xAxis = value; }
@@ -2299,7 +2304,7 @@ public partial class LiveSurfaceAtm : IMessage
 				
         }
         
-        
+        /// <summary>expiry key (ticker + expiry date)</summary>
         public ExpiryKey Ekey { get => ExpiryKey.GetCreateExpiryKey(body.ekey); set => body.ekey = value.Layout; }
          
         public SurfaceCurveType SurfaceType { get => body.surfaceType; set => body.surfaceType = value; }
@@ -2469,7 +2474,7 @@ public partial class LiveSurfaceAtm : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>underlying stock key that this option expiration attaches to</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>future that this option expiration month written on (if any)</summary>
     public ExpiryKey Fkey { get => ExpiryKey.GetCreateExpiryKey(body.fkey); set => body.fkey = value.Layout; }
@@ -2655,7 +2660,7 @@ public partial class LiveSurfaceAtm : IMessage
     public TradeableStatus TradeableStatus { get => body.tradeableStatus; set => body.tradeableStatus = value; }
      
     public SurfaceResult SurfaceResult { get => body.surfaceResult; set => body.surfaceResult = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>house skew-stickiness ratio (sticky strike = 1, sticky delta = 0); atm vol change per unit underlier = ssr * fixed-strike skew slope at the atm strike; -99 = not estimated</summary>
     public float Ssr { get => body.ssr; set => body.ssr = value; }
@@ -2790,6 +2795,8 @@ public partial class MarketFeedStatus : IMessage
         public string ChannelLabel { get => body.channelLabel; set => body.channelLabel = value; }
          /// <summary>market feed type</summary>
         public DataType DataType { get => body.dataType; set => body.dataType = value; }
+         /// <summary>publishing gateway: its -stripe (e.g. H1, M3M4), or opra:&lt;channels&gt; for a dynamic gateway</summary>
+        public string Gateway { get => body.gateway; set => body.gateway = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public void Clear()
@@ -2828,12 +2835,14 @@ public partial class MarketFeedStatus : IMessage
     {
         public FixedString16Layout channelLabel;
          public DataType dataType;
+         public FixedString16Layout gateway;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(PKeyLayout other)
         {
             return	channelLabel.Equals(other.channelLabel) &&
-					 	dataType.Equals(other.dataType);
+					 	dataType.Equals(other.dataType) &&
+					 	gateway.Equals(other.gateway);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2846,6 +2855,7 @@ public partial class MarketFeedStatus : IMessage
             {
                 var hashCode = channelLabel.GetHashCode();
                  hashCode = (hashCode*397) ^ ((int) dataType);
+                 hashCode = (hashCode*397) ^ (gateway.GetHashCode());
 
                 return hashCode;
             }
@@ -2857,24 +2867,20 @@ public partial class MarketFeedStatus : IMessage
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     internal struct BodyLayout
     {
-        public FixedString16Layout stripe1;
-		public FixedString16Layout stripe2;
-		public MarketFeedOperationalState operationState;
+        public MarketFeedOperationalState operationState;
 		public MarketFeedSequenceState dataState;
 		public DateTimeLayout operationStateDttm;
 		public DateTimeLayout dataStateDttm;
 		public MarketFeedOperationalState lastOperationState;
 		public MarketFeedSequenceState lastDataState;
 		public DateTimeLayout timestamp;
+		public YesNo isHeartbeat;
+		public FixedString48Layout stripes;
     }
 
     internal BodyLayout body;
 
-    /// <summary>SpiderRock stripe</summary>
-    public string Stripe1 { get => body.stripe1; set => body.stripe1 = value; }
-     /// <summary>SpiderRock stripe (if this channel feeds more than one stripe)</summary>
-    public string Stripe2 { get => body.stripe2; set => body.stripe2 = value; }
-     /// <summary>monitors the heartbeats</summary>
+    /// <summary>monitors the heartbeats</summary>
     public MarketFeedOperationalState OperationState { get => body.operationState; set => body.operationState = value; }
      /// <summary>monitors for data gaps</summary>
     public MarketFeedSequenceState DataState { get => body.dataState; set => body.dataState = value; }
@@ -2886,8 +2892,12 @@ public partial class MarketFeedStatus : IMessage
     public MarketFeedOperationalState LastOperationState { get => body.lastOperationState; set => body.lastOperationState = value; }
      /// <summary>if this is a transition this is the dataState we transitions from</summary>
     public MarketFeedSequenceState LastDataState { get => body.lastDataState; set => body.lastDataState = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
+     /// <summary>Yes when this message was published because of an upstream heartbeat</summary>
+    public YesNo IsHeartbeat { get => body.isHeartbeat; set => body.isHeartbeat = value; }
+     /// <summary>native stripes this gateway feeds from the line, comma separated</summary>
+    public string Stripes { get => body.stripes; set => body.stripes = value; }
 
 
 } // MarketFeedStatus
@@ -2897,6 +2907,7 @@ public partial class MarketFeedStatus : IMessage
 /// OddLotBookQuote:3080
 /// </summary>
 /// <remarks>
+	/// Carries odd lot quotes, which are excluded from the round lot NBBO in StockBookQuote.
 	/// This table contains live equity quote records for all CQS/UQDF securities as well as US OTC equity securities, SpiderRock synthetic markets, and a number of major indexes.  Each record contains up to two price levels and represents a live snapshot of the book for a specific market./// </remarks>
 
 public partial class OddLotBookQuote : IMessage
@@ -3015,7 +3026,7 @@ public partial class OddLotBookQuote : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -3106,7 +3117,7 @@ public partial class OddLotBookQuote : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>what changed on this update [None, PrcChange, SizeOnly, PrevPeriod]</summary>
     public UpdateType UpdateType { get => body.updateType; set => body.updateType = value; }
      /// <summary>market status (open, halted, etc)</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
@@ -3114,7 +3125,7 @@ public partial class OddLotBookQuote : IMessage
     public float BidPrice1 { get => body.bidPrice1; set => body.bidPrice1 = value; }
      /// <summary>bid size for best price level</summary>
     public int BidSize1 { get => body.bidSize1; set => body.bidSize1 = value; }
-     
+     /// <summary>exchange at the best bid</summary>
     public StkExch BidExch1 { get => body.bidExch1; set => body.bidExch1 = value; }
      /// <summary>bid exchange bit mask for best bid price level</summary>
     public long BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
@@ -3144,9 +3155,9 @@ public partial class OddLotBookQuote : IMessage
     public long AskMask2 { get => body.askMask2; set => body.askMask2 = value; }
      /// <summary>bit mask of halted exchanges</summary>
     public long HaltMask { get => body.haltMask; set => body.haltMask = value; }
-     /// <summary>source high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -3276,7 +3287,7 @@ public partial class OptionCloseMark : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -3399,9 +3410,9 @@ public partial class OptionCloseMark : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>SR Ticker that this option rolls up to</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-     
+     /// <summary>trade date</summary>
     public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
      /// <summary>Preview or Final</summary>
     public ClsMarkState ClsMarkState { get => body.clsMarkState; set => body.clsMarkState = value; }
@@ -3435,7 +3446,7 @@ public partial class OptionCloseMark : IMessage
     public float SrPrc { get => body.srPrc; set => body.srPrc = value; }
      /// <summary>sr close mark volatility (C - 5m)</summary>
     public float SrVol { get => body.srVol; set => body.srVol = value; }
-     /// <summary>Synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
+     /// <summary>synthetic spot price (market-derived spot when the underlying is not a traded instrument)</summary>
     public double SynSpot { get => body.synSpot; set => body.synSpot = value; }
      /// <summary>atm vol (xAxis = 0)</summary>
     public float AtmVol { get => body.atmVol; set => body.atmVol = value; }
@@ -3514,7 +3525,8 @@ public partial class OptionCloseMark : IMessage
 /// OptionExchOrder:2765
 /// </summary>
 /// <remarks>
-/// </remarks>
+	/// OptionExchOrder records carry live public (non-market maker) orders on one exchange, keyed by option, side and exchange.
+	/// Only the most recent order for each key is retained; the record is replaced as the exchange publishes updates./// </remarks>
 
 public partial class OptionExchOrder : IMessage
 {
@@ -3632,11 +3644,11 @@ public partial class OptionExchOrder : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
-         
+         /// <summary>side of the order [None, Buy, Sell]</summary>
         public BuySell Side { get => body.side; set => body.side = value; }
-         
+         /// <summary>exchange the order is on</summary>
         public OptExch Exch { get => body.exch; set => body.exch = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -3733,33 +3745,33 @@ public partial class OptionExchOrder : IMessage
     public long ExchOrderID { get => body.exchOrderID; set => body.exchOrderID = value; }
      /// <summary>size available to trade</summary>
     public int Size { get => body.size; set => body.size = value; }
-     
+     /// <summary>order price</summary>
     public double Price { get => body.price; set => body.price = value; }
      /// <summary>original order size (if available)</summary>
     public int OrigOrderSize { get => body.origOrderSize; set => body.origOrderSize = value; }
-     
+     /// <summary>order type [None, Market, Limit, Auction]</summary>
     public ExchOrderType OrderType { get => body.orderType; set => body.orderType = value; }
-     
+     /// <summary>order status [None, Open, Cancelled, Filled, Retry]</summary>
     public ExchOrderStatus OrderStatus { get => body.orderStatus; set => body.orderStatus = value; }
-     
+     /// <summary>market qualifier [None, NA, Opening, Implied]</summary>
     public MarketQualifier MarketQualifier { get => body.marketQualifier; set => body.marketQualifier = value; }
-     
+     /// <summary>execution qualifier [None, AllOrNone]</summary>
     public ExecQualifier ExecQualifier { get => body.execQualifier; set => body.execQualifier = value; }
-     
+     /// <summary>time in force for the order</summary>
     public TimeInForce TimeInForce { get => body.timeInForce; set => body.timeInForce = value; }
-     
+     /// <summary>firm type of the order submitter</summary>
     public FirmType FirmType { get => body.firmType; set => body.firmType = value; }
-     
+     /// <summary>open/close indicator for the order</summary>
     public PositionType PositionType { get => body.positionType; set => body.positionType = value; }
-     
+     /// <summary>clearing firm (delivery)</summary>
     public string ClearingFirm { get => body.clearingFirm; set => body.clearingFirm = value; }
-     
+     /// <summary>clearing firm account (if any)</summary>
     public string ClearingAccnt { get => body.clearingAccnt; set => body.clearingAccnt = value; }
-     
+     /// <summary>additional order detail (exchange specific)</summary>
     public string OtherDetail { get => body.otherDetail; set => body.otherDetail = value; }
-     /// <summary>source (exch) high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>SpiderRock network PTP timestamp</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      /// <summary>SpiderRock data gateway timestamp</summary>
     public long DgwTimestamp { get => body.dgwTimestamp; set => body.dgwTimestamp = value; }
@@ -3772,7 +3784,8 @@ public partial class OptionExchOrder : IMessage
 /// OptionExchPrint:2770
 /// </summary>
 /// <remarks>
-/// </remarks>
+	/// OptionExchPrint records carry one option print as reported by a direct exchange feed, keyed by SR print id.
+	/// They carry prints as reported by the listing exchange rather than from the consolidated OPRA feed./// </remarks>
 
 public partial class OptionExchPrint : IMessage
 {
@@ -3970,25 +3983,25 @@ public partial class OptionExchPrint : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>option key (ticker + expiry + strike + call/put)</summary>
     public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
-     
+     /// <summary>exchange reporting the print</summary>
     public OptExch Exch { get => body.exch; set => body.exch = value; }
      /// <summary>exchange assigned order ID (if any)</summary>
     public long ExchOrderID { get => body.exchOrderID; set => body.exchOrderID = value; }
-     /// <summary>size available to trade</summary>
+     /// <summary>print size [contracts]</summary>
     public int PrtSize { get => body.prtSize; set => body.prtSize = value; }
-     
+     /// <summary>print price</summary>
     public double PrtPrice { get => body.prtPrice; set => body.prtPrice = value; }
-     
+     /// <summary>print type as reported by the exchange</summary>
     public ExchPrtType ExchPrtType { get => body.exchPrtType; set => body.exchPrtType = value; }
-     /// <summary>source high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>SpiderRock network PTP timestamp</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      /// <summary>SpiderRock data gateway timestamp</summary>
     public long DgwTimestamp { get => body.dgwTimestamp; set => body.dgwTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -3999,6 +4012,7 @@ public partial class OptionExchPrint : IMessage
 /// OptionMarketSummary:2780
 /// </summary>
 /// <remarks>
+	/// One record per active option key, refreshed through the trading day as the market moves.
 	/// These records represent live market summary snapshots for each active option/// </remarks>
 
 public partial class OptionMarketSummary : IMessage
@@ -4117,7 +4131,7 @@ public partial class OptionMarketSummary : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -4212,7 +4226,7 @@ public partial class OptionMarketSummary : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>trade date</summary>
     public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
      /// <summary>start of day (SR) open mark</summary>
     public double OpnPrice { get => body.opnPrice; set => body.opnPrice = value; }
@@ -4230,15 +4244,15 @@ public partial class OptionMarketSummary : IMessage
     public double MaxPrtPrc { get => body.maxPrtPrc; set => body.maxPrtPrc = value; }
      /// <summary>maximum print volatility within market hours</summary>
     public double MaxPrtVol { get => body.maxPrtVol; set => body.maxPrtVol = value; }
-     
+     /// <summary>open interest</summary>
     public int OpenInterest { get => body.openInterest; set => body.openInterest = value; }
-     /// <summary>num prints &lt;= SR surface mark</summary>
+     /// <summary>num prints less than or equal to SR surface mark</summary>
     public int BidCount { get => body.bidCount; set => body.bidCount = value; }
-     /// <summary>volume when prtPrice &lt;= quote.bid</summary>
+     /// <summary>volume when prtPrice less than or equal to quote.bid</summary>
     public int BidVolume { get => body.bidVolume; set => body.bidVolume = value; }
-     /// <summary>num prints &gt;= SR surface mark</summary>
+     /// <summary>num prints greater than or equal to SR surface mark</summary>
     public int AskCount { get => body.askCount; set => body.askCount = value; }
-     /// <summary>volume when prtPrice &gt;= quote.ask</summary>
+     /// <summary>volume when prtPrice greater than or equal to quote.ask</summary>
     public int AskVolume { get => body.askVolume; set => body.askVolume = value; }
      /// <summary>num prints inside quote.ebid / quote.eask</summary>
     public int MidCount { get => body.midCount; set => body.midCount = value; }
@@ -4260,7 +4274,7 @@ public partial class OptionMarketSummary : IMessage
     public float AvgBidSize { get => body.avgBidSize; set => body.avgBidSize = value; }
      /// <summary>(not supported) average ask size (time weighted)</summary>
     public float AvgAskSize { get => body.avgAskSize; set => body.avgAskSize = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -4271,6 +4285,7 @@ public partial class OptionMarketSummary : IMessage
 /// OptionNbboQuote:2785
 /// </summary>
 /// <remarks>
+	/// One record per option key, replaced on each NBBO change; updateType says whether the price, the size or both changed.
 	/// This table contains live option quote records from OPRA (equities) or the listing exchange (futures).  Each record contains up to two price levels and represents a live snapshot of the book for a specific option series.  There are typically 1mm+ records in this table if all ticker sources are enabled./// </remarks>
 
 public partial class OptionNbboQuote : IMessage
@@ -4389,7 +4404,7 @@ public partial class OptionNbboQuote : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -4480,7 +4495,7 @@ public partial class OptionNbboQuote : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>what changed on this update (price, size or both)</summary>
     public UpdateType UpdateType { get => body.updateType; set => body.updateType = value; }
      /// <summary>bid price</summary>
     public float BidPrice { get => body.bidPrice; set => body.bidPrice = value; }
@@ -4518,9 +4533,9 @@ public partial class OptionNbboQuote : IMessage
     public int BidTime { get => body.bidTime; set => body.bidTime = value; }
      /// <summary>last ask price change (milliseconds since midnight) calculated from the srcTimestamp</summary>
     public int AskTime { get => body.askTime; set => body.askTime = value; }
-     /// <summary>source high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -4531,6 +4546,7 @@ public partial class OptionNbboQuote : IMessage
 /// OptionOpenInterest:3230
 /// </summary>
 /// <remarks>
+	/// One record per option series; openInt is the exchange-reported open interest for that series.
 	/// Open interest for each option series. Records are from the live OPRA feed./// </remarks>
 
 public partial class OptionOpenInterest : IMessage
@@ -4649,7 +4665,7 @@ public partial class OptionOpenInterest : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -4721,9 +4737,9 @@ public partial class OptionOpenInterest : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>open interest</summary>
     public int OpenInt { get => body.openInt; set => body.openInt = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -4734,6 +4750,7 @@ public partial class OptionOpenInterest : IMessage
 /// OptionPrint:2800
 /// </summary>
 /// <remarks>
+	/// One record per active option series, replaced by each new print, so the record always holds the latest trade.
 	/// The most recent (last) print record for each active equity and future option series.  Quote markup represents quote that existed just prior to the print on the reporting exchange./// </remarks>
 
 public partial class OptionPrint : IMessage
@@ -4852,7 +4869,7 @@ public partial class OptionPrint : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -4958,7 +4975,7 @@ public partial class OptionPrint : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>exchange reporting the print</summary>
     public OptExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
      /// <summary>print size [contracts]</summary>
     public int PrtSize { get => body.prtSize; set => body.prtSize = value; }
@@ -4970,11 +4987,11 @@ public partial class OptionPrint : IMessage
     public int PrtClusterSize { get => body.prtClusterSize; set => body.prtClusterSize = value; }
      /// <summary>print type, NREG is european non-regular print</summary>
     public PrtType PrtType { get => body.prtType; set => body.prtType = value; }
-     /// <summary>European trade condition codes</summary>
+     /// <summary>european trade condition codes</summary>
     public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
      /// <summary>number of participating orders</summary>
     public ushort PrtOrders { get => body.prtOrders; set => body.prtOrders = value; }
-     /// <summary>day print volume in contracts [this exchange]</summary>
+     /// <summary>day print volume in contracts, all exchanges, net of cancels</summary>
     public int PrtVolume { get => body.prtVolume; set => body.prtVolume = value; }
      /// <summary>day print/cancel volume (num of contracts printed and then cancelled)</summary>
     public int CxlVolume { get => body.cxlVolume; set => body.cxlVolume = value; }
@@ -4996,9 +5013,9 @@ public partial class OptionPrint : IMessage
     public int Easz { get => body.easz; set => body.easz = value; }
      /// <summary>age of prevailing quote at time of print</summary>
     public float Eage { get => body.eage; set => body.eage = value; }
-     /// <summary>nbbo bid price (@ print time)</summary>
+     /// <summary>bid price; nbbo at print time</summary>
     public float BidPrice { get => body.bidPrice; set => body.bidPrice = value; }
-     /// <summary>nbbo ask price (@ print time)</summary>
+     /// <summary>ask price; nbbo at print time</summary>
     public float AskPrice { get => body.askPrice; set => body.askPrice = value; }
      /// <summary>2nd best bid price (@ print time)</summary>
     public float BidPrice2 { get => body.bidPrice2; set => body.bidPrice2 = value; }
@@ -5022,13 +5039,13 @@ public partial class OptionPrint : IMessage
     public long AskMask { get => body.askMask; set => body.askMask = value; }
      /// <summary>implied print side (based on ebid/eask and nbbo market)</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>the matching engine's or participant's time where the feed carries one, else the sender's stamp</summary>
     public long PrtTimestamp { get => body.prtTimestamp; set => body.prtTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
     public long OqNetTimestamp { get => body.oqNetTimestamp; set => body.oqNetTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -5039,7 +5056,8 @@ public partial class OptionPrint : IMessage
 /// OptionPrint2:2805
 /// </summary>
 /// <remarks>
-	/// The most recent (last) print record for each active equity and future option series.  Quote markup represents quote that existed just prior to the print on the reporting exchange./// </remarks>
+	/// One record per active option series, replaced by each new print, so the record always holds the latest trade.
+	/// Same print as OptionPrint without the quote markup; adds volume broken out by trade type (ISO, SLA, MLA, cross, floor, multi-leg, unknown) and total volume./// </remarks>
 
 public partial class OptionPrint2 : IMessage
 {
@@ -5157,7 +5175,7 @@ public partial class OptionPrint2 : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -5259,7 +5277,7 @@ public partial class OptionPrint2 : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>exchange reporting the print</summary>
     public OptExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
      /// <summary>print size [contracts]</summary>
     public int PrtSize { get => body.prtSize; set => body.prtSize = value; }
@@ -5271,7 +5289,7 @@ public partial class OptionPrint2 : IMessage
     public int PrtClusterSize { get => body.prtClusterSize; set => body.prtClusterSize = value; }
      /// <summary>print type</summary>
     public PrtType PrtType { get => body.prtType; set => body.prtType = value; }
-     /// <summary>European trade condition codes</summary>
+     /// <summary>european trade condition codes</summary>
     public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
      /// <summary>number of participating orders</summary>
     public ushort PrtOrders { get => body.prtOrders; set => body.prtOrders = value; }
@@ -5317,11 +5335,11 @@ public partial class OptionPrint2 : IMessage
     public float Eage { get => body.eage; set => body.eage = value; }
      /// <summary>implied print side (based on ebid/eask and nbbo market)</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>the matching engine's or participant's time where the feed carries one, else the sender's stamp</summary>
     public long PrtTimestamp { get => body.prtTimestamp; set => body.prtTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -5332,6 +5350,7 @@ public partial class OptionPrint2 : IMessage
 /// OptionPrintMarkup:2810
 /// </summary>
 /// <remarks>
+	/// One record per option print, carrying the NBBO quote and SR surface values as they stood at print time.
 	/// OptionPrintMarkup records contain every option print along with quote, surface details at print time/// </remarks>
 
 public partial class OptionPrintMarkup : IMessage
@@ -5450,7 +5469,7 @@ public partial class OptionPrintMarkup : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -5586,13 +5605,13 @@ public partial class OptionPrintMarkup : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>Unique print set identifier, will increment but not guaranteed to be sequential</summary>
+    /// <summary>unique print set identifier, will increment but not guaranteed to be sequential</summary>
     public long PrtNumber { get => body.prtNumber; set => body.prtNumber = value; }
-     /// <summary>underlying fkey (if any)</summary>
+     /// <summary>future expiry key (ticker + expiry date); the underlying future, if any</summary>
     public ExpiryKey Fkey { get => ExpiryKey.GetCreateExpiryKey(body.fkey); set => body.fkey = value.Layout; }
-     /// <summary>underlying ticker</summary>
+     /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-     /// <summary>Exchange on which print took place</summary>
+     /// <summary>exchange on which print took place</summary>
     public OptExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
      /// <summary>print size [contracts]</summary>
     public int PrtSize { get => body.prtSize; set => body.prtSize = value; }
@@ -5628,35 +5647,35 @@ public partial class OptionPrintMarkup : IMessage
     public int Easz { get => body.easz; set => body.easz = value; }
      /// <summary>age of prevailing quote at time of print</summary>
     public float Eage { get => body.eage; set => body.eage = value; }
-     
+     /// <summary>print side: None; Mid; Bid; Ask</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>Option NBBO bid a the time the print was received</summary>
+     /// <summary>option NBBO bid a the time the print was received</summary>
     public float OBid { get => body.oBid; set => body.oBid = value; }
-     /// <summary>Option NBBO ask a the time the print was received</summary>
+     /// <summary>option NBBO ask a the time the print was received</summary>
     public float OAsk { get => body.oAsk; set => body.oAsk = value; }
-     /// <summary>Option NBBO cumulative bid size at the time the print was received</summary>
+     /// <summary>option NBBO cumulative bid size at the time the print was received</summary>
     public int OBidSz { get => body.oBidSz; set => body.oBidSz = value; }
-     /// <summary>Option NBBO cumulative ask size at the time the print was received</summary>
+     /// <summary>option NBBO cumulative ask size at the time the print was received</summary>
     public int OAskSz { get => body.oAskSz; set => body.oAskSz = value; }
-     /// <summary>First (or largest) option exchange on the bid</summary>
+     /// <summary>first (or largest) option exchange on the bid</summary>
     public OptExch OBidEx { get => body.oBidEx; set => body.oBidEx = value; }
-     /// <summary>First (or largest) option exchange on the ask</summary>
+     /// <summary>first (or largest) option exchange on the ask</summary>
     public OptExch OAskEx { get => body.oAskEx; set => body.oAskEx = value; }
-     /// <summary>Option bid size of the largest exchange on the bid at the time the print was received</summary>
+     /// <summary>option bid size of the largest exchange on the bid at the time the print was received</summary>
     public int OBidExSz { get => body.oBidExSz; set => body.oBidExSz = value; }
-     /// <summary>Option ask size of the largest exchange on the ask at the time the print was received</summary>
+     /// <summary>option ask size of the largest exchange on the ask at the time the print was received</summary>
     public int OAskExSz { get => body.oAskExSz; set => body.oAskExSz = value; }
-     /// <summary>Number of exchanges on the NBBO bid</summary>
+     /// <summary>number of exchanges on the NBBO bid</summary>
     public byte OBidCnt { get => body.oBidCnt; set => body.oBidCnt = value; }
-     /// <summary>Number of exchanges on the NBBO ask</summary>
+     /// <summary>number of exchanges on the NBBO ask</summary>
     public byte OAskCnt { get => body.oAskCnt; set => body.oAskCnt = value; }
-     /// <summary>Second level bid price</summary>
+     /// <summary>second level bid price</summary>
     public float OBid2 { get => body.oBid2; set => body.oBid2 = value; }
-     /// <summary>Second level ask price</summary>
+     /// <summary>second level ask price</summary>
     public float OAsk2 { get => body.oAsk2; set => body.oAsk2 = value; }
-     /// <summary>Cumulative size on the second level bid price</summary>
+     /// <summary>cumulative size on the second level bid price</summary>
     public int OBidSz2 { get => body.oBidSz2; set => body.oBidSz2 = value; }
-     /// <summary>Cumulative size on the second level ask price</summary>
+     /// <summary>cumulative size on the second level ask price</summary>
     public int OAskSz2 { get => body.oAskSz2; set => body.oAskSz2 = value; }
      /// <summary>underlier bid</summary>
     public double UBid { get => body.uBid; set => body.uBid = value; }
@@ -5666,15 +5685,15 @@ public partial class OptionPrintMarkup : IMessage
     public double UPrc { get => body.uPrc; set => body.uPrc = value; }
      /// <summary>option pricing model used for price calcs (Normal, LogNormal, etc.)</summary>
     public CalcModelType ModelType { get => body.modelType; set => body.modelType = value; }
-     
+     /// <summary>pricing framework the surface was fit under [None, Spot, Forward, Future, Physical]</summary>
     public PricingFramework PrcFramework { get => body.prcFramework; set => body.prcFramework = value; }
      /// <summary>exercise type</summary>
     public ExerciseType ExType { get => body.exType; set => body.exType = value; }
-     /// <summary>volatility years to expiration (from SR time/calendar metrics)</summary>
+     /// <summary>years to expiration (SR volatility time)</summary>
     public float Years { get => body.years; set => body.years = value; }
      /// <summary>calendar years to expiration</summary>
     public float YearsC { get => body.yearsC; set => body.yearsC = value; }
-     /// <summary>SR interest rate (from global rate curve)</summary>
+     /// <summary>interest rate used for pricing</summary>
     public float Rate { get => body.rate; set => body.rate = value; }
      /// <summary>SR sdiv rate (implied; from call-put alignment)</summary>
     public float Sdiv { get => body.sdiv; set => body.sdiv = value; }
@@ -5690,7 +5709,7 @@ public partial class OptionPrintMarkup : IMessage
     public float XDe { get => body.xDe; set => body.xDe = value; }
      /// <summary>SR surface xAxis value</summary>
     public float XAxis { get => body.xAxis; set => body.xAxis = value; }
-     /// <summary>Distinguishes options that have a single underlying security from those that are more complex:  multiple securities,cash components, binary options,etc:  'None','Simple','Complex','AllCash','Binary'</summary>
+     /// <summary>distinguishes options that have a single underlying security from those that are more complex:  multiple securities,cash components, binary options,etc:  'None','Simple','Complex','AllCash','Binary'</summary>
     public Multihedge Multihedge { get => body.multihedge; set => body.multihedge = value; }
      /// <summary>print implied vol</summary>
     public float PrtIv { get => body.prtIv; set => body.prtIv = value; }
@@ -5712,11 +5731,11 @@ public partial class OptionPrintMarkup : IMessage
     public float SurfOpx { get => body.surfOpx; set => body.surfOpx = value; }
      /// <summary>SR surface ATM vol</summary>
     public float SurfAtm { get => body.surfAtm; set => body.surfAtm = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound print packet PTP timestamp from SR gateway switch</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -5845,7 +5864,7 @@ public partial class OptionRiskFactor : IMessage
 				
         }
         
-        
+        /// <summary>option key (ticker + expiry + strike + call/put)</summary>
         public OptionKey Okey { get => OptionKey.GetCreateOptionKey(body.okey); set => body.okey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -5934,7 +5953,7 @@ public partial class OptionRiskFactor : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>option surface volatility</summary>
     public float Svol { get => body.svol; set => body.svol = value; }
@@ -5970,7 +5989,7 @@ public partial class OptionRiskFactor : IMessage
     public string CalcErr { get => body.calcErr; set => body.calcErr = value; }
      
     public CalcSource CalcSource { get => body.calcSource; set => body.calcSource = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -6103,9 +6122,9 @@ public partial class ProductDefinitionV2 : IMessage
 				
         }
         
-        /// <summary>SR Security Key [can be partially filled in (look at secType)]</summary>
+        /// <summary>composite security key of the futures contract</summary>
         public OptionKey SecKey { get => OptionKey.GetCreateOptionKey(body.secKey); set => body.secKey = value.Layout; }
-         /// <summary>Security Type [Future]</summary>
+         /// <summary>security type [Future]</summary>
         public SpdrKeyType SecType { get => body.secType; set => body.secType = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -6214,19 +6233,19 @@ public partial class ProductDefinitionV2 : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>unique exchange id (exch assigned)</summary>
+    /// <summary>exchange-assigned security identifier</summary>
     public string SecurityID { get; set; } = string.Empty;
-     /// <summary>master underlier</summary>
+     /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      
     public ProductClass ProductClass { get => body.productClass; set => body.productClass = value; }
-     /// <summary>Underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message</summary>
+     /// <summary>underlying product code.  I.E. All GE (Eurodollar) spreads, options, futures will be in the same productGroup - This is the Asset field from the SecurityDefinition message</summary>
     public string ProductGroup { get => body.productGroup; set => body.productGroup = value; }
-     /// <summary>Exchange specific code for a group of related securities that are all affected by market events.  I.E. All E-mini weekly options (EW) - This is SecurityGroup field from the SecurityDefinition messages</summary>
+     /// <summary>exchange specific code for a group of related securities that are all affected by market events.  I.E. All E-mini weekly options (EW) - This is SecurityGroup field from the SecurityDefinition messages</summary>
     public string SecurityGroup { get => body.securityGroup; set => body.securityGroup = value; }
-     /// <summary>Exchange specific market segment identifier</summary>
+     /// <summary>exchange specific market segment identifier</summary>
     public int MarketSegmentID { get => body.marketSegmentID; set => body.marketSegmentID = value; }
-     /// <summary>Full RIC Code - only provided for non-user defined instruments</summary>
+     /// <summary>full RIC Code - only provided for non-user defined instruments</summary>
     public string RicCode { get => body.ricCode; set => body.ricCode = value; }
      /// <summary>full exchange symbol</summary>
     public string SecurityDesc { get; set; } = string.Empty;
@@ -6288,7 +6307,7 @@ public partial class ProductDefinitionV2 : IMessage
     public YesNo IsHftTaxLiable { get => body.isHftTaxLiable; set => body.isHftTaxLiable = value; }
      /// <summary>value in seconds that any order activity (new, cancel, update) needs witheld for to prevent triggering hft (default .5 seconds per Italian tax)</summary>
     public double HftTaxTriggerTime { get => body.hftTaxTriggerTime; set => body.hftTaxTriggerTime = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -6915,7 +6934,7 @@ public partial class RootDefinition : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>master underlying (can be a stock/product group; eg. @ES)</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>long version of the root.  the short version is used in the TickerKey (for example RYAAY1, not RYAA1)</summary>
     public string OsiRoot { get => body.osiRoot; set => body.osiRoot = value; }
@@ -6939,9 +6958,9 @@ public partial class RootDefinition : IMessage
     public OptionType OptionType { get => body.optionType; set => body.optionType = value; }
      /// <summary>indicates type of multihedge (None = standard root; all other root types are not None)</summary>
     public Multihedge Multihedge { get => body.multihedge; set => body.multihedge = value; }
-     /// <summary>Exercise time type</summary>
+     /// <summary>exercise time type</summary>
     public ExerciseTime ExerciseTime { get => body.exerciseTime; set => body.exerciseTime = value; }
-     /// <summary>Exercise style</summary>
+     /// <summary>exercise style</summary>
     public ExerciseType ExerciseType { get => body.exerciseType; set => body.exerciseType = value; }
      /// <summary>trading time metric - 252 or 365 trading days or a weekly cycle type</summary>
     public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
@@ -7001,9 +7020,9 @@ public partial class RootDefinition : IMessage
     public string RicRoot { get => body.ricRoot; set => body.ricRoot = value; }
      /// <summary>Bloomberg root</summary>
     public string BbgRoot { get => body.bbgRoot; set => body.bbgRoot = value; }
-     /// <summary>Format for the year field in the Bloomberg Code</summary>
+     /// <summary>format for the year field in the Bloomberg Code</summary>
     public BbgYrCode BbgYrCode { get => body.bbgYrCode; set => body.bbgYrCode = value; }
-     /// <summary>Bloomberg Yellow Key</summary>
+     /// <summary>Bloomberg yellow key</summary>
     public YellowKey BbgGroup { get => body.bbgGroup; set => body.bbgGroup = value; }
      /// <summary>regional composite ticker - set on European contributor products only</summary>
     public TickerKey RegionalCompositeRoot { get => TickerKey.GetCreateTickerKey(body.regionalCompositeRoot); set => body.regionalCompositeRoot = value.Layout; }
@@ -7013,7 +7032,7 @@ public partial class RootDefinition : IMessage
     public double HftTaxTriggerTime { get => body.hftTaxTriggerTime; set => body.hftTaxTriggerTime = value; }
      /// <summary>product description (sourced from Activ FidName)</summary>
     public string Description { get => body.description; set => body.description = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>only v7: enum values do not match with v8: V7[None=0,Native=1,SyntheticExpiry=2], V8[Does Not Exist]</summary>
     public PricingSource_V7 PricingSource_V7 { get => body.pricingSource_V7; set => body.pricingSource_V7 = value; }
@@ -7593,9 +7612,9 @@ public partial class SpdrAuctionState : IMessage
 				
         }
         
-        
+        /// <summary>composite security key (can be stock, future, or option depending on secType)</summary>
         public OptionKey SecKey { get => OptionKey.GetCreateOptionKey(body.secKey); set => body.secKey = value.Layout; }
-         
+         /// <summary>security type [Stock, Future, Option, MLeg]</summary>
         public SpdrKeyType SecType { get => body.secType; set => body.secType = value; }
          /// <summary>exchange handling the auction</summary>
         public OptExch AuctionExch { get => body.auctionExch; set => body.auctionExch = value; }
@@ -7738,25 +7757,25 @@ public partial class SpdrAuctionState : IMessage
 
     /// <summary>unique SR AUCTION ID (required when responding to an auction notice)</summary>
     public long SrAuctionID { get => body.srAuctionID; set => body.srAuctionID = value; }
-     
+     /// <summary>last published auction id for the auction exchange</summary>
     public string ExchAuctionId { get => body.exchAuctionId; set => body.exchAuctionId = value; }
-     
+     /// <summary>exchange's own name for the auction program (eg COA, CUBE)</summary>
     public string ExchAuctionType { get => body.exchAuctionType; set => body.exchAuctionType = value; }
      /// <summary>test auction (should only respond from T.accnts)</summary>
     public YesNo IsTestAuction { get => body.isTestAuction; set => body.isTestAuction = value; }
-     
+     /// <summary>point in the auction lifecycle this record reports [None, Start, Update, End]</summary>
     public AuctionEvent AuctionEvent { get => body.auctionEvent; set => body.auctionEvent = value; }
-     
+     /// <summary>whether the auction is for a single option or a multi-leg package [None, Single, MLeg]</summary>
     public NoticeShape AuctionShape { get => body.auctionShape; set => body.auctionShape = value; }
-     
+     /// <summary>auction mechanism normalized across exchanges (eg Exposure, Improvement, Facilitation, Solicitation)</summary>
     public AuctionType AuctionType { get => body.auctionType; set => body.auctionType = value; }
-     /// <summary>Market side (client/imbalance side of auction; if known) [responder should be opposite side]</summary>
+     /// <summary>market side (client/imbalance side of auction; if known) [responder should be opposite side]</summary>
     public BuySell AuctionSide { get => body.auctionSide; set => body.auctionSide = value; }
      /// <summary>size available to trade</summary>
     public int AuctionSize { get => body.auctionSize; set => body.auctionSize = value; }
      /// <summary>auction price (can be positive or negative)</summary>
     public double AuctionPrice { get => body.auctionPrice; set => body.auctionPrice = value; }
-     
+     /// <summary>Yes when auctionPrice carries a real price; No when the exchange sent none and auctionPrice is 0</summary>
     public YesNo IsAuctionPriceValid { get => body.isAuctionPriceValid; set => body.isAuctionPriceValid = value; }
      /// <summary>expected auction / imbalance action duration (ms)</summary>
     public int AuctionDuration { get => body.auctionDuration; set => body.auctionDuration = value; }
@@ -7782,25 +7801,25 @@ public partial class SpdrAuctionState : IMessage
     public int MatchedSize { get => body.matchedSize; set => body.matchedSize = value; }
      /// <summary>number of auction updates received (not counting auction termination message)</summary>
     public byte NumUpdates { get => body.numUpdates; set => body.numUpdates = value; }
-     /// <summary>as reported by exchange (if available)</summary>
+     /// <summary>number of auction responses received, as reported by exchange (if available)</summary>
     public byte NumResponses { get => body.numResponses; set => body.numResponses = value; }
-     
+     /// <summary>size of the best auction response received so far</summary>
     public int BestResponseSize { get => body.bestResponseSize; set => body.bestResponseSize = value; }
-     
+     /// <summary>price of the best auction response received so far (can be positive or negative)</summary>
     public double BestResponsePrice { get => body.bestResponsePrice; set => body.bestResponsePrice = value; }
-     /// <summary>as reported by exchange (if available)</summary>
+     /// <summary>total quantity filled in the auction so far, as reported by exchange (if available)</summary>
     public int CumFillQuantity { get => body.cumFillQuantity; set => body.cumFillQuantity = value; }
-     
+     /// <summary>average price of auction fills so far, as reported by exchange (if available)</summary>
     public double AvgFillPrice { get => body.avgFillPrice; set => body.avgFillPrice = value; }
      /// <summary>market status (pre-open, open, closed, etc)</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
-     /// <summary>source timestamp (nanoseconds) if available</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>network timestamp message arrival @ direct exchange gateway</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      /// <summary>network timestamp mbus message send @ direct exchange gateway</summary>
     public long DgwTimestamp { get => body.dgwTimestamp; set => body.dgwTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -8029,7 +8048,7 @@ public partial class SpreadBookQuote : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>common spread underlier</summary>
+    /// <summary>underlying stock or product ticker; shared by every leg</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>bid price</summary>
     public double BidPrice1 { get => body.bidPrice1; set => body.bidPrice1 = value; }
@@ -8075,7 +8094,7 @@ public partial class SpreadBookQuote : IMessage
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
      /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>what the leg set spans; MultiTicker = cross-complex</summary>
     public SpreadScope ScopeFlags { get => body.scopeFlags; set => body.scopeFlags = value; }
@@ -8312,7 +8331,7 @@ public partial class SpreadExchOrder : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>underlier (or product group) tickerKey</summary>
+    /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      /// <summary>exchange order ID</summary>
     public string OrderID { get => body.orderID; set => body.orderID = value; }
@@ -8348,7 +8367,7 @@ public partial class SpreadExchOrder : IMessage
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
      /// <summary>SpiderRock data gateway timestamp</summary>
     public long DgwTimestamp { get => body.dgwTimestamp; set => body.dgwTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>unique exchange spread id</summary>
     public string ExchSprID { get => body.exchSprID; set => body.exchSprID = value; }
@@ -8509,7 +8528,7 @@ public partial class SpreadExchPrint : IMessage
         
         /// <summary>SR assigned print number</summary>
         public long PrintNumber { get => body.printNumber; set => body.printNumber = value; }
-         /// <summary>Exchange reporting print</summary>
+         /// <summary>exchange reporting print</summary>
         public OptExch Exch { get => body.exch; set => body.exch = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -8635,7 +8654,7 @@ public partial class SpreadExchPrint : IMessage
     public ContentKey SpreadID { get => body.spreadID; set => body.spreadID = value; }
      
     public string StrategyID { get => body.strategyID; set => body.strategyID = value; }
-     /// <summary>underlier (or product group) tickerKey (from leg option)</summary>
+     /// <summary>underlying stock or product ticker</summary>
     public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
      
     public BuySell Side { get => body.side; set => body.side = value; }
@@ -8671,7 +8690,7 @@ public partial class SpreadExchPrint : IMessage
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
      /// <summary>PTP timestamp</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>what the leg set spans; MultiTicker = cross-complex</summary>
     public SpreadScope ScopeFlags { get => body.scopeFlags; set => body.scopeFlags = value; }
@@ -8684,6 +8703,7 @@ public partial class SpreadExchPrint : IMessage
 /// StockBookQuote:3000
 /// </summary>
 /// <remarks>
+	/// One record per ticker, replaced on each book change; updateType says whether the price, the size or both changed.
 	/// This table contains live equity quote records for all CQS/UQDF securities as well as US OTC equity securities, SpiderRock synthetic markets, and a number of major indexes.  Each record contains up to two price levels and represents a live snapshot of the book for a specific market./// </remarks>
 
 public partial class StockBookQuote : IMessage
@@ -8802,7 +8822,7 @@ public partial class StockBookQuote : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -8893,7 +8913,7 @@ public partial class StockBookQuote : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>what changed on this update [None, PrcChange, SizeOnly, PrevPeriod]</summary>
     public UpdateType UpdateType { get => body.updateType; set => body.updateType = value; }
      /// <summary>market status (open, halted, etc)</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
@@ -8901,7 +8921,7 @@ public partial class StockBookQuote : IMessage
     public float BidPrice1 { get => body.bidPrice1; set => body.bidPrice1 = value; }
      /// <summary>bid size for best price level</summary>
     public int BidSize1 { get => body.bidSize1; set => body.bidSize1 = value; }
-     
+     /// <summary>exchange at the best bid</summary>
     public StkExch BidExch1 { get => body.bidExch1; set => body.bidExch1 = value; }
      /// <summary>bid exchange bit mask for best bid price level</summary>
     public long BidMask1 { get => body.bidMask1; set => body.bidMask1 = value; }
@@ -8931,9 +8951,9 @@ public partial class StockBookQuote : IMessage
     public long AskMask2 { get => body.askMask2; set => body.askMask2 = value; }
      /// <summary>bit mask of halted exchanges</summary>
     public long HaltMask { get => body.haltMask; set => body.haltMask = value; }
-     /// <summary>source high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch;usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -9063,13 +9083,13 @@ public partial class StockExchImbalanceV2 : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
-         /// <summary>Projected Auction Time (hhmm).</summary>
+         /// <summary>projected auction time (hhmm).</summary>
         public DateTime AuctionTime { get => body.auctionTime; set => body.auctionTime = value; }
-         
+         /// <summary>reason the auction is being held</summary>
         public AuctionReason AuctionType { get => body.auctionType; set => body.auctionType = value; }
-         
+         /// <summary>primary exchange reporting the imbalance</summary>
         public PrimaryExchange Exchange { get => body.exchange; set => body.exchange = value; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -9163,35 +9183,35 @@ public partial class StockExchImbalanceV2 : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>For Pillar-powered markets, the Reference Price is used to calculate the Indicative Match Price.</summary>
+    /// <summary>for pillar-powered markets, the Reference Price is used to calculate the Indicative Match Price.</summary>
     public float ReferencePx { get => body.referencePx; set => body.referencePx = value; }
-     /// <summary>For Pillar-powered markets, the number of shares paired off at the Indicative Match Price.</summary>
+     /// <summary>for pillar-powered markets, the number of shares paired off at the Indicative Match Price.</summary>
     public int PairedQty { get => body.pairedQty; set => body.pairedQty = value; }
-     /// <summary>For Pillar-powered markets, the total imbalance quantity at the Indicative Match Price.</summary>
+     /// <summary>for pillar-powered markets, the total imbalance quantity at the Indicative Match Price.</summary>
     public int TotalImbalanceQty { get => body.totalImbalanceQty; set => body.totalImbalanceQty = value; }
-     /// <summary>For Pillar-powered markets, the total market order imbalance quantity at the Indicative Match Price.</summary>
+     /// <summary>for pillar-powered markets, the total market order imbalance quantity at the Indicative Match Price.</summary>
     public int MarketImbalanceQty { get => body.marketImbalanceQty; set => body.marketImbalanceQty = value; }
-     /// <summary>The side of the TotalImbalanceQty.</summary>
+     /// <summary>the side of the TotalImbalanceQty.</summary>
     public ImbalanceSide ImbalanceSide { get => body.imbalanceSide; set => body.imbalanceSide = value; }
-     /// <summary>For Pillar-powered markets, the price at which all interest on the book can trade, including auction and imbalance offset interest, and disregarding auction collars.</summary>
+     /// <summary>for pillar-powered markets, the price at which all interest on the book can trade, including auction and imbalance offset interest, and disregarding auction collars.</summary>
     public float ContinuousBookClrPx { get => body.continuousBookClrPx; set => body.continuousBookClrPx = value; }
-     /// <summary>For Pillar-powered markets, the price at which all eligible auction-only interest would trade, subject to auction collars.</summary>
+     /// <summary>for pillar-powered markets, the price at which all eligible auction-only interest would trade, subject to auction collars.</summary>
     public float ClosingOnlyClrPx { get => body.closingOnlyClrPx; set => body.closingOnlyClrPx = value; }
-     /// <summary>For Pillar-powered markets, not supported and defaulted to 0.</summary>
+     /// <summary>for pillar-powered markets, not supported and defaulted to 0.</summary>
     public float SsrFillingPx { get => body.ssrFillingPx; set => body.ssrFillingPx = value; }
-     /// <summary>For Pillar-powered markets, the price that has the highest executable volume of auction-eligible shares, subject to auction collars. It includes the non-displayed quantity of Reserve Orders.</summary>
+     /// <summary>for pillar-powered markets, the price that has the highest executable volume of auction-eligible shares, subject to auction collars. It includes the non-displayed quantity of Reserve Orders.</summary>
     public float IndicativeMatchPx { get => body.indicativeMatchPx; set => body.indicativeMatchPx = value; }
-     /// <summary>If the IndicativeMatchPrice is not strictly between the UpperCollar and the LowerCollar, special auction rules apply. See Rule 7.35P for details.</summary>
+     /// <summary>if the IndicativeMatchPrice is not strictly between the UpperCollar and the LowerCollar, special auction rules apply. See Rule 7.35P for details.</summary>
     public float UpperCollar { get => body.upperCollar; set => body.upperCollar = value; }
-     /// <summary>If the IndicativeMatchPrice is not strictly between the UpperCollar and the LowerCollar, special auction rules apply. See Rule 7.35P for details.</summary>
+     /// <summary>if the IndicativeMatchPrice is not strictly between the UpperCollar and the LowerCollar, special auction rules apply. See Rule 7.35P for details.</summary>
     public float LowerCollar { get => body.lowerCollar; set => body.lowerCollar = value; }
-     /// <summary>Indicates whether the auction will run.</summary>
+     /// <summary>indicates whether the auction will run.</summary>
     public AuctionStatus AuctionStatus { get => body.auctionStatus; set => body.auctionStatus = value; }
-     
+     /// <summary>Yes when the auction book is frozen</summary>
     public YesNo FreezeStatus { get => body.freezeStatus; set => body.freezeStatus = value; }
-     /// <summary>Number of times the halt period has been extended.</summary>
+     /// <summary>number of times the halt period has been extended.</summary>
     public byte NumExtensions { get => body.numExtensions; set => body.numExtensions = value; }
-     /// <summary>PTP timestamp</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -9321,7 +9341,7 @@ public partial class StockImbalance : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
          /// <summary>Opening/Closing</summary>
         public AuctionReason AuctionType { get => body.auctionType; set => body.auctionType = value; }
@@ -9407,27 +9427,27 @@ public partial class StockImbalance : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>time of the closing auction</summary>
     public DateTime AuctionTime { get => body.auctionTime; set => body.auctionTime = value; }
-     
+     /// <summary>largest imbalance reported by any exchange</summary>
     public int MaxImbalance { get => body.maxImbalance; set => body.maxImbalance = value; }
-     
+     /// <summary>exchange reporting the largest imbalance</summary>
     public StkExch MaxImbalanceExch { get => body.maxImbalanceExch; set => body.maxImbalanceExch = value; }
-     
+     /// <summary>indicative match price at the exchange reporting the largest imbalance</summary>
     public double MaxImbalanceMatchPx { get => body.maxImbalanceMatchPx; set => body.maxImbalanceMatchPx = value; }
-     
+     /// <summary>auction status at the exchange reporting the largest imbalance</summary>
     public AuctionStatus MaxImbalanceStatus { get => body.maxImbalanceStatus; set => body.maxImbalanceStatus = value; }
-     
+     /// <summary>cumulative market-order bid imbalance across exchanges</summary>
     public int CumBidImbalanceMkt { get => body.cumBidImbalanceMkt; set => body.cumBidImbalanceMkt = value; }
-     
+     /// <summary>cumulative market-order ask imbalance across exchanges</summary>
     public int CumAskImbalanceMkt { get => body.cumAskImbalanceMkt; set => body.cumAskImbalanceMkt = value; }
-     
+     /// <summary>cumulative total bid imbalance across exchanges</summary>
     public int CumBidImbalanceTot { get => body.cumBidImbalanceTot; set => body.cumBidImbalanceTot = value; }
-     
+     /// <summary>cumulative total ask imbalance across exchanges</summary>
     public int CumAskImbalanceTot { get => body.cumAskImbalanceTot; set => body.cumAskImbalanceTot = value; }
-     
+     /// <summary>cumulative paired quantity across exchanges</summary>
     public int CumPairedQty { get => body.cumPairedQty; set => body.cumPairedQty = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -9438,6 +9458,7 @@ public partial class StockImbalance : IMessage
 /// StockMarketSummary:3040
 /// </summary>
 /// <remarks>
+	/// One record per active ticker, refreshed through the trading day as the market moves.
 	/// These records represent live market summary snapshots for equity, index, and synthetic markets./// </remarks>
 
 public partial class StockMarketSummary : IMessage
@@ -9556,7 +9577,7 @@ public partial class StockMarketSummary : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -9648,7 +9669,7 @@ public partial class StockMarketSummary : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>trade date</summary>
     public DateKey TradeDate { get => DateKey.GetCreateDateKey(body.tradeDate); set => body.tradeDate = value.Layout; }
      /// <summary>first print price of the day during regular market hours</summary>
     public double OpnPrice { get => body.opnPrice; set => body.opnPrice = value; }
@@ -9662,13 +9683,13 @@ public partial class StockMarketSummary : IMessage
     public double MaxPrice { get => body.maxPrice; set => body.maxPrice = value; }
      /// <summary>shares outstanding</summary>
     public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
-     /// <summary>num prints &lt;= quote.bid</summary>
+     /// <summary>num prints less than or equal to quote.bid</summary>
     public int BidCount { get => body.bidCount; set => body.bidCount = value; }
-     /// <summary>volume when prtPrice &lt;= quote.bid</summary>
+     /// <summary>volume when prtPrice less than or equal to quote.bid</summary>
     public int BidVolume { get => body.bidVolume; set => body.bidVolume = value; }
-     /// <summary>num prints &gt;= quote.ask</summary>
+     /// <summary>num prints greater than or equal to quote.ask</summary>
     public int AskCount { get => body.askCount; set => body.askCount = value; }
-     /// <summary>volume when prtPrice &gt;= quote.ask</summary>
+     /// <summary>volume when prtPrice greater than or equal to quote.ask</summary>
     public int AskVolume { get => body.askVolume; set => body.askVolume = value; }
      /// <summary>num prints inside quote.bid / quote.ask</summary>
     public int MidCount { get => body.midCount; set => body.midCount = value; }
@@ -9690,7 +9711,7 @@ public partial class StockMarketSummary : IMessage
     public float ExpBidSize { get => body.expBidSize; set => body.expBidSize = value; }
      /// <summary>exponential average ask size (10 minute 1/2 life)</summary>
     public float ExpAskSize { get => body.expAskSize; set => body.expAskSize = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -9701,6 +9722,8 @@ public partial class StockMarketSummary : IMessage
 /// StockPrint:3045
 /// </summary>
 /// <remarks>
+	/// One record per ticker, replaced by each new print, so the record always holds the latest trade.
+	/// prtSize is in shares.
 	/// The most recent (last) print record for CTS/UTDF markets as well as SpiderRock synthetic markets.  Records also incorporate some summary detail and closing mark information as well./// </remarks>
 
 public partial class StockPrint : IMessage
@@ -9819,7 +9842,7 @@ public partial class StockPrint : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -9918,7 +9941,7 @@ public partial class StockPrint : IMessage
 
     /// <summary>print exch</summary>
     public StkExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
-     /// <summary>print size</summary>
+     /// <summary>print size [shares]</summary>
     public int PrtSize { get => body.prtSize; set => body.prtSize = value; }
      /// <summary>print size today in fractional qty</summary>
     public float PrtSizeFractional { get => body.prtSizeFractional; set => body.prtSizeFractional = value; }
@@ -9940,17 +9963,17 @@ public partial class StockPrint : IMessage
     public float MrkPrice { get => body.mrkPrice; set => body.mrkPrice = value; }
      /// <summary>official closing price (if available)</summary>
     public float ClsPrice { get => body.clsPrice; set => body.clsPrice = value; }
-     
+     /// <summary>stock print type</summary>
     public StkPrintType PrtType { get => body.prtType; set => body.prtType = value; }
-     /// <summary>European trade condition codes</summary>
+     /// <summary>european trade condition codes</summary>
     public string PrintCodes { get => body.printCodes; set => body.printCodes = value; }
      /// <summary>print condition (from SIP feed)</summary>
     public byte PrtCond1 { get => body.prtCond1; set => body.prtCond1 = value; }
-     
+     /// <summary>print condition code 2</summary>
     public byte PrtCond2 { get => body.prtCond2; set => body.prtCond2 = value; }
-     
+     /// <summary>print condition code 3</summary>
     public byte PrtCond3 { get => body.prtCond3; set => body.prtCond3 = value; }
-     
+     /// <summary>print condition code 4</summary>
     public byte PrtCond4 { get => body.prtCond4; set => body.prtCond4 = value; }
      /// <summary>exchange bid (@ print time) [SIP feed]</summary>
     public float Ebid { get => body.ebid; set => body.ebid = value; }
@@ -9962,13 +9985,13 @@ public partial class StockPrint : IMessage
     public int Easz { get => body.easz; set => body.easz = value; }
      /// <summary>age of prevailing quote at time of print</summary>
     public float Eage { get => body.eage; set => body.eage = value; }
-     
+     /// <summary>print side: None; Mid; Bid; Ask</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>the matching engine's or participant's time where the feed carries one, else the sender's stamp</summary>
     public long PrtTimestamp { get => body.prtTimestamp; set => body.prtTimestamp = value; }
-     /// <summary>inbound packet PTP timestamp from SR gateway switch; usually syncronized with facility grandfather clock</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -9979,6 +10002,7 @@ public partial class StockPrint : IMessage
 /// StockPrintMarkup:3055
 /// </summary>
 /// <remarks>
+	/// Each record carries the NBBO quote as it stood at print arrival time alongside the print itself.
 	/// StockPrintMarkup records are created/published for all stock prints/// </remarks>
 
 public partial class StockPrintMarkup : IMessage
@@ -10097,7 +10121,7 @@ public partial class StockPrintMarkup : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -10192,11 +10216,11 @@ public partial class StockPrintMarkup : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>sequential print number within the trading period</summary>
     public long PrtNumber { get => body.prtNumber; set => body.prtNumber = value; }
      /// <summary>print exch</summary>
     public StkExch PrtExch { get => body.prtExch; set => body.prtExch = value; }
-     /// <summary>print size</summary>
+     /// <summary>print size [shares]</summary>
     public int PrtSize { get => body.prtSize; set => body.prtSize = value; }
      /// <summary>print price level</summary>
     public float PrtPrice { get => body.prtPrice; set => body.prtPrice = value; }
@@ -10212,21 +10236,21 @@ public partial class StockPrintMarkup : IMessage
     public byte PrtType { get => body.prtType; set => body.prtType = value; }
      /// <summary>print condition (from SIP feed)</summary>
     public byte PrtCond1 { get => body.prtCond1; set => body.prtCond1 = value; }
-     
+     /// <summary>print condition code 2</summary>
     public byte PrtCond2 { get => body.prtCond2; set => body.prtCond2 = value; }
-     
+     /// <summary>print condition code 3</summary>
     public byte PrtCond3 { get => body.prtCond3; set => body.prtCond3 = value; }
-     
+     /// <summary>print condition code 4</summary>
     public byte PrtCond4 { get => body.prtCond4; set => body.prtCond4 = value; }
-     /// <summary>Print side: None; Mid; Bid; Ask</summary>
+     /// <summary>print side: None; Mid; Bid; Ask</summary>
     public PrtSide PrtSide { get => body.prtSide; set => body.prtSide = value; }
-     /// <summary>nbbo bid @ print arrival time</summary>
+     /// <summary>bid price; nbbo at print arrival time</summary>
     public float BidPrice { get => body.bidPrice; set => body.bidPrice = value; }
-     /// <summary>nbbo ask @ print arrival time</summary>
+     /// <summary>ask price; nbbo at print arrival time</summary>
     public float AskPrice { get => body.askPrice; set => body.askPrice = value; }
-     
+     /// <summary>bid size in shares</summary>
     public int BidSize { get => body.bidSize; set => body.bidSize = value; }
-     
+     /// <summary>ask size in shares</summary>
     public int AskSize { get => body.askSize; set => body.askSize = value; }
      /// <summary>nbbo 2nd best bid @ print arrival time</summary>
     public float BidPrice2 { get => body.bidPrice2; set => body.bidPrice2 = value; }
@@ -10236,11 +10260,11 @@ public partial class StockPrintMarkup : IMessage
     public int BidSize2 { get => body.bidSize2; set => body.bidSize2 = value; }
      /// <summary>nbbo 2nd best ask size</summary>
     public int AskSize2 { get => body.askSize2; set => body.askSize2 = value; }
-     /// <summary>exchange high precision timestamp (if available)</summary>
+     /// <summary>source exchange high-precision timestamp (if available)</summary>
     public long SrcTimestamp { get => body.srcTimestamp; set => body.srcTimestamp = value; }
-     /// <summary>inbound print packet PTP timestamp from SR gateway switch</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -10251,6 +10275,8 @@ public partial class StockPrintMarkup : IMessage
 /// SyntheticExpiryQuote:2700
 /// </summary>
 /// <remarks>
+	/// fairPrice is the underlier price implied by the option market.
+	/// bidSource and askSource say which market each side of the implied quote was derived from.
 	/// Live synthetic expiry quotes are SpiderRock option/expiry underlier quotes.  These can be from synthetic/implied futures quotes or other sources/// </remarks>
 
 public partial class SyntheticExpiryQuote : IMessage
@@ -10369,7 +10395,7 @@ public partial class SyntheticExpiryQuote : IMessage
 				
         }
         
-        /// <summary>root + expiry</summary>
+        /// <summary>expiry key (ticker + expiry date); root + expiry</summary>
         public ExpiryKey Ekey { get => ExpiryKey.GetCreateExpiryKey(body.ekey); set => body.ekey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -10448,23 +10474,23 @@ public partial class SyntheticExpiryQuote : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>fair price implied by the option market</summary>
     public double FairPrice { get => body.fairPrice; set => body.fairPrice = value; }
-     /// <summary>best implied bid price</summary>
+     /// <summary>bid price; best implied bid</summary>
     public double BidPrice { get => body.bidPrice; set => body.bidPrice = value; }
-     /// <summary>best implied ask price</summary>
+     /// <summary>ask price; best implied ask</summary>
     public double AskPrice { get => body.askPrice; set => body.askPrice = value; }
-     /// <summary>best implied bid size</summary>
+     /// <summary>bid size in contracts; best implied bid size</summary>
     public int BidSize { get => body.bidSize; set => body.bidSize = value; }
-     /// <summary>best implied ask size</summary>
+     /// <summary>ask size in contracts; best implied ask size</summary>
     public int AskSize { get => body.askSize; set => body.askSize = value; }
-     
+     /// <summary>source the implied bid was derived from</summary>
     public SyntheticSource BidSource { get => body.bidSource; set => body.bidSource = value; }
-     
+     /// <summary>source the implied ask was derived from</summary>
     public SyntheticSource AskSource { get => body.askSource; set => body.askSource = value; }
      /// <summary>composite market status of all dependent markets</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
-     /// <summary>most recent net timestamp of any market affecting this record</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock; taken from the most recent input market behind this implied quote</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -10475,6 +10501,8 @@ public partial class SyntheticExpiryQuote : IMessage
 /// SyntheticFutureQuote:2695
 /// </summary>
 /// <remarks>
+	/// Prices are adjusted for the option expiry, so they are comparable with a listed future of the same expiry.
+	/// bidSource and askSource say which market each side of the implied quote was derived from.
 	/// Live synthetic future quotes are SpiderRock implied futures quotes derived from roll prices./// </remarks>
 
 public partial class SyntheticFutureQuote : IMessage
@@ -10593,7 +10621,7 @@ public partial class SyntheticFutureQuote : IMessage
 				
         }
         
-        /// <summary>ccode + expiry</summary>
+        /// <summary>future expiry key (ticker + expiry date); ccode + expiry for a synthetic future</summary>
         public ExpiryKey Fkey { get => ExpiryKey.GetCreateExpiryKey(body.fkey); set => body.fkey = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -10671,21 +10699,21 @@ public partial class SyntheticFutureQuote : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>best implied future bid price (adjusted for option expiry)</summary>
+    /// <summary>bid price; best implied future bid, adjusted for option expiry</summary>
     public double BidPrice { get => body.bidPrice; set => body.bidPrice = value; }
-     /// <summary>best implied future ask price (adjusted for option expiry)</summary>
+     /// <summary>ask price; best implied future ask, adjusted for option expiry</summary>
     public double AskPrice { get => body.askPrice; set => body.askPrice = value; }
-     /// <summary>best implied future bid size</summary>
+     /// <summary>bid size in contracts; best implied future bid size</summary>
     public int BidSize { get => body.bidSize; set => body.bidSize = value; }
-     /// <summary>best implied future ask size</summary>
+     /// <summary>ask size in contracts; best implied future ask size</summary>
     public int AskSize { get => body.askSize; set => body.askSize = value; }
-     
+     /// <summary>source the implied bid was derived from</summary>
     public SyntheticSource BidSource { get => body.bidSource; set => body.bidSource = value; }
-     
+     /// <summary>source the implied ask was derived from</summary>
     public SyntheticSource AskSource { get => body.askSource; set => body.askSource = value; }
      /// <summary>composite market status of all dependent markets</summary>
     public MarketStatus MarketStatus { get => body.marketStatus; set => body.marketStatus = value; }
-     /// <summary>most recent net timestamp of any market affecting this record</summary>
+     /// <summary>inbound packet PTP timestamp from SR gateway switch; synchronized with facility grandfather clock; taken from the most recent input market behind this implied quote</summary>
     public long NetTimestamp { get => body.netTimestamp; set => body.netTimestamp = value; }
 
 
@@ -10814,7 +10842,7 @@ public partial class TickerDefinitionExt : IMessage
 				
         }
         
-        
+        /// <summary>underlying stock or product ticker</summary>
         public TickerKey Ticker { get => TickerKey.GetCreateTickerKey(body.ticker); set => body.ticker = value.Layout; }
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -10933,17 +10961,17 @@ public partial class TickerDefinitionExt : IMessage
 
     internal BodyLayout body;
 
-    
+    /// <summary>instrument classification of this symbol</summary>
     public SymbolType SymbolType { get => body.symbolType; set => body.symbolType = value; }
-     /// <summary>Symbol name</summary>
+     /// <summary>symbol name</summary>
     public string Name { get => body.name; set => body.name = value; }
-     /// <summary>Name of issuer</summary>
+     /// <summary>name of issuer</summary>
     public string IssuerName { get => body.issuerName; set => body.issuerName = value; }
      /// <summary>ISO Issuer Country Code</summary>
     public string CntryOfIncorp { get => body.cntryOfIncorp; set => body.cntryOfIncorp = value; }
-     /// <summary>Security Parvalue</summary>
+     /// <summary>security parvalue</summary>
     public float ParValue { get => body.parValue; set => body.parValue = value; }
-     /// <summary>Security Parvalue currency</summary>
+     /// <summary>security parvalue currency</summary>
     public string ParValueCurrency { get => body.parValueCurrency; set => body.parValueCurrency = value; }
      
     public float PointValue { get => body.pointValue; set => body.pointValue = value; }
@@ -10955,7 +10983,7 @@ public partial class TickerDefinitionExt : IMessage
     public float MinTickSize { get => body.minTickSize; set => body.minTickSize = value; }
      
     public PrimaryExchange PrimaryExch { get => body.primaryExch; set => body.primaryExch = value; }
-     /// <summary>Alt Security ID number</summary>
+     /// <summary>alt security ID number</summary>
     public long AltID { get => body.altID; set => body.altID = value; }
      /// <summary>ISO Market Identification Code</summary>
     public string Mic { get => body.mic; set => body.mic = value; }
@@ -10963,37 +10991,37 @@ public partial class TickerDefinitionExt : IMessage
     public string MicSeg { get => body.micSeg; set => body.micSeg = value; }
      /// <summary>stock symbol</summary>
     public string Symbol { get => body.symbol; set => body.symbol = value; }
-     /// <summary>issue class of stock symbol.  if no issue class field will be blank.</summary>
+     /// <summary>issue class of the stock symbol; blank when there is none</summary>
     public string IssueClass { get => body.issueClass; set => body.issueClass = value; }
-     /// <summary>Security ID number from the source - Vendor, SR, Feed</summary>
+     /// <summary>exchange-assigned security identifier</summary>
     public int SecurityID { get => body.securityID; set => body.securityID = value; }
      /// <summary>SIC (Standard Industrial Classification) code</summary>
     public string Sic { get => body.sic; set => body.sic = value; }
-     /// <summary>Central Index Key (US specific)</summary>
+     /// <summary>central index key (US specific)</summary>
     public string Cik { get => body.cik; set => body.cik = value; }
-     /// <summary>Global Industry Classification Standard</summary>
+     /// <summary>global industry classification standard</summary>
     public string Gics { get => body.gics; set => body.gics = value; }
-     /// <summary>Legal Entity Identifier</summary>
+     /// <summary>legal entity identifier</summary>
     public string Lei { get => body.lei; set => body.lei = value; }
      /// <summary>North American Industry Classification System</summary>
     public string Naics { get => body.naics; set => body.naics = value; }
-     /// <summary>ISO Classification of Financial Instruments</summary>
+     /// <summary>ISO 10962 classification of financial instruments</summary>
     public string Cfi { get => body.cfi; set => body.cfi = value; }
-     /// <summary>Complementay Identification Code</summary>
+     /// <summary>complementary identification code</summary>
     public string Cic { get => body.cic; set => body.cic = value; }
-     /// <summary>Financial Instrument Short Name</summary>
+     /// <summary>financial instrument short name</summary>
     public string Fisn { get => body.fisn; set => body.fisn = value; }
      /// <summary>ISIN code</summary>
     public string Isin { get => body.isin; set => body.isin = value; }
-     /// <summary>Bloomberg Composite Ticker</summary>
+     /// <summary>Bloomberg composite ticker</summary>
     public string BbgCompositeTicker { get => body.bbgCompositeTicker; set => body.bbgCompositeTicker = value; }
-     /// <summary>Bloomberg Exchange Ticker</summary>
+     /// <summary>Bloomberg exchange ticker</summary>
     public string BbgExchangeTicker { get => body.bbgExchangeTicker; set => body.bbgExchangeTicker = value; }
-     /// <summary>Bloomberg Composite Global ID</summary>
+     /// <summary>Bloomberg composite global ID</summary>
     public string BbgCompositeGlobalID { get => body.bbgCompositeGlobalID; set => body.bbgCompositeGlobalID = value; }
-     /// <summary>Bloomberg Global ID</summary>
+     /// <summary>Bloomberg global ID</summary>
     public string BbgGlobalID { get => body.bbgGlobalID; set => body.bbgGlobalID = value; }
-     /// <summary>Bloomberg Trading Currency</summary>
+     /// <summary>Bloomberg trading currency</summary>
     public string BbgCurrency { get => body.bbgCurrency; set => body.bbgCurrency = value; }
      /// <summary>trailing 20-day average daily stock volume (TickerAnalytics 3255 avgVolume); no daily count in V3</summary>
     public float StkVolume { get => body.stkVolume; set => body.stkVolume = value; }
@@ -11003,11 +11031,11 @@ public partial class TickerDefinitionExt : IMessage
     public float OptVolume { get => body.optVolume; set => body.optVolume = value; }
      /// <summary>exchanges listing any options on this underlying</summary>
     public string ExchString { get => body.exchString; set => body.exchString = value; }
-     /// <summary>Has Options flag</summary>
+     /// <summary>has options flag</summary>
     public YesNo HasOptions { get => body.hasOptions; set => body.hasOptions = value; }
      /// <summary>total number of listed options</summary>
     public int NumOptions { get => body.numOptions; set => body.numOptions = value; }
-     /// <summary>round lot</summary>
+     /// <summary>number of shares in one round lot; not always 100 outside the US</summary>
     public int Roundlot { get => body.roundlot; set => body.roundlot = value; }
      /// <summary>symbol shares outstanding, represented in thousands (actualsharesoutstanding = sharesoutstanding * 1000)</summary>
     public long SharesOutstanding { get => body.sharesOutstanding; set => body.sharesOutstanding = value; }
@@ -11021,7 +11049,7 @@ public partial class TickerDefinitionExt : IMessage
     public int OtcDisclosureStatus { get => body.otcDisclosureStatus; set => body.otcDisclosureStatus = value; }
      
     public int OtcFlags { get => body.otcFlags; set => body.otcFlags = value; }
-     /// <summary>Ticker definition source: None; Vendor; OTC; SR; Exchange</summary>
+     /// <summary>ticker definition source: None; Vendor; OTC; SR; Exchange</summary>
     public TkDefSource TkDefSource { get => body.tkDefSource; set => body.tkDefSource = value; }
      
     public TkStatusFlag StatusFlag { get => body.statusFlag; set => body.statusFlag = value; }
@@ -11029,7 +11057,7 @@ public partial class TickerDefinitionExt : IMessage
     public TimeMetric TimeMetric { get => body.timeMetric; set => body.timeMetric = value; }
      
     public TradingPeriod TradingPeriod { get => body.tradingPeriod; set => body.tradingPeriod = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 
@@ -11111,17 +11139,117 @@ internal partial class MLinkCacheRequest : IMessage
 
     internal BodyLayout body;
 
-    /// <summary>query label (optional)</summary>
+    /// <summary>query label (optional) used for logging and query tracking</summary>
     public string QueryLabel { get => body.queryLabel; set => body.queryLabel = value; }
-     /// <summary>(optional) records must have a header.sentTs that is later than this value (nanoseconds after the UNIX epoch)</summary>
+     /// <summary>(optional) records must have a header.sentTs later than this value (nanoseconds after UNIX epoch)</summary>
     public long HighwaterTs { get => body.highwaterTs; set => body.highwaterTs = value; }
-     /// <summary>message.appId must match if &gt; 0</summary>
+     /// <summary>if greater than 0, message.appId must match this value</summary>
     public ushort SourceId { get => body.sourceId; set => body.sourceId = value; }
-     /// <summary>message.stripe must be in stripe list (if exists)</summary>
+     /// <summary>message.stripe must be in this stripe list (if supplied)</summary>
     public string Stripe { get => body.stripe; set => body.stripe = value; }
 
 
 } // MLinkCacheRequest
+
+
+/// <summary>
+/// MLinkCacheRequestV2:3356
+/// </summary>
+/// <remarks>
+/// </remarks>
+
+internal partial class MLinkCacheRequestV2 : IMessage
+{
+    #region IMessage implementation
+
+    public DateTime Received => new(unchecked(ReceivedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public DateTime Published => new(unchecked(PublishedNsecsSinceUnixEpoch/100 + DateTime.UnixEpoch.Ticks), DateTimeKind.Utc);
+
+    public long ReceivedNsecsSinceUnixEpoch { get; internal set; }
+    
+    public long PublishedNsecsSinceUnixEpoch => header.sentts;
+
+    public bool FromCache
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (header.bits & HeaderBits.FromCache) == HeaderBits.FromCache;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal set
+        {
+            if (value)
+            {
+                header.bits |= HeaderBits.FromCache;
+            }
+            else
+            {
+                header.bits &= ~HeaderBits.FromCache;
+            }
+        }
+    }
+
+    public ushort Type => header.msgtype;
+
+    #endregion
+
+    internal Header header = new() {msgtype = MessageType.MLinkCacheRequestV2};
+     
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    public class MsgTypeItem
+    {
+        public const int Length = 48;
+
+        public MsgTypeItem() { }
+        
+        public MsgTypeItem(string msgName, long schemaHash, long highwaterTs)
+        {
+            this.MsgName = msgName;
+			this.SchemaHash = schemaHash;
+			this.HighwaterTs = highwaterTs;
+        }
+
+        private MessageTypeName _msgName;
+		public string MsgName { get { return _msgName; } internal set { _msgName = value; } }
+		public long SchemaHash { get; internal set; }
+		public long HighwaterTs { get; internal set; }
+    }
+
+    public MsgTypeItem[] MsgTypeList { get; set; }
+
+     
+    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+    internal struct BodyLayout
+    {
+        public AppNameString queryLabel;
+		public long highwaterTs;
+		public ushort sourceId;
+		public YesNo acceptsArrow;
+		public long resumeTs;
+    }
+
+    internal BodyLayout body;
+
+    /// <summary>(optional) label echoed in logs and checkpoints</summary>
+    public string QueryLabel { get => body.queryLabel; set => body.queryLabel = value; }
+     /// <summary>(optional) records must have a header.sentTs later than this value (nanoseconds after the UNIX epoch)</summary>
+    public long HighwaterTs { get => body.highwaterTs; set => body.highwaterTs = value; }
+     /// <summary>(optional) message.appId must match if &gt; 0</summary>
+    public ushort SourceId { get => body.sourceId; set => body.sourceId = value; }
+     /// <summary>(optional) composite stripe spec; the tier's rows are then sent as frames</summary>
+    public string StripeFilter { get; set; } = string.Empty;
+     /// <summary>(optional) MLink where fragment on columns, eg. &quot;spreadClass:eq:VSpread&quot;; served as Arrow rows on a binary session with acceptsArrow, else Terminated; a field the type lacks Terminates</summary>
+    public string Where { get; set; } = string.Empty;
+     /// <summary>(optional) comma list of field names; the header and key columns always come, the other fields read as defaults; same session rule as where</summary>
+    public string View { get; set; } = string.Empty;
+     /// <summary>Yes: the client decodes Arrow frames (protocol 'A'), served on a binary session only; No: every row as a frame</summary>
+    public YesNo AcceptsArrow { get => body.acceptsArrow; set => body.acceptsArrow = value; }
+     /// <summary>(optional) the highwaterTs of an earlier request's Complete or Gap MLinkStreamCheckPt (3382), one past the newest send time it delivered; the larger of highwaterTs and resumeTs applies</summary>
+    public long ResumeTs { get => body.resumeTs; set => body.resumeTs = value; }
+
+
+} // MLinkCacheRequestV2
 
 
 /// <summary>
@@ -11195,27 +11323,27 @@ internal partial class MLinkStreamCheckPt : IMessage
     public long QueryID { get => body.queryID; set => body.queryID = value; }
      /// <summary>from MLinkSignalReady.signalID (if send sequence triggered by an MLinkSignalReady message)</summary>
     public long SignalID { get => body.signalID; set => body.signalID = value; }
-     
+     /// <summary>current stream state</summary>
     public MLinkStreamState State { get => body.state; set => body.state = value; }
-     
+     /// <summary>stream state detail or error message</summary>
     public string Detail { get; set; } = string.Empty;
-     
+     /// <summary>highest sentTs seen so far in this stream (nanoseconds after UNIX epoch)</summary>
     public long HighwaterTs { get => body.highwaterTs; set => body.highwaterTs = value; }
-     
+     /// <summary>total bytes sent to client since last checkpoint</summary>
     public long NumBytesSent { get => body.numBytesSent; set => body.numBytesSent = value; }
-     
+     /// <summary>total messages sent to client since last checkpoint</summary>
     public int NumMessagesSent { get => body.numMessagesSent; set => body.numMessagesSent = value; }
-     /// <summary>wait time between active send operations (SRC or timer)</summary>
+     /// <summary>time spent waiting between active send operations (SRC or timer)</summary>
     public double WaitElapsed { get => body.waitElapsed; set => body.waitElapsed = value; }
      /// <summary>total time spent in active send loop</summary>
     public double QueryElapsed { get => body.queryElapsed; set => body.queryElapsed = value; }
-     /// <summary>total time spent scan/skipping</summary>
+     /// <summary>total time spent scanning/skipping messages</summary>
     public double TryFwdElapsed { get => body.tryFwdElapsed; set => body.tryFwdElapsed = value; }
-     /// <summary>total time spend encoding/copying to send buffer</summary>
+     /// <summary>total time spent encoding/copying to send buffer</summary>
     public double SendElapsed { get => body.sendElapsed; set => body.sendElapsed = value; }
-     /// <summary>total time spend sending/blocking on web socket</summary>
+     /// <summary>total time spent sending/blocking on web socket</summary>
     public double FlushElapsed { get => body.flushElapsed; set => body.flushElapsed = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
      /// <summary>replay sessions: the virtual clock position (ns since the Unix epoch)</summary>
     public long ReplayPosTs { get => body.replayPosTs; set => body.replayPosTs = value; }
@@ -11283,7 +11411,7 @@ internal partial class NetPulse : IMessage
     public TimeSpan Frequency { get => body.frequency; set => body.frequency = value; }
      
     public TimeSpan Timeout { get => body.timeout; set => body.timeout = value; }
-     
+     /// <summary>SR system timestamp of the most recent record update</summary>
     public DateTime Timestamp { get => body.timestamp; set => body.timestamp = value; }
 
 

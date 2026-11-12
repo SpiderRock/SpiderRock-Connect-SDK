@@ -818,6 +818,44 @@ internal partial class MLinkCacheRequest
     }
 }
 
+internal partial class MLinkCacheRequestV2
+{
+    [ThreadStatic] private static StringBuilder recordBuilder;
+
+    public const string TabHeader = "queryLabel\thighwaterTs\tsourceId\tstripeFilter\twhere\tview\tacceptsArrow\tresumeTs\tMsgType";
+
+    public string TabRecord
+    {
+        get
+        {
+            recordBuilder?.Clear();
+            recordBuilder ??= new(4096);
+
+            
+
+            recordBuilder.Append('\t');
+
+            recordBuilder.Append(QueryLabel);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(HighwaterTs);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(SourceId);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(StripeFilter);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Where);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(View);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(AcceptsArrow);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(ResumeTs);
+
+            return recordBuilder.ToString();
+        }
+    }
+}
+
 internal partial class MLinkStreamCheckPt
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
@@ -876,7 +914,7 @@ public partial class MarketFeedStatus
 {
     [ThreadStatic] private static StringBuilder recordBuilder;
 
-    public const string TabHeader = "channelLabel\tdataType\tstripe1\tstripe2\toperationState\tdataState\toperationStateDttm\tdataStateDttm\tlastOperationState\tlastDataState\ttimestamp";
+    public const string TabHeader = "channelLabel\tdataType\tgateway\toperationState\tdataState\toperationStateDttm\tdataStateDttm\tlastOperationState\tlastDataState\ttimestamp\tisHeartbeat\tstripes";
 
     public string TabRecord
     {
@@ -888,13 +926,11 @@ public partial class MarketFeedStatus
             recordBuilder.Append(pkey.ChannelLabel);
             recordBuilder.Append('\t');
             recordBuilder.Append(pkey.DataType);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(pkey.Gateway);
 
             recordBuilder.Append('\t');
 
-            recordBuilder.Append(Stripe1);
-            recordBuilder.Append('\t');
-            recordBuilder.Append(Stripe2);
-            recordBuilder.Append('\t');
             recordBuilder.Append(OperationState);
             recordBuilder.Append('\t');
             recordBuilder.Append(DataState);
@@ -908,6 +944,10 @@ public partial class MarketFeedStatus
             recordBuilder.Append(LastDataState);
             recordBuilder.Append('\t');
             recordBuilder.AppendInTabRecordFormat(Timestamp);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(IsHeartbeat);
+            recordBuilder.Append('\t');
+            recordBuilder.Append(Stripes);
 
             return recordBuilder.ToString();
         }

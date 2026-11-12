@@ -1126,15 +1126,18 @@ public:
 	{
 		String<16> channelLabel_;
 		DataType dataType_;
+		String<16> gateway_;
 		
 	public:
 		inline const String<16>& channelLabel() const { return channelLabel_; }
 		inline DataType dataType() const { return dataType_; }
+		inline const String<16>& gateway() const { return gateway_; }
 
 		inline size_t operator()(const Key& k) const
 		{
 			size_t hash_code = String<16>()(k.channelLabel_);
 			hash_code = (hash_code * 397) ^ std::hash<Byte>()(static_cast<Byte>(k.dataType_));
+			hash_code = (hash_code * 397) ^ String<16>()(k.gateway_);
 
 			return hash_code;
 		}
@@ -1143,7 +1146,8 @@ public:
 		{
 			return
 				a.channelLabel_ == b.channelLabel_
-				&& a.dataType_ == b.dataType_;
+				&& a.dataType_ == b.dataType_
+				&& a.gateway_ == b.gateway_;
 		}
 	};
 	
@@ -1152,8 +1156,6 @@ private:
 	struct Layout
 	{
 		Key pkey;
-		String<16> stripe1;
-		String<16> stripe2;
 		MarketFeedOperationalState operationState;
 		MarketFeedSequenceState dataState;
 		DateTime operationStateDttm;
@@ -1161,6 +1163,8 @@ private:
 		MarketFeedOperationalState lastOperationState;
 		MarketFeedSequenceState lastDataState;
 		DateTime timestamp;
+		YesNo isHeartbeat;
+		String<48> stripes;
 	};
 	
 	Header header_;
@@ -1175,8 +1179,6 @@ public:
 	inline void time_received(uint64_t value) { time_received_ = value; }
 	inline uint64_t time_received() const { return time_received_; }
 	
-	inline const String<16>& stripe1() const { return layout_.stripe1; }
-	inline const String<16>& stripe2() const { return layout_.stripe2; }
 	inline MarketFeedOperationalState operationState() const { return layout_.operationState; }
 	inline MarketFeedSequenceState dataState() const { return layout_.dataState; }
 	inline DateTime operationStateDttm() const { return layout_.operationStateDttm; }
@@ -1184,6 +1186,8 @@ public:
 	inline MarketFeedOperationalState lastOperationState() const { return layout_.lastOperationState; }
 	inline MarketFeedSequenceState lastDataState() const { return layout_.lastDataState; }
 	inline DateTime timestamp() const { return layout_.timestamp; }
+	inline YesNo isHeartbeat() const { return layout_.isHeartbeat; }
+	inline const String<48>& stripes() const { return layout_.stripes; }
 	
 	inline void Decode(Header* buf) 
 	{

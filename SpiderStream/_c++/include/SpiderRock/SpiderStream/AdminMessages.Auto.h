@@ -121,6 +121,120 @@ public:
 
 };
 
+ class MLinkCacheRequestV2
+{
+public:
+	class MsgType
+	{
+		String<32> msgName_;
+		Long schemaHash_;
+		Long highwaterTs_;
+		
+	public:
+		inline const String<32>& msgName() const { return msgName_; }
+		inline Long schemaHash() const { return schemaHash_; }
+		inline Long highwaterTs() const { return highwaterTs_; }
+		inline void msgName(const String<32>& value) { msgName_ = value; }
+		inline void schemaHash(Long value) { schemaHash_ = value; }
+		inline void highwaterTs(Long value) { highwaterTs_ = value; }
+	};
+
+private:
+	struct Layout
+	{
+		String<64> queryLabel;
+		Long highwaterTs;
+		UShort sourceId;
+		String<255> stripeFilter;
+		String<10000> where;
+		String<10000> view;
+		YesNo acceptsArrow;
+		Long resumeTs;
+	};
+	
+	Header header_;
+	Layout layout_;
+	std::vector<MsgType> msgtype_;
+	int64_t time_received_;
+	
+public:
+	inline Header& header() { return header_; }
+	
+	inline void time_received(uint64_t value) { time_received_ = value; }
+	inline uint64_t time_received() const { return time_received_; }
+	
+	inline const String<64>& queryLabel() const { return layout_.queryLabel; }
+	inline Long highwaterTs() const { return layout_.highwaterTs; }
+	inline UShort sourceId() const { return layout_.sourceId; }
+	inline String<255> stripeFilter() const { return layout_.stripeFilter; }
+	inline String<10000> where() const { return layout_.where; }
+	inline String<10000> view() const { return layout_.view; }
+	inline YesNo acceptsArrow() const { return layout_.acceptsArrow; }
+	inline Long resumeTs() const { return layout_.resumeTs; }
+	inline void queryLabel(const String<64>& value) { layout_.queryLabel = value; }
+	inline void highwaterTs(Long value) { layout_.highwaterTs = value; }
+	inline void sourceId(UShort value) { layout_.sourceId = value; }
+	inline void stripeFilter(String<255> value) { layout_.stripeFilter = value; }
+	inline void where(String<10000> value) { layout_.where = value; }
+	inline void view(String<10000> value) { layout_.view = value; }
+	inline void acceptsArrow(YesNo value) { layout_.acceptsArrow = value; }
+	inline void resumeTs(Long value) { layout_.resumeTs = value; }
+	inline void msgtype(const std::vector<MsgType> value) { msgtype_.assign(value.begin(), value.end()); }
+	
+	inline uint16_t Encode(uint8_t* buf) 
+	{
+		uint8_t* start = buf;
+		buf += sizeof(Header);
+
+		*reinterpret_cast<MLinkCacheRequestV2::Layout*>(buf) = layout_;
+		buf += sizeof(layout_);
+		
+		// MsgType Repeat Section
+		*reinterpret_cast<uint16_t*>(buf) = (uint16_t)msgtype_.size();
+		buf += sizeof(uint16_t);
+
+		for ( MsgType i : msgtype_ )
+		{
+			*reinterpret_cast<MsgType*>(buf) = i;
+			buf += sizeof(i);
+		}
+
+
+		header_.message_length = (uint16_t)(buf - start);
+		header_.key_length = 0;
+		header_.message_type = MessageType::MLinkCacheRequestV2;
+		header_.len = sizeof(Header);
+		
+		*reinterpret_cast<Header*>(start) = header_;
+		
+		return header_.message_length;
+	}
+
+	inline void Decode(Header* buf) 
+	{
+		header_ = *buf;
+		auto ptr = reinterpret_cast<uint8_t*>(buf) + header_.len;
+		
+		layout_ = *reinterpret_cast<MLinkCacheRequestV2::Layout*>(ptr);
+		ptr += sizeof(layout_);
+		
+		// MsgType Repeat Section
+		auto msgtype_count = *reinterpret_cast<uint16_t*>(ptr);
+		ptr += sizeof(msgtype_count);
+
+		msgtype_.clear();
+		
+		for (int i = 0; i < msgtype_count; i++)
+		{
+			msgtype_.push_back(*reinterpret_cast<MsgType*>(ptr));
+			ptr += sizeof(MsgType);
+		}
+
+	}
+
+
+};
+
  class MLinkStreamCheckPt
 {
 public:

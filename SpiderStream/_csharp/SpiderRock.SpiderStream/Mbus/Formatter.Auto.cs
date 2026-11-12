@@ -1561,6 +1561,113 @@ internal unsafe partial class Formatter
     }
  
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public int Encode(Span<byte> buffer, MLinkCacheRequestV2 src)
+    {
+        fixed (byte* p = buffer)
+        {
+            return (int)(Encode(src, p, p + buffer.Length) - p);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Encode(MLinkCacheRequestV2 src, byte* dest, byte* max)
+    {
+        unchecked
+        {
+            int length = sizeof(Header) + sizeof(MLinkCacheRequestV2.BodyLayout) + (sizeof(byte) + (src.StripeFilter?.Length ?? 0)) + (sizeof(ushort) + (src.Where?.Length ?? 0)) + (sizeof(ushort) + (src.View?.Length ?? 0)) + (sizeof(ushort) + (src.MsgTypeList == null ? 0 : src.MsgTypeList.Length * MLinkCacheRequestV2.MsgTypeItem.Length));
+            if (length > (int) (max - dest)) throw new IOException("Cannot encode MLinkCacheRequestV2 because it will exceed the buffer length");
+            
+            src.header.hdrlen = (byte)sizeof(Header);
+            src.header.msgtype = MessageType.MLinkCacheRequestV2;
+            src.header.msglen = (ushort) length;
+            src.header.keylen = 0;
+            src.header.sentts = System.DateTime.UtcNow.Ticks;
+            
+            *((Header*) dest) =	src.header; dest += sizeof(Header);
+            
+            *((MLinkCacheRequestV2.BodyLayout*) dest) = src.body; dest += sizeof(MLinkCacheRequestV2.BodyLayout);
+             dest = EncodeText1(dest, src.StripeFilter, "MLinkCacheRequestV2.stripeFilter");
+             dest = EncodeText2(dest, src.Where, "MLinkCacheRequestV2.where");
+             dest = EncodeText2(dest, src.View, "MLinkCacheRequestV2.view");
+ 
+            // MsgTypeItem Repeat Section
+
+            if (src.MsgTypeList == null)
+            {
+                *((ushort*) dest) = 0;
+            }
+            else 
+            {
+                *((ushort*) dest) = (ushort) src.MsgTypeList.Length; dest += sizeof(ushort);
+                
+                for (int i = 0; i < src.MsgTypeList.Length; i++)
+                {
+                    var item = src.MsgTypeList[i];
+                    *((MessageTypeName*) dest) = item.MsgName; dest += sizeof(MessageTypeName);
+					*((long*) dest) = item.SchemaHash; dest += sizeof(long);
+					*((long*) dest) = item.HighwaterTs; dest += sizeof(long);
+                }
+            }
+			
+            return dest;
+        }
+    }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Decode(ReadOnlySpan<byte> buffer, MLinkCacheRequestV2 dest)
+    {
+        fixed (byte* p = buffer)
+        {
+            _  = Decode(p, dest, p + buffer.Length);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte* Decode(byte* src, MLinkCacheRequestV2 dest, byte* max)
+    {
+        unchecked
+        {
+            var sizeOfHeader = *src;
+
+            if (src + sizeOfHeader + sizeof(MLinkCacheRequestV2.BodyLayout) > max) throw new IOException("Max exceeded decoding MLinkCacheRequestV2");
+
+            if (sizeOfHeader == sizeof(Header))
+            {
+                dest.header = *((Header*) src);
+            }
+            else
+            {
+                new Span<byte>(src, sizeOfHeader).CopyTo(MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref dest.header, sizeof(Header))));
+            }
+
+            src += sizeOfHeader;
+            dest.body = *((MLinkCacheRequestV2.BodyLayout*) src); src += sizeof(MLinkCacheRequestV2.BodyLayout);
+             dest.StripeFilter = DecodeText1(ref src, max, "MLinkCacheRequestV2.stripeFilter");
+             dest.Where = DecodeText2(ref src, max, "MLinkCacheRequestV2.where");
+             dest.View = DecodeText2(ref src, max, "MLinkCacheRequestV2.view");
+ 
+            // MsgTypeItem Repeat Section
+
+            if (src + sizeof(ushort) > max) throw new IOException("Max exceeded decoding MLinkCacheRequestV2.MsgType length");
+            ushort sizeMsgType = *((ushort*) src); src += sizeof(ushort);
+            if (src + sizeMsgType * MLinkCacheRequestV2.MsgTypeItem.Length > max) throw new IOException("Max exceeded decoding MLinkCacheRequestV2.MsgType items");
+
+            dest.MsgTypeList = new MLinkCacheRequestV2.MsgTypeItem[sizeMsgType];
+            
+            for (int i = 0; i < sizeMsgType; i++)
+            {
+                var item = new MLinkCacheRequestV2.MsgTypeItem();
+                item.MsgName = *((MessageTypeName*) src); src += sizeof(MessageTypeName);
+				item.SchemaHash = *((long*) src); src += sizeof(long);
+				item.HighwaterTs = *((long*) src); src += sizeof(long);
+                dest.MsgTypeList[i] = item;
+            }
+			
+            return src;
+        }
+    }
+ 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Encode(Span<byte> buffer, MLinkStreamCheckPt src)
     {
         fixed (byte* p = buffer)
