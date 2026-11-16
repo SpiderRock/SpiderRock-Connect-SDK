@@ -62,6 +62,7 @@ namespace SpiderRock
 			TickerDefinitionExt = 4380,
 			
 			MLinkCacheRequest = 3355,
+			MLinkCacheRequestV2 = 3356,
 			MLinkStreamCheckPt = 3382,
 			NetPulse = 5900,
 		};

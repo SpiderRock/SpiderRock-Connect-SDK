@@ -34,6 +34,7 @@ public static partial class MbusChannel
     public static IPEndPoint CmeAdmin { get; private set; }
     public static IPEndPoint CfeAdmin { get; private set; }
     public static IPEndPoint EqtAdmin { get; private set; }
+    public static IPEndPoint SysStatus { get; private set; }
     public static IPEndPoint FundQuoteJ2J3J4J5 { get; private set; }
     public static IPEndPoint IdxQuoteI1 { get; private set; }
     public static IPEndPoint IdxQuoteI2 { get; private set; }
@@ -125,6 +126,7 @@ public static partial class MbusChannel
         CmeAdmin = RegisteredIPEndPoint.Create(Environment, 25, nameof(CmeAdmin));
         CfeAdmin = RegisteredIPEndPoint.Create(Environment, 27, nameof(CfeAdmin));
         EqtAdmin = RegisteredIPEndPoint.Create(Environment, 28, nameof(EqtAdmin));
+        SysStatus = RegisteredIPEndPoint.Create(Environment, 31, nameof(SysStatus));
         FundQuoteJ2J3J4J5 = RegisteredIPEndPoint.Create(Environment, 39, nameof(FundQuoteJ2J3J4J5));
         IdxQuoteI1 = RegisteredIPEndPoint.Create(Environment, 51, nameof(IdxQuoteI1));
         IdxQuoteI2 = RegisteredIPEndPoint.Create(Environment, 52, nameof(IdxQuoteI2));
